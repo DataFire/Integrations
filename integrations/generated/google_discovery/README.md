@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_discovery
 
 ```js
 let datafire = require('datafire');
-let google_discovery = require('@datafire/google_discovery').actions;
-let context = new datafire.Context();
+let google_discovery = require('@datafire/google_discovery').create();
 
-google_discovery.apis.list({}, context).then(data => {
+google_discovery.apis.list({}).then(data => {
   console.log(data);
 })
 ```

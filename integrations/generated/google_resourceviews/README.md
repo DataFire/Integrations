@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_resourceviews
 
 ```js
 let datafire = require('datafire');
-let google_resourceviews = require('@datafire/google_resourceviews').actions;
-
-let account = {
+let google_resourceviews = require('@datafire/google_resourceviews').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_resourceviews: account,
-  }
-})
+});
 
-google_resourceviews.zoneOperations.list({}, context).then(data => {
+google_resourceviews.zoneOperations.list({}).then(data => {
   console.log(data);
 })
 ```

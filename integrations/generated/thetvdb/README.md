@@ -9,18 +9,11 @@ npm install --save datafire @datafire/thetvdb
 
 ```js
 let datafire = require('datafire');
-let thetvdb = require('@datafire/thetvdb').actions;
-
-let account = {
+let thetvdb = require('@datafire/thetvdb').create({
   jwtToken: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    thetvdb: account,
-  }
-})
+});
 
-thetvdb.user.ratings.query.get({}, context).then(data => {
+thetvdb.user.ratings.query.get({}).then(data => {
   console.log(data);
 })
 ```

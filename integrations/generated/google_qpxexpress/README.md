@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_qpxexpress
 
 ```js
 let datafire = require('datafire');
-let google_qpxexpress = require('@datafire/google_qpxexpress').actions;
-let context = new datafire.Context();
+let google_qpxexpress = require('@datafire/google_qpxexpress').create();
 
-google_qpxexpress.trips.search({}, context).then(data => {
+google_qpxexpress.trips.search({}).then(data => {
   console.log(data);
 })
 ```

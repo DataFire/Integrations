@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_route53
 
 ```js
 let datafire = require('datafire');
-let amazonaws_route53 = require('@datafire/amazonaws_route53').actions;
-let context = new datafire.Context();
+let amazonaws_route53 = require('@datafire/amazonaws_route53').create();
 
-amazonaws_route53.GetChange({}, context).then(data => {
+amazonaws_route53.GetChange({}).then(data => {
   console.log(data);
 })
 ```

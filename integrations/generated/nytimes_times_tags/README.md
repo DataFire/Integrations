@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_times_tags
 
 ```js
 let datafire = require('datafire');
-let nytimes_times_tags = require('@datafire/nytimes_times_tags').actions;
-
-let account = {
+let nytimes_times_tags = require('@datafire/nytimes_times_tags').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_times_tags: account,
-  }
-})
+});
 
-nytimes_times_tags.timestags.json.get({}, context).then(data => {
+nytimes_times_tags.timestags.json.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/box_authorization
 
 ```js
 let datafire = require('datafire');
-let box_authorization = require('@datafire/box_authorization').actions;
-let context = new datafire.Context();
+let box_authorization = require('@datafire/box_authorization').create();
 
-box_authorization.authorize({}, context).then(data => {
+box_authorization.authorize({}).then(data => {
   console.log(data);
 })
 ```

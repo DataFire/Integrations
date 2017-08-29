@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_documentdb
 
 ```js
 let datafire = require('datafire');
-let azure_arm_documentdb = require('@datafire/azure_arm_documentdb').actions;
-
-let account = {
+let azure_arm_documentdb = require('@datafire/azure_arm_documentdb').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_documentdb: account,
-  }
-})
+});
 
-azure_arm_documentdb.DatabaseAccounts_CheckNameExists({}, context).then(data => {
+azure_arm_documentdb.DatabaseAccounts_CheckNameExists({}).then(data => {
   console.log(data);
 })
 ```

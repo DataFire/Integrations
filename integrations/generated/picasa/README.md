@@ -9,10 +9,9 @@ npm install --save datafire @datafire/picasa
 
 ```js
 let datafire = require('datafire');
-let picasa = require('@datafire/picasa').actions;
-let context = new datafire.Context();
+let picasa = require('@datafire/picasa').create();
 
-picasa.feed.api.user.userID.get({}, context).then(data => {
+picasa.feed.api.user.userID.get({}).then(data => {
   console.log(data);
 })
 ```

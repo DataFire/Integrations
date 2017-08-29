@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_prediction
 
 ```js
 let datafire = require('datafire');
-let google_prediction = require('@datafire/google_prediction').actions;
-
-let account = {
+let google_prediction = require('@datafire/google_prediction').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_prediction: account,
-  }
-})
+});
 
-google_prediction.hostedmodels.predict({}, context).then(data => {
+google_prediction.hostedmodels.predict({}).then(data => {
   console.log(data);
 })
 ```

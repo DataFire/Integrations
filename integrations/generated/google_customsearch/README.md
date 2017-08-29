@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_customsearch
 
 ```js
 let datafire = require('datafire');
-let google_customsearch = require('@datafire/google_customsearch').actions;
-let context = new datafire.Context();
+let google_customsearch = require('@datafire/google_customsearch').create();
 
-google_customsearch.cse.list({}, context).then(data => {
+google_customsearch.cse.list({}).then(data => {
   console.log(data);
 })
 ```

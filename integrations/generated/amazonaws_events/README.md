@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_events
 
 ```js
 let datafire = require('datafire');
-let amazonaws_events = require('@datafire/amazonaws_events').actions;
-let context = new datafire.Context();
+let amazonaws_events = require('@datafire/amazonaws_events').create();
 
-amazonaws_events.DeleteRule({}, context).then(data => {
+amazonaws_events.DeleteRule({}).then(data => {
   console.log(data);
 })
 ```

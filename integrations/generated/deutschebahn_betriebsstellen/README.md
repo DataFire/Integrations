@@ -9,10 +9,9 @@ npm install --save datafire @datafire/deutschebahn_betriebsstellen
 
 ```js
 let datafire = require('datafire');
-let deutschebahn_betriebsstellen = require('@datafire/deutschebahn_betriebsstellen').actions;
-let context = new datafire.Context();
+let deutschebahn_betriebsstellen = require('@datafire/deutschebahn_betriebsstellen').create();
 
-deutschebahn_betriebsstellen.betriebsstellen.get({}, context).then(data => {
+deutschebahn_betriebsstellen.betriebsstellen.get({}).then(data => {
   console.log(data);
 })
 ```

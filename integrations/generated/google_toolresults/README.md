@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_toolresults
 
 ```js
 let datafire = require('datafire');
-let google_toolresults = require('@datafire/google_toolresults').actions;
-
-let account = {
+let google_toolresults = require('@datafire/google_toolresults').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_toolresults: account,
-  }
-})
+});
 
-google_toolresults.projects.histories.list({}, context).then(data => {
+google_toolresults.projects.histories.list({}).then(data => {
   console.log(data);
 })
 ```

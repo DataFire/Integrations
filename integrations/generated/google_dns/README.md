@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_dns
 
 ```js
 let datafire = require('datafire');
-let google_dns = require('@datafire/google_dns').actions;
-
-let account = {
+let google_dns = require('@datafire/google_dns').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_dns: account,
-  }
-})
+});
 
-google_dns.projects.get({}, context).then(data => {
+google_dns.projects.get({}).then(data => {
   console.log(data);
 })
 ```

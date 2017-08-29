@@ -9,22 +9,15 @@ npm install --save datafire @datafire/reddit
 
 ```js
 let datafire = require('datafire');
-let reddit = require('@datafire/reddit').actions;
-
-let account = {
+let reddit = require('@datafire/reddit').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    reddit: account,
-  }
-})
+});
 
-reddit.about.log.get({}, context).then(data => {
+reddit.about.log.get({}).then(data => {
   console.log(data);
 })
 ```

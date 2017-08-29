@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_bigquery
 
 ```js
 let datafire = require('datafire');
-let google_bigquery = require('@datafire/google_bigquery').actions;
-
-let account = {
+let google_bigquery = require('@datafire/google_bigquery').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_bigquery: account,
-  }
-})
+});
 
-google_bigquery.projects.list({}, context).then(data => {
+google_bigquery.projects.list({}).then(data => {
   console.log(data);
 })
 ```

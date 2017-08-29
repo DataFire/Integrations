@@ -9,22 +9,15 @@ npm install --save datafire @datafire/producthunt
 
 ```js
 let datafire = require('datafire');
-let producthunt = require('@datafire/producthunt').actions;
-
-let account = {
+let producthunt = require('@datafire/producthunt').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    producthunt: account,
-  }
-})
+});
 
-producthunt.categories.category.posts.get({}, context).then(data => {
+producthunt.categories.category.posts.get({}).then(data => {
   console.log(data);
 })
 ```

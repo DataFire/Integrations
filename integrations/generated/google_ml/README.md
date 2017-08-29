@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_ml
 
 ```js
 let datafire = require('datafire');
-let google_ml = require('@datafire/google_ml').actions;
-
-let account = {
+let google_ml = require('@datafire/google_ml').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_ml: account,
-  }
-})
+});
 
-google_ml.projects.models.versions.delete({}, context).then(data => {
+google_ml.projects.models.versions.delete({}).then(data => {
   console.log(data);
 })
 ```

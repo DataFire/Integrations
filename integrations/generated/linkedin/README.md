@@ -9,22 +9,15 @@ npm install --save datafire @datafire/linkedin
 
 ```js
 let datafire = require('datafire');
-let linkedin = require('@datafire/linkedin').actions;
-
-let account = {
+let linkedin = require('@datafire/linkedin').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    linkedin: account,
-  }
-})
+});
 
-linkedin.companies.get({}, context).then(data => {
+linkedin.companies.get({}).then(data => {
   console.log(data);
 })
 ```

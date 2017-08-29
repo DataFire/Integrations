@@ -9,10 +9,9 @@ npm install --save datafire @datafire/cloud_gov
 
 ```js
 let datafire = require('datafire');
-let cloud_gov = require('@datafire/cloud_gov').actions;
-let context = new datafire.Context();
+let cloud_gov = require('@datafire/cloud_gov').create();
 
-cloud_gov.List_Contracts({}, context).then(data => {
+cloud_gov.List_Contracts({}).then(data => {
   console.log(data);
 })
 ```

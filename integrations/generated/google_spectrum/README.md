@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_spectrum
 
 ```js
 let datafire = require('datafire');
-let google_spectrum = require('@datafire/google_spectrum').actions;
-let context = new datafire.Context();
+let google_spectrum = require('@datafire/google_spectrum').create();
 
-google_spectrum.paws.verifyDevice({}, context).then(data => {
+google_spectrum.paws.verifyDevice({}).then(data => {
   console.log(data);
 })
 ```

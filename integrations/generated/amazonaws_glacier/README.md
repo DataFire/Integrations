@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_glacier
 
 ```js
 let datafire = require('datafire');
-let amazonaws_glacier = require('@datafire/amazonaws_glacier').actions;
-let context = new datafire.Context();
+let amazonaws_glacier = require('@datafire/amazonaws_glacier').create();
 
-amazonaws_glacier.SetDataRetrievalPolicy({}, context).then(data => {
+amazonaws_glacier.SetDataRetrievalPolicy({}).then(data => {
   console.log(data);
 })
 ```

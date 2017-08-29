@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_searchconsole
 
 ```js
 let datafire = require('datafire');
-let google_searchconsole = require('@datafire/google_searchconsole').actions;
-let context = new datafire.Context();
+let google_searchconsole = require('@datafire/google_searchconsole').create();
 
-google_searchconsole.urlTestingTools.mobileFriendlyTest.run({}, context).then(data => {
+google_searchconsole.urlTestingTools.mobileFriendlyTest.run({}).then(data => {
   console.log(data);
 })
 ```

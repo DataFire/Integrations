@@ -9,18 +9,11 @@ npm install --save datafire @datafire/kaltura
 
 ```js
 let datafire = require('datafire');
-let kaltura = require('@datafire/kaltura').actions;
-
-let account = {
+let kaltura = require('@datafire/kaltura').create({
   ks: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    kaltura: account,
-  }
-})
+});
 
-kaltura.widget.list({}, context).then(data => {
+kaltura.widget.list({}).then(data => {
   console.log(data);
 })
 ```

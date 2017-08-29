@@ -9,22 +9,15 @@ npm install --save datafire @datafire/cisco
 
 ```js
 let datafire = require('datafire');
-let cisco = require('@datafire/cisco').actions;
-
-let account = {
+let cisco = require('@datafire/cisco').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    cisco: account,
-  }
-})
+});
 
-cisco.security.advisories.cvrf.advisory.advisory_id.get({}, context).then(data => {
+cisco.security.advisories.cvrf.advisory.advisory_id.get({}).then(data => {
   console.log(data);
 })
 ```

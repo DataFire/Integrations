@@ -9,18 +9,11 @@ npm install --save datafire @datafire/owler
 
 ```js
 let datafire = require('datafire');
-let owler = require('@datafire/owler').actions;
-
-let account = {
+let owler = require('@datafire/owler').create({
   user_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    owler: account,
-  }
-})
+});
 
-owler.basicCompanySearch({}, context).then(data => {
+owler.basicCompanySearch({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_ssm
 
 ```js
 let datafire = require('datafire');
-let amazonaws_ssm = require('@datafire/amazonaws_ssm').actions;
-let context = new datafire.Context();
+let amazonaws_ssm = require('@datafire/amazonaws_ssm').create();
 
-amazonaws_ssm.AddTagsToResource({}, context).then(data => {
+amazonaws_ssm.AddTagsToResource({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_adexperiencereport
 
 ```js
 let datafire = require('datafire');
-let google_adexperiencereport = require('@datafire/google_adexperiencereport').actions;
-
-let account = {
+let google_adexperiencereport = require('@datafire/google_adexperiencereport').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_adexperiencereport: account,
-  }
-})
+});
 
-google_adexperiencereport.violatingSites.list({}, context).then(data => {
+google_adexperiencereport.violatingSites.list({}).then(data => {
   console.log(data);
 })
 ```

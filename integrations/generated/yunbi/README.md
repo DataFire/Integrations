@@ -9,10 +9,9 @@ npm install --save datafire @datafire/yunbi
 
 ```js
 let datafire = require('datafire');
-let yunbi = require('@datafire/yunbi').actions;
-let context = new datafire.Context();
+let yunbi = require('@datafire/yunbi').create();
 
-yunbi.v2.addresses.address.json.get({}, context).then(data => {
+yunbi.v2.addresses.address.json.get({}).then(data => {
   console.log(data);
 })
 ```

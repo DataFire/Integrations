@@ -9,19 +9,12 @@ npm install --save datafire @datafire/cenit
 
 ```js
 let datafire = require('datafire');
-let cenit = require('@datafire/cenit').actions;
-
-let account = {
+let cenit = require('@datafire/cenit').create({
   X-User-Access-Key: "",
   X-User-Access-Token: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    cenit: account,
-  }
-})
+});
 
-cenit.setup.connection.get({}, context).then(data => {
+cenit.setup.connection.get({}).then(data => {
   console.log(data);
 })
 ```

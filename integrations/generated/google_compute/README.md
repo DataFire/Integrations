@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_compute
 
 ```js
 let datafire = require('datafire');
-let google_compute = require('@datafire/google_compute').actions;
-
-let account = {
+let google_compute = require('@datafire/google_compute').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_compute: account,
-  }
-})
+});
 
-google_compute.projects.get({}, context).then(data => {
+google_compute.projects.get({}).then(data => {
   console.log(data);
 })
 ```

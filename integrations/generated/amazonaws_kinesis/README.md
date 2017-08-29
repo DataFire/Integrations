@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_kinesis
 
 ```js
 let datafire = require('datafire');
-let amazonaws_kinesis = require('@datafire/amazonaws_kinesis').actions;
-let context = new datafire.Context();
+let amazonaws_kinesis = require('@datafire/amazonaws_kinesis').create();
 
-amazonaws_kinesis.AddTagsToStream({}, context).then(data => {
+amazonaws_kinesis.AddTagsToStream({}).then(data => {
   console.log(data);
 })
 ```

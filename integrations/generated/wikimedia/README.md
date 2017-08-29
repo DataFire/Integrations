@@ -9,18 +9,11 @@ npm install --save datafire @datafire/wikimedia
 
 ```js
 let datafire = require('datafire');
-let wikimedia = require('@datafire/wikimedia').actions;
-
-let account = {
+let wikimedia = require('@datafire/wikimedia').create({
   mediawiki_auth: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    wikimedia: account,
-  }
-})
+});
 
-wikimedia.media.math.check.type.post({}, context).then(data => {
+wikimedia.media.math.check.type.post({}).then(data => {
   console.log(data);
 })
 ```

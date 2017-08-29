@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_pubsub
 
 ```js
 let datafire = require('datafire');
-let google_pubsub = require('@datafire/google_pubsub').actions;
-
-let account = {
+let google_pubsub = require('@datafire/google_pubsub').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_pubsub: account,
-  }
-})
+});
 
-google_pubsub.projects.topics.create({}, context).then(data => {
+google_pubsub.projects.topics.create({}).then(data => {
   console.log(data);
 })
 ```

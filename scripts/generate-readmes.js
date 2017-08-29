@@ -24,6 +24,7 @@ function getExample(schema, base) {
   if (type === 'object') {
     let obj = {};
     (schema.required || []).forEach(req => {
+      if (!schema.properties || !schema.properties[req]) return;  // FIXME: 'req' could be in an allOf schema
       obj[req] = getExample(schema.properties[req], base || schema);
     })
     return obj;
@@ -82,17 +83,11 @@ iterateIntegs((dir, name, integ) => {
     }
   })
 
-  let contextCode = 'let context = new datafire.Context();';
+  let accountCode = '';
   if (integ.security && integ.security[name] && integ.security[name].fields) {
-    contextCode = `
-let account = {
+    accountCode = `{
   ${Object.keys(integ.security[name].fields).join(': "",\n  ') + ': "",'}
-}
-let context = new datafire.Context({
-  accounts: {
-    ${integ.id}: account,
-  }
-})`
+}`
   }
 
   let md = `# @datafire/${integ.id}
@@ -106,10 +101,9 @@ npm install --save datafire @datafire/${integ.id}
 
 \`\`\`js
 let datafire = require('datafire');
-let ${integ.id} = require('@datafire/${integ.id}').actions;
-${contextCode}
+let ${integ.id} = require('@datafire/${integ.id}').create(${accountCode});
 
-${sampleAction.id.replace('/', '.')}({}, context).then(data => {
+${sampleAction.id.replace('/', '.')}({}).then(data => {
   console.log(data);
 })
 \`\`\`

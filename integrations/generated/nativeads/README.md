@@ -9,10 +9,9 @@ npm install --save datafire @datafire/nativeads
 
 ```js
 let datafire = require('datafire');
-let nativeads = require('@datafire/nativeads').actions;
-let context = new datafire.Context();
+let nativeads = require('@datafire/nativeads').create();
 
-nativeads.auth.default.login.post({}, context).then(data => {
+nativeads.auth.default.login.post({}).then(data => {
   console.log(data);
 })
 ```

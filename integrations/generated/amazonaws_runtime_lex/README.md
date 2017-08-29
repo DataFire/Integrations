@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_runtime_lex
 
 ```js
 let datafire = require('datafire');
-let amazonaws_runtime_lex = require('@datafire/amazonaws_runtime_lex').actions;
-let context = new datafire.Context();
+let amazonaws_runtime_lex = require('@datafire/amazonaws_runtime_lex').create();
 
-amazonaws_runtime_lex.PostContent({}, context).then(data => {
+amazonaws_runtime_lex.PostContent({}).then(data => {
   console.log(data);
 })
 ```

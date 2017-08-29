@@ -9,18 +9,11 @@ npm install --save datafire @datafire/geneea
 
 ```js
 let datafire = require('datafire');
-let geneea = require('@datafire/geneea').actions;
-
-let account = {
+let geneea = require('@datafire/geneea').create({
   user_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    geneea: account,
-  }
-})
+});
 
-geneea.topicPost({}, context).then(data => {
+geneea.topicPost({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_languagedetectionapis
 
 ```js
 let datafire = require('datafire');
-let apitore_languagedetectionapis = require('@datafire/apitore_languagedetectionapis').actions;
-let context = new datafire.Context();
+let apitore_languagedetectionapis = require('@datafire/apitore_languagedetectionapis').create();
 
-apitore_languagedetectionapis.getUsingGET({}, context).then(data => {
+apitore_languagedetectionapis.getUsingGET({}).then(data => {
   console.log(data);
 })
 ```

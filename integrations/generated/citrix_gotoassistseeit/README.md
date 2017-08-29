@@ -9,10 +9,9 @@ npm install --save datafire @datafire/citrix_gotoassistseeit
 
 ```js
 let datafire = require('datafire');
-let citrix_gotoassistseeit = require('@datafire/citrix_gotoassistseeit').actions;
-let context = new datafire.Context();
+let citrix_gotoassistseeit = require('@datafire/citrix_gotoassistseeit').create();
 
-citrix_gotoassistseeit.sessions.get({}, context).then(data => {
+citrix_gotoassistseeit.sessions.get({}).then(data => {
   console.log(data);
 })
 ```

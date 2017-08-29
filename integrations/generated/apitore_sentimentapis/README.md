@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_sentimentapis
 
 ```js
 let datafire = require('datafire');
-let apitore_sentimentapis = require('@datafire/apitore_sentimentapis').actions;
-let context = new datafire.Context();
+let apitore_sentimentapis = require('@datafire/apitore_sentimentapis').create();
 
-apitore_sentimentapis.predictUsingGET({}, context).then(data => {
+apitore_sentimentapis.predictUsingGET({}).then(data => {
   console.log(data);
 })
 ```

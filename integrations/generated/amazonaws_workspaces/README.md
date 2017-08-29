@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_workspaces
 
 ```js
 let datafire = require('datafire');
-let amazonaws_workspaces = require('@datafire/amazonaws_workspaces').actions;
-let context = new datafire.Context();
+let amazonaws_workspaces = require('@datafire/amazonaws_workspaces').create();
 
-amazonaws_workspaces.CreateTags({}, context).then(data => {
+amazonaws_workspaces.CreateTags({}).then(data => {
   console.log(data);
 })
 ```

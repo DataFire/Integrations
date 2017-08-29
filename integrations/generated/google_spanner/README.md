@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_spanner
 
 ```js
 let datafire = require('datafire');
-let google_spanner = require('@datafire/google_spanner').actions;
-
-let account = {
+let google_spanner = require('@datafire/google_spanner').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_spanner: account,
-  }
-})
+});
 
-google_spanner.projects.instances.databases.dropDatabase({}, context).then(data => {
+google_spanner.projects.instances.databases.dropDatabase({}).then(data => {
   console.log(data);
 })
 ```

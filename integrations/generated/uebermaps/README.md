@@ -9,10 +9,9 @@ npm install --save datafire @datafire/uebermaps
 
 ```js
 let datafire = require('datafire');
-let uebermaps = require('@datafire/uebermaps').actions;
-let context = new datafire.Context();
+let uebermaps = require('@datafire/uebermaps').create();
 
-uebermaps.users.search.get({}, context).then(data => {
+uebermaps.users.search.get({}).then(data => {
   console.log(data);
 })
 ```

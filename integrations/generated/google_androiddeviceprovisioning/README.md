@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_androiddeviceprovisioning
 
 ```js
 let datafire = require('datafire');
-let google_androiddeviceprovisioning = require('@datafire/google_androiddeviceprovisioning').actions;
-let context = new datafire.Context();
+let google_androiddeviceprovisioning = require('@datafire/google_androiddeviceprovisioning').create();
 
-google_androiddeviceprovisioning.partners.devices.metadata({}, context).then(data => {
+google_androiddeviceprovisioning.partners.devices.metadata({}).then(data => {
   console.log(data);
 })
 ```

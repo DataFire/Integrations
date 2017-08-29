@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_civicinfo
 
 ```js
 let datafire = require('datafire');
-let google_civicinfo = require('@datafire/google_civicinfo').actions;
-let context = new datafire.Context();
+let google_civicinfo = require('@datafire/google_civicinfo').create();
 
-google_civicinfo.representatives.representativeInfoByAddress({}, context).then(data => {
+google_civicinfo.representatives.representativeInfoByAddress({}).then(data => {
   console.log(data);
 })
 ```

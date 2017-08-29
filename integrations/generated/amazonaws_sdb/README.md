@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_sdb
 
 ```js
 let datafire = require('datafire');
-let amazonaws_sdb = require('@datafire/amazonaws_sdb').actions;
-let context = new datafire.Context();
+let amazonaws_sdb = require('@datafire/amazonaws_sdb').create();
 
-amazonaws_sdb.BatchDeleteAttributes({}, context).then(data => {
+amazonaws_sdb.BatchDeleteAttributes({}).then(data => {
   console.log(data);
 })
 ```

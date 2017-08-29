@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_webfonts
 
 ```js
 let datafire = require('datafire');
-let google_webfonts = require('@datafire/google_webfonts').actions;
-let context = new datafire.Context();
+let google_webfonts = require('@datafire/google_webfonts').create();
 
-google_webfonts.webfonts.list({}, context).then(data => {
+google_webfonts.webfonts.list({}).then(data => {
   console.log(data);
 })
 ```

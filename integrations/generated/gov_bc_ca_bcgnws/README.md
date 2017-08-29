@@ -9,10 +9,9 @@ npm install --save datafire @datafire/gov_bc_ca_bcgnws
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_bcgnws = require('@datafire/gov_bc_ca_bcgnws').actions;
-let context = new datafire.Context();
+let gov_bc_ca_bcgnws = require('@datafire/gov_bc_ca_bcgnws').create();
 
-gov_bc_ca_bcgnws.featureCategories.get({}, context).then(data => {
+gov_bc_ca_bcgnws.featureCategories.get({}).then(data => {
   console.log(data);
 })
 ```

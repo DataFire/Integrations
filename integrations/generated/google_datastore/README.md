@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_datastore
 
 ```js
 let datafire = require('datafire');
-let google_datastore = require('@datafire/google_datastore').actions;
-
-let account = {
+let google_datastore = require('@datafire/google_datastore').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_datastore: account,
-  }
-})
+});
 
-google_datastore.projects.allocateIds({}, context).then(data => {
+google_datastore.projects.allocateIds({}).then(data => {
   console.log(data);
 })
 ```

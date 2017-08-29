@@ -9,20 +9,13 @@ npm install --save datafire @datafire/bbci
 
 ```js
 let datafire = require('datafire');
-let bbci = require('@datafire/bbci').actions;
-
-let account = {
+let bbci = require('@datafire/bbci').create({
   api_key: "",
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    bbci: account,
-  }
-})
+});
 
-bbci.atoz.letter.programmes.get({}, context).then(data => {
+bbci.atoz.letter.programmes.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,19 +9,12 @@ npm install --save datafire @datafire/redmine
 
 ```js
 let datafire = require('datafire');
-let redmine = require('@datafire/redmine').actions;
-
-let account = {
+let redmine = require('@datafire/redmine').create({
   api_key: "",
   host: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    redmine: account,
-  }
-})
+});
 
-redmine.projects.json.get({}, context).then(data => {
+redmine.projects.json.get({}).then(data => {
   console.log(data);
 })
 ```

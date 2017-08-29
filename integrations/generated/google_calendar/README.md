@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_calendar
 
 ```js
 let datafire = require('datafire');
-let google_calendar = require('@datafire/google_calendar').actions;
-
-let account = {
+let google_calendar = require('@datafire/google_calendar').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_calendar: account,
-  }
-})
+});
 
-google_calendar.settings.watch({}, context).then(data => {
+google_calendar.settings.watch({}).then(data => {
   console.log(data);
 })
 ```

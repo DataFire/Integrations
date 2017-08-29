@@ -9,22 +9,15 @@ npm install --save datafire @datafire/squareup
 
 ```js
 let datafire = require('datafire');
-let squareup = require('@datafire/squareup').actions;
-
-let account = {
+let squareup = require('@datafire/squareup').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    squareup: account,
-  }
-})
+});
 
-squareup.ListCustomers({}, context).then(data => {
+squareup.ListCustomers({}).then(data => {
   console.log(data);
 })
 ```

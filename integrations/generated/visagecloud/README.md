@@ -9,18 +9,11 @@ npm install --save datafire @datafire/visagecloud
 
 ```js
 let datafire = require('datafire');
-let visagecloud = require('@datafire/visagecloud').actions;
-
-let account = {
+let visagecloud = require('@datafire/visagecloud').create({
   accessKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    visagecloud: account,
-  }
-})
+});
 
-visagecloud.performAnalysisUsingPOST({}, context).then(data => {
+visagecloud.performAnalysisUsingPOST({}).then(data => {
   console.log(data);
 })
 ```

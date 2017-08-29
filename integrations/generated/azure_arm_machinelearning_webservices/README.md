@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_machinelearning_webservices
 
 ```js
 let datafire = require('datafire');
-let azure_arm_machinelearning_webservices = require('@datafire/azure_arm_machinelearning_webservices').actions;
-let context = new datafire.Context();
+let azure_arm_machinelearning_webservices = require('@datafire/azure_arm_machinelearning_webservices').create();
 
-azure_arm_machinelearning_webservices.WebServices_List({}, context).then(data => {
+azure_arm_machinelearning_webservices.WebServices_List({}).then(data => {
   console.log(data);
 })
 ```

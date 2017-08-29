@@ -9,22 +9,15 @@ npm install --save datafire @datafire/bufferapp
 
 ```js
 let datafire = require('datafire');
-let bufferapp = require('@datafire/bufferapp').actions;
-
-let account = {
+let bufferapp = require('@datafire/bufferapp').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    bufferapp: account,
-  }
-})
+});
 
-bufferapp.info.configuration.json.get({}, context).then(data => {
+bufferapp.info.configuration.json.get({}).then(data => {
   console.log(data);
 })
 ```

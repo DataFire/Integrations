@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_s3
 
 ```js
 let datafire = require('datafire');
-let amazonaws_s3 = require('@datafire/amazonaws_s3').actions;
-let context = new datafire.Context();
+let amazonaws_s3 = require('@datafire/amazonaws_s3').create();
 
-amazonaws_s3.ListBuckets({}, context).then(data => {
+amazonaws_s3.ListBuckets({}).then(data => {
   console.log(data);
 })
 ```

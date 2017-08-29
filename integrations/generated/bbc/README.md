@@ -1,6 +1,6 @@
 # @datafire/bbc
 
-Client library for Radio & Music Services
+Client library for BBC Nitro
 
 ## Installation and Usage
 ```bash
@@ -9,24 +9,17 @@ npm install --save datafire @datafire/bbc
 
 ```js
 let datafire = require('datafire');
-let bbc = require('@datafire/bbc').actions;
-
-let account = {
+let bbc = require('@datafire/bbc').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    bbc: account,
-  }
-})
+});
 
-bbc.listVersions({}, context).then(data => {
+bbc.listVersions({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by reliably providing the right blend of metadata needed by clients.
+BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.
 
 ## Actions
 ### getAPI

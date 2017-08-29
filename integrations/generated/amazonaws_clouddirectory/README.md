@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_clouddirectory
 
 ```js
 let datafire = require('datafire');
-let amazonaws_clouddirectory = require('@datafire/amazonaws_clouddirectory').actions;
-let context = new datafire.Context();
+let amazonaws_clouddirectory = require('@datafire/amazonaws_clouddirectory').create();
 
-amazonaws_clouddirectory.BatchRead({}, context).then(data => {
+amazonaws_clouddirectory.BatchRead({}).then(data => {
   console.log(data);
 })
 ```

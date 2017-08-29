@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_adexchangebuyer
 
 ```js
 let datafire = require('datafire');
-let google_adexchangebuyer = require('@datafire/google_adexchangebuyer').actions;
-
-let account = {
+let google_adexchangebuyer = require('@datafire/google_adexchangebuyer').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_adexchangebuyer: account,
-  }
-})
+});
 
-google_adexchangebuyer.proposals.search({}, context).then(data => {
+google_adexchangebuyer.proposals.search({}).then(data => {
   console.log(data);
 })
 ```

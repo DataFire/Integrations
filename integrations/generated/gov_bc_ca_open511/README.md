@@ -9,10 +9,9 @@ npm install --save datafire @datafire/gov_bc_ca_open511
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_open511 = require('@datafire/gov_bc_ca_open511').actions;
-let context = new datafire.Context();
+let gov_bc_ca_open511 = require('@datafire/gov_bc_ca_open511').create();
 
-gov_bc_ca_open511.jurisdictiongeography.get({}, context).then(data => {
+gov_bc_ca_open511.jurisdictiongeography.get({}).then(data => {
   console.log(data);
 })
 ```

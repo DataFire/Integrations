@@ -9,18 +9,11 @@ npm install --save datafire @datafire/pandorabots
 
 ```js
 let datafire = require('datafire');
-let pandorabots = require('@datafire/pandorabots').actions;
-
-let account = {
+let pandorabots = require('@datafire/pandorabots').create({
   user_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    pandorabots: account,
-  }
-})
+});
 
-pandorabots.atalkBot({}, context).then(data => {
+pandorabots.atalkBot({}).then(data => {
   console.log(data);
 })
 ```

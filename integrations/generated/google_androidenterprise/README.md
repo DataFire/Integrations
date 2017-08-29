@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_androidenterprise
 
 ```js
 let datafire = require('datafire');
-let google_androidenterprise = require('@datafire/google_androidenterprise').actions;
-
-let account = {
+let google_androidenterprise = require('@datafire/google_androidenterprise').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_androidenterprise: account,
-  }
-})
+});
 
-google_androidenterprise.enterprises.generateSignupUrl({}, context).then(data => {
+google_androidenterprise.enterprises.generateSignupUrl({}).then(data => {
   console.log(data);
 })
 ```

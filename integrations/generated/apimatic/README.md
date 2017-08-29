@@ -9,20 +9,13 @@ npm install --save datafire @datafire/apimatic
 
 ```js
 let datafire = require('datafire');
-let apimatic = require('@datafire/apimatic').actions;
-
-let account = {
+let apimatic = require('@datafire/apimatic').create({
   api-key: "",
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    apimatic: account,
-  }
-})
+});
 
-apimatic.ConvertAPI({}, context).then(data => {
+apimatic.ConvertAPI({}).then(data => {
   console.log(data);
 })
 ```

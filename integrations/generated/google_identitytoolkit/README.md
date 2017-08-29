@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_identitytoolkit
 
 ```js
 let datafire = require('datafire');
-let google_identitytoolkit = require('@datafire/google_identitytoolkit').actions;
-
-let account = {
+let google_identitytoolkit = require('@datafire/google_identitytoolkit').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_identitytoolkit: account,
-  }
-})
+});
 
-google_identitytoolkit.relyingparty.verifyPassword({}, context).then(data => {
+google_identitytoolkit.relyingparty.verifyPassword({}).then(data => {
   console.log(data);
 })
 ```

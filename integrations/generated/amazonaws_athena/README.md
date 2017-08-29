@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_athena
 
 ```js
 let datafire = require('datafire');
-let amazonaws_athena = require('@datafire/amazonaws_athena').actions;
-let context = new datafire.Context();
+let amazonaws_athena = require('@datafire/amazonaws_athena').create();
 
-amazonaws_athena.BatchGetNamedQuery({}, context).then(data => {
+amazonaws_athena.BatchGetNamedQuery({}).then(data => {
   console.log(data);
 })
 ```

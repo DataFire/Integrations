@@ -9,10 +9,9 @@ npm install --save datafire @datafire/data2crm
 
 ```js
 let datafire = require('datafire');
-let data2crm = require('@datafire/data2crm').actions;
-let context = new datafire.Context();
+let data2crm = require('@datafire/data2crm').create();
 
-data2crm.getAccountCollection({}, context).then(data => {
+data2crm.getAccountCollection({}).then(data => {
   console.log(data);
 })
 ```

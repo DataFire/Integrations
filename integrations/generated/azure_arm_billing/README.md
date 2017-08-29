@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_billing
 
 ```js
 let datafire = require('datafire');
-let azure_arm_billing = require('@datafire/azure_arm_billing').actions;
-
-let account = {
+let azure_arm_billing = require('@datafire/azure_arm_billing').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_billing: account,
-  }
-})
+});
 
-azure_arm_billing.Operations_List({}, context).then(data => {
+azure_arm_billing.Operations_List({}).then(data => {
   console.log(data);
 })
 ```

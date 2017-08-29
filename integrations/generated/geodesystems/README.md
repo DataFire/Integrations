@@ -9,19 +9,12 @@ npm install --save datafire @datafire/geodesystems
 
 ```js
 let datafire = require('datafire');
-let geodesystems = require('@datafire/geodesystems').actions;
-
-let account = {
+let geodesystems = require('@datafire/geodesystems').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    geodesystems: account,
-  }
-})
+});
 
-geodesystems.search_wikipage({}, context).then(data => {
+geodesystems.search_wikipage({}).then(data => {
   console.log(data);
 })
 ```

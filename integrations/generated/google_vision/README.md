@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_vision
 
 ```js
 let datafire = require('datafire');
-let google_vision = require('@datafire/google_vision').actions;
-
-let account = {
+let google_vision = require('@datafire/google_vision').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_vision: account,
-  }
-})
+});
 
-google_vision.images.annotate({}, context).then(data => {
+google_vision.images.annotate({}).then(data => {
   console.log(data);
 })
 ```

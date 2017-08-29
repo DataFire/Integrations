@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_reseller
 
 ```js
 let datafire = require('datafire');
-let google_reseller = require('@datafire/google_reseller').actions;
-
-let account = {
+let google_reseller = require('@datafire/google_reseller').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_reseller: account,
-  }
-})
+});
 
-google_reseller.subscriptions.list({}, context).then(data => {
+google_reseller.subscriptions.list({}).then(data => {
   console.log(data);
 })
 ```

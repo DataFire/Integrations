@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_recoveryservicesbackup
 
 ```js
 let datafire = require('datafire');
-let azure_arm_recoveryservicesbackup = require('@datafire/azure_arm_recoveryservicesbackup').actions;
-
-let account = {
+let azure_arm_recoveryservicesbackup = require('@datafire/azure_arm_recoveryservicesbackup').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_recoveryservicesbackup: account,
-  }
-})
+});
 
-azure_arm_recoveryservicesbackup.BackupEngines_Get({}, context).then(data => {
+azure_arm_recoveryservicesbackup.BackupEngines_Get({}).then(data => {
   console.log(data);
 })
 ```

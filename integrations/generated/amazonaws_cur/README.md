@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cur
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cur = require('@datafire/amazonaws_cur').actions;
-let context = new datafire.Context();
+let amazonaws_cur = require('@datafire/amazonaws_cur').create();
 
-amazonaws_cur.DeleteReportDefinition({}, context).then(data => {
+amazonaws_cur.DeleteReportDefinition({}).then(data => {
   console.log(data);
 })
 ```

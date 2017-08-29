@@ -9,18 +9,11 @@ npm install --save datafire @datafire/amadeus
 
 ```js
 let datafire = require('datafire');
-let amadeus = require('@datafire/amadeus').actions;
-
-let account = {
+let amadeus = require('@datafire/amadeus').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    amadeus: account,
-  }
-})
+});
 
-amadeus.airports.autocomplete.get({}, context).then(data => {
+amadeus.airports.autocomplete.get({}).then(data => {
   console.log(data);
 })
 ```

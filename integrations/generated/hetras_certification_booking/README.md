@@ -9,10 +9,9 @@ npm install --save datafire @datafire/hetras_certification_booking
 
 ```js
 let datafire = require('datafire');
-let hetras_certification_booking = require('@datafire/hetras_certification_booking').actions;
-let context = new datafire.Context();
+let hetras_certification_booking = require('@datafire/hetras_certification_booking').create();
 
-hetras_certification_booking.Addons_Get({}, context).then(data => {
+hetras_certification_booking.Addons_Get({}).then(data => {
   console.log(data);
 })
 ```

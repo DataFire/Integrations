@@ -9,10 +9,9 @@ npm install --save datafire @datafire/onenote
 
 ```js
 let datafire = require('datafire');
-let onenote = require('@datafire/onenote').actions;
-let context = new datafire.Context();
+let onenote = require('@datafire/onenote').create();
 
-onenote.pages.get({}, context).then(data => {
+onenote.pages.get({}).then(data => {
   console.log(data);
 })
 ```

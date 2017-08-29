@@ -9,22 +9,15 @@ npm install --save datafire @datafire/stackexchange
 
 ```js
 let datafire = require('datafire');
-let stackexchange = require('@datafire/stackexchange').actions;
-
-let account = {
+let stackexchange = require('@datafire/stackexchange').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    stackexchange: account,
-  }
-})
+});
 
-stackexchange.sites.get({}, context).then(data => {
+stackexchange.sites.get({}).then(data => {
   console.log(data);
 })
 ```

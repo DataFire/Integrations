@@ -9,22 +9,15 @@ npm install --save datafire @datafire/lyft
 
 ```js
 let datafire = require('datafire');
-let lyft = require('@datafire/lyft').actions;
-
-let account = {
+let lyft = require('@datafire/lyft').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    lyft: account,
-  }
-})
+});
 
-lyft.GetCost({}, context).then(data => {
+lyft.GetCost({}).then(data => {
   console.log(data);
 })
 ```

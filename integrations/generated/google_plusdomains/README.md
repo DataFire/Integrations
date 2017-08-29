@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_plusdomains
 
 ```js
 let datafire = require('datafire');
-let google_plusdomains = require('@datafire/google_plusdomains').actions;
-
-let account = {
+let google_plusdomains = require('@datafire/google_plusdomains').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_plusdomains: account,
-  }
-})
+});
 
-google_plusdomains.activities.get({}, context).then(data => {
+google_plusdomains.activities.get({}).then(data => {
   console.log(data);
 })
 ```

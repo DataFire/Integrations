@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_batch
 
 ```js
 let datafire = require('datafire');
-let amazonaws_batch = require('@datafire/amazonaws_batch').actions;
-let context = new datafire.Context();
+let amazonaws_batch = require('@datafire/amazonaws_batch').create();
 
-amazonaws_batch.CancelJob({}, context).then(data => {
+amazonaws_batch.CancelJob({}).then(data => {
   console.log(data);
 })
 ```

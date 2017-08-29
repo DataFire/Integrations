@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_analytics
 
 ```js
 let datafire = require('datafire');
-let google_analytics = require('@datafire/google_analytics').actions;
-
-let account = {
+let google_analytics = require('@datafire/google_analytics').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_analytics: account,
-  }
-})
+});
 
-google_analytics.provisioning.createAccountTicket({}, context).then(data => {
+google_analytics.provisioning.createAccountTicket({}).then(data => {
   console.log(data);
 })
 ```

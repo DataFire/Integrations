@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_codestar
 
 ```js
 let datafire = require('datafire');
-let amazonaws_codestar = require('@datafire/amazonaws_codestar').actions;
-let context = new datafire.Context();
+let amazonaws_codestar = require('@datafire/amazonaws_codestar').create();
 
-amazonaws_codestar.AssociateTeamMember({}, context).then(data => {
+amazonaws_codestar.AssociateTeamMember({}).then(data => {
   console.log(data);
 })
 ```

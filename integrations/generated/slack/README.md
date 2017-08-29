@@ -9,22 +9,15 @@ npm install --save datafire @datafire/slack
 
 ```js
 let datafire = require('datafire');
-let slack = require('@datafire/slack').actions;
-
-let account = {
+let slack = require('@datafire/slack').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    slack: account,
-  }
-})
+});
 
-slack.starsList({}, context).then(data => {
+slack.starsList({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_storage
 
 ```js
 let datafire = require('datafire');
-let google_storage = require('@datafire/google_storage').actions;
-
-let account = {
+let google_storage = require('@datafire/google_storage').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_storage: account,
-  }
-})
+});
 
-google_storage.channels.stop({}, context).then(data => {
+google_storage.channels.stop({}).then(data => {
   console.log(data);
 })
 ```

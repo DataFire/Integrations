@@ -9,10 +9,9 @@ npm install --save datafire @datafire/rubygems
 
 ```js
 let datafire = require('datafire');
-let rubygems = require('@datafire/rubygems').actions;
-let context = new datafire.Context();
+let rubygems = require('@datafire/rubygems').create();
 
-rubygems.gems.name.format.get({}, context).then(data => {
+rubygems.gems.name.format.get({}).then(data => {
   console.log(data);
 })
 ```

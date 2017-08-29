@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_elasticfilesystem
 
 ```js
 let datafire = require('datafire');
-let amazonaws_elasticfilesystem = require('@datafire/amazonaws_elasticfilesystem').actions;
-let context = new datafire.Context();
+let amazonaws_elasticfilesystem = require('@datafire/amazonaws_elasticfilesystem').create();
 
-amazonaws_elasticfilesystem.CreateTags({}, context).then(data => {
+amazonaws_elasticfilesystem.CreateTags({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_2chmatomefeedsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_2chmatomefeedsapis = require('@datafire/apitore_2chmatomefeedsapis').actions;
-let context = new datafire.Context();
+let apitore_2chmatomefeedsapis = require('@datafire/apitore_2chmatomefeedsapis').create();
 
-apitore_2chmatomefeedsapis.feedUsingGET({}, context).then(data => {
+apitore_2chmatomefeedsapis.feedUsingGET({}).then(data => {
   console.log(data);
 })
 ```

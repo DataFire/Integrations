@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_organizations
 
 ```js
 let datafire = require('datafire');
-let amazonaws_organizations = require('@datafire/amazonaws_organizations').actions;
-let context = new datafire.Context();
+let amazonaws_organizations = require('@datafire/amazonaws_organizations').create();
 
-amazonaws_organizations.AcceptHandshake({}, context).then(data => {
+amazonaws_organizations.AcceptHandshake({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,19 +9,12 @@ npm install --save datafire @datafire/zoomconnect
 
 ```js
 let datafire = require('datafire');
-let zoomconnect = require('@datafire/zoomconnect').actions;
-
-let account = {
+let zoomconnect = require('@datafire/zoomconnect').create({
   email: "",
   token: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    zoomconnect: account,
-  }
-})
+});
 
-zoomconnect.sms.send_bulk.post({}, context).then(data => {
+zoomconnect.sms.send_bulk.post({}).then(data => {
   console.log(data);
 })
 ```

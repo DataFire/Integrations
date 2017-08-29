@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_operationalinsights
 
 ```js
 let datafire = require('datafire');
-let azure_arm_operationalinsights = require('@datafire/azure_arm_operationalinsights').actions;
-
-let account = {
+let azure_arm_operationalinsights = require('@datafire/azure_arm_operationalinsights').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_operationalinsights: account,
-  }
-})
+});
 
-azure_arm_operationalinsights.Workspaces_ListLinkTargets({}, context).then(data => {
+azure_arm_operationalinsights.Workspaces_ListLinkTargets({}).then(data => {
   console.log(data);
 })
 ```

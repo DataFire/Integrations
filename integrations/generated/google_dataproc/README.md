@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_dataproc
 
 ```js
 let datafire = require('datafire');
-let google_dataproc = require('@datafire/google_dataproc').actions;
-
-let account = {
+let google_dataproc = require('@datafire/google_dataproc').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_dataproc: account,
-  }
-})
+});
 
-google_dataproc.projects.regions.clusters.list({}, context).then(data => {
+google_dataproc.projects.regions.clusters.list({}).then(data => {
   console.log(data);
 })
 ```

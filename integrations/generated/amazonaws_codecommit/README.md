@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_codecommit
 
 ```js
 let datafire = require('datafire');
-let amazonaws_codecommit = require('@datafire/amazonaws_codecommit').actions;
-let context = new datafire.Context();
+let amazonaws_codecommit = require('@datafire/amazonaws_codecommit').create();
 
-amazonaws_codecommit.BatchGetRepositories({}, context).then(data => {
+amazonaws_codecommit.BatchGetRepositories({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_mirror
 
 ```js
 let datafire = require('datafire');
-let google_mirror = require('@datafire/google_mirror').actions;
-
-let account = {
+let google_mirror = require('@datafire/google_mirror').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_mirror: account,
-  }
-})
+});
 
-google_mirror.timeline.insert({}, context).then(data => {
+google_mirror.timeline.insert({}).then(data => {
   console.log(data);
 })
 ```

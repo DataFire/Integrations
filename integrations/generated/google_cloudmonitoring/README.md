@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_cloudmonitoring
 
 ```js
 let datafire = require('datafire');
-let google_cloudmonitoring = require('@datafire/google_cloudmonitoring').actions;
-
-let account = {
+let google_cloudmonitoring = require('@datafire/google_cloudmonitoring').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_cloudmonitoring: account,
-  }
-})
+});
 
-google_cloudmonitoring.metricDescriptors.list({}, context).then(data => {
+google_cloudmonitoring.metricDescriptors.list({}).then(data => {
   console.log(data);
 })
 ```

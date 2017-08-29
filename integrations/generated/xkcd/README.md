@@ -9,10 +9,9 @@ npm install --save datafire @datafire/xkcd
 
 ```js
 let datafire = require('datafire');
-let xkcd = require('@datafire/xkcd').actions;
-let context = new datafire.Context();
+let xkcd = require('@datafire/xkcd').create();
 
-xkcd.info.0.json.get({}, context).then(data => {
+xkcd.info.0.json.get({}).then(data => {
   console.log(data);
 })
 ```

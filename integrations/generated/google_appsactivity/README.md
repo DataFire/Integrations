@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_appsactivity
 
 ```js
 let datafire = require('datafire');
-let google_appsactivity = require('@datafire/google_appsactivity').actions;
-
-let account = {
+let google_appsactivity = require('@datafire/google_appsactivity').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_appsactivity: account,
-  }
-})
+});
 
-google_appsactivity.activities.list({}, context).then(data => {
+google_appsactivity.activities.list({}).then(data => {
   console.log(data);
 })
 ```

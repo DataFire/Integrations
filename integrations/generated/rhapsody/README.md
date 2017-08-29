@@ -9,10 +9,9 @@ npm install --save datafire @datafire/rhapsody
 
 ```js
 let datafire = require('datafire');
-let rhapsody = require('@datafire/rhapsody').actions;
-let context = new datafire.Context();
+let rhapsody = require('@datafire/rhapsody').create();
 
-rhapsody.artists.top.get({}, context).then(data => {
+rhapsody.artists.top.get({}).then(data => {
   console.log(data);
 })
 ```

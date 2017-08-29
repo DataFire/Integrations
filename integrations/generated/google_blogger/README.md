@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_blogger
 
 ```js
 let datafire = require('datafire');
-let google_blogger = require('@datafire/google_blogger').actions;
-
-let account = {
+let google_blogger = require('@datafire/google_blogger').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_blogger: account,
-  }
-})
+});
 
-google_blogger.blogs.getByUrl({}, context).then(data => {
+google_blogger.blogs.getByUrl({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_playmoviespartner
 
 ```js
 let datafire = require('datafire');
-let google_playmoviespartner = require('@datafire/google_playmoviespartner').actions;
-
-let account = {
+let google_playmoviespartner = require('@datafire/google_playmoviespartner').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_playmoviespartner: account,
-  }
-})
+});
 
-google_playmoviespartner.accounts.avails.list({}, context).then(data => {
+google_playmoviespartner.accounts.avails.list({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_dynamodb
 
 ```js
 let datafire = require('datafire');
-let amazonaws_dynamodb = require('@datafire/amazonaws_dynamodb').actions;
-let context = new datafire.Context();
+let amazonaws_dynamodb = require('@datafire/amazonaws_dynamodb').create();
 
-amazonaws_dynamodb.BatchGetItem({}, context).then(data => {
+amazonaws_dynamodb.BatchGetItem({}).then(data => {
   console.log(data);
 })
 ```

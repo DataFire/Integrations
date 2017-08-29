@@ -9,10 +9,9 @@ npm install --save datafire @datafire/nytimes_rss
 
 ```js
 let datafire = require('datafire');
-let nytimes_rss = require('@datafire/nytimes_rss').actions;
-let context = new datafire.Context();
+let nytimes_rss = require('@datafire/nytimes_rss').create();
 
-nytimes_rss.homePage({}, context).then(data => {
+nytimes_rss.homePage({}).then(data => {
   console.log(data);
 })
 ```

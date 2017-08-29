@@ -9,18 +9,11 @@ npm install --save datafire @datafire/import_extraction
 
 ```js
 let datafire = require('datafire');
-let import_extraction = require('@datafire/import_extraction').actions;
-
-let account = {
+let import_extraction = require('@datafire/import_extraction').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    import_extraction: account,
-  }
-})
+});
 
-import_extraction.extractor.extractorId.get({}, context).then(data => {
+import_extraction.extractor.extractorId.get({}).then(data => {
   console.log(data);
 })
 ```

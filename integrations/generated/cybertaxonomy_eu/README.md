@@ -9,10 +9,9 @@ npm install --save datafire @datafire/cybertaxonomy_eu
 
 ```js
 let datafire = require('datafire');
-let cybertaxonomy_eu = require('@datafire/cybertaxonomy_eu').actions;
-let context = new datafire.Context();
+let cybertaxonomy_eu = require('@datafire/cybertaxonomy_eu').create();
 
-cybertaxonomy_eu.capabilities({}, context).then(data => {
+cybertaxonomy_eu.capabilities({}).then(data => {
   console.log(data);
 })
 ```

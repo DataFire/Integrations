@@ -9,18 +9,11 @@ npm install --save datafire @datafire/inboxroute
 
 ```js
 let datafire = require('datafire');
-let inboxroute = require('@datafire/inboxroute').actions;
-
-let account = {
+let inboxroute = require('@datafire/inboxroute').create({
   mqApiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    inboxroute: account,
-  }
-})
+});
 
-inboxroute.contacts.lists.post({}, context).then(data => {
+inboxroute.contacts.lists.post({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_cloudresourcemanager
 
 ```js
 let datafire = require('datafire');
-let google_cloudresourcemanager = require('@datafire/google_cloudresourcemanager').actions;
-
-let account = {
+let google_cloudresourcemanager = require('@datafire/google_cloudresourcemanager').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_cloudresourcemanager: account,
-  }
-})
+});
 
-google_cloudresourcemanager.projects.create({}, context).then(data => {
+google_cloudresourcemanager.projects.create({}).then(data => {
   console.log(data);
 })
 ```

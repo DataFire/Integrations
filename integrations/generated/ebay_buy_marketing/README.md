@@ -9,22 +9,15 @@ npm install --save datafire @datafire/ebay_buy_marketing
 
 ```js
 let datafire = require('datafire');
-let ebay_buy_marketing = require('@datafire/ebay_buy_marketing').actions;
-
-let account = {
+let ebay_buy_marketing = require('@datafire/ebay_buy_marketing').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    ebay_buy_marketing: account,
-  }
-})
+});
 
-ebay_buy_marketing.getMerchandisedProducts({}, context).then(data => {
+ebay_buy_marketing.getMerchandisedProducts({}).then(data => {
   console.log(data);
 })
 ```

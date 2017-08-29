@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_runtimeconfig
 
 ```js
 let datafire = require('datafire');
-let google_runtimeconfig = require('@datafire/google_runtimeconfig').actions;
-
-let account = {
+let google_runtimeconfig = require('@datafire/google_runtimeconfig').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_runtimeconfig: account,
-  }
-})
+});
 
-google_runtimeconfig.operations.delete({}, context).then(data => {
+google_runtimeconfig.operations.delete({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_sentencepieceapis_wikipedia_
 
 ```js
 let datafire = require('datafire');
-let apitore_sentencepieceapis_wikipedia_ = require('@datafire/apitore_sentencepieceapis_wikipedia_').actions;
-let context = new datafire.Context();
+let apitore_sentencepieceapis_wikipedia_ = require('@datafire/apitore_sentencepieceapis_wikipedia_').create();
 
-apitore_sentencepieceapis_wikipedia_.getUsingGET({}, context).then(data => {
+apitore_sentencepieceapis_wikipedia_.getUsingGET({}).then(data => {
   console.log(data);
 })
 ```

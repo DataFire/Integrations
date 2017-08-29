@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_admin
 
 ```js
 let datafire = require('datafire');
-let google_admin = require('@datafire/google_admin').actions;
-
-let account = {
+let google_admin = require('@datafire/google_admin').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_admin: account,
-  }
-})
+});
 
-google_admin.channels.stop({}, context).then(data => {
+google_admin.channels.stop({}).then(data => {
   console.log(data);
 })
 ```

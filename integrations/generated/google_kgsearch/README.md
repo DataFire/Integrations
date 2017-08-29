@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_kgsearch
 
 ```js
 let datafire = require('datafire');
-let google_kgsearch = require('@datafire/google_kgsearch').actions;
-let context = new datafire.Context();
+let google_kgsearch = require('@datafire/google_kgsearch').create();
 
-google_kgsearch.entities.search({}, context).then(data => {
+google_kgsearch.entities.search({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/oceandrivers
 
 ```js
 let datafire = require('datafire');
-let oceandrivers = require('@datafire/oceandrivers').actions;
-let context = new datafire.Context();
+let oceandrivers = require('@datafire/oceandrivers').create();
 
-oceandrivers.compareStation({}, context).then(data => {
+oceandrivers.compareStation({}).then(data => {
   console.log(data);
 })
 ```

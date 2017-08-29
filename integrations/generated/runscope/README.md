@@ -9,22 +9,15 @@ npm install --save datafire @datafire/runscope
 
 ```js
 let datafire = require('datafire');
-let runscope = require('@datafire/runscope').actions;
-
-let account = {
+let runscope = require('@datafire/runscope').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    runscope: account,
-  }
-})
+});
 
-runscope.account.get({}, context).then(data => {
+runscope.account.get({}).then(data => {
   console.log(data);
 })
 ```

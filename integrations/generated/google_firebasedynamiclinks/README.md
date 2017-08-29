@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_firebasedynamiclinks
 
 ```js
 let datafire = require('datafire');
-let google_firebasedynamiclinks = require('@datafire/google_firebasedynamiclinks').actions;
-
-let account = {
+let google_firebasedynamiclinks = require('@datafire/google_firebasedynamiclinks').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_firebasedynamiclinks: account,
-  }
-})
+});
 
-google_firebasedynamiclinks.shortLinks.create({}, context).then(data => {
+google_firebasedynamiclinks.shortLinks.create({}).then(data => {
   console.log(data);
 })
 ```

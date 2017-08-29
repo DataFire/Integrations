@@ -9,10 +9,9 @@ npm install --save datafire @datafire/schooldigger
 
 ```js
 let datafire = require('datafire');
-let schooldigger = require('@datafire/schooldigger').actions;
-let context = new datafire.Context();
+let schooldigger = require('@datafire/schooldigger').create();
 
-schooldigger.Districts_GetAllDistricts({}, context).then(data => {
+schooldigger.Districts_GetAllDistricts({}).then(data => {
   console.log(data);
 })
 ```

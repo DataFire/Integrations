@@ -9,22 +9,15 @@ npm install --save datafire @datafire/box_content
 
 ```js
 let datafire = require('datafire');
-let box_content = require('@datafire/box_content').actions;
-
-let account = {
+let box_content = require('@datafire/box_content').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    box_content: account,
-  }
-})
+});
 
-box_content.getWebhooks({}, context).then(data => {
+box_content.getWebhooks({}).then(data => {
   console.log(data);
 })
 ```

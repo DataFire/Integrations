@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nrel_building_case_studies
 
 ```js
 let datafire = require('datafire');
-let nrel_building_case_studies = require('@datafire/nrel_building_case_studies').actions;
-
-let account = {
+let nrel_building_case_studies = require('@datafire/nrel_building_case_studies').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nrel_building_case_studies: account,
-  }
-})
+});
 
-nrel_building_case_studies.project({}, context).then(data => {
+nrel_building_case_studies.project({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_health
 
 ```js
 let datafire = require('datafire');
-let amazonaws_health = require('@datafire/amazonaws_health').actions;
-let context = new datafire.Context();
+let amazonaws_health = require('@datafire/amazonaws_health').create();
 
-amazonaws_health.DescribeAffectedEntities({}, context).then(data => {
+amazonaws_health.DescribeAffectedEntities({}).then(data => {
   console.log(data);
 })
 ```

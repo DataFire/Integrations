@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_sheets
 
 ```js
 let datafire = require('datafire');
-let google_sheets = require('@datafire/google_sheets').actions;
-
-let account = {
+let google_sheets = require('@datafire/google_sheets').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_sheets: account,
-  }
-})
+});
 
-google_sheets.spreadsheets.create({}, context).then(data => {
+google_sheets.spreadsheets.create({}).then(data => {
   console.log(data);
 })
 ```

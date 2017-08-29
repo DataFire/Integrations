@@ -9,19 +9,12 @@ npm install --save datafire @datafire/traccar
 
 ```js
 let datafire = require('datafire');
-let traccar = require('@datafire/traccar').actions;
-
-let account = {
+let traccar = require('@datafire/traccar').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    traccar: account,
-  }
-})
+});
 
-traccar.users.notifications.get({}, context).then(data => {
+traccar.users.notifications.get({}).then(data => {
   console.log(data);
 })
 ```

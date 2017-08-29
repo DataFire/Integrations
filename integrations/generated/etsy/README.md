@@ -9,10 +9,9 @@ npm install --save datafire @datafire/etsy
 
 ```js
 let datafire = require('datafire');
-let etsy = require('@datafire/etsy').actions;
-let context = new datafire.Context();
+let etsy = require('@datafire/etsy').create();
 
-etsy.featured.users.get({}, context).then(data => {
+etsy.featured.users.get({}).then(data => {
   console.log(data);
 })
 ```

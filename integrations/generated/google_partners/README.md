@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_partners
 
 ```js
 let datafire = require('datafire');
-let google_partners = require('@datafire/google_partners').actions;
-let context = new datafire.Context();
+let google_partners = require('@datafire/google_partners').create();
 
-google_partners.users.updateProfile({}, context).then(data => {
+google_partners.users.updateProfile({}).then(data => {
   console.log(data);
 })
 ```

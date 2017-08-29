@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_monitor
 
 ```js
 let datafire = require('datafire');
-let azure_monitor = require('@datafire/azure_monitor').actions;
-
-let account = {
+let azure_monitor = require('@datafire/azure_monitor').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_monitor: account,
-  }
-})
+});
 
-azure_monitor.UsageMetrics_List({}, context).then(data => {
+azure_monitor.UsageMetrics_List({}).then(data => {
   console.log(data);
 })
 ```

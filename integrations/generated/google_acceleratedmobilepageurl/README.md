@@ -9,16 +9,15 @@ npm install --save datafire @datafire/google_acceleratedmobilepageurl
 
 ```js
 let datafire = require('datafire');
-let google_acceleratedmobilepageurl = require('@datafire/google_acceleratedmobilepageurl').actions;
-let context = new datafire.Context();
+let google_acceleratedmobilepageurl = require('@datafire/google_acceleratedmobilepageurl').create();
 
-google_acceleratedmobilepageurl.ampUrls.batchGet({}, context).then(data => {
+google_acceleratedmobilepageurl.ampUrls.batchGet({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).
+Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s).
 
 
 ## Actions

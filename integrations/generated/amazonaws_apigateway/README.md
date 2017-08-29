@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_apigateway
 
 ```js
 let datafire = require('datafire');
-let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').actions;
-let context = new datafire.Context();
+let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').create();
 
-amazonaws_apigateway.UpdateAccount({}, context).then(data => {
+amazonaws_apigateway.UpdateAccount({}).then(data => {
   console.log(data);
 })
 ```
@@ -47,9 +46,7 @@ amazonaws_apigateway.GetApiKeys({}, context)
 
 
 ```js
-amazonaws_apigateway.UpdateApiKey({
-  "api_Key": null
-}, context)
+amazonaws_apigateway.UpdateApiKey({}, context)
 ```
 
 #### Parameters
@@ -81,9 +78,7 @@ amazonaws_apigateway.GetClientCertificates({}, context)
 
 
 ```js
-amazonaws_apigateway.UpdateClientCertificate({
-  "clientcertificate_id": null
-}, context)
+amazonaws_apigateway.UpdateClientCertificate({}, context)
 ```
 
 #### Parameters
@@ -106,9 +101,7 @@ amazonaws_apigateway.GetDomainNames({}, context)
 
 
 ```js
-amazonaws_apigateway.UpdateDomainName({
-  "domain_name": null
-}, context)
+amazonaws_apigateway.UpdateDomainName({}, context)
 ```
 
 #### Parameters
@@ -119,9 +112,7 @@ amazonaws_apigateway.UpdateDomainName({
 
 
 ```js
-amazonaws_apigateway.GetBasePathMappings({
-  "domain_name": null
-}, context)
+amazonaws_apigateway.GetBasePathMappings({}, context)
 ```
 
 #### Parameters
@@ -134,10 +125,7 @@ amazonaws_apigateway.GetBasePathMappings({
 
 
 ```js
-amazonaws_apigateway.UpdateBasePathMapping({
-  "domain_name": null,
-  "base_path": null
-}, context)
+amazonaws_apigateway.UpdateBasePathMapping({}, context)
 ```
 
 #### Parameters
@@ -161,9 +149,7 @@ amazonaws_apigateway.GetRestApis({}, context)
 
 
 ```js
-amazonaws_apigateway.UpdateRestApi({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.UpdateRestApi({}, context)
 ```
 
 #### Parameters
@@ -174,9 +160,7 @@ amazonaws_apigateway.UpdateRestApi({
 
 
 ```js
-amazonaws_apigateway.GetAuthorizers({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetAuthorizers({}, context)
 ```
 
 #### Parameters
@@ -187,10 +171,7 @@ amazonaws_apigateway.GetAuthorizers({
 
 
 ```js
-amazonaws_apigateway.UpdateAuthorizer({
-  "restapi_id": null,
-  "authorizer_id": null
-}, context)
+amazonaws_apigateway.UpdateAuthorizer({}, context)
 ```
 
 #### Parameters
@@ -202,9 +183,7 @@ amazonaws_apigateway.UpdateAuthorizer({
 
 
 ```js
-amazonaws_apigateway.GetDeployments({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetDeployments({}, context)
 ```
 
 #### Parameters
@@ -217,10 +196,7 @@ amazonaws_apigateway.GetDeployments({
 
 
 ```js
-amazonaws_apigateway.UpdateDeployment({
-  "restapi_id": null,
-  "deployment_id": null
-}, context)
+amazonaws_apigateway.UpdateDeployment({}, context)
 ```
 
 #### Parameters
@@ -232,9 +208,7 @@ amazonaws_apigateway.UpdateDeployment({
 
 
 ```js
-amazonaws_apigateway.ImportDocumentationParts({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.ImportDocumentationParts({}, context)
 ```
 
 #### Parameters
@@ -245,10 +219,7 @@ amazonaws_apigateway.ImportDocumentationParts({
 
 
 ```js
-amazonaws_apigateway.UpdateDocumentationPart({
-  "restapi_id": null,
-  "part_id": null
-}, context)
+amazonaws_apigateway.UpdateDocumentationPart({}, context)
 ```
 
 #### Parameters
@@ -260,9 +231,7 @@ amazonaws_apigateway.UpdateDocumentationPart({
 
 
 ```js
-amazonaws_apigateway.GetDocumentationVersions({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetDocumentationVersions({}, context)
 ```
 
 #### Parameters
@@ -273,10 +242,7 @@ amazonaws_apigateway.GetDocumentationVersions({
 
 
 ```js
-amazonaws_apigateway.UpdateDocumentationVersion({
-  "restapi_id": null,
-  "doc_version": null
-}, context)
+amazonaws_apigateway.UpdateDocumentationVersion({}, context)
 ```
 
 #### Parameters
@@ -288,9 +254,7 @@ amazonaws_apigateway.UpdateDocumentationVersion({
 
 
 ```js
-amazonaws_apigateway.GetModels({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetModels({}, context)
 ```
 
 #### Parameters
@@ -303,10 +267,7 @@ amazonaws_apigateway.GetModels({
 
 
 ```js
-amazonaws_apigateway.UpdateModel({
-  "restapi_id": null,
-  "model_name": null
-}, context)
+amazonaws_apigateway.UpdateModel({}, context)
 ```
 
 #### Parameters
@@ -318,10 +279,7 @@ amazonaws_apigateway.UpdateModel({
 
 
 ```js
-amazonaws_apigateway.GetModelTemplate({
-  "restapi_id": null,
-  "model_name": null
-}, context)
+amazonaws_apigateway.GetModelTemplate({}, context)
 ```
 
 #### Parameters
@@ -333,9 +291,7 @@ amazonaws_apigateway.GetModelTemplate({
 
 
 ```js
-amazonaws_apigateway.GetRequestValidators({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetRequestValidators({}, context)
 ```
 
 #### Parameters
@@ -346,10 +302,7 @@ amazonaws_apigateway.GetRequestValidators({
 
 
 ```js
-amazonaws_apigateway.UpdateRequestValidator({
-  "restapi_id": null,
-  "requestvalidator_id": null
-}, context)
+amazonaws_apigateway.UpdateRequestValidator({}, context)
 ```
 
 #### Parameters
@@ -361,9 +314,7 @@ amazonaws_apigateway.UpdateRequestValidator({
 
 
 ```js
-amazonaws_apigateway.GetResources({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetResources({}, context)
 ```
 
 #### Parameters
@@ -376,10 +327,7 @@ amazonaws_apigateway.GetResources({
 
 
 ```js
-amazonaws_apigateway.CreateResource({
-  "restapi_id": null,
-  "parent_id": null
-}, context)
+amazonaws_apigateway.CreateResource({}, context)
 ```
 
 #### Parameters
@@ -391,10 +339,7 @@ amazonaws_apigateway.CreateResource({
 
 
 ```js
-amazonaws_apigateway.UpdateResource({
-  "restapi_id": null,
-  "resource_id": null
-}, context)
+amazonaws_apigateway.UpdateResource({}, context)
 ```
 
 #### Parameters
@@ -406,11 +351,7 @@ amazonaws_apigateway.UpdateResource({
 
 
 ```js
-amazonaws_apigateway.UpdateMethod({
-  "restapi_id": null,
-  "resource_id": null,
-  "http_method": null
-}, context)
+amazonaws_apigateway.UpdateMethod({}, context)
 ```
 
 #### Parameters
@@ -423,11 +364,7 @@ amazonaws_apigateway.UpdateMethod({
 
 
 ```js
-amazonaws_apigateway.UpdateIntegration({
-  "restapi_id": null,
-  "resource_id": null,
-  "http_method": null
-}, context)
+amazonaws_apigateway.UpdateIntegration({}, context)
 ```
 
 #### Parameters
@@ -440,12 +377,7 @@ amazonaws_apigateway.UpdateIntegration({
 
 
 ```js
-amazonaws_apigateway.UpdateIntegrationResponse({
-  "restapi_id": null,
-  "resource_id": null,
-  "http_method": null,
-  "status_code": null
-}, context)
+amazonaws_apigateway.UpdateIntegrationResponse({}, context)
 ```
 
 #### Parameters
@@ -459,12 +391,7 @@ amazonaws_apigateway.UpdateIntegrationResponse({
 
 
 ```js
-amazonaws_apigateway.UpdateMethodResponse({
-  "restapi_id": null,
-  "resource_id": null,
-  "http_method": null,
-  "status_code": null
-}, context)
+amazonaws_apigateway.UpdateMethodResponse({}, context)
 ```
 
 #### Parameters
@@ -478,9 +405,7 @@ amazonaws_apigateway.UpdateMethodResponse({
 
 
 ```js
-amazonaws_apigateway.GetStages({
-  "restapi_id": null
-}, context)
+amazonaws_apigateway.GetStages({}, context)
 ```
 
 #### Parameters
@@ -491,10 +416,7 @@ amazonaws_apigateway.GetStages({
 
 
 ```js
-amazonaws_apigateway.UpdateStage({
-  "restapi_id": null,
-  "stage_name": null
-}, context)
+amazonaws_apigateway.UpdateStage({}, context)
 ```
 
 #### Parameters
@@ -506,10 +428,7 @@ amazonaws_apigateway.UpdateStage({
 
 
 ```js
-amazonaws_apigateway.FlushStageAuthorizersCache({
-  "restapi_id": null,
-  "stage_name": null
-}, context)
+amazonaws_apigateway.FlushStageAuthorizersCache({}, context)
 ```
 
 #### Parameters
@@ -521,10 +440,7 @@ amazonaws_apigateway.FlushStageAuthorizersCache({
 
 
 ```js
-amazonaws_apigateway.FlushStageCache({
-  "restapi_id": null,
-  "stage_name": null
-}, context)
+amazonaws_apigateway.FlushStageCache({}, context)
 ```
 
 #### Parameters
@@ -536,11 +452,7 @@ amazonaws_apigateway.FlushStageCache({
 
 
 ```js
-amazonaws_apigateway.GetExport({
-  "restapi_id": null,
-  "stage_name": null,
-  "export_type": null
-}, context)
+amazonaws_apigateway.GetExport({}, context)
 ```
 
 #### Parameters
@@ -553,11 +465,7 @@ amazonaws_apigateway.GetExport({
 
 
 ```js
-amazonaws_apigateway.GetSdk({
-  "restapi_id": null,
-  "stage_name": null,
-  "sdk_type": null
-}, context)
+amazonaws_apigateway.GetSdk({}, context)
 ```
 
 #### Parameters
@@ -588,9 +496,7 @@ amazonaws_apigateway.GetSdkTypes({}, context)
 
 
 ```js
-amazonaws_apigateway.GetSdkType({
-  "sdktype_id": null
-}, context)
+amazonaws_apigateway.GetSdkType({}, context)
 ```
 
 #### Parameters

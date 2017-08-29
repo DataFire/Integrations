@@ -9,22 +9,15 @@ npm install --save datafire @datafire/reverb
 
 ```js
 let datafire = require('datafire');
-let reverb = require('@datafire/reverb').actions;
-
-let account = {
+let reverb = require('@datafire/reverb').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    reverb: account,
-  }
-})
+});
 
-reverb.webhooks.registrations.post({}, context).then(data => {
+reverb.webhooks.registrations.post({}).then(data => {
   console.log(data);
 })
 ```

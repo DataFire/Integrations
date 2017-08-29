@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_most_popular_api
 
 ```js
 let datafire = require('datafire');
-let nytimes_most_popular_api = require('@datafire/nytimes_most_popular_api').actions;
-
-let account = {
+let nytimes_most_popular_api = require('@datafire/nytimes_most_popular_api').create({
   api-key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_most_popular_api: account,
-  }
-})
+});
 
-nytimes_most_popular_api.mostemailed.section.time_period.json.get({}, context).then(data => {
+nytimes_most_popular_api.mostemailed.section.time_period.json.get({}).then(data => {
   console.log(data);
 })
 ```

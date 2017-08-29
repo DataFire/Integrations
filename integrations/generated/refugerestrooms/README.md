@@ -9,10 +9,9 @@ npm install --save datafire @datafire/refugerestrooms
 
 ```js
 let datafire = require('datafire');
-let refugerestrooms = require('@datafire/refugerestrooms').actions;
-let context = new datafire.Context();
+let refugerestrooms = require('@datafire/refugerestrooms').create();
 
-refugerestrooms.v1.restrooms.json.get({}, context).then(data => {
+refugerestrooms.v1.restrooms.json.get({}).then(data => {
   console.log(data);
 })
 ```

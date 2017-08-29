@@ -9,10 +9,9 @@ npm install --save datafire @datafire/zappiti
 
 ```js
 let datafire = require('datafire');
-let zappiti = require('@datafire/zappiti').actions;
-let context = new datafire.Context();
+let zappiti = require('@datafire/zappiti').create();
 
-zappiti.CheckZappitiService.post({}, context).then(data => {
+zappiti.CheckZappitiService.post({}).then(data => {
   console.log(data);
 })
 ```

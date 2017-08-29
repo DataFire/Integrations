@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_servermanagement
 
 ```js
 let datafire = require('datafire');
-let azure_arm_servermanagement = require('@datafire/azure_arm_servermanagement').actions;
-
-let account = {
+let azure_arm_servermanagement = require('@datafire/azure_arm_servermanagement').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_servermanagement: account,
-  }
-})
+});
 
-azure_arm_servermanagement.Gateway_List({}, context).then(data => {
+azure_arm_servermanagement.Gateway_List({}).then(data => {
   console.log(data);
 })
 ```

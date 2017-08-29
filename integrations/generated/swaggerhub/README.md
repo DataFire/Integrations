@@ -9,18 +9,11 @@ npm install --save datafire @datafire/swaggerhub
 
 ```js
 let datafire = require('datafire');
-let swaggerhub = require('@datafire/swaggerhub').actions;
-
-let account = {
+let swaggerhub = require('@datafire/swaggerhub').create({
   TokenSecured: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    swaggerhub: account,
-  }
-})
+});
 
-swaggerhub.searchDomains({}, context).then(data => {
+swaggerhub.searchDomains({}).then(data => {
   console.log(data);
 })
 ```

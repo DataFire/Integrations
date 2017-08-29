@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_mobileanalytics
 
 ```js
 let datafire = require('datafire');
-let amazonaws_mobileanalytics = require('@datafire/amazonaws_mobileanalytics').actions;
-let context = new datafire.Context();
+let amazonaws_mobileanalytics = require('@datafire/amazonaws_mobileanalytics').create();
 
-amazonaws_mobileanalytics.PutEvents({}, context).then(data => {
+amazonaws_mobileanalytics.PutEvents({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_datapipeline
 
 ```js
 let datafire = require('datafire');
-let amazonaws_datapipeline = require('@datafire/amazonaws_datapipeline').actions;
-let context = new datafire.Context();
+let amazonaws_datapipeline = require('@datafire/amazonaws_datapipeline').create();
 
-amazonaws_datapipeline.ActivatePipeline({}, context).then(data => {
+amazonaws_datapipeline.ActivatePipeline({}).then(data => {
   console.log(data);
 })
 ```

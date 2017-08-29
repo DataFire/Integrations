@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_genomics
 
 ```js
 let datafire = require('datafire');
-let google_genomics = require('@datafire/google_genomics').actions;
-
-let account = {
+let google_genomics = require('@datafire/google_genomics').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_genomics: account,
-  }
-})
+});
 
-google_genomics.variantsets.search({}, context).then(data => {
+google_genomics.variantsets.search({}).then(data => {
   console.log(data);
 })
 ```

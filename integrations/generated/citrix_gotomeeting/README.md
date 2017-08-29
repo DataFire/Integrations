@@ -9,10 +9,9 @@ npm install --save datafire @datafire/citrix_gotomeeting
 
 ```js
 let datafire = require('datafire');
-let citrix_gotomeeting = require('@datafire/citrix_gotomeeting').actions;
-let context = new datafire.Context();
+let citrix_gotomeeting = require('@datafire/citrix_gotomeeting').create();
 
-citrix_gotomeeting.groups.get({}, context).then(data => {
+citrix_gotomeeting.groups.get({}).then(data => {
   console.log(data);
 })
 ```

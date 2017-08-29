@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_youtube
 
 ```js
 let datafire = require('datafire');
-let google_youtube = require('@datafire/google_youtube').actions;
-
-let account = {
+let google_youtube = require('@datafire/google_youtube').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_youtube: account,
-  }
-})
+});
 
-google_youtube.videos.reportAbuse({}, context).then(data => {
+google_youtube.videos.reportAbuse({}).then(data => {
   console.log(data);
 })
 ```

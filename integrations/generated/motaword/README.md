@@ -9,22 +9,15 @@ npm install --save datafire @datafire/motaword
 
 ```js
 let datafire = require('datafire');
-let motaword = require('@datafire/motaword').actions;
-
-let account = {
+let motaword = require('@datafire/motaword').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    motaword: account,
-  }
-})
+});
 
-motaword.getProjects({}, context).then(data => {
+motaword.getProjects({}).then(data => {
   console.log(data);
 })
 ```

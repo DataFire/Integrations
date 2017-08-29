@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_games
 
 ```js
 let datafire = require('datafire');
-let google_games = require('@datafire/google_games').actions;
-
-let account = {
+let google_games = require('@datafire/google_games').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_games: account,
-  }
-})
+});
 
-google_games.turnBasedMatches.sync({}, context).then(data => {
+google_games.turnBasedMatches.sync({}).then(data => {
   console.log(data);
 })
 ```

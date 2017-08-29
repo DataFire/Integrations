@@ -9,19 +9,12 @@ npm install --save datafire @datafire/wavecell
 
 ```js
 let datafire = require('datafire');
-let wavecell = require('@datafire/wavecell').actions;
-
-let account = {
+let wavecell = require('@datafire/wavecell').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    wavecell: account,
-  }
-})
+});
 
-wavecell.SmsV1StatusGet({}, context).then(data => {
+wavecell.SmsV1StatusGet({}).then(data => {
   console.log(data);
 })
 ```

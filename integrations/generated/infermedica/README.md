@@ -9,10 +9,9 @@ npm install --save datafire @datafire/infermedica
 
 ```js
 let datafire = require('datafire');
-let infermedica = require('@datafire/infermedica').actions;
-let context = new datafire.Context();
+let infermedica = require('@datafire/infermedica').create();
 
-infermedica.getAllConditions({}, context).then(data => {
+infermedica.getAllConditions({}).then(data => {
   console.log(data);
 })
 ```

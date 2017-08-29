@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_insights
 
 ```js
 let datafire = require('datafire');
-let azure_arm_insights = require('@datafire/azure_arm_insights').actions;
-let context = new datafire.Context();
+let azure_arm_insights = require('@datafire/azure_arm_insights').create();
 
-azure_arm_insights.LogProfiles_List({}, context).then(data => {
+azure_arm_insights.LogProfiles_List({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_compute_disk
 
 ```js
 let datafire = require('datafire');
-let azure_arm_compute_disk = require('@datafire/azure_arm_compute_disk').actions;
-let context = new datafire.Context();
+let azure_arm_compute_disk = require('@datafire/azure_arm_compute_disk').create();
 
-azure_arm_compute_disk.Disks_List({}, context).then(data => {
+azure_arm_compute_disk.Disks_List({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_sqladmin
 
 ```js
 let datafire = require('datafire');
-let google_sqladmin = require('@datafire/google_sqladmin').actions;
-
-let account = {
+let google_sqladmin = require('@datafire/google_sqladmin').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_sqladmin: account,
-  }
-})
+});
 
-google_sqladmin.flags.list({}, context).then(data => {
+google_sqladmin.flags.list({}).then(data => {
   console.log(data);
 })
 ```

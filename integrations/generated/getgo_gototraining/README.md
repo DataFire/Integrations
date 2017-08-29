@@ -9,10 +9,9 @@ npm install --save datafire @datafire/getgo_gototraining
 
 ```js
 let datafire = require('datafire');
-let getgo_gototraining = require('@datafire/getgo_gototraining').actions;
-let context = new datafire.Context();
+let getgo_gototraining = require('@datafire/getgo_gototraining').create();
 
-getgo_gototraining.getAllOrganisers({}, context).then(data => {
+getgo_gototraining.getAllOrganisers({}).then(data => {
   console.log(data);
 })
 ```

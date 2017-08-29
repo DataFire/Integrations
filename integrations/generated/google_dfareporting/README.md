@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_dfareporting
 
 ```js
 let datafire = require('datafire');
-let google_dfareporting = require('@datafire/google_dfareporting').actions;
-
-let account = {
+let google_dfareporting = require('@datafire/google_dfareporting').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_dfareporting: account,
-  }
-})
+});
 
-google_dfareporting.userProfiles.list({}, context).then(data => {
+google_dfareporting.userProfiles.list({}).then(data => {
   console.log(data);
 })
 ```

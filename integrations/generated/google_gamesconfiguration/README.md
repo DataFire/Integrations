@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_gamesconfiguration
 
 ```js
 let datafire = require('datafire');
-let google_gamesconfiguration = require('@datafire/google_gamesconfiguration').actions;
-
-let account = {
+let google_gamesconfiguration = require('@datafire/google_gamesconfiguration').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_gamesconfiguration: account,
-  }
-})
+});
 
-google_gamesconfiguration.achievementConfigurations.delete({}, context).then(data => {
+google_gamesconfiguration.achievementConfigurations.delete({}).then(data => {
   console.log(data);
 })
 ```

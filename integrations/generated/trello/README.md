@@ -9,19 +9,12 @@ npm install --save datafire @datafire/trello
 
 ```js
 let datafire = require('datafire');
-let trello = require('@datafire/trello').actions;
-
-let account = {
+let trello = require('@datafire/trello').create({
   api_key: "",
   api_token: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    trello: account,
-  }
-})
+});
 
-trello.deleteActionsByIdAction({}, context).then(data => {
+trello.deleteActionsByIdAction({}).then(data => {
   console.log(data);
 })
 ```

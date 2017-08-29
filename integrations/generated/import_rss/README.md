@@ -9,18 +9,11 @@ npm install --save datafire @datafire/import_rss
 
 ```js
 let datafire = require('datafire');
-let import_rss = require('@datafire/import_rss').actions;
-
-let account = {
+let import_rss = require('@datafire/import_rss').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    import_rss: account,
-  }
-})
+});
 
-import_rss.extractor.extractorId.runs.get({}, context).then(data => {
+import_rss.extractor.extractorId.runs.get({}).then(data => {
   console.log(data);
 })
 ```

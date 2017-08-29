@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_tracing
 
 ```js
 let datafire = require('datafire');
-let google_tracing = require('@datafire/google_tracing').actions;
-
-let account = {
+let google_tracing = require('@datafire/google_tracing').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_tracing: account,
-  }
-})
+});
 
-google_tracing.projects.traces.spans.create({}, context).then(data => {
+google_tracing.projects.traces.spans.create({}).then(data => {
   console.log(data);
 })
 ```

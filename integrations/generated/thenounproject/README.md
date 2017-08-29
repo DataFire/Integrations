@@ -9,10 +9,9 @@ npm install --save datafire @datafire/thenounproject
 
 ```js
 let datafire = require('datafire');
-let thenounproject = require('@datafire/thenounproject').actions;
-let context = new datafire.Context();
+let thenounproject = require('@datafire/thenounproject').create();
 
-thenounproject.getRecentIcons({}, context).then(data => {
+thenounproject.getRecentIcons({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/peel_ci
 
 ```js
 let datafire = require('datafire');
-let peel_ci = require('@datafire/peel_ci').actions;
-let context = new datafire.Context();
+let peel_ci = require('@datafire/peel_ci').create();
 
-peel_ci.getTuneinLinks({}, context).then(data => {
+peel_ci.getTuneinLinks({}).then(data => {
   console.log(data);
 })
 ```

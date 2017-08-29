@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_deploymentmanager
 
 ```js
 let datafire = require('datafire');
-let google_deploymentmanager = require('@datafire/google_deploymentmanager').actions;
-
-let account = {
+let google_deploymentmanager = require('@datafire/google_deploymentmanager').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_deploymentmanager: account,
-  }
-})
+});
 
-google_deploymentmanager.deployments.list({}, context).then(data => {
+google_deploymentmanager.deployments.list({}).then(data => {
   console.log(data);
 })
 ```

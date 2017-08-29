@@ -1,6 +1,6 @@
 # @datafire/mailchimp
 
-Client library for MailChimp
+Client library for MailChimp Marketing API
 
 ## Installation and Usage
 ```bash
@@ -9,2111 +9,4199 @@ npm install --save datafire @datafire/mailchimp
 
 ```js
 let datafire = require('datafire');
-let mailchimp = require('@datafire/mailchimp').actions;
-
-let account = {
+let mailchimp = require('@datafire/mailchimp').create({
   apiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    mailchimp: account,
-  }
-})
+});
 
-mailchimp._method_templates.get({}, context).then(data => {
+mailchimp.getPing({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-Create plugins that connect MailChimp to your CMS, your blog, your e-commerce shopping cart, and more.
+
 
 ## Actions
-### _method_templates.get
-Retrieve various templates available in the system, allowing some thing similar to our template gallery to be created.
+### getRoot
+Get links to all other resources available in the API.
 
 
 ```js
-mailchimp._method_templates.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getRoot({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getAuthorizedApps
+Get a list of an account's registered, connected applications.
+
+
+```js
+mailchimp.getAuthorizedApps({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postAuthorizedApps
+Retrieve OAuth2-based credentials to associate API calls with your application.
+
+
+```js
+mailchimp.postAuthorizedApps({
+  "Client Details": {
+    "client_id": "",
+    "client_secret": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* types (string) - The types of templates to return. See options: "http://apidocs.mailchimp.com/api/1.3/templates.func.php"
-* category (string) - For Gallery templates only, limit to a specific template category.
-* inactives (string) - Options to control how inactive templates are returned, if at all. See options: "http://apidocs.mailchimp.com/api/1.3/templates.func.php"
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* Client Details (object) **required**
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_templateUpdate.get
-Replace the content of a user template, NOT campaign content.
+### getAuthorizedAppsId
+Get information about a specific authorized application.
 
 
 ```js
-mailchimp._method_templateUpdate.get({
-  "id": "",
-  "values": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAuthorizedAppsId({
+  "app_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The id of the user template to update.
-* values (string) **required** - The values to updates. See options: "http://apidocs.mailchimp.com/api/1.3/templateupdate.func.php"
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* app_id (string) **required** - The unique id for the connected authorized application.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_templateUndel.get
-Undelete (reactivate) a user template.
+### getAutomations
+Get a summary of an account's Automations.
 
 
 ```js
-mailchimp._method_templateUndel.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomations({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* before_create_time (string) - Restrict the response to automations created before the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_create_time (string) - Restrict the response to automations created after the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* before_send_time (string) - Restrict the response to automations sent before the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_send_time (string) - Restrict the response to automations sent after the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* status (string) - Restrict the results to automations with the specified status.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getAutomationsId
+Get a summary of an individual Automation workflow's settings and content. The `trigger_settings` object returns information for the first email in the workflow.
+
+
+```js
+mailchimp.getAutomationsId({
+  "workflow_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The id of the user template to reactivate.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_templateInfo.get
-Pull details for a specific template to help support editing.
+### postAutomationsIdActionsPauseAllEmails
+Pause all emails in a specific Automation workflow.
 
 
 ```js
-mailchimp._method_templateInfo.get({
-  "tid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postAutomationsIdActionsPauseAllEmails({
+  "workflow_id": ""
 }, context)
 ```
 
 #### Parameters
-* tid (string) **required** - The template id.
-* type (string) - the template type to load.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_templateDel.get
-Delete (deactivate) a user template.
+### postAutomationsIdActionsStartAllEmails
+Start all emails in an Automation workflow.
 
 
 ```js
-mailchimp._method_templateDel.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postAutomationsIdActionsStartAllEmails({
+  "workflow_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The id of the user template to delete.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_templateAdd.get
-Create a new user template, NOT campaign content. These templates can then be applied while creating campaigns.
+### getAutomationsIdEmails
+Get a summary of the emails in an Automation workflow.
 
 
 ```js
-mailchimp._method_templateAdd.get({
-  "name": "",
-  "html": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomationsIdEmails({
+  "workflow_id": ""
 }, context)
 ```
 
 #### Parameters
-* name (string) **required** - The name for the template - names must be unique and a max of 50 bytes.
-* html (string) **required** - A string specifying the entire template to be created. This is NOT campaign content.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_apikeys.get
-Retrieve a list of all MailChimp API Keys for this User.
+### getAutomationsIdEmailsId
+Get information about an individual Automation workflow email.
 
 
 ```js
-mailchimp._method_apikeys.get({
-  "username": "",
-  "password": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomationsIdEmailsId({
+  "workflow_id": "",
+  "workflow_email_id": ""
 }, context)
 ```
 
 #### Parameters
-* username (string) **required** - Your MailChimp user name.
-* password (string) **required** - Your MailChimp password.
-* expired (boolean) - Whether or not to include expired keys.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_apikeyExpire.get
-Expire a Specific API Key.
+### deleteAutomationsIdEmailsId
+Removes an individual Automation workflow email. Emails from certain workflow types, including the Abandoned Cart Email (abandonedCart) and Product Retargeting Email (abandonedBrowse) Workflows, cannot be deleted.
 
 
 ```js
-mailchimp._method_apikeyExpire.get({
-  "username": "",
-  "password": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteAutomationsIdEmailsId({
+  "workflow_id": "",
+  "workflow_email_id": ""
 }, context)
 ```
 
 #### Parameters
-* username (string) **required** - Your MailChimp user name.
-* password (string) **required** - Your MailChimp password.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_apikeyAdd.get
-Add an API Key to your account. We will generate a new key for you and return it.
+### getAutomationsIdEmailsIdQueue
+Get information about an Automation email queue.
 
 
 ```js
-mailchimp._method_apikeyAdd.get({
-  "username": "",
-  "password": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomationsIdEmailsIdQueue({
+  "workflow_id": "",
+  "workflow_email_id": ""
 }, context)
 ```
 
 #### Parameters
-* username (string) **required** - Your MailChimp user name.
-* password (string) **required** - Your MailChimp password.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_lists.get
-Retrieve all of the lists defined for your user account.
+### postAutomationsIdEmailsIdQueue
+Manually add a subscriber to a workflow, bypassing the default trigger settings. You can also use this endpoint to trigger a series of automated emails in an [API 3.0 workflow type](http://kb.mailchimp.com/automation/about-automation-workflow-types?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Using-the-API) or add subscribers to an automated email queue that uses the [API request delay type](http://kb.mailchimp.com/automation/about-automation-workflow-types?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Using-the-API).
 
 
 ```js
-mailchimp._method_lists.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postAutomationsIdEmailsIdQueue({
+  "workflow_id": "",
+  "workflow_email_id": "",
+  "body": {
+    "email_address": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* filters (string) - A hash of filters to apply to this query. See options: "http://apidocs.mailchimp.com/api/1.3/lists.func.php"
-* start (integer) - Control paging of lists, start results at this list #, defaults to 1st page of data (page 0).
-* limit (integer) - Control paging of lists, number of lists to return with each call, defaults to 25 (max=100).
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* body (object) **required** - Information about subscribers in an Automation email queue.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listWebhooks.get
-Return the Webhooks configured for the given list.
+### getAutomationsIdEmailsIdQueueId
+Get information about a specific subscriber in an Automation email queue.
 
 
 ```js
-mailchimp._method_listWebhooks.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomationsIdEmailsIdQueueId({
+  "workflow_id": "",
+  "workflow_email_id": "",
+  "subscriber_hash": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listWebhookDel.get
-Delete an existing Webhook URL from a given list.
+### postAutomationsIdEmailsIdActionsPause
+Pause an automated email.
 
 
 ```js
-mailchimp._method_listWebhookDel.get({
-  "id": "",
-  "url": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postAutomationsIdEmailsIdActionsPause({
+  "workflow_id": "",
+  "workflow_email_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* url (string) **required** - The URL of a Webhook on this list.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listWebhookAdd.get
-Add a new Webhook URL for the given list.
+### postAutomationsIdEmailsIdActionsStart
+Start an automated email.
 
 
 ```js
-mailchimp._method_listWebhookAdd.get({
-  "id": "",
-  "url": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postAutomationsIdEmailsIdActionsStart({
+  "workflow_id": "",
+  "workflow_email_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* url (string) **required** - A valid URL for the Webhook - it will be validated. note that a url may only exist on a list once.
-* actions (string) - A hash of actions to fire this Webhook. See options: "http://apidocs.mailchimp.com/api/1.3/listwebhookadd.func.php"
-* sources (string) - A hash of sources to fire this Webhook. See options: "http://apidocs.mailchimp.com/api/1.3/listwebhookadd.func.php"
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* workflow_email_id (string) **required** - The unique id for the Automation workflow email.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listUpdateMember.get
-Edit the email address, merge fields, and interest groups for a list member.
+### getAutomationsIdRemovedSubscribers
+Get information about subscribers who were [removed from an Automation workflow](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_listUpdateMember.get({
-  "id": "",
-  "email_address": "",
-  "merge_vars": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomationsIdRemovedSubscribers({
+  "workflow_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - The current email address of the member to update OR the "id" for the member returned from listMemberInfo, Webhooks, and Campaigns.
-* merge_vars (string) **required** - Array of new field values to update the member with. See options: "http://apidocs.mailchimp.com/api/1.3/listsubscribe.func.php"
-* email_type (string) - Change the email type preference for the member. Leave blank to keep the existing preference (optional).
-* replace_interests (boolean) - Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member's interest groups.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listUnsubscribe.get
-Unsubscribe the given email address from the list.
+### postAutomationsIdRemovedSubscribers
+[Remove a subscriber](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) from a specific Automation workflow. You can remove a subscriber at any point in an Automation workflow, regardless of how many emails they've been sent from that workflow. Once they're removed, they can never be added back to the same workflow.
 
 
 ```js
-mailchimp._method_listUnsubscribe.get({
-  "id": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postAutomationsIdRemovedSubscribers({
+  "workflow_id": "",
+  "body": {
+    "email_address": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - The email address to unsubscribe OR the email "id" returned from listMemberInfo, Webhooks, and Campaigns.
-* delete_member (boolean) - Flag to completely delete the member from your list instead of just unsubscribing.
-* send_goodbye (boolean) - Flag to send the goodbye email to the email address.
-* send_notify (boolean) - Flag to send the unsubscribe notification email to the address defined in the list email notification settings.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* body (object) **required** - Information about subscribers in an Automation email queue.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listSubscribe.get
-Subscribe the provided email to a list. By default this sends a confirmation email.
+### getAutomationsIdRemovedSubscribersId
+Get information about a specific subscriber who was [removed from an Automation workflow](http://kb.mailchimp.com/automation/add-or-remove-subscribers-from-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_listSubscribe.get({
-  "id": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getAutomationsIdRemovedSubscribersId({
+  "workflow_id": "",
+  "subscriber_hash": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - The email address to subscribe.
-* merge_vars (string) - Merges for the email (FNAME, LNAME, etc.). See options: "http://apidocs.mailchimp.com/api/1.3/listsubscribe.func.php"
-* email_type (string) - Email type preference for the email.
-* double_optin (boolean) - Flag to control whether a double opt-in confirmation message is sent, defaults to true. Abusing this may cause your account to be suspended.
-* update_existing (boolean) - Flag to control whether existing subscribers should be updated instead of throwing an error.
-* replace_interests (boolean) - Flag to determine whether we replace the interest groups with the groups provided or we add the provided groups to the member's interest groups.
-* send_welcome (boolean) - If your double_optin is false and this is true, we will send your lists Welcome Email if this subscribe succeeds - this will *not* fire if we end up updating an existing subscriber. If double_optin is true, this has no effect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* workflow_id (string) **required** - The unique id for the Automation workflow.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listStaticSegments.get
-Retrieve all of the Static Segments for a list.
+### getBatches
+Get a summary of batch requests that have been made.
 
 
 ```js
-mailchimp._method_listStaticSegments.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getBatches({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postBatches
+Begin processing a batch operations request.
+
+
+```js
+mailchimp.postBatches({
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required**
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listStaticSegmentReset.get
-Resets a static segment - removes all members from the static segment. Note: does not actually affect list member data.
+### getBatchesId
+Get the status of a batch request.
 
 
 ```js
-mailchimp._method_listStaticSegmentReset.get({
-  "id": "",
-  "seg_id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getBatchesId({
+  "batch_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* seg_id (string) **required** - The id of the static segment to reset.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* batch_id (string) **required** - The unique id for the batch operation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listStaticSegmentMembersDel.get
-Remove list members from a static segment.
+### deleteBatchesId
+Stops a batch request from running. Since only one batch request is run at a time, this can be used to cancel a long running request. The results of any completed operations will not be available after this call.
 
 
 ```js
-mailchimp._method_listStaticSegmentMembersDel.get({
-  "id": "",
-  "seg_id": "",
-  "batch": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteBatchesId({
+  "batch_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* seg_id (string) **required** - The id of the static segment to delete.
-* batch (string) **required** - An array of email addresses and/or unique_ids to remove from the segment.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* batch_id (string) **required** - The unique id for the batch operation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listStaticSegmentMembersAdd.get
-Add list members to a static segment. It is suggested that you limit batch size to no more than 10,000 addresses per call.
+### getBatchWebhooks
+Get all webhooks that have been configured for batches.
 
 
 ```js
-mailchimp._method_listStaticSegmentMembersAdd.get({
-  "id": "",
-  "seg_id": "",
-  "batch": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getBatchWebhooks({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postBatchWebhooks
+Configure a webhook that will fire whenever any batch request completes processing.
+
+
+```js
+mailchimp.postBatchWebhooks({
+  "body": {
+    "url": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* seg_id (string) **required** - The id of the static segment to modify.
-* batch (string) **required** - An array of email addresses and/or unique_ids to add to the segment.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required** - Add a new Batch Webook.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listStaticSegmentDel.get
-Delete a static segment. Note that this will, of course, remove any member affiliations with the segment.
+### getBatchWebhook
+Get information about a specific batch webhook.
 
 
 ```js
-mailchimp._method_listStaticSegmentDel.get({
-  "id": "",
-  "seg_id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getBatchWebhook({
+  "batch_webhook_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* seg_id (string) **required** - The id of the static segment to delete.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* batch_webhook_id (string) **required** - The unique id for the batch webhook.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listStaticSegmentAdd.get
-Save a segment against a list for later use. There is no limit to the number of segments which can be saved.
+### patchBatchWebhooks
+Update a webhook that will fire whenever any batch request completes processing.
 
 
 ```js
-mailchimp._method_listStaticSegmentAdd.get({
-  "id": "",
-  "name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchBatchWebhooks({
+  "batch_webhook_id": "",
+  "body": {
+    "url": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* name (string) **required** - A unique name per list for the segment - 50 byte maximum length, anything longer will throw an error.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* batch_webhook_id (string) **required** - The unique id for the batch webhook.
+* body (object) **required** - Update an existing Batch Webook.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMergeVars.get
-Get the list of merge tags for a given list, including their name, tag, and required setting.
+### deleteBatchWebhookId
+Remove a batch webhook. Webhooks will no longer be sent to the given URL.
 
 
 ```js
-mailchimp._method_listMergeVars.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteBatchWebhookId({
+  "batch_webhook_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* batch_webhook_id (string) **required** - The unique id for the batch webhook.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMergeVarUpdate.get
-Update most parameters for a merge tag on a given list. You cannot currently change the merge type.
+### getTemplateFolders
+Get all folders used to organize templates.
 
 
 ```js
-mailchimp._method_listMergeVarUpdate.get({
-  "id": "",
-  "tag": "",
-  "options": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getTemplateFolders({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postTemplateFolders
+Create a new template folder.
+
+
+```js
+mailchimp.postTemplateFolders({
+  "body": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* tag (string) **required** - The merge tag to update.
-* options (string) **required** - The options to change for a merge var. See options: http://apidocs.mailchimp.com/api/1.3/listmergevaradd.func.php
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required** - A folder used to organize templates.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMergeVarDel.get
-Delete a merge tag from a given list and all its members.
+### getTemplateFoldersId
+Get information about a specific folder used to organize templates.
 
 
 ```js
-mailchimp._method_listMergeVarDel.get({
-  "id": "",
-  "tag": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getTemplateFoldersId({
+  "folder_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* tag (string) **required** - The merge tag to delete.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* folder_id (string) **required** - The unique id for the template folder.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMergeVarAdd.get
-Add a new merge tag to a given list.
+### patchTemplateFoldersId
+Update a specific folder used to organize templates.
 
 
 ```js
-mailchimp._method_listMergeVarAdd.get({
-  "id": "",
-  "tag": "",
-  "name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchTemplateFoldersId({
+  "folder_id": "",
+  "body": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* tag (string) **required** - The merge tag to add, e.g. FNAME. 10 bytes max, valid characters: "A-Z 0-9 _" no spaces, dashes, etc.
-* name (string) **required** - The long description of the tag being added, used for user displays.
-* options (string) - Various options for this merge var. See options: http://apidocs.mailchimp.com/api/1.3/listmergevaradd.func.php
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* folder_id (string) **required** - The unique id for the template folder.
+* body (object) **required** - A folder used to organize templates.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMembers.get
-Get all of the list members for a list that are of a particular status.
+### deleteTemplateFoldersId
+Delete a specific template folder, and mark all the templates in the folder as 'unfiled'.
 
 
 ```js
-mailchimp._method_listMembers.get({
-  "id": "",
-  "status": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteTemplateFoldersId({
+  "folder_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* status (string) **required** - The status to get members.
-* since (string) - Pull all members whose status (subscribed/unsubscribed/cleaned) has changed or whose profile (updated) has changed since this date/time (in GMT) - format is YYYY-MM-DD HH:mm:ss (24hr).
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 100, upper limit set at 15000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* folder_id (string) **required** - The unique id for the template folder.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMemberInfo.get
-Get all the information for particular members of a list.
+### getCampaignFolders
+Get all folders used to organize campaigns.
 
 
 ```js
-mailchimp._method_listMemberInfo.get({
-  "id": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaignFolders({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postCampaignFolders
+Create a new campaign folder.
+
+
+```js
+mailchimp.postCampaignFolders({
+  "body": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - An array of up to 50 email addresses to get information for OR the "id"(s) for the member returned from listMembers, Webhooks, and Campaigns. For backwards compatibility, if a string is passed, it will be treated as an array with a single element (will not work with XML-RPC).
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required** - A folder used to organize campaigns.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listMemberActivity.get
-Get the most recent 100 activities for particular list members (open, click, bounce, unsub, abuse, sent to).
+### getCampaignFoldersId
+Get information about a specific folder used to organize campaigns.
 
 
 ```js
-mailchimp._method_listMemberActivity.get({
-  "id": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaignFoldersId({
+  "folder_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - An array of up to 50 email addresses to get information for OR the "id"(s) for the member returned from listMembers, Webhooks, and Campaigns.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* folder_id (string) **required** - The unique id for the campaign folder.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listLocations.get
-Retrieve the locations (countries) that the list's subscribers have been tagged to based on geocoding their IP address.
+### patchCampaignFoldersId
+Update a specific folder used to organize campaigns.
 
 
 ```js
-mailchimp._method_listLocations.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchCampaignFoldersId({
+  "folder_id": "",
+  "body": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* folder_id (string) **required** - The unique id for the campaign folder.
+* body (object) **required** - A folder used to organize campaigns.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupings.get
-Get the list of interest groupings for a given list, including the label, form information, and included groups for each.
+### deleteCampaignFoldersId
+Delete a specific campaign folder, and mark all the campaigns in the folder as 'unfiled'.
 
 
 ```js
-mailchimp._method_listInterestGroupings.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteCampaignFoldersId({
+  "folder_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* folder_id (string) **required** - The unique id for the campaign folder.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupingUpdate.get
-Update an existing Interest Grouping.
+### getCampaigns
+Get all campaigns in an account.
 
 
 ```js
-mailchimp._method_listInterestGroupingUpdate.get({
-  "grouping_id": "",
-  "name": "",
-  "value": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaigns({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* type (string) - The campaign type.
+* status (string) - The status of the campaign.
+* before_send_time (string) - Restrict the response to campaigns sent before the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_send_time (string) - Restrict the response to campaigns sent after the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* before_create_time (string) - Restrict the response to campaigns created before the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_create_time (string) - Restrict the response to campaigns created after the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* list_id (string) - The unique id for the list.
+* folder_id (string) - The unique folder id.
+* sort_field (string) - Returns files sorted by the specified field.
+* sort_dir (string) - Determines the order direction for sorted results.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postCampaigns
+Create a new MailChimp campaign.
+
+
+```js
+mailchimp.postCampaigns({
+  "body": {
+    "type": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* grouping_id (string) **required** - The interest grouping id.
-* name (string) **required** - The name of the field to update - either "name" or "type". Groups with in the grouping should be manipulated using the standard listInterestGroup methods.
-* value (string) **required** - The new value of the field. Grouping names must be unique - only "hidden" and "checkboxes" grouping types can be converted between each other.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required** - A summary of an individual campaign's settings and content.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupingDel.get
-Delete an existing Interest Grouping - this will permanently delete all contained interest groups and will remove those selections from all list members.
+### getCampaignsId
+Get information about a specific campaign.
 
 
 ```js
-mailchimp._method_listInterestGroupingDel.get({
-  "grouping_id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaignsId({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* grouping_id (string) **required** - The interest grouping id.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupingAdd.get
-Add a new Interest Grouping - if interest groups for the List are not yet enabled, adding the first grouping will automatically turn them on.
+### patchCampaignsId
+Update some or all of the settings for a specific campaign.
 
 
 ```js
-mailchimp._method_listInterestGroupingAdd.get({
-  "id": "",
-  "name": "",
-  "type": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchCampaignsId({
+  "campaign_id": "",
+  "body": {
+    "settings": {
+      "subject_line": "",
+      "from_name": "",
+      "reply_to": ""
+    }
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* name (string) **required** - The interest grouping to add - grouping names must be unique.
-* type (string) **required** - The type of the grouping to add.
-* groups (integer) - The lists of initial group names to be added - at least 1 is required and the names must be unique within a grouping. If the number takes you over the 60 group limit, an error will be thrown.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* body (object) **required** - A summary of an individual campaign's settings and content.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupUpdate.get
-Change the name of an Interest Group.
+### deleteCampaignsId
+Remove a campaign from your MailChimp account.
 
 
 ```js
-mailchimp._method_listInterestGroupUpdate.get({
-  "id": "",
-  "old_name": "",
-  "new_name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteCampaignsId({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* old_name (string) **required** - The interest group name to be changed.
-* new_name (string) **required** - The new interest group name to be set.
-* optional (integer) - The grouping to delete the group from. If not supplied, the first grouping on the list is used.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupDel.get
-Delete a single Interest Group - if the last group for a list is deleted, this will also turn groups for the list off.
+### postCampaignsIdActionsCancelSend
+Cancel a Regular or Plain-Text Campaign after you send, before all of your recipients receive it. This feature is included with [MailChimp Pro](http://mailchimp.com/pro?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_listInterestGroupDel.get({
-  "id": "",
-  "group_name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsCancelSend({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* group_name (string) **required** - The interest group to delete.
-* grouping_id (integer) - The grouping to delete the group from - get using listInterestGrouping() . If not supplied, the first grouping on the list is used.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listInterestGroupAdd.get
-Add a single Interest Group - if interest groups for the List are not yet enabled, adding the first group will automatically turn them on.
+### postCampaignsIdActionsReplicate
+[Replicate a campaign](http://kb.mailchimp.com/campaigns/ways-to-build/replicate-a-campaign-or-automation-workflow?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) in saved or send status.
 
 
 ```js
-mailchimp._method_listInterestGroupAdd.get({
-  "id": "",
-  "group_name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsReplicate({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* group_name (string) **required** - The interest group to add - group names must be unique within a grouping.
-* grouping_id (integer) - The grouping to add the new group to - get using listInterestGrouping(). If not supplied, the first grouping on the list is used.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listGrowthHistory.get
-Access the Growth History by Month for a given list.
+### postCampaignsIdActionsSend
+Send a MailChimp campaign. For [RSS Campaigns](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs), the campaign will send according to its schedule. All other campaigns will send immediately.
 
 
 ```js
-mailchimp._method_listGrowthHistory.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsSend({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listClients.get
-Retrieve the clients that the list's subscribers have been tagged as being used based on user agents seen.
+### postCampaignsIdActionsSchedule
+[Schedule a campaign](http://kb.mailchimp.com/campaigns/confirmation-and-sending/schedule-pause-or-send-a-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) for delivery. If you're using [Multivariate Campaigns](http://kb.mailchimp.com/campaigns/multivariate/about-multivariate-campaigns?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) to test send times or sending [RSS Campaigns](http://kb.mailchimp.com/campaigns/rss-in-campaigns/create-an-rss-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs), use the [send](http://developer.mailchimp.com/documentation/mailchimp/reference/campaigns/#action-post_campaigns_campaign_id_actions_send) action instead.
 
 
 ```js
-mailchimp._method_listClients.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsSchedule({
+  "campaign_id": "",
+  "body": {
+    "schedule_time": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* body (object) **required**
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listBatchUnsubscribe.get
-Unsubscribe a batch of email addresses to a list.
+### postCampaignsIdActionsUnschedule
+[Unschedule](http://kb.mailchimp.com/campaigns/confirmation-and-sending/schedule-pause-or-send-a-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#Pause-a-Scheduled-Campaign) a scheduled campaign that hasn't started sending.
 
 
 ```js
-mailchimp._method_listBatchUnsubscribe.get({
-  "id": "",
-  "emails": "",
-  "delete_member": true,
-  "send_goodbye": true,
-  "send_notify": true,
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsUnschedule({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* emails (string) **required** - Array of email addresses to unsubscribe.
-* delete_member (boolean) **required** - Flag to completely delete the member from your list instead of just unsubscribing.
-* send_goodbye (boolean) **required** - Flag to send the goodbye email to the email addresses.
-* send_notify (boolean) **required** - Flag to send the unsubscribe notification email to the address defined in the list email notification settings.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listBatchSubscribe.get
-Subscribe a batch of email addresses to a list at once.
+### postCampaignsIdActionsTest
+Send a [test email](http://kb.mailchimp.com/campaigns/previews-and-tests/preview-and-test-your-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_listBatchSubscribe.get({
-  "id": "",
-  "batch": "",
-  "double_optin": true,
-  "update_existing": true,
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsTest({
+  "campaign_id": "",
+  "body": {
+    "test_emails": [],
+    "send_type": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* batch (string) **required** - An array of structs for each address to import with two special keys: "EMAIL" for the email address, and "EMAIL_TYPE" for the email type option (html, text, or mobile).
-* double_optin (boolean) **required** - Flag to control whether to send an opt-in confirmation email.
-* update_existing (boolean) **required** - Flag to control whether to update members that are already subscribed to the list or to return an error.
-* replace_interests (boolean) - Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member's interest groups.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* body (object) **required**
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listActivity.get
-Access up to the previous 180 days of daily detailed aggregated activity stats for a given list.
+### postCampaignsIdActionsPause
+[Pause an RSS-Driven campaign](http://kb.mailchimp.com/campaigns/rss-in-campaigns/pause-or-reactivate-an-rss-driven-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_listActivity.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsPause({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listAbuseReports.get
-Get all email addresses that complained about a given campaign.
+### postCampaignsIdActionsResume
+[Resume an RSS-Driven campaign](http://kb.mailchimp.com/campaigns/rss-in-campaigns/pause-or-reactivate-an-rss-driven-campaign?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_listAbuseReports.get({
-  "id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdActionsResume({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to pull abuse reports.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 500, upper limit set at 1000.
-* since (string) - Pull only messages since this time - use YYYY-MM-DD HH:II:SS format in GMT.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_ping.get
-A simple method you can call that will return a constant value as long as everything is good.
+### getCampaignsIdContent
+Get the the HTML and plain-text content for a campaign.
 
 
 ```js
-mailchimp._method_ping.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaignsIdContent({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_listsForEmail.get
-Retrieve all List Ids a member is subscribed to.
+### putCampaignsIdContent
+Set the content for a campaign.
 
 
 ```js
-mailchimp._method_listsForEmail.get({
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.putCampaignsIdContent({
+  "campaign_id": "",
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* email_address (string) **required** - The email address to check OR the email "id" returned from listMemberInfo, Webhooks, and Campaigns.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* body (object) **required** - The HTML and plain-text content for a campaign
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_inlineCss.get
-Send your HTML content to have the CSS inlined and optionally remove the original styles.
+### getCampaignsIdFeedback
+Get team feedback while you're [working together on a MailChimp campaign](http://kb.mailchimp.com/campaigns/design/collaborate-on-campaigns?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
 
 
 ```js
-mailchimp._method_inlineCss.get({
-  "html": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaignsIdFeedback({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* html (string) **required** - Your HTML content.
-* strip_css (boolean) - Whether you want the CSS style tags stripped from the returned document.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_getAccountDetails.get
-Retrieve lots of account information including payments made, plan info, some account stats, installed modules, contact info, and more.
+### postCampaignsIdFeedback
+Add feedback on a specific campaign.
 
 
 ```js
-mailchimp._method_getAccountDetails.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postCampaignsIdFeedback({
+  "campaign_id": "",
+  "body": {
+    "message": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* body (object) **required** - A specific feedback message from a specific campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_generateText.get
-Have HTML content auto-converted to a text-only format. You can send: plain HTML, an array of Template content, an existing Campaign Id, or an existing Template Id. Note that this will not save anything to or update any of your lists, campaigns, or templates.
+### getCampaignsIdFeedbackId
+Get a specific feedback message from a campaign.
 
 
 ```js
-mailchimp._method_generateText.get({
-  "type": "",
-  "content": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getCampaignsIdFeedbackId({
+  "campaign_id": "",
+  "feedback_id": ""
 }, context)
 ```
 
 #### Parameters
-* type (string) **required** - The type of content to parse.
-* content (string) **required** - The content to use. For "html" expects a single string value, "template" expects an array like you send to campaignCreate, "url" expects a valid and public URL to pull from, "cid" expects a valid Campaign Id, and "tid" expects a valid Template Id on your account.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* feedback_id (string) **required** - The unique id for the feedback message.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_chimpChatter.get
-Return the current Chimp Chatter messages for an account.
+### patchCampaignsIdFeedbackId
+Update a specific feedback message for a campaign.
 
 
 ```js
-mailchimp._method_chimpChatter.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchCampaignsIdFeedbackId({
+  "campaign_id": "",
+  "feedback_id": "",
+  "body": {
+    "message": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* campaign_id (string) **required** - The unique id for the campaign.
+* feedback_id (string) **required** - The unique id for the feedback message.
+* body (object) **required** - A specific feedback message from a specific campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignsForEmail.get
-Retrieve all Campaigns Ids a member was sent.
+### deleteCampaignsIdFeedbackId
+Remove a specific feedback message for a campaign.
 
 
 ```js
-mailchimp._method_campaignsForEmail.get({
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteCampaignsIdFeedbackId({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getCampaignsIdSendChecklist
+Review the send checklist for a campaign, and resolve any issues before sending.
+
+
+```js
+mailchimp.getCampaignsIdSendChecklist({
+  "campaign_id": ""
 }, context)
 ```
 
 #### Parameters
-* email_address (string) **required** - The email address to unsubscribe OR the email "id" returned from listMemberInfo, Webhooks, and Campaigns.
-* options (string) - Extra options to modify the returned data. See options: "http://apidocs.mailchimp.com/api/1.3/campaignsforemail.func.php"
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_gmonkeyMembers.get
-Retrieve all Golden Monkey(s) for an account.
+### getConnectedSites
+Get all connected sites in an account.
 
 
 ```js
-mailchimp._method_gmonkeyMembers.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getConnectedSites({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postConnectedSites
+Create a new MailChimp connected site.
+
+
+```js
+mailchimp.postConnectedSites({
+  "body": {
+    "foreign_id": "",
+    "platform": "",
+    "domain": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required** - Information about a specific connected site.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_gmonkeyDel.get
-Remove Golden Monkey(s).
+### getConnectedSitesId
+Get information about a specific connected site.
 
 
 ```js
-mailchimp._method_gmonkeyDel.get({
-  "id": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getConnectedSitesId({
+  "connected_site_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - An array of email addresses (max 50) to attempt to remove Golden Monkey status from.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* connected_site_id (string) **required** - The unique identifier for the site.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_gmonkeyAdd.get
-Add Golden Monkey(s).
+### deleteConnectedSitesId
+Remove a connected site from your MailChimp account.
 
 
 ```js
-mailchimp._method_gmonkeyAdd.get({
-  "id": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteConnectedSitesId({
+  "connected_site_id": ""
 }, context)
 ```
 
 #### Parameters
-* id (string) **required** - The list id to connect.
-* email_address (string) **required** - An array of email addresses (max 50) to attempt to flag as Golden Monkeys.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* connected_site_id (string) **required** - The unique identifier for the site.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_gmonkeyActivity.get
-Retrieve all Activity (opens/clicks) for Golden Monkeys over the past 10 days.
+### postConnectedSitesIdActionsVerifyScriptInstallation
+Verify that the connected sites script has been installed, either via the script URL or fragment.
 
 
 ```js
-mailchimp._method_gmonkeyActivity.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postConnectedSitesIdActionsVerifyScriptInstallation({
+  "connected_site_id": ""
 }, context)
 ```
 
 #### Parameters
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* connected_site_id (string) **required** - The unique identifier for the site.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_folders.get
-List all the folders for a user account.
+### getConversations
+Get a list of conversations for the account.
 
 
 ```js
-mailchimp._method_folders.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getConversations({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* has_unread_messages (string) - Whether the conversation has any unread messages.
+* list_id (string) - The unique id for the list.
+* campaign_id (string) - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getConversationsId
+Get details about an individual conversation.
+
+
+```js
+mailchimp.getConversationsId({
+  "conversation_id": ""
 }, context)
 ```
 
 #### Parameters
-* type (string) - The type of folder to create.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* conversation_id (string) **required** - The unique id for the conversation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_folderUpdate.get
-Update the name of a folder for campaigns or autoresponders.
+### getConversationsIdMessages
+Get messages from a specific conversation.
 
 
 ```js
-mailchimp._method_folderUpdate.get({
-  "fid": 0,
-  "name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getConversationsIdMessages({
+  "conversation_id": ""
 }, context)
 ```
 
 #### Parameters
-* fid (integer) **required** - The folder id to update.
-* name (string) **required** - A new, unique name for a folder (max 100 bytes).
-* type (string) - The type of folder to create.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* conversation_id (string) **required** - The unique id for the conversation.
+* is_read (string) - Whether a conversation message has been marked as read.
+* before_timestamp (string) - Restrict the response to messages created before the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_timestamp (string) - Restrict the response to messages created after the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_folderDel.get
-Delete a campaign or autoresponder folder. Note that this will simply make campaigns in the folder appear unfiled, they are not removed.
+### postConversationsIdMessages
+Post a new message to a conversation.
 
 
 ```js
-mailchimp._method_folderDel.get({
-  "fid": 0,
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postConversationsIdMessages({
+  "conversation_id": "",
+  "body": {
+    "from_email": "",
+    "read": true
+  }
 }, context)
 ```
 
 #### Parameters
-* fid (integer) **required** - The folder id to update.
-* type (string) - The type of folder to create.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* conversation_id (string) **required** - The unique id for the conversation.
+* body (object) **required** - An individual message in a conversation. Conversation tracking is a feature available to paid accounts that lets you view replies to your campaigns in your MailChimp account.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_folderAdd.get
-Add a new folder to file campaigns or autoresponders.
+### getConversationsIdMessagesId
+Get an individual message in a conversation.
 
 
 ```js
-mailchimp._method_folderAdd.get({
-  "name": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getConversationsIdMessagesId({
+  "conversation_id": "",
+  "message_id": ""
 }, context)
 ```
 
 #### Parameters
-* name (string) **required** - A unique name for a folder (max 100 bytes).
-* type (string) - The type of folder to create.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* conversation_id (string) **required** - The unique id for the conversation.
+* message_id (string) **required** - The unique id for the conversation message.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_ecommOrders.get
-Retrieve the Ecommerce Orders for an account.
+### getDashboardAds
+Get all the onboarding ads info for the mobile dashboard
 
 
 ```js
-mailchimp._method_ecommOrders.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getDashboardAds({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* platform (string) - Restrict results to ads compatible with the given platform. Default is ios
+* num (integer) - Restrict results to this number of ads (if we have that many. Default is 3.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getDashboardAudiences
+Get all the audiences info for the mobile dashboard
+
+
+```js
+mailchimp.getDashboardAudiences({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getDashboardCharts
+Get info about which dashboard charts to show for this user
+
+
+```js
+mailchimp.getDashboardCharts({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getDashboardEcommerce
+Get all the ecommerce info for the mobile dashboard
+
+
+```js
+mailchimp.getDashboardEcommerce({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getDashboardEngagement
+Get all the engagement info for the mobile dashboard
+
+
+```js
+mailchimp.getDashboardEngagement({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getFileManager
+Get information about the file-manager endpoint's resources
+
+
+```js
+mailchimp.getFileManager({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getFileManagerFiles
+Get a list of available images and files stored in the File Manager for the account.
+
+
+```js
+mailchimp.getFileManagerFiles({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* type (string) - The file type for the File Manager file.
+* created_by (string) - The MailChimp account user who created the File Manager file.
+* before_created_at (string) - Restrict the response to files created before the set date.
+* since_created_at (string) - Restrict the response to files created after the set date.
+* sort_field (string) - Returns files sorted by the specified field.
+* sort_dir (string) - Determines the order direction for sorted results.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postFileManagerFiles
+ Upload a new image or file to the File Manager.
+
+
+```js
+mailchimp.postFileManagerFiles({
+  "body": {
+    "name": "",
+    "file_data": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 100, upper limit set at 500.
-* since (string) - Pull only messages since this time - use YYYY-MM-DD HH:II:SS format in GMT.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* body (object) **required** - An individual file listed in the File Manager.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_ecommOrderDel.get
-Delete Ecommerce Order Information used for segmentation.
+### getFileManagerFilesId
+Get information about a specific file in the File Manager.
 
 
 ```js
-mailchimp._method_ecommOrderDel.get({
+mailchimp.getFileManagerFilesId({
+  "file_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* file_id (string) **required** - The unique id for the File Manager file.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchFileManagerFilesId
+Update a file in the File Manager.
+
+
+```js
+mailchimp.patchFileManagerFilesId({
+  "file_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* file_id (string) **required** - The unique id for the File Manager file.
+* body (object) **required** - An individual file listed in the File Manager.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteFileManagerFilesId
+Remove a specific file from the File Manager.
+
+
+```js
+mailchimp.deleteFileManagerFilesId({
+  "file_id": ""
+}, context)
+```
+
+#### Parameters
+* file_id (string) **required** - The unique id for the File Manager file.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getFileManagerFolders
+Get a list of all folders in the File Manager.
+
+
+```js
+mailchimp.getFileManagerFolders({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* created_by (string) - The MailChimp account user who created the File Manager file.
+* before_created_at (string) - Restrict the response to files created before the set date.
+* since_created_at (string) - Restrict the response to files created after the set date.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postFileManagerFolders
+Create a new folder in the File Manager.
+
+
+```js
+mailchimp.postFileManagerFolders({
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - An individual folder listed in the File Manager.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getFileManagerFoldersId
+Get information about a specific folder in the File Manager.
+
+
+```js
+mailchimp.getFileManagerFoldersId({
+  "folder_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* folder_id (string) **required** - The unique id for the File Manager folder.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchFileManagerFoldersId
+Update a specific File Manager folder.
+
+
+```js
+mailchimp.patchFileManagerFoldersId({
+  "folder_id": "",
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* folder_id (string) **required** - The unique id for the File Manager folder.
+* body (object) **required** - An individual folder listed in the File Manager.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteFileManagerFoldersId
+Delete a specific folder in the File Manager.
+
+
+```js
+mailchimp.deleteFileManagerFoldersId({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getLists
+Get information about all lists in the account.
+
+
+```js
+mailchimp.getLists({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* before_date_created (string) - Restrict response to lists created before the set date.
+* since_date_created (string) - Restrict results to lists created after the set date.
+* before_campaign_last_sent (string) - Restrict results to lists created before the last campaign send date.
+* since_campaign_last_sent (string) - Restrict results to lists created after the last campaign send date.
+* email (string) - Restrict results to lists that include a specific subscriber's email address.
+* sort_field (string) - Returns files sorted by the specified field.
+* sort_dir (string) - Determines the order direction for sorted results.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postLists
+Create a new list in your MailChimp account.
+
+
+```js
+mailchimp.postLists({
+  "body": {
+    "name": "",
+    "permission_reminder": "",
+    "email_type_option": true,
+    "contact": {
+      "company": "",
+      "address1": "",
+      "city": "",
+      "state": "",
+      "zip": "",
+      "country": ""
+    },
+    "campaign_defaults": {
+      "from_name": "",
+      "from_email": "",
+      "subject": "",
+      "language": ""
+    }
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Information about a specific list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsId
+Get information about a specific list in your MailChimp account. Results include list members who have signed up but haven't confirmed their subscription yet and [unsubscribed or cleaned](http://kb.mailchimp.com/lists/managing-subscribers/view-unsubscribed-and-cleaned-addresses?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+
+
+```js
+mailchimp.getListsId({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsId
+Update the settings for a specific list.
+
+
+```js
+mailchimp.patchListsId({
+  "list_id": "",
+  "body": {
+    "name": "",
+    "permission_reminder": "",
+    "email_type_option": true,
+    "contact": {
+      "company": "",
+      "address1": "",
+      "city": "",
+      "state": "",
+      "zip": "",
+      "country": ""
+    },
+    "campaign_defaults": {
+      "from_name": "",
+      "from_email": "",
+      "subject": "",
+      "language": ""
+    }
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Information about a specific list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsId
+Delete a list from your MailChimp account. If you delete a list, you'll lose the list history—including subscriber activity, unsubscribes, complaints, and bounces. You’ll also lose subscribers’ email addresses, unless you [exported and backed up your list](http://kb.mailchimp.com/lists/managing-subscribers/view-or-export-a-list?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs#View-or-Export-a-List).
+
+
+```js
+mailchimp.deleteListsId({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsId
+Batch subscribe or unsubscribe list members.
+
+
+```js
+mailchimp.postListsId({
+  "list_id": "",
+  "body": {
+    "members": []
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Members to subscribe to or unsubscribe from a list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdAbuseReports
+Get all abuse reports for a specific list.
+
+
+```js
+mailchimp.getListsIdAbuseReports({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdAbuseReportsId
+Get details about a specific abuse report.
+
+
+```js
+mailchimp.getListsIdAbuseReportsId({
+  "list_id": "",
+  "report_id": null
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* list_id (string) **required** - The unique id for the list.
+* report_id (undefined) **required** - The id for the abuse report.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdActivity
+Get up to the previous 180 days of daily detailed aggregated activity stats for a list, not including Automation activity.
+
+
+```js
+mailchimp.getListsIdActivity({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdClients
+Get a list of the top email clients based on user-agent strings.
+
+
+```js
+mailchimp.getListsIdClients({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdGrowthHistory
+Get a month-by-month summary of a specific list's growth activity.
+
+
+```js
+mailchimp.getListsIdGrowthHistory({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdGrowthHistoryId
+Get a summary of a specific list's growth activity for a specific month and year.
+
+
+```js
+mailchimp.getListsIdGrowthHistoryId({
+  "list_id": "",
+  "month": null
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* month (undefined) **required** - A specific month of list growth history.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdInterestCategories
+Get information about a list's interest categories.
+
+
+```js
+mailchimp.getListsIdInterestCategories({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* type (string) - Restrict results a type of interest group
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdInterestCategories
+Create a new interest category.
+
+
+```js
+mailchimp.postListsIdInterestCategories({
+  "list_id": "",
+  "body": {
+    "title": "",
+    "type": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Interest categories organize interests, which are used to group subscribers based on their preferences. These correspond to Group Titles the application.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdInterestCategoriesId
+Get information about a specific interest category.
+
+
+```js
+mailchimp.getListsIdInterestCategoriesId({
+  "list_id": "",
+  "interest_category_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdInterestCategoriesId
+Update a specific interest category.
+
+
+```js
+mailchimp.patchListsIdInterestCategoriesId({
+  "list_id": "",
+  "interest_category_id": "",
+  "body": {
+    "title": "",
+    "type": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* body (object) **required** - Interest categories organize interests, which are used to group subscribers based on their preferences. These correspond to Group Titles the application.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdInterestCategoriesId
+Delete a specific interest category.
+
+
+```js
+mailchimp.deleteListsIdInterestCategoriesId({
+  "list_id": "",
+  "interest_category_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdInterestCategoriesIdInterests
+Get a list of this category's interests.
+
+
+```js
+mailchimp.getListsIdInterestCategoriesIdInterests({
+  "list_id": "",
+  "interest_category_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdInterestCategoriesIdInterests
+Create a new interest or 'group name' for a specific category.
+
+
+```js
+mailchimp.postListsIdInterestCategoriesIdInterests({
+  "list_id": "",
+  "interest_category_id": "",
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* body (object) **required** - Assign subscribers to interests to group them together. Interests are referred to as 'group names' in the MailChimp application.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdInterestCategoriesIdInterestsId
+Get interests or 'group names' for a specific category.
+
+
+```js
+mailchimp.getListsIdInterestCategoriesIdInterestsId({
+  "list_id": "",
+  "interest_category_id": "",
+  "interest_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* interest_id (string) **required** - The specific interest or 'group name'.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdInterestCategoriesIdInterestsId
+Update interests or 'group names' for a specific category.
+
+
+```js
+mailchimp.patchListsIdInterestCategoriesIdInterestsId({
+  "list_id": "",
+  "interest_category_id": "",
+  "interest_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* interest_id (string) **required** - The specific interest or 'group name'.
+* body (object) - Assign subscribers to interests to group them together. Interests are referred to as 'group names' in the MailChimp application.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdInterestCategoriesIdInterestsId
+Delete interests or group names in a specific category.
+
+
+```js
+mailchimp.deleteListsIdInterestCategoriesIdInterestsId({
+  "list_id": "",
+  "interest_category_id": "",
+  "interest_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* interest_category_id (string) **required** - The unique id for the interest category.
+* interest_id (string) **required** - The specific interest or 'group name'.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdSegments
+Get information about all available segments for a specific list.
+
+
+```js
+mailchimp.getListsIdSegments({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* list_id (string) **required** - The unique id for the list.
+* type (string) - Limit results based on segment type.
+* since_created_at (string) - Restrict results to segments created after the set time.
+* before_created_at (string) - Restrict results to segments created before the set time.
+* since_updated_at (string) - Restrict results to segments update after the set time.
+* before_updated_at (string) - Restrict results to segments update before the set time.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdSegments
+Create a new segment in a specific list.
+
+
+```js
+mailchimp.postListsIdSegments({
+  "list_id": "",
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Information about a specific list segment.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdSegmentsId
+Get information about a specific segment.
+
+
+```js
+mailchimp.getListsIdSegmentsId({
+  "list_id": "",
+  "segment_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* segment_id (string) **required** - The unique id for the segment.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdSegmentsId
+Delete a specific segment in a list.
+
+
+```js
+mailchimp.deleteListsIdSegmentsId({
+  "list_id": "",
+  "segment_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* segment_id (string) **required** - The unique id for the segment.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdSegmentsId
+Update a specific segment in a list.
+
+
+```js
+mailchimp.patchListsIdSegmentsId({
+  "list_id": "",
+  "segment_id": "",
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* segment_id (string) **required** - The unique id for the segment.
+* body (object) **required** - Information about a specific list segment.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdSegmentsId
+Batch add/remove list members to static segment
+
+
+```js
+mailchimp.postListsIdSegmentsId({
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Members to add/remove to/from a static segment
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdSegmentsIdMembers
+Get information about members in a [saved segment](http://kb.mailchimp.com/segments/how-to-use-saved-segments?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs).
+
+
+```js
+mailchimp.getListsIdSegmentsIdMembers({
+  "list_id": "",
+  "segment_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* list_id (string) **required** - The unique id for the list.
+* segment_id (string) **required** - The unique id for the segment.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdSegmentsIdMembers
+Add a member to a static segment.
+
+
+```js
+mailchimp.postListsIdSegmentsIdMembers({
+  "list_id": "",
+  "segment_id": "",
+  "body": {
+    "email_address": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* segment_id (string) **required** - The unique id for the segment.
+* body (object) **required**
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdSegmentsIdMembersId
+Remove a member from the specified static segment.
+
+
+```js
+mailchimp.deleteListsIdSegmentsIdMembersId({
+  "list_id": "",
+  "segment_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* segment_id (string) **required** - The unique id for the segment.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMembers
+Get information about members in a specific MailChimp list.
+
+
+```js
+mailchimp.getListsIdMembers({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* list_id (string) **required** - The unique id for the list.
+* email_type (string) - The email type.
+* status (string) - The subscriber's status.
+* since_timestamp_opt (string) - Restrict results to subscribers who opted-in after the set timeframe. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* before_timestamp_opt (string) - Restrict results to subscribers who opted-in before the set timeframe. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_last_changed (string) - Restrict results to subscribers whose information changed after the set timeframe.
+* before_last_changed (string) - Restrict results to subscribers whose information changed before the set timeframe.
+* unique_email_id (string) - A unique identifier for the email address across all MailChimp lists. This parameter can be found in any links with [Ecommerce Tracking](http://kb.mailchimp.com/integrations/e-commerce/how-to-use-mailchimp-for-e-commerce?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) enabled.
+* vip_only (boolean) - A filter to return only the list's VIP members. Passing `true` will restrict results to VIP list members, passing `false` will return all list members.
+* interest_category_id (string) - The unique id for the interest category.
+* interest_ids (string) - Used to filter list members by interests. Must be accompanied by interest_category_id and interest_match. The value must be a comma separated list of interest ids present for the given interest category.
+* interest_match (string) - Used to filter list members by interests. Must be accompanied by interest_category_id and interest_ids. "any" will match a member with any of the interest supplied, "all" will only match members with every interest supplied, and "none" will match members without any of the interest supplied.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdMembers
+Add a new member to the list.
+
+
+```js
+mailchimp.postListsIdMembers({
+  "list_id": "",
+  "body": {
+    "email_address": "",
+    "status": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Individuals who are currently or have been previously subscribed to this list, including members who have bounced or unsubscribed.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMembersId
+Get information about a specific list member, including a currently subscribed, unsubscribed, or bounced member.
+
+
+```js
+mailchimp.getListsIdMembersId({
+  "list_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### putListsIdMembersId
+Add or update a list member.
+
+
+```js
+mailchimp.putListsIdMembersId({
+  "list_id": "",
+  "subscriber_hash": "",
+  "body": {
+    "email_address": "",
+    "status_if_new": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* body (object) **required** - Individuals who are currently or have been previously subscribed to this list, including members who have bounced or unsubscribed.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdMembersId
+Update information for a specific list member.
+
+
+```js
+mailchimp.patchListsIdMembersId({
+  "list_id": "",
+  "subscriber_hash": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* body (object) **required** - Individuals who are currently or have been previously subscribed to this list, including members who have bounced or unsubscribed.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdMembersId
+Delete a member from a list.
+
+
+```js
+mailchimp.deleteListsIdMembersId({
+  "list_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMembersIdActivity
+Get the last 50 events of a member's activity on a specific list, including opens, clicks, and unsubscribes.
+
+
+```js
+mailchimp.getListsIdMembersIdActivity({
+  "list_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMembersIdGoals
+Get the last 50 Goal events for a member on a specific list.
+
+
+```js
+mailchimp.getListsIdMembersIdGoals({
+  "list_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMembersIdNotes
+Get recent notes for a specific list member.
+
+
+```js
+mailchimp.getListsIdMembersIdNotes({
+  "list_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdMembersIdNotes
+Add a new note for a specific subscriber.
+
+
+```js
+mailchimp.postListsIdMembersIdNotes({
+  "list_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* body (object) - A specific note for a specific member.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMembersIdNotesId
+Get a specific note for a specific list member.
+
+
+```js
+mailchimp.getListsIdMembersIdNotesId({
+  "list_id": "",
+  "subscriber_hash": "",
+  "note_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* note_id (string) **required** - The id for the note.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdMembersIdNotesId
+Update a specific note for a specific list member.
+
+
+```js
+mailchimp.patchListsIdMembersIdNotesId({
+  "list_id": "",
+  "subscriber_hash": "",
+  "note_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* note_id (string) **required** - The id for the note.
+* body (object) - A specific note for a specific member.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdMembersIdNotesId
+Delete a specific note for a specific list member.
+
+
+```js
+mailchimp.deleteListsIdMembersIdNotesId({
+  "list_id": "",
+  "subscriber_hash": "",
+  "note_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* note_id (string) **required** - The id for the note.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMergeFields
+Get a list of all merge fields (formerly merge vars) for a list.
+
+
+```js
+mailchimp.getListsIdMergeFields({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* type (string) - The merge field type.
+* required (boolean) - The boolean value if the merge field is required.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdMergeFields
+Add a new merge field for a specific list.
+
+
+```js
+mailchimp.postListsIdMergeFields({
+  "list_id": "",
+  "body": {
+    "name": "",
+    "type": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - A merge field (formerly merge vars) for a specific list. These correspond to merge fields in MailChimp's lists and subscriber profiles.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdMergeFieldsId
+Get information about a specific merge field in a list.
+
+
+```js
+mailchimp.getListsIdMergeFieldsId({
+  "list_id": "",
+  "merge_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* merge_id (string) **required** - The id for the merge field.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdMergeFieldsId
+Update a specific merge field in a list.
+
+
+```js
+mailchimp.patchListsIdMergeFieldsId({
+  "list_id": "",
+  "merge_id": "",
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* merge_id (string) **required** - The id for the merge field.
+* body (object) **required** - A merge field (formerly merge vars) for a specific list. These correspond to merge fields in MailChimp's lists and subscriber profiles.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdMergeFieldsId
+Delete a specific merge field in a list.
+
+
+```js
+mailchimp.deleteListsIdMergeFieldsId({
+  "list_id": "",
+  "merge_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* merge_id (string) **required** - The id for the merge field.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdWebhooks
+Get information about all webhooks for a specific list.
+
+
+```js
+mailchimp.getListsIdWebhooks({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdWebhooks
+Create a new webhook for a specific list.
+
+
+```js
+mailchimp.postListsIdWebhooks({
+  "list_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Configure a webhook for the given list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdWebhooksId
+Get information about a specific webhook.
+
+
+```js
+mailchimp.getListsIdWebhooksId({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteListsIdWebhooksId
+Delete a specific webhook in a list.
+
+
+```js
+mailchimp.deleteListsIdWebhooksId({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchListsIdWebhooksId
+Update the settings for an existing webhook.
+
+
+```js
+mailchimp.patchListsIdWebhooksId({
+  "list_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - Configure a webhook for the given list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdSignupForms
+Get signup forms for a specific list.
+
+
+```js
+mailchimp.getListsIdSignupForms({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postListsIdSignupForms
+Customize a list's default signup form.
+
+
+```js
+mailchimp.postListsIdSignupForms({
+  "list_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* list_id (string) **required** - The unique id for the list.
+* body (object) **required** - List signup form.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getListsIdLocations
+Get the locations (countries) that the list's subscribers have been tagged to based on geocoding their IP address.
+
+
+```js
+mailchimp.getListsIdLocations({
+  "list_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* list_id (string) **required** - The unique id for the list.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getMobileNotificationPreferences
+All of a user's mobile push notification preferences by device.
+
+
+```js
+mailchimp.getMobileNotificationPreferences({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postMobileNotificationPreferences
+Add mobile push notification preferences for a device.
+
+
+```js
+mailchimp.postMobileNotificationPreferences({
+  "body": {
+    "device_id": "",
+    "type_campaign_sent": true
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Add mobile push notification preferences for a device.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getMobileNotificationPreferencesId
+Get information about a specific device's mobile push notification preferences.
+
+
+```js
+mailchimp.getMobileNotificationPreferencesId({
+  "device_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postMobileNotificationPreferencesIdActionsCreateIfNeeded
+Create default mobile notification preferences if user has not specified any.
+
+
+```js
+mailchimp.postMobileNotificationPreferencesIdActionsCreateIfNeeded({
+  "device_hash": "",
+  "device_id": ""
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* device_id (string) **required** - A unique identifier for the device.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchMobileNotificationPreferencesId
+Update mobile push notification preferences for a device.
+
+
+```js
+mailchimp.patchMobileNotificationPreferencesId({
+  "device_hash": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* body (object) **required** - Update mobile push notification preferences for a device.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteMobileNotificationPreferencesId
+Delete mobile push notification preferences for a device.
+
+
+```js
+mailchimp.deleteMobileNotificationPreferencesId({
+  "device_hash": ""
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postMobileNotificationPreferencesIdActionsCreateIfNeeded
+Create default mobile notification preferences if user has not specified any.
+
+
+```js
+mailchimp.postMobileNotificationPreferencesIdActionsCreateIfNeeded({
+  "device_hash": "",
+  "device_id": ""
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* device_id (string) **required** - A unique identifier for the device.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getMobileNotificationPreferencesIdStores
+All of a device's push notifications preferences for each store.
+
+
+```js
+mailchimp.getMobileNotificationPreferencesIdStores({
+  "device_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postMobileNotificationPreferencesIdStores
+Add mobile push notification preferences for an e-commerce store.
+
+
+```js
+mailchimp.postMobileNotificationPreferencesIdStores({
+  "device_hash": "",
+  "body": {
+    "store": {
+      "id": ""
+    },
+    "type_instant_order": true,
+    "type_daily_order_summary": true
+  }
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* body (object) **required** - Add mobile push notification preferences for an e-commerce store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getMobileNotificationPreferencesIdStoresId
+Get information about a device's preferences for push notifications regarding an e-commerce store.
+
+
+```js
+mailchimp.getMobileNotificationPreferencesIdStoresId({
+  "device_hash": "",
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchMobileNotificationPreferencesIdStoresId
+Update mobile push notification preferences for an e-commerce store.
+
+
+```js
+mailchimp.patchMobileNotificationPreferencesIdStoresId({
+  "device_hash": "",
+  "store_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* store_id (string) **required** - The store id.
+* body (object) **required** - Update mobile push notification preferences for an e-commerce store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteMobileNotificationPreferencesIdStoresId
+Delete mobile push notification preferences for an e-commerce store.
+
+
+```js
+mailchimp.deleteMobileNotificationPreferencesIdStoresId({
+  "device_hash": "",
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* device_hash (string) **required** - The MD5 hash of the lowercase version of the device ID.
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReports
+Get campaign reports.
+
+
+```js
+mailchimp.getReports({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* type (string) - The campaign type.
+* before_send_time (string) - Restrict the response to campaigns sent before the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* since_send_time (string) - Restrict the response to campaigns sent after the set time. We recommend [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) time format: 2015-10-21T15:41:36+00:00.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsId
+Get report details for a specific sent campaign.
+
+
+```js
+mailchimp.getReportsId({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdAbuseReportsId
+Get a list of [abuse complaints](http://kb.mailchimp.com/accounts/compliance-tips/about-abuse-complaints?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) for a specific campaign.
+
+
+```js
+mailchimp.getReportsIdAbuseReportsId({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdAbuseReportsIdId
+Get information about a specific abuse report for a campaign.
+
+
+```js
+mailchimp.getReportsIdAbuseReportsIdId({
+  "campaign_id": "",
+  "report_id": null
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* report_id (undefined) **required** - The id for the abuse report.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdAdvice
+Get feedback based on a campaign's statistics. Advice feedback is based on campaign stats like opens, clicks, unsubscribes, bounces, and more.
+
+
+```js
+mailchimp.getReportsIdAdvice({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdClickDetails
+Get information about [clicks](http://kb.mailchimp.com/reports/about-click-tracking?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) on specific links in your MailChimp campaigns.
+
+
+```js
+mailchimp.getReportsIdClickDetails({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdClickDetailsId
+Get click details for a specific link in a campaign.
+
+
+```js
+mailchimp.getReportsIdClickDetailsId({
+  "campaign_id": "",
+  "link_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* link_id (string) **required** - The id for the link.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdClickDetailsIdMembers
+Get information about list members who clicked on a specific link in a campaign.
+
+
+```js
+mailchimp.getReportsIdClickDetailsIdMembers({
+  "campaign_id": "",
+  "link_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) **required** - The unique id for the campaign.
+* link_id (string) **required** - The id for the link.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdClickDetailsIdMembersId
+Get information about a specific subscriber who clicked a link in a specific campaign.
+
+
+```js
+mailchimp.getReportsIdClickDetailsIdMembersId({
+  "campaign_id": "",
+  "link_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* link_id (string) **required** - The id for the link.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdOpenDetails
+Get detailed information about any campaign emails that were opened by a list member.
+
+
+```js
+mailchimp.getReportsIdOpenDetails({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) **required** - The unique id for the campaign.
+* since (string) - Restrict results to campaign open events that occur after a specific time.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdOpenDetailsIdMembersId
+Get information about a specific subscriber who opened a campaign.
+
+
+```js
+mailchimp.getReportsIdOpenDetailsIdMembersId({
+  "campaign_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdDomainPerformance
+Get statistics for the top-performing email domains in a campaign.
+
+
+```js
+mailchimp.getReportsIdDomainPerformance({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdEepurl
+Get a summary of social activity for the campaign, tracked by EepURL.
+
+
+```js
+mailchimp.getReportsIdEepurl({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdEmailActivity
+Get a list of member's subscriber activity in a specific campaign.
+
+
+```js
+mailchimp.getReportsIdEmailActivity({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdEmailActivityId
+Get a specific list member's activity in a campaign including opens, clicks, and bounces.
+
+
+```js
+mailchimp.getReportsIdEmailActivityId({
+  "campaign_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* since (string) - Restrict results to email activity events that occur after a specific time.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdGoogleAnalytics
+Get information about any [Google Analytics reporting](http://kb.mailchimp.com/integrations/e-commerce/integrate-google-analytics-with-mailchimp?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) for a specific campaign.
+
+
+```js
+mailchimp.getReportsIdGoogleAnalytics({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdGoogleAnalyticsId
+Get information about a specific [Google Analytics report](http://kb.mailchimp.com/integrations/e-commerce/integrate-google-analytics-with-mailchimp?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) for a campaign.
+
+
+```js
+mailchimp.getReportsIdGoogleAnalyticsId({
+  "campaign_id": "",
+  "profile_id": null
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* profile_id (undefined) **required** - The Google Analytics View ID.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdLocations
+Get top open locations for a specific campaign.
+
+
+```js
+mailchimp.getReportsIdLocations({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdSentTo
+Get information about campaign recipients.
+
+
+```js
+mailchimp.getReportsIdSentTo({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdSentToId
+Get information about a specific campaign recipient.
+
+
+```js
+mailchimp.getReportsIdSentToId({
+  "campaign_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdSubReportsId
+Get a list of reports with child campaigns for a specific parent campaign.
+
+
+```js
+mailchimp.getReportsIdSubReportsId({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdUnsubscribed
+Get information about members who have unsubscribed from a specific campaign.
+
+
+```js
+mailchimp.getReportsIdUnsubscribed({
+  "campaign_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) **required** - The unique id for the campaign.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getReportsIdUnsubscribedId
+Get information about a specific list member who unsubscribed from a campaign.
+
+
+```js
+mailchimp.getReportsIdUnsubscribedId({
+  "campaign_id": "",
+  "subscriber_hash": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* campaign_id (string) **required** - The unique id for the campaign.
+* subscriber_hash (string) **required** - The MD5 hash of the lowercase version of the list member's email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getTemplates
+Get a list of an account's available templates.
+
+
+```js
+mailchimp.getTemplates({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* created_by (string) - The MailChimp account user who created the template.
+* since_created_at (string) - Restrict the response to templates created after the set date.
+* before_created_at (string) - Restrict the response to templates created before the set date.
+* type (string) - Limit results based on template type.
+* category (string) - Limit results based on category.
+* folder_id (string) - The unique folder id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postTemplates
+Create a new template for the account. Only [Classic templates](http://kb.mailchimp.com/templates/basic-and-themes/types-of-templates?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs) are supported.
+
+
+```js
+mailchimp.postTemplates({
+  "body": {
+    "name": "",
+    "html": ""
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Information about a specific template.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getTemplatesId
+Get information about a specific template.
+
+
+```js
+mailchimp.getTemplatesId({
+  "template_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* template_id (string) **required** - The unique id for the template.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchTemplatesId
+Update the name, HTML, or `folder_id` of an existing template.
+
+
+```js
+mailchimp.patchTemplatesId({
+  "template_id": "",
+  "body": {
+    "name": "",
+    "html": ""
+  }
+}, context)
+```
+
+#### Parameters
+* template_id (string) **required** - The unique id for the template.
+* body (object) **required** - Information about a specific template.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteTemplatesId
+Delete a specific template.
+
+
+```js
+mailchimp.deleteTemplatesId({
+  "template_id": ""
+}, context)
+```
+
+#### Parameters
+* template_id (string) **required** - The unique id for the template.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getTemplatesIdDefaultContent
+Get the sections that you can edit in a template, including each section's default content.
+
+
+```js
+mailchimp.getTemplatesIdDefaultContent({
+  "template_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* template_id (string) **required** - The unique id for the template.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerce
+Get information about the e-commerce endpoint's resources.
+
+
+```js
+mailchimp.getEcommerce({}, context)
+```
+
+#### Parameters
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceOrders
+Get information about an account's orders.
+
+
+```js
+mailchimp.getEcommerceOrders({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* campaign_id (string) - Restrict results to orders with a specific `campaign_id` value.
+* outreach_id (string) - Restrict results to orders with a specific `outreach_id` value.
+* customer_id (string) - Restrict results to orders made by a specific customer.
+* has_outreach (boolean) - Restrict results to orders that have an outreach attached. For example, an email campaign or Facebook ad.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStores
+Get information about all stores in the account.
+
+
+```js
+mailchimp.getEcommerceStores({}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postEcommerceStores
+Add a new store to your MailChimp account.
+
+
+```js
+mailchimp.postEcommerceStores({
+  "body": {
+    "id": "",
+    "list_id": "",
+    "name": "",
+    "currency_code": ""
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - An individual store in an account.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresId
+Get information about a specific store.
+
+
+```js
+mailchimp.getEcommerceStoresId({
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchEcommerceStoresId
+Update a store.
+
+
+```js
+mailchimp.patchEcommerceStoresId({
+  "store_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* body (object) **required** - An individual store in an account.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteEcommerceStoresId
+Delete a store. Deleting a store will also delete any associated subresources, including Customers, Orders, Products, and Carts.
+
+
+```js
+mailchimp.deleteEcommerceStoresId({
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdCarts
+Get information about a store's carts.
+
+
+```js
+mailchimp.getEcommerceStoresIdCarts({
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postEcommerceStoresIdCarts
+Add a new cart to a store.
+
+
+```js
+mailchimp.postEcommerceStoresIdCarts({
+  "store_id": "",
+  "body": {
+    "id": "",
+    "customer": {},
+    "currency_code": "",
+    "order_total": 0,
+    "lines": []
+  }
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* body (object) **required** - Information about a specific cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdCartsId
+Get information about a specific cart.
+
+
+```js
+mailchimp.getEcommerceStoresIdCartsId({
+  "store_id": "",
+  "cart_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchEcommerceStoresIdCartsId
+Update a specific cart.
+
+
+```js
+mailchimp.patchEcommerceStoresIdCartsId({
+  "store_id": "",
+  "cart_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* body (object) **required** - Information about a specific cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteEcommerceStoresIdCartsId
+Delete a cart.
+
+
+```js
+mailchimp.deleteEcommerceStoresIdCartsId({
+  "store_id": "",
+  "cart_id": ""
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdCartsIdLines
+Get information about a cart's line items.
+
+
+```js
+mailchimp.getEcommerceStoresIdCartsIdLines({
+  "store_id": "",
+  "cart_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postEcommerceStoresIdCartsIdLines
+Add a new line item to an existing cart.
+
+
+```js
+mailchimp.postEcommerceStoresIdCartsIdLines({
+  "store_id": "",
+  "cart_id": "",
+  "body": {
+    "id": "",
+    "product_id": "",
+    "product_variant_id": "",
+    "quantity": 0,
+    "price": 0
+  }
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* body (object) **required** - Information about a specific cart line item.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdCartsIdLinesId
+Get information about a specific cart line item.
+
+
+```js
+mailchimp.getEcommerceStoresIdCartsIdLinesId({
+  "store_id": "",
+  "cart_id": "",
+  "line_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* line_id (string) **required** - The id for the line item of a cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchEcommerceStoresIdCartsIdLinesId
+Update a specific cart line item.
+
+
+```js
+mailchimp.patchEcommerceStoresIdCartsIdLinesId({
+  "store_id": "",
+  "cart_id": "",
+  "line_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* line_id (string) **required** - The id for the line item of a cart.
+* body (object) **required** - Information about a specific cart line item.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteEcommerceStoresIdCartsLinesId
+Delete a specific cart line item.
+
+
+```js
+mailchimp.deleteEcommerceStoresIdCartsLinesId({
+  "store_id": "",
+  "cart_id": "",
+  "line_id": ""
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* cart_id (string) **required** - The id for the cart.
+* line_id (string) **required** - The id for the line item of a cart.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdCustomers
+Get information about a store's customers.
+
+
+```js
+mailchimp.getEcommerceStoresIdCustomers({
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* email_address (string) - Restrict the response to customers with the email address.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postEcommerceStoresIdCustomers
+Add a new customer to a store.
+
+
+```js
+mailchimp.postEcommerceStoresIdCustomers({
+  "store_id": "",
+  "body": {
+    "id": "",
+    "email_address": "",
+    "opt_in_status": true
+  }
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* body (object) **required** - Information about a specific customer. Orders for existing customers should include only the `id` parameter in the `customer` object body.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdCustomersId
+Get information about a specific customer.
+
+
+```js
+mailchimp.getEcommerceStoresIdCustomersId({
+  "store_id": "",
+  "customer_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* customer_id (string) **required** - The id for the customer of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### putEcommerceStoresIdCustomersId
+Add or update a customer.
+
+
+```js
+mailchimp.putEcommerceStoresIdCustomersId({
+  "store_id": "",
+  "customer_id": "",
+  "body": {
+    "id": "",
+    "email_address": "",
+    "opt_in_status": true
+  }
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* customer_id (string) **required** - The id for the customer of a store.
+* body (object) **required** - Information about a specific customer. Orders for existing customers should include only the `id` parameter in the `customer` object body.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchEcommerceStoresIdCustomersId
+Update a customer.
+
+
+```js
+mailchimp.patchEcommerceStoresIdCustomersId({
+  "store_id": "",
+  "customer_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* customer_id (string) **required** - The id for the customer of a store.
+* body (object) **required** - Information about a specific customer. Orders for existing customers should include only the `id` parameter in the `customer` object body.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteEcommerceStoresIdCustomersId
+Delete a customer from a store.
+
+
+```js
+mailchimp.deleteEcommerceStoresIdCustomersId({
+  "store_id": "",
+  "customer_id": ""
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* customer_id (string) **required** - The id for the customer of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdPromorules
+Get information about a store's promo rules.
+
+
+```js
+mailchimp.getEcommerceStoresIdPromorules({
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postEcommerceStoresIdPromorules
+Add a new promo rule to a store.
+
+
+```js
+mailchimp.postEcommerceStoresIdPromorules({
+  "store_id": "",
+  "body": {
+    "id": "",
+    "description": "",
+    "amount": 0,
+    "type": "",
+    "target": ""
+  }
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* body (object) **required** - Information about an Ecommerce Store's specific Promo Rule.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdPromorulesId
+Get information about a specific promo rule.
+
+
+```js
+mailchimp.getEcommerceStoresIdPromorulesId({
+  "store_id": "",
+  "promo_rule_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* promo_rule_id (string) **required** - The id for the promo rule of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchEcommerceStoresIdPromorulesId
+Update a promo rule.
+
+
+```js
+mailchimp.patchEcommerceStoresIdPromorulesId({
+  "store_id": "",
+  "promo_rule_id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* promo_rule_id (string) **required** - The id for the promo rule of a store.
+* body (object) **required** - Information about an Ecommerce Store's specific Promo Rule.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### deleteEcommerceStoresIdPromorulesId
+Delete a promo rule from a store.
+
+
+```js
+mailchimp.deleteEcommerceStoresIdPromorulesId({
+  "store_id": "",
+  "promo_rule_id": ""
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* promo_rule_id (string) **required** - The id for the promo rule of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdOrders
+Get information about a store's orders.
+
+
+```js
+mailchimp.getEcommerceStoresIdOrders({
+  "store_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* customer_id (string) - Restrict results to orders made by a specific customer.
+* has_outreach (boolean) - Restrict results to orders that have an outreach attached. For example, an email campaign or Facebook ad.
+* campaign_id (string) - Restrict results to orders with a specific `campaign_id` value.
+* outreach_id (string) - Restrict results to orders with a specific `outreach_id` value.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### postEcommerceStoresIdOrders
+Add a new order to a store.
+
+
+```js
+mailchimp.postEcommerceStoresIdOrders({
+  "store_id": "",
+  "body": {
+    "id": "",
+    "customer": {},
+    "currency_code": "",
+    "order_total": 0,
+    "lines": []
+  }
+}, context)
+```
+
+#### Parameters
+* store_id (string) **required** - The store id.
+* body (object) **required** - Information about a specific order.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### getEcommerceStoresIdOrdersId
+Get information about a specific order.
+
+
+```js
+mailchimp.getEcommerceStoresIdOrdersId({
+  "store_id": "",
+  "order_id": ""
+}, context)
+```
+
+#### Parameters
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
+
+### patchEcommerceStoresIdOrdersId
+Update a specific order.
+
+
+```js
+mailchimp.patchEcommerceStoresIdOrdersId({
   "store_id": "",
   "order_id": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* store_id (string) **required** - The store id the order belongs.
-* order_id (string) **required** - The order id (generated by the store) to delete.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* body (object) **required** - Information about a specific order.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_ecommOrderAdd.get
-Import Ecommerce Order Information to be used for Segmentation.
+### deleteEcommerceStoresIdOrdersId
+Delete an order.
 
 
 ```js
-mailchimp._method_ecommOrderAdd.get({
-  "order": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteEcommerceStoresIdOrdersId({
+  "store_id": "",
+  "order_id": ""
 }, context)
 ```
 
 #### Parameters
-* order (string) **required** - An array of information pertaining to the order that has completed. See options: "http://apidocs.mailchimp.com/api/1.3/ecommorderadd.func.php"
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignOpenedAIM.get
-Retrieve the list of email addresses that opened a given campaign with how many times they opened.
+### getEcommerceStoresIdOrdersIdLines
+Get information about an order's line items.
 
 
 ```js
-mailchimp._method_campaignOpenedAIM.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdOrdersIdLines({
+  "store_id": "",
+  "order_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to get opens.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 1000, upper limit set at 15000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignNotOpenedAIM.get
-Retrieve the list of email addresses that did not open a given campaign.
+### postEcommerceStoresIdOrdersIdLines
+Add a new line item to an existing order.
 
 
 ```js
-mailchimp._method_campaignNotOpenedAIM.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postEcommerceStoresIdOrdersIdLines({
+  "store_id": "",
+  "order_id": "",
+  "body": {
+    "id": "",
+    "product_id": "",
+    "product_variant_id": "",
+    "quantity": 0,
+    "price": 0
+  }
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to get no opens.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 1000, upper limit set at 15000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* body (object) **required** - Information about a specific order line.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignEmailStatsAIMAll.get
-Given a campaign and correct paging limits, return the entire click and open history with timestamps, ordered by time, for every user a campaign was delivered to.
+### getEcommerceStoresIdOrdersIdLinesId
+Get information about a specific order line item.
 
 
 ```js
-mailchimp._method_campaignEmailStatsAIMAll.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdOrdersIdLinesId({
+  "store_id": "",
+  "order_id": "",
+  "line_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to get stats.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 100, upper limit set at 1000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* line_id (string) **required** - The id for the line item of an order.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignEmailStatsAIM.get
-Given a campaign and email address, return the entire click and open history with timestamps, ordered by time.
+### patchEcommerceStoresIdOrdersIdLinesId
+Update a specific order line item.
 
 
 ```js
-mailchimp._method_campaignEmailStatsAIM.get({
-  "cid": "",
-  "email_address": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchEcommerceStoresIdOrdersIdLinesId({
+  "store_id": "",
+  "order_id": "",
+  "line_id": "",
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to get stats.
-* email_address (string) **required** - An array of up to 50 email addresses to check OR the email "id" returned from listMemberInfo, Webhooks, and Campaigns. For backwards compatibility, if a string is passed, it will be treated as an array with a single element (will not work with XML-RPC).
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* line_id (string) **required** - The id for the line item of an order.
+* body (object) **required** - Information about a specific order line.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignClickDetailAIM.get
-Return the list of email addresses that clicked on a given url, and how many times they clicked.
+### deleteEcommerceStoresIdOrdersIdLinesId
+Delete a specific order line item.
 
 
 ```js
-mailchimp._method_campaignClickDetailAIM.get({
-  "cid": "",
-  "url": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteEcommerceStoresIdOrdersIdLinesId({
+  "store_id": "",
+  "order_id": "",
+  "line_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to get stats
-* url (string) **required** - The URL of the link that was clicked on.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 1000, upper limit set at 15000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* order_id (string) **required** - The id for the order in a store.
+* line_id (string) **required** - The id for the line item of an order.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignUnsubscribes.get
-Get all unsubscribed email addresses for a given campaign.
+### getEcommerceStoresIdProducts
+Get information about a store's products.
 
 
 ```js
-mailchimp._method_campaignUnsubscribes.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdProducts({
+  "store_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 1000, upper limit set at 15000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignStats.get
-Given a list and a campaign, get all the relevant campaign statistics (opens, bounces, clicks, etc.)
+### postEcommerceStoresIdProducts
+Add a new product to a store.
 
 
 ```js
-mailchimp._method_campaignStats.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postEcommerceStoresIdProducts({
+  "store_id": "",
+  "body": {
+    "id": "",
+    "title": "",
+    "variants": []
+  }
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull stats.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* body (object) **required** - Information about a specific product.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignMembers.get
-Get all email addresses the campaign was successfully sent to (ie, no bounces)
+### getEcommerceStoresIdProductsId
+Get information about a specific product.
 
 
 ```js
-mailchimp._method_campaignMembers.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdProductsId({
+  "store_id": "",
+  "product_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull members.
-* status (string) - The status to pull. By default, all records are returned
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 1000, upper limit set at 15000.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignGeoOpensForCountry.get
-Retrieve the regions and number of opens tracked for a certain country.
+### patchEcommerceStoresIdProductsId
+Update a specific product.
 
 
 ```js
-mailchimp._method_campaignGeoOpensForCountry.get({
-  "cid": "",
-  "code": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchEcommerceStoresIdProductsId({
+  "store_id": "",
+  "product_id": "",
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* code (string) **required** - An ISO3166 2 digit country code.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* body (object) **required** - Information about a specific product.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignGeoOpens.get
-Retrieve the countries and number of opens tracked for each.
+### deleteEcommerceStoresIdProductsId
+Delete a product.
 
 
 ```js
-mailchimp._method_campaignGeoOpens.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteEcommerceStoresIdProductsId({
+  "store_id": "",
+  "product_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignEmailDomainPerformance.get
-Get the top 5 performing email domains for this campaign.
+### getEcommerceStoresIdProductsIdVariants
+Get information about a product's variants.
 
 
 ```js
-mailchimp._method_campaignEmailDomainPerformance.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdProductsIdVariants({
+  "store_id": "",
+  "product_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull email domain performance.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignEepUrlStats.get
-Retrieve the tracked eepurl mentions on Twitter.
+### postEcommerceStoresIdProductsIdVariants
+Add a new variant to the product.
 
 
 ```js
-mailchimp._method_campaignEepUrlStats.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postEcommerceStoresIdProductsIdVariants({
+  "store_id": "",
+  "product_id": "",
+  "body": {
+    "id": "",
+    "title": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull stats.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* body (object) **required** - Information about a specific product variant.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignEcommOrders.get
-Retrieve the Ecommerce Orders.
+### getEcommerceStoresIdProductsIdVariantsId
+Get information about a specific product variant.
 
 
 ```js
-mailchimp._method_campaignEcommOrders.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdProductsIdVariantsId({
+  "store_id": "",
+  "product_id": "",
+  "variant_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 100, upper limit set at 500.
-* since (string) - Pull only messages since this time - use YYYY-MM-DD HH:II:SS format in GMT.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* variant_id (string) **required** - The id for the product variant.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignClickStats.get
-Get an array of the urls being tracked, and their click counts for a given campaign.
+### putEcommerceStoresIdProductsIdVariantsId
+Add or update a product variant.
 
 
 ```js
-mailchimp._method_campaignClickStats.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.putEcommerceStoresIdProductsIdVariantsId({
+  "store_id": "",
+  "product_id": "",
+  "variant_id": "",
+  "body": {
+    "id": "",
+    "title": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull stats.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* variant_id (string) **required** - The id for the product variant.
+* body (object) **required** - Information about a specific product variant.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignBounceMessages.get
-Retrieve the full bounce messages for the given campaign.
+### patchEcommerceStoresIdProductsIdVariantsId
+Update a product variant.
 
 
 ```js
-mailchimp._method_campaignBounceMessages.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchEcommerceStoresIdProductsIdVariantsId({
+  "store_id": "",
+  "product_id": "",
+  "variant_id": "",
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 25, upper limit set at 50.
-* since (string) - Pull only messages since this time - use YYYY-MM-DD format in GMT (we only store the date, not the time).
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* variant_id (string) **required** - The id for the product variant.
+* body (object) **required** - Information about a specific product variant.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignBounceMessage.get
-Retrieve the most recent full bounce message for a specific email address on the given campaign.
+### deleteEcommerceStoresIdProductsIdVariantsId
+Delete a product variant.
 
 
 ```js
-mailchimp._method_campaignBounceMessage.get({
-  "cid": "",
-  "email": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteEcommerceStoresIdProductsIdVariantsId({
+  "store_id": "",
+  "product_id": "",
+  "variant_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* email (string) **required** - The email address or unique id of the member to pull a bounce message.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* variant_id (string) **required** - The id for the product variant.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignAnalytics.get
-Retrieve the Google Analytics data we've collected for this campaign. Note, requires Google Analytics Add-on to be installed and configured.
+### getEcommerceStoresIdProductsIdImages
+Get information about a product's images.
 
 
 ```js
-mailchimp._method_campaignAnalytics.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdProductsIdImages({
+  "store_id": "",
+  "product_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull bounces.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* count (integer) - The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.
+* offset (integer) - The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignAdvice.get
-Retrieve the text presented in our app for how a campaign performed and any advice we may have for you - best suited for display in customized reports pages.
+### postEcommerceStoresIdProductsIdImages
+Add a new image to the product.
 
 
 ```js
-mailchimp._method_campaignAdvice.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.postEcommerceStoresIdProductsIdImages({
+  "store_id": "",
+  "product_id": "",
+  "body": {
+    "id": "",
+    "url": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull advice text.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* body (object) **required** - Information about a specific product image.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignAbuseReports.get
-Get all email addresses that complained about a given campaign.
+### getEcommerceStoresIdProductsIdImagesId
+Get information about a specific product image.
 
 
 ```js
-mailchimp._method_campaignAbuseReports.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getEcommerceStoresIdProductsIdImagesId({
+  "store_id": "",
+  "product_id": "",
+  "image_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to pull abuse reports.
-* start (integer) - For large data sets, the page number to start at - defaults to 1st page of data (page 0).
-* limit (integer) - For large data sets, the number of results to return - defaults to 500, upper limit set at 1000.
-* since (string) - Pull only messages since this time - use YYYY-MM-DD HH:II:SS format in GMT.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* image_id (string) **required** - The id for the product image.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaigns.get
-Get the list of campaigns and their details matching the specified filters.
+### patchEcommerceStoresIdProductsIdImagesId
+Update a product image.
 
 
 ```js
-mailchimp._method_campaigns.get({
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.patchEcommerceStoresIdProductsIdImagesId({
+  "store_id": "",
+  "product_id": "",
+  "image_id": "",
+  "body": {}
 }, context)
 ```
 
 #### Parameters
-* filters (string) - A hash of filters to apply to this query. See options: "http://apidocs.mailchimp.com/api/1.3/campaigns.func.php"
-* start (integer) - Control paging of campaigns, start results at this campaign #, defaults to 1st page of data (page 0).
-* limit (integer) - Control paging of campaigns, number of campaigns to return with each call, defaults to 25 (max=1000).
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* image_id (string) **required** - The id for the product image.
+* body (object) **required** - Information about a specific product image.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignUpdate.get
-Update just about any setting for a campaign that has not been sent.
+### deleteEcommerceStoresIdProductsIdImagesId
+Delete a product image.
 
 
 ```js
-mailchimp._method_campaignUpdate.get({
-  "cid": "",
-  "name": "",
-  "value": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.deleteEcommerceStoresIdProductsIdImagesId({
+  "store_id": "",
+  "product_id": "",
+  "image_id": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The Campaign Id to update.
-* name (string) **required** - For items in the options array, this will be that parameter's name (subject, from_email, etc.). Additional parameters will be that option name (content, segment_opts). "type_opts" will be the name of the type - rss, auto, trans, etc.
-* value (string) **required** - For items in the options array, this will be that parameter's value. For additional parameters, this is the same value passed to them.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* store_id (string) **required** - The store id.
+* product_id (string) **required** - The id for the product of a store.
+* image_id (string) **required** - The id for the product image.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignUnschedule.get
-Unschedule a campaign that is scheduled to be sent in the future.
+### getSearchMembers
+Search for list members. This search can be restricted to a specific list, or can be used to search across all lists in an account.
 
 
 ```js
-mailchimp._method_campaignUnschedule.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getSearchMembers({
+  "query": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The id of the campaign to unschedule.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* query (string) **required** - The search query used to filter results.
+* list_id (string) - The unique id for the list.
+* offset (integer) - The number of instances to skip from the beginning of the collection. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignTemplateContent.get
-Get the HTML template content sections for a campaign. Note that this will return very jagged, non-standard results based on the template a campaign is using.
+### getSearchCampaigns
+Search all campaigns for the specified query terms.
 
 
 ```js
-mailchimp._method_campaignTemplateContent.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
+mailchimp.getSearchCampaigns({
+  "query": ""
 }, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to get content.
-* dc (string) **required** - the portion after the dash in your api key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - a valid api key for your user account.
-* method (string) **required** - is the method name from our api you are calling.
-* output (string) - output formats for serialized calls.
+* fields (array) - A comma-separated list of fields to return. Reference parameters of sub-objects with dot notation.
+* exclude_fields (array) - A comma-separated list of fields to exclude. Reference parameters of sub-objects with dot notation.
+* query (string) **required** - The search query used to filter results.
+* snip_start (string) - To have the match highlighted with something (like a strong HTML tag), both this and `snip_end` must be passed. This parameter has a 25-character limit.
+* snip_end (string) - To have the match highlighted with something (like a strong HTML tag), both this and `snip_start` must be passed. This parameter has a 25-character limit.
+* offset (integer) - The number of instances to skip from the beginning of the collection. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 
-### _method_campaignShareReport.get
-Get the URL to a customized VIP Report for the specified campaign and optionally send an email to someone with links to it.
+### getPing
+A health check for the API that won't return any account-specific information.
 
 
 ```js
-mailchimp._method_campaignShareReport.get({
-  "cid": "",
-  "opts": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
+mailchimp.getPing({}, context)
 ```
 
 #### Parameters
-* cid (string) **required** - The campaign id to share a report.
-* opts (string) **required** - Various parameters which can be used to configure the shared report. See options: "http://apidocs.mailchimp.com/api/1.3/campaignsharereport.func.php"
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignSendTest.get
-Send a test of this campaign to the provided email address.
-
-
-```js
-mailchimp._method_campaignSendTest.get({
-  "cid": "",
-  "test_emails": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The id of the campaign to test.
-* test_emails (string) **required** - An array of email address to receive the test message.
-* send_type (string) - By default (null) both formats are sent - "html" or "text" send just that format.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignSendNow.get
-Send a given campaign immediately. For RSS campaigns, this will "start" them.
-
-
-```js
-mailchimp._method_campaignSendNow.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The id of the campaign to send.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignSegmentTest.get
-Allows one to test their segmentation rules before creating a campaign using them.
-
-
-```js
-mailchimp._method_campaignSegmentTest.get({
-  "list_id": "",
-  "options": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* list_id (string) **required** - The list to test segmentation on.
-* options (string) **required** - Options for test segmentation. See options: "http://apidocs.mailchimp.com/api/1.3/campaignsegmenttest.func.php"
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignSchedule.get
-Schedule a campaign to be sent in the future.
-
-
-```js
-mailchimp._method_campaignSchedule.get({
-  "cid": "",
-  "schedule_time": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The id of the campaign to schedule.
-* schedule_time (string) **required** - The time to schedule the campaign. For A/B Split "schedule" campaigns, the time for Group A - in YYYY-MM-DD HH:II:SS format in GMT.
-* schedule_time_b (string) - The time to schedule Group B of an A/B Split "schedule" campaign - in YYYY-MM-DD HH:II:SS format in GMT.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignResume.get
-Resume sending an AutoResponder or RSS campaign.
-
-
-```js
-mailchimp._method_campaignResume.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The id of the campaign to resume.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignReplicate.get
-Replicate a campaign.
-
-
-```js
-mailchimp._method_campaignReplicate.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The Campaign Id to replicate.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignPause.get
-Pause an AutoResponder or RSS campaign from sending.
-
-
-```js
-mailchimp._method_campaignPause.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The id of the campaign to pause.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignEcommOrderAdd.get
-Attach Ecommerce Order Information to a Campaign.
-
-
-```js
-mailchimp._method_campaignEcommOrderAdd.get({
-  "order": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* order (string) **required** - An array of information pertaining to the order that has completed. See options: "http://apidocs.mailchimp.com/api/1.3/campaignecommorderadd.func.php"
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignDelete.get
-Delete a campaign.
-
-
-```js
-mailchimp._method_campaignDelete.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The Campaign Id to delete.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignCreate.get
-Create a new draft campaign to send.
-
-
-```js
-mailchimp._method_campaignCreate.get({
-  "type": "",
-  "options": "",
-  "content": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* type (string) **required** - The Campaign Type to create.
-* options (string) **required** - A hash of the standard options for this campaign. See options: "http://apidocs.mailchimp.com/api/1.3/campaigncreate.func.php"
-* content (string) **required** - The content for this campaign. See options: "http://apidocs.mailchimp.com/api/1.3/campaigncreate.func.php"
-* segment_opts (string) - If you wish to do Segmentation with this campaign this array should contain: see campaignSegmentTest(). It's suggested that you test your options against campaignSegmentTest(). Also, "trans" campaigns do not support segmentation.
-* type_opts (string) - Array for RSS, A/B Split or AutoResponder campaigns. See options: "http://apidocs.mailchimp.com/api/1.3/campaigncreate.func.php"
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
-
-### _method_campaignContent.get
-Get the content (both html and text) for a campaign either as it would appear in the campaign archive or as the raw, original content.
-
-
-```js
-mailchimp._method_campaignContent.get({
-  "cid": "",
-  "dc": "",
-  "apikey": "",
-  "method": ""
-}, context)
-```
-
-#### Parameters
-* cid (string) **required** - The campaign id to get content for (can be gathered using campaigns()).
-* for_archive (boolean) - Controls whether we return the Archive version (true) or the Raw version (false), defaults to true.
-* dc (string) **required** - The portion after the dash in your API Key. e.g. "us1", "us2", "uk1", etc.
-* apikey (string) **required** - A valid API Key for your user account.
-* method (string) **required** - Is the method name from our API you are calling.
-* output (string) - Output Formats for Serialized calls.
+* dc (string) - `dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `"us6"`
 

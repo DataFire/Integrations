@@ -9,10 +9,9 @@ npm install --save datafire @datafire/swagger_generator
 
 ```js
 let datafire = require('datafire');
-let swagger_generator = require('@datafire/swagger_generator').actions;
-let context = new datafire.Context();
+let swagger_generator = require('@datafire/swagger_generator').create();
 
-swagger_generator.clientOptions({}, context).then(data => {
+swagger_generator.clientOptions({}).then(data => {
   console.log(data);
 })
 ```

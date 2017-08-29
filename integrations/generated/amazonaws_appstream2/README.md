@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_appstream2
 
 ```js
 let datafire = require('datafire');
-let amazonaws_appstream2 = require('@datafire/amazonaws_appstream2').actions;
-let context = new datafire.Context();
+let amazonaws_appstream2 = require('@datafire/amazonaws_appstream2').create();
 
-amazonaws_appstream2.AssociateFleet({}, context).then(data => {
+amazonaws_appstream2.AssociateFleet({}).then(data => {
   console.log(data);
 })
 ```

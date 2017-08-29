@@ -9,10 +9,9 @@ npm install --save datafire @datafire/pinboard
 
 ```js
 let datafire = require('datafire');
-let pinboard = require('@datafire/pinboard').actions;
-let context = new datafire.Context();
+let pinboard = require('@datafire/pinboard').create();
 
-pinboard.posts.all.get({}, context).then(data => {
+pinboard.posts.all.get({}).then(data => {
   console.log(data);
 })
 ```

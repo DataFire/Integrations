@@ -9,21 +9,14 @@ npm install --save datafire @datafire/rebilly
 
 ```js
 let datafire = require('datafire');
-let rebilly = require('@datafire/rebilly').actions;
-
-let account = {
+let rebilly = require('@datafire/rebilly').create({
   ApiKey: "",
   username: "",
   password: "",
   RebAuth: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    rebilly: account,
-  }
-})
+});
 
-rebilly.websites.get({}, context).then(data => {
+rebilly.websites.get({}).then(data => {
   console.log(data);
 })
 ```

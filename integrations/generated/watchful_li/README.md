@@ -9,10 +9,9 @@ npm install --save datafire @datafire/watchful_li
 
 ```js
 let datafire = require('datafire');
-let watchful_li = require('@datafire/watchful_li').actions;
-let context = new datafire.Context();
+let watchful_li = require('@datafire/watchful_li').create();
 
-watchful_li.getVersions({}, context).then(data => {
+watchful_li.getVersions({}).then(data => {
   console.log(data);
 })
 ```

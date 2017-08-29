@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_movie_reviews
 
 ```js
 let datafire = require('datafire');
-let nytimes_movie_reviews = require('@datafire/nytimes_movie_reviews').actions;
-
-let account = {
+let nytimes_movie_reviews = require('@datafire/nytimes_movie_reviews').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_movie_reviews: account,
-  }
-})
+});
 
-nytimes_movie_reviews.reviews.search.json.get({}, context).then(data => {
+nytimes_movie_reviews.reviews.search.json.get({}).then(data => {
   console.log(data);
 })
 ```

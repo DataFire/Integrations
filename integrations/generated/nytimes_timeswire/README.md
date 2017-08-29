@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_timeswire
 
 ```js
 let datafire = require('datafire');
-let nytimes_timeswire = require('@datafire/nytimes_timeswire').actions;
-
-let account = {
+let nytimes_timeswire = require('@datafire/nytimes_timeswire').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_timeswire: account,
-  }
-})
+});
 
-nytimes_timeswire.content.json.get({}, context).then(data => {
+nytimes_timeswire.content.json.get({}).then(data => {
   console.log(data);
 })
 ```

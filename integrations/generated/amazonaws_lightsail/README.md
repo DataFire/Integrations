@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_lightsail
 
 ```js
 let datafire = require('datafire');
-let amazonaws_lightsail = require('@datafire/amazonaws_lightsail').actions;
-let context = new datafire.Context();
+let amazonaws_lightsail = require('@datafire/amazonaws_lightsail').create();
 
-amazonaws_lightsail.AllocateStaticIp({}, context).then(data => {
+amazonaws_lightsail.AllocateStaticIp({}).then(data => {
   console.log(data);
 })
 ```

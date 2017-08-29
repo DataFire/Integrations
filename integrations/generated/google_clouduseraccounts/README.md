@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_clouduseraccounts
 
 ```js
 let datafire = require('datafire');
-let google_clouduseraccounts = require('@datafire/google_clouduseraccounts').actions;
-
-let account = {
+let google_clouduseraccounts = require('@datafire/google_clouduseraccounts').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_clouduseraccounts: account,
-  }
-})
+});
 
-google_clouduseraccounts.groups.list({}, context).then(data => {
+google_clouduseraccounts.groups.list({}).then(data => {
   console.log(data);
 })
 ```

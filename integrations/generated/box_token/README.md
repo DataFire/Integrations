@@ -9,10 +9,9 @@ npm install --save datafire @datafire/box_token
 
 ```js
 let datafire = require('datafire');
-let box_token = require('@datafire/box_token').actions;
-let context = new datafire.Context();
+let box_token = require('@datafire/box_token').create();
 
-box_token.revokeToken({}, context).then(data => {
+box_token.revokeToken({}).then(data => {
   console.log(data);
 })
 ```

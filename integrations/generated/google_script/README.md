@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_script
 
 ```js
 let datafire = require('datafire');
-let google_script = require('@datafire/google_script').actions;
-
-let account = {
+let google_script = require('@datafire/google_script').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_script: account,
-  }
-})
+});
 
-google_script.scripts.run({}, context).then(data => {
+google_script.scripts.run({}).then(data => {
   console.log(data);
 })
 ```

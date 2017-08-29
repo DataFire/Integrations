@@ -9,18 +9,11 @@ npm install --save datafire @datafire/rottentomatoes
 
 ```js
 let datafire = require('datafire');
-let rottentomatoes = require('@datafire/rottentomatoes').actions;
-
-let account = {
+let rottentomatoes = require('@datafire/rottentomatoes').create({
   key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    rottentomatoes: account,
-  }
-})
+});
 
-rottentomatoes.MoviesSearchSearch({}, context).then(data => {
+rottentomatoes.MoviesSearchSearch({}).then(data => {
   console.log(data);
 })
 ```

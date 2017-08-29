@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_servicecontrol
 
 ```js
 let datafire = require('datafire');
-let google_servicecontrol = require('@datafire/google_servicecontrol').actions;
-
-let account = {
+let google_servicecontrol = require('@datafire/google_servicecontrol').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_servicecontrol: account,
-  }
-})
+});
 
-google_servicecontrol.services.allocateQuota({}, context).then(data => {
+google_servicecontrol.services.allocateQuota({}).then(data => {
   console.log(data);
 })
 ```

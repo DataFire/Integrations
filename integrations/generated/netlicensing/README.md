@@ -9,20 +9,13 @@ npm install --save datafire @datafire/netlicensing
 
 ```js
 let datafire = require('datafire');
-let netlicensing = require('@datafire/netlicensing').actions;
-
-let account = {
+let netlicensing = require('@datafire/netlicensing').create({
   api_key: "",
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    netlicensing: account,
-  }
-})
+});
 
-netlicensing.listLicenses({}, context).then(data => {
+netlicensing.listLicenses({}).then(data => {
   console.log(data);
 })
 ```

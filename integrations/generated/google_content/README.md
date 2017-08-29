@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_content
 
 ```js
 let datafire = require('datafire');
-let google_content = require('@datafire/google_content').actions;
-
-let account = {
+let google_content = require('@datafire/google_content').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_content: account,
-  }
-})
+});
 
-google_content.shippingsettings.custombatch({}, context).then(data => {
+google_content.shippingsettings.custombatch({}).then(data => {
   console.log(data);
 })
 ```

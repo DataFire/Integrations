@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_monitoring
 
 ```js
 let datafire = require('datafire');
-let google_monitoring = require('@datafire/google_monitoring').actions;
-
-let account = {
+let google_monitoring = require('@datafire/google_monitoring').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_monitoring: account,
-  }
-})
+});
 
-google_monitoring.projects.groups.delete({}, context).then(data => {
+google_monitoring.projects.groups.delete({}).then(data => {
   console.log(data);
 })
 ```

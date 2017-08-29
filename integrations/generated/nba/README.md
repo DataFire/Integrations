@@ -9,10 +9,9 @@ npm install --save datafire @datafire/nba
 
 ```js
 let datafire = require('datafire');
-let nba = require('@datafire/nba').actions;
-let context = new datafire.Context();
+let nba = require('@datafire/nba').create();
 
-nba.playerdashptshotlog.get({}, context).then(data => {
+nba.playerdashptshotlog.get({}).then(data => {
   console.log(data);
 })
 ```

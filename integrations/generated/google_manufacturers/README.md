@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_manufacturers
 
 ```js
 let datafire = require('datafire');
-let google_manufacturers = require('@datafire/google_manufacturers').actions;
-
-let account = {
+let google_manufacturers = require('@datafire/google_manufacturers').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_manufacturers: account,
-  }
-})
+});
 
-google_manufacturers.accounts.products.list({}, context).then(data => {
+google_manufacturers.accounts.products.list({}).then(data => {
   console.log(data);
 })
 ```

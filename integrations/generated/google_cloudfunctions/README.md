@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_cloudfunctions
 
 ```js
 let datafire = require('datafire');
-let google_cloudfunctions = require('@datafire/google_cloudfunctions').actions;
-
-let account = {
+let google_cloudfunctions = require('@datafire/google_cloudfunctions').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_cloudfunctions: account,
-  }
-})
+});
 
-google_cloudfunctions.projects.locations.functions.list({}, context).then(data => {
+google_cloudfunctions.projects.locations.functions.list({}).then(data => {
   console.log(data);
 })
 ```

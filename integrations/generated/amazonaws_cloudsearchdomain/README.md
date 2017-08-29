@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cloudsearchdomain
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudsearchdomain = require('@datafire/amazonaws_cloudsearchdomain').actions;
-let context = new datafire.Context();
+let amazonaws_cloudsearchdomain = require('@datafire/amazonaws_cloudsearchdomain').create();
 
-amazonaws_cloudsearchdomain.UploadDocuments({}, context).then(data => {
+amazonaws_cloudsearchdomain.UploadDocuments({}).then(data => {
   console.log(data);
 })
 ```

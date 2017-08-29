@@ -9,10 +9,9 @@ npm install --save datafire @datafire/deutschebahn_fahrplan
 
 ```js
 let datafire = require('datafire');
-let deutschebahn_fahrplan = require('@datafire/deutschebahn_fahrplan').actions;
-let context = new datafire.Context();
+let deutschebahn_fahrplan = require('@datafire/deutschebahn_fahrplan').create();
 
-deutschebahn_fahrplan.arrivalBoard.id.get({}, context).then(data => {
+deutschebahn_fahrplan.arrivalBoard.id.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_sms
 
 ```js
 let datafire = require('datafire');
-let amazonaws_sms = require('@datafire/amazonaws_sms').actions;
-let context = new datafire.Context();
+let amazonaws_sms = require('@datafire/amazonaws_sms').create();
 
-amazonaws_sms.CreateReplicationJob({}, context).then(data => {
+amazonaws_sms.CreateReplicationJob({}).then(data => {
   console.log(data);
 })
 ```

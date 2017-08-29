@@ -9,10 +9,9 @@ npm install --save datafire @datafire/6_dot_authentiqio_appspot
 
 ```js
 let datafire = require('datafire');
-let 6_dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').actions;
-let context = new datafire.Context();
+let 6_dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').create();
 
-6_dot_authentiqio_appspot.key.delete({}, context).then(data => {
+6_dot_authentiqio_appspot.key.delete({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/myspace
 
 ```js
 let datafire = require('datafire');
-let myspace = require('@datafire/myspace').actions;
-let context = new datafire.Context();
+let myspace = require('@datafire/myspace').create();
 
-myspace.1.0.activities._supportedFields.get({}, context).then(data => {
+myspace.1.0.activities._supportedFields.get({}).then(data => {
   console.log(data);
 })
 ```

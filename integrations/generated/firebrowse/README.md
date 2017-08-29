@@ -9,10 +9,9 @@ npm install --save datafire @datafire/firebrowse
 
 ```js
 let datafire = require('datafire');
-let firebrowse = require('@datafire/firebrowse').actions;
-let context = new datafire.Context();
+let firebrowse = require('@datafire/firebrowse').create();
 
-firebrowse.miRSeq({}, context).then(data => {
+firebrowse.miRSeq({}).then(data => {
   console.log(data);
 })
 ```

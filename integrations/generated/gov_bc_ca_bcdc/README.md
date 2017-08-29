@@ -9,23 +9,16 @@ npm install --save datafire @datafire/gov_bc_ca_bcdc
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_bcdc = require('@datafire/gov_bc_ca_bcdc').actions;
-
-let account = {
+let gov_bc_ca_bcdc = require('@datafire/gov_bc_ca_bcdc').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
   internalApiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    gov_bc_ca_bcdc: account,
-  }
-})
+});
 
-gov_bc_ca_bcdc.action.tag_list.get({}, context).then(data => {
+gov_bc_ca_bcdc.action.tag_list.get({}).then(data => {
   console.log(data);
 })
 ```

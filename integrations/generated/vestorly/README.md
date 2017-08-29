@@ -9,10 +9,9 @@ npm install --save datafire @datafire/vestorly
 
 ```js
 let datafire = require('datafire');
-let vestorly = require('@datafire/vestorly').actions;
-let context = new datafire.Context();
+let vestorly = require('@datafire/vestorly').create();
 
-vestorly.findAdvisorByID({}, context).then(data => {
+vestorly.findAdvisorByID({}).then(data => {
   console.log(data);
 })
 ```

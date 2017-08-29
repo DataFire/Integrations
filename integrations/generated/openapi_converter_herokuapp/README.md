@@ -9,10 +9,9 @@ npm install --save datafire @datafire/openapi_converter_herokuapp
 
 ```js
 let datafire = require('datafire');
-let openapi_converter_herokuapp = require('@datafire/openapi_converter_herokuapp').actions;
-let context = new datafire.Context();
+let openapi_converter_herokuapp = require('@datafire/openapi_converter_herokuapp').create();
 
-openapi_converter_herokuapp.validate({}, context).then(data => {
+openapi_converter_herokuapp.validate({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/clarify
 
 ```js
 let datafire = require('datafire');
-let clarify = require('@datafire/clarify').actions;
-let context = new datafire.Context();
+let clarify = require('@datafire/clarify').create();
 
-clarify.v1search({}, context).then(data => {
+clarify.v1search({}).then(data => {
   console.log(data);
 })
 ```

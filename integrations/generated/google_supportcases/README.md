@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_supportcases
 
 ```js
 let datafire = require('datafire');
-let google_supportcases = require('@datafire/google_supportcases').actions;
-
-let account = {
+let google_supportcases = require('@datafire/google_supportcases').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_supportcases: account,
-  }
-})
+});
 
-google_supportcases.youtube.transactions.refund({}, context).then(data => {
+google_supportcases.youtube.transactions.refund({}).then(data => {
   console.log(data);
 })
 ```

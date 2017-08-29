@@ -9,19 +9,12 @@ npm install --save datafire @datafire/twilio
 
 ```js
 let datafire = require('datafire');
-let twilio = require('@datafire/twilio').actions;
-
-let account = {
+let twilio = require('@datafire/twilio').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    twilio: account,
-  }
-})
+});
 
-twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({}, context).then(data => {
+twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({}).then(data => {
   console.log(data);
 })
 ```

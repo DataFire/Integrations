@@ -9,19 +9,12 @@ npm install --save datafire @datafire/neutrinoapi
 
 ```js
 let datafire = require('datafire');
-let neutrinoapi = require('@datafire/neutrinoapi').actions;
-
-let account = {
+let neutrinoapi = require('@datafire/neutrinoapi').create({
   api-key: "",
   user-id: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    neutrinoapi: account,
-  }
-})
+});
 
-neutrinoapi.bad_word_filter.post({}, context).then(data => {
+neutrinoapi.bad_word_filter.post({}).then(data => {
   console.log(data);
 })
 ```

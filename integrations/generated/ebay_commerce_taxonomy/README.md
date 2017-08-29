@@ -9,22 +9,15 @@ npm install --save datafire @datafire/ebay_commerce_taxonomy
 
 ```js
 let datafire = require('datafire');
-let ebay_commerce_taxonomy = require('@datafire/ebay_commerce_taxonomy').actions;
-
-let account = {
+let ebay_commerce_taxonomy = require('@datafire/ebay_commerce_taxonomy').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    ebay_commerce_taxonomy: account,
-  }
-})
+});
 
-ebay_commerce_taxonomy.getCategoryTree({}, context).then(data => {
+ebay_commerce_taxonomy.getCategoryTree({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_webmasters
 
 ```js
 let datafire = require('datafire');
-let google_webmasters = require('@datafire/google_webmasters').actions;
-
-let account = {
+let google_webmasters = require('@datafire/google_webmasters').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_webmasters: account,
-  }
-})
+});
 
-google_webmasters.sites.list({}, context).then(data => {
+google_webmasters.sites.list({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_language
 
 ```js
 let datafire = require('datafire');
-let google_language = require('@datafire/google_language').actions;
-
-let account = {
+let google_language = require('@datafire/google_language').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_language: account,
-  }
-})
+});
 
-google_language.documents.annotateText({}, context).then(data => {
+google_language.documents.annotateText({}).then(data => {
   console.log(data);
 })
 ```

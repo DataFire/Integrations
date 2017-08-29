@@ -9,10 +9,9 @@ npm install --save datafire @datafire/urbanairship
 
 ```js
 let datafire = require('datafire');
-let urbanairship = require('@datafire/urbanairship').actions;
-let context = new datafire.Context();
+let urbanairship = require('@datafire/urbanairship').create();
 
-urbanairship.apids.get({}, context).then(data => {
+urbanairship.apids.get({}).then(data => {
   console.log(data);
 })
 ```

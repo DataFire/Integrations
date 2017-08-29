@@ -9,18 +9,11 @@ npm install --save datafire @datafire/clickmeter
 
 ```js
 let datafire = require('datafire');
-let clickmeter = require('@datafire/clickmeter').actions;
-
-let account = {
+let clickmeter = require('@datafire/clickmeter').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    clickmeter: account,
-  }
-})
+});
 
-clickmeter.tags.count.get({}, context).then(data => {
+clickmeter.tags.count.get({}).then(data => {
   console.log(data);
 })
 ```

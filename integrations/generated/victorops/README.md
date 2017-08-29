@@ -9,10 +9,9 @@ npm install --save datafire @datafire/victorops
 
 ```js
 let datafire = require('datafire');
-let victorops = require('@datafire/victorops').actions;
-let context = new datafire.Context();
+let victorops = require('@datafire/victorops').create();
 
-victorops.api_public.v1.alerts.batch.post({}, context).then(data => {
+victorops.api_public.v1.alerts.batch.post({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,18 +9,11 @@ npm install --save datafire @datafire/deutschebahn_fasta
 
 ```js
 let datafire = require('datafire');
-let deutschebahn_fasta = require('@datafire/deutschebahn_fasta').actions;
-
-let account = {
+let deutschebahn_fasta = require('@datafire/deutschebahn_fasta').create({
   UserSecurity: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    deutschebahn_fasta: account,
-  }
-})
+});
 
-deutschebahn_fasta.findFacilities({}, context).then(data => {
+deutschebahn_fasta.findFacilities({}).then(data => {
   console.log(data);
 })
 ```

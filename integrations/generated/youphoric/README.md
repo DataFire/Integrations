@@ -9,10 +9,9 @@ npm install --save datafire @datafire/youphoric
 
 ```js
 let datafire = require('datafire');
-let youphoric = require('@datafire/youphoric').actions;
-let context = new datafire.Context();
+let youphoric = require('@datafire/youphoric').create();
 
-youphoric.register.php_.get({}, context).then(data => {
+youphoric.register.php_.get({}).then(data => {
   console.log(data);
 })
 ```

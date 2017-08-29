@@ -9,9 +9,7 @@ npm install --save datafire @datafire/bitbucket
 
 ```js
 let datafire = require('datafire');
-let bitbucket = require('@datafire/bitbucket').actions;
-
-let account = {
+let bitbucket = require('@datafire/bitbucket').create({
   api_key: "",
   username: "",
   password: "",
@@ -20,14 +18,9 @@ let account = {
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    bitbucket: account,
-  }
-})
+});
 
-bitbucket.teams.get({}, context).then(data => {
+bitbucket.teams.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,18 +9,11 @@ npm install --save datafire @datafire/circleci
 
 ```js
 let datafire = require('datafire');
-let circleci = require('@datafire/circleci').actions;
-
-let account = {
+let circleci = require('@datafire/circleci').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    circleci: account,
-  }
-})
+});
 
-circleci.recent_builds.get({}, context).then(data => {
+circleci.recent_builds.get({}).then(data => {
   console.log(data);
 })
 ```

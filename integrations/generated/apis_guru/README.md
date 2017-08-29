@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apis_guru
 
 ```js
 let datafire = require('datafire');
-let apis_guru = require('@datafire/apis_guru').actions;
-let context = new datafire.Context();
+let apis_guru = require('@datafire/apis_guru').create();
 
-apis_guru.listAPIs({}, context).then(data => {
+apis_guru.listAPIs({}).then(data => {
   console.log(data);
 })
 ```

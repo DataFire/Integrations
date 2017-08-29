@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_workdocs
 
 ```js
 let datafire = require('datafire');
-let amazonaws_workdocs = require('@datafire/amazonaws_workdocs').actions;
-let context = new datafire.Context();
+let amazonaws_workdocs = require('@datafire/amazonaws_workdocs').create();
 
-amazonaws_workdocs.InitiateDocumentVersionUpload({}, context).then(data => {
+amazonaws_workdocs.InitiateDocumentVersionUpload({}).then(data => {
   console.log(data);
 })
 ```

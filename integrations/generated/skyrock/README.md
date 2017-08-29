@@ -9,10 +9,9 @@ npm install --save datafire @datafire/skyrock
 
 ```js
 let datafire = require('datafire');
-let skyrock = require('@datafire/skyrock').actions;
-let context = new datafire.Context();
+let skyrock = require('@datafire/skyrock').create();
 
-skyrock.message.reply_thread.format.post({}, context).then(data => {
+skyrock.message.reply_thread.format.post({}).then(data => {
   console.log(data);
 })
 ```

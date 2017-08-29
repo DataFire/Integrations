@@ -9,22 +9,15 @@ npm install --save datafire @datafire/windows_arm_graphrbac
 
 ```js
 let datafire = require('datafire');
-let windows_arm_graphrbac = require('@datafire/windows_arm_graphrbac').actions;
-
-let account = {
+let windows_arm_graphrbac = require('@datafire/windows_arm_graphrbac').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    windows_arm_graphrbac: account,
-  }
-})
+});
 
-windows_arm_graphrbac.Applications_List({}, context).then(data => {
+windows_arm_graphrbac.Applications_List({}).then(data => {
   console.log(data);
 })
 ```

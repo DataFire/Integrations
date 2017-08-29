@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_inspector
 
 ```js
 let datafire = require('datafire');
-let amazonaws_inspector = require('@datafire/amazonaws_inspector').actions;
-let context = new datafire.Context();
+let amazonaws_inspector = require('@datafire/amazonaws_inspector').create();
 
-amazonaws_inspector.AddAttributesToFindings({}, context).then(data => {
+amazonaws_inspector.AddAttributesToFindings({}).then(data => {
   console.log(data);
 })
 ```

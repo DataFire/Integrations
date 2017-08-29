@@ -9,10 +9,9 @@ npm install --save datafire @datafire/yellowpages
 
 ```js
 let datafire = require('datafire');
-let yellowpages = require('@datafire/yellowpages').actions;
-let context = new datafire.Context();
+let yellowpages = require('@datafire/yellowpages').create();
 
-yellowpages.listingmap.get({}, context).then(data => {
+yellowpages.listingmap.get({}).then(data => {
   console.log(data);
 })
 ```

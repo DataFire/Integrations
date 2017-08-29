@@ -9,18 +9,11 @@ npm install --save datafire @datafire/graphhopper
 
 ```js
 let datafire = require('datafire');
-let graphhopper = require('@datafire/graphhopper').actions;
-
-let account = {
+let graphhopper = require('@datafire/graphhopper').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    graphhopper: account,
-  }
-})
+});
 
-graphhopper.postVrp({}, context).then(data => {
+graphhopper.postVrp({}).then(data => {
   console.log(data);
 })
 ```

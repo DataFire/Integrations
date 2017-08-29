@@ -9,10 +9,9 @@ npm install --save datafire @datafire/hacker_news
 
 ```js
 let datafire = require('datafire');
-let hacker_news = require('@datafire/hacker_news').actions;
-let context = new datafire.Context();
+let hacker_news = require('@datafire/hacker_news').create();
 
-hacker_news.getStories({}, context).then(data => {
+hacker_news.getStories({}).then(data => {
   console.log(data);
 })
 ```

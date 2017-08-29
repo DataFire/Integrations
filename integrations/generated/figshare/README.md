@@ -9,22 +9,15 @@ npm install --save datafire @datafire/figshare
 
 ```js
 let datafire = require('datafire');
-let figshare = require('@datafire/figshare').actions;
-
-let account = {
+let figshare = require('@datafire/figshare').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    figshare: account,
-  }
-})
+});
 
-figshare.projects_search({}, context).then(data => {
+figshare.projects_search({}).then(data => {
   console.log(data);
 })
 ```

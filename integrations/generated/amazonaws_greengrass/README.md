@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_greengrass
 
 ```js
 let datafire = require('datafire');
-let amazonaws_greengrass = require('@datafire/amazonaws_greengrass').actions;
-let context = new datafire.Context();
+let amazonaws_greengrass = require('@datafire/amazonaws_greengrass').create();
 
-amazonaws_greengrass.ListCoreDefinitions({}, context).then(data => {
+amazonaws_greengrass.ListCoreDefinitions({}).then(data => {
   console.log(data);
 })
 ```

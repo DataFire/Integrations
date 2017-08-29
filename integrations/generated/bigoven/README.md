@@ -9,20 +9,13 @@ npm install --save datafire @datafire/bigoven
 
 ```js
 let datafire = require('datafire');
-let bigoven = require('@datafire/bigoven').actions;
-
-let account = {
+let bigoven = require('@datafire/bigoven').create({
   api_key: "",
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    bigoven: account,
-  }
-})
+});
 
-bigoven.Recipe_RecentViews({}, context).then(data => {
+bigoven.Recipe_RecentViews({}).then(data => {
   console.log(data);
 })
 ```

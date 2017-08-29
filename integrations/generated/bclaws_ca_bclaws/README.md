@@ -9,10 +9,9 @@ npm install --save datafire @datafire/bclaws_ca_bclaws
 
 ```js
 let datafire = require('datafire');
-let bclaws_ca_bclaws = require('@datafire/bclaws_ca_bclaws').actions;
-let context = new datafire.Context();
+let bclaws_ca_bclaws = require('@datafire/bclaws_ca_bclaws').create();
 
-bclaws_ca_bclaws.content.aspectId.get({}, context).then(data => {
+bclaws_ca_bclaws.content.aspectId.get({}).then(data => {
   console.log(data);
 })
 ```

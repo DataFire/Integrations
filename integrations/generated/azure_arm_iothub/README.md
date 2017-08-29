@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_iothub
 
 ```js
 let datafire = require('datafire');
-let azure_arm_iothub = require('@datafire/azure_arm_iothub').actions;
-let context = new datafire.Context();
+let azure_arm_iothub = require('@datafire/azure_arm_iothub').create();
 
-azure_arm_iothub.IotHubResource_ListBySubscription({}, context).then(data => {
+azure_arm_iothub.IotHubResource_ListBySubscription({}).then(data => {
   console.log(data);
 })
 ```

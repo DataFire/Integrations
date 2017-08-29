@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_geo_api
 
 ```js
 let datafire = require('datafire');
-let nytimes_geo_api = require('@datafire/nytimes_geo_api').actions;
-
-let account = {
+let nytimes_geo_api = require('@datafire/nytimes_geo_api').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_geo_api: account,
-  }
-})
+});
 
-nytimes_geo_api.query.json.get({}, context).then(data => {
+nytimes_geo_api.query.json.get({}).then(data => {
   console.log(data);
 })
 ```

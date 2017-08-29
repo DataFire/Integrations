@@ -9,19 +9,12 @@ npm install --save datafire @datafire/mozilla_kinto
 
 ```js
 let datafire = require('datafire');
-let mozilla_kinto = require('@datafire/mozilla_kinto').actions;
-
-let account = {
+let mozilla_kinto = require('@datafire/mozilla_kinto').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    mozilla_kinto: account,
-  }
-})
+});
 
-mozilla_kinto.get_changess({}, context).then(data => {
+mozilla_kinto.get_changess({}).then(data => {
   console.log(data);
 })
 ```

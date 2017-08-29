@@ -9,22 +9,15 @@ npm install --save datafire @datafire/github
 
 ```js
 let datafire = require('datafire');
-let github = require('@datafire/github').actions;
-
-let account = {
+let github = require('@datafire/github').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    github: account,
-  }
-})
+});
 
-github.users.get({}, context).then(data => {
+github.users.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -65,12 +58,6 @@ github.emojis.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### events.get
@@ -82,12 +69,6 @@ github.events.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### feeds.get
@@ -102,12 +83,6 @@ github.feeds.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### gists.get
@@ -122,12 +97,6 @@ github.gists.get({}, context)
 
 #### Parameters
 * since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### gists.post
@@ -141,12 +110,6 @@ github.gists.post({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### gists.public.get
@@ -159,12 +122,6 @@ github.gists.public.get({}, context)
 
 #### Parameters
 * since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.starred.get
 List the authenticated user's starred gists.
@@ -176,12 +133,6 @@ github.gists.starred.get({}, context)
 
 #### Parameters
 * since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.delete
 Delete a gist.
@@ -195,12 +146,6 @@ github.gists.id.delete({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.get
 Get a single gist.
@@ -214,12 +159,6 @@ github.gists.id.get({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.patch
 Edit a gist.
@@ -234,12 +173,6 @@ github.gists.id.patch({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### gists.id.comments.get
@@ -254,12 +187,6 @@ github.gists.id.comments.get({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### gists.id.comments.post
@@ -277,12 +204,6 @@ github.gists.id.comments.post({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### gists.id.comments.commentId.delete
@@ -299,12 +220,6 @@ github.gists.id.comments.commentId.delete({
 #### Parameters
 * id (integer) **required** - Id of gist.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.comments.commentId.get
 Get a single comment.
@@ -320,12 +235,6 @@ github.gists.id.comments.commentId.get({
 #### Parameters
 * id (integer) **required** - Id of gist.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.comments.commentId.patch
 Edit a comment.
@@ -342,12 +251,6 @@ github.gists.id.comments.commentId.patch({
 #### Parameters
 * id (integer) **required** - Id of gist.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### gists.id.forks.post
@@ -362,12 +265,6 @@ github.gists.id.forks.post({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.star.delete
 Unstar a gist.
@@ -381,12 +278,6 @@ github.gists.id.star.delete({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.star.get
 Check if a gist is starred.
@@ -400,12 +291,6 @@ github.gists.id.star.get({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gists.id.star.put
 Star a gist.
@@ -419,12 +304,6 @@ github.gists.id.star.put({
 
 #### Parameters
 * id (integer) **required** - Id of gist.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### gitignore.templates.get
 Listing available templates.
@@ -437,12 +316,6 @@ github.gitignore.templates.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### gitignore.templates.language.get
@@ -457,12 +330,6 @@ github.gitignore.templates.language.get({
 
 #### Parameters
 * language (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### issues.get
 List issues.
@@ -487,12 +354,6 @@ github.issues.get({
 * sort (string) **required**
 * direction (string) **required**
 * since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### legacy.issues.search.owner.repository.state.keyword.get
@@ -513,12 +374,6 @@ github.legacy.issues.search.owner.repository.state.keyword.get({
 * state (string) **required** - Indicates the state of the issues to return. Can be either open or closed.
 * owner (string) **required**
 * repository (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### legacy.repos.search.keyword.get
 Find repositories by keyword. Note, this legacy method does not follow the v3 pagination pattern. This method returns up to 100 results per page and pages can be fetched using the start_page parameter.
@@ -536,12 +391,6 @@ github.legacy.repos.search.keyword.get({
 * language (string) - Filter results by language
 * start_page (string) - The page number to fetch
 * sort (string) - The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### legacy.user.email.email.get
 This API call is added for compatibility reasons only.
@@ -555,12 +404,6 @@ github.legacy.user.email.email.get({
 
 #### Parameters
 * email (string) **required** - The email address
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### legacy.user.search.keyword.get
 Find users by keyword.
@@ -577,12 +420,6 @@ github.legacy.user.search.keyword.get({
 * order (string) - The sort field. if sort param is provided. Can be either asc or desc.
 * start_page (string) - The page number to fetch
 * sort (string) - The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### markdown.post
 Render an arbitrary Markdown document
@@ -595,12 +432,6 @@ github.markdown.post({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### markdown.raw.post
@@ -608,32 +439,18 @@ Render a Markdown document in raw mode
 
 
 ```js
-github.markdown.raw.post({}, context)
+github.markdown.raw.post(null, context)
 ```
 
-#### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### meta.get
 This gives some information about GitHub.com, the service.
 
 
 ```js
-github.meta.get({}, context)
+github.meta.get(null, context)
 ```
 
-#### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### networks.owner.repo.events.get
 List public events for a network of repositories.
@@ -649,12 +466,6 @@ github.networks.owner.repo.events.get({
 #### Parameters
 * owner (string) **required** - Name of the owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### notifications.get
@@ -671,12 +482,6 @@ github.notifications.get({}, context)
 * all (boolean) - True to show notifications marked as read.
 * participating (boolean) - True to show only notifications in which the user is directly participating
 * since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### notifications.put
@@ -692,12 +497,6 @@ github.notifications.put({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### notifications.threads.id.get
@@ -712,12 +511,6 @@ github.notifications.threads.id.get({
 
 #### Parameters
 * id (integer) **required** - Id of thread.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### notifications.threads.id.patch
 Mark a thread as read
@@ -731,12 +524,6 @@ github.notifications.threads.id.patch({
 
 #### Parameters
 * id (integer) **required** - Id of thread.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### notifications.threads.id.subscription.delete
 Delete a Thread Subscription.
@@ -750,12 +537,6 @@ github.notifications.threads.id.subscription.delete({
 
 #### Parameters
 * id (integer) **required** - Id of thread.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### notifications.threads.id.subscription.get
 Get a Thread Subscription.
@@ -769,12 +550,6 @@ github.notifications.threads.id.subscription.get({
 
 #### Parameters
 * id (integer) **required** - Id of thread.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### notifications.threads.id.subscription.put
 Set a Thread Subscription.
@@ -793,12 +568,6 @@ github.notifications.threads.id.subscription.put({
 
 #### Parameters
 * id (integer) **required** - Id of thread.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### orgs.org.get
@@ -813,12 +582,6 @@ github.orgs.org.get({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### orgs.org.patch
 Edit an Organization.
@@ -833,12 +596,6 @@ github.orgs.org.patch({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### orgs.org.events.get
@@ -853,12 +610,6 @@ github.orgs.org.events.get({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### orgs.org.issues.get
@@ -886,12 +637,6 @@ github.orgs.org.issues.get({
 * sort (string) **required**
 * direction (string) **required**
 * since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### orgs.org.members.get
@@ -912,12 +657,6 @@ github.orgs.org.members.get({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### orgs.org.members.username.delete
@@ -937,12 +676,6 @@ github.orgs.org.members.username.delete({
 #### Parameters
 * org (string) **required** - Name of organisation.
 * username (string) **required** - Name of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### orgs.org.members.username.get
 Check if a user is, publicly or privately, a member of the organization.
@@ -958,12 +691,6 @@ github.orgs.org.members.username.get({
 #### Parameters
 * org (string) **required** - Name of organisation.
 * username (string) **required** - Name of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### orgs.org.public_members.get
 Public members list.
@@ -980,12 +707,6 @@ github.orgs.org.public_members.get({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### orgs.org.public_members.username.delete
@@ -1002,12 +723,6 @@ github.orgs.org.public_members.username.delete({
 #### Parameters
 * org (string) **required** - Name of organisation.
 * username (string) **required** - Name of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### orgs.org.public_members.username.get
 Check public membership.
@@ -1023,12 +738,6 @@ github.orgs.org.public_members.username.get({
 #### Parameters
 * org (string) **required** - Name of organisation.
 * username (string) **required** - Name of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### orgs.org.public_members.username.put
 Publicize a user's membership.
@@ -1044,12 +753,6 @@ github.orgs.org.public_members.username.put({
 #### Parameters
 * org (string) **required** - Name of organisation.
 * username (string) **required** - Name of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### orgs.org.repos.get
 List repositories for the specified org.
@@ -1064,12 +767,6 @@ github.orgs.org.repos.get({
 #### Parameters
 * org (string) **required** - Name of organisation.
 * type (string)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### orgs.org.repos.post
@@ -1089,12 +786,6 @@ github.orgs.org.repos.post({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### orgs.org.teams.get
@@ -1109,12 +800,6 @@ github.orgs.org.teams.get({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### orgs.org.teams.post
@@ -1134,12 +819,6 @@ github.orgs.org.teams.post({
 
 #### Parameters
 * org (string) **required** - Name of organisation.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### rate_limit.get
@@ -1149,16 +828,9 @@ Note: Accessing this endpoint does not count against your rate limit.
 
 
 ```js
-github.rate_limit.get({}, context)
+github.rate_limit.get(null, context)
 ```
 
-#### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.delete
 Delete a Repository.
@@ -1177,12 +849,6 @@ github.repos.owner.repo.delete({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.get
 Get repository.
@@ -1198,12 +864,6 @@ github.repos.owner.repo.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.patch
 Edit repository.
@@ -1220,12 +880,6 @@ github.repos.owner.repo.patch({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.assignees.get
@@ -1245,12 +899,6 @@ github.repos.owner.repo.assignees.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.assignees.assignee.get
@@ -1271,12 +919,6 @@ github.repos.owner.repo.assignees.assignee.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * assignee (string) **required** - Login of the assignee.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.branches.get
 Get list of branches
@@ -1292,12 +934,6 @@ github.repos.owner.repo.branches.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.branches.branch.get
@@ -1316,12 +952,6 @@ github.repos.owner.repo.branches.branch.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * branch (string) **required** - Name of the branch.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.collaborators.get
 List.
@@ -1342,12 +972,6 @@ github.repos.owner.repo.collaborators.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.collaborators.user.delete
@@ -1366,12 +990,6 @@ github.repos.owner.repo.collaborators.user.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * user (string) **required** - Login of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.collaborators.user.get
 Check if user is a collaborator
@@ -1389,12 +1007,6 @@ github.repos.owner.repo.collaborators.user.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * user (string) **required** - Login of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.collaborators.user.put
 Add collaborator.
@@ -1412,12 +1024,6 @@ github.repos.owner.repo.collaborators.user.put({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * user (string) **required** - Login of the user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.comments.get
 List commit comments for a repository.
@@ -1435,12 +1041,6 @@ github.repos.owner.repo.comments.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.comments.commentId.delete
@@ -1459,12 +1059,6 @@ github.repos.owner.repo.comments.commentId.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.comments.commentId.get
 Get a single commit comment.
@@ -1482,12 +1076,6 @@ github.repos.owner.repo.comments.commentId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.comments.commentId.patch
 Update a commit comment.
@@ -1508,12 +1096,6 @@ github.repos.owner.repo.comments.commentId.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.commits.get
@@ -1535,12 +1117,6 @@ github.repos.owner.repo.commits.get({
 * path (string) - Only commits containing this file path will be returned.
 * author (string) - GitHub login, name, or email by which to filter by commit author.
 * until (string) - ISO 8601 Date - Only commits before this date will be returned.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.commits.ref.status.get
@@ -1563,12 +1139,6 @@ github.repos.owner.repo.commits.ref.status.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.commits.shaCode.get
@@ -1587,12 +1157,6 @@ github.repos.owner.repo.commits.shaCode.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required** - SHA-1 code of the commit.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.commits.shaCode.comments.get
 List comments for a single commitList comments for a single commit.
@@ -1610,12 +1174,6 @@ github.repos.owner.repo.commits.shaCode.comments.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required** - SHA-1 code of the commit.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.commits.shaCode.comments.post
@@ -1638,12 +1196,6 @@ github.repos.owner.repo.commits.shaCode.comments.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required** - SHA-1 code of the commit.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.compare.baseId...headId.get
@@ -1664,12 +1216,6 @@ github.repos.owner.repo.compare.baseId...headId.get({
 * repo (string) **required** - Name of repository.
 * baseId (string) **required**
 * headId (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.contents.path.delete
 Delete a file.
@@ -1690,12 +1236,6 @@ github.repos.owner.repo.contents.path.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * path (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.contents.path.get
@@ -1722,12 +1262,6 @@ github.repos.owner.repo.contents.path.get({
 * path (string) **required**
 * path_query (string) - The content path.
 * ref (string) - The String name of the Commit/Branch/Tag. Defaults to 'master'.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.contents.path.put
 Create a file.
@@ -1746,12 +1280,6 @@ github.repos.owner.repo.contents.path.put({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * path (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.contributors.get
@@ -1770,12 +1298,6 @@ github.repos.owner.repo.contributors.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * anon (string) **required** - Set to 1 or true to include anonymous contributors in results.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.deployments.get
@@ -1792,12 +1314,6 @@ github.repos.owner.repo.deployments.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.deployments.post
@@ -1815,12 +1331,6 @@ github.repos.owner.repo.deployments.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.deployments.id.statuses.get
@@ -1839,12 +1349,6 @@ github.repos.owner.repo.deployments.id.statuses.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (integer) **required** - The Deployment ID to list the statuses from.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.deployments.id.statuses.post
@@ -1866,12 +1370,6 @@ github.repos.owner.repo.deployments.id.statuses.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (integer) **required** - The Deployment ID to list the statuses from.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.downloads.get
@@ -1888,12 +1386,6 @@ github.repos.owner.repo.downloads.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.downloads.downloadId.delete
@@ -1912,12 +1404,6 @@ github.repos.owner.repo.downloads.downloadId.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * downloadId (integer) **required** - Id of download.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.downloads.downloadId.get
 Deprecated. Get a single download.
@@ -1935,12 +1421,6 @@ github.repos.owner.repo.downloads.downloadId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * downloadId (integer) **required** - Id of download.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.events.get
 Get list of repository events.
@@ -1956,12 +1436,6 @@ github.repos.owner.repo.events.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.forks.get
@@ -1979,12 +1453,6 @@ github.repos.owner.repo.forks.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * sort (string)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.forks.post
@@ -2006,12 +1474,6 @@ github.repos.owner.repo.forks.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.blobs.post
@@ -2029,12 +1491,6 @@ github.repos.owner.repo.git.blobs.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.blobs.shaCode.get
@@ -2058,12 +1514,6 @@ github.repos.owner.repo.git.blobs.shaCode.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required** - SHA-1 code.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.git.commits.post
 Create a Commit.
@@ -2084,12 +1534,6 @@ github.repos.owner.repo.git.commits.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.commits.shaCode.get
@@ -2108,12 +1552,6 @@ github.repos.owner.repo.git.commits.shaCode.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required** - SHA-1 code.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.git.refs.get
 Get all References
@@ -2129,12 +1567,6 @@ github.repos.owner.repo.git.refs.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.git.refs.post
@@ -2152,12 +1584,6 @@ github.repos.owner.repo.git.refs.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.refs.ref.delete
@@ -2179,12 +1605,6 @@ github.repos.owner.repo.git.refs.ref.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.git.refs.ref.get
 Get a Reference
@@ -2202,12 +1622,6 @@ github.repos.owner.repo.git.refs.ref.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.git.refs.ref.patch
 Update a Reference
@@ -2226,12 +1640,6 @@ github.repos.owner.repo.git.refs.ref.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.tags.post
@@ -2255,12 +1663,6 @@ github.repos.owner.repo.git.tags.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.tags.shaCode.get
@@ -2279,12 +1681,6 @@ github.repos.owner.repo.git.tags.shaCode.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.git.trees.post
 Create a Tree.
@@ -2305,12 +1701,6 @@ github.repos.owner.repo.git.trees.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.git.trees.shaCode.get
@@ -2330,12 +1720,6 @@ github.repos.owner.repo.git.trees.shaCode.get({
 * repo (string) **required** - Name of repository.
 * shaCode (string) **required** - Tree SHA.
 * recursive (integer) - Get a Tree Recursively. (0 or 1)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.hooks.get
 Get list of hooks.
@@ -2351,12 +1735,6 @@ github.repos.owner.repo.hooks.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.hooks.post
@@ -2374,12 +1752,6 @@ github.repos.owner.repo.hooks.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.hooks.hookId.delete
@@ -2398,12 +1770,6 @@ github.repos.owner.repo.hooks.hookId.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * hookId (integer) **required** - Id of hook.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.hooks.hookId.get
 Get single hook.
@@ -2421,12 +1787,6 @@ github.repos.owner.repo.hooks.hookId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * hookId (integer) **required** - Id of hook.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.hooks.hookId.patch
 Edit a hook.
@@ -2445,12 +1805,6 @@ github.repos.owner.repo.hooks.hookId.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * hookId (integer) **required** - Id of hook.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.hooks.hookId.tests.post
@@ -2475,12 +1829,6 @@ github.repos.owner.repo.hooks.hookId.tests.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * hookId (integer) **required** - Id of hook.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.issues.get
 List issues for a repository.
@@ -2507,12 +1855,6 @@ github.repos.owner.repo.issues.get({
 * sort (string) **required**
 * direction (string) **required**
 * since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.issues.post
@@ -2532,12 +1874,6 @@ github.repos.owner.repo.issues.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.issues.comments.get
@@ -2557,12 +1893,6 @@ github.repos.owner.repo.issues.comments.get({
 * direction (string) - Ignored without 'sort' parameter.
 * sort (string)
 * since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.issues.comments.commentId.delete
@@ -2581,12 +1911,6 @@ github.repos.owner.repo.issues.comments.commentId.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - ID of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.issues.comments.commentId.get
 Get a single comment.
@@ -2604,12 +1928,6 @@ github.repos.owner.repo.issues.comments.commentId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - ID of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.issues.comments.commentId.patch
 Edit a comment.
@@ -2630,12 +1948,6 @@ github.repos.owner.repo.issues.comments.commentId.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - ID of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.issues.events.get
@@ -2652,12 +1964,6 @@ github.repos.owner.repo.issues.events.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.issues.events.eventId.get
@@ -2676,12 +1982,6 @@ github.repos.owner.repo.issues.events.eventId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * eventId (integer) **required** - Id of the event.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.issues.number.get
 Get a single issue
@@ -2699,12 +1999,6 @@ github.repos.owner.repo.issues.number.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.issues.number.patch
 Edit an issue.
@@ -2725,12 +2019,6 @@ github.repos.owner.repo.issues.number.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.issues.number.comments.get
@@ -2749,12 +2037,6 @@ github.repos.owner.repo.issues.number.comments.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.issues.number.comments.post
@@ -2776,12 +2058,6 @@ github.repos.owner.repo.issues.number.comments.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.issues.number.events.get
@@ -2800,12 +2076,6 @@ github.repos.owner.repo.issues.number.events.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.issues.number.labels.delete
@@ -2824,12 +2094,6 @@ github.repos.owner.repo.issues.number.labels.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.issues.number.labels.get
 List labels on an issue.
@@ -2847,12 +2111,6 @@ github.repos.owner.repo.issues.number.labels.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.issues.number.labels.post
@@ -2872,12 +2130,6 @@ github.repos.owner.repo.issues.number.labels.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (array) **required**
 
 ### repos.owner.repo.issues.number.labels.put
@@ -2899,12 +2151,6 @@ github.repos.owner.repo.issues.number.labels.put({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (array) **required**
 
 ### repos.owner.repo.issues.number.labels.name.delete
@@ -2925,12 +2171,6 @@ github.repos.owner.repo.issues.number.labels.name.delete({
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of issue.
 * name (string) **required** - Name of the label.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.keys.get
 Get list of keys.
@@ -2946,12 +2186,6 @@ github.repos.owner.repo.keys.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.keys.post
@@ -2969,12 +2203,6 @@ github.repos.owner.repo.keys.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.keys.keyId.delete
@@ -2993,12 +2221,6 @@ github.repos.owner.repo.keys.keyId.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * keyId (integer) **required** - Id of key.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.keys.keyId.get
 Get a key
@@ -3016,12 +2238,6 @@ github.repos.owner.repo.keys.keyId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * keyId (integer) **required** - Id of key.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.labels.get
 List all labels for this repository.
@@ -3037,12 +2253,6 @@ github.repos.owner.repo.labels.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.labels.post
@@ -3060,12 +2270,6 @@ github.repos.owner.repo.labels.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (array) **required**
 
 ### repos.owner.repo.labels.name.delete
@@ -3084,12 +2288,6 @@ github.repos.owner.repo.labels.name.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * name (string) **required** - Name of the label.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.labels.name.get
 Get a single label.
@@ -3107,12 +2305,6 @@ github.repos.owner.repo.labels.name.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * name (string) **required** - Name of the label.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.labels.name.patch
 Update a label.
@@ -3131,12 +2323,6 @@ github.repos.owner.repo.labels.name.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * name (string) **required** - Name of the label.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (array) **required**
 
 ### repos.owner.repo.languages.get
@@ -3156,12 +2342,6 @@ github.repos.owner.repo.languages.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.merges.post
@@ -3179,12 +2359,6 @@ github.repos.owner.repo.merges.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.milestones.get
@@ -3204,12 +2378,6 @@ github.repos.owner.repo.milestones.get({
 * state (string) - String to filter by state.
 * direction (string) - Ignored without 'sort' parameter.
 * sort (string)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.milestones.post
@@ -3227,12 +2395,6 @@ github.repos.owner.repo.milestones.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.milestones.number.delete
@@ -3251,12 +2413,6 @@ github.repos.owner.repo.milestones.number.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of milestone.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.milestones.number.get
 Get a single milestone.
@@ -3274,12 +2430,6 @@ github.repos.owner.repo.milestones.number.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of milestone.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.milestones.number.patch
 Update a milestone.
@@ -3298,12 +2448,6 @@ github.repos.owner.repo.milestones.number.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of milestone.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.milestones.number.labels.get
@@ -3322,12 +2466,6 @@ github.repos.owner.repo.milestones.number.labels.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Number of milestone.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.notifications.get
@@ -3349,12 +2487,6 @@ github.repos.owner.repo.notifications.get({
 * all (boolean) - True to show notifications marked as read.
 * participating (boolean) - True to show only notifications in which the user is directly participating
 * since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.notifications.put
@@ -3375,12 +2507,6 @@ github.repos.owner.repo.notifications.put({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.pulls.get
@@ -3400,12 +2526,6 @@ github.repos.owner.repo.pulls.get({
 * state (string) - String to filter by state.
 * head (string) - Filter pulls by head user and branch name in the format of 'user:ref-name'.
 * base (string) - Filter pulls by base branch name. Example - gh-pages.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.pulls.post
@@ -3423,12 +2543,6 @@ github.repos.owner.repo.pulls.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.pulls.comments.get
@@ -3450,12 +2564,6 @@ github.repos.owner.repo.pulls.comments.get({
 * direction (string) - Ignored without 'sort' parameter.
 * sort (string)
 * since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.pulls.comments.commentId.delete
@@ -3474,12 +2582,6 @@ github.repos.owner.repo.pulls.comments.commentId.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.pulls.comments.commentId.get
 Get a single comment.
@@ -3497,12 +2599,6 @@ github.repos.owner.repo.pulls.comments.commentId.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.pulls.comments.commentId.patch
 Edit a comment.
@@ -3523,12 +2619,6 @@ github.repos.owner.repo.pulls.comments.commentId.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * commentId (integer) **required** - Id of comment.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.pulls.number.get
@@ -3547,12 +2637,6 @@ github.repos.owner.repo.pulls.number.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.pulls.number.patch
 Update a pull request.
@@ -3571,12 +2655,6 @@ github.repos.owner.repo.pulls.number.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.pulls.number.comments.get
@@ -3595,12 +2673,6 @@ github.repos.owner.repo.pulls.number.comments.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.pulls.number.comments.post
@@ -3631,12 +2703,6 @@ github.repos.owner.repo.pulls.number.comments.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.pulls.number.commits.get
@@ -3655,12 +2721,6 @@ github.repos.owner.repo.pulls.number.commits.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.pulls.number.files.get
@@ -3679,12 +2739,6 @@ github.repos.owner.repo.pulls.number.files.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.pulls.number.merge.get
@@ -3703,12 +2757,6 @@ github.repos.owner.repo.pulls.number.merge.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.pulls.number.merge.put
 Merge a pull request (Merge Button's)
@@ -3727,12 +2775,6 @@ github.repos.owner.repo.pulls.number.merge.put({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * number (integer) **required** - Id of pull.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.readme.get
@@ -3752,12 +2794,6 @@ github.repos.owner.repo.readme.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) - The String name of the Commit/Branch/Tag. Defaults to master.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.releases.get
 Users with push access to the repository will receive all releases (i.e., published releases and draft releases). Users with pull access will receive published releases only
@@ -3773,12 +2809,6 @@ github.repos.owner.repo.releases.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.releases.post
@@ -3798,12 +2828,6 @@ github.repos.owner.repo.releases.post({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.releases.assets.id.delete
@@ -3822,12 +2846,6 @@ github.repos.owner.repo.releases.assets.id.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.releases.assets.id.get
 Get a single release asset
@@ -3845,12 +2863,6 @@ github.repos.owner.repo.releases.assets.id.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.releases.assets.id.patch
 Edit a release asset
@@ -3873,12 +2885,6 @@ github.repos.owner.repo.releases.assets.id.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.releases.id.delete
@@ -3897,12 +2903,6 @@ github.repos.owner.repo.releases.id.delete({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.releases.id.get
 Get a single release
@@ -3920,12 +2920,6 @@ github.repos.owner.repo.releases.id.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.releases.id.patch
 Users with push access to the repository can edit a release
@@ -3944,12 +2938,6 @@ github.repos.owner.repo.releases.id.patch({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.releases.id.assets.get
@@ -3968,12 +2956,6 @@ github.repos.owner.repo.releases.id.assets.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * id (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.stargazers.get
@@ -3990,12 +2972,6 @@ github.repos.owner.repo.stargazers.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.stats.code_frequency.get
@@ -4015,12 +2991,6 @@ github.repos.owner.repo.stats.code_frequency.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.stats.commit_activity.get
 Get the last year of commit activity data.
@@ -4039,12 +3009,6 @@ github.repos.owner.repo.stats.commit_activity.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.stats.contributors.get
 Get contributors list with additions, deletions, and commit counts.
@@ -4060,12 +3024,6 @@ github.repos.owner.repo.stats.contributors.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.stats.participation.get
@@ -4082,12 +3040,6 @@ github.repos.owner.repo.stats.participation.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.stats.punch_card.get
 Get the number of commits per hour in each day.
@@ -4112,12 +3064,6 @@ github.repos.owner.repo.stats.punch_card.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.statuses.ref.get
 List Statuses for a specific Ref.
@@ -4135,12 +3081,6 @@ github.repos.owner.repo.statuses.ref.get({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) **required** - Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.statuses.ref.post
 Create a Status.
@@ -4159,12 +3099,6 @@ github.repos.owner.repo.statuses.ref.post({
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
 * ref (string) **required** - Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.subscribers.get
@@ -4181,12 +3115,6 @@ github.repos.owner.repo.subscribers.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.subscription.delete
@@ -4203,12 +3131,6 @@ github.repos.owner.repo.subscription.delete({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.subscription.get
 Get a Repository Subscription.
@@ -4224,12 +3146,6 @@ github.repos.owner.repo.subscription.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.subscription.put
 Set a Repository Subscription
@@ -4246,12 +3162,6 @@ github.repos.owner.repo.subscription.put({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### repos.owner.repo.tags.get
@@ -4268,12 +3178,6 @@ github.repos.owner.repo.tags.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.teams.get
@@ -4290,12 +3194,6 @@ github.repos.owner.repo.teams.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.watchers.get
@@ -4312,12 +3210,6 @@ github.repos.owner.repo.watchers.get({
 #### Parameters
 * owner (string) **required** - Name of repository owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### repos.owner.repo.archive_format.path.get
@@ -4344,12 +3236,6 @@ github.repos.owner.repo.archive_format.path.get({
 * repo (string) **required** - Name of repository.
 * archive_format (string) **required**
 * path (string) **required** - Valid Git reference, defaults to 'master'.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### repositories.get
 List all public repositories.
@@ -4366,12 +3252,6 @@ github.repositories.get({}, context)
 
 #### Parameters
 * since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### search.code.get
@@ -4388,12 +3268,6 @@ github.search.code.get({
 * order (string) - The sort field. if sort param is provided. Can be either asc or desc.
 * q (string) **required** - The search terms. This can be any combination of the supported code
 * sort (string) - Can only be 'indexed', which indicates how recently a file has been indexed
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### search.issues.get
 Find issues by state and keyword. (This method returns up to 100 results per page.)
@@ -4409,12 +3283,6 @@ github.search.issues.get({
 * order (string) - The sort field. if sort param is provided. Can be either asc or desc.
 * q (string) **required** - The q search term can also contain any combination of the supported issue search qualifiers:
 * sort (string) - The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### search.repositories.get
@@ -4431,12 +3299,6 @@ github.search.repositories.get({
 * order (string) - The sort field. if sort param is provided. Can be either asc or desc.
 * q (string) **required** - The search terms. This can be any combination of the supported repository
 * sort (string) - If not provided, results are sorted by best match.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### search.users.get
@@ -4453,12 +3315,6 @@ github.search.users.get({
 * order (string) - The sort field. if sort param is provided. Can be either asc or desc.
 * q (string) **required** - The search terms. This can be any combination of the supported user
 * sort (string) - If not provided, results are sorted by best match.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### teams.teamId.delete
@@ -4476,12 +3332,6 @@ github.teams.teamId.delete({
 
 #### Parameters
 * teamId (integer) **required** - Id of team.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.get
 Get team.
@@ -4495,12 +3345,6 @@ github.teams.teamId.get({
 
 #### Parameters
 * teamId (integer) **required** - Id of team.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.patch
 Edit team.
@@ -4520,12 +3364,6 @@ github.teams.teamId.patch({
 
 #### Parameters
 * teamId (integer) **required** - Id of team.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### teams.teamId.members.get
@@ -4543,12 +3381,6 @@ github.teams.teamId.members.get({
 
 #### Parameters
 * teamId (integer) **required** - Id of team.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### teams.teamId.members.username.delete
@@ -4572,12 +3404,6 @@ github.teams.teamId.members.username.delete({
 #### Parameters
 * teamId (integer) **required** - Id of team.
 * username (string) **required** - Name of a member.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.members.username.get
 The "Get team member" API is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Get team membership API instead. It allows you to get both active and pending memberships.
@@ -4598,12 +3424,6 @@ github.teams.teamId.members.username.get({
 #### Parameters
 * teamId (integer) **required** - Id of team.
 * username (string) **required** - Name of a member.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.members.username.put
 The API (described below) is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Add team membership API instead. It allows you to invite new organization members to your teams.
@@ -4625,12 +3445,6 @@ github.teams.teamId.members.username.put({
 #### Parameters
 * teamId (integer) **required** - Id of team.
 * username (string) **required** - Name of a member.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.memberships.username.delete
 Remove team membership.
@@ -4648,12 +3462,6 @@ github.teams.teamId.memberships.username.delete({
 #### Parameters
 * teamId (integer) **required** - Id of team.
 * username (string) **required** - Name of a member.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.memberships.username.get
 Get team membership.
@@ -4671,12 +3479,6 @@ github.teams.teamId.memberships.username.get({
 #### Parameters
 * teamId (integer) **required** - Id of team.
 * username (string) **required** - Name of a member.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.memberships.username.put
 Add team membership.
@@ -4698,12 +3500,6 @@ github.teams.teamId.memberships.username.put({
 #### Parameters
 * teamId (integer) **required** - Id of team.
 * username (string) **required** - Name of a member.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.repos.get
 List team repos
@@ -4717,12 +3513,6 @@ github.teams.teamId.repos.get({
 
 #### Parameters
 * teamId (integer) **required** - Id of team.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### teams.teamId.repos.org.repo.put
@@ -4741,12 +3531,6 @@ github.teams.teamId.repos.org.repo.put({
 * teamId (integer) **required** - Id of team.
 * org (string) **required** - Name of a organization.
 * repo (string) **required** - Name of a repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.repos.owner.repo.delete
 In order to remove a repository from a team, the authenticated user must be an owner of the org that the team is associated with. NOTE: This does not delete the repository, it just removes it from the team.
@@ -4764,12 +3548,6 @@ github.teams.teamId.repos.owner.repo.delete({
 * teamId (integer) **required** - Id of team.
 * owner (string) **required** - Name of a repository owner.
 * repo (string) **required** - Name of a repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### teams.teamId.repos.owner.repo.get
 Check if a team manages a repository
@@ -4787,28 +3565,15 @@ github.teams.teamId.repos.owner.repo.get({
 * teamId (integer) **required** - Id of team.
 * owner (string) **required** - Name of a repository owner.
 * repo (string) **required** - Name of a repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.get
 Get the authenticated user.
 
 
 ```js
-github.user.get({}, context)
+github.user.get(null, context)
 ```
 
-#### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.patch
 Update the authenticated user.
@@ -4821,12 +3586,6 @@ github.user.patch({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### user.emails.delete
@@ -4842,12 +3601,6 @@ github.user.emails.delete({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (array) **required**
 
 ### user.emails.get
@@ -4865,12 +3618,6 @@ github.user.emails.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.emails.post
@@ -4886,12 +3633,6 @@ github.user.emails.post({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (array) **required**
 
 ### user.followers.get
@@ -4903,12 +3644,6 @@ github.user.followers.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.following.get
@@ -4916,16 +3651,9 @@ List who the authenticated user is following.
 
 
 ```js
-github.user.following.get({}, context)
+github.user.following.get(null, context)
 ```
 
-#### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.following.username.delete
 Unfollow a user.
@@ -4942,12 +3670,6 @@ github.user.following.username.delete({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.following.username.get
 Check if you are following a user.
@@ -4961,12 +3683,6 @@ github.user.following.username.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.following.username.put
 Follow a user.
@@ -4983,12 +3699,6 @@ github.user.following.username.put({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.issues.get
 List issues.
@@ -5014,12 +3724,6 @@ github.user.issues.get({
 * sort (string) **required**
 * direction (string) **required**
 * since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.keys.get
@@ -5034,12 +3738,6 @@ github.user.keys.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.keys.post
@@ -5053,12 +3751,6 @@ github.user.keys.post({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### user.keys.keyId.delete
@@ -5073,12 +3765,6 @@ github.user.keys.keyId.delete({
 
 #### Parameters
 * keyId (integer) **required** - ID of key.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.keys.keyId.get
 Get a single public key.
@@ -5092,12 +3778,6 @@ github.user.keys.keyId.get({
 
 #### Parameters
 * keyId (integer) **required** - ID of key.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.orgs.get
 List public and private organizations for the authenticated user.
@@ -5108,12 +3788,6 @@ github.user.orgs.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.repos.get
@@ -5129,12 +3803,6 @@ github.user.repos.get({}, context)
 
 #### Parameters
 * type (string)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.repos.post
@@ -5152,12 +3820,6 @@ github.user.repos.post({
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * body (object) **required**
 
 ### user.starred.get
@@ -5171,12 +3833,6 @@ github.user.starred.get({}, context)
 #### Parameters
 * direction (string) - Ignored without 'sort' parameter.
 * sort (string)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.starred.owner.repo.delete
 Unstar a repository
@@ -5192,12 +3848,6 @@ github.user.starred.owner.repo.delete({
 #### Parameters
 * owner (string) **required** - Name of a repository owner.
 * repo (string) **required** - Name of a repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.starred.owner.repo.get
 Check if you are starring a repository.
@@ -5213,12 +3863,6 @@ github.user.starred.owner.repo.get({
 #### Parameters
 * owner (string) **required** - Name of a repository owner.
 * repo (string) **required** - Name of a repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.starred.owner.repo.put
 Star a repository.
@@ -5234,12 +3878,6 @@ github.user.starred.owner.repo.put({
 #### Parameters
 * owner (string) **required** - Name of a repository owner.
 * repo (string) **required** - Name of a repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.subscriptions.get
 List repositories being watched by the authenticated user.
@@ -5250,12 +3888,6 @@ github.user.subscriptions.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### user.subscriptions.owner.repo.delete
@@ -5272,12 +3904,6 @@ github.user.subscriptions.owner.repo.delete({
 #### Parameters
 * owner (string) **required** - Name of the owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.subscriptions.owner.repo.get
 Check if you are watching a repository.
@@ -5293,12 +3919,6 @@ github.user.subscriptions.owner.repo.get({
 #### Parameters
 * owner (string) **required** - Name of the owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.subscriptions.owner.repo.put
 Watch a repository.
@@ -5314,12 +3934,6 @@ github.user.subscriptions.owner.repo.put({
 #### Parameters
 * owner (string) **required** - Name of the owner.
 * repo (string) **required** - Name of repository.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### user.teams.get
 List all of the teams across all of the organizations to which the authenticated user belongs. This method requires user or repo scope when authenticating via OAuth.
@@ -5330,12 +3944,6 @@ github.user.teams.get({}, context)
 ```
 
 #### Parameters
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.get
@@ -5352,12 +3960,6 @@ github.users.get({}, context)
 
 #### Parameters
 * since (integer) - The integer ID of the last User that you've seen.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.get
@@ -5372,12 +3974,6 @@ github.users.username.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### users.username.events.get
 If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.
@@ -5391,12 +3987,6 @@ github.users.username.events.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.events.orgs.org.get
@@ -5413,12 +4003,6 @@ github.users.username.events.orgs.org.get({
 #### Parameters
 * username (string) **required** - Name of user.
 * org (string) **required**
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### users.username.followers.get
 List a user's followers
@@ -5432,12 +4016,6 @@ github.users.username.followers.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.following.targetUser.get
@@ -5454,12 +4032,6 @@ github.users.username.following.targetUser.get({
 #### Parameters
 * username (string) **required** - Name of user.
 * targetUser (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### users.username.gists.get
 List a users gists.
@@ -5474,12 +4046,6 @@ github.users.username.gists.get({
 #### Parameters
 * username (string) **required** - Name of user.
 * since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.keys.get
@@ -5496,12 +4062,6 @@ github.users.username.keys.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.orgs.get
@@ -5516,12 +4076,6 @@ github.users.username.orgs.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.received_events.get
@@ -5536,12 +4090,6 @@ github.users.username.received_events.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.received_events.public.get
@@ -5556,12 +4104,6 @@ github.users.username.received_events.public.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### users.username.repos.get
 List public repositories for the specified user.
@@ -5576,12 +4118,6 @@ github.users.username.repos.get({
 #### Parameters
 * username (string) **required** - Name of user.
 * type (string)
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 
 ### users.username.starred.get
@@ -5596,12 +4132,6 @@ github.users.username.starred.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 
 ### users.username.subscriptions.get
 List repositories being watched by a user.
@@ -5615,11 +4145,5 @@ github.users.username.subscriptions.get({
 
 #### Parameters
 * username (string) **required** - Name of user.
-* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
-* Accept (string) - Is used to set specified media type.
-* X-RateLimit-Limit (integer)
-* X-RateLimit-Remaining (integer)
-* X-RateLimit-Reset (integer)
-* X-GitHub-Request-Id (integer)
 * page (integer)
 

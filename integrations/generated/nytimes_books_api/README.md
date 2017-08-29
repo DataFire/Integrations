@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_books_api
 
 ```js
 let datafire = require('datafire');
-let nytimes_books_api = require('@datafire/nytimes_books_api').actions;
-
-let account = {
+let nytimes_books_api = require('@datafire/nytimes_books_api').create({
   api-key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_books_api: account,
-  }
-})
+});
 
-nytimes_books_api.lists.best_sellers.history.json.get({}, context).then(data => {
+nytimes_books_api.lists.best_sellers.history.json.get({}).then(data => {
   console.log(data);
 })
 ```

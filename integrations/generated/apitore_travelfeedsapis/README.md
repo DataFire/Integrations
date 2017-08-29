@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_travelfeedsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_travelfeedsapis = require('@datafire/apitore_travelfeedsapis').actions;
-let context = new datafire.Context();
+let apitore_travelfeedsapis = require('@datafire/apitore_travelfeedsapis').create();
 
-apitore_travelfeedsapis.feedUsingGET_8({}, context).then(data => {
+apitore_travelfeedsapis.feedUsingGET_8({}).then(data => {
   console.log(data);
 })
 ```

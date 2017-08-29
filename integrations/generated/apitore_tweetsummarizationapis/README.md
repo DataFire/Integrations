@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_tweetsummarizationapis
 
 ```js
 let datafire = require('datafire');
-let apitore_tweetsummarizationapis = require('@datafire/apitore_tweetsummarizationapis').actions;
-let context = new datafire.Context();
+let apitore_tweetsummarizationapis = require('@datafire/apitore_tweetsummarizationapis').create();
 
-apitore_tweetsummarizationapis.getUsingGET({}, context).then(data => {
+apitore_tweetsummarizationapis.getUsingGET({}).then(data => {
   console.log(data);
 })
 ```

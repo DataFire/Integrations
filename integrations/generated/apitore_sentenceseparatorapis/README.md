@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_sentenceseparatorapis
 
 ```js
 let datafire = require('datafire');
-let apitore_sentenceseparatorapis = require('@datafire/apitore_sentenceseparatorapis').actions;
-let context = new datafire.Context();
+let apitore_sentenceseparatorapis = require('@datafire/apitore_sentenceseparatorapis').create();
 
-apitore_sentenceseparatorapis.heuristicsUsingGET({}, context).then(data => {
+apitore_sentenceseparatorapis.heuristicsUsingGET({}).then(data => {
   console.log(data);
 })
 ```

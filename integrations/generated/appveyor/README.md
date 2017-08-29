@@ -9,18 +9,11 @@ npm install --save datafire @datafire/appveyor
 
 ```js
 let datafire = require('datafire');
-let appveyor = require('@datafire/appveyor').actions;
-
-let account = {
+let appveyor = require('@datafire/appveyor').create({
   apiToken: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    appveyor: account,
-  }
-})
+});
 
-appveyor.encryptValue({}, context).then(data => {
+appveyor.encryptValue({}).then(data => {
   console.log(data);
 })
 ```

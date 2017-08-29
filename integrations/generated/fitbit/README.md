@@ -9,22 +9,15 @@ npm install --save datafire @datafire/fitbit
 
 ```js
 let datafire = require('datafire');
-let fitbit = require('@datafire/fitbit').actions;
-
-let account = {
+let fitbit = require('@datafire/fitbit').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    fitbit: account,
-  }
-})
+});
 
-fitbit.user._.profile.json.post({}, context).then(data => {
+fitbit.user._.profile.json.post({}).then(data => {
   console.log(data);
 })
 ```

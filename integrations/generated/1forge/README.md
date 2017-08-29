@@ -9,10 +9,9 @@ npm install --save datafire @datafire/1forge
 
 ```js
 let datafire = require('datafire');
-let 1forge = require('@datafire/1forge').actions;
-let context = new datafire.Context();
+let 1forge = require('@datafire/1forge').create();
 
-1forge.quotes.get({}, context).then(data => {
+1forge.quotes.get({}).then(data => {
   console.log(data);
 })
 ```

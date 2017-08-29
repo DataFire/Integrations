@@ -9,19 +9,12 @@ npm install --save datafire @datafire/smart_me
 
 ```js
 let datafire = require('datafire');
-let smart_me = require('@datafire/smart_me').actions;
-
-let account = {
+let smart_me = require('@datafire/smart_me').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    smart_me: account,
-  }
-})
+});
 
-smart_me.AccessToken_Put({}, context).then(data => {
+smart_me.AccessToken_Put({}).then(data => {
   console.log(data);
 })
 ```

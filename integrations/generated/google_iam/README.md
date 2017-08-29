@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_iam
 
 ```js
 let datafire = require('datafire');
-let google_iam = require('@datafire/google_iam').actions;
-
-let account = {
+let google_iam = require('@datafire/google_iam').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_iam: account,
-  }
-})
+});
 
-google_iam.roles.queryGrantableRoles({}, context).then(data => {
+google_iam.roles.queryGrantableRoles({}).then(data => {
   console.log(data);
 })
 ```

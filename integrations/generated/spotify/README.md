@@ -9,22 +9,15 @@ npm install --save datafire @datafire/spotify
 
 ```js
 let datafire = require('datafire');
-let spotify = require('@datafire/spotify').actions;
-
-let account = {
+let spotify = require('@datafire/spotify').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    spotify: account,
-  }
-})
+});
 
-spotify.me.tracks.get({}, context).then(data => {
+spotify.me.tracks.get({}).then(data => {
   console.log(data);
 })
 ```

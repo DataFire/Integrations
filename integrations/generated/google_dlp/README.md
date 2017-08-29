@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_dlp
 
 ```js
 let datafire = require('datafire');
-let google_dlp = require('@datafire/google_dlp').actions;
-
-let account = {
+let google_dlp = require('@datafire/google_dlp').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_dlp: account,
-  }
-})
+});
 
-google_dlp.rootCategories.list({}, context).then(data => {
+google_dlp.rootCategories.list({}).then(data => {
   console.log(data);
 })
 ```

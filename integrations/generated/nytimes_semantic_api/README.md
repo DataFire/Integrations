@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_semantic_api
 
 ```js
 let datafire = require('datafire');
-let nytimes_semantic_api = require('@datafire/nytimes_semantic_api').actions;
-
-let account = {
+let nytimes_semantic_api = require('@datafire/nytimes_semantic_api').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_semantic_api: account,
-  }
-})
+});
 
-nytimes_semantic_api.name.concept_type.specific_concept.json.get({}, context).then(data => {
+nytimes_semantic_api.name.concept_type.specific_concept.json.get({}).then(data => {
   console.log(data);
 })
 ```

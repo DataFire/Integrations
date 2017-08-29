@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_ds
 
 ```js
 let datafire = require('datafire');
-let amazonaws_ds = require('@datafire/amazonaws_ds').actions;
-let context = new datafire.Context();
+let amazonaws_ds = require('@datafire/amazonaws_ds').create();
 
-amazonaws_ds.AddIpRoutes({}, context).then(data => {
+amazonaws_ds.AddIpRoutes({}).then(data => {
   console.log(data);
 })
 ```

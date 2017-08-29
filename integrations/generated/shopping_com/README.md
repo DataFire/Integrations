@@ -9,10 +9,9 @@ npm install --save datafire @datafire/shopping_com
 
 ```js
 let datafire = require('datafire');
-let shopping_com = require('@datafire/shopping_com').actions;
-let context = new datafire.Context();
+let shopping_com = require('@datafire/shopping_com').create();
 
-shopping_com.CategoryTree.get({}, context).then(data => {
+shopping_com.CategoryTree.get({}).then(data => {
   console.log(data);
 })
 ```

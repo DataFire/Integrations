@@ -9,18 +9,11 @@ npm install --save datafire @datafire/microsoft_security_updates
 
 ```js
 let datafire = require('datafire');
-let microsoft_security_updates = require('@datafire/microsoft_security_updates').actions;
-
-let account = {
+let microsoft_security_updates = require('@datafire/microsoft_security_updates').create({
   api-key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    microsoft_security_updates: account,
-  }
-})
+});
 
-microsoft_security_updates.Updates.get({}, context).then(data => {
+microsoft_security_updates.Updates.get({}).then(data => {
   console.log(data);
 })
 ```

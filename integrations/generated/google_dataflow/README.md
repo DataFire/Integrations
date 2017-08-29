@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_dataflow
 
 ```js
 let datafire = require('datafire');
-let google_dataflow = require('@datafire/google_dataflow').actions;
-
-let account = {
+let google_dataflow = require('@datafire/google_dataflow').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_dataflow: account,
-  }
-})
+});
 
-google_dataflow.projects.workerMessages({}, context).then(data => {
+google_dataflow.projects.workerMessages({}).then(data => {
   console.log(data);
 })
 ```

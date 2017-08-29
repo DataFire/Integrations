@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_wordstovectorsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_wordstovectorsapis = require('@datafire/apitore_wordstovectorsapis').actions;
-let context = new datafire.Context();
+let apitore_wordstovectorsapis = require('@datafire/apitore_wordstovectorsapis').create();
 
-apitore_wordstovectorsapis.wordvectorUsingGET({}, context).then(data => {
+apitore_wordstovectorsapis.wordvectorUsingGET({}).then(data => {
   console.log(data);
 })
 ```

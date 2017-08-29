@@ -9,10 +9,9 @@ npm install --save datafire @datafire/synq_fm
 
 ```js
 let datafire = require('datafire');
-let synq_fm = require('@datafire/synq_fm').actions;
-let context = new datafire.Context();
+let synq_fm = require('@datafire/synq_fm').create();
 
-synq_fm.create({}, context).then(data => {
+synq_fm.create({}).then(data => {
   console.log(data);
 })
 ```

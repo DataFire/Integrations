@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_url2hrefapis
 
 ```js
 let datafire = require('datafire');
-let apitore_url2hrefapis = require('@datafire/apitore_url2hrefapis').actions;
-let context = new datafire.Context();
+let apitore_url2hrefapis = require('@datafire/apitore_url2hrefapis').create();
 
-apitore_url2hrefapis.url2hrefUsingGET({}, context).then(data => {
+apitore_url2hrefapis.url2hrefUsingGET({}).then(data => {
   console.log(data);
 })
 ```

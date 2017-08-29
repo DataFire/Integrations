@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_opsworks
 
 ```js
 let datafire = require('datafire');
-let amazonaws_opsworks = require('@datafire/amazonaws_opsworks').actions;
-let context = new datafire.Context();
+let amazonaws_opsworks = require('@datafire/amazonaws_opsworks').create();
 
-amazonaws_opsworks.AssignInstance({}, context).then(data => {
+amazonaws_opsworks.AssignInstance({}).then(data => {
   console.log(data);
 })
 ```

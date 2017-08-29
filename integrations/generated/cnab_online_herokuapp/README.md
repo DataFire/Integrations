@@ -9,10 +9,9 @@ npm install --save datafire @datafire/cnab_online_herokuapp
 
 ```js
 let datafire = require('datafire');
-let cnab_online_herokuapp = require('@datafire/cnab_online_herokuapp').actions;
-let context = new datafire.Context();
+let cnab_online_herokuapp = require('@datafire/cnab_online_herokuapp').create();
 
-cnab_online_herokuapp.file.post({}, context).then(data => {
+cnab_online_herokuapp.file.post({}).then(data => {
   console.log(data);
 })
 ```

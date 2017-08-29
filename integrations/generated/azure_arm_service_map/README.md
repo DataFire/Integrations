@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_service_map
 
 ```js
 let datafire = require('datafire');
-let azure_arm_service_map = require('@datafire/azure_arm_service_map').actions;
-
-let account = {
+let azure_arm_service_map = require('@datafire/azure_arm_service_map').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_service_map: account,
-  }
-})
+});
 
-azure_arm_service_map.ClientGroups_Get({}, context).then(data => {
+azure_arm_service_map.ClientGroups_Get({}).then(data => {
   console.log(data);
 })
 ```

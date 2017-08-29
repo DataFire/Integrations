@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_gamefeedsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_gamefeedsapis = require('@datafire/apitore_gamefeedsapis').actions;
-let context = new datafire.Context();
+let apitore_gamefeedsapis = require('@datafire/apitore_gamefeedsapis').create();
 
-apitore_gamefeedsapis.feedUsingGET_5({}, context).then(data => {
+apitore_gamefeedsapis.feedUsingGET_5({}).then(data => {
   console.log(data);
 })
 ```

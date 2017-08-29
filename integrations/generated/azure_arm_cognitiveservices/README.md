@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_cognitiveservices
 
 ```js
 let datafire = require('datafire');
-let azure_arm_cognitiveservices = require('@datafire/azure_arm_cognitiveservices').actions;
-let context = new datafire.Context();
+let azure_arm_cognitiveservices = require('@datafire/azure_arm_cognitiveservices').create();
 
-azure_arm_cognitiveservices.CognitiveServicesAccounts_List({}, context).then(data => {
+azure_arm_cognitiveservices.CognitiveServicesAccounts_List({}).then(data => {
   console.log(data);
 })
 ```

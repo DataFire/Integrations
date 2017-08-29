@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_gamelift
 
 ```js
 let datafire = require('datafire');
-let amazonaws_gamelift = require('@datafire/amazonaws_gamelift').actions;
-let context = new datafire.Context();
+let amazonaws_gamelift = require('@datafire/amazonaws_gamelift').create();
 
-amazonaws_gamelift.CreateAlias({}, context).then(data => {
+amazonaws_gamelift.CreateAlias({}).then(data => {
   console.log(data);
 })
 ```

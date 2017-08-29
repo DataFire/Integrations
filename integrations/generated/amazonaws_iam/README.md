@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_iam
 
 ```js
 let datafire = require('datafire');
-let amazonaws_iam = require('@datafire/amazonaws_iam').actions;
-let context = new datafire.Context();
+let amazonaws_iam = require('@datafire/amazonaws_iam').create();
 
-amazonaws_iam.AddClientIDToOpenIDConnectProvider({}, context).then(data => {
+amazonaws_iam.AddClientIDToOpenIDConnectProvider({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cloudhsm
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudhsm = require('@datafire/amazonaws_cloudhsm').actions;
-let context = new datafire.Context();
+let amazonaws_cloudhsm = require('@datafire/amazonaws_cloudhsm').create();
 
-amazonaws_cloudhsm.AddTagsToResource({}, context).then(data => {
+amazonaws_cloudhsm.AddTagsToResource({}).then(data => {
   console.log(data);
 })
 ```

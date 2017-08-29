@@ -9,19 +9,12 @@ npm install --save datafire @datafire/gitlab
 
 ```js
 let datafire = require('datafire');
-let gitlab = require('@datafire/gitlab').actions;
-
-let account = {
+let gitlab = require('@datafire/gitlab').create({
   private_token_header: "",
   private_token_query: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    gitlab: account,
-  }
-})
+});
 
-gitlab.getV3Users({}, context).then(data => {
+gitlab.getV3Users({}).then(data => {
   console.log(data);
 })
 ```

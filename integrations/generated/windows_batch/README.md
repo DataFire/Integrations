@@ -9,10 +9,9 @@ npm install --save datafire @datafire/windows_batch
 
 ```js
 let datafire = require('datafire');
-let windows_batch = require('@datafire/windows_batch').actions;
-let context = new datafire.Context();
+let windows_batch = require('@datafire/windows_batch').create();
 
-windows_batch.Application_List({}, context).then(data => {
+windows_batch.Application_List({}).then(data => {
   console.log(data);
 })
 ```

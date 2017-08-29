@@ -9,22 +9,15 @@ npm install --save datafire @datafire/furkot
 
 ```js
 let datafire = require('datafire');
-let furkot = require('@datafire/furkot').actions;
-
-let account = {
+let furkot = require('@datafire/furkot').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    furkot: account,
-  }
-})
+});
 
-furkot.trip.get({}, context).then(data => {
+furkot.trip.get({}).then(data => {
   console.log(data);
 })
 ```

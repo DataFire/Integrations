@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_rss2jsonapis
 
 ```js
 let datafire = require('datafire');
-let apitore_rss2jsonapis = require('@datafire/apitore_rss2jsonapis').actions;
-let context = new datafire.Context();
+let apitore_rss2jsonapis = require('@datafire/apitore_rss2jsonapis').create();
 
-apitore_rss2jsonapis.rss2jsonUsingGET({}, context).then(data => {
+apitore_rss2jsonapis.rss2jsonUsingGET({}).then(data => {
   console.log(data);
 })
 ```

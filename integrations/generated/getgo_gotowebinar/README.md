@@ -9,10 +9,9 @@ npm install --save datafire @datafire/getgo_gotowebinar
 
 ```js
 let datafire = require('datafire');
-let getgo_gotowebinar = require('@datafire/getgo_gotowebinar').actions;
-let context = new datafire.Context();
+let getgo_gotowebinar = require('@datafire/getgo_gotowebinar').create();
 
-getgo_gotowebinar.getAllAccountWebinars({}, context).then(data => {
+getgo_gotowebinar.getAllAccountWebinars({}).then(data => {
   console.log(data);
 })
 ```

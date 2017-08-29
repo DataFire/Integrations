@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_groupsmigration
 
 ```js
 let datafire = require('datafire');
-let google_groupsmigration = require('@datafire/google_groupsmigration').actions;
-
-let account = {
+let google_groupsmigration = require('@datafire/google_groupsmigration').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_groupsmigration: account,
-  }
-})
+});
 
-google_groupsmigration.archive.insert({}, context).then(data => {
+google_groupsmigration.archive.insert({}).then(data => {
   console.log(data);
 })
 ```

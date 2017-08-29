@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_licensing
 
 ```js
 let datafire = require('datafire');
-let google_licensing = require('@datafire/google_licensing').actions;
-
-let account = {
+let google_licensing = require('@datafire/google_licensing').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_licensing: account,
-  }
-})
+});
 
-google_licensing.licenseAssignments.insert({}, context).then(data => {
+google_licensing.licenseAssignments.insert({}).then(data => {
   console.log(data);
 })
 ```

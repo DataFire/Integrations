@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_url2textapis
 
 ```js
 let datafire = require('datafire');
-let apitore_url2textapis = require('@datafire/apitore_url2textapis').actions;
-let context = new datafire.Context();
+let apitore_url2textapis = require('@datafire/apitore_url2textapis').create();
 
-apitore_url2textapis.url2textUsingGET({}, context).then(data => {
+apitore_url2textapis.url2textUsingGET({}).then(data => {
   console.log(data);
 })
 ```

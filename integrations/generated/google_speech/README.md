@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_speech
 
 ```js
 let datafire = require('datafire');
-let google_speech = require('@datafire/google_speech').actions;
-
-let account = {
+let google_speech = require('@datafire/google_speech').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_speech: account,
-  }
-})
+});
 
-google_speech.speech.syncrecognize({}, context).then(data => {
+google_speech.speech.syncrecognize({}).then(data => {
   console.log(data);
 })
 ```

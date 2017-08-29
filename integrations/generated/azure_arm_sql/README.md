@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_sql
 
 ```js
 let datafire = require('datafire');
-let azure_arm_sql = require('@datafire/azure_arm_sql').actions;
-let context = new datafire.Context();
+let azure_arm_sql = require('@datafire/azure_arm_sql').create();
 
-azure_arm_sql.Databases_ListRestorePoints({}, context).then(data => {
+azure_arm_sql.Databases_ListRestorePoints({}).then(data => {
   console.log(data);
 })
 ```

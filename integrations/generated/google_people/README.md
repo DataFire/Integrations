@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_people
 
 ```js
 let datafire = require('datafire');
-let google_people = require('@datafire/google_people').actions;
-
-let account = {
+let google_people = require('@datafire/google_people').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_people: account,
-  }
-})
+});
 
-google_people.people.getBatchGet({}, context).then(data => {
+google_people.people.getBatchGet({}).then(data => {
   console.log(data);
 })
 ```

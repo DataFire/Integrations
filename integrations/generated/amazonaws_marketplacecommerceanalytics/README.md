@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_marketplacecommerceanalytics
 
 ```js
 let datafire = require('datafire');
-let amazonaws_marketplacecommerceanalytics = require('@datafire/amazonaws_marketplacecommerceanalytics').actions;
-let context = new datafire.Context();
+let amazonaws_marketplacecommerceanalytics = require('@datafire/amazonaws_marketplacecommerceanalytics').create();
 
-amazonaws_marketplacecommerceanalytics.GenerateDataSet({}, context).then(data => {
+amazonaws_marketplacecommerceanalytics.GenerateDataSet({}).then(data => {
   console.log(data);
 })
 ```

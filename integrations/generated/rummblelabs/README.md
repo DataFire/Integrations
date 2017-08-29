@@ -9,10 +9,9 @@ npm install --save datafire @datafire/rummblelabs
 
 ```js
 let datafire = require('datafire');
-let rummblelabs = require('@datafire/rummblelabs').actions;
-let context = new datafire.Context();
+let rummblelabs = require('@datafire/rummblelabs').create();
 
-rummblelabs.getUsers({}, context).then(data => {
+rummblelabs.getUsers({}).then(data => {
   console.log(data);
 })
 ```

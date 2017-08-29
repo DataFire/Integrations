@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_word2vecapis
 
 ```js
 let datafire = require('datafire');
-let apitore_word2vecapis = require('@datafire/apitore_word2vecapis').actions;
-let context = new datafire.Context();
+let apitore_word2vecapis = require('@datafire/apitore_word2vecapis').create();
 
-apitore_word2vecapis.analogyUsingGET({}, context).then(data => {
+apitore_word2vecapis.analogyUsingGET({}).then(data => {
   console.log(data);
 })
 ```

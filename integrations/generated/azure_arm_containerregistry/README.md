@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_containerregistry
 
 ```js
 let datafire = require('datafire');
-let azure_arm_containerregistry = require('@datafire/azure_arm_containerregistry').actions;
-let context = new datafire.Context();
+let azure_arm_containerregistry = require('@datafire/azure_arm_containerregistry').create();
 
-azure_arm_containerregistry.Registries_CheckNameAvailability({}, context).then(data => {
+azure_arm_containerregistry.Registries_CheckNameAvailability({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,23 +9,16 @@ npm install --save datafire @datafire/authentiq
 
 ```js
 let datafire = require('datafire');
-let authentiq = require('@datafire/authentiq').actions;
-
-let account = {
+let authentiq = require('@datafire/authentiq').create({
   client_registration_token: "",
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    authentiq: account,
-  }
-})
+});
 
-authentiq.authorize({}, context).then(data => {
+authentiq.authorize({}).then(data => {
   console.log(data);
 })
 ```

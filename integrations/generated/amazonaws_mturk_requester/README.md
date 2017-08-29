@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_mturk_requester
 
 ```js
 let datafire = require('datafire');
-let amazonaws_mturk_requester = require('@datafire/amazonaws_mturk_requester').actions;
-let context = new datafire.Context();
+let amazonaws_mturk_requester = require('@datafire/amazonaws_mturk_requester').create();
 
-amazonaws_mturk_requester.AcceptQualificationRequest({}, context).then(data => {
+amazonaws_mturk_requester.AcceptQualificationRequest({}).then(data => {
   console.log(data);
 })
 ```

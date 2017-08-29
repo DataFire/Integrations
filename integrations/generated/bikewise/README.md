@@ -9,10 +9,9 @@ npm install --save datafire @datafire/bikewise
 
 ```js
 let datafire = require('datafire');
-let bikewise = require('@datafire/bikewise').actions;
-let context = new datafire.Context();
+let bikewise = require('@datafire/bikewise').create();
 
-bikewise.v2.locations.markers.get({}, context).then(data => {
+bikewise.v2.locations.markers.get({}).then(data => {
   console.log(data);
 })
 ```

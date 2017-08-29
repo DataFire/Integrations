@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_community
 
 ```js
 let datafire = require('datafire');
-let nytimes_community = require('@datafire/nytimes_community').actions;
-
-let account = {
+let nytimes_community = require('@datafire/nytimes_community').create({
   api-key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_community: account,
-  }
-})
+});
 
-nytimes_community.user_content.user.json.get({}, context).then(data => {
+nytimes_community.user_content.user.json.get({}).then(data => {
   console.log(data);
 })
 ```

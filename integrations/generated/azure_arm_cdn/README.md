@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_cdn
 
 ```js
 let datafire = require('datafire');
-let azure_arm_cdn = require('@datafire/azure_arm_cdn').actions;
-
-let account = {
+let azure_arm_cdn = require('@datafire/azure_arm_cdn').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_cdn: account,
-  }
-})
+});
 
-azure_arm_cdn.CheckNameAvailability({}, context).then(data => {
+azure_arm_cdn.CheckNameAvailability({}).then(data => {
   console.log(data);
 })
 ```

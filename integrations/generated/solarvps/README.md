@@ -9,18 +9,11 @@ npm install --save datafire @datafire/solarvps
 
 ```js
 let datafire = require('datafire');
-let solarvps = require('@datafire/solarvps').actions;
-
-let account = {
+let solarvps = require('@datafire/solarvps').create({
   apiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    solarvps: account,
-  }
-})
+});
 
-solarvps.contacts.get({}, context).then(data => {
+solarvps.contacts.get({}).then(data => {
   console.log(data);
 })
 ```

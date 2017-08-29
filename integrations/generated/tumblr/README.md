@@ -9,22 +9,15 @@ npm install --save datafire @datafire/tumblr
 
 ```js
 let datafire = require('datafire');
-let tumblr = require('@datafire/tumblr').actions;
-
-let account = {
+let tumblr = require('@datafire/tumblr').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    tumblr: account,
-  }
-})
+});
 
-tumblr.user.following.get({}, context).then(data => {
+tumblr.user.following.get({}).then(data => {
   console.log(data);
 })
 ```

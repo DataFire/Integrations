@@ -9,10 +9,9 @@ npm install --save datafire @datafire/gov_bc_ca_jobposting
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_jobposting = require('@datafire/gov_bc_ca_jobposting').actions;
-let context = new datafire.Context();
+let gov_bc_ca_jobposting = require('@datafire/gov_bc_ca_jobposting').create();
 
-gov_bc_ca_jobposting.jobs.post({}, context).then(data => {
+gov_bc_ca_jobposting.jobs.post({}).then(data => {
   console.log(data);
 })
 ```

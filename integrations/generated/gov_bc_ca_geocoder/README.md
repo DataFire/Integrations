@@ -9,18 +9,11 @@ npm install --save datafire @datafire/gov_bc_ca_geocoder
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').actions;
-
-let account = {
+let gov_bc_ca_geocoder = require('@datafire/gov_bc_ca_geocoder').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    gov_bc_ca_geocoder: account,
-  }
-})
+});
 
-gov_bc_ca_geocoder.addresses.outputFormat.get({}, context).then(data => {
+gov_bc_ca_geocoder.addresses.outputFormat.get({}).then(data => {
   console.log(data);
 })
 ```

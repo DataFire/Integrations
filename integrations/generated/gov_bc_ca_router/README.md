@@ -9,18 +9,11 @@ npm install --save datafire @datafire/gov_bc_ca_router
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_router = require('@datafire/gov_bc_ca_router').actions;
-
-let account = {
+let gov_bc_ca_router = require('@datafire/gov_bc_ca_router').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    gov_bc_ca_router: account,
-  }
-})
+});
 
-gov_bc_ca_router.directions.outputFormat.get({}, context).then(data => {
+gov_bc_ca_router.directions.outputFormat.get({}).then(data => {
   console.log(data);
 })
 ```

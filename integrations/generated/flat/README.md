@@ -9,22 +9,15 @@ npm install --save datafire @datafire/flat
 
 ```js
 let datafire = require('datafire');
-let flat = require('@datafire/flat').actions;
-
-let account = {
+let flat = require('@datafire/flat').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    flat: account,
-  }
-})
+});
 
-flat.getGroupScores({}, context).then(data => {
+flat.getGroupScores({}).then(data => {
   console.log(data);
 })
 ```

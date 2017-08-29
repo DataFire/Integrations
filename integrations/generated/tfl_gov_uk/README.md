@@ -9,19 +9,12 @@ npm install --save datafire @datafire/tfl_gov_uk
 
 ```js
 let datafire = require('datafire');
-let tfl_gov_uk = require('@datafire/tfl_gov_uk').actions;
-
-let account = {
+let tfl_gov_uk = require('@datafire/tfl_gov_uk').create({
   apiKey: "",
   appId: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    tfl_gov_uk: account,
-  }
-})
+});
 
-tfl_gov_uk.Line_Route({}, context).then(data => {
+tfl_gov_uk.Line_Route({}).then(data => {
   console.log(data);
 })
 ```

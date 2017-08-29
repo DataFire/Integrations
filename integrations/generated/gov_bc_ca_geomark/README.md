@@ -9,10 +9,9 @@ npm install --save datafire @datafire/gov_bc_ca_geomark
 
 ```js
 let datafire = require('datafire');
-let gov_bc_ca_geomark = require('@datafire/gov_bc_ca_geomark').actions;
-let context = new datafire.Context();
+let gov_bc_ca_geomark = require('@datafire/gov_bc_ca_geomark').create();
 
-gov_bc_ca_geomark.geomarks.new.post({}, context).then(data => {
+gov_bc_ca_geomark.geomarks.new.post({}).then(data => {
   console.log(data);
 })
 ```

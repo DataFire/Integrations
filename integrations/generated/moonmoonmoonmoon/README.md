@@ -9,10 +9,9 @@ npm install --save datafire @datafire/moonmoonmoonmoon
 
 ```js
 let datafire = require('datafire');
-let moonmoonmoonmoon = require('@datafire/moonmoonmoonmoon').actions;
-let context = new datafire.Context();
+let moonmoonmoonmoon = require('@datafire/moonmoonmoonmoon').create();
 
-moonmoonmoonmoon.api.marks.get({}, context).then(data => {
+moonmoonmoonmoon.api.marks.get({}).then(data => {
   console.log(data);
 })
 ```

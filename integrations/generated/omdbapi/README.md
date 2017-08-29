@@ -9,10 +9,9 @@ npm install --save datafire @datafire/omdbapi
 
 ```js
 let datafire = require('datafire');
-let omdbapi = require('@datafire/omdbapi').actions;
-let context = new datafire.Context();
+let omdbapi = require('@datafire/omdbapi').create();
 
-omdbapi..get({}, context).then(data => {
+omdbapi..get({}).then(data => {
   console.log(data);
 })
 ```

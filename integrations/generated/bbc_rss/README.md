@@ -9,10 +9,9 @@ npm install --save datafire @datafire/bbc_rss
 
 ```js
 let datafire = require('datafire');
-let bbc_rss = require('@datafire/bbc_rss').actions;
-let context = new datafire.Context();
+let bbc_rss = require('@datafire/bbc_rss').create();
 
-bbc_rss.topStories({}, context).then(data => {
+bbc_rss.topStories({}).then(data => {
   console.log(data);
 })
 ```

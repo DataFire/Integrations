@@ -9,18 +9,11 @@ npm install --save datafire @datafire/data_gov
 
 ```js
 let datafire = require('datafire');
-let data_gov = require('@datafire/data_gov').actions;
-
-let account = {
+let data_gov = require('@datafire/data_gov').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    data_gov: account,
-  }
-})
+});
 
-data_gov.docket({}, context).then(data => {
+data_gov.docket({}).then(data => {
   console.log(data);
 })
 ```

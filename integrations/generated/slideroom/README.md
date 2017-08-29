@@ -9,10 +9,9 @@ npm install --save datafire @datafire/slideroom
 
 ```js
 let datafire = require('datafire');
-let slideroom = require('@datafire/slideroom').actions;
-let context = new datafire.Context();
+let slideroom = require('@datafire/slideroom').create();
 
-slideroom.Application_RequestExportV2({}, context).then(data => {
+slideroom.Application_RequestExportV2({}).then(data => {
   console.log(data);
 })
 ```

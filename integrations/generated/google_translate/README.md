@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_translate
 
 ```js
 let datafire = require('datafire');
-let google_translate = require('@datafire/google_translate').actions;
-let context = new datafire.Context();
+let google_translate = require('@datafire/google_translate').create();
 
-google_translate.languages.list({}, context).then(data => {
+google_translate.languages.list({}).then(data => {
   console.log(data);
 })
 ```

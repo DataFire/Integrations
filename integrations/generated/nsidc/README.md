@@ -9,10 +9,9 @@ npm install --save datafire @datafire/nsidc
 
 ```js
 let datafire = require('datafire');
-let nsidc = require('@datafire/nsidc').actions;
-let context = new datafire.Context();
+let nsidc = require('@datafire/nsidc').create();
 
-nsidc.OpenSearch.get({}, context).then(data => {
+nsidc.OpenSearch.get({}).then(data => {
   console.log(data);
 })
 ```

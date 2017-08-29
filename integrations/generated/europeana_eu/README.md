@@ -9,10 +9,9 @@ npm install --save datafire @datafire/europeana_eu
 
 ```js
 let datafire = require('datafire');
-let europeana_eu = require('@datafire/europeana_eu').actions;
-let context = new datafire.Context();
+let europeana_eu = require('@datafire/europeana_eu').create();
 
-europeana_eu.listProviders({}, context).then(data => {
+europeana_eu.listProviders({}).then(data => {
   console.log(data);
 })
 ```

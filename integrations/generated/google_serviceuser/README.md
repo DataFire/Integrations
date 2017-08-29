@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_serviceuser
 
 ```js
 let datafire = require('datafire');
-let google_serviceuser = require('@datafire/google_serviceuser').actions;
-
-let account = {
+let google_serviceuser = require('@datafire/google_serviceuser').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_serviceuser: account,
-  }
-})
+});
 
-google_serviceuser.services.search({}, context).then(data => {
+google_serviceuser.services.search({}).then(data => {
   console.log(data);
 })
 ```

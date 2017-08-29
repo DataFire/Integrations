@@ -9,18 +9,11 @@ npm install --save datafire @datafire/statsocial
 
 ```js
 let datafire = require('datafire');
-let statsocial = require('@datafire/statsocial').actions;
-
-let account = {
+let statsocial = require('@datafire/statsocial').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    statsocial: account,
-  }
-})
+});
 
-statsocial.reports.twitter.create.post({}, context).then(data => {
+statsocial.reports.twitter.create.post({}).then(data => {
   console.log(data);
 })
 ```

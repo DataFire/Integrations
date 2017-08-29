@@ -9,23 +9,16 @@ npm install --save datafire @datafire/medium
 
 ```js
 let datafire = require('datafire');
-let medium = require('@datafire/medium').actions;
-
-let account = {
+let medium = require('@datafire/medium').create({
   BearerToken: "",
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    medium: account,
-  }
-})
+});
 
-medium.me.get({}, context).then(data => {
+medium.me.get({}).then(data => {
   console.log(data);
 })
 ```

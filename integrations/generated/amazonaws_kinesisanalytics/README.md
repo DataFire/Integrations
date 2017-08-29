@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_kinesisanalytics
 
 ```js
 let datafire = require('datafire');
-let amazonaws_kinesisanalytics = require('@datafire/amazonaws_kinesisanalytics').actions;
-let context = new datafire.Context();
+let amazonaws_kinesisanalytics = require('@datafire/amazonaws_kinesisanalytics').create();
 
-amazonaws_kinesisanalytics.AddApplicationInput({}, context).then(data => {
+amazonaws_kinesisanalytics.AddApplicationInput({}).then(data => {
   console.log(data);
 })
 ```

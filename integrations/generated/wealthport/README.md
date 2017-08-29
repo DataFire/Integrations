@@ -9,19 +9,12 @@ npm install --save datafire @datafire/wealthport
 
 ```js
 let datafire = require('datafire');
-let wealthport = require('@datafire/wealthport').actions;
-
-let account = {
+let wealthport = require('@datafire/wealthport').create({
   Using HTTP Header: "",
   Using URL Query Parameter: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    wealthport: account,
-  }
-})
+});
 
-wealthport.createSource({}, context).then(data => {
+wealthport.createSource({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_sourcerepo
 
 ```js
 let datafire = require('datafire');
-let google_sourcerepo = require('@datafire/google_sourcerepo').actions;
-
-let account = {
+let google_sourcerepo = require('@datafire/google_sourcerepo').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_sourcerepo: account,
-  }
-})
+});
 
-google_sourcerepo.projects.repos.delete({}, context).then(data => {
+google_sourcerepo.projects.repos.delete({}).then(data => {
   console.log(data);
 })
 ```

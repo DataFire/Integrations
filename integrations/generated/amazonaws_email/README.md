@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_email
 
 ```js
 let datafire = require('datafire');
-let amazonaws_email = require('@datafire/amazonaws_email').actions;
-let context = new datafire.Context();
+let amazonaws_email = require('@datafire/amazonaws_email').create();
 
-amazonaws_email.CloneReceiptRuleSet({}, context).then(data => {
+amazonaws_email.CloneReceiptRuleSet({}).then(data => {
   console.log(data);
 })
 ```

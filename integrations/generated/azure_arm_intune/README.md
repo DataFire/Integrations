@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_intune
 
 ```js
 let datafire = require('datafire');
-let azure_arm_intune = require('@datafire/azure_arm_intune').actions;
-let context = new datafire.Context();
+let azure_arm_intune = require('@datafire/azure_arm_intune').create();
 
-azure_arm_intune.GetLocations({}, context).then(data => {
+azure_arm_intune.GetLocations({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cognito_identity
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cognito_identity = require('@datafire/amazonaws_cognito_identity').actions;
-let context = new datafire.Context();
+let amazonaws_cognito_identity = require('@datafire/amazonaws_cognito_identity').create();
 
-amazonaws_cognito_identity.CreateIdentityPool({}, context).then(data => {
+amazonaws_cognito_identity.CreateIdentityPool({}).then(data => {
   console.log(data);
 })
 ```

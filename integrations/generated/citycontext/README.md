@@ -9,18 +9,11 @@ npm install --save datafire @datafire/citycontext
 
 ```js
 let datafire = require('datafire');
-let citycontext = require('@datafire/citycontext').actions;
-
-let account = {
+let citycontext = require('@datafire/citycontext').create({
   user_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    citycontext: account,
-  }
-})
+});
 
-citycontext.byPoint({}, context).then(data => {
+citycontext.byPoint({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_oauth2
 
 ```js
 let datafire = require('datafire');
-let google_oauth2 = require('@datafire/google_oauth2').actions;
-
-let account = {
+let google_oauth2 = require('@datafire/google_oauth2').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_oauth2: account,
-  }
-})
+});
 
-google_oauth2.userinfo.v2.me.get({}, context).then(data => {
+google_oauth2.userinfo.v2.me.get({}).then(data => {
   console.log(data);
 })
 ```

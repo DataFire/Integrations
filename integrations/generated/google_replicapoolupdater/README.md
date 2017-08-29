@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_replicapoolupdater
 
 ```js
 let datafire = require('datafire');
-let google_replicapoolupdater = require('@datafire/google_replicapoolupdater').actions;
-
-let account = {
+let google_replicapoolupdater = require('@datafire/google_replicapoolupdater').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_replicapoolupdater: account,
-  }
-})
+});
 
-google_replicapoolupdater.zoneOperations.list({}, context).then(data => {
+google_replicapoolupdater.zoneOperations.list({}).then(data => {
   console.log(data);
 })
 ```

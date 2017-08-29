@@ -9,18 +9,11 @@ npm install --save datafire @datafire/datumbox
 
 ```js
 let datafire = require('datafire');
-let datumbox = require('@datafire/datumbox').actions;
-
-let account = {
+let datumbox = require('@datafire/datumbox').create({
   apiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    datumbox: account,
-  }
-})
+});
 
-datumbox.AdultContentDetection({}, context).then(data => {
+datumbox.AdultContentDetection({}).then(data => {
   console.log(data);
 })
 ```

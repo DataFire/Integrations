@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_twitterapiswithword2vecqueryexpans
 
 ```js
 let datafire = require('datafire');
-let apitore_twitterapiswithword2vecqueryexpansion = require('@datafire/apitore_twitterapiswithword2vecqueryexpansion').actions;
-let context = new datafire.Context();
+let apitore_twitterapiswithword2vecqueryexpansion = require('@datafire/apitore_twitterapiswithword2vecqueryexpansion').create();
 
-apitore_twitterapiswithword2vecqueryexpansion.searchUsingGET_2({}, context).then(data => {
+apitore_twitterapiswithword2vecqueryexpansion.searchUsingGET_2({}).then(data => {
   console.log(data);
 })
 ```

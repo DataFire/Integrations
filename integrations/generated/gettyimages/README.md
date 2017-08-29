@@ -9,18 +9,11 @@ npm install --save datafire @datafire/gettyimages
 
 ```js
 let datafire = require('datafire');
-let gettyimages = require('@datafire/gettyimages').actions;
-
-let account = {
+let gettyimages = require('@datafire/gettyimages').create({
   Api-Key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    gettyimages: account,
-  }
-})
+});
 
-gettyimages.Search_GetEditorialVideosByPhrase({}, context).then(data => {
+gettyimages.Search_GetEditorialVideosByPhrase({}).then(data => {
   console.log(data);
 })
 ```

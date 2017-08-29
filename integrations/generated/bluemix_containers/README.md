@@ -9,10 +9,9 @@ npm install --save datafire @datafire/bluemix_containers
 
 ```js
 let datafire = require('datafire');
-let bluemix_containers = require('@datafire/bluemix_containers').actions;
-let context = new datafire.Context();
+let bluemix_containers = require('@datafire/bluemix_containers').create();
 
-bluemix_containers.build.post({}, context).then(data => {
+bluemix_containers.build.post({}).then(data => {
   console.log(data);
 })
 ```

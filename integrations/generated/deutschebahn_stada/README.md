@@ -9,16 +9,15 @@ npm install --save datafire @datafire/deutschebahn_stada
 
 ```js
 let datafire = require('datafire');
-let deutschebahn_stada = require('@datafire/deutschebahn_stada').actions;
-let context = new datafire.Context();
+let deutschebahn_stada = require('@datafire/deutschebahn_stada').create();
 
-deutschebahn_stada.szentralen.get({}, context).then(data => {
+deutschebahn_stada.szentralen.get({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger file.
+An API providing master data for german railway stations by DB Station&Service AG. 
 
 ## Actions
 ### stations.get

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_designfeedsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_designfeedsapis = require('@datafire/apitore_designfeedsapis').actions;
-let context = new datafire.Context();
+let apitore_designfeedsapis = require('@datafire/apitore_designfeedsapis').create();
 
-apitore_designfeedsapis.feedUsingGET_4({}, context).then(data => {
+apitore_designfeedsapis.feedUsingGET_4({}).then(data => {
   console.log(data);
 })
 ```

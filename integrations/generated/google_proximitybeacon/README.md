@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_proximitybeacon
 
 ```js
 let datafire = require('datafire');
-let google_proximitybeacon = require('@datafire/google_proximitybeacon').actions;
-
-let account = {
+let google_proximitybeacon = require('@datafire/google_proximitybeacon').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_proximitybeacon: account,
-  }
-})
+});
 
-google_proximitybeacon.namespaces.list({}, context).then(data => {
+google_proximitybeacon.namespaces.list({}).then(data => {
   console.log(data);
 })
 ```

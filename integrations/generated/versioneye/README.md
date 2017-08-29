@@ -9,10 +9,9 @@ npm install --save datafire @datafire/versioneye
 
 ```js
 let datafire = require('datafire');
-let versioneye = require('@datafire/versioneye').actions;
-let context = new datafire.Context();
+let versioneye = require('@datafire/versioneye').create();
 
-versioneye.getProjects({}, context).then(data => {
+versioneye.getProjects({}).then(data => {
   console.log(data);
 })
 ```

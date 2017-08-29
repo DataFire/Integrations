@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_es
 
 ```js
 let datafire = require('datafire');
-let amazonaws_es = require('@datafire/amazonaws_es').actions;
-let context = new datafire.Context();
+let amazonaws_es = require('@datafire/amazonaws_es').create();
 
-amazonaws_es.ListDomainNames({}, context).then(data => {
+amazonaws_es.ListDomainNames({}).then(data => {
   console.log(data);
 })
 ```

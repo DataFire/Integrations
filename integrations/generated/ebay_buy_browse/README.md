@@ -9,22 +9,15 @@ npm install --save datafire @datafire/ebay_buy_browse
 
 ```js
 let datafire = require('datafire');
-let ebay_buy_browse = require('@datafire/ebay_buy_browse').actions;
-
-let account = {
+let ebay_buy_browse = require('@datafire/ebay_buy_browse').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    ebay_buy_browse: account,
-  }
-})
+});
 
-ebay_buy_browse.search({}, context).then(data => {
+ebay_buy_browse.search({}).then(data => {
   console.log(data);
 })
 ```

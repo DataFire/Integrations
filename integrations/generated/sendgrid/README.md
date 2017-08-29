@@ -9,18 +9,11 @@ npm install --save datafire @datafire/sendgrid
 
 ```js
 let datafire = require('datafire');
-let sendgrid = require('@datafire/sendgrid').actions;
-
-let account = {
+let sendgrid = require('@datafire/sendgrid').create({
   Authorization: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    sendgrid: account,
-  }
-})
+});
 
-sendgrid.whitelabel.links.default.get({}, context).then(data => {
+sendgrid.whitelabel.links.default.get({}).then(data => {
   console.log(data);
 })
 ```

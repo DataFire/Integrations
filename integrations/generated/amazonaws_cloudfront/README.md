@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cloudfront
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudfront = require('@datafire/amazonaws_cloudfront').actions;
-let context = new datafire.Context();
+let amazonaws_cloudfront = require('@datafire/amazonaws_cloudfront').create();
 
-amazonaws_cloudfront.ListDistributions({}, context).then(data => {
+amazonaws_cloudfront.ListDistributions({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/box_upload
 
 ```js
 let datafire = require('datafire');
-let box_upload = require('@datafire/box_upload').actions;
-
-let account = {
+let box_upload = require('@datafire/box_upload').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    box_upload: account,
-  }
-})
+});
 
-box_upload.uploadFile({}, context).then(data => {
+box_upload.uploadFile({}).then(data => {
   console.log(data);
 })
 ```

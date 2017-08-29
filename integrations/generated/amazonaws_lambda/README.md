@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_lambda
 
 ```js
 let datafire = require('datafire');
-let amazonaws_lambda = require('@datafire/amazonaws_lambda').actions;
-let context = new datafire.Context();
+let amazonaws_lambda = require('@datafire/amazonaws_lambda').create();
 
-amazonaws_lambda.InvokeAsync({}, context).then(data => {
+amazonaws_lambda.InvokeAsync({}).then(data => {
   console.log(data);
 })
 ```

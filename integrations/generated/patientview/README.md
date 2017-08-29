@@ -9,10 +9,9 @@ npm install --save datafire @datafire/patientview
 
 ```js
 let datafire = require('datafire');
-let patientview = require('@datafire/patientview').actions;
-let context = new datafire.Context();
+let patientview = require('@datafire/patientview').create();
 
-patientview.validatePatientManagement({}, context).then(data => {
+patientview.validatePatientManagement({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,19 +9,12 @@ npm install --save datafire @datafire/ijenko
 
 ```js
 let datafire = require('datafire');
-let ijenko = require('@datafire/ijenko').actions;
-
-let account = {
+let ijenko = require('@datafire/ijenko').create({
   Token in Access-Token header: "",
   Token in query: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    ijenko: account,
-  }
-})
+});
 
-ijenko.Me.places({}, context).then(data => {
+ijenko.Me.places({}).then(data => {
   console.log(data);
 })
 ```

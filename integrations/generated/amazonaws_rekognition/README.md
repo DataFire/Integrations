@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_rekognition
 
 ```js
 let datafire = require('datafire');
-let amazonaws_rekognition = require('@datafire/amazonaws_rekognition').actions;
-let context = new datafire.Context();
+let amazonaws_rekognition = require('@datafire/amazonaws_rekognition').create();
 
-amazonaws_rekognition.CompareFaces({}, context).then(data => {
+amazonaws_rekognition.CompareFaces({}).then(data => {
   console.log(data);
 })
 ```

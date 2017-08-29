@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_gamesmanagement
 
 ```js
 let datafire = require('datafire');
-let google_gamesmanagement = require('@datafire/google_gamesmanagement').actions;
-
-let account = {
+let google_gamesmanagement = require('@datafire/google_gamesmanagement').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_gamesmanagement: account,
-  }
-})
+});
 
-google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}, context).then(data => {
+google_gamesmanagement.turnBasedMatches.resetForAllPlayers({}).then(data => {
   console.log(data);
 })
 ```

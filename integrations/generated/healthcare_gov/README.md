@@ -9,10 +9,9 @@ npm install --save datafire @datafire/healthcare_gov
 
 ```js
 let datafire = require('datafire');
-let healthcare_gov = require('@datafire/healthcare_gov').actions;
-let context = new datafire.Context();
+let healthcare_gov = require('@datafire/healthcare_gov').create();
 
-healthcare_gov.api.articles.json.get({}, context).then(data => {
+healthcare_gov.api.articles.json.get({}).then(data => {
   console.log(data);
 })
 ```

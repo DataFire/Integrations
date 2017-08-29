@@ -9,10 +9,9 @@ npm install --save datafire @datafire/magento
 
 ```js
 let datafire = require('datafire');
-let magento = require('@datafire/magento').actions;
-let context = new datafire.Context();
+let magento = require('@datafire/magento').create();
 
-magento.salesTransactionRepositoryV1GetListGet({}, context).then(data => {
+magento.salesTransactionRepositoryV1GetListGet({}).then(data => {
   console.log(data);
 })
 ```

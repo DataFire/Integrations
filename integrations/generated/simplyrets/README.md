@@ -9,19 +9,12 @@ npm install --save datafire @datafire/simplyrets
 
 ```js
 let datafire = require('datafire');
-let simplyrets = require('@datafire/simplyrets').actions;
-
-let account = {
+let simplyrets = require('@datafire/simplyrets').create({
   username: "",
   password: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    simplyrets: account,
-  }
-})
+});
 
-simplyrets.properties.get({}, context).then(data => {
+simplyrets.properties.get({}).then(data => {
   console.log(data);
 })
 ```

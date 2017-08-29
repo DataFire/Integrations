@@ -9,10 +9,9 @@ npm install --save datafire @datafire/groupon
 
 ```js
 let datafire = require('datafire');
-let groupon = require('@datafire/groupon').actions;
-let context = new datafire.Context();
+let groupon = require('@datafire/groupon').create();
 
-groupon.status.format.get({}, context).then(data => {
+groupon.status.format.get({}).then(data => {
   console.log(data);
 })
 ```

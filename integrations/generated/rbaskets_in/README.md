@@ -9,24 +9,23 @@ npm install --save datafire @datafire/rbaskets_in
 
 ```js
 let datafire = require('datafire');
-let rbaskets_in = require('@datafire/rbaskets_in').actions;
-
-let account = {
+let rbaskets_in = require('@datafire/rbaskets_in').create({
   basket_token: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    rbaskets_in: account,
-  }
-})
+});
 
-rbaskets_in.baskets.get({}, context).then(data => {
+rbaskets_in.baskets.get({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-RESTful API of Request Baskets service
+RESTful API of [Request Baskets](https://rbaskets.in) service.
+
+Request Baskets is an open source project of a service to collect HTTP requests and inspect them via RESTful
+API or web UI.
+
+Check out the [project page](https://github.com/darklynx/request-baskets) for more detailed description.
+
 
 ## Actions
 ### baskets.get

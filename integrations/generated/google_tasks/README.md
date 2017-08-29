@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_tasks
 
 ```js
 let datafire = require('datafire');
-let google_tasks = require('@datafire/google_tasks').actions;
-
-let account = {
+let google_tasks = require('@datafire/google_tasks').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_tasks: account,
-  }
-})
+});
 
-google_tasks.tasklists.insert({}, context).then(data => {
+google_tasks.tasklists.insert({}).then(data => {
   console.log(data);
 })
 ```

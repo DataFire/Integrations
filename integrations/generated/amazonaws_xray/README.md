@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_xray
 
 ```js
 let datafire = require('datafire');
-let amazonaws_xray = require('@datafire/amazonaws_xray').actions;
-let context = new datafire.Context();
+let amazonaws_xray = require('@datafire/amazonaws_xray').create();
 
-amazonaws_xray.GetServiceGraph({}, context).then(data => {
+amazonaws_xray.GetServiceGraph({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_machinelearning
 
 ```js
 let datafire = require('datafire');
-let amazonaws_machinelearning = require('@datafire/amazonaws_machinelearning').actions;
-let context = new datafire.Context();
+let amazonaws_machinelearning = require('@datafire/amazonaws_machinelearning').create();
 
-amazonaws_machinelearning.AddTags({}, context).then(data => {
+amazonaws_machinelearning.AddTags({}).then(data => {
   console.log(data);
 })
 ```

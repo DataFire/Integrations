@@ -9,10 +9,9 @@ npm install --save datafire @datafire/scrapewebsite_email
 
 ```js
 let datafire = require('datafire');
-let scrapewebsite_email = require('@datafire/scrapewebsite_email').actions;
-let context = new datafire.Context();
+let scrapewebsite_email = require('@datafire/scrapewebsite_email').create();
 
-scrapewebsite_email.v1.ping.json.get({}, context).then(data => {
+scrapewebsite_email.v1.ping.json.get({}).then(data => {
   console.log(data);
 })
 ```

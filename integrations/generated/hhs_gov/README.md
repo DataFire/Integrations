@@ -9,10 +9,9 @@ npm install --save datafire @datafire/hhs_gov
 
 ```js
 let datafire = require('datafire');
-let hhs_gov = require('@datafire/hhs_gov').actions;
-let context = new datafire.Context();
+let hhs_gov = require('@datafire/hhs_gov').create();
 
-hhs_gov.getTags({}, context).then(data => {
+hhs_gov.getTags({}).then(data => {
   console.log(data);
 })
 ```

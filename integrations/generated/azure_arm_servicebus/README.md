@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_servicebus
 
 ```js
 let datafire = require('datafire');
-let azure_arm_servicebus = require('@datafire/azure_arm_servicebus').actions;
-
-let account = {
+let azure_arm_servicebus = require('@datafire/azure_arm_servicebus').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_servicebus: account,
-  }
-})
+});
 
-azure_arm_servicebus.Operations_List({}, context).then(data => {
+azure_arm_servicebus.Operations_List({}).then(data => {
   console.log(data);
 })
 ```

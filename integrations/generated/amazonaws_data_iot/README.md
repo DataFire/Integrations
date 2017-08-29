@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_data_iot
 
 ```js
 let datafire = require('datafire');
-let amazonaws_data_iot = require('@datafire/amazonaws_data_iot').actions;
-let context = new datafire.Context();
+let amazonaws_data_iot = require('@datafire/amazonaws_data_iot').create();
 
-amazonaws_data_iot.UpdateThingShadow({}, context).then(data => {
+amazonaws_data_iot.UpdateThingShadow({}).then(data => {
   console.log(data);
 })
 ```

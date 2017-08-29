@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_taskqueue
 
 ```js
 let datafire = require('datafire');
-let google_taskqueue = require('@datafire/google_taskqueue').actions;
-
-let account = {
+let google_taskqueue = require('@datafire/google_taskqueue').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_taskqueue: account,
-  }
-})
+});
 
-google_taskqueue.taskqueues.get({}, context).then(data => {
+google_taskqueue.taskqueues.get({}).then(data => {
   console.log(data);
 })
 ```

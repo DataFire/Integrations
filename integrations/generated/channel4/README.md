@@ -9,18 +9,11 @@ npm install --save datafire @datafire/channel4
 
 ```js
 let datafire = require('datafire');
-let channel4 = require('@datafire/channel4').actions;
-
-let account = {
+let channel4 = require('@datafire/channel4').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    channel4: account,
-  }
-})
+});
 
-channel4.Coming_Soon_feed({}, context).then(data => {
+channel4.Coming_Soon_feed({}).then(data => {
   console.log(data);
 })
 ```

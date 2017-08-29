@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_clouddebugger
 
 ```js
 let datafire = require('datafire');
-let google_clouddebugger = require('@datafire/google_clouddebugger').actions;
-
-let account = {
+let google_clouddebugger = require('@datafire/google_clouddebugger').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_clouddebugger: account,
-  }
-})
+});
 
-google_clouddebugger.debugger.debuggees.list({}, context).then(data => {
+google_clouddebugger.debugger.debuggees.list({}).then(data => {
   console.log(data);
 })
 ```

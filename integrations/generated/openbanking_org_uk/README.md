@@ -9,10 +9,9 @@ npm install --save datafire @datafire/openbanking_org_uk
 
 ```js
 let datafire = require('datafire');
-let openbanking_org_uk = require('@datafire/openbanking_org_uk').actions;
-let context = new datafire.Context();
+let openbanking_org_uk = require('@datafire/openbanking_org_uk').create();
 
-openbanking_org_uk.unsecured_sme_loans.head({}, context).then(data => {
+openbanking_org_uk.unsecured_sme_loans.head({}).then(data => {
   console.log(data);
 })
 ```

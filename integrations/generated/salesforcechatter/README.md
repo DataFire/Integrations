@@ -9,10 +9,9 @@ npm install --save datafire @datafire/salesforcechatter
 
 ```js
 let datafire = require('datafire');
-let salesforcechatter = require('@datafire/salesforcechatter').actions;
-let context = new datafire.Context();
+let salesforcechatter = require('@datafire/salesforcechatter').create();
 
-salesforcechatter.chatter.users.me.groups.get({}, context).then(data => {
+salesforcechatter.chatter.users.me.groups.get({}).then(data => {
   console.log(data);
 })
 ```

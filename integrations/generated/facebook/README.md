@@ -9,22 +9,15 @@ npm install --save datafire @datafire/facebook
 
 ```js
 let datafire = require('datafire');
-let facebook = require('@datafire/facebook').actions;
-
-let account = {
+let facebook = require('@datafire/facebook').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    facebook: account,
-  }
-})
+});
 
-facebook.video.picture.get({}, context).then(data => {
+facebook.video.picture.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_codebuild
 
 ```js
 let datafire = require('datafire');
-let amazonaws_codebuild = require('@datafire/amazonaws_codebuild').actions;
-let context = new datafire.Context();
+let amazonaws_codebuild = require('@datafire/amazonaws_codebuild').create();
 
-amazonaws_codebuild.BatchGetBuilds({}, context).then(data => {
+amazonaws_codebuild.BatchGetBuilds({}).then(data => {
   console.log(data);
 })
 ```

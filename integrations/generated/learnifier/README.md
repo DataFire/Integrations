@@ -9,10 +9,9 @@ npm install --save datafire @datafire/learnifier
 
 ```js
 let datafire = require('datafire');
-let learnifier = require('@datafire/learnifier').actions;
-let context = new datafire.Context();
+let learnifier = require('@datafire/learnifier').create();
 
-learnifier.users.get({}, context).then(data => {
+learnifier.users.get({}).then(data => {
   console.log(data);
 })
 ```

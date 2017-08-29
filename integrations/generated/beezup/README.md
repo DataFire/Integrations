@@ -9,18 +9,11 @@ npm install --save datafire @datafire/beezup
 
 ```js
 let datafire = require('datafire');
-let beezup = require('@datafire/beezup').actions;
-
-let account = {
+let beezup = require('@datafire/beezup').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    beezup: account,
-  }
-})
+});
 
-beezup.GetOrderListLight({}, context).then(data => {
+beezup.GetOrderListLight({}).then(data => {
   console.log(data);
 })
 ```

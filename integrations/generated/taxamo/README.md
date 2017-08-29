@@ -9,18 +9,11 @@ npm install --save datafire @datafire/taxamo
 
 ```js
 let datafire = require('datafire');
-let taxamo = require('@datafire/taxamo').actions;
-
-let account = {
+let taxamo = require('@datafire/taxamo').create({
   apiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    taxamo: account,
-  }
-})
+});
 
-taxamo.listTransactions({}, context).then(data => {
+taxamo.listTransactions({}).then(data => {
   console.log(data);
 })
 ```

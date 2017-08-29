@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_codepipeline
 
 ```js
 let datafire = require('datafire');
-let amazonaws_codepipeline = require('@datafire/amazonaws_codepipeline').actions;
-let context = new datafire.Context();
+let amazonaws_codepipeline = require('@datafire/amazonaws_codepipeline').create();
 
-amazonaws_codepipeline.AcknowledgeJob({}, context).then(data => {
+amazonaws_codepipeline.AcknowledgeJob({}).then(data => {
   console.log(data);
 })
 ```

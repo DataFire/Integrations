@@ -9,10 +9,9 @@ npm install --save datafire @datafire/t213_vg
 
 ```js
 let datafire = require('datafire');
-let t213_vg = require('@datafire/t213_vg').actions;
-let context = new datafire.Context();
+let t213_vg = require('@datafire/t213_vg').create();
 
-t213_vg.salesTransactionRepositoryV1GetListGet({}, context).then(data => {
+t213_vg.salesTransactionRepositoryV1GetListGet({}).then(data => {
   console.log(data);
 })
 ```

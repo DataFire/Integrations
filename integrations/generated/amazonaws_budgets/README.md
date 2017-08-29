@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_budgets
 
 ```js
 let datafire = require('datafire');
-let amazonaws_budgets = require('@datafire/amazonaws_budgets').actions;
-let context = new datafire.Context();
+let amazonaws_budgets = require('@datafire/amazonaws_budgets').create();
 
-amazonaws_budgets.CreateBudget({}, context).then(data => {
+amazonaws_budgets.CreateBudget({}).then(data => {
   console.log(data);
 })
 ```

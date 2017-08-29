@@ -9,10 +9,9 @@ npm install --save datafire @datafire/magick_nu
 
 ```js
 let datafire = require('datafire');
-let magick_nu = require('@datafire/magick_nu').actions;
-let context = new datafire.Context();
+let magick_nu = require('@datafire/magick_nu').create();
 
-magick_nu.getStrategiesStrategyIdStrategyId({}, context).then(data => {
+magick_nu.getStrategiesStrategyIdStrategyId({}).then(data => {
   console.log(data);
 })
 ```

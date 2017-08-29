@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_machinelearning_commitmentplans
 
 ```js
 let datafire = require('datafire');
-let azure_arm_machinelearning_commitmentplans = require('@datafire/azure_arm_machinelearning_commitmentplans').actions;
-let context = new datafire.Context();
+let azure_arm_machinelearning_commitmentplans = require('@datafire/azure_arm_machinelearning_commitmentplans').create();
 
-azure_arm_machinelearning_commitmentplans.CommitmentPlans_List({}, context).then(data => {
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_List({}).then(data => {
   console.log(data);
 })
 ```

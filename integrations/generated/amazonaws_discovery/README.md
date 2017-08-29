@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_discovery
 
 ```js
 let datafire = require('datafire');
-let amazonaws_discovery = require('@datafire/amazonaws_discovery').actions;
-let context = new datafire.Context();
+let amazonaws_discovery = require('@datafire/amazonaws_discovery').create();
 
-amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context).then(data => {
+amazonaws_discovery.AssociateConfigurationItemsToApplication({}).then(data => {
   console.log(data);
 })
 ```

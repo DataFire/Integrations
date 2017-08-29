@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_doubleclickbidmanager
 
 ```js
 let datafire = require('datafire');
-let google_doubleclickbidmanager = require('@datafire/google_doubleclickbidmanager').actions;
-let context = new datafire.Context();
+let google_doubleclickbidmanager = require('@datafire/google_doubleclickbidmanager').create();
 
-google_doubleclickbidmanager.sdf.download({}, context).then(data => {
+google_doubleclickbidmanager.sdf.download({}).then(data => {
   console.log(data);
 })
 ```

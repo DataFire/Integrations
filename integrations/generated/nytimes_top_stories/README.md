@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nytimes_top_stories
 
 ```js
 let datafire = require('datafire');
-let nytimes_top_stories = require('@datafire/nytimes_top_stories').actions;
-
-let account = {
+let nytimes_top_stories = require('@datafire/nytimes_top_stories').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nytimes_top_stories: account,
-  }
-})
+});
 
-nytimes_top_stories.section.format.get({}, context).then(data => {
+nytimes_top_stories.section.format.get({}).then(data => {
   console.log(data);
 })
 ```

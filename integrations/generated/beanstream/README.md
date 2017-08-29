@@ -9,10 +9,9 @@ npm install --save datafire @datafire/beanstream
 
 ```js
 let datafire = require('datafire');
-let beanstream = require('@datafire/beanstream').actions;
-let context = new datafire.Context();
+let beanstream = require('@datafire/beanstream').create();
 
-beanstream.scripts.tokenization.tokens.post({}, context).then(data => {
+beanstream.scripts.tokenization.tokens.post({}).then(data => {
   console.log(data);
 })
 ```

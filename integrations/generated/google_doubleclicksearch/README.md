@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_doubleclicksearch
 
 ```js
 let datafire = require('datafire');
-let google_doubleclicksearch = require('@datafire/google_doubleclicksearch').actions;
-
-let account = {
+let google_doubleclicksearch = require('@datafire/google_doubleclicksearch').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_doubleclicksearch: account,
-  }
-})
+});
 
-google_doubleclicksearch.reports.generate({}, context).then(data => {
+google_doubleclicksearch.reports.generate({}).then(data => {
   console.log(data);
 })
 ```

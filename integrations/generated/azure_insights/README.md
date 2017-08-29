@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_insights
 
 ```js
 let datafire = require('datafire');
-let azure_insights = require('@datafire/azure_insights').actions;
-let context = new datafire.Context();
+let azure_insights = require('@datafire/azure_insights').create();
 
-azure_insights.Metrics_List({}, context).then(data => {
+azure_insights.Metrics_List({}).then(data => {
   console.log(data);
 })
 ```

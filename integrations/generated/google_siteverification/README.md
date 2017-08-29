@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_siteverification
 
 ```js
 let datafire = require('datafire');
-let google_siteverification = require('@datafire/google_siteverification').actions;
-
-let account = {
+let google_siteverification = require('@datafire/google_siteverification').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_siteverification: account,
-  }
-})
+});
 
-google_siteverification.webResource.list({}, context).then(data => {
+google_siteverification.webResource.list({}).then(data => {
   console.log(data);
 })
 ```

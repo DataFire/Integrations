@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_fusiontables
 
 ```js
 let datafire = require('datafire');
-let google_fusiontables = require('@datafire/google_fusiontables').actions;
-
-let account = {
+let google_fusiontables = require('@datafire/google_fusiontables').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_fusiontables: account,
-  }
-})
+});
 
-google_fusiontables.table.insert({}, context).then(data => {
+google_fusiontables.table.insert({}).then(data => {
   console.log(data);
 })
 ```

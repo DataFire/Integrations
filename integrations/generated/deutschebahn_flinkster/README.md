@@ -9,10 +9,9 @@ npm install --save datafire @datafire/deutschebahn_flinkster
 
 ```js
 let datafire = require('datafire');
-let deutschebahn_flinkster = require('@datafire/deutschebahn_flinkster').actions;
-let context = new datafire.Context();
+let deutschebahn_flinkster = require('@datafire/deutschebahn_flinkster').create();
 
-deutschebahn_flinkster.listBookingProposals({}, context).then(data => {
+deutschebahn_flinkster.listBookingProposals({}).then(data => {
   console.log(data);
 })
 ```

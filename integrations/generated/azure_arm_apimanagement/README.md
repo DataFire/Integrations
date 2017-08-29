@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_apimanagement
 
 ```js
 let datafire = require('datafire');
-let azure_arm_apimanagement = require('@datafire/azure_arm_apimanagement').actions;
-
-let account = {
+let azure_arm_apimanagement = require('@datafire/azure_arm_apimanagement').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_apimanagement: account,
-  }
-})
+});
 
-azure_arm_apimanagement.Apis_ListByService({}, context).then(data => {
+azure_arm_apimanagement.Apis_ListByService({}).then(data => {
   console.log(data);
 })
 ```

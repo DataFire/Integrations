@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_drive
 
 ```js
 let datafire = require('datafire');
-let google_drive = require('@datafire/google_drive').actions;
-
-let account = {
+let google_drive = require('@datafire/google_drive').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_drive: account,
-  }
-})
+});
 
-google_drive.teamdrives.list({}, context).then(data => {
+google_drive.teamdrives.list({}).then(data => {
   console.log(data);
 })
 ```

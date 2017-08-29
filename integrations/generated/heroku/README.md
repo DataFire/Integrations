@@ -9,22 +9,15 @@ npm install --save datafire @datafire/heroku
 
 ```js
 let datafire = require('datafire');
-let heroku = require('@datafire/heroku').actions;
-
-let account = {
+let heroku = require('@datafire/heroku').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    heroku: account,
-  }
-})
+});
 
-heroku.addons.get({}, context).then(data => {
+heroku.addons.get({}).then(data => {
   console.log(data);
 })
 ```

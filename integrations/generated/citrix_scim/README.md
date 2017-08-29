@@ -9,10 +9,9 @@ npm install --save datafire @datafire/citrix_scim
 
 ```js
 let datafire = require('datafire');
-let citrix_scim = require('@datafire/citrix_scim').actions;
-let context = new datafire.Context();
+let citrix_scim = require('@datafire/citrix_scim').create();
 
-citrix_scim.getGroups({}, context).then(data => {
+citrix_scim.getGroups({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_documentfrequencyapis
 
 ```js
 let datafire = require('datafire');
-let apitore_documentfrequencyapis = require('@datafire/apitore_documentfrequencyapis').actions;
-let context = new datafire.Context();
+let apitore_documentfrequencyapis = require('@datafire/apitore_documentfrequencyapis').create();
 
-apitore_documentfrequencyapis.getUsingGET({}, context).then(data => {
+apitore_documentfrequencyapis.getUsingGET({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,18 +9,11 @@ npm install --save datafire @datafire/vatapi
 
 ```js
 let datafire = require('datafire');
-let vatapi = require('@datafire/vatapi').actions;
-
-let account = {
+let vatapi = require('@datafire/vatapi').create({
   apikey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    vatapi: account,
-  }
-})
+});
 
-vatapi.vat_rates({}, context).then(data => {
+vatapi.vat_rates({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,18 +9,11 @@ npm install --save datafire @datafire/ritc
 
 ```js
 let datafire = require('datafire');
-let ritc = require('@datafire/ritc').actions;
-
-let account = {
+let ritc = require('@datafire/ritc').create({
   Authorization: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    ritc: account,
-  }
-})
+});
 
-ritc.runApp({}, context).then(data => {
+ritc.runApp({}).then(data => {
   console.log(data);
 })
 ```

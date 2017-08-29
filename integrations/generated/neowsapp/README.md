@@ -9,10 +9,9 @@ npm install --save datafire @datafire/neowsapp
 
 ```js
 let datafire = require('datafire');
-let neowsapp = require('@datafire/neowsapp').actions;
-let context = new datafire.Context();
+let neowsapp = require('@datafire/neowsapp').create();
 
-neowsapp.browseNearEarthObjects({}, context).then(data => {
+neowsapp.browseNearEarthObjects({}).then(data => {
   console.log(data);
 })
 ```

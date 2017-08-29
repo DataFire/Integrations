@@ -9,18 +9,11 @@ npm install --save datafire @datafire/botify
 
 ```js
 let datafire = require('datafire');
-let botify = require('@datafire/botify').actions;
-
-let account = {
+let botify = require('@datafire/botify').create({
   DjangoRestToken: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    botify: account,
-  }
-})
+});
 
-botify.getProjectAnalyses({}, context).then(data => {
+botify.getProjectAnalyses({}).then(data => {
   console.log(data);
 })
 ```

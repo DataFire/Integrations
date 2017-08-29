@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cloudsearch
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudsearch = require('@datafire/amazonaws_cloudsearch').actions;
-let context = new datafire.Context();
+let amazonaws_cloudsearch = require('@datafire/amazonaws_cloudsearch').create();
 
-amazonaws_cloudsearch.BuildSuggesters({}, context).then(data => {
+amazonaws_cloudsearch.BuildSuggesters({}).then(data => {
   console.log(data);
 })
 ```

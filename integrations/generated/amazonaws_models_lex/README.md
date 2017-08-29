@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_models_lex
 
 ```js
 let datafire = require('datafire');
-let amazonaws_models_lex = require('@datafire/amazonaws_models_lex').actions;
-let context = new datafire.Context();
+let amazonaws_models_lex = require('@datafire/amazonaws_models_lex').create();
 
-amazonaws_models_lex.GetBots({}, context).then(data => {
+amazonaws_models_lex.GetBots({}).then(data => {
   console.log(data);
 })
 ```

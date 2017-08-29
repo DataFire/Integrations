@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_url2htmlapis
 
 ```js
 let datafire = require('datafire');
-let apitore_url2htmlapis = require('@datafire/apitore_url2htmlapis').actions;
-let context = new datafire.Context();
+let apitore_url2htmlapis = require('@datafire/apitore_url2htmlapis').create();
 
-apitore_url2htmlapis.url2htmlUsingGET({}, context).then(data => {
+apitore_url2htmlapis.url2htmlUsingGET({}).then(data => {
   console.log(data);
 })
 ```

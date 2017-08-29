@@ -9,10 +9,9 @@ npm install --save datafire @datafire/mandrillapp
 
 ```js
 let datafire = require('datafire');
-let mandrillapp = require('@datafire/mandrillapp').actions;
-let context = new datafire.Context();
+let mandrillapp = require('@datafire/mandrillapp').create();
 
-mandrillapp.exports.activity.json.post({}, context).then(data => {
+mandrillapp.exports.activity.json.post({}).then(data => {
   console.log(data);
 })
 ```

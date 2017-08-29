@@ -9,18 +9,11 @@ npm install --save datafire @datafire/winning_email
 
 ```js
 let datafire = require('datafire');
-let winning_email = require('@datafire/winning_email').actions;
-
-let account = {
+let winning_email = require('@datafire/winning_email').create({
   internalApiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    winning_email: account,
-  }
-})
+});
 
-winning_email.emailBooster({}, context).then(data => {
+winning_email.emailBooster({}).then(data => {
   console.log(data);
 })
 ```

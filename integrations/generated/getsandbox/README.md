@@ -9,18 +9,11 @@ npm install --save datafire @datafire/getsandbox
 
 ```js
 let datafire = require('datafire');
-let getsandbox = require('@datafire/getsandbox').actions;
-
-let account = {
+let getsandbox = require('@datafire/getsandbox').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    getsandbox: account,
-  }
-})
+});
 
-getsandbox.getSandboxes({}, context).then(data => {
+getsandbox.getSandboxes({}).then(data => {
   console.log(data);
 })
 ```

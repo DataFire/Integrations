@@ -9,10 +9,9 @@ npm install --save datafire @datafire/nextcaller
 
 ```js
 let datafire = require('datafire');
-let nextcaller = require('@datafire/nextcaller').actions;
-let context = new datafire.Context();
+let nextcaller = require('@datafire/nextcaller').create();
 
-nextcaller.version.records.get({}, context).then(data => {
+nextcaller.version.records.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_certificatefeedsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_certificatefeedsapis = require('@datafire/apitore_certificatefeedsapis').actions;
-let context = new datafire.Context();
+let apitore_certificatefeedsapis = require('@datafire/apitore_certificatefeedsapis').create();
 
-apitore_certificatefeedsapis.feedUsingGET_3({}, context).then(data => {
+apitore_certificatefeedsapis.feedUsingGET_3({}).then(data => {
   console.log(data);
 })
 ```

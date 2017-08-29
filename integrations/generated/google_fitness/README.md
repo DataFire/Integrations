@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_fitness
 
 ```js
 let datafire = require('datafire');
-let google_fitness = require('@datafire/google_fitness').actions;
-
-let account = {
+let google_fitness = require('@datafire/google_fitness').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_fitness: account,
-  }
-})
+});
 
-google_fitness.users.dataSources.list({}, context).then(data => {
+google_fitness.users.dataSources.list({}).then(data => {
   console.log(data);
 })
 ```

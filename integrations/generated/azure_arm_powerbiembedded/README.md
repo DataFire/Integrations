@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_powerbiembedded
 
 ```js
 let datafire = require('datafire');
-let azure_arm_powerbiembedded = require('@datafire/azure_arm_powerbiembedded').actions;
-let context = new datafire.Context();
+let azure_arm_powerbiembedded = require('@datafire/azure_arm_powerbiembedded').create();
 
-azure_arm_powerbiembedded.getAvailableOperations({}, context).then(data => {
+azure_arm_powerbiembedded.getAvailableOperations({}).then(data => {
   console.log(data);
 })
 ```

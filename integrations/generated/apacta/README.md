@@ -9,19 +9,12 @@ npm install --save datafire @datafire/apacta
 
 ```js
 let datafire = require('datafire');
-let apacta = require('@datafire/apacta').actions;
-
-let account = {
+let apacta = require('@datafire/apacta').create({
   X-Auth-Token: "",
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    apacta: account,
-  }
-})
+});
 
-apacta.wall_posts.post({}, context).then(data => {
+apacta.wall_posts.post({}).then(data => {
   console.log(data);
 })
 ```

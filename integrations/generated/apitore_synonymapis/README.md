@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_synonymapis
 
 ```js
 let datafire = require('datafire');
-let apitore_synonymapis = require('@datafire/apitore_synonymapis').actions;
-let context = new datafire.Context();
+let apitore_synonymapis = require('@datafire/apitore_synonymapis').create();
 
-apitore_synonymapis.distanceUsingGET({}, context).then(data => {
+apitore_synonymapis.distanceUsingGET({}).then(data => {
   console.log(data);
 })
 ```

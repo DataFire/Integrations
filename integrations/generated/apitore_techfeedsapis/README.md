@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_techfeedsapis
 
 ```js
 let datafire = require('datafire');
-let apitore_techfeedsapis = require('@datafire/apitore_techfeedsapis').actions;
-let context = new datafire.Context();
+let apitore_techfeedsapis = require('@datafire/apitore_techfeedsapis').create();
 
-apitore_techfeedsapis.feedUsingGET_7({}, context).then(data => {
+apitore_techfeedsapis.feedUsingGET_7({}).then(data => {
   console.log(data);
 })
 ```

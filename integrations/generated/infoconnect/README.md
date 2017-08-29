@@ -9,10 +9,9 @@ npm install --save datafire @datafire/infoconnect
 
 ```js
 let datafire = require('datafire');
-let infoconnect = require('@datafire/infoconnect').actions;
-let context = new datafire.Context();
+let infoconnect = require('@datafire/infoconnect').create();
 
-infoconnect.v1.companies.id.get({}, context).then(data => {
+infoconnect.v1.companies.id.get({}).then(data => {
   console.log(data);
 })
 ```

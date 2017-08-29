@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_cloudtrail
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudtrail = require('@datafire/amazonaws_cloudtrail').actions;
-let context = new datafire.Context();
+let amazonaws_cloudtrail = require('@datafire/amazonaws_cloudtrail').create();
 
-amazonaws_cloudtrail.AddTags({}, context).then(data => {
+amazonaws_cloudtrail.AddTags({}).then(data => {
   console.log(data);
 })
 ```

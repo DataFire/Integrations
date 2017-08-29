@@ -9,18 +9,11 @@ npm install --save datafire @datafire/orghunter
 
 ```js
 let datafire = require('datafire');
-let orghunter = require('@datafire/orghunter').actions;
-
-let account = {
+let orghunter = require('@datafire/orghunter').create({
   user_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    orghunter: account,
-  }
-})
+});
 
-orghunter.v1.charitysearch.post({}, context).then(data => {
+orghunter.v1.charitysearch.post({}).then(data => {
   console.log(data);
 })
 ```

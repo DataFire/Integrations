@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_cloudbuild
 
 ```js
 let datafire = require('datafire');
-let google_cloudbuild = require('@datafire/google_cloudbuild').actions;
-
-let account = {
+let google_cloudbuild = require('@datafire/google_cloudbuild').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_cloudbuild: account,
-  }
-})
+});
 
-google_cloudbuild.projects.builds.list({}, context).then(data => {
+google_cloudbuild.projects.builds.list({}).then(data => {
   console.log(data);
 })
 ```

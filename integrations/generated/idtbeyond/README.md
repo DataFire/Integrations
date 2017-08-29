@@ -9,10 +9,9 @@ npm install --save datafire @datafire/idtbeyond
 
 ```js
 let datafire = require('datafire');
-let idtbeyond = require('@datafire/idtbeyond').actions;
-let context = new datafire.Context();
+let idtbeyond = require('@datafire/idtbeyond').create();
 
-idtbeyond.iatu.balance.get({}, context).then(data => {
+idtbeyond.iatu.balance.get({}).then(data => {
   console.log(data);
 })
 ```

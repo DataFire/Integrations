@@ -9,10 +9,9 @@ npm install --save datafire @datafire/epa_gov_dfr
 
 ```js
 let datafire = require('datafire');
-let epa_gov_dfr = require('@datafire/epa_gov_dfr').actions;
-let context = new datafire.Context();
+let epa_gov_dfr = require('@datafire/epa_gov_dfr').create();
 
-epa_gov_dfr.dfr_rest_services.get_air_compliance.get({}, context).then(data => {
+epa_gov_dfr.dfr_rest_services.get_air_compliance.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -22,7 +21,7 @@ Enforcement and Compliance History Online (ECHO) is a tool developed and maintai
 <BR><BR>DFR Rest Services provide multiple service endpoints, to retrieve detailed facility location, enforcement, compliance monitoring, and pollutant information for any single facility.  See the Detailed Facility Report (DFR) Help Page (https://echo.epa.gov/help/reports/detailed-facility-report-help) for additional information on the DFR.  Additionally, a Data Dictionary (https://echo.epa.gov/help/reports/dfr-data-dictionary) is also available.<BR><BR>
 There is one primary service end point, get_dfr, that provides all available DFR data.  All other service end points that are exposed, will return data on a single section of the DFR. <br>  
 <br>
-Additional ECHO Resources:&nbsp&nbsp <a href="https://echo.epa.gov/tools/web-services">Web Services</a>, <a href="https://echo.epa.gov/resources/echo-data/about-the-data">About ECHO's Data</a>, <a href="https://echo.epa.gov/tools/data-downloads">Data Downloads</a>
+Additional ECHO Resources:   <a href="https://echo.epa.gov/tools/web-services">Web Services</a>, <a href="https://echo.epa.gov/resources/echo-data/about-the-data">About ECHO's Data</a>, <a href="https://echo.epa.gov/tools/data-downloads">Data Downloads</a>
 <br>
 
 

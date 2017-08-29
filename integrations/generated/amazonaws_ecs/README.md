@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_ecs
 
 ```js
 let datafire = require('datafire');
-let amazonaws_ecs = require('@datafire/amazonaws_ecs').actions;
-let context = new datafire.Context();
+let amazonaws_ecs = require('@datafire/amazonaws_ecs').create();
 
-amazonaws_ecs.CreateCluster({}, context).then(data => {
+amazonaws_ecs.CreateCluster({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_youtubeanalytics
 
 ```js
 let datafire = require('datafire');
-let google_youtubeanalytics = require('@datafire/google_youtubeanalytics').actions;
-
-let account = {
+let google_youtubeanalytics = require('@datafire/google_youtubeanalytics').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_youtubeanalytics: account,
-  }
-})
+});
 
-google_youtubeanalytics.groups.update({}, context).then(data => {
+google_youtubeanalytics.groups.update({}).then(data => {
   console.log(data);
 })
 ```

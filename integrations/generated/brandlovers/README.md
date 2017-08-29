@@ -9,18 +9,11 @@ npm install --save datafire @datafire/brandlovers
 
 ```js
 let datafire = require('datafire');
-let brandlovers = require('@datafire/brandlovers').actions;
-
-let account = {
+let brandlovers = require('@datafire/brandlovers').create({
   authorization: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    brandlovers: account,
-  }
-})
+});
 
-brandlovers.order.orderId.get({}, context).then(data => {
+brandlovers.order.orderId.get({}).then(data => {
   console.log(data);
 })
 ```

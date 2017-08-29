@@ -9,18 +9,11 @@ npm install --save datafire @datafire/nrel_transportation_incentives_laws
 
 ```js
 let datafire = require('datafire');
-let nrel_transportation_incentives_laws = require('@datafire/nrel_transportation_incentives_laws').actions;
-
-let account = {
+let nrel_transportation_incentives_laws = require('@datafire/nrel_transportation_incentives_laws').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    nrel_transportation_incentives_laws: account,
-  }
-})
+});
 
-nrel_transportation_incentives_laws.v1.output_format.get({}, context).then(data => {
+nrel_transportation_incentives_laws.v1.output_format.get({}).then(data => {
   console.log(data);
 })
 ```

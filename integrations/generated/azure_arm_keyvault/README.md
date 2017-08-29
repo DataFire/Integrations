@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_keyvault
 
 ```js
 let datafire = require('datafire');
-let azure_arm_keyvault = require('@datafire/azure_arm_keyvault').actions;
-let context = new datafire.Context();
+let azure_arm_keyvault = require('@datafire/azure_arm_keyvault').create();
 
-azure_arm_keyvault.Vaults_ListByResourceGroup({}, context).then(data => {
+azure_arm_keyvault.Vaults_ListByResourceGroup({}).then(data => {
   console.log(data);
 })
 ```

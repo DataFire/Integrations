@@ -9,22 +9,15 @@ npm install --save datafire @datafire/azure_arm_devtestlabs
 
 ```js
 let datafire = require('datafire');
-let azure_arm_devtestlabs = require('@datafire/azure_arm_devtestlabs').actions;
-
-let account = {
+let azure_arm_devtestlabs = require('@datafire/azure_arm_devtestlabs').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    azure_arm_devtestlabs: account,
-  }
-})
+});
 
-azure_arm_devtestlabs.Lab_ListBySubscription({}, context).then(data => {
+azure_arm_devtestlabs.Lab_ListBySubscription({}).then(data => {
   console.log(data);
 })
 ```

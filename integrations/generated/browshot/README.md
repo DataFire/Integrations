@@ -9,18 +9,11 @@ npm install --save datafire @datafire/browshot
 
 ```js
 let datafire = require('datafire');
-let browshot = require('@datafire/browshot').actions;
-
-let account = {
+let browshot = require('@datafire/browshot').create({
   apiKeyQuery: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    browshot: account,
-  }
-})
+});
 
-browshot.GetMultipleScreenshotsInfo({}, context).then(data => {
+browshot.GetMultipleScreenshotsInfo({}).then(data => {
   console.log(data);
 })
 ```

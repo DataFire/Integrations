@@ -9,10 +9,9 @@ npm install --save datafire @datafire/azure_arm_commerce
 
 ```js
 let datafire = require('datafire');
-let azure_arm_commerce = require('@datafire/azure_arm_commerce').actions;
-let context = new datafire.Context();
+let azure_arm_commerce = require('@datafire/azure_arm_commerce').create();
 
-azure_arm_commerce.RateCard_Get({}, context).then(data => {
+azure_arm_commerce.RateCard_Get({}).then(data => {
   console.log(data);
 })
 ```

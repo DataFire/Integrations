@@ -9,10 +9,9 @@ npm install --save datafire @datafire/exavault
 
 ```js
 let datafire = require('datafire');
-let exavault = require('@datafire/exavault').actions;
-let context = new datafire.Context();
+let exavault = require('@datafire/exavault').create();
 
-exavault.authenticateUser({}, context).then(data => {
+exavault.authenticateUser({}).then(data => {
   console.log(data);
 })
 ```

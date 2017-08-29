@@ -9,22 +9,15 @@ npm install --save datafire @datafire/salesforce
 
 ```js
 let datafire = require('datafire');
-let salesforce = require('@datafire/salesforce').actions;
-
-let account = {
+let salesforce = require('@datafire/salesforce').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    salesforce: account,
-  }
-})
+});
 
-salesforce..get({}, context).then(data => {
+salesforce..get({}).then(data => {
   console.log(data);
 })
 ```

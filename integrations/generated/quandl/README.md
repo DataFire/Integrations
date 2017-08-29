@@ -9,18 +9,11 @@ npm install --save datafire @datafire/quandl
 
 ```js
 let datafire = require('datafire');
-let quandl = require('@datafire/quandl').actions;
-
-let account = {
+let quandl = require('@datafire/quandl').create({
   apiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    quandl: account,
-  }
-})
+});
 
-quandl.databases.get({}, context).then(data => {
+quandl.databases.get({}).then(data => {
   console.log(data);
 })
 ```

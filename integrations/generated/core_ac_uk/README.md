@@ -9,18 +9,11 @@ npm install --save datafire @datafire/core_ac_uk
 
 ```js
 let datafire = require('datafire');
-let core_ac_uk = require('@datafire/core_ac_uk').actions;
-
-let account = {
+let core_ac_uk = require('@datafire/core_ac_uk').create({
   apiKey: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    core_ac_uk: account,
-  }
-})
+});
 
-core_ac_uk.getArticleByCoreIdBatch({}, context).then(data => {
+core_ac_uk.getArticleByCoreIdBatch({}).then(data => {
   console.log(data);
 })
 ```

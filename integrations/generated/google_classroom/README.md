@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_classroom
 
 ```js
 let datafire = require('datafire');
-let google_classroom = require('@datafire/google_classroom').actions;
-
-let account = {
+let google_classroom = require('@datafire/google_classroom').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_classroom: account,
-  }
-})
+});
 
-google_classroom.invitations.create({}, context).then(data => {
+google_classroom.invitations.create({}).then(data => {
   console.log(data);
 })
 ```

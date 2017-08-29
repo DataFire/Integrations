@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_cloudbilling
 
 ```js
 let datafire = require('datafire');
-let google_cloudbilling = require('@datafire/google_cloudbilling').actions;
-
-let account = {
+let google_cloudbilling = require('@datafire/google_cloudbilling').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_cloudbilling: account,
-  }
-})
+});
 
-google_cloudbilling.billingAccounts.list({}, context).then(data => {
+google_cloudbilling.billingAccounts.list({}).then(data => {
   console.log(data);
 })
 ```

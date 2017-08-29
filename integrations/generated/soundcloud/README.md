@@ -9,22 +9,15 @@ npm install --save datafire @datafire/soundcloud
 
 ```js
 let datafire = require('datafire');
-let soundcloud = require('@datafire/soundcloud').actions;
-
-let account = {
+let soundcloud = require('@datafire/soundcloud').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    soundcloud: account,
-  }
-})
+});
 
-soundcloud.tracks.json.get({}, context).then(data => {
+soundcloud.tracks.json.get({}).then(data => {
   console.log(data);
 })
 ```

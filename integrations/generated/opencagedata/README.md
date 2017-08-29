@@ -9,10 +9,9 @@ npm install --save datafire @datafire/opencagedata
 
 ```js
 let datafire = require('datafire');
-let opencagedata = require('@datafire/opencagedata').actions;
-let context = new datafire.Context();
+let opencagedata = require('@datafire/opencagedata').create();
 
-opencagedata.vversion.format.get({}, context).then(data => {
+opencagedata.vversion.format.get({}).then(data => {
   console.log(data);
 })
 ```

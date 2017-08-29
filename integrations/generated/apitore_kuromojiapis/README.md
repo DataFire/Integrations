@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_kuromojiapis
 
 ```js
 let datafire = require('datafire');
-let apitore_kuromojiapis = require('@datafire/apitore_kuromojiapis').actions;
-let context = new datafire.Context();
+let apitore_kuromojiapis = require('@datafire/apitore_kuromojiapis').create();
 
-apitore_kuromojiapis.tokenizeUsingGET_1({}, context).then(data => {
+apitore_kuromojiapis.tokenizeUsingGET_1({}).then(data => {
   console.log(data);
 })
 ```

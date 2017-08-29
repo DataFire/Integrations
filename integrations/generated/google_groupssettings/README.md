@@ -9,22 +9,15 @@ npm install --save datafire @datafire/google_groupssettings
 
 ```js
 let datafire = require('datafire');
-let google_groupssettings = require('@datafire/google_groupssettings').actions;
-
-let account = {
+let google_groupssettings = require('@datafire/google_groupssettings').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    google_groupssettings: account,
-  }
-})
+});
 
-google_groupssettings.groups.get({}, context).then(data => {
+google_groupssettings.groups.get({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,18 +9,11 @@ npm install --save datafire @datafire/import_schedule
 
 ```js
 let datafire = require('datafire');
-let import_schedule = require('@datafire/import_schedule').actions;
-
-let account = {
+let import_schedule = require('@datafire/import_schedule').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    import_schedule: account,
-  }
-})
+});
 
-import_schedule.extractor.get({}, context).then(data => {
+import_schedule.extractor.get({}).then(data => {
   console.log(data);
 })
 ```

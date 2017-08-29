@@ -9,10 +9,9 @@ npm install --save datafire @datafire/dweet
 
 ```js
 let datafire = require('datafire');
-let dweet = require('@datafire/dweet').actions;
-let context = new datafire.Context();
+let dweet = require('@datafire/dweet').create();
 
-dweet.createAlertGET({}, context).then(data => {
+dweet.createAlertGET({}).then(data => {
   console.log(data);
 })
 ```

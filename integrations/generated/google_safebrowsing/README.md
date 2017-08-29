@@ -9,10 +9,9 @@ npm install --save datafire @datafire/google_safebrowsing
 
 ```js
 let datafire = require('datafire');
-let google_safebrowsing = require('@datafire/google_safebrowsing').actions;
-let context = new datafire.Context();
+let google_safebrowsing = require('@datafire/google_safebrowsing').create();
 
-google_safebrowsing.threatMatches.find({}, context).then(data => {
+google_safebrowsing.threatMatches.find({}).then(data => {
   console.log(data);
 })
 ```

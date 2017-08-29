@@ -9,10 +9,9 @@ npm install --save datafire @datafire/amazonaws_snowball
 
 ```js
 let datafire = require('datafire');
-let amazonaws_snowball = require('@datafire/amazonaws_snowball').actions;
-let context = new datafire.Context();
+let amazonaws_snowball = require('@datafire/amazonaws_snowball').create();
 
-amazonaws_snowball.CancelCluster({}, context).then(data => {
+amazonaws_snowball.CancelCluster({}).then(data => {
   console.log(data);
 })
 ```

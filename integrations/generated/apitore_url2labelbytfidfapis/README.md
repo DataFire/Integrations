@@ -9,10 +9,9 @@ npm install --save datafire @datafire/apitore_url2labelbytfidfapis
 
 ```js
 let datafire = require('datafire');
-let apitore_url2labelbytfidfapis = require('@datafire/apitore_url2labelbytfidfapis').actions;
-let context = new datafire.Context();
+let apitore_url2labelbytfidfapis = require('@datafire/apitore_url2labelbytfidfapis').create();
 
-apitore_url2labelbytfidfapis.getUsingGET_3({}, context).then(data => {
+apitore_url2labelbytfidfapis.getUsingGET_3({}).then(data => {
   console.log(data);
 })
 ```

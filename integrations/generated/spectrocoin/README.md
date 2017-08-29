@@ -9,10 +9,9 @@ npm install --save datafire @datafire/spectrocoin
 
 ```js
 let datafire = require('datafire');
-let spectrocoin = require('@datafire/spectrocoin').actions;
-let context = new datafire.Context();
+let spectrocoin = require('@datafire/spectrocoin').create();
 
-spectrocoin.createOrder({}, context).then(data => {
+spectrocoin.createOrder({}).then(data => {
   console.log(data);
 })
 ```

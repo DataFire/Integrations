@@ -9,10 +9,9 @@ npm install --save datafire @datafire/postmark
 
 ```js
 let datafire = require('datafire');
-let postmark = require('@datafire/postmark').actions;
-let context = new datafire.Context();
+let postmark = require('@datafire/postmark').create();
 
-postmark.email.post({}, context).then(data => {
+postmark.email.post({}).then(data => {
   console.log(data);
 })
 ```

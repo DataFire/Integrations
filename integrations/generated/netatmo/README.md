@@ -9,22 +9,15 @@ npm install --save datafire @datafire/netatmo
 
 ```js
 let datafire = require('datafire');
-let netatmo = require('@datafire/netatmo').actions;
-
-let account = {
+let netatmo = require('@datafire/netatmo').create({
   access_token: "",
   refresh_token: "",
   client_id: "",
   client_secret: "",
   redirect_uri: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    netatmo: account,
-  }
-})
+});
 
-netatmo.getthermostatsdata({}, context).then(data => {
+netatmo.getthermostatsdata({}).then(data => {
   console.log(data);
 })
 ```

@@ -9,10 +9,9 @@ npm install --save datafire @datafire/cnn_rss
 
 ```js
 let datafire = require('datafire');
-let cnn_rss = require('@datafire/cnn_rss').actions;
-let context = new datafire.Context();
+let cnn_rss = require('@datafire/cnn_rss').create();
 
-cnn_rss.topStories({}, context).then(data => {
+cnn_rss.topStories({}).then(data => {
   console.log(data);
 })
 ```

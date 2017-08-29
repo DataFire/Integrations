@@ -9,18 +9,11 @@ npm install --save datafire @datafire/wordnik
 
 ```js
 let datafire = require('datafire');
-let wordnik = require('@datafire/wordnik').actions;
-
-let account = {
+let wordnik = require('@datafire/wordnik').create({
   api_key: "",
-}
-let context = new datafire.Context({
-  accounts: {
-    wordnik: account,
-  }
-})
+});
 
-wordnik.getWordOfTheDay({}, context).then(data => {
+wordnik.getWordOfTheDay({}).then(data => {
   console.log(data);
 })
 ```
