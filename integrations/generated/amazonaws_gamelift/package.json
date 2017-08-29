@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_gamelift",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "index.js",
   "description": "DataFire integration for Amazon GameLift",
   "repository": {
@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "datafire": "^2.0.0",
-    "aws-sdk": "^2.88.0"
+    "aws-sdk": "^2.105.0"
   }
 }

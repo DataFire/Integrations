@@ -5,7 +5,7 @@ let openapi = require('./openapi.json');
 
 let aws = require('aws-sdk');
 const INTEGRATION_ID = 'amazonaws_config';
-const SDK_ID = 'Config,config';
+const SDK_ID = 'Config';
 
 let integ = module.exports = new datafire.Integration({
   id: INTEGRATION_ID,

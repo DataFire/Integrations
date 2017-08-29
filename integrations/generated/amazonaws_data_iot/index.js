@@ -5,7 +5,7 @@ let openapi = require('./openapi.json');
 
 let aws = require('aws-sdk');
 const INTEGRATION_ID = 'amazonaws_data_iot';
-const SDK_ID = '';
+const SDK_ID = 'IotData';
 
 let integ = module.exports = new datafire.Integration({
   id: INTEGRATION_ID,

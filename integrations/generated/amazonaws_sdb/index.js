@@ -5,7 +5,7 @@ let openapi = require('./openapi.json');
 
 let aws = require('aws-sdk');
 const INTEGRATION_ID = 'amazonaws_sdb';
-const SDK_ID = '';
+const SDK_ID = 'SimpleDB';
 
 let integ = module.exports = new datafire.Integration({
   id: INTEGRATION_ID,
