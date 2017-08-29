@@ -1,0 +1,77 @@
+{
+  "id": "wmata_rail_realtime",
+  "title": "Real-Time Bus Predictions",
+  "description": "Real-time bus prediction methods.",
+  "security": {
+    "wmata_rail_realtime": {
+      "integration": "wmata_rail_realtime",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_realtime.jpg"
+  },
+  "actionCount": 2,
+  "actions": [
+    {
+      "id": "Predictions.get",
+      "title": "Predictions.get",
+      "description": "#### Description\n\nReturns next bus arrival times at a stop.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nPredictions\n\nArray containing bus predictions ([NextBusPrediction](#NextBusPrediction)).\n\n\n\n\n\nStopName\n\nFull name of the given StopID.\n\n\n\n\n\n\n\nNextBusPrediction Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDenotes a binary direction (0 or 1) of the bus. There is no specific mapping to direction, but a different value for the same route signifies that the buses are traveling in opposite directions. Use the DirectionText element to show the actual destination of the bus.\n\n\n\n\n\nDirectionText\n\nCustomer-friendly description of direction and destination for a bus.\n\n\n\n\n\nMinutes\n\nMinutes until bus arrival at this stop. Numeric value.\n\n\n\n\n\nRouteID\n\nBase route name as shown on the bus. This can be used in other bus-related methods. Note that all variants will be shown as their base route names (i.e.: 10Av1 and 10Av2 will be shown as 10A).\n\n\n\n\n\nTripID\n\nTrip identifier. This can be correlated with the data in our bus schedule information as well as bus positions.\n\n\n\n\n\nVehicleID\n\nBus identifier. This can be correlated with results returned from bus positions.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StopID": {
+            "type": "string",
+            "description": "7-digit regional stop ID.",
+            "enum": [
+              "1001195"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StopID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_realtime": {
+          "integration": "wmata_rail_realtime"
+        }
+      }
+    },
+    {
+      "id": "json.jPredictions.get",
+      "title": "json.jPredictions.get",
+      "description": "#### Description\n\nReturns next bus arrival times at a stop.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nPredictions\n\nArray containing bus predictions ([NextBusPrediction](#NextBusPrediction)).\n\n\n\n\n\nStopName\n\nFull name of the given StopID.\n\n\n\n\n\n\n\nNextBusPrediction Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDenotes a binary direction (0 or 1) of the bus. There is no specific mapping to direction, but a different value for the same route signifies that the buses are traveling in opposite directions. Use the DirectionText element to show the actual destination of the bus.\n\n\n\n\n\nDirectionText\n\nCustomer-friendly description of direction and destination for a bus.\n\n\n\n\n\nMinutes\n\nMinutes until bus arrival at this stop. Numeric value.\n\n\n\n\n\nRouteID\n\nBase route name as shown on the bus. This can be used in other bus-related methods. Note that all variants will be shown as their base route names (i.e.: 10Av1 and 10Av2 will be shown as 10A).\n\n\n\n\n\nTripID\n\nTrip identifier. This can be correlated with the data in our bus schedule information as well as bus positions.\n\n\n\n\n\nVehicleID\n\nBus identifier. This can be correlated with results returned from bus positions.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StopID": {
+            "type": "string",
+            "description": "7-digit regional stop ID.",
+            "enum": [
+              "1001195"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StopID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_realtime": {
+          "integration": "wmata_rail_realtime"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "transport"
+  ]
+}

@@ -290,6 +290,29 @@
     ],
     "latestVersion": "3.0.1"
   },
+  "amazonaws_cloudhsmv2": {
+    "id": "amazonaws_cloudhsmv2",
+    "title": "AWS CloudHSM V2",
+    "description": "For more information about AWS CloudHSM, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/) and the [AWS CloudHSM User ...",
+    "security": {
+      "amazonaws_cloudhsmv2": {
+        "integration": "amazonaws_cloudhsmv2",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsmv2.jpg"
+    },
+    "actionCount": 10,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
     "title": "Amazon CloudSearch",
@@ -1140,6 +1163,29 @@
     ],
     "latestVersion": "3.0.1"
   },
+  "amazonaws_glue": {
+    "id": "amazonaws_glue",
+    "title": "AWS Glue",
+    "description": "Defines service operations used by the GlueFrontendService",
+    "security": {
+      "amazonaws_glue": {
+        "integration": "amazonaws_glue",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glue.jpg"
+    },
+    "actionCount": 74,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
     "title": "AWS Greengrass",
@@ -1449,6 +1495,29 @@
       "aws"
     ],
     "latestVersion": "3.0.1"
+  },
+  "amazonaws_mgh": {
+    "id": "amazonaws_mgh",
+    "title": "AWS Migration Hub",
+    "description": "",
+    "security": {
+      "amazonaws_mgh": {
+        "integration": "amazonaws_mgh",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mgh.jpg"
+    },
+    "actionCount": 16,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "2.0.0"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -4556,6 +4625,53 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "bungie": {
+    "id": "bungie",
+    "title": "Bungie.Net",
+    "description": "These endpoints constitute the functionality exposed by Bungie.net, both for more traditional website functionality and ...",
+    "security": {
+      "bungie": {
+        "integration": "bungie",
+        "fields": {
+          "apiKey": "Every request requires an API key.  To get an API key, register a new application at https://www.bungie.net/en/Application.",
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://www.bungie.net/en/OAuth/Authorize",
+          "description": "For requests that require Authentication, you will need to have your users authenticate via our OAuth mechanisms.  See https://github.com/Bungie-net/api/wiki/OAuth-Documentation for more details.",
+          "flow": "accessCode",
+          "scopes": {
+            "AdminGroups": "Administer Group/Clan Forums, Wall, and Members for groups and clans that the \r\nuser is a founder or an administrator.",
+            "BnetWrite": "Create new groups, clans, and forum posts.",
+            "EditUserData": "Edit user data such as preferred language, status, motto, avatar selection and theme.",
+            "MoveEquipDestinyItems": "Move or equip Destiny items",
+            "ReadAndApplyTokens": "Read offer history and claim and apply tokens for the user.",
+            "ReadBasicUserProfile": "Read basic user profile information such as the user's handle, avatar icon, etc.",
+            "ReadDestinyInventoryAndVault": "Read Destiny Inventory and Vault contents.",
+            "ReadDestinyVendorsAndAdvisors": "Access vendor and advisor data specific to a user.",
+            "ReadGroups": "Read Group/Clan Forums, Wall, and Members for groups and clans that the \r\nuser has joined.",
+            "ReadUserData": "Read user data such as who they are web notifications, \r\nclan/group memberships, recent activity, muted users.",
+            "WriteGroups": "Write Group/Clan Forums, Wall, and Members for groups and clans that the \r\nuser has joined."
+          },
+          "tokenUrl": "https://www.bungie.net/Platform/App/OAuth/token/",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.jpeg"
+    },
+    "actionCount": 60,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "cambase": {
     "id": "cambase",
     "title": "Cambase.io",
@@ -5023,6 +5139,20 @@
       "open data"
     ],
     "latestVersion": "2.0.3"
+  },
+  "docusign": {
+    "id": "docusign",
+    "title": "DocuSign",
+    "description": "The DocuSign REST API provides you with a powerful, convenient, and simple Web services API for interacting with DocuSig...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.jpg"
+    },
+    "actionCount": 303,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
   },
   "dweet": {
     "id": "dweet",
@@ -5693,7 +5823,7 @@
       "collaboration",
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gitlab": {
     "id": "gitlab",
@@ -10351,6 +10481,72 @@
     "tags": [],
     "latestVersion": "2.0.5"
   },
+  "lufthansa_partner": {
+    "id": "lufthansa_partner",
+    "title": "LH Partner",
+    "security": {
+      "lufthansa_partner": {
+        "integration": "lufthansa_partner",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "application",
+          "scopes": {
+            "read:LH Open API": "read access"
+          },
+          "tokenUrl": "https://api.lufthansa.com/v1/partners/oauth/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lufthansa_partner.png"
+    },
+    "actionCount": 18,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "lufthansa_public": {
+    "id": "lufthansa_public",
+    "title": "LH Public",
+    "security": {
+      "lufthansa_public": {
+        "integration": "lufthansa_public",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "flow": "application",
+          "scopes": {
+            "read:LH Open API": "read access"
+          },
+          "tokenUrl": "https://api.lufthansa.com/v1/oauth/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lufthansa_public.png"
+    },
+    "actionCount": 15,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "lyft": {
     "id": "lyft",
     "title": "Lyft",
@@ -11025,6 +11221,36 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "o2_cz_mobility": {
+    "id": "o2_cz_mobility",
+    "title": "Mobility",
+    "description": "Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points wit...",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_mobility.png"
+    },
+    "actionCount": 2,
+    "tags": [
+      "telecom"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "o2_cz_sociodemo": {
+    "id": "o2_cz_sociodemo",
+    "title": "Socio-demo",
+    "description": "Socio-demo API can be used to obtain time-aggregated data representing groups of people on the given location in the Cze...",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_sociodemo.png"
+    },
+    "actionCount": 3,
+    "tags": [
+      "telecom"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "oceandrivers": {
     "id": "oceandrivers",
     "title": "ODWeather",
@@ -11278,6 +11504,34 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "postmarkapp_account": {
+    "id": "postmarkapp_account",
+    "title": "Postmark Account-level",
+    "description": "Postmark makes sending and receiving email ",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmarkapp_account.jpg"
+    },
+    "actionCount": 20,
+    "tags": [
+      "email"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "postmarkapp_server": {
+    "id": "postmarkapp_server",
+    "title": "Postmark",
+    "description": "Postmark makes sending and receiving email",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmarkapp_server.jpg"
+    },
+    "actionCount": 47,
+    "tags": [
+      "email"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "posty": {
     "id": "posty",
     "title": "posty_API",
@@ -11320,6 +11574,21 @@
     "actionCount": 4,
     "tags": [],
     "latestVersion": "2.0.4"
+  },
+  "ptv_vic_gov_au": {
+    "id": "ptv_vic_gov_au",
+    "title": "PTV Timetable API - Version 3",
+    "description": "The PTV Timetable API provides direct access to Public Transport Victoria’s public transport timetable data.\r",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ptv_vic_gov_au.jpeg"
+    },
+    "actionCount": 19,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
   },
   "quandl": {
     "id": "quandl",
@@ -11452,6 +11721,23 @@
     "actionCount": 2,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "redmine": {
+    "id": "redmine",
+    "title": "Redmine API",
+    "description": "Redmine exposes some of its data through a REST API. This API provides ",
+    "security": {
+      "redmine": {
+        "integration": "redmine",
+        "fields": {
+          "api_key": "API key",
+          "host": "The host for your Redmine server, e.g. https://redmine.acme.com"
+        }
+      }
+    },
+    "actionCount": 12,
+    "tags": [],
+    "latestVersion": "2.0.0"
   },
   "refugerestrooms": {
     "id": "refugerestrooms",
@@ -12111,6 +12397,28 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "storecove": {
+    "id": "storecove",
+    "title": "Storecove",
+    "description": "Storecove API",
+    "security": {
+      "storecove": {
+        "integration": "storecove",
+        "fields": {
+          "Bearer": "API key"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/storecove.png"
+    },
+    "actionCount": 14,
+    "tags": [
+      "finance"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "swagger_generator": {
     "id": "swagger_generator",
     "title": "Swagger Generator",
@@ -12325,6 +12633,29 @@
     "actionCount": 18,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "tvmaze": {
+    "id": "tvmaze",
+    "title": "TVmaze user",
+    "description": "Access to the user API is only possible for users with a [premium](http://www.tvmaze.com/premium) account. A user can on...",
+    "security": {
+      "tvmaze": {
+        "integration": "tvmaze",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tvmaze.png"
+    },
+    "actionCount": 28,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
   },
   "twilio": {
     "id": "twilio",
@@ -12619,6 +12950,116 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "wmata_bus_realtime": {
+    "id": "wmata_bus_realtime",
+    "title": "Real-Time Rail Predictions",
+    "description": "Real-time rail prediction methods.",
+    "security": {
+      "wmata_bus_realtime": {
+        "integration": "wmata_bus_realtime",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_bus_realtime.jpg"
+    },
+    "actionCount": 2,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "wmata_bus_route": {
+    "id": "wmata_bus_route",
+    "title": "Bus Route and Stop Methods",
+    "description": "Bus stop information, route and schedule data, and bus positions.",
+    "security": {
+      "wmata_bus_route": {
+        "integration": "wmata_bus_route",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_bus_route.jpg"
+    },
+    "actionCount": 12,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "wmata_incidents": {
+    "id": "wmata_incidents",
+    "title": "Incidents",
+    "description": "Rail, bus, and elevator disruptions/outages.",
+    "security": {
+      "wmata_incidents": {
+        "integration": "wmata_incidents",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_incidents.jpg"
+    },
+    "actionCount": 6,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "wmata_rail_realtime": {
+    "id": "wmata_rail_realtime",
+    "title": "Real-Time Bus Predictions",
+    "description": "Real-time bus prediction methods.",
+    "security": {
+      "wmata_rail_realtime": {
+        "integration": "wmata_rail_realtime",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_realtime.jpg"
+    },
+    "actionCount": 2,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "wmata_rail_station": {
+    "id": "wmata_rail_station",
+    "title": "Rail Station Information",
+    "description": "Rail line and station information, including locations, fares, times, and parking.",
+    "security": {
+      "wmata_rail_station": {
+        "integration": "wmata_rail_station",
+        "fields": {
+          "apiKeyHeader": "API key",
+          "apiKeyQuery": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_station.jpg"
+    },
+    "actionCount": 16,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "wordnik": {
     "id": "wordnik",
     "title": "Wordnik",
@@ -12790,22 +13231,5 @@
     },
     "actionCount": 1,
     "latestVersion": "1.0.0"
-  },
-  "redmine": {
-    "id": "redmine",
-    "title": "Redmine API",
-    "description": "Redmine exposes some of its data through a REST API. This API provides ",
-    "security": {
-      "redmine": {
-        "integration": "redmine",
-        "fields": {
-          "api_key": "API key",
-          "host": "The host for your Redmine server, e.g. https://redmine.acme.com"
-        }
-      }
-    },
-    "actionCount": 12,
-    "tags": [],
-    "latestVersion": "2.0.0"
   }
 }

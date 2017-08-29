@@ -1,0 +1,132 @@
+{
+  "id": "o2_cz_mobility",
+  "title": "Mobility",
+  "description": "Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points within the Czech republic. Having A - 'from' and B - 'to' points, the API can return count of people traveling from A to B or people that are from A and traveling to B, etc. The mobility data is based on moving mobile stations in O2 mobile network.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_mobility.png"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "CountResult": {
+      "description": "Response with the result",
+      "properties": {
+        "count": {
+          "description": "Final count as the result of the request",
+          "example": "62984",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CountResult"
+    },
+    "ErrorResult": {
+      "description": "Response with error message",
+      "properties": {
+        "message": {
+          "description": "Error response message content",
+          "example": "Error message example.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ErrorResult"
+    },
+    "InfoResult": {
+      "description": "Response to the info request",
+      "properties": {
+        "appName": {
+          "description": "Application name",
+          "example": "Mobility API Frontend",
+          "type": "string"
+        },
+        "appVendor": {
+          "description": "Application vendor",
+          "example": "O2 Czech Republic a.s.",
+          "type": "string"
+        },
+        "appVersion": {
+          "description": "Application version",
+          "example": "1.0-M6-SNAPSHOT",
+          "type": "string"
+        },
+        "backendAppName": {
+          "description": "Backend application name",
+          "example": "Mobility API Backend",
+          "type": "string"
+        },
+        "backendAppVendor": {
+          "description": "Backend application vendor",
+          "example": "O2 Czech Republic a.s.",
+          "type": "string"
+        },
+        "backendAppVersion": {
+          "description": "Backend application version",
+          "example": "1.0-M6-SNAPSHOT",
+          "type": "string"
+        },
+        "backendDataFrom": {
+          "description": "For which day are data valid",
+          "example": "2017-07-31",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "InfoResult"
+    }
+  },
+  "actions": [
+    {
+      "id": "getInfo",
+      "title": "getInfo",
+      "description": "Information about versions of application and data.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/InfoResult"
+      }
+    },
+    {
+      "id": "transit",
+      "title": "transit",
+      "description": "Get count of objects that were moving between basic residential units or objects that were visiting these basic residential units. Specific object's occurence type in the base residential unit can be requested. If none occurence type is present in the request or both occurence types are zero, the result will be aggregation of all types of occurence for given base residential units. More about base residential units can be found at https://www.czso.cz/csu/rso/zsj_rso (czech).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "source basic residential unit"
+          },
+          "to": {
+            "type": "string",
+            "description": "destination basic residential unit"
+          },
+          "fromType": {
+            "type": "string",
+            "description": "occurence type in the source basic residential unit (1 - transit, 2 - visit, 0 - both)"
+          },
+          "toType": {
+            "type": "string",
+            "description": "occurence type in the destination basic residential unit (1 - transit, 2 - visit, 0 - both)"
+          },
+          "uniques": {
+            "type": "string",
+            "description": "all or only uniques (0 - all, 1 - uniques)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "uniques"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CountResult"
+      }
+    }
+  ],
+  "tags": [
+    "telecom"
+  ]
+}

@@ -29522,6 +29522,10 @@
             "type": "string",
             "description": "The MD5 hash of the lowercase version of the device ID."
           },
+          "device_id": {
+            "type": "string",
+            "description": "A unique identifier for the device."
+          },
           "dc": {
             "type": "string",
             "description": "`dc` corresponds to the data center for your account. For example, if the last part of your MailChimp API key is us6, set `dc` to `\"us6\"`"
@@ -29649,6 +29653,10 @@
           "device_hash": {
             "type": "string",
             "description": "The MD5 hash of the lowercase version of the device ID."
+          },
+          "device_id": {
+            "type": "string",
+            "description": "A unique identifier for the device."
           },
           "dc": {
             "type": "string",

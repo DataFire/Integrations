@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/amazonaws_cloudhsmv2",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for AWS CloudHSM V2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/cloudhsmv2/2017-04-28/swagger.json",
+    "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "id": "wmata_bus_route",
+  "title": "Bus Route and Stop Methods",
+  "description": "Bus stop information, route and schedule data, and bus positions.",
+  "security": {
+    "wmata_bus_route": {
+      "integration": "wmata_bus_route",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_bus_route.jpg"
+  },
+  "actionCount": 12,
+  "actions": [
+    {
+      "id": "BusPositions.get",
+      "title": "BusPositions.get",
+      "description": "#### Description\n\nReturns bus positions for the given route, with an optional search radius. If no parameters are specified, all bus positions are returned.\n\nNote that the RouteID parameter accepts only base route names and no variations, i.e.: use 10A instead of 10Av1 or 10Av2.\n\nBus positions are refreshed approximately every 20 to 30 7 to 10 seconds.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nBusPositions\n\nArray containing bus position information ([BusPositions](#BusPosition)).\n\n\n\n\n\n\n\nBusPosition Elements\n\n\n\n\n\n\n\nDateTime\n\nDate and time (Eastern Standard Time) of last position update. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:23:40).\n\n\n\n\n\nDeviation\n\nDeviation, in minutes, from schedule. Positive values indicate that the bus is running late while negative ones are for buses running ahead of schedule.\n\n\n\n\n\nDirectionNum\n\nDeprecated. Use the DirectionText for a customer-friendly description of direction.\n\n\n\n\n\nDirectionText\n\nGeneral direction of the trip, not the bus itself (e.g.: NORTH, SOUTH, EAST, WEST).\n\n\n\n\n\nLat\n\nLast reported Latitude of the bus.\n\n\n\n\n\nLon\n\nLast reported Longitude of the bus.\n\n\n\n\n\nRouteID\n\nBase route name as shown on the bus. Note that the base route name could also refer to any variant, so a RouteID of 10A could refer to 10A, 10Av1, 10Av2, etc.\n\n\n\n\n\nTripEndTime\n\nScheduled end date and time (Eastern Standard Time) of the bus's current trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nTripHeadsign\n\nDestination of the bus.\n\n\n\n\n\nTripID\n\nUnique trip ID. This can be correlated with the data returned from the schedule-related methods.\n\n\n\n\n\nTripStartTime\n\nScheduled start date and time (Eastern Standard Time) of the bus's current trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T12:40:00).\n\n\n\n\n\nVehicleID\n\nUnique identifier for the bus. This is usually visible on the bus itself.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "RouteID": {
+            "type": "string",
+            "description": "Bus route, e.g.: B30, 10A.",
+            "enum": [
+              "B30"
+            ]
+          },
+          "Lat": {
+            "type": "string",
+            "description": "Center point Latitude, required if Longitude and Radius are specified."
+          },
+          "Lon": {
+            "type": "string",
+            "description": "Center point Longitude, required if Latitude and Radius are specified."
+          },
+          "Radius": {
+            "type": "string",
+            "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "RouteDetails.get",
+      "title": "RouteDetails.get",
+      "description": "#### Description\n\nFor a given date, returns the set of ordered latitude/longitude points along route variant along with the list of stops served.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nDirection0/Direction1\n\nStructures describing [path/stop](#Direction)information.  \n\nMost routes will return content in both Direction0 and Direction1 elements, though a few will return NULL for Direction0 or for Direction1.  \n\n0 or 1 are binary properties. There is no specific mapping to direction, but a different value for the same route signifies that the route is in an opposite direction.\n\n\n\n\n\nName\n\nDescriptive name for the route.\n\n\n\n\n\nRouteID\n\nBus route variant (e.g.: 10A, 10Av1, etc.).\n\n\n\n\n\n\n\nDirection0/Direction1 Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDeprecated. Use the DirectionText element to denote the general direction of the route variant.\n\n\n\n\n\nDirectionText\n\nGeneral direction of the route variant (NORTH, SOUTH, EAST, WEST, LOOP, etc.).\n\n\n\n\n\nShape\n\nArray containing shape point information ([ShapePoint](#ShapePoint)).\n\n\n\n\n\nStops\n\nArray containing stop information ([Stop](#Stop)).\n\n\n\n\n\nTripHeadsign\n\nDescriptive text of where the bus is headed. This is similar, but not necessarily identical, to what is displayed on the bus.\n\n\n\n\n\n\n\nShapePoint Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nSeqNum\n\nOrder of the point in the sequence of ShapePoints.\n\n\n\n\n\n\n\nStop Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nRoutes\n\nString array of route variants which provide service at this stop. Note that these are not date-specific; any route variant which stops at this stop on any day will be listed.\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "RouteID": {
+            "type": "string",
+            "description": "Bus route variant, e.g.: B30, 10A, 10Av1.",
+            "enum": [
+              "B30"
+            ]
+          },
+          "Date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "RouteID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "RouteSchedule.get",
+      "title": "RouteSchedule.get",
+      "description": "#### Description\n\nReturns schedules for a given route variant for a given date.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nDirection0/Direction1\n\nArrays containing trip information ([Trip](#Trip)).  \n\nMost routes will return content in both Direction0 and Direction1 elements, though a few (especially ones which run in a loop, such as the U8) will return content only for Direction0 and NULL content for Direction1.  \n\n0 or 1 are binary properties. There is no specific mapping to direction, but a different value for the same route signifies that the route is in an opposite direction.\n\n\n\n\n\nName\n\nDescriptive name for the route.\n\n\n\n\n\n\n\nTrip Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDeprecated. Use the TripDirectionText element to denote the general direction of the trip.\n\n\n\n\n\nEndTime\n\nScheduled end date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nRouteID\n\nBus route variant. This can be used in several other bus methods which accept variants.\n\n\n\n\n\nStartTime\n\nScheduled start date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nStopTimes\n\nArray containing location and time information ([StopTime](#StopTime)).\n\n\n\n\n\nTripDirectionText\n\nGeneral direction of the trip (NORTH, SOUTH, EAST, WEST, LOOP, etc.).\n\n\n\n\n\nTripHeadsign\n\nDescriptive text of where the bus is headed. This is similar, but not necessarily identical, to what is displayed on the bus.\n\n\n\n\n\nTripID\n\nUnique trip ID. This can be correlated with the data returned from the schedule-related methods.\n\n\n\n\n\n\n\nStopTime Elements\n\n\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\nStopName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nStopSeq\n\nOrder of the stop in the sequence of StopTimes.\n\n\n\n\n\nTime\n\nScheduled departure date and time (Eastern Standard Time) from this stop. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "RouteID": {
+            "type": "string",
+            "description": "Bus route variant, e.g.: B30, 10A, 10Av1.",
+            "enum": [
+              "B30"
+            ]
+          },
+          "Date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified."
+          },
+          "IncludingVariations": {
+            "type": "boolean",
+            "description": "Whether or not to include variations.  For example, if B30 is specified, include all variations such as B30v1, B30v2, etc.",
+            "enum": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "RouteID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "Routes.get",
+      "title": "Routes.get",
+      "description": "#### Description\n\nReturns a list of all bus route variants (patterns). For example, the 10A and 10Av1 are the same route, but may stop at slightly different locations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nRoutes\n\nArray containing route variant information ([Route](#Route)).\n\n\n\n\n\n\n\nRoute Elements\n\n\n\n\n\n\n\nName\n\nDescriptive name of the route variant.\n\n\n\n\n\nRouteID\n\nUnique identifier for a given route variant. Can be used in various other bus-related methods.\n\n\n\n\n\nLineDescription\n\nDenotes the route variant’s grouping – lines are a combination of routes which lie in the same corridor and which have significant portions of their paths along the same roadways.\n\n\n\n\n\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "StopSchedule.get",
+      "title": "StopSchedule.get",
+      "description": "#### Description\n\nReturns a set of buses scheduled at a stop for a given date.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nScheduleArrivals\n\nArray containing scheduled arrival information ([ScheduleArrival](#ScheduleArrival)).\n\n\n\n\n\nStop\n\nStructure describing [stop](#Stop) information.\n\n\n\n\n\n\n\nScheduleArrival Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDenotes a binary direction (0 or 1) of the bus. There is no specific mapping to direction, but a different value for the same route signifies that the buses are traveling in opposite directions. Use the TripDirectionText element to show the actual destination of the bus.\n\n\n\n\n\nEndTime\n\nScheduled end date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nRouteID\n\nBus route variant identifier (pattern). This variant can be used in several other bus methods which accept variants. Note that customers will never see anything other than the base route name, so variants 10A, 10Av1, 10Av2, etc. will be displayed as 10A on the bus.\n\n\n\n\n\nScheduleTime\n\nDate and time (Eastern Standard Time) when the bus is scheduled to stop at this location. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nStartTime\n\nScheduled start date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nTripDirectionText\n\nGeneral direction of the trip (e.g.: NORTH, SOUTH, EAST, WEST).\n\n\n\n\n\nTripHeadsign\n\nDestination of the bus.\n\n\n\n\n\nTripID\n\nTrip identifier. This can be correlated with the data in our bus schedule information as well as bus positions.\n\n\n\n\n\n\n\nStop Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nRoutes\n\nString array of route variants which provide service at this stop. Note that these are not date-specific; any route variant which stops at this stop on any day will be listed.\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StopID": {
+            "type": "string",
+            "description": "7-digit regional stop ID.",
+            "enum": [
+              "3002578"
+            ]
+          },
+          "Date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StopID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "Stops.get",
+      "title": "Stops.get",
+      "description": "#### Description\n\nReturns a list of nearby bus stops based on latitude, longitude, and radius. Omit all parameters to retrieve a list of all stops.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStops\n\nArray containing stop information ([Stop](#Stop)).\n\n\n\n\n\n\n\nStop Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nRoutes\n\nString array of route variants which provide service at this stop. Note that these are not date-specific; any route variant which stops at this stop on any day will be listed.\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Lat": {
+            "type": "string",
+            "description": "Center point Latitude, required if Longitude and Radius are specified.",
+            "enum": [
+              "38.878586"
+            ]
+          },
+          "Lon": {
+            "type": "string",
+            "description": "Center point Longitude, required if Latitude and Radius are specified.",
+            "enum": [
+              "-76.989626"
+            ]
+          },
+          "Radius": {
+            "type": "string",
+            "description": "Radius (feet) to include in the search area, required if Latitude and Longitude are specified.",
+            "enum": [
+              "500"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "json.jBusPositions.get",
+      "title": "json.jBusPositions.get",
+      "description": "#### Description\n\nReturns bus positions for the given route, with an optional search radius. If no parameters are specified, all bus positions are returned.\n\nNote that the RouteID parameter accepts only base route names and no variations, i.e.: use 10A instead of 10Av1 or 10Av2.\n\nBus positions are refreshed approximately every 20 to 30 7 to 10 seconds.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nBusPositions\n\nArray containing bus position information ([BusPositions](#BusPosition)).\n\n\n\n\n\n\n\nBusPosition Elements\n\n\n\n\n\n\n\nDateTime\n\nDate and time (Eastern Standard Time) of last position update. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:23:40).\n\n\n\n\n\nDeviation\n\nDeviation, in minutes, from schedule. Positive values indicate that the bus is running late while negative ones are for buses running ahead of schedule.\n\n\n\n\n\nDirectionNum\n\nDeprecated. Use the DirectionText for a customer-friendly description of direction.\n\n\n\n\n\nDirectionText\n\nGeneral direction of the trip, not the bus itself (e.g.: NORTH, SOUTH, EAST, WEST).\n\n\n\n\n\nLat\n\nLast reported Latitude of the bus.\n\n\n\n\n\nLon\n\nLast reported Longitude of the bus.\n\n\n\n\n\nRouteID\n\nBase route name as shown on the bus. Note that the base route name could also refer to any variant, so a RouteID of 10A could refer to 10A, 10Av1, 10Av2, etc.\n\n\n\n\n\nTripEndTime\n\nScheduled end date and time (Eastern Standard Time) of the bus's current trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nTripHeadsign\n\nDestination of the bus.\n\n\n\n\n\nTripID\n\nUnique trip ID. This can be correlated with the data returned from the schedule-related methods.\n\n\n\n\n\nTripStartTime\n\nScheduled start date and time (Eastern Standard Time) of the bus's current trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T12:40:00).\n\n\n\n\n\nVehicleID\n\nUnique identifier for the bus. This is usually visible on the bus itself.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "RouteID": {
+            "type": "string",
+            "description": "Base bus route, e.g.: B30, 10A.",
+            "enum": [
+              "B30"
+            ]
+          },
+          "Lat": {
+            "type": "number",
+            "description": "Center point Latitude, required if Longitude and Radius are specified."
+          },
+          "Lon": {
+            "type": "number",
+            "description": "Center point Longitude, required if Latitude and Radius are specified."
+          },
+          "Radius": {
+            "type": "number",
+            "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "json.jRouteDetails.get",
+      "title": "json.jRouteDetails.get",
+      "description": "#### Description\n\nFor a given date, returns the set of ordered latitude/longitude points along a route variant along with the list of stops served.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nDirection0/Direction1\n\nStructures describing [path/stop](#Direction) information.  \n\nMost routes will return content in both Direction0 and Direction1 elements, though a few will return NULL for Direction0 or for Direction1.  \n\n0 or 1 are binary properties. There is no specific mapping to direction, but a different value for the same route signifies that the route is in an opposite direction.\n\n\n\n\n\nName\n\nDescriptive name for the route.\n\n\n\n\n\nRouteID\n\nBus route variant (e.g.: 10A, 10Av1, etc.).\n\n\n\n\n\n\n\nDirection0/Direction1 Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDeprecated. Use the DirectionText element to denote the general direction of the route variant.\n\n\n\n\n\nDirectionText\n\nGeneral direction of the route variant (NORTH, SOUTH, EAST, WEST, LOOP, etc.).\n\n\n\n\n\nShape\n\nArray containing shape point information ([ShapePoint](#ShapePoint)).\n\n\n\n\n\nStops\n\nArray containing stop information ([Stop](#Stop)).\n\n\n\n\n\nTripHeadsign\n\nDescriptive text of where the bus is headed. This is similar, but not necessarily identical, to what is displayed on the bus.\n\n\n\n\n\n\n\nShapePoint Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nSeqNum\n\nOrder of the point in the sequence of ShapePoints.\n\n\n\n\n\n\n\nStop Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nRoutes\n\nString array of route variants which provide service at this stop. Note that these are not date-specific; any route variant which stops at this stop on any day will be listed.\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "RouteID": {
+            "type": "string",
+            "description": "Bus route variant, e.g.: B30, 10A, 10Av1.",
+            "enum": [
+              "B30"
+            ]
+          },
+          "Date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format for which to retrieve route and stop information.  Defaults to today's date unless specified."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "RouteID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "json.jRouteSchedule.get",
+      "title": "json.jRouteSchedule.get",
+      "description": "#### Description\n\nReturns schedules for a given route variant for a given date.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nDirection0/Direction1\n\nArrays containing trip information ([Trip](#Trip)).  \n\nMost routes will return content in both Direction0 and Direction1 elements, though a few (especially ones which run in a loop, such as the U8) will return content only for Direction0 and NULL content for Direction1.  \n\n0 or 1 are binary properties. There is no specific mapping to direction, but a different value for the same route signifies that the route is in an opposite direction.\n\n\n\n\n\nName\n\nDescriptive name for the route.\n\n\n\n\n\n\n\nTrip Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDeprecated. Use the TripDirectionText element to denote the general direction of the trip.\n\n\n\n\n\nEndTime\n\nScheduled end date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nRouteID\n\nBus route variant. This can be used in several other bus methods which accept variants.\n\n\n\n\n\nStartTime\n\nScheduled start date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nStopTimes\n\nArray containing location and time information ([StopTime](#StopTime)).\n\n\n\n\n\nTripDirectionText\n\nGeneral direction of the trip (NORTH, SOUTH, EAST, WEST, LOOP, etc.).\n\n\n\n\n\nTripHeadsign\n\nDescriptive text of where the bus is headed. This is similar, but not necessarily identical, to what is displayed on the bus.\n\n\n\n\n\nTripID\n\nUnique trip ID. This can be correlated with the data returned from the schedule-related methods.\n\n\n\n\n\n\n\nStopTime Elements\n\n\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\nStopName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nStopSeq\n\nOrder of the stop in the sequence of StopTimes.\n\n\n\n\n\nTime\n\nScheduled departure date and time (Eastern Standard Time) from this stop. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "RouteID": {
+            "type": "string",
+            "description": "Bus route variant, e.g.: B30, 10A, 10Av1, etc.",
+            "enum": [
+              "B30"
+            ]
+          },
+          "Date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified."
+          },
+          "IncludingVariations": {
+            "type": "boolean",
+            "description": "Whether or not to include variations if a base route is specified in RouteID.  For example, if B30 is specified and IncludingVariations is set to true, data for all variations of B30 such as B30v1, B30v2, etc. will be returned.",
+            "enum": [
+              "false",
+              "true"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "RouteID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "json.jRoutes.get",
+      "title": "json.jRoutes.get",
+      "description": "#### Description\n\nReturns a list of all bus route variants (patterns). For example, the 10A and 10Av1 are the same route, but may stop at slightly different locations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nRoutes\n\nArray containing route variant information ([Route](#Route)).\n\n\n\n\n\n\n\nRoute Elements\n\n\n\n\n\n\n\nName\n\nDescriptive name of the route variant.\n\n\n\n\n\nRouteID\n\nUnique identifier for a given route variant. Can be used in various other bus-related methods.\n\n\n\n\n\nLineDescription\n\nDenotes the route variant’s grouping – lines are a combination of routes which lie in the same corridor and which have significant portions of their paths along the same roadways.\n\n\n\n\n\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "json.jStopSchedule.get",
+      "title": "json.jStopSchedule.get",
+      "description": "#### Description\n\nReturns a set of buses scheduled at a stop for a given date.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nScheduleArrivals\n\nArray containing scheduled arrival information ([ScheduleArrival](#ScheduleArrival)).\n\n\n\n\n\nStop\n\nStructure describing [stop](#Stop) information.\n\n\n\n\n\n\n\nScheduleArrival Elements\n\n\n\n\n\n\n\nDirectionNum\n\nDenotes a binary direction (0 or 1) of the bus. There is no specific mapping to direction, but a different value for the same route signifies that the buses are traveling in opposite directions. Use the TripDirectionText element to show the actual destination of the bus.\n\n\n\n\n\nEndTime\n\nScheduled end date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nRouteID\n\nBus route variant identifier (pattern). This variant can be used in several other bus methods which accept variants. Note that customers will never see anything other than the base route name, so variants 10A, 10Av1, 10Av2, etc. will be displayed as 10A on the bus.\n\n\n\n\n\nScheduleTime\n\nDate and time (Eastern Standard Time) when the bus is scheduled to stop at this location. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nStartTime\n\nScheduled start date and time (Eastern Standard Time) for this trip. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T13:17:00).\n\n\n\n\n\nTripDirectionText\n\nGeneral direction of the trip (e.g.: NORTH, SOUTH, EAST, WEST).\n\n\n\n\n\nTripHeadsign\n\nDestination of the bus.\n\n\n\n\n\nTripID\n\nTrip identifier. This can be correlated with the data in our bus schedule information as well as bus positions.\n\n\n\n\n\n\n\nStop Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nRoutes\n\nString array of route variants which provide service at this stop. Note that these are not date-specific; any route variant which stops at this stop on any day will be listed.\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StopID": {
+            "type": "string",
+            "description": "7-digit regional stop ID.",
+            "enum": [
+              "3002578"
+            ]
+          },
+          "Date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format for which to retrieve schedule.  Defaults to today's date unless specified."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StopID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    },
+    {
+      "id": "json.jStops.get",
+      "title": "json.jStops.get",
+      "description": "#### Description\n\nReturns a list of nearby bus stops based on latitude, longitude, and radius. Omit all parameters to retrieve a list of all stops.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStops\n\nArray containing stop information ([Stop](#Stop)).\n\n\n\n\n\n\n\nStop Elements\n\n\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStop name. May be slightly different from what is spoken or displayed in the bus.\n\n\n\n\n\nRoutes\n\nString array of route variants which provide service at this stop. Note that these are not date-specific; any route variant which stops at this stop on any day will be listed.\n\n\n\n\n\nStopID\n\n7-digit regional ID which can be used in various bus-related methods. If unavailable, the StopID will be 0 or NULL.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Lat": {
+            "type": "number",
+            "description": "Center point Latitude, required if Longitude and Radius are specified.",
+            "enum": [
+              "38.878586"
+            ]
+          },
+          "Lon": {
+            "type": "number",
+            "description": "Center point Longitude, required if Latitude and Radius are specified.",
+            "enum": [
+              "-76.989626"
+            ]
+          },
+          "Radius": {
+            "type": "number",
+            "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified.",
+            "enum": [
+              "500"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_bus_route": {
+          "integration": "wmata_bus_route"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "transport"
+  ]
+}
