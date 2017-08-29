@@ -65,7 +65,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -87,7 +87,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -110,7 +110,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_athena": {
     "id": "amazonaws_athena",
@@ -132,7 +132,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -154,7 +154,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -176,7 +176,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -199,7 +199,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -222,7 +222,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -244,7 +244,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -266,7 +266,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -288,7 +288,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudhsmv2": {
     "id": "amazonaws_cloudhsmv2",
@@ -297,9 +297,9 @@
     "security": {
       "amazonaws_cloudhsmv2": {
         "integration": "amazonaws_cloudhsmv2",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -311,7 +311,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -333,7 +333,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -356,7 +356,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -378,7 +378,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -400,7 +400,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -422,7 +422,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -444,7 +444,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -466,7 +466,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -489,7 +489,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -512,7 +512,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -535,7 +535,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -558,7 +558,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -580,7 +580,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -603,7 +603,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -626,7 +626,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -648,7 +648,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_dax": {
     "id": "amazonaws_dax",
@@ -671,7 +671,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -693,7 +693,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -715,7 +715,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -738,7 +738,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -760,7 +760,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -782,7 +782,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -804,7 +804,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -826,7 +826,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -848,7 +848,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -870,7 +870,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -892,7 +892,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -914,7 +914,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -937,7 +937,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -959,7 +959,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -982,7 +982,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -1004,7 +1004,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -1026,7 +1026,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -1049,7 +1049,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -1072,7 +1072,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -1095,7 +1095,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -1117,7 +1117,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -1139,7 +1139,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -1161,7 +1161,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_glue": {
     "id": "amazonaws_glue",
@@ -1170,9 +1170,9 @@
     "security": {
       "amazonaws_glue": {
         "integration": "amazonaws_glue",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1184,7 +1184,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
@@ -1206,7 +1206,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -1229,7 +1229,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -1251,7 +1251,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -1273,7 +1273,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -1295,7 +1295,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -1317,7 +1317,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -1339,7 +1339,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -1360,7 +1360,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -1382,7 +1382,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -1404,7 +1404,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -1426,7 +1426,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -1448,7 +1448,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -1471,7 +1471,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -1494,7 +1494,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_mgh": {
     "id": "amazonaws_mgh",
@@ -1503,9 +1503,9 @@
     "security": {
       "amazonaws_mgh": {
         "integration": "amazonaws_mgh",
-        "fields": {
-          "hmac": "Amazon Signature authorization v4"
-        }
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
       }
     },
     "logo": {
@@ -1517,7 +1517,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -1539,7 +1539,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -1562,7 +1562,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -1584,7 +1584,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -1607,7 +1607,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -1629,7 +1629,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -1652,7 +1652,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -1674,7 +1674,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -1695,7 +1695,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -1717,7 +1717,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -1739,7 +1739,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -1761,7 +1761,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -1783,7 +1783,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -1804,7 +1804,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -1827,7 +1827,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -1850,7 +1850,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -1871,7 +1871,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -1894,7 +1894,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -1916,7 +1916,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -1938,7 +1938,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -1960,7 +1960,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -1982,7 +1982,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -2004,7 +2004,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -2026,7 +2026,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -2049,7 +2049,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -2072,7 +2072,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -2094,7 +2094,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -2117,7 +2117,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -2139,7 +2139,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -2162,7 +2162,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -2184,7 +2184,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -2207,7 +2207,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -2229,7 +2229,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -2252,7 +2252,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -2274,7 +2274,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -2296,7 +2296,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -2319,7 +2319,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.1"
+    "latestVersion": "3.0.2"
   },
   "apacta": {
     "id": "apacta",

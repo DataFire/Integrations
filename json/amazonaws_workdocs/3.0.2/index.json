@@ -1,0 +1,1981 @@
+{
+  "id": "amazonaws_workdocs",
+  "title": "Amazon WorkDocs",
+  "description": "The WorkDocs API is designed for the following use cases:\n\n*   File Migration: File migration applications are supported for users who want to migrate their files from an on-premise or off-premise file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.\n\n*   Security: Support security applications are supported for users who have additional security needs, such as anti-virus or data loss prevention. The APIs, in conjunction with Amazon CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs, so the application can take the necessary actions and replace the target file. The application can also choose to email the user if the target file violates the policy.\n\n*   eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic and/or record the actions in an Amazon WorkDocs site, in conjunction with Amazon CloudTrails, to replicate data for eDiscovery, backup, or analytical applications.\n\nAll Amazon WorkDocs APIs are Amazon authenticated, certificate-signed APIs. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.",
+  "security": {
+    "amazonaws_workdocs": {
+      "integration": "amazonaws_workdocs",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.svg"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "AbortDocumentVersionUploadRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "AbortDocumentVersionUploadRequest"
+    },
+    "ActivateUserRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ActivateUserRequest"
+    },
+    "ActivateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user information."
+        }
+      },
+      "type": "object",
+      "title": "ActivateUserResponse"
+    },
+    "AddResourcePermissionsRequest": {
+      "properties": {
+        "Principals": {
+          "$ref": "#/definitions/SharePrincipalList",
+          "description": "The users, groups, or organization being granted permission."
+        }
+      },
+      "required": [
+        "Principals"
+      ],
+      "type": "object",
+      "title": "AddResourcePermissionsRequest"
+    },
+    "AddResourcePermissionsResponse": {
+      "properties": {
+        "ShareResults": {
+          "$ref": "#/definitions/ShareResultsList",
+          "description": "The share results."
+        }
+      },
+      "type": "object",
+      "title": "AddResourcePermissionsResponse"
+    },
+    "ConcurrentModificationException": {
+      "description": "The resource hierarchy is changing.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "ConcurrentModificationException"
+    },
+    "CreateFolderRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the new folder."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        }
+      },
+      "required": [
+        "ParentFolderId"
+      ],
+      "type": "object",
+      "title": "CreateFolderRequest"
+    },
+    "CreateFolderResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/FolderMetadata",
+          "description": "The metadata of the folder."
+        }
+      },
+      "type": "object",
+      "title": "CreateFolderResponse"
+    },
+    "CreateNotificationSubscriptionRequest": {
+      "properties": {
+        "Endpoint": {
+          "$ref": "#/definitions/SubscriptionEndPointType",
+          "description": "The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with \"https://\"."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/SubscriptionProtocolType",
+          "description": "The protocol to use. The supported value is https, which delivers JSON-encoded messasges using HTTPS POST."
+        },
+        "SubscriptionType": {
+          "$ref": "#/definitions/SubscriptionType",
+          "description": "The notification type."
+        }
+      },
+      "required": [
+        "Endpoint",
+        "Protocol",
+        "SubscriptionType"
+      ],
+      "type": "object",
+      "title": "CreateNotificationSubscriptionRequest"
+    },
+    "CreateNotificationSubscriptionResponse": {
+      "properties": {
+        "Subscription": {
+          "$ref": "#/definitions/Subscription",
+          "description": "The subscription."
+        }
+      },
+      "type": "object",
+      "title": "CreateNotificationSubscriptionResponse"
+    },
+    "CreateUserRequest": {
+      "properties": {
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the organization."
+        },
+        "Password": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "The password of the user."
+        },
+        "StorageRule": {
+          "$ref": "#/definitions/StorageRuleType",
+          "description": "The amount of storage for the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "TimeZoneId": {
+          "$ref": "#/definitions/TimeZoneIdType",
+          "description": "The time zone ID of the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The login name of the user."
+        }
+      },
+      "required": [
+        "Username",
+        "GivenName",
+        "Surname",
+        "Password"
+      ],
+      "type": "object",
+      "title": "CreateUserRequest"
+    },
+    "CreateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user information."
+        }
+      },
+      "type": "object",
+      "title": "CreateUserResponse"
+    },
+    "DeactivateUserRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeactivateUserRequest"
+    },
+    "DeactivatingLastSystemUserException": {
+      "description": "The last user in the organization is being deactivated.",
+      "properties": {},
+      "type": "object",
+      "title": "DeactivatingLastSystemUserException"
+    },
+    "DeleteDocumentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDocumentRequest"
+    },
+    "DeleteFolderContentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFolderContentsRequest"
+    },
+    "DeleteFolderRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFolderRequest"
+    },
+    "DeleteNotificationSubscriptionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteNotificationSubscriptionRequest"
+    },
+    "DeleteUserRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteUserRequest"
+    },
+    "DescribeDocumentVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeDocumentVersionsRequest"
+    },
+    "DescribeDocumentVersionsResponse": {
+      "properties": {
+        "DocumentVersions": {
+          "$ref": "#/definitions/DocumentVersionMetadataList",
+          "description": "The document versions."
+        },
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object",
+      "title": "DescribeDocumentVersionsResponse"
+    },
+    "DescribeFolderContentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeFolderContentsRequest"
+    },
+    "DescribeFolderContentsResponse": {
+      "properties": {
+        "Documents": {
+          "$ref": "#/definitions/DocumentMetadataList",
+          "description": "The documents in the specified folder."
+        },
+        "Folders": {
+          "$ref": "#/definitions/FolderMetadataList",
+          "description": "The sub-folders in the specified folder."
+        },
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object",
+      "title": "DescribeFolderContentsResponse"
+    },
+    "DescribeNotificationSubscriptionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeNotificationSubscriptionsRequest"
+    },
+    "DescribeNotificationSubscriptionsResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "Subscriptions": {
+          "$ref": "#/definitions/SubscriptionList",
+          "description": "The subscriptions."
+        }
+      },
+      "type": "object",
+      "title": "DescribeNotificationSubscriptionsResponse"
+    },
+    "DescribeResourcePermissionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeResourcePermissionsRequest"
+    },
+    "DescribeResourcePermissionsResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "Principals": {
+          "$ref": "#/definitions/PrincipalList",
+          "description": "The principals."
+        }
+      },
+      "type": "object",
+      "title": "DescribeResourcePermissionsResponse"
+    },
+    "DescribeUsersRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeUsersRequest"
+    },
+    "DescribeUsersResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "TotalNumberOfUsers": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The total number of users included in the results."
+        },
+        "Users": {
+          "$ref": "#/definitions/OrganizationUserList",
+          "description": "The users."
+        }
+      },
+      "type": "object",
+      "title": "DescribeUsersResponse"
+    },
+    "DocumentContentType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "DocumentContentType"
+    },
+    "DocumentMetadata": {
+      "description": "Describes the document.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the document was created."
+        },
+        "CreatorId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the creator."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the document."
+        },
+        "LatestVersionMetadata": {
+          "$ref": "#/definitions/DocumentVersionMetadata",
+          "description": "The latest version of the document."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the document was updated."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state."
+        }
+      },
+      "type": "object",
+      "title": "DocumentMetadata"
+    },
+    "DocumentMetadataList": {
+      "items": {
+        "$ref": "#/definitions/DocumentMetadata"
+      },
+      "type": "array",
+      "title": "DocumentMetadataList"
+    },
+    "DocumentSourceType": {
+      "enum": [
+        "ORIGINAL",
+        "WITH_COMMENTS"
+      ],
+      "type": "string",
+      "title": "DocumentSourceType"
+    },
+    "DocumentSourceUrlMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DocumentSourceType"
+          },
+          "value": {
+            "$ref": "#/definitions/UrlType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "DocumentSourceUrlMap"
+    },
+    "DocumentStatusType": {
+      "enum": [
+        "INITIALIZED",
+        "ACTIVE"
+      ],
+      "type": "string",
+      "title": "DocumentStatusType"
+    },
+    "DocumentThumbnailType": {
+      "enum": [
+        "SMALL",
+        "SMALL_HQ",
+        "LARGE"
+      ],
+      "type": "string",
+      "title": "DocumentThumbnailType"
+    },
+    "DocumentThumbnailUrlMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DocumentThumbnailType"
+          },
+          "value": {
+            "$ref": "#/definitions/UrlType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "DocumentThumbnailUrlMap"
+    },
+    "DocumentVersionIdType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+-.@]+",
+      "type": "string",
+      "title": "DocumentVersionIdType"
+    },
+    "DocumentVersionMetadata": {
+      "description": "Describes a version of a document.",
+      "properties": {
+        "ContentCreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was originally created."
+        },
+        "ContentModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was modified."
+        },
+        "ContentType": {
+          "$ref": "#/definitions/DocumentContentType",
+          "description": "The content type of the document."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the document was first uploaded."
+        },
+        "CreatorId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the creator."
+        },
+        "Id": {
+          "$ref": "#/definitions/DocumentVersionIdType",
+          "description": "The ID of the version."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the document was last uploaded."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the version."
+        },
+        "Signature": {
+          "$ref": "#/definitions/HashType",
+          "description": "The signature of the document."
+        },
+        "Size": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the document, in bytes."
+        },
+        "Source": {
+          "$ref": "#/definitions/DocumentSourceUrlMap",
+          "description": "The source of the document."
+        },
+        "Status": {
+          "$ref": "#/definitions/DocumentStatusType",
+          "description": "The status of the document."
+        },
+        "Thumbnail": {
+          "$ref": "#/definitions/DocumentThumbnailUrlMap",
+          "description": "The thumbnail of the document."
+        }
+      },
+      "type": "object",
+      "title": "DocumentVersionMetadata"
+    },
+    "DocumentVersionMetadataList": {
+      "items": {
+        "$ref": "#/definitions/DocumentVersionMetadata"
+      },
+      "type": "array",
+      "title": "DocumentVersionMetadataList"
+    },
+    "DocumentVersionStatus": {
+      "enum": [
+        "ACTIVE"
+      ],
+      "type": "string",
+      "title": "DocumentVersionStatus"
+    },
+    "EmailAddressType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+      "type": "string",
+      "title": "EmailAddressType"
+    },
+    "EntityAlreadyExistsException": {
+      "description": "The resource already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "EntityAlreadyExistsException"
+    },
+    "EntityIdList": {
+      "items": {
+        "$ref": "#/definitions/IdType"
+      },
+      "type": "array",
+      "title": "EntityIdList"
+    },
+    "EntityNotExistsException": {
+      "description": "The resource does not exist.",
+      "properties": {
+        "EntityIds": {
+          "$ref": "#/definitions/EntityIdList"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "EntityNotExistsException"
+    },
+    "ErrorMessageType": {
+      "type": "string",
+      "title": "ErrorMessageType"
+    },
+    "FailedDependencyException": {
+      "description": "The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected active directory.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "FailedDependencyException"
+    },
+    "FieldNamesType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w,]+",
+      "type": "string",
+      "title": "FieldNamesType"
+    },
+    "FolderContentType": {
+      "enum": [
+        "ALL",
+        "DOCUMENT",
+        "FOLDER"
+      ],
+      "type": "string",
+      "title": "FolderContentType"
+    },
+    "FolderMetadata": {
+      "description": "Describes a folder.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the folder was created."
+        },
+        "CreatorId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the creator."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the folder."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the folder was updated."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the folder."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state of the folder."
+        },
+        "Signature": {
+          "$ref": "#/definitions/HashType",
+          "description": "The unique identifier created from the subfolders and documents of the folder."
+        }
+      },
+      "type": "object",
+      "title": "FolderMetadata"
+    },
+    "FolderMetadataList": {
+      "items": {
+        "$ref": "#/definitions/FolderMetadata"
+      },
+      "type": "array",
+      "title": "FolderMetadataList"
+    },
+    "GetDocumentPathRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDocumentPathRequest"
+    },
+    "GetDocumentPathResponse": {
+      "properties": {
+        "Path": {
+          "$ref": "#/definitions/ResourcePath",
+          "description": "The path information."
+        }
+      },
+      "type": "object",
+      "title": "GetDocumentPathResponse"
+    },
+    "GetDocumentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDocumentRequest"
+    },
+    "GetDocumentResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/DocumentMetadata",
+          "description": "The document object."
+        }
+      },
+      "type": "object",
+      "title": "GetDocumentResponse"
+    },
+    "GetDocumentVersionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDocumentVersionRequest"
+    },
+    "GetDocumentVersionResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/DocumentVersionMetadata",
+          "description": "The version metadata."
+        }
+      },
+      "type": "object",
+      "title": "GetDocumentVersionResponse"
+    },
+    "GetFolderPathRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetFolderPathRequest"
+    },
+    "GetFolderPathResponse": {
+      "properties": {
+        "Path": {
+          "$ref": "#/definitions/ResourcePath",
+          "description": "The path information."
+        }
+      },
+      "type": "object",
+      "title": "GetFolderPathResponse"
+    },
+    "GetFolderRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetFolderRequest"
+    },
+    "GetFolderResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/FolderMetadata",
+          "description": "The metadata of the folder."
+        }
+      },
+      "type": "object",
+      "title": "GetFolderResponse"
+    },
+    "HashType": {
+      "maxLength": 128,
+      "minLength": 0,
+      "pattern": "[&\\w+-.@]+",
+      "type": "string",
+      "title": "HashType"
+    },
+    "HeaderNameType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w-]+",
+      "type": "string",
+      "title": "HeaderNameType"
+    },
+    "HeaderValueType": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "HeaderValueType"
+    },
+    "IdType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[&\\w+-.@]+",
+      "type": "string",
+      "title": "IdType"
+    },
+    "IllegalUserStateException": {
+      "description": "The user is undergoing transfer of ownership.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "IllegalUserStateException"
+    },
+    "InitiateDocumentVersionUploadRequest": {
+      "properties": {
+        "ContentCreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was originally created."
+        },
+        "ContentModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was modified."
+        },
+        "ContentType": {
+          "$ref": "#/definitions/DocumentContentType",
+          "description": "The content type of the document."
+        },
+        "DocumentSizeInBytes": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the document, in bytes."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the document."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the document."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        }
+      },
+      "required": [
+        "ParentFolderId"
+      ],
+      "type": "object",
+      "title": "InitiateDocumentVersionUploadRequest"
+    },
+    "InitiateDocumentVersionUploadResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/DocumentMetadata",
+          "description": "The document metadata."
+        },
+        "UploadMetadata": {
+          "$ref": "#/definitions/UploadMetadata",
+          "description": "The upload metadata."
+        }
+      },
+      "type": "object",
+      "title": "InitiateDocumentVersionUploadResponse"
+    },
+    "InvalidArgumentException": {
+      "description": "The pagination marker and/or limit fields are not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "InvalidArgumentException"
+    },
+    "InvalidOperationException": {
+      "description": "The operation is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "InvalidOperationException"
+    },
+    "LimitExceededException": {
+      "description": "You've exceeded the maximum of 100,000 folders under the parent folder.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "LimitType": {
+      "maximum": 999,
+      "minimum": 1,
+      "type": "integer",
+      "title": "LimitType"
+    },
+    "LocaleType": {
+      "enum": [
+        "en",
+        "fr",
+        "ko",
+        "de",
+        "es",
+        "ja",
+        "ru",
+        "zh_CN",
+        "zh_TW",
+        "pt_BR",
+        "default"
+      ],
+      "type": "string",
+      "title": "LocaleType"
+    },
+    "MessageType": {
+      "format": "password",
+      "maxLength": 2048,
+      "minLength": 0,
+      "type": "string",
+      "title": "MessageType"
+    },
+    "OrderType": {
+      "enum": [
+        "ASCENDING",
+        "DESCENDING"
+      ],
+      "type": "string",
+      "title": "OrderType"
+    },
+    "OrganizationUserList": {
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "type": "array",
+      "title": "OrganizationUserList"
+    },
+    "PageMarkerType": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "PageMarkerType"
+    },
+    "PasswordType": {
+      "format": "password",
+      "maxLength": 32,
+      "minLength": 4,
+      "pattern": "[\\u0020-\\u00FF]+",
+      "type": "string",
+      "title": "PasswordType"
+    },
+    "PermissionInfo": {
+      "description": "Describes the permissions.",
+      "properties": {
+        "Role": {
+          "$ref": "#/definitions/RoleType",
+          "description": "The role of the user."
+        },
+        "Type": {
+          "$ref": "#/definitions/RolePermissionType",
+          "description": "The type of permissions."
+        }
+      },
+      "type": "object",
+      "title": "PermissionInfo"
+    },
+    "PermissionInfoList": {
+      "items": {
+        "$ref": "#/definitions/PermissionInfo"
+      },
+      "type": "array",
+      "title": "PermissionInfoList"
+    },
+    "PositiveSizeType": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "PositiveSizeType"
+    },
+    "Principal": {
+      "description": "Describes a resource.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the resource."
+        },
+        "Roles": {
+          "$ref": "#/definitions/PermissionInfoList",
+          "description": "The permission information for the resource."
+        },
+        "Type": {
+          "$ref": "#/definitions/PrincipalType",
+          "description": "The type of resource."
+        }
+      },
+      "type": "object",
+      "title": "Principal"
+    },
+    "PrincipalList": {
+      "items": {
+        "$ref": "#/definitions/Principal"
+      },
+      "type": "array",
+      "title": "PrincipalList"
+    },
+    "PrincipalType": {
+      "enum": [
+        "USER",
+        "GROUP",
+        "INVITE",
+        "ANONYMOUS",
+        "ORGANIZATION"
+      ],
+      "type": "string",
+      "title": "PrincipalType"
+    },
+    "ProhibitedStateException": {
+      "description": "The specified document version is not in the INITIALIZED state.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "ProhibitedStateException"
+    },
+    "RemoveAllResourcePermissionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "RemoveAllResourcePermissionsRequest"
+    },
+    "RemoveResourcePermissionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "RemoveResourcePermissionRequest"
+    },
+    "ResourceIdType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+-.@]+",
+      "type": "string",
+      "title": "ResourceIdType"
+    },
+    "ResourceNameType": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[\\u0020-\\u202D\\u202F-\\uFFFF]+",
+      "type": "string",
+      "title": "ResourceNameType"
+    },
+    "ResourcePath": {
+      "description": "Describes the path information of a resource.",
+      "properties": {
+        "Components": {
+          "$ref": "#/definitions/ResourcePathComponentList",
+          "description": "The components of the resource path."
+        }
+      },
+      "type": "object",
+      "title": "ResourcePath"
+    },
+    "ResourcePathComponent": {
+      "description": "Describes the resource path.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the resource path."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the resource path."
+        }
+      },
+      "type": "object",
+      "title": "ResourcePathComponent"
+    },
+    "ResourcePathComponentList": {
+      "items": {
+        "$ref": "#/definitions/ResourcePathComponent"
+      },
+      "type": "array",
+      "title": "ResourcePathComponentList"
+    },
+    "ResourceSortType": {
+      "enum": [
+        "DATE",
+        "NAME"
+      ],
+      "type": "string",
+      "title": "ResourceSortType"
+    },
+    "ResourceStateType": {
+      "enum": [
+        "ACTIVE",
+        "RESTORING",
+        "RECYCLING",
+        "RECYCLED"
+      ],
+      "type": "string",
+      "title": "ResourceStateType"
+    },
+    "RolePermissionType": {
+      "enum": [
+        "DIRECT",
+        "INHERITED"
+      ],
+      "type": "string",
+      "title": "RolePermissionType"
+    },
+    "RoleType": {
+      "enum": [
+        "VIEWER",
+        "CONTRIBUTOR",
+        "OWNER",
+        "COOWNER"
+      ],
+      "type": "string",
+      "title": "RoleType"
+    },
+    "SearchQueryType": {
+      "format": "password",
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[\\u0020-\\uFFFF]+",
+      "type": "string",
+      "title": "SearchQueryType"
+    },
+    "ServiceUnavailableException": {
+      "description": "One or more of the dependencies is unavailable.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "SharePrincipal": {
+      "description": "Describes the recipient type and ID, if available.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the recipient."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleType",
+          "description": "The role of the recipient."
+        },
+        "Type": {
+          "$ref": "#/definitions/PrincipalType",
+          "description": "The type of the recipient."
+        }
+      },
+      "required": [
+        "Id",
+        "Type",
+        "Role"
+      ],
+      "type": "object",
+      "title": "SharePrincipal"
+    },
+    "SharePrincipalList": {
+      "items": {
+        "$ref": "#/definitions/SharePrincipal"
+      },
+      "type": "array",
+      "title": "SharePrincipalList"
+    },
+    "ShareResult": {
+      "description": "Describes the share results of a resource.",
+      "properties": {
+        "PrincipalId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the principal."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleType",
+          "description": "The role."
+        },
+        "ShareId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the resource that was shared."
+        },
+        "Status": {
+          "$ref": "#/definitions/ShareStatusType",
+          "description": "The status."
+        },
+        "StatusMessage": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The status message."
+        }
+      },
+      "type": "object",
+      "title": "ShareResult"
+    },
+    "ShareResultsList": {
+      "items": {
+        "$ref": "#/definitions/ShareResult"
+      },
+      "type": "array",
+      "title": "ShareResultsList"
+    },
+    "ShareStatusType": {
+      "enum": [
+        "SUCCESS",
+        "FAILURE"
+      ],
+      "type": "string",
+      "title": "ShareStatusType"
+    },
+    "SignedHeaderMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/HeaderNameType"
+          },
+          "value": {
+            "$ref": "#/definitions/HeaderValueType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "SignedHeaderMap"
+    },
+    "SizeType": {
+      "type": "integer",
+      "title": "SizeType"
+    },
+    "StorageLimitExceededException": {
+      "description": "The storage limit has been exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "StorageLimitExceededException"
+    },
+    "StorageLimitWillExceedException": {
+      "description": "The storage limit will be exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "StorageLimitWillExceedException"
+    },
+    "StorageRuleType": {
+      "description": "Describes the storage for a user.",
+      "properties": {
+        "StorageAllocatedInBytes": {
+          "$ref": "#/definitions/PositiveSizeType",
+          "description": "The amount of storage allocated, in bytes."
+        },
+        "StorageType": {
+          "$ref": "#/definitions/StorageType",
+          "description": "The type of storage."
+        }
+      },
+      "type": "object",
+      "title": "StorageRuleType"
+    },
+    "StorageType": {
+      "enum": [
+        "UNLIMITED",
+        "QUOTA"
+      ],
+      "type": "string",
+      "title": "StorageType"
+    },
+    "Subscription": {
+      "description": "Describes a subscription.",
+      "properties": {
+        "EndPoint": {
+          "$ref": "#/definitions/SubscriptionEndPointType",
+          "description": "The endpoint of the subscription."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/SubscriptionProtocolType",
+          "description": "The protocol of the subscription."
+        },
+        "SubscriptionId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the subscription."
+        }
+      },
+      "type": "object",
+      "title": "Subscription"
+    },
+    "SubscriptionEndPointType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "SubscriptionEndPointType"
+    },
+    "SubscriptionList": {
+      "items": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "maxItems": 256,
+      "type": "array",
+      "title": "SubscriptionList"
+    },
+    "SubscriptionProtocolType": {
+      "enum": [
+        "HTTPS"
+      ],
+      "type": "string",
+      "title": "SubscriptionProtocolType"
+    },
+    "SubscriptionType": {
+      "enum": [
+        "ALL"
+      ],
+      "type": "string",
+      "title": "SubscriptionType"
+    },
+    "TimeZoneIdType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "TimeZoneIdType"
+    },
+    "TimestampType": {
+      "format": "date-time",
+      "type": "string",
+      "title": "TimestampType"
+    },
+    "TooManySubscriptionsException": {
+      "description": "You've reached the limit on the number of subscriptions for the WorkDocs instance.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "TooManySubscriptionsException"
+    },
+    "UnauthorizedOperationException": {
+      "description": "The operation is not permitted.",
+      "properties": {},
+      "type": "object",
+      "title": "UnauthorizedOperationException"
+    },
+    "UnauthorizedResourceAccessException": {
+      "description": "The caller does not have access to perform the action on the resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedResourceAccessException"
+    },
+    "UpdateDocumentRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the document."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state of the document. Note that only ACTIVE and RECYCLED are supported."
+        }
+      },
+      "type": "object",
+      "title": "UpdateDocumentRequest"
+    },
+    "UpdateDocumentVersionRequest": {
+      "properties": {
+        "VersionStatus": {
+          "$ref": "#/definitions/DocumentVersionStatus",
+          "description": "The status of the version."
+        }
+      },
+      "type": "object",
+      "title": "UpdateDocumentVersionRequest"
+    },
+    "UpdateFolderRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the folder."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted values from the API."
+        }
+      },
+      "type": "object",
+      "title": "UpdateFolderRequest"
+    },
+    "UpdateUserRequest": {
+      "properties": {
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user."
+        },
+        "Locale": {
+          "$ref": "#/definitions/LocaleType",
+          "description": "The locale of the user."
+        },
+        "StorageRule": {
+          "$ref": "#/definitions/StorageRuleType",
+          "description": "The amount of storage for the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "TimeZoneId": {
+          "$ref": "#/definitions/TimeZoneIdType",
+          "description": "The time zone ID of the user."
+        },
+        "Type": {
+          "$ref": "#/definitions/UserType",
+          "description": "The type of the user."
+        }
+      },
+      "type": "object",
+      "title": "UpdateUserRequest"
+    },
+    "UpdateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user information."
+        }
+      },
+      "type": "object",
+      "title": "UpdateUserResponse"
+    },
+    "UploadMetadata": {
+      "description": "Describes the upload.",
+      "properties": {
+        "SignedHeaders": {
+          "$ref": "#/definitions/SignedHeaderMap",
+          "description": "The signed headers."
+        },
+        "UploadUrl": {
+          "$ref": "#/definitions/UrlType",
+          "description": "The URL of the upload."
+        }
+      },
+      "type": "object",
+      "title": "UploadMetadata"
+    },
+    "UrlType": {
+      "format": "password",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "UrlType"
+    },
+    "User": {
+      "description": "Describes a user.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the user was created."
+        },
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The email address of the user."
+        },
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user."
+        },
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user."
+        },
+        "Locale": {
+          "$ref": "#/definitions/LocaleType",
+          "description": "The locale of the user."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the user was modified."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the organization."
+        },
+        "RecycleBinFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the recycle bin folder."
+        },
+        "RootFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the root folder."
+        },
+        "Status": {
+          "$ref": "#/definitions/UserStatusType",
+          "description": "The status of the user."
+        },
+        "Storage": {
+          "$ref": "#/definitions/UserStorageMetadata",
+          "description": "The storage for the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "TimeZoneId": {
+          "$ref": "#/definitions/TimeZoneIdType",
+          "description": "The time zone ID of the user."
+        },
+        "Type": {
+          "$ref": "#/definitions/UserType",
+          "description": "The type of user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The login name of the user."
+        }
+      },
+      "type": "object",
+      "title": "User"
+    },
+    "UserAttributeValueType": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string",
+      "title": "UserAttributeValueType"
+    },
+    "UserFilterType": {
+      "enum": [
+        "ALL",
+        "ACTIVE_PENDING"
+      ],
+      "type": "string",
+      "title": "UserFilterType"
+    },
+    "UserIdsType": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "pattern": "[&\\w+-.@, ]+",
+      "type": "string",
+      "title": "UserIdsType"
+    },
+    "UserSortType": {
+      "enum": [
+        "USER_NAME",
+        "FULL_NAME",
+        "STORAGE_LIMIT",
+        "USER_STATUS",
+        "STORAGE_USED"
+      ],
+      "type": "string",
+      "title": "UserSortType"
+    },
+    "UserStatusType": {
+      "enum": [
+        "ACTIVE",
+        "INACTIVE",
+        "PENDING"
+      ],
+      "type": "string",
+      "title": "UserStatusType"
+    },
+    "UserStorageMetadata": {
+      "description": "Describes the storage for a user.",
+      "properties": {
+        "StorageRule": {
+          "$ref": "#/definitions/StorageRuleType",
+          "description": "The storage for a user."
+        },
+        "StorageUtilizedInBytes": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The amount of storage utilized, in bytes."
+        }
+      },
+      "type": "object",
+      "title": "UserStorageMetadata"
+    },
+    "UserType": {
+      "enum": [
+        "USER",
+        "ADMIN"
+      ],
+      "type": "string",
+      "title": "UserType"
+    },
+    "UsernameType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
+      "type": "string",
+      "title": "UsernameType"
+    }
+  },
+  "actions": [
+    {
+      "id": "InitiateDocumentVersionUpload",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/InitiateDocumentVersionUploadRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateDocument",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DocumentId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDocumentRequest"
+          }
+        ],
+        "required": [
+          "DocumentId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "GetDocumentPath",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DocumentId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDocumentPathRequest"
+          }
+        ],
+        "required": [
+          "DocumentId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDocumentPathResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeDocumentVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          },
+          "DocumentId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeDocumentVersionsRequest"
+          }
+        ],
+        "required": [
+          "DocumentId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDocumentVersionsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateDocumentVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DocumentId": {
+            "type": "string"
+          },
+          "VersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDocumentVersionRequest"
+          }
+        ],
+        "required": [
+          "DocumentId",
+          "VersionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "CreateFolder",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateFolderRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateFolder",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FolderId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateFolderRequest"
+          }
+        ],
+        "required": [
+          "FolderId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeFolderContents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          },
+          "FolderId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeFolderContentsRequest"
+          }
+        ],
+        "required": [
+          "FolderId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeFolderContentsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "GetFolderPath",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FolderId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetFolderPathRequest"
+          }
+        ],
+        "required": [
+          "FolderId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetFolderPathResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeNotificationSubscriptions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "OrganizationId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeNotificationSubscriptionsRequest"
+          }
+        ],
+        "required": [
+          "OrganizationId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeNotificationSubscriptionsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeleteNotificationSubscription",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "OrganizationId": {
+            "type": "string"
+          },
+          "SubscriptionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteNotificationSubscriptionRequest"
+          }
+        ],
+        "required": [
+          "OrganizationId",
+          "SubscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "RemoveAllResourcePermissions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ResourceId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveAllResourcePermissionsRequest"
+          }
+        ],
+        "required": [
+          "ResourceId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "RemoveResourcePermission",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ResourceId": {
+            "type": "string"
+          },
+          "PrincipalId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveResourcePermissionRequest"
+          }
+        ],
+        "required": [
+          "ResourceId",
+          "PrincipalId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeUsers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUsersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUsersResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateUserRequest"
+          }
+        ],
+        "required": [
+          "UserId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateUserResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeactivateUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeactivateUserRequest"
+          }
+        ],
+        "required": [
+          "UserId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

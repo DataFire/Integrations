@@ -1,0 +1,4148 @@
+{
+  "id": "amazonaws_clouddirectory",
+  "title": "Amazon CloudDirectory",
+  "description": "Amazon Cloud Directory\n\nAmazon Cloud Directory is a component of the AWS Directory Service that simplifies the development and management of cloud-scale web, mobile, and IoT applications. This guide describes the Cloud Directory operations that you can call programmatically and includes detailed information on data types and errors. For information about AWS Directory Services features, see [AWS Directory Service](https://aws.amazon.com/directoryservice/) and the [AWS Directory Service Administration Guide](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html).",
+  "security": {
+    "amazonaws_clouddirectory": {
+      "integration": "amazonaws_clouddirectory",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpg"
+  },
+  "actionCount": 47,
+  "definitions": {
+    "AccessDeniedException": {
+      "description": "Access denied. Check your permissions.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "AccessDeniedException"
+    },
+    "AddFacetToObjectRequest": {
+      "properties": {
+        "ObjectAttributeList": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "Attributes on the facet you are adding to the object."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object you are adding the specified facet to."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Identifiers for the facet that you are adding to the object."
+        }
+      },
+      "required": [
+        "SchemaFacet",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "AddFacetToObjectRequest"
+    },
+    "AddFacetToObjectResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AddFacetToObjectResponse"
+    },
+    "ApplySchemaRequest": {
+      "properties": {
+        "PublishedSchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "Published schema ARN that needs to be copied. For more information, see <a>arns</a>."
+        }
+      },
+      "required": [
+        "PublishedSchemaArn"
+      ],
+      "type": "object",
+      "title": "ApplySchemaRequest"
+    },
+    "ApplySchemaResponse": {
+      "properties": {
+        "AppliedSchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "Applied schema ARN associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on this directory. For more information, see <a>arns</a>."
+        },
+        "DirectoryArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN associated with the <a>Directory</a>. For more information, see <a>arns</a>."
+        }
+      },
+      "type": "object",
+      "title": "ApplySchemaResponse"
+    },
+    "Arn": {
+      "type": "string",
+      "title": "Arn"
+    },
+    "Arns": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "type": "array",
+      "title": "Arns"
+    },
+    "AttachObjectRequest": {
+      "properties": {
+        "ChildReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Child object reference to be attached to the object."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "Link name with which the child object is attached to the parent."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Parent object reference."
+        }
+      },
+      "required": [
+        "ParentReference",
+        "ChildReference",
+        "LinkName"
+      ],
+      "type": "object",
+      "title": "AttachObjectRequest"
+    },
+    "AttachObjectResponse": {
+      "properties": {
+        "AttachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "Attached <code>ObjectIdentifier</code>, which is the child <code>ObjectIdentifier</code>."
+        }
+      },
+      "type": "object",
+      "title": "AttachObjectResponse"
+    },
+    "AttachPolicyRequest": {
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object to which the policy will be attached."
+        },
+        "PolicyReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference associated with the policy object."
+        }
+      },
+      "required": [
+        "PolicyReference",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "AttachPolicyRequest"
+    },
+    "AttachPolicyResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AttachPolicyResponse"
+    },
+    "AttachToIndexRequest": {
+      "properties": {
+        "IndexReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the index that you are attaching the object to."
+        },
+        "TargetReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object that you are attaching to the index."
+        }
+      },
+      "required": [
+        "IndexReference",
+        "TargetReference"
+      ],
+      "type": "object",
+      "title": "AttachToIndexRequest"
+    },
+    "AttachToIndexResponse": {
+      "properties": {
+        "AttachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the object that was attached to the index."
+        }
+      },
+      "type": "object",
+      "title": "AttachToIndexResponse"
+    },
+    "AttributeKey": {
+      "description": "A unique identifier for an attribute.",
+      "properties": {
+        "FacetName": {
+          "$ref": "#/definitions/FacetName",
+          "description": "The name of the facet the attribute exists within."
+        },
+        "Name": {
+          "$ref": "#/definitions/AttributeName",
+          "description": "The name of the attribute."
+        },
+        "SchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the schema that contains the facet and attribute."
+        }
+      },
+      "required": [
+        "SchemaArn",
+        "FacetName",
+        "Name"
+      ],
+      "type": "object",
+      "title": "AttributeKey"
+    },
+    "AttributeKeyAndValue": {
+      "description": "The combination of an attribute key and an attribute value.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/AttributeKey",
+          "description": "The key of the attribute."
+        },
+        "Value": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The value of the attribute."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "AttributeKeyAndValue"
+    },
+    "AttributeKeyAndValueList": {
+      "items": {
+        "$ref": "#/definitions/AttributeKeyAndValue"
+      },
+      "type": "array",
+      "title": "AttributeKeyAndValueList"
+    },
+    "AttributeKeyList": {
+      "items": {
+        "$ref": "#/definitions/AttributeKey"
+      },
+      "type": "array",
+      "title": "AttributeKeyList"
+    },
+    "AttributeName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "AttributeName"
+    },
+    "BatchAddFacetToObject": {
+      "description": "Represents the output of a batch add facet to object operation.",
+      "properties": {
+        "ObjectAttributeList": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "The attributes to set on the object."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object being mutated."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Represents the facet being added to the object."
+        }
+      },
+      "required": [
+        "SchemaFacet",
+        "ObjectAttributeList",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchAddFacetToObject"
+    },
+    "BatchAddFacetToObjectResponse": {
+      "description": "The result of a batch add facet to object operation.",
+      "properties": {},
+      "type": "object",
+      "title": "BatchAddFacetToObjectResponse"
+    },
+    "BatchAttachObject": {
+      "description": "Represents the output of an AttachObject operation.",
+      "properties": {
+        "ChildReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Child object reference to be attached to the object."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "The name of the link."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Parent object reference."
+        }
+      },
+      "required": [
+        "ParentReference",
+        "ChildReference",
+        "LinkName"
+      ],
+      "type": "object",
+      "title": "BatchAttachObject"
+    },
+    "BatchAttachObjectResponse": {
+      "description": "Represents the output batch AttachObject response operation.",
+      "properties": {
+        "attachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the object that has been attached."
+        }
+      },
+      "type": "object",
+      "title": "BatchAttachObjectResponse"
+    },
+    "BatchCreateObject": {
+      "description": "Represents the output of a CreateObject operation.",
+      "properties": {
+        "BatchReferenceName": {
+          "$ref": "#/definitions/BatchReferenceName",
+          "description": "The batch reference name. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches\">Batches</a> for more information."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "The name of the link."
+        },
+        "ObjectAttributeList": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "Attribute map, which contains an attribute ARN as the key and attribute value as the map value."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "If specified, the parent reference to which this object will be attached."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacetList",
+          "description": "List of FacetArns that will be associated with the object. For more information, see <a>arns</a>."
+        }
+      },
+      "required": [
+        "SchemaFacet",
+        "ObjectAttributeList",
+        "ParentReference",
+        "LinkName",
+        "BatchReferenceName"
+      ],
+      "type": "object",
+      "title": "BatchCreateObject"
+    },
+    "BatchCreateObjectResponse": {
+      "description": "Represents the output of a <code>CreateObject</code> response operation.",
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "ID associated with the object."
+        }
+      },
+      "type": "object",
+      "title": "BatchCreateObjectResponse"
+    },
+    "BatchDeleteObject": {
+      "description": "Represents the output of a <code>DeleteObject</code> operation.",
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchDeleteObject"
+    },
+    "BatchDeleteObjectResponse": {
+      "description": "Represents the output of a <code>DeleteObject</code> response operation.",
+      "properties": {},
+      "type": "object",
+      "title": "BatchDeleteObjectResponse"
+    },
+    "BatchDetachObject": {
+      "description": "Represents the output of a <code>DetachObject</code> operation.",
+      "properties": {
+        "BatchReferenceName": {
+          "$ref": "#/definitions/BatchReferenceName",
+          "description": "The batch reference name. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches\">Batches</a> for more information."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "The name of the link."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Parent reference from which the object with the specified link name is detached."
+        }
+      },
+      "required": [
+        "ParentReference",
+        "LinkName",
+        "BatchReferenceName"
+      ],
+      "type": "object",
+      "title": "BatchDetachObject"
+    },
+    "BatchDetachObjectResponse": {
+      "description": "Represents the output of a <code>DetachObject</code> response operation.",
+      "properties": {
+        "detachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the detached object."
+        }
+      },
+      "type": "object",
+      "title": "BatchDetachObjectResponse"
+    },
+    "BatchListObjectAttributes": {
+      "description": "Represents the output of a <code>ListObjectAttributes</code> operation.",
+      "properties": {
+        "FacetFilter": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Used to filter the list of object attributes associated with a certain facet."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference of the object whose attributes need to be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchListObjectAttributes"
+    },
+    "BatchListObjectAttributesResponse": {
+      "description": "Represents the output of a <code>ListObjectAttributes</code> response operation.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "Attributes map associated with the object. <code>AttributeArn</code> is the key; attribute value is the value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "BatchListObjectAttributesResponse"
+    },
+    "BatchListObjectChildren": {
+      "description": "Represents the output of a <code>ListObjectChildren</code> operation.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference of the object for which child objects are being listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchListObjectChildren"
+    },
+    "BatchListObjectChildrenResponse": {
+      "description": "Represents the output of a <code>ListObjectChildren</code> response operation.",
+      "properties": {
+        "Children": {
+          "$ref": "#/definitions/LinkNameToObjectIdentifierMap",
+          "description": "Children structure, which is a map with key as the <code>LinkName</code> and <code>ObjectIdentifier</code> as the value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "BatchListObjectChildrenResponse"
+    },
+    "BatchOperationIndex": {
+      "type": "integer",
+      "title": "BatchOperationIndex"
+    },
+    "BatchReadException": {
+      "description": "Batch Read Exception structure, which contains exception type and message.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "Exception message associated with the failure."
+        },
+        "Type": {
+          "$ref": "#/definitions/BatchReadExceptionType",
+          "description": "Type of exception, such as <code>InvalidArnException</code>."
+        }
+      },
+      "type": "object",
+      "title": "BatchReadException"
+    },
+    "BatchReadExceptionType": {
+      "enum": [
+        "ValidationException",
+        "InvalidArnException",
+        "ResourceNotFoundException",
+        "InvalidNextTokenException",
+        "AccessDeniedException",
+        "NotNodeException"
+      ],
+      "type": "string",
+      "title": "BatchReadExceptionType"
+    },
+    "BatchReadOperation": {
+      "description": "Represents the output of a <code>BatchRead</code> operation.",
+      "properties": {
+        "ListObjectAttributes": {
+          "$ref": "#/definitions/BatchListObjectAttributes",
+          "description": "Lists all attributes associated with an object."
+        },
+        "ListObjectChildren": {
+          "$ref": "#/definitions/BatchListObjectChildren",
+          "description": "Returns a paginated list of child objects that are associated with a given object."
+        }
+      },
+      "type": "object",
+      "title": "BatchReadOperation"
+    },
+    "BatchReadOperationList": {
+      "items": {
+        "$ref": "#/definitions/BatchReadOperation"
+      },
+      "type": "array",
+      "title": "BatchReadOperationList"
+    },
+    "BatchReadOperationResponse": {
+      "description": "Represents the output of a <code>BatchRead</code> response operation.",
+      "properties": {
+        "ExceptionResponse": {
+          "$ref": "#/definitions/BatchReadException",
+          "description": "Identifies which operation in a batch has failed."
+        },
+        "SuccessfulResponse": {
+          "$ref": "#/definitions/BatchReadSuccessfulResponse",
+          "description": "Identifies which operation in a batch has succeeded."
+        }
+      },
+      "type": "object",
+      "title": "BatchReadOperationResponse"
+    },
+    "BatchReadOperationResponseList": {
+      "items": {
+        "$ref": "#/definitions/BatchReadOperationResponse"
+      },
+      "type": "array",
+      "title": "BatchReadOperationResponseList"
+    },
+    "BatchReadRequest": {
+      "properties": {
+        "Operations": {
+          "$ref": "#/definitions/BatchReadOperationList",
+          "description": "List of operations that are part of the batch."
+        }
+      },
+      "required": [
+        "Operations"
+      ],
+      "type": "object",
+      "title": "BatchReadRequest"
+    },
+    "BatchReadResponse": {
+      "properties": {
+        "Responses": {
+          "$ref": "#/definitions/BatchReadOperationResponseList",
+          "description": "List of all the responses for each batch read."
+        }
+      },
+      "type": "object",
+      "title": "BatchReadResponse"
+    },
+    "BatchReadSuccessfulResponse": {
+      "description": "Represents the output of a <code>BatchRead</code> success response operation.",
+      "properties": {
+        "ListObjectAttributes": {
+          "$ref": "#/definitions/BatchListObjectAttributesResponse",
+          "description": "Lists all attributes associated with an object."
+        },
+        "ListObjectChildren": {
+          "$ref": "#/definitions/BatchListObjectChildrenResponse",
+          "description": "Returns a paginated list of child objects associated with a given object."
+        }
+      },
+      "type": "object",
+      "title": "BatchReadSuccessfulResponse"
+    },
+    "BatchReferenceName": {
+      "type": "string",
+      "title": "BatchReferenceName"
+    },
+    "BatchRemoveFacetFromObject": {
+      "description": "Batch operation to remove a facet from an object.",
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object whose facet will be removed."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "The facet to remove from the object."
+        }
+      },
+      "required": [
+        "SchemaFacet",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchRemoveFacetFromObject"
+    },
+    "BatchRemoveFacetFromObjectResponse": {
+      "description": "Empty result representing success.",
+      "properties": {},
+      "type": "object",
+      "title": "BatchRemoveFacetFromObjectResponse"
+    },
+    "BatchUpdateObjectAttributes": {
+      "description": "Represents the output of a <code>BatchUpdate</code> operation. ",
+      "properties": {
+        "AttributeUpdates": {
+          "$ref": "#/definitions/ObjectAttributeUpdateList",
+          "description": "Attributes update structure."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object."
+        }
+      },
+      "required": [
+        "ObjectReference",
+        "AttributeUpdates"
+      ],
+      "type": "object",
+      "title": "BatchUpdateObjectAttributes"
+    },
+    "BatchUpdateObjectAttributesResponse": {
+      "description": "Represents the output of a <code>BatchUpdate</code> response operation.",
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "ID associated with the object."
+        }
+      },
+      "type": "object",
+      "title": "BatchUpdateObjectAttributesResponse"
+    },
+    "BatchWriteException": {
+      "description": "A <code>BatchWrite</code> exception has occurred.",
+      "properties": {
+        "Index": {
+          "$ref": "#/definitions/BatchOperationIndex"
+        },
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        },
+        "Type": {
+          "$ref": "#/definitions/BatchWriteExceptionType"
+        }
+      },
+      "type": "object",
+      "title": "BatchWriteException"
+    },
+    "BatchWriteExceptionType": {
+      "enum": [
+        "InternalServiceException",
+        "ValidationException",
+        "InvalidArnException",
+        "LinkNameAlreadyInUseException",
+        "StillContainsLinksException",
+        "FacetValidationException",
+        "ObjectNotDetachedException",
+        "ResourceNotFoundException",
+        "AccessDeniedException"
+      ],
+      "type": "string",
+      "title": "BatchWriteExceptionType"
+    },
+    "BatchWriteOperation": {
+      "description": "Represents the output of a <code>BatchWrite</code> operation. ",
+      "properties": {
+        "AddFacetToObject": {
+          "$ref": "#/definitions/BatchAddFacetToObject",
+          "description": "Batch operation adding a facet to an object."
+        },
+        "AttachObject": {
+          "$ref": "#/definitions/BatchAttachObject",
+          "description": "Attaches an object to a <a>Directory</a>."
+        },
+        "CreateObject": {
+          "$ref": "#/definitions/BatchCreateObject",
+          "description": "Creates an object."
+        },
+        "DeleteObject": {
+          "$ref": "#/definitions/BatchDeleteObject",
+          "description": "Deletes an object in a <a>Directory</a>."
+        },
+        "DetachObject": {
+          "$ref": "#/definitions/BatchDetachObject",
+          "description": "Detaches an object from a <a>Directory</a>."
+        },
+        "RemoveFacetFromObject": {
+          "$ref": "#/definitions/BatchRemoveFacetFromObject",
+          "description": "Batch operation removing a facet from an object."
+        },
+        "UpdateObjectAttributes": {
+          "$ref": "#/definitions/BatchUpdateObjectAttributes",
+          "description": "Update a given object's attributes."
+        }
+      },
+      "type": "object",
+      "title": "BatchWriteOperation"
+    },
+    "BatchWriteOperationList": {
+      "items": {
+        "$ref": "#/definitions/BatchWriteOperation"
+      },
+      "type": "array",
+      "title": "BatchWriteOperationList"
+    },
+    "BatchWriteOperationResponse": {
+      "description": "Represents the output of a <code>BatchWrite</code> response operation.",
+      "properties": {
+        "AddFacetToObject": {
+          "$ref": "#/definitions/BatchAddFacetToObjectResponse",
+          "description": "Result of an add facet to object batch operation."
+        },
+        "AttachObject": {
+          "$ref": "#/definitions/BatchAttachObjectResponse",
+          "description": "Attaches an object to a <a>Directory</a>."
+        },
+        "CreateObject": {
+          "$ref": "#/definitions/BatchCreateObjectResponse",
+          "description": "Creates an object in a <a>Directory</a>."
+        },
+        "DeleteObject": {
+          "$ref": "#/definitions/BatchDeleteObjectResponse",
+          "description": "Deletes an object in a <a>Directory</a>."
+        },
+        "DetachObject": {
+          "$ref": "#/definitions/BatchDetachObjectResponse",
+          "description": "Detaches an object from a <a>Directory</a>."
+        },
+        "RemoveFacetFromObject": {
+          "$ref": "#/definitions/BatchRemoveFacetFromObjectResponse",
+          "description": "Result of a batch remove facet from object operation."
+        },
+        "UpdateObjectAttributes": {
+          "$ref": "#/definitions/BatchUpdateObjectAttributesResponse",
+          "description": "Updates a given object’s attributes."
+        }
+      },
+      "type": "object",
+      "title": "BatchWriteOperationResponse"
+    },
+    "BatchWriteOperationResponseList": {
+      "items": {
+        "$ref": "#/definitions/BatchWriteOperationResponse"
+      },
+      "type": "array",
+      "title": "BatchWriteOperationResponseList"
+    },
+    "BatchWriteRequest": {
+      "properties": {
+        "Operations": {
+          "$ref": "#/definitions/BatchWriteOperationList",
+          "description": "List of operations that are part of the batch."
+        }
+      },
+      "required": [
+        "Operations"
+      ],
+      "type": "object",
+      "title": "BatchWriteRequest"
+    },
+    "BatchWriteResponse": {
+      "properties": {
+        "Responses": {
+          "$ref": "#/definitions/BatchWriteOperationResponseList",
+          "description": "List of all the responses for each batch write."
+        }
+      },
+      "type": "object",
+      "title": "BatchWriteResponse"
+    },
+    "BinaryAttributeValue": {
+      "type": "string",
+      "title": "BinaryAttributeValue"
+    },
+    "Bool": {
+      "type": "boolean",
+      "title": "Bool"
+    },
+    "BooleanAttributeValue": {
+      "type": "boolean",
+      "title": "BooleanAttributeValue"
+    },
+    "CannotListParentOfRootException": {
+      "description": "Cannot list the parents of a <a>Directory</a> root.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "CannotListParentOfRootException"
+    },
+    "ConsistencyLevel": {
+      "enum": [
+        "SERIALIZABLE",
+        "EVENTUAL"
+      ],
+      "type": "string",
+      "title": "ConsistencyLevel"
+    },
+    "CreateDirectoryRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "Name of the <a>Directory</a>. Should be unique per account, per region."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "CreateDirectoryRequest"
+    },
+    "CreateDirectoryResponse": {
+      "properties": {
+        "AppliedSchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN of the published schema in the <a>Directory</a>. Once a published schema is copied into the directory, it has its own ARN which is referred to applied schema ARN. For more information, see <a>arns</a>."
+        },
+        "DirectoryArn": {
+          "$ref": "#/definitions/DirectoryArn",
+          "description": "ARN associated with the <a>Directory</a>. For more information, see <a>arns</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "Name of the <a>Directory</a>."
+        },
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The root object node of the created directory."
+        }
+      },
+      "required": [
+        "DirectoryArn",
+        "Name",
+        "ObjectIdentifier",
+        "AppliedSchemaArn"
+      ],
+      "type": "object",
+      "title": "CreateDirectoryResponse"
+    },
+    "CreateFacetRequest": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/FacetAttributeList",
+          "description": "Attributes associated with the <a>Facet</a>.e"
+        },
+        "Name": {
+          "$ref": "#/definitions/FacetName",
+          "description": "Name of the <a>Facet</a>, which is unique for a given schema."
+        },
+        "ObjectType": {
+          "$ref": "#/definitions/ObjectType",
+          "description": "<p>Specifies whether a given object created from this facet is of type Node, Leaf Node, Policy or Index.</p> <ul> <li> <p>Node: Can have multiple children but one parent.</p> </li> </ul> <ul> <li> <p>Leaf Node: Cannot have children but can have multiple parents.</p> </li> </ul> <ul> <li> <p>Policy: Allows you to store a policy document and policy type. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>.</p> </li> </ul> <ul> <li> <p>Index: Can be created with the Index API.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "Name",
+        "ObjectType"
+      ],
+      "type": "object",
+      "title": "CreateFacetRequest"
+    },
+    "CreateFacetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateFacetResponse"
+    },
+    "CreateIndexRequest": {
+      "properties": {
+        "IsUnique": {
+          "$ref": "#/definitions/Bool",
+          "description": "Indicates whether objects with the same indexed attribute value can be added to the index."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "The name of the link between the parent object and the index object."
+        },
+        "OrderedIndexedAttributeList": {
+          "$ref": "#/definitions/AttributeKeyList",
+          "description": "Specifies the Attributes that should be indexed on. Currently only a single attribute is supported."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the parent object that contains the index object."
+        }
+      },
+      "required": [
+        "OrderedIndexedAttributeList",
+        "IsUnique"
+      ],
+      "type": "object",
+      "title": "CreateIndexRequest"
+    },
+    "CreateIndexResponse": {
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the index created by this operation."
+        }
+      },
+      "type": "object",
+      "title": "CreateIndexResponse"
+    },
+    "CreateObjectRequest": {
+      "properties": {
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "The name of link that is used to attach this object to a parent."
+        },
+        "ObjectAttributeList": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "Attribute map whose attribute ARN contains the key and attribute value as the map value."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "If specified, the parent reference to which this object will be attached."
+        },
+        "SchemaFacets": {
+          "$ref": "#/definitions/SchemaFacetList",
+          "description": "List of facet ARNs to be associated with the object. For more information, see <a>arns</a>."
+        }
+      },
+      "required": [
+        "SchemaFacets"
+      ],
+      "type": "object",
+      "title": "CreateObjectRequest"
+    },
+    "CreateObjectResponse": {
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "Identifier associated with the object."
+        }
+      },
+      "type": "object",
+      "title": "CreateObjectResponse"
+    },
+    "CreateSchemaRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/SchemaName",
+          "description": "Name associated with the schema. This is unique to each account and in each region."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "CreateSchemaRequest"
+    },
+    "CreateSchemaResponse": {
+      "properties": {
+        "SchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN associated with the schema. For more information, see <a>arns</a>."
+        }
+      },
+      "type": "object",
+      "title": "CreateSchemaResponse"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Date"
+    },
+    "DatetimeAttributeValue": {
+      "format": "date-time",
+      "type": "string",
+      "title": "DatetimeAttributeValue"
+    },
+    "DeleteDirectoryRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDirectoryRequest"
+    },
+    "DeleteDirectoryResponse": {
+      "properties": {
+        "DirectoryArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the deleted directory."
+        }
+      },
+      "required": [
+        "DirectoryArn"
+      ],
+      "type": "object",
+      "title": "DeleteDirectoryResponse"
+    },
+    "DeleteFacetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/FacetName",
+          "description": "The name of the facet to delete."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "DeleteFacetRequest"
+    },
+    "DeleteFacetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteFacetResponse"
+    },
+    "DeleteObjectRequest": {
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "DeleteObjectRequest"
+    },
+    "DeleteObjectResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteObjectResponse"
+    },
+    "DeleteSchemaRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSchemaRequest"
+    },
+    "DeleteSchemaResponse": {
+      "properties": {
+        "SchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "Input ARN that is returned as part of the response. For more information, see <a>arns</a>."
+        }
+      },
+      "type": "object",
+      "title": "DeleteSchemaResponse"
+    },
+    "DetachFromIndexRequest": {
+      "properties": {
+        "IndexReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the index object."
+        },
+        "TargetReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object being detached from the index."
+        }
+      },
+      "required": [
+        "IndexReference",
+        "TargetReference"
+      ],
+      "type": "object",
+      "title": "DetachFromIndexRequest"
+    },
+    "DetachFromIndexResponse": {
+      "properties": {
+        "DetachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the object that was detached from the index."
+        }
+      },
+      "type": "object",
+      "title": "DetachFromIndexResponse"
+    },
+    "DetachObjectRequest": {
+      "properties": {
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "Link name associated with the object that needs to be detached."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Parent reference from which the object with the specified link name is detached."
+        }
+      },
+      "required": [
+        "ParentReference",
+        "LinkName"
+      ],
+      "type": "object",
+      "title": "DetachObjectRequest"
+    },
+    "DetachObjectResponse": {
+      "properties": {
+        "DetachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> that was detached from the object."
+        }
+      },
+      "type": "object",
+      "title": "DetachObjectResponse"
+    },
+    "DetachPolicyRequest": {
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose policy object will be detached."
+        },
+        "PolicyReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the policy object."
+        }
+      },
+      "required": [
+        "PolicyReference",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "DetachPolicyRequest"
+    },
+    "DetachPolicyResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DetachPolicyResponse"
+    },
+    "Directory": {
+      "description": "Directory structure that includes the directory name and directory ARN.",
+      "properties": {
+        "CreationDateTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The date and time when the directory was created."
+        },
+        "DirectoryArn": {
+          "$ref": "#/definitions/DirectoryArn",
+          "description": "ARN associated with the directory. For more information, see <a>arns</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The name of the directory."
+        },
+        "State": {
+          "$ref": "#/definitions/DirectoryState",
+          "description": "The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>."
+        }
+      },
+      "type": "object",
+      "title": "Directory"
+    },
+    "DirectoryAlreadyExistsException": {
+      "description": "Indicates that a <a>Directory</a> could not be created due to a naming conflict. Choose a different name and try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "DirectoryAlreadyExistsException"
+    },
+    "DirectoryArn": {
+      "type": "string",
+      "title": "DirectoryArn"
+    },
+    "DirectoryDeletedException": {
+      "description": "A directory that has been deleted has been attempted to be accessed. Note: The requested resource will eventually cease to exist.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "DirectoryDeletedException"
+    },
+    "DirectoryList": {
+      "items": {
+        "$ref": "#/definitions/Directory"
+      },
+      "type": "array",
+      "title": "DirectoryList"
+    },
+    "DirectoryName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "DirectoryName"
+    },
+    "DirectoryNotDisabledException": {
+      "description": "An operation can only operate on a disabled directory.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "DirectoryNotDisabledException"
+    },
+    "DirectoryNotEnabledException": {
+      "description": "An operation can only operate on a directory that is not enabled.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "DirectoryNotEnabledException"
+    },
+    "DirectoryState": {
+      "enum": [
+        "ENABLED",
+        "DISABLED",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "DirectoryState"
+    },
+    "DisableDirectoryRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DisableDirectoryRequest"
+    },
+    "DisableDirectoryResponse": {
+      "properties": {
+        "DirectoryArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the directory that has been disabled."
+        }
+      },
+      "required": [
+        "DirectoryArn"
+      ],
+      "type": "object",
+      "title": "DisableDirectoryResponse"
+    },
+    "EnableDirectoryRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "EnableDirectoryRequest"
+    },
+    "EnableDirectoryResponse": {
+      "properties": {
+        "DirectoryArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the enabled directory."
+        }
+      },
+      "required": [
+        "DirectoryArn"
+      ],
+      "type": "object",
+      "title": "EnableDirectoryResponse"
+    },
+    "ExceptionMessage": {
+      "type": "string",
+      "title": "ExceptionMessage"
+    },
+    "Facet": {
+      "description": "A structure that contains <code>Name</code>, <code>ARN</code>, <code>Attributes</code>, <a>Rule</a>s, and <code>ObjectTypes</code>.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/FacetName",
+          "description": "The name of the <a>Facet</a>."
+        },
+        "ObjectType": {
+          "$ref": "#/definitions/ObjectType",
+          "description": "Object type associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
+        }
+      },
+      "type": "object",
+      "title": "Facet"
+    },
+    "FacetAlreadyExistsException": {
+      "description": "A facet with the same name already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "FacetAlreadyExistsException"
+    },
+    "FacetAttribute": {
+      "description": "Attribute associated with the <a>Facet</a>.",
+      "properties": {
+        "AttributeDefinition": {
+          "$ref": "#/definitions/FacetAttributeDefinition",
+          "description": "A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+        },
+        "AttributeReference": {
+          "$ref": "#/definitions/FacetAttributeReference",
+          "description": "Attribute reference associated with the attribute. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+        },
+        "Name": {
+          "$ref": "#/definitions/AttributeName",
+          "description": "The name of the facet attribute."
+        },
+        "RequiredBehavior": {
+          "$ref": "#/definitions/RequiredAttributeBehavior",
+          "description": "The required behavior of the <code>FacetAttribute</code>."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "FacetAttribute"
+    },
+    "FacetAttributeDefinition": {
+      "description": "A facet attribute definition. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The default value of the attribute (if configured)."
+        },
+        "IsImmutable": {
+          "$ref": "#/definitions/Bool",
+          "description": "Whether the attribute is mutable or not."
+        },
+        "Rules": {
+          "$ref": "#/definitions/RuleMap",
+          "description": "Validation rules attached to the attribute definition."
+        },
+        "Type": {
+          "$ref": "#/definitions/FacetAttributeType",
+          "description": "The type of the attribute."
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object",
+      "title": "FacetAttributeDefinition"
+    },
+    "FacetAttributeList": {
+      "items": {
+        "$ref": "#/definitions/FacetAttribute"
+      },
+      "type": "array",
+      "title": "FacetAttributeList"
+    },
+    "FacetAttributeReference": {
+      "description": "Facet attribute reference that specifies the attribute definition which contains attribute facet name and attribute name.",
+      "properties": {
+        "TargetAttributeName": {
+          "$ref": "#/definitions/AttributeName",
+          "description": "Target attribute name associated with the facet reference. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+        },
+        "TargetFacetName": {
+          "$ref": "#/definitions/FacetName",
+          "description": "Target facet name associated with the facet reference. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+        }
+      },
+      "required": [
+        "TargetFacetName",
+        "TargetAttributeName"
+      ],
+      "type": "object",
+      "title": "FacetAttributeReference"
+    },
+    "FacetAttributeType": {
+      "enum": [
+        "STRING",
+        "BINARY",
+        "BOOLEAN",
+        "NUMBER",
+        "DATETIME"
+      ],
+      "type": "string",
+      "title": "FacetAttributeType"
+    },
+    "FacetAttributeUpdate": {
+      "description": "A structure that contains information used to update an attribute.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/UpdateActionType",
+          "description": "The action to perform when updating the attribute."
+        },
+        "Attribute": {
+          "$ref": "#/definitions/FacetAttribute",
+          "description": "The attribute to update."
+        }
+      },
+      "type": "object",
+      "title": "FacetAttributeUpdate"
+    },
+    "FacetAttributeUpdateList": {
+      "items": {
+        "$ref": "#/definitions/FacetAttributeUpdate"
+      },
+      "type": "array",
+      "title": "FacetAttributeUpdateList"
+    },
+    "FacetInUseException": {
+      "description": "Occurs when deleting a facet that contains an attribute which is a target to an attribute reference in a different facet.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "FacetInUseException"
+    },
+    "FacetName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "FacetName"
+    },
+    "FacetNameList": {
+      "items": {
+        "$ref": "#/definitions/FacetName"
+      },
+      "type": "array",
+      "title": "FacetNameList"
+    },
+    "FacetNotFoundException": {
+      "description": "The specified <a>Facet</a> could not be found.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "FacetNotFoundException"
+    },
+    "FacetValidationException": {
+      "description": "The <a>Facet</a> you provided was not well formed or could not be validated with the schema.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "FacetValidationException"
+    },
+    "GetDirectoryRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDirectoryRequest"
+    },
+    "GetDirectoryResponse": {
+      "properties": {
+        "Directory": {
+          "$ref": "#/definitions/Directory",
+          "description": "Metadata about the directory."
+        }
+      },
+      "required": [
+        "Directory"
+      ],
+      "type": "object",
+      "title": "GetDirectoryResponse"
+    },
+    "GetFacetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/FacetName",
+          "description": "The name of the facet to retrieve."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "GetFacetRequest"
+    },
+    "GetFacetResponse": {
+      "properties": {
+        "Facet": {
+          "$ref": "#/definitions/Facet",
+          "description": " <a>Facet</a> structure associated with the facet."
+        }
+      },
+      "type": "object",
+      "title": "GetFacetResponse"
+    },
+    "GetObjectInformationRequest": {
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "GetObjectInformationRequest"
+    },
+    "GetObjectInformationResponse": {
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the specified object."
+        },
+        "SchemaFacets": {
+          "$ref": "#/definitions/SchemaFacetList",
+          "description": "The facets attached to the specified object."
+        }
+      },
+      "type": "object",
+      "title": "GetObjectInformationResponse"
+    },
+    "GetSchemaAsJsonRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetSchemaAsJsonRequest"
+    },
+    "GetSchemaAsJsonResponse": {
+      "properties": {
+        "Document": {
+          "$ref": "#/definitions/SchemaJsonDocument",
+          "description": "The JSON representation of the schema document."
+        },
+        "Name": {
+          "$ref": "#/definitions/SchemaName",
+          "description": "The name of the retrieved schema."
+        }
+      },
+      "type": "object",
+      "title": "GetSchemaAsJsonResponse"
+    },
+    "IndexAttachment": {
+      "description": "Represents an index and an attached object.",
+      "properties": {
+        "IndexedAttributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "The indexed attribute values."
+        },
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the object attached to the index."
+        }
+      },
+      "type": "object",
+      "title": "IndexAttachment"
+    },
+    "IndexAttachmentList": {
+      "items": {
+        "$ref": "#/definitions/IndexAttachment"
+      },
+      "type": "array",
+      "title": "IndexAttachmentList"
+    },
+    "IndexedAttributeMissingException": {
+      "description": "An object has been attempted to be attached to an object that does not have the appropriate attribute value.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "IndexedAttributeMissingException"
+    },
+    "InternalServiceException": {
+      "description": "Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href=\"http://status.aws.amazon.com/\">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalServiceException"
+    },
+    "InvalidArnException": {
+      "description": "Indicates that the provided ARN value is not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidArnException"
+    },
+    "InvalidAttachmentException": {
+      "description": "Indicates that an attempt to attach an object with the same link name or to apply a schema with same name has occurred. Rename the link or the schema and then try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidAttachmentException"
+    },
+    "InvalidFacetUpdateException": {
+      "description": "An attempt to modify a <a>Facet</a> resulted in an invalid schema exception.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidFacetUpdateException"
+    },
+    "InvalidNextTokenException": {
+      "description": "Indicates that the <code>NextToken</code> value is not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidNextTokenException"
+    },
+    "InvalidRuleException": {
+      "description": "Occurs when any of the rule parameter keys or values are invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidRuleException"
+    },
+    "InvalidSchemaDocException": {
+      "description": "Indicates that the provided <code>SchemaDoc</code> value is not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidSchemaDocException"
+    },
+    "InvalidTaggingRequestException": {
+      "description": "Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidTaggingRequestException"
+    },
+    "LimitExceededException": {
+      "description": "Indicates limits are exceeded. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html\">Limits</a> for more information.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "LinkName": {
+      "maxLength": 64,
+      "type": "string",
+      "title": "LinkName"
+    },
+    "LinkNameAlreadyInUseException": {
+      "description": "Indicates that a link could not be created due to a naming conflict. Choose a different name and then try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "LinkNameAlreadyInUseException"
+    },
+    "LinkNameToObjectIdentifierMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/LinkName"
+          },
+          "value": {
+            "$ref": "#/definitions/ObjectIdentifier"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "LinkNameToObjectIdentifierMap"
+    },
+    "ListAppliedSchemaArnsRequest": {
+      "properties": {
+        "DirectoryArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the directory you are listing."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "required": [
+        "DirectoryArn"
+      ],
+      "type": "object",
+      "title": "ListAppliedSchemaArnsRequest"
+    },
+    "ListAppliedSchemaArnsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "SchemaArns": {
+          "$ref": "#/definitions/Arns",
+          "description": "The ARNs of schemas that are applied to the directory."
+        }
+      },
+      "type": "object",
+      "title": "ListAppliedSchemaArnsResponse"
+    },
+    "ListAttachedIndicesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "TargetReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object to that has indices attached."
+        }
+      },
+      "required": [
+        "TargetReference"
+      ],
+      "type": "object",
+      "title": "ListAttachedIndicesRequest"
+    },
+    "ListAttachedIndicesResponse": {
+      "properties": {
+        "IndexAttachments": {
+          "$ref": "#/definitions/IndexAttachmentList",
+          "description": "The indices attached to the specified object."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListAttachedIndicesResponse"
+    },
+    "ListDevelopmentSchemaArnsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListDevelopmentSchemaArnsRequest"
+    },
+    "ListDevelopmentSchemaArnsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "SchemaArns": {
+          "$ref": "#/definitions/Arns",
+          "description": "The ARNs of retrieved development schemas."
+        }
+      },
+      "type": "object",
+      "title": "ListDevelopmentSchemaArnsResponse"
+    },
+    "ListDirectoriesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "state": {
+          "$ref": "#/definitions/DirectoryState",
+          "description": "The state of the directories in the list. Can be either Enabled, Disabled, or Deleted."
+        }
+      },
+      "type": "object",
+      "title": "ListDirectoriesRequest"
+    },
+    "ListDirectoriesResponse": {
+      "properties": {
+        "Directories": {
+          "$ref": "#/definitions/DirectoryList",
+          "description": "Lists all directories associated with your account in pagination fashion."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "required": [
+        "Directories"
+      ],
+      "type": "object",
+      "title": "ListDirectoriesResponse"
+    },
+    "ListFacetAttributesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "Name": {
+          "$ref": "#/definitions/FacetName",
+          "description": "The name of the facet whose attributes will be retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "ListFacetAttributesRequest"
+    },
+    "ListFacetAttributesResponse": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/FacetAttributeList",
+          "description": "The attributes attached to the facet."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListFacetAttributesResponse"
+    },
+    "ListFacetNamesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListFacetNamesRequest"
+    },
+    "ListFacetNamesResponse": {
+      "properties": {
+        "FacetNames": {
+          "$ref": "#/definitions/FacetNameList",
+          "description": "The names of facets that exist within the schema."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListFacetNamesResponse"
+    },
+    "ListIndexRequest": {
+      "properties": {
+        "IndexReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference to the index to list."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve from the index."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "RangesOnIndexedValues": {
+          "$ref": "#/definitions/ObjectAttributeRangeList",
+          "description": "Specifies the ranges of indexed values that you want to query."
+        }
+      },
+      "required": [
+        "IndexReference"
+      ],
+      "type": "object",
+      "title": "ListIndexRequest"
+    },
+    "ListIndexResponse": {
+      "properties": {
+        "IndexAttachments": {
+          "$ref": "#/definitions/IndexAttachmentList",
+          "description": "The objects and indexed values attached to the index."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListIndexResponse"
+    },
+    "ListObjectAttributesRequest": {
+      "properties": {
+        "FacetFilter": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Used to filter the list of object attributes associated with a certain facet."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListObjectAttributesRequest"
+    },
+    "ListObjectAttributesResponse": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeKeyAndValueList",
+          "description": "Attributes map associated with the object. AttributeArn is the key, and attribute value is the value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListObjectAttributesResponse"
+    },
+    "ListObjectChildrenRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object for which child objects are being listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListObjectChildrenRequest"
+    },
+    "ListObjectChildrenResponse": {
+      "properties": {
+        "Children": {
+          "$ref": "#/definitions/LinkNameToObjectIdentifierMap",
+          "description": "Children structure, which is a map with key as the LinkName and <code>ObjectIdentifier</code> as the value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListObjectChildrenResponse"
+    },
+    "ListObjectParentPathsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose parent paths are listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListObjectParentPathsRequest"
+    },
+    "ListObjectParentPathsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "PathToObjectIdentifiersList": {
+          "$ref": "#/definitions/PathToObjectIdentifiersList",
+          "description": "Returns the path to the <code>ObjectIdentifiers</code> associated with the directory."
+        }
+      },
+      "type": "object",
+      "title": "ListObjectParentPathsResponse"
+    },
+    "ListObjectParentsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object for which parent objects are being listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListObjectParentsRequest"
+    },
+    "ListObjectParentsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "Parents": {
+          "$ref": "#/definitions/ObjectIdentifierToLinkNameMap",
+          "description": "Parent structure, which is a map with key as the <code>ObjectIdentifier</code> and LinkName as the value."
+        }
+      },
+      "type": "object",
+      "title": "ListObjectParentsResponse"
+    },
+    "ListObjectPoliciesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object for which policies will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListObjectPoliciesRequest"
+    },
+    "ListObjectPoliciesResponse": {
+      "properties": {
+        "AttachedPolicyIds": {
+          "$ref": "#/definitions/ObjectIdentifierList",
+          "description": "List of policy <code>ObjectIdentifiers</code>, that are attached to the object."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListObjectPoliciesResponse"
+    },
+    "ListPolicyAttachmentsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "PolicyReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the policy object."
+        }
+      },
+      "required": [
+        "PolicyReference"
+      ],
+      "type": "object",
+      "title": "ListPolicyAttachmentsRequest"
+    },
+    "ListPolicyAttachmentsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectIdentifiers": {
+          "$ref": "#/definitions/ObjectIdentifierList",
+          "description": "List of <code>ObjectIdentifiers</code> to which the policy is attached."
+        }
+      },
+      "type": "object",
+      "title": "ListPolicyAttachmentsResponse"
+    },
+    "ListPublishedSchemaArnsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListPublishedSchemaArnsRequest"
+    },
+    "ListPublishedSchemaArnsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "SchemaArns": {
+          "$ref": "#/definitions/Arns",
+          "description": "The ARNs of published schemas."
+        }
+      },
+      "type": "object",
+      "title": "ListPublishedSchemaArnsResponse"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/TagsNumberResults",
+          "description": "The MaxResults parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token. This is for future use. Currently pagination is not supported for tagging."
+        },
+        "ResourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN of the resource. Tagging is only supported for directories."
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "type": "object",
+      "title": "ListTagsForResourceRequest"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use to retrieve the next page of results. This value is null when there are no more results to return."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "List of tag key value pairs associated with the response."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsForResourceResponse"
+    },
+    "LookupPolicyRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to request the next page of results."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose policies will be looked up."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "LookupPolicyRequest"
+    },
+    "LookupPolicyResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "PolicyToPathList": {
+          "$ref": "#/definitions/PolicyToPathList",
+          "description": "Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>."
+        }
+      },
+      "type": "object",
+      "title": "LookupPolicyResponse"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NotIndexException": {
+      "description": "Indicates the requested operation can only operate on index objects.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "NotIndexException"
+    },
+    "NotNodeException": {
+      "description": "Occurs when any invalid operations are performed on an object which is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "NotNodeException"
+    },
+    "NotPolicyException": {
+      "description": "Indicates the requested operation can only operate on policy objects.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "NotPolicyException"
+    },
+    "NumberAttributeValue": {
+      "type": "string",
+      "title": "NumberAttributeValue"
+    },
+    "NumberResults": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "NumberResults"
+    },
+    "ObjectAlreadyDetachedException": {
+      "description": "Indicates the object is not attached to the index.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "ObjectAlreadyDetachedException"
+    },
+    "ObjectAttributeAction": {
+      "description": "The action to take on the object attribute.",
+      "properties": {
+        "ObjectAttributeActionType": {
+          "$ref": "#/definitions/UpdateActionType",
+          "description": "Type can be either Update or Delete."
+        },
+        "ObjectAttributeUpdateValue": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The value that you want to update to."
+        }
+      },
+      "type": "object",
+      "title": "ObjectAttributeAction"
+    },
+    "ObjectAttributeRange": {
+      "description": "A range of attributes.",
+      "properties": {
+        "AttributeKey": {
+          "$ref": "#/definitions/AttributeKey",
+          "description": "The key of the attribute the attribute range covers."
+        },
+        "Range": {
+          "$ref": "#/definitions/TypedAttributeValueRange",
+          "description": "The range of attribute values being selected."
+        }
+      },
+      "type": "object",
+      "title": "ObjectAttributeRange"
+    },
+    "ObjectAttributeRangeList": {
+      "items": {
+        "$ref": "#/definitions/ObjectAttributeRange"
+      },
+      "type": "array",
+      "title": "ObjectAttributeRangeList"
+    },
+    "ObjectAttributeUpdate": {
+      "description": "Structure that contains attribute update information.",
+      "properties": {
+        "ObjectAttributeAction": {
+          "$ref": "#/definitions/ObjectAttributeAction",
+          "description": "The action to perform as part of the attribute update."
+        },
+        "ObjectAttributeKey": {
+          "$ref": "#/definitions/AttributeKey",
+          "description": "The key of the attribute being updated."
+        }
+      },
+      "type": "object",
+      "title": "ObjectAttributeUpdate"
+    },
+    "ObjectAttributeUpdateList": {
+      "items": {
+        "$ref": "#/definitions/ObjectAttributeUpdate"
+      },
+      "type": "array",
+      "title": "ObjectAttributeUpdateList"
+    },
+    "ObjectIdentifier": {
+      "type": "string",
+      "title": "ObjectIdentifier"
+    },
+    "ObjectIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/ObjectIdentifier"
+      },
+      "type": "array",
+      "title": "ObjectIdentifierList"
+    },
+    "ObjectIdentifierToLinkNameMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ObjectIdentifier"
+          },
+          "value": {
+            "$ref": "#/definitions/LinkName"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ObjectIdentifierToLinkNameMap"
+    },
+    "ObjectNotDetachedException": {
+      "description": "Indicates the requested operation cannot be completed because the object has not been detached from the tree.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "ObjectNotDetachedException"
+    },
+    "ObjectReference": {
+      "description": "Reference that identifies an object.",
+      "properties": {
+        "Selector": {
+          "$ref": "#/definitions/SelectorObjectReference",
+          "description": "<p>Allows you to specify an object. You can identify an object in one of the following ways:</p> <ul> <li> <p> <i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code> </p> </li> <li> <p> <i>/some/path</i> - Identifies the object based on path</p> </li> <li> <p> <i>#SomeBatchReference</i> - Identifies the object in a batch call</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "ObjectReference"
+    },
+    "ObjectType": {
+      "enum": [
+        "NODE",
+        "LEAF_NODE",
+        "POLICY",
+        "INDEX"
+      ],
+      "type": "string",
+      "title": "ObjectType"
+    },
+    "PathString": {
+      "type": "string",
+      "title": "PathString"
+    },
+    "PathToObjectIdentifiers": {
+      "description": "Returns the path to the <code>ObjectIdentifiers</code> associated with the directory.",
+      "properties": {
+        "ObjectIdentifiers": {
+          "$ref": "#/definitions/ObjectIdentifierList",
+          "description": "Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the request."
+        },
+        "Path": {
+          "$ref": "#/definitions/PathString",
+          "description": "The path used to identify the object starting from directory root."
+        }
+      },
+      "type": "object",
+      "title": "PathToObjectIdentifiers"
+    },
+    "PathToObjectIdentifiersList": {
+      "items": {
+        "$ref": "#/definitions/PathToObjectIdentifiers"
+      },
+      "type": "array",
+      "title": "PathToObjectIdentifiersList"
+    },
+    "PolicyAttachment": {
+      "description": "Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is attached.",
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> associated with <code>PolicyAttachment</code>."
+        },
+        "PolicyId": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The ID of <code>PolicyAttachment</code>."
+        },
+        "PolicyType": {
+          "$ref": "#/definitions/PolicyType",
+          "description": "The type of policy that can be associated with <code>PolicyAttachment</code>."
+        }
+      },
+      "type": "object",
+      "title": "PolicyAttachment"
+    },
+    "PolicyAttachmentList": {
+      "items": {
+        "$ref": "#/definitions/PolicyAttachment"
+      },
+      "type": "array",
+      "title": "PolicyAttachmentList"
+    },
+    "PolicyToPath": {
+      "description": "Used when a regular object exists in a <a>Directory</a> and you want to find all of the policies associated with that object and the parent to that object.",
+      "properties": {
+        "Path": {
+          "$ref": "#/definitions/PathString",
+          "description": "The path that is referenced from the root."
+        },
+        "Policies": {
+          "$ref": "#/definitions/PolicyAttachmentList",
+          "description": "List of policy objects."
+        }
+      },
+      "type": "object",
+      "title": "PolicyToPath"
+    },
+    "PolicyToPathList": {
+      "items": {
+        "$ref": "#/definitions/PolicyToPath"
+      },
+      "type": "array",
+      "title": "PolicyToPathList"
+    },
+    "PolicyType": {
+      "type": "string",
+      "title": "PolicyType"
+    },
+    "PublishSchemaRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/SchemaName",
+          "description": "New name under which the schema will be published. If this is not provided, the development schema is considered."
+        },
+        "Version": {
+          "$ref": "#/definitions/Version",
+          "description": "Version under which the schema will be published."
+        }
+      },
+      "required": [
+        "Version"
+      ],
+      "type": "object",
+      "title": "PublishSchemaRequest"
+    },
+    "PublishSchemaResponse": {
+      "properties": {
+        "PublishedSchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN associated with the published schema. For more information, see <a>arns</a>."
+        }
+      },
+      "type": "object",
+      "title": "PublishSchemaResponse"
+    },
+    "PutSchemaFromJsonRequest": {
+      "properties": {
+        "Document": {
+          "$ref": "#/definitions/SchemaJsonDocument",
+          "description": "The replacement JSON schema."
+        }
+      },
+      "required": [
+        "Document"
+      ],
+      "type": "object",
+      "title": "PutSchemaFromJsonRequest"
+    },
+    "PutSchemaFromJsonResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the schema to update."
+        }
+      },
+      "type": "object",
+      "title": "PutSchemaFromJsonResponse"
+    },
+    "RangeMode": {
+      "enum": [
+        "FIRST",
+        "LAST",
+        "LAST_BEFORE_MISSING_VALUES",
+        "INCLUSIVE",
+        "EXCLUSIVE"
+      ],
+      "type": "string",
+      "title": "RangeMode"
+    },
+    "RemoveFacetFromObjectRequest": {
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object to remove the facet from."
+        },
+        "SchemaFacet": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "The facet to remove."
+        }
+      },
+      "required": [
+        "SchemaFacet",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "RemoveFacetFromObjectRequest"
+    },
+    "RemoveFacetFromObjectResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "RemoveFacetFromObjectResponse"
+    },
+    "RequiredAttributeBehavior": {
+      "enum": [
+        "REQUIRED_ALWAYS",
+        "NOT_REQUIRED"
+      ],
+      "type": "string",
+      "title": "RequiredAttributeBehavior"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource could not be found.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "RetryableConflictException": {
+      "description": "Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "RetryableConflictException"
+    },
+    "Rule": {
+      "description": "Contains an ARN and parameters associated with the rule.",
+      "properties": {
+        "Parameters": {
+          "$ref": "#/definitions/RuleParameterMap",
+          "description": "Min and max parameters associated with the rule."
+        },
+        "Type": {
+          "$ref": "#/definitions/RuleType",
+          "description": "The type of attribute validation rule."
+        }
+      },
+      "type": "object",
+      "title": "Rule"
+    },
+    "RuleKey": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "RuleKey"
+    },
+    "RuleMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/RuleKey"
+          },
+          "value": {
+            "$ref": "#/definitions/Rule"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "RuleMap"
+    },
+    "RuleParameterKey": {
+      "type": "string",
+      "title": "RuleParameterKey"
+    },
+    "RuleParameterMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/RuleParameterKey"
+          },
+          "value": {
+            "$ref": "#/definitions/RuleParameterValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "RuleParameterMap"
+    },
+    "RuleParameterValue": {
+      "type": "string",
+      "title": "RuleParameterValue"
+    },
+    "RuleType": {
+      "enum": [
+        "BINARY_LENGTH",
+        "NUMBER_COMPARISON",
+        "STRING_FROM_SET",
+        "STRING_LENGTH"
+      ],
+      "type": "string",
+      "title": "RuleType"
+    },
+    "SchemaAlreadyExistsException": {
+      "description": "Indicates that a schema could not be created due to a naming conflict. Please select a different name and then try again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "SchemaAlreadyExistsException"
+    },
+    "SchemaAlreadyPublishedException": {
+      "description": "Indicates a schema is already published.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "SchemaAlreadyPublishedException"
+    },
+    "SchemaFacet": {
+      "description": "A facet.",
+      "properties": {
+        "FacetName": {
+          "$ref": "#/definitions/FacetName",
+          "description": "The name of the facet."
+        },
+        "SchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the schema that contains the facet."
+        }
+      },
+      "type": "object",
+      "title": "SchemaFacet"
+    },
+    "SchemaFacetList": {
+      "items": {
+        "$ref": "#/definitions/SchemaFacet"
+      },
+      "type": "array",
+      "title": "SchemaFacetList"
+    },
+    "SchemaJsonDocument": {
+      "type": "string",
+      "title": "SchemaJsonDocument"
+    },
+    "SchemaName": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "SchemaName"
+    },
+    "SelectorObjectReference": {
+      "type": "string",
+      "title": "SelectorObjectReference"
+    },
+    "StillContainsLinksException": {
+      "description": "The object could not be deleted because links still exist. Remove the links and then try the operation again.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "StillContainsLinksException"
+    },
+    "StringAttributeValue": {
+      "type": "string",
+      "title": "StringAttributeValue"
+    },
+    "Tag": {
+      "description": "Tag structure which contains tag key and value.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "Key associated with the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "Value associated with the tag."
+        }
+      },
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN of the resource. Tagging is only supported for directories."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "List of tag key value pairs."
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "TagResourceRequest"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "TagResourceResponse"
+    },
+    "TagValue": {
+      "type": "string",
+      "title": "TagValue"
+    },
+    "TagsNumberResults": {
+      "minimum": 50,
+      "type": "integer",
+      "title": "TagsNumberResults"
+    },
+    "TypedAttributeValue": {
+      "description": "Represents the data for a typed attribute. You can set one, and only one, of the elements. Each attribute in an item is a name-value pair. Attributes have a single value.",
+      "properties": {
+        "BinaryValue": {
+          "$ref": "#/definitions/BinaryAttributeValue",
+          "description": "A binary data value."
+        },
+        "BooleanValue": {
+          "$ref": "#/definitions/BooleanAttributeValue",
+          "description": "A Boolean data value."
+        },
+        "DatetimeValue": {
+          "$ref": "#/definitions/DatetimeAttributeValue",
+          "description": "A date and time value."
+        },
+        "NumberValue": {
+          "$ref": "#/definitions/NumberAttributeValue",
+          "description": "A number data value."
+        },
+        "StringValue": {
+          "$ref": "#/definitions/StringAttributeValue",
+          "description": "A string data value."
+        }
+      },
+      "type": "object",
+      "title": "TypedAttributeValue"
+    },
+    "TypedAttributeValueRange": {
+      "description": "A range of attribute values.",
+      "properties": {
+        "EndMode": {
+          "$ref": "#/definitions/RangeMode",
+          "description": "Inclusive or exclusive range end."
+        },
+        "EndValue": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The attribute value to terminate the range at."
+        },
+        "StartMode": {
+          "$ref": "#/definitions/RangeMode",
+          "description": "Inclusive or exclusive range start."
+        },
+        "StartValue": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The value to start the range at."
+        }
+      },
+      "required": [
+        "StartMode",
+        "EndMode"
+      ],
+      "type": "object",
+      "title": "TypedAttributeValueRange"
+    },
+    "UnsupportedIndexTypeException": {
+      "description": "Indicates the requested index type is not supported.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedIndexTypeException"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN of the resource. Tagging is only supported for directories."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "Keys of the tag that needs to be removed from the resource."
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "UntagResourceRequest"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UntagResourceResponse"
+    },
+    "UpdateActionType": {
+      "enum": [
+        "CREATE_OR_UPDATE",
+        "DELETE"
+      ],
+      "type": "string",
+      "title": "UpdateActionType"
+    },
+    "UpdateFacetRequest": {
+      "properties": {
+        "AttributeUpdates": {
+          "$ref": "#/definitions/FacetAttributeUpdateList",
+          "description": "List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute is followed by AttributeAction, which specifies the type of update operation to perform. "
+        },
+        "Name": {
+          "$ref": "#/definitions/FacetName",
+          "description": " "
+        },
+        "ObjectType": {
+          "$ref": "#/definitions/ObjectType",
+          "description": "Object type associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "UpdateFacetRequest"
+    },
+    "UpdateFacetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateFacetResponse"
+    },
+    "UpdateObjectAttributesRequest": {
+      "properties": {
+        "AttributeUpdates": {
+          "$ref": "#/definitions/ObjectAttributeUpdateList",
+          "description": "Attributes update structure."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object."
+        }
+      },
+      "required": [
+        "ObjectReference",
+        "AttributeUpdates"
+      ],
+      "type": "object",
+      "title": "UpdateObjectAttributesRequest"
+    },
+    "UpdateObjectAttributesResponse": {
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": " <code>ObjectIdentifier</code> of the updated object."
+        }
+      },
+      "type": "object",
+      "title": "UpdateObjectAttributesResponse"
+    },
+    "UpdateSchemaRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/SchemaName",
+          "description": "Name of the schema."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "UpdateSchemaRequest"
+    },
+    "UpdateSchemaResponse": {
+      "properties": {
+        "SchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "ARN associated with the updated schema. For more information, see <a>arns</a>."
+        }
+      },
+      "type": "object",
+      "title": "UpdateSchemaResponse"
+    },
+    "ValidationException": {
+      "description": "Indicates your request is malformed in some manner. See the exception message.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "ValidationException"
+    },
+    "Version": {
+      "maxLength": 10,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "Version"
+    }
+  },
+  "actions": [
+    {
+      "id": "BatchRead",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchReadRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchReadResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "BatchWrite",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/BatchWriteRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchWriteResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DeleteDirectory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDirectoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteDirectoryResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "CreateDirectory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateDirectoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDirectoryResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DisableDirectory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisableDirectoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisableDirectoryResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "EnableDirectory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/EnableDirectoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnableDirectoryResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "GetDirectory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDirectoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDirectoryResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListDirectories",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDirectoriesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDirectoriesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "UpdateFacet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateFacetRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateFacetResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListFacetAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFacetAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFacetAttributesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "CreateFacet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateFacetRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateFacetResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DeleteFacet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteFacetRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteFacetResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListFacetNames",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFacetNamesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFacetNamesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "CreateIndex",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateIndexRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateIndexResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "AttachToIndex",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AttachToIndexRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttachToIndexResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DetachFromIndex",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetachFromIndexRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetachFromIndexResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListIndex",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListIndexRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListIndexResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "CreateObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateObjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateObjectResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "AttachObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AttachObjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttachObjectResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListObjectAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectAttributesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListObjectChildren",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectChildrenRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectChildrenResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DeleteObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteObjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteObjectResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DetachObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetachObjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetachObjectResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "AddFacetToObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddFacetToObjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddFacetToObjectResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "RemoveFacetFromObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveFacetFromObjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveFacetFromObjectResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListAttachedIndices",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListAttachedIndicesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAttachedIndicesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "GetObjectInformation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetObjectInformationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectInformationResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListObjectParents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectParentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectParentsResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListObjectParentPaths",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectParentPathsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectParentPathsResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListObjectPolicies",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectPoliciesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectPoliciesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "UpdateObjectAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateObjectAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateObjectAttributesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "AttachPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AttachPolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttachPolicyResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListPolicyAttachments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPolicyAttachmentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPolicyAttachmentsResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DetachPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetachPolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetachPolicyResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "LookupPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/LookupPolicyRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LookupPolicyResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DeleteSchema",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSchemaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteSchemaResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListAppliedSchemaArns",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListAppliedSchemaArnsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAppliedSchemaArnsResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ApplySchema",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ApplySchemaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplySchemaResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "CreateSchema",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSchemaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSchemaResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListDevelopmentSchemaArns",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDevelopmentSchemaArnsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDevelopmentSchemaArnsResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "PutSchemaFromJson",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutSchemaFromJsonRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutSchemaFromJsonResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "PublishSchema",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PublishSchemaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PublishSchemaResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListPublishedSchemaArns",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPublishedSchemaArnsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPublishedSchemaArnsResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "UpdateSchema",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSchemaRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSchemaResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForResourceResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "TagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagResourceResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "UntagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagResourceResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

@@ -1,0 +1,3528 @@
+{
+  "id": "amazonaws_elasticloadbalancing",
+  "title": "Elastic Load Balancing",
+  "description": "Elastic Load Balancing\n\nA load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer. You configure a target group with a protocol and port number for connections from the load balancer to the targets, and with health check settings to be used when checking the health status of the targets.\n\nElastic Load Balancing supports two types of load balancers: Classic Load Balancers and Application Load Balancers. A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the [Elastic Load Balancing User Guide](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/).\n\nThis reference covers the 2015-12-01 API, which supports Application Load Balancers. The 2012-06-01 API supports Classic Load Balancers.\n\nTo get started, complete the following tasks:\n\n1.  Create an Application Load Balancer using CreateLoadBalancer.\n\n2.  Create a target group using CreateTargetGroup.\n\n3.  Register targets for the target group using RegisterTargets.\n\n4.  Create one or more listeners for your load balancer using CreateListener.\n\n5.  (Optional) Create one or more rules for content routing based on URL using CreateRule.\n\nTo delete an Application Load Balancer and its related resources, complete the following tasks:\n\n1.  Delete the load balancer using DeleteLoadBalancer.\n\n2.  Delete the target group using DeleteTargetGroup.\n\nAll Elastic Load Balancing operations are idempotent, which means that they complete at most one time. If you repeat an operation, it succeeds.",
+  "security": {
+    "amazonaws_elasticloadbalancing": {
+      "integration": "amazonaws_elasticloadbalancing",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticloadbalancing.svg"
+  },
+  "actionCount": 31,
+  "definitions": {
+    "Action": {
+      "description": "Information about an action.",
+      "properties": {
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        },
+        "Type": {
+          "$ref": "#/definitions/ActionTypeEnum",
+          "description": "The type of action."
+        }
+      },
+      "required": [
+        "Type",
+        "TargetGroupArn"
+      ],
+      "type": "object",
+      "title": "Action"
+    },
+    "ActionTypeEnum": {
+      "enum": [
+        "forward"
+      ],
+      "type": "string",
+      "title": "ActionTypeEnum"
+    },
+    "Actions": {
+      "items": {
+        "$ref": "#/definitions/Action"
+      },
+      "type": "array",
+      "title": "Actions"
+    },
+    "AddTagsInput": {
+      "example": {
+        "ResourceArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+        ],
+        "Tags": [
+          {
+            "Key": "project",
+            "Value": "lima"
+          },
+          {
+            "Key": "department",
+            "Value": "digital-media"
+          }
+        ]
+      },
+      "properties": {
+        "ResourceArns": {
+          "$ref": "#/definitions/ResourceArns",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags. Each resource can have a maximum of 10 tags."
+        }
+      },
+      "required": [
+        "ResourceArns",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "AddTagsInput"
+    },
+    "AddTagsOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "AddTagsOutput"
+    },
+    "AvailabilityZone": {
+      "description": "Information about an Availability Zone.",
+      "properties": {
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The ID of the subnet."
+        },
+        "ZoneName": {
+          "$ref": "#/definitions/ZoneName",
+          "description": "The name of the Availability Zone."
+        }
+      },
+      "type": "object",
+      "title": "AvailabilityZone"
+    },
+    "AvailabilityZones": {
+      "items": {
+        "$ref": "#/definitions/AvailabilityZone"
+      },
+      "type": "array",
+      "title": "AvailabilityZones"
+    },
+    "CanonicalHostedZoneId": {
+      "type": "string",
+      "title": "CanonicalHostedZoneId"
+    },
+    "Certificate": {
+      "description": "Information about an SSL server certificate deployed on a load balancer.",
+      "properties": {
+        "CertificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The Amazon Resource Name (ARN) of the certificate."
+        }
+      },
+      "type": "object",
+      "title": "Certificate"
+    },
+    "CertificateArn": {
+      "type": "string",
+      "title": "CertificateArn"
+    },
+    "CertificateList": {
+      "items": {
+        "$ref": "#/definitions/Certificate"
+      },
+      "type": "array",
+      "title": "CertificateList"
+    },
+    "CertificateNotFoundException": {
+      "description": "The specified certificate does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "CertificateNotFoundException"
+    },
+    "Cipher": {
+      "description": "Information about a cipher used in a policy.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/CipherName",
+          "description": "The name of the cipher."
+        },
+        "Priority": {
+          "$ref": "#/definitions/CipherPriority",
+          "description": "The priority of the cipher."
+        }
+      },
+      "type": "object",
+      "title": "Cipher"
+    },
+    "CipherName": {
+      "type": "string",
+      "title": "CipherName"
+    },
+    "CipherPriority": {
+      "type": "integer",
+      "title": "CipherPriority"
+    },
+    "Ciphers": {
+      "items": {
+        "$ref": "#/definitions/Cipher"
+      },
+      "type": "array",
+      "title": "Ciphers"
+    },
+    "ConditionFieldName": {
+      "maxLength": 64,
+      "type": "string",
+      "title": "ConditionFieldName"
+    },
+    "CreateListenerInput": {
+      "example": {
+        "Certificates": [
+          {
+            "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+          }
+        ],
+        "DefaultActions": [
+          {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+        "Port": 443,
+        "Protocol": "HTTPS",
+        "SslPolicy": "ELBSecurityPolicy-2015-05"
+      },
+      "properties": {
+        "Certificates": {
+          "$ref": "#/definitions/CertificateList",
+          "description": "The SSL server certificate. You must provide exactly one certificate if the protocol is HTTPS."
+        },
+        "DefaultActions": {
+          "$ref": "#/definitions/Actions",
+          "description": "The default action for the listener."
+        },
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "Port": {
+          "$ref": "#/definitions/Port",
+          "description": "The port on which the load balancer is listening."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol for connections from clients to the load balancer."
+        },
+        "SslPolicy": {
+          "$ref": "#/definitions/SslPolicyName",
+          "description": "The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy."
+        }
+      },
+      "required": [
+        "LoadBalancerArn",
+        "Protocol",
+        "Port",
+        "DefaultActions"
+      ],
+      "type": "object",
+      "title": "CreateListenerInput"
+    },
+    "CreateListenerOutput": {
+      "example": {
+        "Listeners": [
+          {
+            "Certificates": [
+              {
+                "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-server-cert"
+              }
+            ],
+            "DefaultActions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+            "Port": 443,
+            "Protocol": "HTTPS",
+            "SslPolicy": "ELBSecurityPolicy-2015-05"
+          }
+        ]
+      },
+      "properties": {
+        "Listeners": {
+          "$ref": "#/definitions/Listeners",
+          "description": "Information about the listener."
+        }
+      },
+      "type": "object",
+      "title": "CreateListenerOutput"
+    },
+    "CreateLoadBalancerInput": {
+      "example": {
+        "Name": "my-internal-load-balancer",
+        "Scheme": "internal",
+        "SecurityGroups": [],
+        "Subnets": [
+          "subnet-b7d581c0",
+          "subnet-8360a9e7"
+        ]
+      },
+      "properties": {
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>."
+        },
+        "Name": {
+          "$ref": "#/definitions/LoadBalancerName",
+          "description": "<p>The name of the load balancer.</p> <p>This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.</p>"
+        },
+        "Scheme": {
+          "$ref": "#/definitions/LoadBalancerSchemeEnum",
+          "description": "<p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet.</p> <p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.</p> <p>The default is an Internet-facing load balancer.</p>"
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "The IDs of the security groups to assign to the load balancer."
+        },
+        "Subnets": {
+          "$ref": "#/definitions/Subnets",
+          "description": "The IDs of the subnets to attach to the load balancer. You can specify only one subnet per Availability Zone. You must specify subnets from at least two Availability Zones."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "One or more tags to assign to the load balancer."
+        }
+      },
+      "required": [
+        "Name",
+        "Subnets"
+      ],
+      "type": "object",
+      "title": "CreateLoadBalancerInput"
+    },
+    "CreateLoadBalancerOutput": {
+      "example": {
+        "LoadBalancers": [
+          {
+            "AvailabilityZones": [
+              {
+                "SubnetId": "subnet-8360a9e7",
+                "ZoneName": "us-west-2a"
+              },
+              {
+                "SubnetId": "subnet-b7d581c0",
+                "ZoneName": "us-west-2b"
+              }
+            ],
+            "CanonicalHostedZoneId": "Z2P70J7EXAMPLE",
+            "CreatedTime": "2016-03-25T21:29:48.850Z",
+            "DNSName": "internal-my-internal-load-balancer-1529930873.us-west-2.elb.amazonaws.com",
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/5b49b8d4303115c2",
+            "LoadBalancerName": "my-internal-load-balancer",
+            "Scheme": "internal",
+            "SecurityGroups": [
+              "sg-5943793c"
+            ],
+            "State": {
+              "Code": "provisioning"
+            },
+            "Type": "application",
+            "VpcId": "vpc-3ac0fb5f"
+          }
+        ]
+      },
+      "properties": {
+        "LoadBalancers": {
+          "$ref": "#/definitions/LoadBalancers",
+          "description": "Information about the load balancer."
+        }
+      },
+      "type": "object",
+      "title": "CreateLoadBalancerOutput"
+    },
+    "CreateRuleInput": {
+      "example": {
+        "Actions": [
+          {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+            "Type": "forward"
+          }
+        ],
+        "Conditions": [
+          {
+            "Field": "path-pattern",
+            "Values": [
+              "/img/*"
+            ]
+          }
+        ],
+        "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+        "Priority": 10
+      },
+      "properties": {
+        "Actions": {
+          "$ref": "#/definitions/Actions",
+          "description": "An action. Each action has the type <code>forward</code> and specifies a target group."
+        },
+        "Conditions": {
+          "$ref": "#/definitions/RuleConditionList",
+          "description": "<p>A condition. Each condition specifies a field name and a single value.</p> <p>If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.</p> <ul> <li> <p>A-Z, a-z, 0-9</p> </li> <li> <p>- .</p> </li> <li> <p>* (matches 0 or more characters)</p> </li> <li> <p>? (matches exactly 1 character)</p> </li> </ul> <p>If the field name is <code>path-pattern</code>, you can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.</p> <ul> <li> <p>A-Z, a-z, 0-9</p> </li> <li> <p>_ - . $ / ~ \" ' @ : +</p> </li> <li> <p>&amp; (using &amp;amp;)</p> </li> <li> <p>* (matches 0 or more characters)</p> </li> <li> <p>? (matches exactly 1 character)</p> </li> </ul>"
+        },
+        "ListenerArn": {
+          "$ref": "#/definitions/ListenerArn",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "Priority": {
+          "$ref": "#/definitions/RulePriority",
+          "description": "The priority for the rule. A listener can't have multiple rules with the same priority."
+        }
+      },
+      "required": [
+        "ListenerArn",
+        "Conditions",
+        "Priority",
+        "Actions"
+      ],
+      "type": "object",
+      "title": "CreateRuleInput"
+    },
+    "CreateRuleOutput": {
+      "example": {
+        "Rules": [
+          {
+            "Actions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "Conditions": [
+              {
+                "Field": "path-pattern",
+                "Values": [
+                  "/img/*"
+                ]
+              }
+            ],
+            "IsDefault": false,
+            "Priority": "10",
+            "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+          }
+        ]
+      },
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/Rules",
+          "description": "Information about the rule."
+        }
+      },
+      "type": "object",
+      "title": "CreateRuleOutput"
+    },
+    "CreateTargetGroupInput": {
+      "example": {
+        "Name": "my-targets",
+        "Port": 80,
+        "Protocol": "HTTP",
+        "VpcId": "vpc-3ac0fb5f"
+      },
+      "properties": {
+        "HealthCheckIntervalSeconds": {
+          "$ref": "#/definitions/HealthCheckIntervalSeconds",
+          "description": "The approximate amount of time, in seconds, between health checks of an individual target. The default is 30 seconds."
+        },
+        "HealthCheckPath": {
+          "$ref": "#/definitions/Path",
+          "description": "The ping path that is the destination on the targets for health checks. The default is /."
+        },
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "The port the load balancer uses when performing health checks on targets. The default is <code>traffic-port</code>, which indicates the port on which each target receives traffic from the load balancer."
+        },
+        "HealthCheckProtocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol the load balancer uses when performing health checks on targets. The default is the HTTP protocol."
+        },
+        "HealthCheckTimeoutSeconds": {
+          "$ref": "#/definitions/HealthCheckTimeoutSeconds",
+          "description": "The amount of time, in seconds, during which no response from a target means a failed health check. The default is 5 seconds."
+        },
+        "HealthyThresholdCount": {
+          "$ref": "#/definitions/HealthCheckThresholdCount",
+          "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. The default is 5."
+        },
+        "Matcher": {
+          "$ref": "#/definitions/Matcher",
+          "description": "The HTTP codes to use when checking for a successful response from a target. The default is 200."
+        },
+        "Name": {
+          "$ref": "#/definitions/TargetGroupName",
+          "description": "<p>The name of the target group.</p> <p>This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.</p>"
+        },
+        "Port": {
+          "$ref": "#/definitions/Port",
+          "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol to use for routing traffic to the targets."
+        },
+        "UnhealthyThresholdCount": {
+          "$ref": "#/definitions/HealthCheckThresholdCount",
+          "description": "The number of consecutive health check failures required before considering a target unhealthy. The default is 2."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The identifier of the virtual private cloud (VPC)."
+        }
+      },
+      "required": [
+        "Name",
+        "Protocol",
+        "Port",
+        "VpcId"
+      ],
+      "type": "object",
+      "title": "CreateTargetGroupInput"
+    },
+    "CreateTargetGroupOutput": {
+      "example": {
+        "TargetGroups": [
+          {
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckPath": "/",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "Matcher": {
+              "HttpCode": "200"
+            },
+            "Port": 80,
+            "Protocol": "HTTP",
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+            "TargetGroupName": "my-targets",
+            "UnhealthyThresholdCount": 2,
+            "VpcId": "vpc-3ac0fb5f"
+          }
+        ]
+      },
+      "properties": {
+        "TargetGroups": {
+          "$ref": "#/definitions/TargetGroups",
+          "description": "Information about the target group."
+        }
+      },
+      "type": "object",
+      "title": "CreateTargetGroupOutput"
+    },
+    "CreatedTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CreatedTime"
+    },
+    "DNSName": {
+      "type": "string",
+      "title": "DNSName"
+    },
+    "DeleteListenerInput": {
+      "example": {
+        "ListenerArn": "arn:aws:elasticloadbalancing:ua-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+      },
+      "properties": {
+        "ListenerArn": {
+          "$ref": "#/definitions/ListenerArn",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        }
+      },
+      "required": [
+        "ListenerArn"
+      ],
+      "type": "object",
+      "title": "DeleteListenerInput"
+    },
+    "DeleteListenerOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteListenerOutput"
+    },
+    "DeleteLoadBalancerInput": {
+      "example": {
+        "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+      },
+      "properties": {
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        }
+      },
+      "required": [
+        "LoadBalancerArn"
+      ],
+      "type": "object",
+      "title": "DeleteLoadBalancerInput"
+    },
+    "DeleteLoadBalancerOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteLoadBalancerOutput"
+    },
+    "DeleteRuleInput": {
+      "example": {
+        "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+      },
+      "properties": {
+        "RuleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        }
+      },
+      "required": [
+        "RuleArn"
+      ],
+      "type": "object",
+      "title": "DeleteRuleInput"
+    },
+    "DeleteRuleOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteRuleOutput"
+    },
+    "DeleteTargetGroupInput": {
+      "example": {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+      },
+      "properties": {
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        }
+      },
+      "required": [
+        "TargetGroupArn"
+      ],
+      "type": "object",
+      "title": "DeleteTargetGroupInput"
+    },
+    "DeleteTargetGroupOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTargetGroupOutput"
+    },
+    "DeregisterTargetsInput": {
+      "example": {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+        "Targets": [
+          {
+            "Id": "i-0f76fade"
+          }
+        ]
+      },
+      "properties": {
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        },
+        "Targets": {
+          "$ref": "#/definitions/TargetDescriptions",
+          "description": "The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it."
+        }
+      },
+      "required": [
+        "TargetGroupArn",
+        "Targets"
+      ],
+      "type": "object",
+      "title": "DeregisterTargetsInput"
+    },
+    "DeregisterTargetsOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeregisterTargetsOutput"
+    },
+    "DescribeAccountLimitsInput": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results. (You received this marker from a previous call.)"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of results to return with this call."
+        }
+      },
+      "type": "object",
+      "title": "DescribeAccountLimitsInput"
+    },
+    "DescribeAccountLimitsOutput": {
+      "properties": {
+        "Limits": {
+          "$ref": "#/definitions/Limits",
+          "description": "Information about the limits."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object",
+      "title": "DescribeAccountLimitsOutput"
+    },
+    "DescribeListenersInput": {
+      "example": {
+        "ListenerArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
+        ]
+      },
+      "properties": {
+        "ListenerArns": {
+          "$ref": "#/definitions/ListenerArns",
+          "description": "The Amazon Resource Names (ARN) of the listeners."
+        },
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results. (You received this marker from a previous call.)"
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of results to return with this call."
+        }
+      },
+      "type": "object",
+      "title": "DescribeListenersInput"
+    },
+    "DescribeListenersOutput": {
+      "example": {
+        "Listeners": [
+          {
+            "DefaultActions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+            "Port": 80,
+            "Protocol": "HTTP"
+          }
+        ]
+      },
+      "properties": {
+        "Listeners": {
+          "$ref": "#/definitions/Listeners",
+          "description": "Information about the listeners."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object",
+      "title": "DescribeListenersOutput"
+    },
+    "DescribeLoadBalancerAttributesInput": {
+      "example": {
+        "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+      },
+      "properties": {
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        }
+      },
+      "required": [
+        "LoadBalancerArn"
+      ],
+      "type": "object",
+      "title": "DescribeLoadBalancerAttributesInput"
+    },
+    "DescribeLoadBalancerAttributesOutput": {
+      "example": {
+        "Attributes": [
+          {
+            "Key": "access_logs.s3.enabled",
+            "Value": "false"
+          },
+          {
+            "Key": "idle_timeout.timeout_seconds",
+            "Value": "60"
+          },
+          {
+            "Key": "access_logs.s3.prefix",
+            "Value": ""
+          },
+          {
+            "Key": "deletion_protection.enabled",
+            "Value": "false"
+          },
+          {
+            "Key": "access_logs.s3.bucket",
+            "Value": ""
+          }
+        ]
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/LoadBalancerAttributes",
+          "description": "Information about the load balancer attributes."
+        }
+      },
+      "type": "object",
+      "title": "DescribeLoadBalancerAttributesOutput"
+    },
+    "DescribeLoadBalancersInput": {
+      "example": {
+        "LoadBalancerArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+        ]
+      },
+      "properties": {
+        "LoadBalancerArns": {
+          "$ref": "#/definitions/LoadBalancerArns",
+          "description": "The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results. (You received this marker from a previous call.)"
+        },
+        "Names": {
+          "$ref": "#/definitions/LoadBalancerNames",
+          "description": "The names of the load balancers."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of results to return with this call."
+        }
+      },
+      "type": "object",
+      "title": "DescribeLoadBalancersInput"
+    },
+    "DescribeLoadBalancersOutput": {
+      "example": {
+        "LoadBalancers": [
+          {
+            "AvailabilityZones": [
+              {
+                "SubnetId": "subnet-8360a9e7",
+                "ZoneName": "us-west-2a"
+              },
+              {
+                "SubnetId": "subnet-b7d581c0",
+                "ZoneName": "us-west-2b"
+              }
+            ],
+            "CanonicalHostedZoneId": "Z2P70J7EXAMPLE",
+            "CreatedTime": "2016-03-25T21:26:12.920Z",
+            "DNSName": "my-load-balancer-424835706.us-west-2.elb.amazonaws.com",
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+            "LoadBalancerName": "my-load-balancer",
+            "Scheme": "internet-facing",
+            "SecurityGroups": [
+              "sg-5943793c"
+            ],
+            "State": {
+              "Code": "active"
+            },
+            "Type": "application",
+            "VpcId": "vpc-3ac0fb5f"
+          }
+        ]
+      },
+      "properties": {
+        "LoadBalancers": {
+          "$ref": "#/definitions/LoadBalancers",
+          "description": "Information about the load balancers."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object",
+      "title": "DescribeLoadBalancersOutput"
+    },
+    "DescribeRulesInput": {
+      "example": {
+        "RuleArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+        ]
+      },
+      "properties": {
+        "ListenerArn": {
+          "$ref": "#/definitions/ListenerArn",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "RuleArns": {
+          "$ref": "#/definitions/RuleArns",
+          "description": "The Amazon Resource Names (ARN) of the rules."
+        }
+      },
+      "type": "object",
+      "title": "DescribeRulesInput"
+    },
+    "DescribeRulesOutput": {
+      "example": {
+        "Rules": [
+          {
+            "Actions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "Conditions": [
+              {
+                "Field": "path-pattern",
+                "Values": [
+                  "/img/*"
+                ]
+              }
+            ],
+            "IsDefault": false,
+            "Priority": "10",
+            "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+          }
+        ]
+      },
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/Rules",
+          "description": "Information about the rules."
+        }
+      },
+      "type": "object",
+      "title": "DescribeRulesOutput"
+    },
+    "DescribeSSLPoliciesInput": {
+      "example": {
+        "Names": [
+          "ELBSecurityPolicy-2015-05"
+        ]
+      },
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results. (You received this marker from a previous call.)"
+        },
+        "Names": {
+          "$ref": "#/definitions/SslPolicyNames",
+          "description": "The names of the policies."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of results to return with this call."
+        }
+      },
+      "type": "object",
+      "title": "DescribeSSLPoliciesInput"
+    },
+    "DescribeSSLPoliciesOutput": {
+      "example": {
+        "SslPolicies": [
+          {
+            "Ciphers": [
+              {
+                "Name": "ECDHE-ECDSA-AES128-GCM-SHA256",
+                "Priority": 1
+              },
+              {
+                "Name": "ECDHE-RSA-AES128-GCM-SHA256",
+                "Priority": 2
+              },
+              {
+                "Name": "ECDHE-ECDSA-AES128-SHA256",
+                "Priority": 3
+              },
+              {
+                "Name": "ECDHE-RSA-AES128-SHA256",
+                "Priority": 4
+              },
+              {
+                "Name": "ECDHE-ECDSA-AES128-SHA",
+                "Priority": 5
+              },
+              {
+                "Name": "ECDHE-RSA-AES128-SHA",
+                "Priority": 6
+              },
+              {
+                "Name": "DHE-RSA-AES128-SHA",
+                "Priority": 7
+              },
+              {
+                "Name": "ECDHE-ECDSA-AES256-GCM-SHA384",
+                "Priority": 8
+              },
+              {
+                "Name": "ECDHE-RSA-AES256-GCM-SHA384",
+                "Priority": 9
+              },
+              {
+                "Name": "ECDHE-ECDSA-AES256-SHA384",
+                "Priority": 10
+              },
+              {
+                "Name": "ECDHE-RSA-AES256-SHA384",
+                "Priority": 11
+              },
+              {
+                "Name": "ECDHE-RSA-AES256-SHA",
+                "Priority": 12
+              },
+              {
+                "Name": "ECDHE-ECDSA-AES256-SHA",
+                "Priority": 13
+              },
+              {
+                "Name": "AES128-GCM-SHA256",
+                "Priority": 14
+              },
+              {
+                "Name": "AES128-SHA256",
+                "Priority": 15
+              },
+              {
+                "Name": "AES128-SHA",
+                "Priority": 16
+              },
+              {
+                "Name": "AES256-GCM-SHA384",
+                "Priority": 17
+              },
+              {
+                "Name": "AES256-SHA256",
+                "Priority": 18
+              },
+              {
+                "Name": "AES256-SHA",
+                "Priority": 19
+              }
+            ],
+            "Name": "ELBSecurityPolicy-2015-05",
+            "SslProtocols": [
+              "TLSv1",
+              "TLSv1.1",
+              "TLSv1.2"
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "SslPolicies": {
+          "$ref": "#/definitions/SslPolicies",
+          "description": "Information about the policies."
+        }
+      },
+      "type": "object",
+      "title": "DescribeSSLPoliciesOutput"
+    },
+    "DescribeTagsInput": {
+      "example": {
+        "ResourceArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+        ]
+      },
+      "properties": {
+        "ResourceArns": {
+          "$ref": "#/definitions/ResourceArns",
+          "description": "The Amazon Resource Names (ARN) of the resources."
+        }
+      },
+      "required": [
+        "ResourceArns"
+      ],
+      "type": "object",
+      "title": "DescribeTagsInput"
+    },
+    "DescribeTagsOutput": {
+      "example": {
+        "TagDescriptions": [
+          {
+            "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+            "Tags": [
+              {
+                "Key": "project",
+                "Value": "lima"
+              },
+              {
+                "Key": "department",
+                "Value": "digital-media"
+              }
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "TagDescriptions": {
+          "$ref": "#/definitions/TagDescriptions",
+          "description": "Information about the tags."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTagsOutput"
+    },
+    "DescribeTargetGroupAttributesInput": {
+      "example": {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+      },
+      "properties": {
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        }
+      },
+      "required": [
+        "TargetGroupArn"
+      ],
+      "type": "object",
+      "title": "DescribeTargetGroupAttributesInput"
+    },
+    "DescribeTargetGroupAttributesOutput": {
+      "example": {
+        "Attributes": [
+          {
+            "Key": "stickiness.enabled",
+            "Value": "false"
+          },
+          {
+            "Key": "deregistration_delay.timeout_seconds",
+            "Value": "300"
+          },
+          {
+            "Key": "stickiness.type",
+            "Value": "lb_cookie"
+          },
+          {
+            "Key": "stickiness.lb_cookie.duration_seconds",
+            "Value": "86400"
+          }
+        ]
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/TargetGroupAttributes",
+          "description": "Information about the target group attributes"
+        }
+      },
+      "type": "object",
+      "title": "DescribeTargetGroupAttributesOutput"
+    },
+    "DescribeTargetGroupsInput": {
+      "example": {
+        "TargetGroupArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+        ]
+      },
+      "properties": {
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results. (You received this marker from a previous call.)"
+        },
+        "Names": {
+          "$ref": "#/definitions/TargetGroupNames",
+          "description": "The names of the target groups."
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of results to return with this call."
+        },
+        "TargetGroupArns": {
+          "$ref": "#/definitions/TargetGroupArns",
+          "description": "The Amazon Resource Names (ARN) of the target groups."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTargetGroupsInput"
+    },
+    "DescribeTargetGroupsOutput": {
+      "example": {
+        "TargetGroups": [
+          {
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckPath": "/",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckProtocol": "HTTP",
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "LoadBalancerArns": [
+              "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+            ],
+            "Matcher": {
+              "HttpCode": "200"
+            },
+            "Port": 80,
+            "Protocol": "HTTP",
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+            "TargetGroupName": "my-targets",
+            "UnhealthyThresholdCount": 2,
+            "VpcId": "vpc-3ac0fb5f"
+          }
+        ]
+      },
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "TargetGroups": {
+          "$ref": "#/definitions/TargetGroups",
+          "description": "Information about the target groups."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTargetGroupsOutput"
+    },
+    "DescribeTargetHealthInput": {
+      "example": {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+        "Targets": [
+          {
+            "Id": "i-0f76fade",
+            "Port": 80
+          }
+        ]
+      },
+      "properties": {
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        },
+        "Targets": {
+          "$ref": "#/definitions/TargetDescriptions",
+          "description": "The targets."
+        }
+      },
+      "required": [
+        "TargetGroupArn"
+      ],
+      "type": "object",
+      "title": "DescribeTargetHealthInput"
+    },
+    "DescribeTargetHealthOutput": {
+      "example": {
+        "TargetHealthDescriptions": [
+          {
+            "HealthCheckPort": "80",
+            "Target": {
+              "Id": "i-0f76fade",
+              "Port": 80
+            },
+            "TargetHealth": {
+              "State": "healthy"
+            }
+          }
+        ]
+      },
+      "properties": {
+        "TargetHealthDescriptions": {
+          "$ref": "#/definitions/TargetHealthDescriptions",
+          "description": "Information about the health of the targets."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTargetHealthOutput"
+    },
+    "Description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "DuplicateListenerException": {
+      "description": "A listener with the specified port already exists.",
+      "properties": {},
+      "type": "object",
+      "title": "DuplicateListenerException"
+    },
+    "DuplicateLoadBalancerNameException": {
+      "description": "A load balancer with the specified name already exists.",
+      "properties": {},
+      "type": "object",
+      "title": "DuplicateLoadBalancerNameException"
+    },
+    "DuplicateTagKeysException": {
+      "description": "A tag key was specified more than once.",
+      "properties": {},
+      "type": "object",
+      "title": "DuplicateTagKeysException"
+    },
+    "DuplicateTargetGroupNameException": {
+      "description": "A target group with the specified name already exists.",
+      "properties": {},
+      "type": "object",
+      "title": "DuplicateTargetGroupNameException"
+    },
+    "HealthCheckIntervalSeconds": {
+      "maximum": 300,
+      "minimum": 5,
+      "type": "integer",
+      "title": "HealthCheckIntervalSeconds"
+    },
+    "HealthCheckPort": {
+      "type": "string",
+      "title": "HealthCheckPort"
+    },
+    "HealthCheckThresholdCount": {
+      "maximum": 10,
+      "minimum": 2,
+      "type": "integer",
+      "title": "HealthCheckThresholdCount"
+    },
+    "HealthCheckTimeoutSeconds": {
+      "maximum": 60,
+      "minimum": 2,
+      "type": "integer",
+      "title": "HealthCheckTimeoutSeconds"
+    },
+    "HealthUnavailableException": {
+      "description": "The health of the specified targets could not be retrieved due to an internal error.",
+      "properties": {},
+      "type": "object",
+      "title": "HealthUnavailableException"
+    },
+    "HttpCode": {
+      "type": "string",
+      "title": "HttpCode"
+    },
+    "IncompatibleProtocolsException": {
+      "description": "The specified configuration is not valid with this protocol.",
+      "properties": {},
+      "type": "object",
+      "title": "IncompatibleProtocolsException"
+    },
+    "InvalidConfigurationRequestException": {
+      "description": "The requested configuration is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidConfigurationRequestException"
+    },
+    "InvalidSchemeException": {
+      "description": "The requested scheme is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidSchemeException"
+    },
+    "InvalidSecurityGroupException": {
+      "description": "The specified security group does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidSecurityGroupException"
+    },
+    "InvalidSubnetException": {
+      "description": "The specified subnet is out of available addresses.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidSubnetException"
+    },
+    "InvalidTargetException": {
+      "description": "The specified target does not exist or is not in the same VPC as the target group.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidTargetException"
+    },
+    "IpAddressType": {
+      "enum": [
+        "ipv4",
+        "dualstack"
+      ],
+      "type": "string",
+      "title": "IpAddressType"
+    },
+    "IsDefault": {
+      "type": "boolean",
+      "title": "IsDefault"
+    },
+    "Limit": {
+      "description": "Information about an Elastic Load Balancing resource limit for your AWS account.",
+      "properties": {
+        "Max": {
+          "$ref": "#/definitions/Max",
+          "description": "The maximum value of the limit."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "<p>The name of the limit. The possible values are:</p> <ul> <li> <p>application-load-balancers</p> </li> <li> <p>listeners-per-application-load-balancer</p> </li> <li> <p>rules-per-application-load-balancer</p> </li> <li> <p>target-groups</p> </li> <li> <p>targets-per-application-load-balancer</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "Limit"
+    },
+    "Limits": {
+      "items": {
+        "$ref": "#/definitions/Limit"
+      },
+      "type": "array",
+      "title": "Limits"
+    },
+    "ListOfString": {
+      "items": {
+        "$ref": "#/definitions/StringValue"
+      },
+      "type": "array",
+      "title": "ListOfString"
+    },
+    "Listener": {
+      "description": "Information about a listener.",
+      "properties": {
+        "Certificates": {
+          "$ref": "#/definitions/CertificateList",
+          "description": "The SSL server certificate. You must provide a certificate if the protocol is HTTPS."
+        },
+        "DefaultActions": {
+          "$ref": "#/definitions/Actions",
+          "description": "The default actions for the listener."
+        },
+        "ListenerArn": {
+          "$ref": "#/definitions/ListenerArn",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "Port": {
+          "$ref": "#/definitions/Port",
+          "description": "The port on which the load balancer is listening."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol for connections from clients to the load balancer."
+        },
+        "SslPolicy": {
+          "$ref": "#/definitions/SslPolicyName",
+          "description": "The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy."
+        }
+      },
+      "type": "object",
+      "title": "Listener"
+    },
+    "ListenerArn": {
+      "type": "string",
+      "title": "ListenerArn"
+    },
+    "ListenerArns": {
+      "items": {
+        "$ref": "#/definitions/ListenerArn"
+      },
+      "type": "array",
+      "title": "ListenerArns"
+    },
+    "ListenerNotFoundException": {
+      "description": "The specified listener does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "ListenerNotFoundException"
+    },
+    "Listeners": {
+      "items": {
+        "$ref": "#/definitions/Listener"
+      },
+      "type": "array",
+      "title": "Listeners"
+    },
+    "LoadBalancer": {
+      "description": "Information about a load balancer.",
+      "properties": {
+        "AvailabilityZones": {
+          "$ref": "#/definitions/AvailabilityZones",
+          "description": "The Availability Zones for the load balancer."
+        },
+        "CanonicalHostedZoneId": {
+          "$ref": "#/definitions/CanonicalHostedZoneId",
+          "description": "The ID of the Amazon Route 53 hosted zone associated with the load balancer."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/CreatedTime",
+          "description": "The date and time the load balancer was created."
+        },
+        "DNSName": {
+          "$ref": "#/definitions/DNSName",
+          "description": "The public DNS name of the load balancer."
+        },
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses)."
+        },
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "LoadBalancerName": {
+          "$ref": "#/definitions/LoadBalancerName",
+          "description": "The name of the load balancer."
+        },
+        "Scheme": {
+          "$ref": "#/definitions/LoadBalancerSchemeEnum",
+          "description": "<p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet.</p> <p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.</p>"
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "The IDs of the security groups for the load balancer."
+        },
+        "State": {
+          "$ref": "#/definitions/LoadBalancerState",
+          "description": "The state of the load balancer."
+        },
+        "Type": {
+          "$ref": "#/definitions/LoadBalancerTypeEnum",
+          "description": "The type of load balancer."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The ID of the VPC for the load balancer."
+        }
+      },
+      "type": "object",
+      "title": "LoadBalancer"
+    },
+    "LoadBalancerArn": {
+      "type": "string",
+      "title": "LoadBalancerArn"
+    },
+    "LoadBalancerArns": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerArn"
+      },
+      "type": "array",
+      "title": "LoadBalancerArns"
+    },
+    "LoadBalancerAttribute": {
+      "description": "Information about a load balancer attribute.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/LoadBalancerAttributeKey",
+          "description": "<p>The name of the attribute.</p> <ul> <li> <p> <code>access_logs.s3.enabled</code> - Indicates whether access logs stored in Amazon S3 are enabled. The value is <code>true</code> or <code>false</code>.</p> </li> <li> <p> <code>access_logs.s3.bucket</code> - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.</p> </li> <li> <p> <code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.</p> </li> <li> <p> <code>deletion_protection.enabled</code> - Indicates whether deletion protection is enabled. The value is <code>true</code> or <code>false</code>.</p> </li> <li> <p> <code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.</p> </li> </ul>"
+        },
+        "Value": {
+          "$ref": "#/definitions/LoadBalancerAttributeValue",
+          "description": "The value of the attribute."
+        }
+      },
+      "type": "object",
+      "title": "LoadBalancerAttribute"
+    },
+    "LoadBalancerAttributeKey": {
+      "maxLength": 256,
+      "pattern": "^[a-zA-Z0-9._]+$",
+      "type": "string",
+      "title": "LoadBalancerAttributeKey"
+    },
+    "LoadBalancerAttributeValue": {
+      "maxLength": 1024,
+      "type": "string",
+      "title": "LoadBalancerAttributeValue"
+    },
+    "LoadBalancerAttributes": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerAttribute"
+      },
+      "maxItems": 20,
+      "type": "array",
+      "title": "LoadBalancerAttributes"
+    },
+    "LoadBalancerName": {
+      "type": "string",
+      "title": "LoadBalancerName"
+    },
+    "LoadBalancerNames": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancerName"
+      },
+      "type": "array",
+      "title": "LoadBalancerNames"
+    },
+    "LoadBalancerNotFoundException": {
+      "description": "The specified load balancer does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "LoadBalancerNotFoundException"
+    },
+    "LoadBalancerSchemeEnum": {
+      "enum": [
+        "internet-facing",
+        "internal"
+      ],
+      "type": "string",
+      "title": "LoadBalancerSchemeEnum"
+    },
+    "LoadBalancerState": {
+      "description": "Information about the state of the load balancer.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/LoadBalancerStateEnum",
+          "description": "The state code. The initial state of the load balancer is <code>provisioning</code>. After the load balancer is fully set up and ready to route traffic, its state is <code>active</code>. If the load balancer could not be set up, its state is <code>failed</code>."
+        },
+        "Reason": {
+          "$ref": "#/definitions/StateReason",
+          "description": "A description of the state."
+        }
+      },
+      "type": "object",
+      "title": "LoadBalancerState"
+    },
+    "LoadBalancerStateEnum": {
+      "enum": [
+        "active",
+        "provisioning",
+        "failed"
+      ],
+      "type": "string",
+      "title": "LoadBalancerStateEnum"
+    },
+    "LoadBalancerTypeEnum": {
+      "enum": [
+        "application"
+      ],
+      "type": "string",
+      "title": "LoadBalancerTypeEnum"
+    },
+    "LoadBalancers": {
+      "items": {
+        "$ref": "#/definitions/LoadBalancer"
+      },
+      "type": "array",
+      "title": "LoadBalancers"
+    },
+    "Marker": {
+      "type": "string",
+      "title": "Marker"
+    },
+    "Matcher": {
+      "description": "Information to use when checking for a successful response from a target.",
+      "properties": {
+        "HttpCode": {
+          "$ref": "#/definitions/HttpCode",
+          "description": "The HTTP codes. You can specify values between 200 and 499. The default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\")."
+        }
+      },
+      "required": [
+        "HttpCode"
+      ],
+      "type": "object",
+      "title": "Matcher"
+    },
+    "Max": {
+      "type": "string",
+      "title": "Max"
+    },
+    "ModifyListenerInput": {
+      "example": {
+        "Certificates": [
+          {
+            "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
+          }
+        ],
+        "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65"
+      },
+      "properties": {
+        "Certificates": {
+          "$ref": "#/definitions/CertificateList",
+          "description": "The SSL server certificate."
+        },
+        "DefaultActions": {
+          "$ref": "#/definitions/Actions",
+          "description": "The default actions."
+        },
+        "ListenerArn": {
+          "$ref": "#/definitions/ListenerArn",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "Port": {
+          "$ref": "#/definitions/Port",
+          "description": "The port for connections from clients to the load balancer."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol for connections from clients to the load balancer."
+        },
+        "SslPolicy": {
+          "$ref": "#/definitions/SslPolicyName",
+          "description": "The security policy that defines which protocols and ciphers are supported. For more information, see <a href=\"http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies\">Security Policies</a> in the <i>Application Load Balancers Guide</i>."
+        }
+      },
+      "required": [
+        "ListenerArn"
+      ],
+      "type": "object",
+      "title": "ModifyListenerInput"
+    },
+    "ModifyListenerOutput": {
+      "example": {
+        "Listeners": [
+          {
+            "Certificates": [
+              {
+                "CertificateArn": "arn:aws:iam::123456789012:server-certificate/my-new-server-cert"
+              }
+            ],
+            "DefaultActions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/0467ef3c8400ae65",
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+            "Port": 443,
+            "Protocol": "HTTPS",
+            "SslPolicy": "ELBSecurityPolicy-2015-05"
+          }
+        ]
+      },
+      "properties": {
+        "Listeners": {
+          "$ref": "#/definitions/Listeners",
+          "description": "Information about the modified listeners."
+        }
+      },
+      "type": "object",
+      "title": "ModifyListenerOutput"
+    },
+    "ModifyLoadBalancerAttributesInput": {
+      "example": {
+        "Attributes": [
+          {
+            "Key": "access_logs.s3.enabled",
+            "Value": "true"
+          },
+          {
+            "Key": "access_logs.s3.bucket",
+            "Value": "my-loadbalancer-logs"
+          },
+          {
+            "Key": "access_logs.s3.prefix",
+            "Value": "myapp"
+          }
+        ],
+        "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/LoadBalancerAttributes",
+          "description": "The load balancer attributes."
+        },
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        }
+      },
+      "required": [
+        "LoadBalancerArn",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "ModifyLoadBalancerAttributesInput"
+    },
+    "ModifyLoadBalancerAttributesOutput": {
+      "example": {
+        "Attributes": [
+          {
+            "Key": "access_logs.s3.enabled",
+            "Value": "true"
+          },
+          {
+            "Key": "access_logs.s3.bucket",
+            "Value": "my-load-balancer-logs"
+          },
+          {
+            "Key": "access_logs.s3.prefix",
+            "Value": "myapp"
+          },
+          {
+            "Key": "idle_timeout.timeout_seconds",
+            "Value": "60"
+          },
+          {
+            "Key": "deletion_protection.enabled",
+            "Value": "false"
+          }
+        ]
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/LoadBalancerAttributes",
+          "description": "Information about the load balancer attributes."
+        }
+      },
+      "type": "object",
+      "title": "ModifyLoadBalancerAttributesOutput"
+    },
+    "ModifyRuleInput": {
+      "example": {
+        "Conditions": [
+          {
+            "Field": "path-pattern",
+            "Values": [
+              "/images/*"
+            ]
+          }
+        ],
+        "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+      },
+      "properties": {
+        "Actions": {
+          "$ref": "#/definitions/Actions",
+          "description": "The actions."
+        },
+        "Conditions": {
+          "$ref": "#/definitions/RuleConditionList",
+          "description": "The conditions."
+        },
+        "RuleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        }
+      },
+      "required": [
+        "RuleArn"
+      ],
+      "type": "object",
+      "title": "ModifyRuleInput"
+    },
+    "ModifyRuleOutput": {
+      "example": {
+        "Rules": [
+          {
+            "Actions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "Conditions": [
+              {
+                "Field": "path-pattern",
+                "Values": [
+                  "/images/*"
+                ]
+              }
+            ],
+            "IsDefault": false,
+            "Priority": "10",
+            "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+          }
+        ]
+      },
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/Rules",
+          "description": "Information about the rule."
+        }
+      },
+      "type": "object",
+      "title": "ModifyRuleOutput"
+    },
+    "ModifyTargetGroupAttributesInput": {
+      "example": {
+        "Attributes": [
+          {
+            "Key": "deregistration_delay.timeout_seconds",
+            "Value": "600"
+          }
+        ],
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/TargetGroupAttributes",
+          "description": "The attributes."
+        },
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        }
+      },
+      "required": [
+        "TargetGroupArn",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "ModifyTargetGroupAttributesInput"
+    },
+    "ModifyTargetGroupAttributesOutput": {
+      "example": {
+        "Attributes": [
+          {
+            "Key": "stickiness.enabled",
+            "Value": "false"
+          },
+          {
+            "Key": "deregistration_delay.timeout_seconds",
+            "Value": "600"
+          },
+          {
+            "Key": "stickiness.type",
+            "Value": "lb_cookie"
+          },
+          {
+            "Key": "stickiness.lb_cookie.duration_seconds",
+            "Value": "86400"
+          }
+        ]
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/TargetGroupAttributes",
+          "description": "Information about the attributes."
+        }
+      },
+      "type": "object",
+      "title": "ModifyTargetGroupAttributesOutput"
+    },
+    "ModifyTargetGroupInput": {
+      "example": {
+        "HealthCheckPort": "443",
+        "HealthCheckProtocol": "HTTPS",
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-https-targets/2453ed029918f21f"
+      },
+      "properties": {
+        "HealthCheckIntervalSeconds": {
+          "$ref": "#/definitions/HealthCheckIntervalSeconds",
+          "description": "The approximate amount of time, in seconds, between health checks of an individual target."
+        },
+        "HealthCheckPath": {
+          "$ref": "#/definitions/Path",
+          "description": "The ping path that is the destination for the health check request."
+        },
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "The port to use to connect with the target."
+        },
+        "HealthCheckProtocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol to use to connect with the target."
+        },
+        "HealthCheckTimeoutSeconds": {
+          "$ref": "#/definitions/HealthCheckTimeoutSeconds",
+          "description": "The amount of time, in seconds, during which no response means a failed health check."
+        },
+        "HealthyThresholdCount": {
+          "$ref": "#/definitions/HealthCheckThresholdCount",
+          "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy."
+        },
+        "Matcher": {
+          "$ref": "#/definitions/Matcher",
+          "description": "The HTTP codes to use when checking for a successful response from a target."
+        },
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        },
+        "UnhealthyThresholdCount": {
+          "$ref": "#/definitions/HealthCheckThresholdCount",
+          "description": "The number of consecutive health check failures required before considering the target unhealthy."
+        }
+      },
+      "required": [
+        "TargetGroupArn"
+      ],
+      "type": "object",
+      "title": "ModifyTargetGroupInput"
+    },
+    "ModifyTargetGroupOutput": {
+      "example": {
+        "TargetGroups": [
+          {
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckPort": "443",
+            "HealthCheckProtocol": "HTTPS",
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "LoadBalancerArns": [
+              "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+            ],
+            "Matcher": {
+              "HttpCode": "200"
+            },
+            "Port": 443,
+            "Protocol": "HTTPS",
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-https-targets/2453ed029918f21f",
+            "TargetGroupName": "my-https-targets",
+            "UnhealthyThresholdCount": 2,
+            "VpcId": "vpc-3ac0fb5f"
+          }
+        ]
+      },
+      "properties": {
+        "TargetGroups": {
+          "$ref": "#/definitions/TargetGroups",
+          "description": "Information about the target group."
+        }
+      },
+      "type": "object",
+      "title": "ModifyTargetGroupOutput"
+    },
+    "Name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "OperationNotPermittedException": {
+      "description": "This operation is not allowed.",
+      "properties": {},
+      "type": "object",
+      "title": "OperationNotPermittedException"
+    },
+    "PageSize": {
+      "maximum": 400,
+      "minimum": 1,
+      "type": "integer",
+      "title": "PageSize"
+    },
+    "Path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "Path"
+    },
+    "Port": {
+      "maximum": 65535,
+      "minimum": 1,
+      "type": "integer",
+      "title": "Port"
+    },
+    "PriorityInUseException": {
+      "description": "The specified priority is in use.",
+      "properties": {},
+      "type": "object",
+      "title": "PriorityInUseException"
+    },
+    "ProtocolEnum": {
+      "enum": [
+        "HTTP",
+        "HTTPS"
+      ],
+      "type": "string",
+      "title": "ProtocolEnum"
+    },
+    "RegisterTargetsInput": {
+      "example": {
+        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/3bb63f11dfb0faf9",
+        "Targets": [
+          {
+            "Id": "i-80c8dd94",
+            "Port": 80
+          },
+          {
+            "Id": "i-80c8dd94",
+            "Port": 766
+          }
+        ]
+      },
+      "properties": {
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        },
+        "Targets": {
+          "$ref": "#/definitions/TargetDescriptions",
+          "description": "The targets. The default port for a target is the port for the target group. You can specify a port override. If a target is already registered, you can register it again using a different port."
+        }
+      },
+      "required": [
+        "TargetGroupArn",
+        "Targets"
+      ],
+      "type": "object",
+      "title": "RegisterTargetsInput"
+    },
+    "RegisterTargetsOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "RegisterTargetsOutput"
+    },
+    "RemoveTagsInput": {
+      "example": {
+        "ResourceArns": [
+          "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
+        ],
+        "TagKeys": [
+          "project",
+          "department"
+        ]
+      },
+      "properties": {
+        "ResourceArns": {
+          "$ref": "#/definitions/ResourceArns",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "The tag keys for the tags to remove."
+        }
+      },
+      "required": [
+        "ResourceArns",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "RemoveTagsInput"
+    },
+    "RemoveTagsOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "RemoveTagsOutput"
+    },
+    "ResourceArn": {
+      "type": "string",
+      "title": "ResourceArn"
+    },
+    "ResourceArns": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
+      },
+      "type": "array",
+      "title": "ResourceArns"
+    },
+    "ResourceInUseException": {
+      "description": "A specified resource is in use.",
+      "properties": {},
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "Rule": {
+      "description": "Information about a rule.",
+      "properties": {
+        "Actions": {
+          "$ref": "#/definitions/Actions",
+          "description": "The actions."
+        },
+        "Conditions": {
+          "$ref": "#/definitions/RuleConditionList",
+          "description": "The conditions."
+        },
+        "IsDefault": {
+          "$ref": "#/definitions/IsDefault",
+          "description": "Indicates whether this is the default rule."
+        },
+        "Priority": {
+          "$ref": "#/definitions/String",
+          "description": "The priority."
+        },
+        "RuleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        }
+      },
+      "type": "object",
+      "title": "Rule"
+    },
+    "RuleArn": {
+      "type": "string",
+      "title": "RuleArn"
+    },
+    "RuleArns": {
+      "items": {
+        "$ref": "#/definitions/RuleArn"
+      },
+      "type": "array",
+      "title": "RuleArns"
+    },
+    "RuleCondition": {
+      "description": "Information about a condition for a rule.",
+      "properties": {
+        "Field": {
+          "$ref": "#/definitions/ConditionFieldName",
+          "description": "The name of the field. The possible values are <code>host-header</code> and <code>path-pattern</code>."
+        },
+        "Values": {
+          "$ref": "#/definitions/ListOfString",
+          "description": "<p>The condition value.</p> <p>If the field name is <code>host-header</code>, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.</p> <ul> <li> <p>A-Z, a-z, 0-9</p> </li> <li> <p>- .</p> </li> <li> <p>* (matches 0 or more characters)</p> </li> <li> <p>? (matches exactly 1 character)</p> </li> </ul> <p>If the field name is <code>path-pattern</code>, you can specify a single path pattern (for example, /img/*). A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.</p> <ul> <li> <p>A-Z, a-z, 0-9</p> </li> <li> <p>_ - . $ / ~ \" ' @ : +</p> </li> <li> <p>&amp; (using &amp;amp;)</p> </li> <li> <p>* (matches 0 or more characters)</p> </li> <li> <p>? (matches exactly 1 character)</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "RuleCondition"
+    },
+    "RuleConditionList": {
+      "items": {
+        "$ref": "#/definitions/RuleCondition"
+      },
+      "type": "array",
+      "title": "RuleConditionList"
+    },
+    "RuleNotFoundException": {
+      "description": "The specified rule does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "RuleNotFoundException"
+    },
+    "RulePriority": {
+      "maximum": 99999,
+      "minimum": 1,
+      "type": "integer",
+      "title": "RulePriority"
+    },
+    "RulePriorityList": {
+      "items": {
+        "$ref": "#/definitions/RulePriorityPair"
+      },
+      "type": "array",
+      "title": "RulePriorityList"
+    },
+    "RulePriorityPair": {
+      "description": "Information about the priorities for the rules for a listener.",
+      "properties": {
+        "Priority": {
+          "$ref": "#/definitions/RulePriority",
+          "description": "The rule priority."
+        },
+        "RuleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The Amazon Resource Name (ARN) of the rule."
+        }
+      },
+      "type": "object",
+      "title": "RulePriorityPair"
+    },
+    "Rules": {
+      "items": {
+        "$ref": "#/definitions/Rule"
+      },
+      "type": "array",
+      "title": "Rules"
+    },
+    "SSLPolicyNotFoundException": {
+      "description": "The specified SSL policy does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "SSLPolicyNotFoundException"
+    },
+    "SecurityGroupId": {
+      "type": "string",
+      "title": "SecurityGroupId"
+    },
+    "SecurityGroups": {
+      "items": {
+        "$ref": "#/definitions/SecurityGroupId"
+      },
+      "type": "array",
+      "title": "SecurityGroups"
+    },
+    "SetIpAddressTypeInput": {
+      "properties": {
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>."
+        },
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        }
+      },
+      "required": [
+        "LoadBalancerArn",
+        "IpAddressType"
+      ],
+      "type": "object",
+      "title": "SetIpAddressTypeInput"
+    },
+    "SetIpAddressTypeOutput": {
+      "properties": {
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The IP address type."
+        }
+      },
+      "type": "object",
+      "title": "SetIpAddressTypeOutput"
+    },
+    "SetRulePrioritiesInput": {
+      "example": {
+        "RulePriorities": [
+          {
+            "Priority": 5,
+            "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+          }
+        ]
+      },
+      "properties": {
+        "RulePriorities": {
+          "$ref": "#/definitions/RulePriorityList",
+          "description": "The rule priorities."
+        }
+      },
+      "required": [
+        "RulePriorities"
+      ],
+      "type": "object",
+      "title": "SetRulePrioritiesInput"
+    },
+    "SetRulePrioritiesOutput": {
+      "example": {
+        "Rules": [
+          {
+            "Actions": [
+              {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                "Type": "forward"
+              }
+            ],
+            "Conditions": [
+              {
+                "Field": "path-pattern",
+                "Values": [
+                  "/img/*"
+                ]
+              }
+            ],
+            "IsDefault": false,
+            "Priority": "5",
+            "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+          }
+        ]
+      },
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/Rules",
+          "description": "Information about the rules."
+        }
+      },
+      "type": "object",
+      "title": "SetRulePrioritiesOutput"
+    },
+    "SetSecurityGroupsInput": {
+      "example": {
+        "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+        "SecurityGroups": [
+          "sg-5943793c"
+        ]
+      },
+      "properties": {
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "The IDs of the security groups."
+        }
+      },
+      "required": [
+        "LoadBalancerArn",
+        "SecurityGroups"
+      ],
+      "type": "object",
+      "title": "SetSecurityGroupsInput"
+    },
+    "SetSecurityGroupsOutput": {
+      "example": {
+        "SecurityGroupIds": [
+          "sg-5943793c"
+        ]
+      },
+      "properties": {
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "The IDs of the security groups associated with the load balancer."
+        }
+      },
+      "type": "object",
+      "title": "SetSecurityGroupsOutput"
+    },
+    "SetSubnetsInput": {
+      "example": {
+        "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+        "Subnets": [
+          "subnet-8360a9e7",
+          "subnet-b7d581c0"
+        ]
+      },
+      "properties": {
+        "LoadBalancerArn": {
+          "$ref": "#/definitions/LoadBalancerArn",
+          "description": "The Amazon Resource Name (ARN) of the load balancer."
+        },
+        "Subnets": {
+          "$ref": "#/definitions/Subnets",
+          "description": "The IDs of the subnets. You must specify at least two subnets. You can add only one subnet per Availability Zone."
+        }
+      },
+      "required": [
+        "LoadBalancerArn",
+        "Subnets"
+      ],
+      "type": "object",
+      "title": "SetSubnetsInput"
+    },
+    "SetSubnetsOutput": {
+      "example": {
+        "AvailabilityZones": [
+          {
+            "SubnetId": "subnet-8360a9e7",
+            "ZoneName": "us-west-2a"
+          },
+          {
+            "SubnetId": "subnet-b7d581c0",
+            "ZoneName": "us-west-2b"
+          }
+        ]
+      },
+      "properties": {
+        "AvailabilityZones": {
+          "$ref": "#/definitions/AvailabilityZones",
+          "description": "Information about the subnet and Availability Zone."
+        }
+      },
+      "type": "object",
+      "title": "SetSubnetsOutput"
+    },
+    "SslPolicies": {
+      "items": {
+        "$ref": "#/definitions/SslPolicy"
+      },
+      "type": "array",
+      "title": "SslPolicies"
+    },
+    "SslPolicy": {
+      "description": "Information about a policy used for SSL negotiation.",
+      "properties": {
+        "Ciphers": {
+          "$ref": "#/definitions/Ciphers",
+          "description": "The ciphers."
+        },
+        "Name": {
+          "$ref": "#/definitions/SslPolicyName",
+          "description": "The name of the policy."
+        },
+        "SslProtocols": {
+          "$ref": "#/definitions/SslProtocols",
+          "description": "The protocols."
+        }
+      },
+      "type": "object",
+      "title": "SslPolicy"
+    },
+    "SslPolicyName": {
+      "type": "string",
+      "title": "SslPolicyName"
+    },
+    "SslPolicyNames": {
+      "items": {
+        "$ref": "#/definitions/SslPolicyName"
+      },
+      "type": "array",
+      "title": "SslPolicyNames"
+    },
+    "SslProtocol": {
+      "type": "string",
+      "title": "SslProtocol"
+    },
+    "SslProtocols": {
+      "items": {
+        "$ref": "#/definitions/SslProtocol"
+      },
+      "type": "array",
+      "title": "SslProtocols"
+    },
+    "StateReason": {
+      "type": "string",
+      "title": "StateReason"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "StringValue": {
+      "type": "string",
+      "title": "StringValue"
+    },
+    "SubnetId": {
+      "type": "string",
+      "title": "SubnetId"
+    },
+    "SubnetNotFoundException": {
+      "description": "The specified subnet does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "SubnetNotFoundException"
+    },
+    "Subnets": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "type": "array",
+      "title": "Subnets"
+    },
+    "Tag": {
+      "description": "Information about a tag.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of the tag."
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagDescription": {
+      "description": "The tags associated with a resource.",
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "Information about the tags."
+        }
+      },
+      "type": "object",
+      "title": "TagDescription"
+    },
+    "TagDescriptions": {
+      "items": {
+        "$ref": "#/definitions/TagDescription"
+      },
+      "type": "array",
+      "title": "TagDescriptions"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeys"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagValue"
+    },
+    "TargetDescription": {
+      "description": "Information about a target.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/TargetId",
+          "description": "The ID of the target."
+        },
+        "Port": {
+          "$ref": "#/definitions/Port",
+          "description": "The port on which the target is listening."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object",
+      "title": "TargetDescription"
+    },
+    "TargetDescriptions": {
+      "items": {
+        "$ref": "#/definitions/TargetDescription"
+      },
+      "type": "array",
+      "title": "TargetDescriptions"
+    },
+    "TargetGroup": {
+      "description": "Information about a target group.",
+      "properties": {
+        "HealthCheckIntervalSeconds": {
+          "$ref": "#/definitions/HealthCheckIntervalSeconds",
+          "description": "The approximate amount of time, in seconds, between health checks of an individual target."
+        },
+        "HealthCheckPath": {
+          "$ref": "#/definitions/Path",
+          "description": "The destination for the health check request."
+        },
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "The port to use to connect with the target."
+        },
+        "HealthCheckProtocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol to use to connect with the target."
+        },
+        "HealthCheckTimeoutSeconds": {
+          "$ref": "#/definitions/HealthCheckTimeoutSeconds",
+          "description": "The amount of time, in seconds, during which no response means a failed health check."
+        },
+        "HealthyThresholdCount": {
+          "$ref": "#/definitions/HealthCheckThresholdCount",
+          "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy."
+        },
+        "LoadBalancerArns": {
+          "$ref": "#/definitions/LoadBalancerArns",
+          "description": "The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group."
+        },
+        "Matcher": {
+          "$ref": "#/definitions/Matcher",
+          "description": "The HTTP codes to use when checking for a successful response from a target."
+        },
+        "Port": {
+          "$ref": "#/definitions/Port",
+          "description": "The port on which the targets are listening."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/ProtocolEnum",
+          "description": "The protocol to use for routing traffic to the targets."
+        },
+        "TargetGroupArn": {
+          "$ref": "#/definitions/TargetGroupArn",
+          "description": "The Amazon Resource Name (ARN) of the target group."
+        },
+        "TargetGroupName": {
+          "$ref": "#/definitions/TargetGroupName",
+          "description": "The name of the target group."
+        },
+        "UnhealthyThresholdCount": {
+          "$ref": "#/definitions/HealthCheckThresholdCount",
+          "description": "The number of consecutive health check failures required before considering the target unhealthy."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The ID of the VPC for the targets."
+        }
+      },
+      "type": "object",
+      "title": "TargetGroup"
+    },
+    "TargetGroupArn": {
+      "type": "string",
+      "title": "TargetGroupArn"
+    },
+    "TargetGroupArns": {
+      "items": {
+        "$ref": "#/definitions/TargetGroupArn"
+      },
+      "type": "array",
+      "title": "TargetGroupArns"
+    },
+    "TargetGroupAssociationLimitException": {
+      "description": "You've reached the limit on the number of load balancers per target group.",
+      "properties": {},
+      "type": "object",
+      "title": "TargetGroupAssociationLimitException"
+    },
+    "TargetGroupAttribute": {
+      "description": "Information about a target group attribute.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TargetGroupAttributeKey",
+          "description": "<p>The name of the attribute.</p> <ul> <li> <p> <code>deregistration_delay.timeout_seconds</code> - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from <code>draining</code> to <code>unused</code>. The range is 0-3600 seconds. The default value is 300 seconds.</p> </li> <li> <p> <code>stickiness.enabled</code> - Indicates whether sticky sessions are enabled. The value is <code>true</code> or <code>false</code>.</p> </li> <li> <p> <code>stickiness.type</code> - The type of sticky sessions. The possible value is <code>lb_cookie</code>.</p> </li> <li> <p> <code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).</p> </li> </ul>"
+        },
+        "Value": {
+          "$ref": "#/definitions/TargetGroupAttributeValue",
+          "description": "The value of the attribute."
+        }
+      },
+      "type": "object",
+      "title": "TargetGroupAttribute"
+    },
+    "TargetGroupAttributeKey": {
+      "maxLength": 256,
+      "pattern": "^[a-zA-Z0-9._]+$",
+      "type": "string",
+      "title": "TargetGroupAttributeKey"
+    },
+    "TargetGroupAttributeValue": {
+      "type": "string",
+      "title": "TargetGroupAttributeValue"
+    },
+    "TargetGroupAttributes": {
+      "items": {
+        "$ref": "#/definitions/TargetGroupAttribute"
+      },
+      "type": "array",
+      "title": "TargetGroupAttributes"
+    },
+    "TargetGroupName": {
+      "type": "string",
+      "title": "TargetGroupName"
+    },
+    "TargetGroupNames": {
+      "items": {
+        "$ref": "#/definitions/TargetGroupName"
+      },
+      "type": "array",
+      "title": "TargetGroupNames"
+    },
+    "TargetGroupNotFoundException": {
+      "description": "The specified target group does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "TargetGroupNotFoundException"
+    },
+    "TargetGroups": {
+      "items": {
+        "$ref": "#/definitions/TargetGroup"
+      },
+      "type": "array",
+      "title": "TargetGroups"
+    },
+    "TargetHealth": {
+      "description": "Information about the current health of a target.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "A description of the target health that provides additional details. If the state is <code>healthy</code>, a description is not provided."
+        },
+        "Reason": {
+          "$ref": "#/definitions/TargetHealthReasonEnum",
+          "description": "<p>The reason code. If the target state is <code>healthy</code>, a reason code is not provided.</p> <p>If the target state is <code>initial</code>, the reason code can be one of the following values:</p> <ul> <li> <p> <code>Elb.RegistrationInProgress</code> - The target is in the process of being registered with the load balancer.</p> </li> <li> <p> <code>Elb.InitialHealthChecking</code> - The load balancer is still sending the target the minimum number of health checks required to determine its health status.</p> </li> </ul> <p>If the target state is <code>unhealthy</code>, the reason code can be one of the following values:</p> <ul> <li> <p> <code>Target.ResponseCodeMismatch</code> - The health checks did not return an expected HTTP code.</p> </li> <li> <p> <code>Target.Timeout</code> - The health check requests timed out.</p> </li> <li> <p> <code>Target.FailedHealthChecks</code> - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.</p> </li> <li> <p> <code>Elb.InternalError</code> - The health checks failed due to an internal error.</p> </li> </ul> <p>If the target state is <code>unused</code>, the reason code can be one of the following values:</p> <ul> <li> <p> <code>Target.NotRegistered</code> - The target is not registered with the target group.</p> </li> <li> <p> <code>Target.NotInUse</code> - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.</p> </li> <li> <p> <code>Target.InvalidState</code> - The target is in the stopped or terminated state.</p> </li> </ul> <p>If the target state is <code>draining</code>, the reason code can be the following value:</p> <ul> <li> <p> <code>Target.DeregistrationInProgress</code> - The target is in the process of being deregistered and the deregistration delay period has not expired.</p> </li> </ul>"
+        },
+        "State": {
+          "$ref": "#/definitions/TargetHealthStateEnum",
+          "description": "The state of the target."
+        }
+      },
+      "type": "object",
+      "title": "TargetHealth"
+    },
+    "TargetHealthDescription": {
+      "description": "Information about the health of a target.",
+      "properties": {
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "The port to use to connect with the target."
+        },
+        "Target": {
+          "$ref": "#/definitions/TargetDescription",
+          "description": "The description of the target."
+        },
+        "TargetHealth": {
+          "$ref": "#/definitions/TargetHealth",
+          "description": "The health information for the target."
+        }
+      },
+      "type": "object",
+      "title": "TargetHealthDescription"
+    },
+    "TargetHealthDescriptions": {
+      "items": {
+        "$ref": "#/definitions/TargetHealthDescription"
+      },
+      "type": "array",
+      "title": "TargetHealthDescriptions"
+    },
+    "TargetHealthReasonEnum": {
+      "enum": [
+        "Elb.RegistrationInProgress",
+        "Elb.InitialHealthChecking",
+        "Target.ResponseCodeMismatch",
+        "Target.Timeout",
+        "Target.FailedHealthChecks",
+        "Target.NotRegistered",
+        "Target.NotInUse",
+        "Target.DeregistrationInProgress",
+        "Target.InvalidState",
+        "Elb.InternalError"
+      ],
+      "type": "string",
+      "title": "TargetHealthReasonEnum"
+    },
+    "TargetHealthStateEnum": {
+      "enum": [
+        "initial",
+        "healthy",
+        "unhealthy",
+        "unused",
+        "draining"
+      ],
+      "type": "string",
+      "title": "TargetHealthStateEnum"
+    },
+    "TargetId": {
+      "type": "string",
+      "title": "TargetId"
+    },
+    "TooManyCertificatesException": {
+      "description": "You've reached the limit on the number of certificates per listener.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyCertificatesException"
+    },
+    "TooManyListenersException": {
+      "description": "You've reached the limit on the number of listeners per load balancer.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyListenersException"
+    },
+    "TooManyLoadBalancersException": {
+      "description": "You've reached the limit on the number of load balancers for your AWS account.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyLoadBalancersException"
+    },
+    "TooManyRegistrationsForTargetIdException": {
+      "description": "You've reached the limit on the number of times a target can be registered with a load balancer.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyRegistrationsForTargetIdException"
+    },
+    "TooManyRulesException": {
+      "description": "You've reached the limit on the number of rules per load balancer.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyRulesException"
+    },
+    "TooManyTagsException": {
+      "description": "You've reached the limit on the number of tags per load balancer.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyTagsException"
+    },
+    "TooManyTargetGroupsException": {
+      "description": "You've reached the limit on the number of target groups for your AWS account.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyTargetGroupsException"
+    },
+    "TooManyTargetsException": {
+      "description": "You've reached the limit on the number of targets.",
+      "properties": {},
+      "type": "object",
+      "title": "TooManyTargetsException"
+    },
+    "UnsupportedProtocolException": {
+      "description": "The specified protocol is not supported.",
+      "properties": {},
+      "type": "object",
+      "title": "UnsupportedProtocolException"
+    },
+    "VpcId": {
+      "type": "string",
+      "title": "VpcId"
+    },
+    "ZoneName": {
+      "type": "string",
+      "title": "ZoneName"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddTagsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTagsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "CreateListener",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateListenerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateListenerOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "CreateLoadBalancer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateLoadBalancerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateLoadBalancerOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "CreateRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateRuleInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateRuleOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "CreateTargetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTargetGroupInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateTargetGroupOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DeleteListener",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteListenerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteListenerOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DeleteLoadBalancer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteLoadBalancerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteLoadBalancerOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DeleteRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteRuleInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteRuleOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DeleteTargetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTargetGroupInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteTargetGroupOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DeregisterTargets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeregisterTargetsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeregisterTargetsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeAccountLimits",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeAccountLimitsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAccountLimitsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeListeners",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeListenersInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeListenersOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeLoadBalancerAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLoadBalancerAttributesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeLoadBalancerAttributesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeLoadBalancers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLoadBalancersInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeLoadBalancersOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeRules",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeRulesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeRulesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeSSLPolicies",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeSSLPoliciesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSSLPoliciesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTagsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTagsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeTargetGroupAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTargetGroupAttributesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTargetGroupAttributesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeTargetGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTargetGroupsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTargetGroupsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "DescribeTargetHealth",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTargetHealthInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTargetHealthOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "ModifyListener",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyListenerInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyListenerOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "ModifyLoadBalancerAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyLoadBalancerAttributesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyLoadBalancerAttributesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "ModifyRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyRuleInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyRuleOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "ModifyTargetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyTargetGroupInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyTargetGroupOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "ModifyTargetGroupAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ModifyTargetGroupAttributesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ModifyTargetGroupAttributesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "RegisterTargets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RegisterTargetsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RegisterTargetsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "RemoveTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveTagsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveTagsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "SetIpAddressType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetIpAddressTypeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetIpAddressTypeOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "SetRulePriorities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetRulePrioritiesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetRulePrioritiesOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "SetSecurityGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetSecurityGroupsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetSecurityGroupsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    },
+    {
+      "id": "SetSubnets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetSubnetsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetSubnetsOutput"
+      },
+      "security": {
+        "amazonaws_elasticloadbalancing": {
+          "integration": "amazonaws_elasticloadbalancing"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

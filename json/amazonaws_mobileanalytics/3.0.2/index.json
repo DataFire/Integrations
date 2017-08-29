@@ -1,0 +1,204 @@
+{
+  "id": "amazonaws_mobileanalytics",
+  "title": "Amazon Mobile Analytics",
+  "description": "Amazon Mobile Analytics is a service for collecting, visualizing, and understanding app usage data at scale.",
+  "security": {
+    "amazonaws_mobileanalytics": {
+      "integration": "amazonaws_mobileanalytics",
+      "accessKeyId": "",
+      "secretAccessKey": "",
+      "region": "AWS region (if applicable)"
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobileanalytics.svg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "BadRequestException": {
+      "description": "An exception object returned when a request fails.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "A text description associated with the BadRequestException object."
+        }
+      },
+      "type": "object",
+      "title": "BadRequestException"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number",
+      "title": "Double"
+    },
+    "Event": {
+      "description": "A JSON object representing a batch of unique event occurrences in your app.",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/MapOfStringToString",
+          "description": "<p>A collection of key-value pairs that give additional context to the event. The key-value pairs are specified by the developer.</p> <p>This collection can be empty or the attribute object can be omitted.</p>"
+        },
+        "eventType": {
+          "$ref": "#/definitions/String50Chars",
+          "description": "A name signifying an event that occurred in your app. This is used for grouping and aggregating like events together for reporting purposes."
+        },
+        "metrics": {
+          "$ref": "#/definitions/MapOfStringToNumber",
+          "description": "<p>A collection of key-value pairs that gives additional, measurable context to the event. The key-value pairs are specified by the developer.</p> <p>This collection can be empty or the attribute object can be omitted.</p>"
+        },
+        "session": {
+          "$ref": "#/definitions/Session",
+          "description": "The session the event occured within. "
+        },
+        "timestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event occurred in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        },
+        "version": {
+          "$ref": "#/definitions/String10Chars",
+          "description": "The version of the event."
+        }
+      },
+      "required": [
+        "eventType",
+        "timestamp"
+      ],
+      "type": "object",
+      "title": "Event"
+    },
+    "EventListDefinition": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array",
+      "title": "EventListDefinition"
+    },
+    "ISO8601Timestamp": {
+      "type": "string",
+      "title": "ISO8601Timestamp"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "MapOfStringToNumber": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String50Chars"
+          },
+          "value": {
+            "$ref": "#/definitions/Double"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array",
+      "title": "MapOfStringToNumber"
+    },
+    "MapOfStringToString": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String50Chars"
+          },
+          "value": {
+            "$ref": "#/definitions/String0to1000Chars"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array",
+      "title": "MapOfStringToString"
+    },
+    "PutEventsInput": {
+      "description": "A container for the data needed for a PutEvent operation",
+      "properties": {
+        "events": {
+          "$ref": "#/definitions/EventListDefinition",
+          "description": "An array of Event JSON objects"
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "type": "object",
+      "title": "PutEventsInput"
+    },
+    "Session": {
+      "description": "Describes the session. Session information is required on ALL events.",
+      "properties": {
+        "duration": {
+          "$ref": "#/definitions/Long",
+          "description": "The duration of the session."
+        },
+        "id": {
+          "$ref": "#/definitions/String50Chars",
+          "description": "A unique identifier for the session"
+        },
+        "startTimestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event started in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        },
+        "stopTimestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event terminated in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        }
+      },
+      "type": "object",
+      "title": "Session"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "String0to1000Chars": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string",
+      "title": "String0to1000Chars"
+    },
+    "String10Chars": {
+      "maxLength": 10,
+      "minLength": 1,
+      "type": "string",
+      "title": "String10Chars"
+    },
+    "String50Chars": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string",
+      "title": "String50Chars"
+    }
+  },
+  "actions": [
+    {
+      "id": "PutEvents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutEventsInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_mobileanalytics": {
+          "integration": "amazonaws_mobileanalytics"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}
