@@ -36,8 +36,7 @@
     }
   },
   "logo": {
-    "backgroundColor": "#FFFFFF",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.jpeg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.png"
   },
   "actionCount": 60,
   "definitions": {

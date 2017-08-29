@@ -1,6 +1,6 @@
 {
   "id": "lufthansa_public",
-  "title": "LH Public",
+  "title": "Lufthansa Public",
   "security": {
     "lufthansa_public": {
       "integration": "lufthansa_public",

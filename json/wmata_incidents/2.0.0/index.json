@@ -1,6 +1,6 @@
 {
   "id": "wmata_incidents",
-  "title": "Incidents",
+  "title": "WMATA Incidents",
   "description": "Rail, bus, and elevator disruptions/outages.",
   "security": {
     "wmata_incidents": {

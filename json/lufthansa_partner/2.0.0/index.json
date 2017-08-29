@@ -1,6 +1,6 @@
 {
   "id": "lufthansa_partner",
-  "title": "LH Partner",
+  "title": "Lufthansa Partner",
   "security": {
     "lufthansa_partner": {
       "integration": "lufthansa_partner",

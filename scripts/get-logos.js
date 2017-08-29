@@ -28,9 +28,10 @@ async.series(Object.keys(logos).map(name => {
       if (err) throw err;
       if (resp.statusCode >= 300) throw new Error("Error fetching logo for " + name + ": " + resp.statusCode);
     })
-        .pipe(fs.createWriteStream(OUTDIR + '/' + name + '.' + extname))
-        .on('close', acb);
+    .pipe(fs.createWriteStream(OUTDIR + '/' + name + '.' + extname))
+    .on('close', acb);
   }
 }), function(err) {
   if (err) throw err;
+  process.exit(0);
 })

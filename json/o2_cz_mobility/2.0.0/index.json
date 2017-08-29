@@ -1,10 +1,9 @@
 {
   "id": "o2_cz_mobility",
-  "title": "Mobility",
+  "title": "O2 Mobility",
   "description": "Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points within the Czech republic. Having A - 'from' and B - 'to' points, the API can return count of people traveling from A to B or people that are from A and traveling to B, etc. The mobility data is based on moving mobile stations in O2 mobile network.",
   "security": {},
   "logo": {
-    "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_mobility.png"
   },
   "actionCount": 2,

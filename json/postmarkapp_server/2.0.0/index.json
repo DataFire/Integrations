@@ -1,6 +1,6 @@
 {
   "id": "postmarkapp_server",
-  "title": "Postmark",
+  "title": "Postmark Server",
   "description": "Postmark makes sending and receiving email\nincredibly easy.\n",
   "security": {},
   "logo": {

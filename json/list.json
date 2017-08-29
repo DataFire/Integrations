@@ -4663,8 +4663,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.png"
     },
     "actionCount": 60,
     "tags": [
@@ -5146,7 +5145,7 @@
     "description": "The DocuSign REST API provides you with a powerful, convenient, and simple Web services API for interacting with DocuSig...",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.png"
     },
     "actionCount": 303,
     "tags": [
@@ -10483,7 +10482,7 @@
   },
   "lufthansa_partner": {
     "id": "lufthansa_partner",
-    "title": "LH Partner",
+    "title": "Lufthansa Partner",
     "security": {
       "lufthansa_partner": {
         "integration": "lufthansa_partner",
@@ -10516,7 +10515,7 @@
   },
   "lufthansa_public": {
     "id": "lufthansa_public",
-    "title": "LH Public",
+    "title": "Lufthansa Public",
     "security": {
       "lufthansa_public": {
         "integration": "lufthansa_public",
@@ -11223,11 +11222,10 @@
   },
   "o2_cz_mobility": {
     "id": "o2_cz_mobility",
-    "title": "Mobility",
+    "title": "O2 Mobility",
     "description": "Transit API can be used to obtain time-aggregated data representing moving the people between various spatial points wit...",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_mobility.png"
     },
     "actionCount": 2,
@@ -11238,11 +11236,10 @@
   },
   "o2_cz_sociodemo": {
     "id": "o2_cz_sociodemo",
-    "title": "Socio-demo",
+    "title": "O2 Socio-demo",
     "description": "Socio-demo API can be used to obtain time-aggregated data representing groups of people on the given location in the Cze...",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/o2_cz_sociodemo.png"
     },
     "actionCount": 3,
@@ -11520,7 +11517,7 @@
   },
   "postmarkapp_server": {
     "id": "postmarkapp_server",
-    "title": "Postmark",
+    "title": "Postmark Server",
     "description": "Postmark makes sending and receiving email",
     "security": {},
     "logo": {
@@ -11577,7 +11574,7 @@
   },
   "ptv_vic_gov_au": {
     "id": "ptv_vic_gov_au",
-    "title": "PTV Timetable API - Version 3",
+    "title": "PTV Timetable API",
     "description": "The PTV Timetable API provides direct access to Public Transport Victoria’s public transport timetable data.\r",
     "security": {},
     "logo": {
@@ -12636,7 +12633,7 @@
   },
   "tvmaze": {
     "id": "tvmaze",
-    "title": "TVmaze user",
+    "title": "TVmaze",
     "description": "Access to the user API is only possible for users with a [premium](http://www.tvmaze.com/premium) account. A user can on...",
     "security": {
       "tvmaze": {
@@ -12996,7 +12993,7 @@
   },
   "wmata_incidents": {
     "id": "wmata_incidents",
-    "title": "Incidents",
+    "title": "WMATA Incidents",
     "description": "Rail, bus, and elevator disruptions/outages.",
     "security": {
       "wmata_incidents": {

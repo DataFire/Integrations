@@ -4,7 +4,7 @@
   "description": "The DocuSign REST API provides you with a powerful, convenient, and simple Web services API for interacting with DocuSign.",
   "security": {},
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.png"
   },
   "actionCount": 303,
   "definitions": {
