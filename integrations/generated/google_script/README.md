@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_script.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### scripts.run
 Runs a function in an Apps Script project. The project must be deployed

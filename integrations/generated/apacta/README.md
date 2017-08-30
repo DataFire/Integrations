@@ -283,6 +283,8 @@ Checkout active clocking record for authenticated user
 apacta.clocking_records.checkout.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### clocking_records.clocking_record_id.delete
 Delete a clocking record
@@ -331,6 +333,8 @@ Get list of contact types supported in Apacta
 apacta.contact_types.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contact_types.contact_type_id.get
 Get details about one contact type
@@ -419,6 +423,8 @@ Get list of currencies supported in Apacta
 apacta.currencies.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### currencies.currency_id.get
 Get details about one currency
@@ -1082,6 +1088,8 @@ Check if API is up and API key works
 apacta.ping.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### products.get
 List products
@@ -1154,6 +1162,8 @@ Get list of project statuses
 apacta.project_statuses.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### project_statuses.project_status_id.get
 Get details about one contact type
@@ -1558,6 +1568,8 @@ List possible time entry intervals
 apacta.time_entry_intervals.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### time_entry_intervals.time_entry_interval_id.get
 View time entry interval
@@ -1580,6 +1592,8 @@ List time entries types
 apacta.time_entry_types.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### time_entry_types.post
 Add new time entry type
@@ -1639,6 +1653,8 @@ List possible time entry unit types
 apacta.time_entry_unit_types.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### time_entry_unit_types.time_entry_unit_type_id.get
 View time entry unit type
@@ -1661,6 +1677,8 @@ List possible time entry value types
 apacta.time_entry_value_types.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### time_entry_value_types.time_entry_value_type_id.get
 View time entry value type

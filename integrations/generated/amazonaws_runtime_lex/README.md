@@ -28,7 +28,8 @@ Amazon Lex provides both build and runtime endpoints. Each endpoint provides a s
 amazonaws_runtime_lex.PostContent({
   "botName": "",
   "botAlias": "",
-  "userId": ""
+  "userId": "",
+  "inputStream": ""
 }, context)
 ```
 
@@ -36,6 +37,7 @@ amazonaws_runtime_lex.PostContent({
 * botName (string) **required**
 * botAlias (string) **required**
 * userId (string) **required**
+* inputStream (string) **required**
 
 ### PostText
 
@@ -45,7 +47,8 @@ amazonaws_runtime_lex.PostContent({
 amazonaws_runtime_lex.PostText({
   "botName": "",
   "botAlias": "",
-  "userId": ""
+  "userId": "",
+  "inputText": ""
 }, context)
 ```
 
@@ -53,4 +56,6 @@ amazonaws_runtime_lex.PostText({
 * botName (string) **required**
 * botAlias (string) **required**
 * userId (string) **required**
+* inputText (string) **required**
+* sessionAttributes (array)
 

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_urlshortener.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### url.get
 Expands a short URL or gets creation time and analytics.

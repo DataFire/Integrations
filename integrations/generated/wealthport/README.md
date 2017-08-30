@@ -31,6 +31,8 @@ Retrieves all Folders in the Data Inventory.
 wealthport.retrieveFolders(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createFolder
 Creates the specified Folder in the Data Inventory.
@@ -143,6 +145,8 @@ Retrieves all previously submitted Orders.
 wealthport.retrieveOrders(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createOrder
 Creates a new Order to be submitted.<p>Orders reference one or more Sources, e.g. uploaded files, as well as one or more Folders (which again can contain Sources).The Recipe describes what to do with the referenced sources and where to publish the processing result to.</p>
@@ -216,6 +220,8 @@ Retrieves all available Recipes.
 wealthport.retrieveRecipes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### retrieveRecipe
 Retrieves the specified Recipe.
@@ -265,6 +271,8 @@ Retrieves all Sources stored in the Data Inventory.
 wealthport.retrieveSources(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createSource
 Creates the specified Source.<p>Sources are either uploaded files or a reference to a database. They are referenced in orders to specify which data needs processing.</p><p>Most clients should probably use the Upload File API which implicitly creates a new source on successful file upload.</p>

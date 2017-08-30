@@ -28,6 +28,8 @@ amazonaws_cognito_sync.ListIdentityPoolUsage({}).then(data => {
 amazonaws_cognito_sync.ListIdentityPoolUsage({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DescribeIdentityPoolUsage
 
@@ -67,6 +69,8 @@ amazonaws_cognito_sync.SetIdentityPoolConfiguration({
 
 #### Parameters
 * IdentityPoolId (string) **required**
+* CognitoStreams (object) - Configuration options for configure Cognito streams.
+* PushSync (object) - Configuration options to be applied to the identity pool.
 
 ### SetCognitoEvents
 
@@ -74,12 +78,14 @@ amazonaws_cognito_sync.SetIdentityPoolConfiguration({
 
 ```js
 amazonaws_cognito_sync.SetCognitoEvents({
-  "IdentityPoolId": ""
+  "IdentityPoolId": "",
+  "Events": []
 }, context)
 ```
 
 #### Parameters
 * IdentityPoolId (string) **required**
+* Events (array) **required**
 
 ### GetBulkPublishDetails
 
@@ -132,7 +138,8 @@ amazonaws_cognito_sync.ListDatasets({
 amazonaws_cognito_sync.UpdateRecords({
   "IdentityPoolId": "",
   "IdentityId": "",
-  "DatasetName": ""
+  "DatasetName": "",
+  "SyncSessionToken": ""
 }, context)
 ```
 
@@ -140,6 +147,9 @@ amazonaws_cognito_sync.UpdateRecords({
 * IdentityPoolId (string) **required**
 * IdentityId (string) **required**
 * DatasetName (string) **required**
+* DeviceId (string)
+* RecordPatches (array)
+* SyncSessionToken (string) **required**
 
 ### ListRecords
 
@@ -184,11 +194,15 @@ amazonaws_cognito_sync.UnsubscribeFromDataset({
 ```js
 amazonaws_cognito_sync.RegisterDevice({
   "IdentityPoolId": "",
-  "IdentityId": ""
+  "IdentityId": "",
+  "Platform": "",
+  "Token": ""
 }, context)
 ```
 
 #### Parameters
 * IdentityPoolId (string) **required**
 * IdentityId (string) **required**
+* Platform (string) **required**
+* Token (string) **required**
 

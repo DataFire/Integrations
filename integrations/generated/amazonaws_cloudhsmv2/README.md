@@ -9,9 +9,7 @@ npm install --save datafire @datafire/amazonaws_cloudhsmv2
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudhsmv2 = require('@datafire/amazonaws_cloudhsmv2').create({
-  hmac: "",
-});
+let amazonaws_cloudhsmv2 = require('@datafire/amazonaws_cloudhsmv2').create();
 
 amazonaws_cloudhsmv2.CreateCluster({}).then(data => {
   console.log(data);
@@ -23,270 +21,157 @@ For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/clou
 
 ## Actions
 ### CreateCluster
-Creates a new AWS CloudHSM cluster.
+
 
 
 ```js
 amazonaws_cloudhsmv2.CreateCluster({
-  "body": {
-    "SubnetIds": [],
-    "HsmType": ""
-  },
-  "Action": "",
-  "Version": ""
+  "SubnetIds": [],
+  "HsmType": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* HsmType (string) **required**
+* SourceBackupId (string)
+* SubnetIds (array) **required**
 
 ### CreateHsm
-Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.
+
 
 
 ```js
 amazonaws_cloudhsmv2.CreateHsm({
-  "body": {
-    "ClusterId": "",
-    "AvailabilityZone": ""
-  },
-  "Action": "",
-  "Version": ""
+  "ClusterId": "",
+  "AvailabilityZone": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* AvailabilityZone (string) **required**
+* ClusterId (string) **required**
+* IpAddress (string)
 
 ### DeleteCluster
-Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.
+
 
 
 ```js
 amazonaws_cloudhsmv2.DeleteCluster({
-  "body": {
-    "ClusterId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "ClusterId": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* ClusterId (string) **required**
 
 ### DeleteHsm
-Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use <a>DescribeClusters</a>.
+
 
 
 ```js
 amazonaws_cloudhsmv2.DeleteHsm({
-  "body": {
-    "ClusterId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "ClusterId": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* ClusterId (string) **required**
+* EniId (string)
+* EniIp (string)
+* HsmId (string)
 
 ### DescribeBackups
-<p>Gets information about backups of AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p>
+
 
 
 ```js
-amazonaws_cloudhsmv2.DescribeBackups({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_cloudhsmv2.DescribeBackups({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* Filters (array)
+* MaxResults (integer)
+* NextToken (string)
 
 ### DescribeClusters
-<p>Gets information about AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the clusters. When the response contains only a subset of clusters, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more clusters to get.</p>
+
 
 
 ```js
-amazonaws_cloudhsmv2.DescribeClusters({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_cloudhsmv2.DescribeClusters({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* Filters (array)
+* MaxResults (integer)
+* NextToken (string)
 
 ### InitializeCluster
-Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your issuing certificate authority (CA) and the CA's root certificate. Before you can claim a cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA. To get the cluster's CSR, use <a>DescribeClusters</a>.
+
 
 
 ```js
 amazonaws_cloudhsmv2.InitializeCluster({
-  "body": {
-    "ClusterId": "",
-    "SignedCert": "",
-    "TrustAnchor": ""
-  },
-  "Action": "",
-  "Version": ""
+  "ClusterId": "",
+  "SignedCert": "",
+  "TrustAnchor": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* ClusterId (string) **required**
+* SignedCert (string) **required**
+* TrustAnchor (string) **required**
 
 ### ListTags
-<p>Gets a list of tags for the specified AWS CloudHSM cluster.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more tags to get.</p>
+
 
 
 ```js
 amazonaws_cloudhsmv2.ListTags({
-  "body": {
-    "ResourceId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "ResourceId": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* ResourceId (string) **required**
 
 ### TagResource
-Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.
+
 
 
 ```js
 amazonaws_cloudhsmv2.TagResource({
-  "body": {
-    "ResourceId": "",
-    "TagList": []
-  },
-  "Action": "",
-  "Version": ""
+  "ResourceId": "",
+  "TagList": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* ResourceId (string) **required**
+* TagList (array) **required**
 
 ### UntagResource
-Removes the specified tag or tags from the specified AWS CloudHSM cluster.
+
 
 
 ```js
 amazonaws_cloudhsmv2.UntagResource({
-  "body": {
-    "ResourceId": "",
-    "TagKeyList": []
-  },
-  "Action": "",
-  "Version": ""
+  "ResourceId": "",
+  "TagKeyList": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* ResourceId (string) **required**
+* TagKeyList (array) **required**
 

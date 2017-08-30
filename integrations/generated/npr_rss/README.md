@@ -28,4 +28,6 @@ Assorted stories from NPR
 npr_rss.news(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

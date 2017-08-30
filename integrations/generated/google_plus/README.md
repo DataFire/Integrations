@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_plus.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### activities.search
 Search public activities.

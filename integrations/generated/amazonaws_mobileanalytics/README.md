@@ -25,7 +25,11 @@ Amazon Mobile Analytics is a service for collecting, visualizing, and understand
 
 
 ```js
-amazonaws_mobileanalytics.PutEvents({}, context)
+amazonaws_mobileanalytics.PutEvents({
+  "events": []
+}, context)
 ```
 
+#### Parameters
+* events (array) **required**
 

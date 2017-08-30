@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 linkedin.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### companies.id.updates.key_update_key.update_comments_as_company.post
 

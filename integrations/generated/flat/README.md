@@ -66,6 +66,8 @@ Exchange a refresh_token for an access_token
 flat.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getGroupScores
 Get the list of scores shared with a group.
@@ -91,6 +93,8 @@ Get details about the current authenticated User.
 flat.getAuthenticatedUser(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createScore
 Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`) or a MIDI (`audio/midi`) file to create the new Flat document.

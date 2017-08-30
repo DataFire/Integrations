@@ -65,6 +65,8 @@ List your collaborator invitations.
 uebermaps.collaborator_invitations.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### collaborator_invitations.post
 Invite user to collaborate on map.
@@ -204,6 +206,8 @@ List your own maps.
 uebermaps.maps.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### maps.post
 Create map. Wrap map parameters in [map]. To add a map header picture pass a base64 encoded string to [map][picture].
@@ -475,6 +479,8 @@ List maps that user can respot to.
 uebermaps.respot_maps.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### respots.id.delete
 Delete respot.
@@ -676,6 +682,8 @@ List latest maps.
 uebermaps.trends.latest.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### trends.recommended.get
 List recommended maps.
@@ -685,6 +693,8 @@ List recommended maps.
 uebermaps.trends.recommended.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### users.search.get
 Search users

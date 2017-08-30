@@ -25,16 +25,44 @@ Provides AWS Marketplace business intelligence data on-demand.
 
 
 ```js
-amazonaws_marketplacecommerceanalytics.GenerateDataSet({}, context)
+amazonaws_marketplacecommerceanalytics.GenerateDataSet({
+  "dataSetType": "",
+  "dataSetPublicationDate": "",
+  "roleNameArn": "",
+  "destinationS3BucketName": "",
+  "snsTopicArn": ""
+}, context)
 ```
 
+#### Parameters
+* customerDefinedValues (array)
+* dataSetPublicationDate (string) **required**
+* dataSetType (string) **required**
+* destinationS3BucketName (string) **required**
+* destinationS3Prefix (string)
+* roleNameArn (string) **required**
+* snsTopicArn (string) **required**
 
 ### StartSupportDataExport
 
 
 
 ```js
-amazonaws_marketplacecommerceanalytics.StartSupportDataExport({}, context)
+amazonaws_marketplacecommerceanalytics.StartSupportDataExport({
+  "dataSetType": "",
+  "fromDate": "",
+  "roleNameArn": "",
+  "destinationS3BucketName": "",
+  "snsTopicArn": ""
+}, context)
 ```
 
+#### Parameters
+* customerDefinedValues (array)
+* dataSetType (string) **required**
+* destinationS3BucketName (string) **required**
+* destinationS3Prefix (string)
+* fromDate (string) **required**
+* roleNameArn (string) **required**
+* snsTopicArn (string) **required**
 

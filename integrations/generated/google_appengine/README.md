@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_appengine.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### apps.locations.list
 Lists information about the supported locations for this service.

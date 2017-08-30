@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 lufthansa_public.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Lounges
 Lounge information

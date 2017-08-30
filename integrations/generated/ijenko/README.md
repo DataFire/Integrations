@@ -53,6 +53,8 @@ List the *Places* of the account.
 ijenko.Account.places(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Account.newPlace
 Create a new *Place*.
@@ -79,6 +81,8 @@ List the active *Tokens* on the account.
 ijenko.Account.tokens(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Account.revokeToken
 Revoke the given *Token*.
@@ -288,6 +292,8 @@ This request is typically called to implement logout.
 ijenko.AuthRevokeToken(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Devices.get
 Get information about a *Device*.
@@ -605,6 +611,8 @@ the *Account*.
 ijenko.Me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Me.patch
 Update *User* information (locale).

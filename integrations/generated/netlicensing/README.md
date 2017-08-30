@@ -32,6 +32,8 @@ Return a list of all licenses for the current vendor
 netlicensing.listLicenses(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createLicense
 Creates a new license
@@ -115,6 +117,8 @@ Return a list of all licensees for the current vendor
 netlicensing.listLicensees(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createLicensee
 Creates a new licensee
@@ -199,6 +203,8 @@ Return a list of all license templates for the current vendor
 netlicensing.listLicenseTemplates(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createLicenseTemplate
 Creates a new license template
@@ -287,6 +293,8 @@ Return a list of all payment methods for the current vendor
 netlicensing.listPaymentMethods(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getPaymentMethod
 Return a payment method info by paymentMethodNumber
@@ -324,6 +332,8 @@ Return a list of all configured products for the current vendor
 netlicensing.listProducts(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createProduct
 Creates a new product
@@ -401,6 +411,8 @@ Return a list of all product modules for the current vendor
 netlicensing.listProductModules(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createProductModule
 Creates a new product module
@@ -482,6 +494,8 @@ Return a list of all tokens for the current vendor
 netlicensing.listTokens(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createToken
 Create token by tokenType and additional token parameters
@@ -535,6 +549,8 @@ Return a list of all transactions for the current vendor
 netlicensing.listTransactions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createTransaction
 Creates a new transaction
@@ -600,6 +616,8 @@ Return a list of all license types supported by the service
 netlicensing.licenseTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### licensingModels
 Return a list of all licensing models supported by the service
@@ -609,4 +627,6 @@ Return a list of all licensing models supported by the service
 netlicensing.licensingModels(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

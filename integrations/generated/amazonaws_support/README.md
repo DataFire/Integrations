@@ -25,36 +25,65 @@ amazonaws_support.AddAttachmentsToSet({}).then(data => {
 
 
 ```js
-amazonaws_support.AddAttachmentsToSet({}, context)
+amazonaws_support.AddAttachmentsToSet({
+  "attachments": []
+}, context)
 ```
 
+#### Parameters
+* attachmentSetId (string)
+* attachments (array) **required**
 
 ### AddCommunicationToCase
 
 
 
 ```js
-amazonaws_support.AddCommunicationToCase({}, context)
+amazonaws_support.AddCommunicationToCase({
+  "communicationBody": ""
+}, context)
 ```
 
+#### Parameters
+* attachmentSetId (string)
+* caseId (string)
+* ccEmailAddresses (array)
+* communicationBody (string) **required**
 
 ### CreateCase
 
 
 
 ```js
-amazonaws_support.CreateCase({}, context)
+amazonaws_support.CreateCase({
+  "subject": "",
+  "communicationBody": ""
+}, context)
 ```
 
+#### Parameters
+* attachmentSetId (string)
+* categoryCode (string)
+* ccEmailAddresses (array)
+* communicationBody (string) **required**
+* issueType (string)
+* language (string)
+* serviceCode (string)
+* severityCode (string)
+* subject (string) **required**
 
 ### DescribeAttachment
 
 
 
 ```js
-amazonaws_support.DescribeAttachment({}, context)
+amazonaws_support.DescribeAttachment({
+  "attachmentId": ""
+}, context)
 ```
 
+#### Parameters
+* attachmentId (string) **required**
 
 ### DescribeCases
 
@@ -67,17 +96,33 @@ amazonaws_support.DescribeCases({}, context)
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* afterTime (string)
+* beforeTime (string)
+* caseIdList (array)
+* displayId (string)
+* includeCommunications (boolean)
+* includeResolvedCases (boolean)
+* language (string)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeCommunications
 
 
 
 ```js
-amazonaws_support.DescribeCommunications({}, context)
+amazonaws_support.DescribeCommunications({
+  "caseId": ""
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
+* nextToken (string)
+* afterTime (string)
+* beforeTime (string)
+* caseId (string) **required**
+* maxResults (integer)
 * nextToken (string)
 
 ### DescribeServices
@@ -88,6 +133,9 @@ amazonaws_support.DescribeCommunications({}, context)
 amazonaws_support.DescribeServices({}, context)
 ```
 
+#### Parameters
+* language (string)
+* serviceCodeList (array)
 
 ### DescribeSeverityLevels
 
@@ -97,51 +145,74 @@ amazonaws_support.DescribeServices({}, context)
 amazonaws_support.DescribeSeverityLevels({}, context)
 ```
 
+#### Parameters
+* language (string)
 
 ### DescribeTrustedAdvisorCheckRefreshStatuses
 
 
 
 ```js
-amazonaws_support.DescribeTrustedAdvisorCheckRefreshStatuses({}, context)
+amazonaws_support.DescribeTrustedAdvisorCheckRefreshStatuses({
+  "checkIds": []
+}, context)
 ```
 
+#### Parameters
+* checkIds (array) **required**
 
 ### DescribeTrustedAdvisorCheckResult
 
 
 
 ```js
-amazonaws_support.DescribeTrustedAdvisorCheckResult({}, context)
+amazonaws_support.DescribeTrustedAdvisorCheckResult({
+  "checkId": ""
+}, context)
 ```
 
+#### Parameters
+* checkId (string) **required**
+* language (string)
 
 ### DescribeTrustedAdvisorCheckSummaries
 
 
 
 ```js
-amazonaws_support.DescribeTrustedAdvisorCheckSummaries({}, context)
+amazonaws_support.DescribeTrustedAdvisorCheckSummaries({
+  "checkIds": []
+}, context)
 ```
 
+#### Parameters
+* checkIds (array) **required**
 
 ### DescribeTrustedAdvisorChecks
 
 
 
 ```js
-amazonaws_support.DescribeTrustedAdvisorChecks({}, context)
+amazonaws_support.DescribeTrustedAdvisorChecks({
+  "language": ""
+}, context)
 ```
 
+#### Parameters
+* language (string) **required**
 
 ### RefreshTrustedAdvisorCheck
 
 
 
 ```js
-amazonaws_support.RefreshTrustedAdvisorCheck({}, context)
+amazonaws_support.RefreshTrustedAdvisorCheck({
+  "checkId": ""
+}, context)
 ```
 
+#### Parameters
+* checkId (string) **required**
 
 ### ResolveCase
 
@@ -151,4 +222,6 @@ amazonaws_support.RefreshTrustedAdvisorCheck({}, context)
 amazonaws_support.ResolveCase({}, context)
 ```
 
+#### Parameters
+* caseId (string)
 

@@ -122,6 +122,8 @@ Get a list of what media is most popular at the moment. Can return mix of `image
 instagram.media.popular.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### media.search.get
 Search for media in a given area. The default time span is set to 5 days. The time span must not exceed 7 days.
@@ -364,6 +366,8 @@ List the users who have requested this user's permission to follow.
 instagram.users.self.requested_by.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### users.user_id.get
 Get basic information about a user. To get information about the owner of the access token, you can use

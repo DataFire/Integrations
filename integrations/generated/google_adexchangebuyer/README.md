@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_adexchangebuyer.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.list
 Retrieves the authenticated user's list of accounts.

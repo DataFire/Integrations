@@ -25,52 +25,89 @@ AWS X-Ray provides APIs for managing debug traces and retrieving service maps an
 
 
 ```js
-amazonaws_xray.GetServiceGraph({}, context)
+amazonaws_xray.GetServiceGraph({
+  "StartTime": "",
+  "EndTime": ""
+}, context)
 ```
 
+#### Parameters
+* EndTime (string) **required**
+* NextToken (string)
+* StartTime (string) **required**
 
 ### PutTelemetryRecords
 
 
 
 ```js
-amazonaws_xray.PutTelemetryRecords({}, context)
+amazonaws_xray.PutTelemetryRecords({
+  "TelemetryRecords": []
+}, context)
 ```
 
+#### Parameters
+* EC2InstanceId (string)
+* Hostname (string)
+* ResourceARN (string)
+* TelemetryRecords (array) **required**
 
 ### GetTraceGraph
 
 
 
 ```js
-amazonaws_xray.GetTraceGraph({}, context)
+amazonaws_xray.GetTraceGraph({
+  "TraceIds": []
+}, context)
 ```
 
+#### Parameters
+* NextToken (string)
+* TraceIds (array) **required**
 
 ### PutTraceSegments
 
 
 
 ```js
-amazonaws_xray.PutTraceSegments({}, context)
+amazonaws_xray.PutTraceSegments({
+  "TraceSegmentDocuments": []
+}, context)
 ```
 
+#### Parameters
+* TraceSegmentDocuments (array) **required**
 
 ### GetTraceSummaries
 
 
 
 ```js
-amazonaws_xray.GetTraceSummaries({}, context)
+amazonaws_xray.GetTraceSummaries({
+  "StartTime": "",
+  "EndTime": ""
+}, context)
 ```
 
+#### Parameters
+* EndTime (string) **required**
+* FilterExpression (string)
+* NextToken (string)
+* Sampling (boolean)
+* StartTime (string) **required**
 
 ### BatchGetTraces
 
 
 
 ```js
-amazonaws_xray.BatchGetTraces({}, context)
+amazonaws_xray.BatchGetTraces({
+  "TraceIds": []
+}, context)
 ```
 
+#### Parameters
+* NextToken (string)
+* TraceIds (array) **required**
 

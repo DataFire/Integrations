@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_sqladmin.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### flags.list
 List all available database flags for Google Cloud SQL instances.

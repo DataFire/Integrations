@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_servicecontrol.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### services.allocateQuota
 Attempts to allocate quota for the specified consumer. It should be called

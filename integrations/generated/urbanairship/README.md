@@ -188,6 +188,8 @@ Gets the number of device tokens you have registered.
 urbanairship.device_tokens.count.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### device_tokens.feedback.get
 Gets what device tokens are now invalid. Apple informs us when a push notification is sent to a device that can’t receive it because the application has been uninstalled. We mark the device token as inactive and immediately stop sending notifications to that device. Once a day is a good interval for querying the feedback service, but you can do it more often to save on bandwidth from unnecessary notifications. In the response, what does marked_inactive_on mean? Apple sends a timestamp for each device token returned via the feedback service. Since a device can be off the network for a while, this can be a point in the recent past. In order to make this API work smoothly for you, we record the timestamp we marked as inactive. This means you only need to query for data since the last time you queried. Once a day is a good timeframe, or once a week for very small or infrequently used applications. A few times a day is good for applications with heavy use.
@@ -517,6 +519,8 @@ Gets the store inventory.
 urbanairship.app.content.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### app.content.product_id.download.post
 Returns a temporary URL where the client can download the content. In the payload, the receipt string is the receipt data from the purchase. It should be unaltered from how Apple delivers it to your application.udid is an optional field to help identify a particular user’s purchases, which can aid debugging. It should always be a hash of the UDID, not the actual UDID, to ensure compliance with Apple’s TOS. The optional version field should be the StoreFront library version, or custom if you’re building your own.
@@ -655,6 +659,8 @@ Gets a list of feeds.
 urbanairship.feeds.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### feeds.feed_id.get
 Returns information about a particular feed.
@@ -705,6 +711,8 @@ Returns all the tags that you have created.
 urbanairship.tags.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tags.tag.put
 Deletes a tag.
@@ -785,6 +793,8 @@ List applications.
 urbanairship.partner.apps.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### partner.apps.post
 Adds a new application.

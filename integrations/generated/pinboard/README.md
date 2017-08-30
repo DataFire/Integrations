@@ -28,6 +28,8 @@ Returns the most recent time a bookmark was added, updated or deleted. Use this 
 pinboard.posts.update.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### posts.add.get
 Add a new bookmark.
@@ -139,6 +141,8 @@ Returns a full list of the user's tags along with the number of times they were 
 pinboard.tags.get.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tags.delete.get
 Delete an existing tag.
@@ -176,4 +180,6 @@ Get the secret RSS token (allows viewing user's private RSS feeds).
 pinboard.user.secret.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

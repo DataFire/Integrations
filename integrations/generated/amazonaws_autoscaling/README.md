@@ -25,70 +25,133 @@ amazonaws_autoscaling.DeleteScalingPolicy({}).then(data => {
 
 
 ```js
-amazonaws_autoscaling.DeleteScalingPolicy({}, context)
+amazonaws_autoscaling.DeleteScalingPolicy({
+  "PolicyName": "",
+  "ServiceNamespace": "",
+  "ResourceId": "",
+  "ScalableDimension": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyName (string) **required**
+* ResourceId (string) **required**
+* ScalableDimension (string) **required**
+* ServiceNamespace (string) **required**
 
 ### DeregisterScalableTarget
 
 
 
 ```js
-amazonaws_autoscaling.DeregisterScalableTarget({}, context)
+amazonaws_autoscaling.DeregisterScalableTarget({
+  "ServiceNamespace": "",
+  "ResourceId": "",
+  "ScalableDimension": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceId (string) **required**
+* ScalableDimension (string) **required**
+* ServiceNamespace (string) **required**
 
 ### DescribeScalableTargets
 
 
 
 ```js
-amazonaws_autoscaling.DescribeScalableTargets({}, context)
+amazonaws_autoscaling.DescribeScalableTargets({
+  "ServiceNamespace": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* ResourceIds (array)
+* ScalableDimension (string)
+* ServiceNamespace (string) **required**
 
 ### DescribeScalingActivities
 
 
 
 ```js
-amazonaws_autoscaling.DescribeScalingActivities({}, context)
+amazonaws_autoscaling.DescribeScalingActivities({
+  "ServiceNamespace": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* ResourceId (string)
+* ScalableDimension (string)
+* ServiceNamespace (string) **required**
 
 ### DescribeScalingPolicies
 
 
 
 ```js
-amazonaws_autoscaling.DescribeScalingPolicies({}, context)
+amazonaws_autoscaling.DescribeScalingPolicies({
+  "ServiceNamespace": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* PolicyNames (array)
+* ResourceId (string)
+* ScalableDimension (string)
+* ServiceNamespace (string) **required**
 
 ### PutScalingPolicy
 
 
 
 ```js
-amazonaws_autoscaling.PutScalingPolicy({}, context)
+amazonaws_autoscaling.PutScalingPolicy({
+  "PolicyName": "",
+  "ServiceNamespace": "",
+  "ResourceId": "",
+  "ScalableDimension": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyName (string) **required**
+* PolicyType (string)
+* ResourceId (string) **required**
+* ScalableDimension (string) **required**
+* ServiceNamespace (string) **required**
+* StepScalingPolicyConfiguration (object) - Represents a step scaling policy configuration.
 
 ### RegisterScalableTarget
 
 
 
 ```js
-amazonaws_autoscaling.RegisterScalableTarget({}, context)
+amazonaws_autoscaling.RegisterScalableTarget({
+  "ServiceNamespace": "",
+  "ResourceId": "",
+  "ScalableDimension": ""
+}, context)
 ```
 
+#### Parameters
+* MaxCapacity (integer)
+* MinCapacity (integer)
+* ResourceId (string) **required**
+* RoleARN (string)
+* ScalableDimension (string) **required**
+* ServiceNamespace (string) **required**
 

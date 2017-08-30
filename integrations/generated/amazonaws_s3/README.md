@@ -28,6 +28,8 @@ amazonaws_s3.ListBuckets({}).then(data => {
 amazonaws_s3.ListBuckets({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteBucket
 
@@ -146,6 +148,7 @@ amazonaws_s3.PutObject({
 #### Parameters
 * Bucket (string) **required**
 * Key (string) **required**
+* Body (string)
 
 ### UploadPart
 
@@ -161,6 +164,7 @@ amazonaws_s3.UploadPart({
 #### Parameters
 * Bucket (string) **required**
 * Key (string) **required**
+* Body (string)
 
 ### UploadPartCopy
 
@@ -206,6 +210,7 @@ amazonaws_s3.PutObjectAcl({
 #### Parameters
 * Bucket (string) **required**
 * Key (string) **required**
+* AccessControlPolicy (object)
 
 ### RestoreObject
 
@@ -221,6 +226,7 @@ amazonaws_s3.RestoreObject({
 #### Parameters
 * Bucket (string) **required**
 * Key (string) **required**
+* RestoreRequest (object)
 
 ### DeleteObjectTagging
 
@@ -259,13 +265,17 @@ amazonaws_s3.GetObjectTagging({
 ```js
 amazonaws_s3.PutObjectTagging({
   "Bucket": "",
-  "Key": ""
+  "Key": "",
+  "Tagging": {
+    "TagSet": []
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
 * Key (string) **required**
+* Tagging (object) **required**
 
 ### GetObjectTorrent
 
@@ -316,12 +326,14 @@ amazonaws_s3.GetBucketAccelerateConfiguration({
 
 ```js
 amazonaws_s3.PutBucketAccelerateConfiguration({
-  "Bucket": ""
+  "Bucket": "",
+  "AccelerateConfiguration": {}
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* AccelerateConfiguration (object) **required**
 
 ### GetBucketAcl
 
@@ -348,6 +360,7 @@ amazonaws_s3.PutBucketAcl({
 
 #### Parameters
 * Bucket (string) **required**
+* AccessControlPolicy (object)
 
 ### GetBucketAnalyticsConfiguration
 
@@ -381,12 +394,17 @@ amazonaws_s3.ListBucketAnalyticsConfigurations({
 
 ```js
 amazonaws_s3.PutBucketAnalyticsConfiguration({
-  "Bucket": ""
+  "Bucket": "",
+  "AnalyticsConfiguration": {
+    "Id": "",
+    "StorageClassAnalysis": {}
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* AnalyticsConfiguration (object) **required**
 
 ### GetBucketCors
 
@@ -407,12 +425,16 @@ amazonaws_s3.GetBucketCors({
 
 ```js
 amazonaws_s3.PutBucketCors({
-  "Bucket": ""
+  "Bucket": "",
+  "CORSConfiguration": {
+    "CORSRules": []
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* CORSConfiguration (object) **required**
 
 ### DeleteObjects
 
@@ -420,12 +442,16 @@ amazonaws_s3.PutBucketCors({
 
 ```js
 amazonaws_s3.DeleteObjects({
-  "Bucket": ""
+  "Bucket": "",
+  "Delete": {
+    "Objects": []
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* Delete (object) **required**
 
 ### GetBucketInventoryConfiguration
 
@@ -459,12 +485,27 @@ amazonaws_s3.ListBucketInventoryConfigurations({
 
 ```js
 amazonaws_s3.PutBucketInventoryConfiguration({
-  "Bucket": ""
+  "Bucket": "",
+  "InventoryConfiguration": {
+    "Destination": {
+      "S3BucketDestination": {
+        "Bucket": "",
+        "Format": ""
+      }
+    },
+    "IsEnabled": true,
+    "Id": "",
+    "IncludedObjectVersions": "",
+    "Schedule": {
+      "Frequency": ""
+    }
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* InventoryConfiguration (object) **required**
 
 ### GetBucketLifecycle
 
@@ -504,6 +545,7 @@ amazonaws_s3.PutBucketLifecycle({
 
 #### Parameters
 * Bucket (string) **required**
+* LifecycleConfiguration (object)
 
 ### PutBucketLifecycleConfiguration
 
@@ -517,6 +559,7 @@ amazonaws_s3.PutBucketLifecycleConfiguration({
 
 #### Parameters
 * Bucket (string) **required**
+* LifecycleConfiguration (object)
 
 ### ListObjectsV2
 
@@ -565,12 +608,14 @@ amazonaws_s3.GetBucketLogging({
 
 ```js
 amazonaws_s3.PutBucketLogging({
-  "Bucket": ""
+  "Bucket": "",
+  "BucketLoggingStatus": {}
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* BucketLoggingStatus (object) **required**
 
 ### DeleteBucketMetricsConfiguration
 
@@ -617,12 +662,16 @@ amazonaws_s3.ListBucketMetricsConfigurations({
 
 ```js
 amazonaws_s3.PutBucketMetricsConfiguration({
-  "Bucket": ""
+  "Bucket": "",
+  "MetricsConfiguration": {
+    "Id": ""
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* MetricsConfiguration (object) **required**
 
 ### GetBucketNotification
 
@@ -656,12 +705,14 @@ amazonaws_s3.GetBucketNotificationConfiguration({
 
 ```js
 amazonaws_s3.PutBucketNotification({
-  "Bucket": ""
+  "Bucket": "",
+  "NotificationConfiguration": {}
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* NotificationConfiguration (object) **required**
 
 ### PutBucketNotificationConfiguration
 
@@ -669,12 +720,14 @@ amazonaws_s3.PutBucketNotification({
 
 ```js
 amazonaws_s3.PutBucketNotificationConfiguration({
-  "Bucket": ""
+  "Bucket": "",
+  "NotificationConfiguration": {}
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* NotificationConfiguration (object) **required** - Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.
 
 ### DeleteBucketPolicy
 
@@ -708,12 +761,14 @@ amazonaws_s3.GetBucketPolicy({
 
 ```js
 amazonaws_s3.PutBucketPolicy({
-  "Bucket": ""
+  "Bucket": "",
+  "Policy": ""
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* Policy (string) **required**
 
 ### DeleteBucketReplication
 
@@ -747,12 +802,17 @@ amazonaws_s3.GetBucketReplication({
 
 ```js
 amazonaws_s3.PutBucketReplication({
-  "Bucket": ""
+  "Bucket": "",
+  "ReplicationConfiguration": {
+    "Role": "",
+    "Rules": []
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* ReplicationConfiguration (object) **required** - Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.
 
 ### GetBucketRequestPayment
 
@@ -773,12 +833,16 @@ amazonaws_s3.GetBucketRequestPayment({
 
 ```js
 amazonaws_s3.PutBucketRequestPayment({
-  "Bucket": ""
+  "Bucket": "",
+  "RequestPaymentConfiguration": {
+    "Payer": ""
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* RequestPaymentConfiguration (object) **required**
 
 ### DeleteBucketTagging
 
@@ -812,12 +876,16 @@ amazonaws_s3.GetBucketTagging({
 
 ```js
 amazonaws_s3.PutBucketTagging({
-  "Bucket": ""
+  "Bucket": "",
+  "Tagging": {
+    "TagSet": []
+  }
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* Tagging (object) **required**
 
 ### ListMultipartUploads
 
@@ -854,12 +922,14 @@ amazonaws_s3.GetBucketVersioning({
 
 ```js
 amazonaws_s3.PutBucketVersioning({
-  "Bucket": ""
+  "Bucket": "",
+  "VersioningConfiguration": {}
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* VersioningConfiguration (object) **required**
 
 ### ListObjectVersions
 
@@ -909,10 +979,12 @@ amazonaws_s3.GetBucketWebsite({
 
 ```js
 amazonaws_s3.PutBucketWebsite({
-  "Bucket": ""
+  "Bucket": "",
+  "WebsiteConfiguration": {}
 }, context)
 ```
 
 #### Parameters
 * Bucket (string) **required**
+* WebsiteConfiguration (object) **required**
 

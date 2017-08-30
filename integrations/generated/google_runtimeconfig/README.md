@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_runtimeconfig.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### operations.delete
 Deletes a long-running operation. This method indicates that the client is

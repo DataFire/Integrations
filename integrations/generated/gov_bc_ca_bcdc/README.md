@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 gov_bc_ca_bcdc.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### action.organization_activity_list.get
 Return an organization's activity stream
@@ -297,6 +299,8 @@ Returns the site status
 gov_bc_ca_bcdc.action.status_show.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### action.tag_list.get
 Returns the names of all indexed tags

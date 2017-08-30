@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_tracing.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.traces.spans.create
 Creates a new Span.

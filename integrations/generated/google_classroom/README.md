@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_classroom.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### courses.list
 Returns a list of courses that the requesting user is permitted to view,

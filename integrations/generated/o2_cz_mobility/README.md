@@ -28,6 +28,8 @@ Information about versions of application and data.
 o2_cz_mobility.getInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### transit
 Get count of objects that were moving between basic residential units or objects that were visiting these basic residential units. Specific object's occurence type in the base residential unit can be requested. If none occurence type is present in the request or both occurence types are zero, the result will be aggregation of all types of occurence for given base residential units. More about base residential units can be found at https://www.czso.cz/csu/rso/zsj_rso (czech).

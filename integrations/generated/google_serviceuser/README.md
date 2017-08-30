@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_serviceuser.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### services.search
 Search available services.

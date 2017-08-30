@@ -32,6 +32,7 @@ amazonaws_glacier.SetDataRetrievalPolicy({
 
 #### Parameters
 * accountId (string) **required**
+* Policy (object) - Data retrieval policy.
 
 ### PurchaseProvisionedCapacity
 
@@ -90,6 +91,7 @@ amazonaws_glacier.SetVaultAccessPolicy({
 #### Parameters
 * accountId (string) **required**
 * vaultName (string) **required**
+* policy (object) - Contains the vault access policy.
 
 ### UploadArchive
 
@@ -105,6 +107,7 @@ amazonaws_glacier.UploadArchive({
 #### Parameters
 * accountId (string) **required**
 * vaultName (string) **required**
+* body (string)
 
 ### DeleteArchive
 
@@ -188,6 +191,7 @@ amazonaws_glacier.InitiateVaultLock({
 #### Parameters
 * accountId (string) **required**
 * vaultName (string) **required**
+* policy (object) - Contains the vault lock policy.
 
 ### CompleteVaultLock
 
@@ -239,6 +243,7 @@ amazonaws_glacier.UploadMultipartPart({
 * accountId (string) **required**
 * vaultName (string) **required**
 * uploadId (string) **required**
+* body (string)
 
 ### SetVaultNotifications
 
@@ -254,6 +259,7 @@ amazonaws_glacier.SetVaultNotifications({
 #### Parameters
 * accountId (string) **required**
 * vaultName (string) **required**
+* vaultNotificationConfig (object) - Represents a vault's notification configuration.
 
 ### ListTagsForVault
 
@@ -284,6 +290,7 @@ amazonaws_glacier.AddTagsToVault({
 #### Parameters
 * accountId (string) **required**
 * vaultName (string) **required**
+* Tags (array)
 
 ### RemoveTagsFromVault
 
@@ -299,4 +306,5 @@ amazonaws_glacier.RemoveTagsFromVault({
 #### Parameters
 * accountId (string) **required**
 * vaultName (string) **required**
+* TagKeys (array)
 

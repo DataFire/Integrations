@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_slides.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### presentations.create
 Creates a new presentation using the title given in the request. Other

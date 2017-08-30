@@ -30,6 +30,8 @@ Test our API services using I/O Docs.
 rottentomatoes.ListsDirectoryTopLevelLists(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DVDListsDirectoryTopLevelLists
 
@@ -39,6 +41,8 @@ rottentomatoes.ListsDirectoryTopLevelLists(null, context)
 rottentomatoes.DVDListsDirectoryTopLevelLists(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CurrentReleaseDVDsDVDLists
 
@@ -99,6 +103,8 @@ rottentomatoes.UpcomingDVDsDVDLists({}, context)
 rottentomatoes.MovieListsDirectoryTopLevelLists(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### BoxOfficeMovieLists
 

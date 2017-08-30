@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_identitytoolkit.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### relyingparty.createAuthUri
 Creates the URI used by the IdP to authenticate the user.

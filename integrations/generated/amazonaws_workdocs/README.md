@@ -25,9 +25,19 @@ amazonaws_workdocs.InitiateDocumentVersionUpload({}).then(data => {
 
 
 ```js
-amazonaws_workdocs.InitiateDocumentVersionUpload({}, context)
+amazonaws_workdocs.InitiateDocumentVersionUpload({
+  "ParentFolderId": ""
+}, context)
 ```
 
+#### Parameters
+* ContentCreatedTimestamp (string)
+* ContentModifiedTimestamp (string)
+* ContentType (string)
+* DocumentSizeInBytes (integer)
+* Id (string)
+* Name (string)
+* ParentFolderId (string) **required**
 
 ### UpdateDocument
 
@@ -41,6 +51,9 @@ amazonaws_workdocs.UpdateDocument({
 
 #### Parameters
 * DocumentId (string) **required**
+* Name (string)
+* ParentFolderId (string)
+* ResourceState (string)
 
 ### GetDocumentPath
 
@@ -84,15 +97,21 @@ amazonaws_workdocs.UpdateDocumentVersion({
 #### Parameters
 * DocumentId (string) **required**
 * VersionId (string) **required**
+* VersionStatus (string)
 
 ### CreateFolder
 
 
 
 ```js
-amazonaws_workdocs.CreateFolder({}, context)
+amazonaws_workdocs.CreateFolder({
+  "ParentFolderId": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string)
+* ParentFolderId (string) **required**
 
 ### UpdateFolder
 
@@ -106,6 +125,9 @@ amazonaws_workdocs.UpdateFolder({
 
 #### Parameters
 * FolderId (string) **required**
+* Name (string)
+* ParentFolderId (string)
+* ResourceState (string)
 
 ### DescribeFolderContents
 
@@ -215,6 +237,12 @@ amazonaws_workdocs.UpdateUser({
 
 #### Parameters
 * UserId (string) **required**
+* GivenName (string)
+* Locale (string)
+* StorageRule (object) - Describes the storage for a user.
+* Surname (string)
+* TimeZoneId (string)
+* Type (string)
 
 ### DeactivateUser
 

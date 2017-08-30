@@ -25,36 +25,58 @@ amazonaws_organizations.AcceptHandshake({}).then(data => {
 
 
 ```js
-amazonaws_organizations.AcceptHandshake({}, context)
+amazonaws_organizations.AcceptHandshake({
+  "HandshakeId": ""
+}, context)
 ```
 
+#### Parameters
+* HandshakeId (string) **required**
 
 ### AttachPolicy
 
 
 
 ```js
-amazonaws_organizations.AttachPolicy({}, context)
+amazonaws_organizations.AttachPolicy({
+  "PolicyId": "",
+  "TargetId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyId (string) **required**
+* TargetId (string) **required**
 
 ### CancelHandshake
 
 
 
 ```js
-amazonaws_organizations.CancelHandshake({}, context)
+amazonaws_organizations.CancelHandshake({
+  "HandshakeId": ""
+}, context)
 ```
 
+#### Parameters
+* HandshakeId (string) **required**
 
 ### CreateAccount
 
 
 
 ```js
-amazonaws_organizations.CreateAccount({}, context)
+amazonaws_organizations.CreateAccount({
+  "Email": "",
+  "AccountName": ""
+}, context)
 ```
 
+#### Parameters
+* AccountName (string) **required**
+* Email (string) **required**
+* IamUserAccessToBilling (string)
+* RoleName (string)
 
 ### CreateOrganization
 
@@ -64,33 +86,55 @@ amazonaws_organizations.CreateAccount({}, context)
 amazonaws_organizations.CreateOrganization({}, context)
 ```
 
+#### Parameters
+* FeatureSet (string)
 
 ### CreateOrganizationalUnit
 
 
 
 ```js
-amazonaws_organizations.CreateOrganizationalUnit({}, context)
+amazonaws_organizations.CreateOrganizationalUnit({
+  "ParentId": "",
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
+* ParentId (string) **required**
 
 ### CreatePolicy
 
 
 
 ```js
-amazonaws_organizations.CreatePolicy({}, context)
+amazonaws_organizations.CreatePolicy({
+  "Content": "",
+  "Description": "",
+  "Name": "",
+  "Type": ""
+}, context)
 ```
 
+#### Parameters
+* Content (string) **required**
+* Description (string) **required**
+* Name (string) **required**
+* Type (string) **required**
 
 ### DeclineHandshake
 
 
 
 ```js
-amazonaws_organizations.DeclineHandshake({}, context)
+amazonaws_organizations.DeclineHandshake({
+  "HandshakeId": ""
+}, context)
 ```
 
+#### Parameters
+* HandshakeId (string) **required**
 
 ### DeleteOrganization
 
@@ -100,51 +144,73 @@ amazonaws_organizations.DeclineHandshake({}, context)
 amazonaws_organizations.DeleteOrganization({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteOrganizationalUnit
 
 
 
 ```js
-amazonaws_organizations.DeleteOrganizationalUnit({}, context)
+amazonaws_organizations.DeleteOrganizationalUnit({
+  "OrganizationalUnitId": ""
+}, context)
 ```
 
+#### Parameters
+* OrganizationalUnitId (string) **required**
 
 ### DeletePolicy
 
 
 
 ```js
-amazonaws_organizations.DeletePolicy({}, context)
+amazonaws_organizations.DeletePolicy({
+  "PolicyId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyId (string) **required**
 
 ### DescribeAccount
 
 
 
 ```js
-amazonaws_organizations.DescribeAccount({}, context)
+amazonaws_organizations.DescribeAccount({
+  "AccountId": ""
+}, context)
 ```
 
+#### Parameters
+* AccountId (string) **required**
 
 ### DescribeCreateAccountStatus
 
 
 
 ```js
-amazonaws_organizations.DescribeCreateAccountStatus({}, context)
+amazonaws_organizations.DescribeCreateAccountStatus({
+  "CreateAccountRequestId": ""
+}, context)
 ```
 
+#### Parameters
+* CreateAccountRequestId (string) **required**
 
 ### DescribeHandshake
 
 
 
 ```js
-amazonaws_organizations.DescribeHandshake({}, context)
+amazonaws_organizations.DescribeHandshake({
+  "HandshakeId": ""
+}, context)
 ```
 
+#### Parameters
+* HandshakeId (string) **required**
 
 ### DescribeOrganization
 
@@ -154,42 +220,64 @@ amazonaws_organizations.DescribeHandshake({}, context)
 amazonaws_organizations.DescribeOrganization({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DescribeOrganizationalUnit
 
 
 
 ```js
-amazonaws_organizations.DescribeOrganizationalUnit({}, context)
+amazonaws_organizations.DescribeOrganizationalUnit({
+  "OrganizationalUnitId": ""
+}, context)
 ```
 
+#### Parameters
+* OrganizationalUnitId (string) **required**
 
 ### DescribePolicy
 
 
 
 ```js
-amazonaws_organizations.DescribePolicy({}, context)
+amazonaws_organizations.DescribePolicy({
+  "PolicyId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyId (string) **required**
 
 ### DetachPolicy
 
 
 
 ```js
-amazonaws_organizations.DetachPolicy({}, context)
+amazonaws_organizations.DetachPolicy({
+  "PolicyId": "",
+  "TargetId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyId (string) **required**
+* TargetId (string) **required**
 
 ### DisablePolicyType
 
 
 
 ```js
-amazonaws_organizations.DisablePolicyType({}, context)
+amazonaws_organizations.DisablePolicyType({
+  "RootId": "",
+  "PolicyType": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyType (string) **required**
+* RootId (string) **required**
 
 ### EnableAllFeatures
 
@@ -199,24 +287,37 @@ amazonaws_organizations.DisablePolicyType({}, context)
 amazonaws_organizations.EnableAllFeatures({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### EnablePolicyType
 
 
 
 ```js
-amazonaws_organizations.EnablePolicyType({}, context)
+amazonaws_organizations.EnablePolicyType({
+  "RootId": "",
+  "PolicyType": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyType (string) **required**
+* RootId (string) **required**
 
 ### InviteAccountToOrganization
 
 
 
 ```js
-amazonaws_organizations.InviteAccountToOrganization({}, context)
+amazonaws_organizations.InviteAccountToOrganization({
+  "Target": {}
+}, context)
 ```
 
+#### Parameters
+* Notes (string)
+* Target (object) **required** - Identifies a participant in a handshake.
 
 ### LeaveOrganization
 
@@ -226,6 +327,8 @@ amazonaws_organizations.InviteAccountToOrganization({}, context)
 amazonaws_organizations.LeaveOrganization({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListAccounts
 
@@ -238,30 +341,44 @@ amazonaws_organizations.ListAccounts({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### ListAccountsForParent
 
 
 
 ```js
-amazonaws_organizations.ListAccountsForParent({}, context)
+amazonaws_organizations.ListAccountsForParent({
+  "ParentId": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* ParentId (string) **required**
 
 ### ListChildren
 
 
 
 ```js
-amazonaws_organizations.ListChildren({}, context)
+amazonaws_organizations.ListChildren({
+  "ParentId": "",
+  "ChildType": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* ChildType (string) **required**
+* MaxResults (integer)
+* NextToken (string)
+* ParentId (string) **required**
 
 ### ListCreateAccountStatus
 
@@ -274,6 +391,9 @@ amazonaws_organizations.ListCreateAccountStatus({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* States (array)
 
 ### ListHandshakesForAccount
 
@@ -285,6 +405,9 @@ amazonaws_organizations.ListHandshakesForAccount({}, context)
 
 #### Parameters
 * MaxResults (string)
+* NextToken (string)
+* Filter (object) - Specifies the criteria that are used to select the handshakes for the operation.
+* MaxResults (integer)
 * NextToken (string)
 
 ### ListHandshakesForOrganization
@@ -298,29 +421,42 @@ amazonaws_organizations.ListHandshakesForOrganization({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* Filter (object) - Specifies the criteria that are used to select the handshakes for the operation.
+* MaxResults (integer)
+* NextToken (string)
 
 ### ListOrganizationalUnitsForParent
 
 
 
 ```js
-amazonaws_organizations.ListOrganizationalUnitsForParent({}, context)
+amazonaws_organizations.ListOrganizationalUnitsForParent({
+  "ParentId": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* ParentId (string) **required**
 
 ### ListParents
 
 
 
 ```js
-amazonaws_organizations.ListParents({}, context)
+amazonaws_organizations.ListParents({
+  "ChildId": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
+* NextToken (string)
+* ChildId (string) **required**
+* MaxResults (integer)
 * NextToken (string)
 
 ### ListPolicies
@@ -328,11 +464,16 @@ amazonaws_organizations.ListParents({}, context)
 
 
 ```js
-amazonaws_organizations.ListPolicies({}, context)
+amazonaws_organizations.ListPolicies({
+  "Filter": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
+* NextToken (string)
+* Filter (string) **required**
+* MaxResults (integer)
 * NextToken (string)
 
 ### ListPoliciesForTarget
@@ -340,12 +481,19 @@ amazonaws_organizations.ListPolicies({}, context)
 
 
 ```js
-amazonaws_organizations.ListPoliciesForTarget({}, context)
+amazonaws_organizations.ListPoliciesForTarget({
+  "TargetId": "",
+  "Filter": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* Filter (string) **required**
+* MaxResults (integer)
+* NextToken (string)
+* TargetId (string) **required**
 
 ### ListRoots
 
@@ -358,52 +506,83 @@ amazonaws_organizations.ListRoots({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### ListTargetsForPolicy
 
 
 
 ```js
-amazonaws_organizations.ListTargetsForPolicy({}, context)
+amazonaws_organizations.ListTargetsForPolicy({
+  "PolicyId": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* PolicyId (string) **required**
 
 ### MoveAccount
 
 
 
 ```js
-amazonaws_organizations.MoveAccount({}, context)
+amazonaws_organizations.MoveAccount({
+  "AccountId": "",
+  "SourceParentId": "",
+  "DestinationParentId": ""
+}, context)
 ```
 
+#### Parameters
+* AccountId (string) **required**
+* DestinationParentId (string) **required**
+* SourceParentId (string) **required**
 
 ### RemoveAccountFromOrganization
 
 
 
 ```js
-amazonaws_organizations.RemoveAccountFromOrganization({}, context)
+amazonaws_organizations.RemoveAccountFromOrganization({
+  "AccountId": ""
+}, context)
 ```
 
+#### Parameters
+* AccountId (string) **required**
 
 ### UpdateOrganizationalUnit
 
 
 
 ```js
-amazonaws_organizations.UpdateOrganizationalUnit({}, context)
+amazonaws_organizations.UpdateOrganizationalUnit({
+  "OrganizationalUnitId": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string)
+* OrganizationalUnitId (string) **required**
 
 ### UpdatePolicy
 
 
 
 ```js
-amazonaws_organizations.UpdatePolicy({}, context)
+amazonaws_organizations.UpdatePolicy({
+  "PolicyId": ""
+}, context)
 ```
 
+#### Parameters
+* Content (string)
+* Description (string)
+* Name (string)
+* PolicyId (string) **required**
 

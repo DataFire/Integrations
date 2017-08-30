@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_admin.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### activities.list
 Retrieves a list of activities for a specific customer and application.

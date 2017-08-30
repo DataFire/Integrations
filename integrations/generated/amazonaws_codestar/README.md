@@ -25,72 +25,123 @@ amazonaws_codestar.AssociateTeamMember({}).then(data => {
 
 
 ```js
-amazonaws_codestar.AssociateTeamMember({}, context)
+amazonaws_codestar.AssociateTeamMember({
+  "projectId": "",
+  "userArn": "",
+  "projectRole": ""
+}, context)
 ```
 
+#### Parameters
+* clientRequestToken (string)
+* projectId (string) **required**
+* projectRole (string) **required**
+* remoteAccessAllowed (boolean)
+* userArn (string) **required**
 
 ### CreateProject
 
 
 
 ```js
-amazonaws_codestar.CreateProject({}, context)
+amazonaws_codestar.CreateProject({
+  "name": "",
+  "id": ""
+}, context)
 ```
 
+#### Parameters
+* clientRequestToken (string)
+* description (string)
+* id (string) **required**
+* name (string) **required**
 
 ### CreateUserProfile
 
 
 
 ```js
-amazonaws_codestar.CreateUserProfile({}, context)
+amazonaws_codestar.CreateUserProfile({
+  "userArn": "",
+  "displayName": "",
+  "emailAddress": ""
+}, context)
 ```
 
+#### Parameters
+* displayName (string) **required**
+* emailAddress (string) **required**
+* sshPublicKey (string)
+* userArn (string) **required**
 
 ### DeleteProject
 
 
 
 ```js
-amazonaws_codestar.DeleteProject({}, context)
+amazonaws_codestar.DeleteProject({
+  "id": ""
+}, context)
 ```
 
+#### Parameters
+* clientRequestToken (string)
+* deleteStack (boolean)
+* id (string) **required**
 
 ### DeleteUserProfile
 
 
 
 ```js
-amazonaws_codestar.DeleteUserProfile({}, context)
+amazonaws_codestar.DeleteUserProfile({
+  "userArn": ""
+}, context)
 ```
 
+#### Parameters
+* userArn (string) **required**
 
 ### DescribeProject
 
 
 
 ```js
-amazonaws_codestar.DescribeProject({}, context)
+amazonaws_codestar.DescribeProject({
+  "id": ""
+}, context)
 ```
 
+#### Parameters
+* id (string) **required**
 
 ### DescribeUserProfile
 
 
 
 ```js
-amazonaws_codestar.DescribeUserProfile({}, context)
+amazonaws_codestar.DescribeUserProfile({
+  "userArn": ""
+}, context)
 ```
 
+#### Parameters
+* userArn (string) **required**
 
 ### DisassociateTeamMember
 
 
 
 ```js
-amazonaws_codestar.DisassociateTeamMember({}, context)
+amazonaws_codestar.DisassociateTeamMember({
+  "projectId": "",
+  "userArn": ""
+}, context)
 ```
 
+#### Parameters
+* projectId (string) **required**
+* userArn (string) **required**
 
 ### ListProjects
 
@@ -100,24 +151,39 @@ amazonaws_codestar.DisassociateTeamMember({}, context)
 amazonaws_codestar.ListProjects({}, context)
 ```
 
+#### Parameters
+* maxResults (integer)
+* nextToken (string)
 
 ### ListResources
 
 
 
 ```js
-amazonaws_codestar.ListResources({}, context)
+amazonaws_codestar.ListResources({
+  "projectId": ""
+}, context)
 ```
 
+#### Parameters
+* maxResults (integer)
+* nextToken (string)
+* projectId (string) **required**
 
 ### ListTeamMembers
 
 
 
 ```js
-amazonaws_codestar.ListTeamMembers({}, context)
+amazonaws_codestar.ListTeamMembers({
+  "projectId": ""
+}, context)
 ```
 
+#### Parameters
+* maxResults (integer)
+* nextToken (string)
+* projectId (string) **required**
 
 ### ListUserProfiles
 
@@ -127,31 +193,55 @@ amazonaws_codestar.ListTeamMembers({}, context)
 amazonaws_codestar.ListUserProfiles({}, context)
 ```
 
+#### Parameters
+* maxResults (integer)
+* nextToken (string)
 
 ### UpdateProject
 
 
 
 ```js
-amazonaws_codestar.UpdateProject({}, context)
+amazonaws_codestar.UpdateProject({
+  "id": ""
+}, context)
 ```
 
+#### Parameters
+* description (string)
+* id (string) **required**
+* name (string)
 
 ### UpdateTeamMember
 
 
 
 ```js
-amazonaws_codestar.UpdateTeamMember({}, context)
+amazonaws_codestar.UpdateTeamMember({
+  "projectId": "",
+  "userArn": ""
+}, context)
 ```
 
+#### Parameters
+* projectId (string) **required**
+* projectRole (string)
+* remoteAccessAllowed (boolean)
+* userArn (string) **required**
 
 ### UpdateUserProfile
 
 
 
 ```js
-amazonaws_codestar.UpdateUserProfile({}, context)
+amazonaws_codestar.UpdateUserProfile({
+  "userArn": ""
+}, context)
 ```
 
+#### Parameters
+* displayName (string)
+* emailAddress (string)
+* sshPublicKey (string)
+* userArn (string) **required**
 

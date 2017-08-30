@@ -28,6 +28,8 @@ All public APIs for AWS Cost and Usage Report service
 amazonaws_cur.DeleteReportDefinition({}, context)
 ```
 
+#### Parameters
+* ReportName (string) - Preferred name for a report, it has to be unique. Must starts with a number/letter, case sensitive. Limited to 256 characters.
 
 ### DescribeReportDefinitions
 
@@ -40,13 +42,28 @@ amazonaws_cur.DescribeReportDefinitions({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer) - The max number of results returned by the operation.
+* NextToken (string) - A generic string.
 
 ### PutReportDefinition
 
 
 
 ```js
-amazonaws_cur.PutReportDefinition({}, context)
+amazonaws_cur.PutReportDefinition({
+  "ReportDefinition": {
+    "ReportName": "",
+    "TimeUnit": "",
+    "Format": "",
+    "Compression": "",
+    "AdditionalSchemaElements": [],
+    "S3Bucket": "",
+    "S3Prefix": "",
+    "S3Region": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* ReportDefinition (object) **required** - The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.
 

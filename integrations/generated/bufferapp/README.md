@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 bufferapp.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### info.configuration.json.get
 Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.
@@ -56,6 +58,8 @@ Returns an object with the current configuration that Buffer is using, including
 bufferapp.info.configuration.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### links.shares.json.get
 Returns an object with a the numbers of shares a link has had using Buffer.
@@ -182,6 +186,8 @@ Returns an array of social media profiles connected to a users account.
 bufferapp.profiles.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### updates.create.json.post
 Create one or more new status updates.
@@ -192,6 +198,8 @@ Create one or more new status updates.
 bufferapp.updates.create.json.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### updates.id.destroy.json.post
 Permanently delete an existing status update.
@@ -285,4 +293,6 @@ Returns a single user.
 bufferapp.user.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

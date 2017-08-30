@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_adsensehost.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.list
 List hosted accounts associated with this AdSense account by ad client id.

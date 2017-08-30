@@ -49,6 +49,8 @@ Exchange a refresh_token for an access_token
 tumblr.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### blog.base_hostname.info.get
 This method returns general information about the blog, such as the title, number of posts, and other high-level data.

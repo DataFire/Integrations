@@ -44,6 +44,8 @@ Gets air quality data feed
 tfl_gov_uk.AirQuality_Get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### BikePoint_GetAll
 Gets all bike point locations. The Place object has an addtionalProperties array which contains the nbBikes, nbDocks and nbSpaces
@@ -54,6 +56,8 @@ Gets all bike point locations. The Place object has an addtionalProperties array
 tfl_gov_uk.BikePoint_GetAll(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### BikePoint_Search
 Search for bike stations by their name, a bike point's name often contains information about the name of the street
@@ -151,6 +155,8 @@ Gets a list of all of the available journey planner modes
 tfl_gov_uk.Journey_Meta(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Line_MetaDisruptionCategories
 Gets a list of valid categories to filter disruptions
@@ -160,6 +166,8 @@ Gets a list of valid categories to filter disruptions
 tfl_gov_uk.Line_MetaDisruptionCategories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Line_MetaModes
 Gets a list of all of the valid modes to filter lines by
@@ -169,6 +177,8 @@ Gets a list of all of the valid modes to filter lines by
 tfl_gov_uk.Line_MetaModes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Line_MetaServiceTypes
 Gets a list of valid ServiceTypes to filter on
@@ -178,6 +188,8 @@ Gets a list of valid ServiceTypes to filter on
 tfl_gov_uk.Line_MetaServiceTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Line_MetaSeverity
 Gets a list of valid severity codes
@@ -187,6 +199,8 @@ Gets a list of valid severity codes
 tfl_gov_uk.Line_MetaSeverity(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Line_GetByMode
 Gets line specified by provided modes.
@@ -463,6 +477,8 @@ Returns the service type active for a mode.
 tfl_gov_uk.Mode_GetActiveServiceTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Mode_Arrivals
 Gets the next arrival predictions for all stops of a given mode
@@ -486,6 +502,8 @@ Gets the occupancy for all car parks that have occupancy data
 tfl_gov_uk.Occupancy.CarPark.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Occupancy.CarPark.id.get
 Gets the occupancy for a car park with a given id
@@ -548,6 +566,8 @@ Gets a list of all of the available place property categories and keys.
 tfl_gov_uk.Place_MetaCategories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Place_MetaPlaceTypes
 Gets a list of the available types of Place.
@@ -557,6 +577,8 @@ Gets a list of the available types of Place.
 tfl_gov_uk.Place_MetaPlaceTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Place_GetByType
 Gets all places of a given type
@@ -651,6 +673,8 @@ Gets all roads managed by TfL
 tfl_gov_uk.Road.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Road_MetaCategories
 Gets a list of valid RoadDisruption categories
@@ -660,6 +684,8 @@ Gets a list of valid RoadDisruption categories
 tfl_gov_uk.Road_MetaCategories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Road_MetaSeverities
 Gets a list of valid RoadDisruption severity codes
@@ -669,6 +695,8 @@ Gets a list of valid RoadDisruption severity codes
 tfl_gov_uk.Road_MetaSeverities(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Road_DisruptionById
 Gets a list of active disruptions filtered by disruption Ids.
@@ -779,6 +807,8 @@ Gets the available search categories.
 tfl_gov_uk.Search_MetaCategories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Search_MetaSearchProviders
 Gets the available searchProvider names.
@@ -788,6 +818,8 @@ Gets the available searchProvider names.
 tfl_gov_uk.Search_MetaSearchProviders(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Search_MetaSorts
 Gets the available sorting options.
@@ -797,6 +829,8 @@ Gets the available sorting options.
 tfl_gov_uk.Search_MetaSorts(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### StopPoint_GetByGeoPoint
 Gets a list of StopPoints within {radius} by the specified criteria
@@ -828,6 +862,8 @@ Gets the list of available StopPoint additional information categories
 tfl_gov_uk.StopPoint_MetaCategories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### StopPoint_MetaModes
 Gets the list of available StopPoint modes
@@ -837,6 +873,8 @@ Gets the list of available StopPoint modes
 tfl_gov_uk.StopPoint_MetaModes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### StopPoint_MetaStopTypes
 Gets the list of available StopPoint types
@@ -846,6 +884,8 @@ Gets the list of available StopPoint types
 tfl_gov_uk.StopPoint_MetaStopTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### StopPoint_GetByMode
 Gets a list of StopPoints filtered by the modes available at that StopPoint.

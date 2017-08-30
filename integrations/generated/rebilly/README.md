@@ -297,6 +297,8 @@ Read current authentication options
 rebilly.authentication_options.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### authentication_options.put
 Change options
@@ -1346,6 +1348,8 @@ Retrieve a list of existing events
 rebilly.events.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### events.eventType.get
 Retrieve the event information
@@ -2635,6 +2639,8 @@ Retrieve user's profile
 rebilly.profile.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### profile.put
 Update user's profile
@@ -2950,6 +2956,8 @@ Retrieve API current status
 rebilly.status.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### subscriptions.get
 Retrieve a list of subscriptions
@@ -3109,6 +3117,8 @@ Retrieve a list of tax categories
 rebilly.tax_categories.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tokens.get
 Retrieve a list of tokens

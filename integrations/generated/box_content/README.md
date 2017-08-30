@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 box_content.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getPendingCollaborations
 Used to retrieve all pending collaboration invites for this user.
@@ -126,6 +128,8 @@ Retrieves the collections for the given user. Currently, only the favorites coll
 box_content.getCollections(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getCollectionItems
 Retrieves the files and/or folders contained within this collection. Collection item lists behave a lot like getting a folder’s items.
@@ -273,6 +277,8 @@ If you receive max_retries error when making GET requests to the real time serve
 box_content.eventLongPolling(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getFileVersionLegalHoldPolicies
 Get list of non-deleted Holds for a single Policy.

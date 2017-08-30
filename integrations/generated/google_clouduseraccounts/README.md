@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_clouduseraccounts.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### groups.list
 Retrieves the list of groups contained within the specified project.

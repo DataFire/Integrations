@@ -25,153 +25,259 @@ This is the <i>AWS WAF Regional API Reference</i> for using AWS WAF with Elastic
 
 
 ```js
-amazonaws_waf_regional.AssociateWebACL({}, context)
+amazonaws_waf_regional.AssociateWebACL({
+  "WebACLId": "",
+  "ResourceArn": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceArn (string) **required**
+* WebACLId (string) **required**
 
 ### CreateByteMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.CreateByteMatchSet({}, context)
+amazonaws_waf_regional.CreateByteMatchSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
 
 ### CreateIPSet
 
 
 
 ```js
-amazonaws_waf_regional.CreateIPSet({}, context)
+amazonaws_waf_regional.CreateIPSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
 
 ### CreateRule
 
 
 
 ```js
-amazonaws_waf_regional.CreateRule({}, context)
+amazonaws_waf_regional.CreateRule({
+  "Name": "",
+  "MetricName": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* MetricName (string) **required**
+* Name (string) **required**
 
 ### CreateSizeConstraintSet
 
 
 
 ```js
-amazonaws_waf_regional.CreateSizeConstraintSet({}, context)
+amazonaws_waf_regional.CreateSizeConstraintSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
 
 ### CreateSqlInjectionMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.CreateSqlInjectionMatchSet({}, context)
+amazonaws_waf_regional.CreateSqlInjectionMatchSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
 
 ### CreateWebACL
 
 
 
 ```js
-amazonaws_waf_regional.CreateWebACL({}, context)
+amazonaws_waf_regional.CreateWebACL({
+  "Name": "",
+  "MetricName": "",
+  "DefaultAction": {
+    "Type": ""
+  },
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* DefaultAction (object) **required** - For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. 
+* MetricName (string) **required**
+* Name (string) **required**
 
 ### CreateXssMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.CreateXssMatchSet({}, context)
+amazonaws_waf_regional.CreateXssMatchSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
 
 ### DeleteByteMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.DeleteByteMatchSet({}, context)
+amazonaws_waf_regional.DeleteByteMatchSet({
+  "ByteMatchSetId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ByteMatchSetId (string) **required**
+* ChangeToken (string) **required**
 
 ### DeleteIPSet
 
 
 
 ```js
-amazonaws_waf_regional.DeleteIPSet({}, context)
+amazonaws_waf_regional.DeleteIPSet({
+  "IPSetId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* IPSetId (string) **required**
 
 ### DeleteRule
 
 
 
 ```js
-amazonaws_waf_regional.DeleteRule({}, context)
+amazonaws_waf_regional.DeleteRule({
+  "RuleId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* RuleId (string) **required**
 
 ### DeleteSizeConstraintSet
 
 
 
 ```js
-amazonaws_waf_regional.DeleteSizeConstraintSet({}, context)
+amazonaws_waf_regional.DeleteSizeConstraintSet({
+  "SizeConstraintSetId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* SizeConstraintSetId (string) **required**
 
 ### DeleteSqlInjectionMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.DeleteSqlInjectionMatchSet({}, context)
+amazonaws_waf_regional.DeleteSqlInjectionMatchSet({
+  "SqlInjectionMatchSetId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* SqlInjectionMatchSetId (string) **required**
 
 ### DeleteWebACL
 
 
 
 ```js
-amazonaws_waf_regional.DeleteWebACL({}, context)
+amazonaws_waf_regional.DeleteWebACL({
+  "WebACLId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* WebACLId (string) **required**
 
 ### DeleteXssMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.DeleteXssMatchSet({}, context)
+amazonaws_waf_regional.DeleteXssMatchSet({
+  "XssMatchSetId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* XssMatchSetId (string) **required**
 
 ### DisassociateWebACL
 
 
 
 ```js
-amazonaws_waf_regional.DisassociateWebACL({}, context)
+amazonaws_waf_regional.DisassociateWebACL({
+  "ResourceArn": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceArn (string) **required**
 
 ### GetByteMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.GetByteMatchSet({}, context)
+amazonaws_waf_regional.GetByteMatchSet({
+  "ByteMatchSetId": ""
+}, context)
 ```
 
+#### Parameters
+* ByteMatchSetId (string) **required**
 
 ### GetChangeToken
 
@@ -181,87 +287,134 @@ amazonaws_waf_regional.GetByteMatchSet({}, context)
 amazonaws_waf_regional.GetChangeToken({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetChangeTokenStatus
 
 
 
 ```js
-amazonaws_waf_regional.GetChangeTokenStatus({}, context)
+amazonaws_waf_regional.GetChangeTokenStatus({
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
 
 ### GetIPSet
 
 
 
 ```js
-amazonaws_waf_regional.GetIPSet({}, context)
+amazonaws_waf_regional.GetIPSet({
+  "IPSetId": ""
+}, context)
 ```
 
+#### Parameters
+* IPSetId (string) **required**
 
 ### GetRule
 
 
 
 ```js
-amazonaws_waf_regional.GetRule({}, context)
+amazonaws_waf_regional.GetRule({
+  "RuleId": ""
+}, context)
 ```
 
+#### Parameters
+* RuleId (string) **required**
 
 ### GetSampledRequests
 
 
 
 ```js
-amazonaws_waf_regional.GetSampledRequests({}, context)
+amazonaws_waf_regional.GetSampledRequests({
+  "WebAclId": "",
+  "RuleId": "",
+  "TimeWindow": {
+    "StartTime": "",
+    "EndTime": ""
+  },
+  "MaxItems": 0
+}, context)
 ```
 
+#### Parameters
+* MaxItems (integer) **required**
+* RuleId (string) **required**
+* TimeWindow (object) **required** - <p>In a <a>GetSampledRequests</a> request, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which you want AWS WAF to return a sample of web requests.</p> <p>In a <a>GetSampledRequests</a> response, the <code>StartTime</code> and <code>EndTime</code> objects specify the time range for which AWS WAF actually returned a sample of web requests. AWS WAF gets the specified number of requests from among the first 5,000 requests that your AWS resource receives during the specified time period. If your resource receives more than 5,000 requests during that period, AWS WAF stops sampling after the 5,000th request. In that case, <code>EndTime</code> is the time that AWS WAF received the 5,000th request. </p>
+* WebAclId (string) **required**
 
 ### GetSizeConstraintSet
 
 
 
 ```js
-amazonaws_waf_regional.GetSizeConstraintSet({}, context)
+amazonaws_waf_regional.GetSizeConstraintSet({
+  "SizeConstraintSetId": ""
+}, context)
 ```
 
+#### Parameters
+* SizeConstraintSetId (string) **required**
 
 ### GetSqlInjectionMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.GetSqlInjectionMatchSet({}, context)
+amazonaws_waf_regional.GetSqlInjectionMatchSet({
+  "SqlInjectionMatchSetId": ""
+}, context)
 ```
 
+#### Parameters
+* SqlInjectionMatchSetId (string) **required**
 
 ### GetWebACL
 
 
 
 ```js
-amazonaws_waf_regional.GetWebACL({}, context)
+amazonaws_waf_regional.GetWebACL({
+  "WebACLId": ""
+}, context)
 ```
 
+#### Parameters
+* WebACLId (string) **required**
 
 ### GetWebACLForResource
 
 
 
 ```js
-amazonaws_waf_regional.GetWebACLForResource({}, context)
+amazonaws_waf_regional.GetWebACLForResource({
+  "ResourceArn": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceArn (string) **required**
 
 ### GetXssMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.GetXssMatchSet({}, context)
+amazonaws_waf_regional.GetXssMatchSet({
+  "XssMatchSetId": ""
+}, context)
 ```
 
+#### Parameters
+* XssMatchSetId (string) **required**
 
 ### ListByteMatchSets
 
@@ -271,6 +424,9 @@ amazonaws_waf_regional.GetXssMatchSet({}, context)
 amazonaws_waf_regional.ListByteMatchSets({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### ListIPSets
 
@@ -280,15 +436,22 @@ amazonaws_waf_regional.ListByteMatchSets({}, context)
 amazonaws_waf_regional.ListIPSets({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### ListResourcesForWebACL
 
 
 
 ```js
-amazonaws_waf_regional.ListResourcesForWebACL({}, context)
+amazonaws_waf_regional.ListResourcesForWebACL({
+  "WebACLId": ""
+}, context)
 ```
 
+#### Parameters
+* WebACLId (string) **required**
 
 ### ListRules
 
@@ -298,6 +461,9 @@ amazonaws_waf_regional.ListResourcesForWebACL({}, context)
 amazonaws_waf_regional.ListRules({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### ListSizeConstraintSets
 
@@ -307,6 +473,9 @@ amazonaws_waf_regional.ListRules({}, context)
 amazonaws_waf_regional.ListSizeConstraintSets({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### ListSqlInjectionMatchSets
 
@@ -316,6 +485,9 @@ amazonaws_waf_regional.ListSizeConstraintSets({}, context)
 amazonaws_waf_regional.ListSqlInjectionMatchSets({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### ListWebACLs
 
@@ -325,6 +497,9 @@ amazonaws_waf_regional.ListSqlInjectionMatchSets({}, context)
 amazonaws_waf_regional.ListWebACLs({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### ListXssMatchSets
 
@@ -334,67 +509,126 @@ amazonaws_waf_regional.ListWebACLs({}, context)
 amazonaws_waf_regional.ListXssMatchSets({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
 
 ### UpdateByteMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.UpdateByteMatchSet({}, context)
+amazonaws_waf_regional.UpdateByteMatchSet({
+  "ByteMatchSetId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
 ```
 
+#### Parameters
+* ByteMatchSetId (string) **required**
+* ChangeToken (string) **required**
+* Updates (array) **required**
 
 ### UpdateIPSet
 
 
 
 ```js
-amazonaws_waf_regional.UpdateIPSet({}, context)
+amazonaws_waf_regional.UpdateIPSet({
+  "IPSetId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* IPSetId (string) **required**
+* Updates (array) **required**
 
 ### UpdateRule
 
 
 
 ```js
-amazonaws_waf_regional.UpdateRule({}, context)
+amazonaws_waf_regional.UpdateRule({
+  "RuleId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* RuleId (string) **required**
+* Updates (array) **required**
 
 ### UpdateSizeConstraintSet
 
 
 
 ```js
-amazonaws_waf_regional.UpdateSizeConstraintSet({}, context)
+amazonaws_waf_regional.UpdateSizeConstraintSet({
+  "SizeConstraintSetId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* SizeConstraintSetId (string) **required**
+* Updates (array) **required**
 
 ### UpdateSqlInjectionMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.UpdateSqlInjectionMatchSet({}, context)
+amazonaws_waf_regional.UpdateSqlInjectionMatchSet({
+  "SqlInjectionMatchSetId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* SqlInjectionMatchSetId (string) **required**
+* Updates (array) **required**
 
 ### UpdateWebACL
 
 
 
 ```js
-amazonaws_waf_regional.UpdateWebACL({}, context)
+amazonaws_waf_regional.UpdateWebACL({
+  "WebACLId": "",
+  "ChangeToken": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* DefaultAction (object) - For the action that is associated with a rule in a <code>WebACL</code>, specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a <code>WebACL</code>, specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a <code>WebACL</code>. 
+* Updates (array)
+* WebACLId (string) **required**
 
 ### UpdateXssMatchSet
 
 
 
 ```js
-amazonaws_waf_regional.UpdateXssMatchSet({}, context)
+amazonaws_waf_regional.UpdateXssMatchSet({
+  "XssMatchSetId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
 ```
 
+#### Parameters
+* ChangeToken (string) **required**
+* Updates (array) **required**
+* XssMatchSetId (string) **required**
 

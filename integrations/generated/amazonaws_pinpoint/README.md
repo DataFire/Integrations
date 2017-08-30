@@ -40,13 +40,15 @@ amazonaws_pinpoint.GetCampaigns({
 ```js
 amazonaws_pinpoint.UpdateCampaign({
   "application-id": "",
-  "campaign-id": ""
+  "campaign-id": "",
+  "WriteCampaignRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
 * campaign-id (string) **required**
+* WriteCampaignRequest (object) **required** - Used to create a campaign.
 
 ### GetCampaignActivities
 
@@ -101,12 +103,14 @@ amazonaws_pinpoint.GetCampaignVersion({
 
 ```js
 amazonaws_pinpoint.UpdateApnsChannel({
-  "application-id": ""
+  "application-id": "",
+  "APNSChannelRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
+* APNSChannelRequest (object) **required** - Apple Push Notification Service channel definition.
 
 ### UpdateGcmChannel
 
@@ -114,12 +118,14 @@ amazonaws_pinpoint.UpdateApnsChannel({
 
 ```js
 amazonaws_pinpoint.UpdateGcmChannel({
-  "application-id": ""
+  "application-id": "",
+  "GCMChannelRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
+* GCMChannelRequest (object) **required** - Google Cloud Messaging credentials
 
 ### UpdateEndpointsBatch
 
@@ -127,12 +133,14 @@ amazonaws_pinpoint.UpdateGcmChannel({
 
 ```js
 amazonaws_pinpoint.UpdateEndpointsBatch({
-  "application-id": ""
+  "application-id": "",
+  "EndpointBatchRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
+* EndpointBatchRequest (object) **required** - Endpoint batch update request.
 
 ### UpdateEndpoint
 
@@ -141,13 +149,15 @@ amazonaws_pinpoint.UpdateEndpointsBatch({
 ```js
 amazonaws_pinpoint.UpdateEndpoint({
   "application-id": "",
-  "endpoint-id": ""
+  "endpoint-id": "",
+  "EndpointRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
 * endpoint-id (string) **required**
+* EndpointRequest (object) **required** - Endpoint update request
 
 ### PutEventStream
 
@@ -155,12 +165,14 @@ amazonaws_pinpoint.UpdateEndpoint({
 
 ```js
 amazonaws_pinpoint.PutEventStream({
-  "application-id": ""
+  "application-id": "",
+  "WriteEventStream": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
+* WriteEventStream (object) **required** - Request to save an EventStream.
 
 ### GetImportJobs
 
@@ -210,13 +222,15 @@ amazonaws_pinpoint.GetSegments({
 ```js
 amazonaws_pinpoint.UpdateSegment({
   "application-id": "",
-  "segment-id": ""
+  "segment-id": "",
+  "WriteSegmentRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
 * segment-id (string) **required**
+* WriteSegmentRequest (object) **required** - Segment definition.
 
 ### GetSegmentImportJobs
 
@@ -271,10 +285,12 @@ amazonaws_pinpoint.GetSegmentVersion({
 
 ```js
 amazonaws_pinpoint.UpdateApplicationSettings({
-  "application-id": ""
+  "application-id": "",
+  "WriteApplicationSettingsRequest": {}
 }, context)
 ```
 
 #### Parameters
 * application-id (string) **required**
+* WriteApplicationSettingsRequest (object) **required** - Creating application setting request
 

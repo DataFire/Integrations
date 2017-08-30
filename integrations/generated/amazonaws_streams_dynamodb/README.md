@@ -25,27 +25,47 @@ amazonaws_streams_dynamodb.DescribeStream({}).then(data => {
 
 
 ```js
-amazonaws_streams_dynamodb.DescribeStream({}, context)
+amazonaws_streams_dynamodb.DescribeStream({
+  "StreamArn": ""
+}, context)
 ```
 
+#### Parameters
+* ExclusiveStartShardId (string)
+* Limit (integer)
+* StreamArn (string) **required**
 
 ### GetRecords
 
 
 
 ```js
-amazonaws_streams_dynamodb.GetRecords({}, context)
+amazonaws_streams_dynamodb.GetRecords({
+  "ShardIterator": ""
+}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* ShardIterator (string) **required**
 
 ### GetShardIterator
 
 
 
 ```js
-amazonaws_streams_dynamodb.GetShardIterator({}, context)
+amazonaws_streams_dynamodb.GetShardIterator({
+  "StreamArn": "",
+  "ShardId": "",
+  "ShardIteratorType": ""
+}, context)
 ```
 
+#### Parameters
+* SequenceNumber (string)
+* ShardId (string) **required**
+* ShardIteratorType (string) **required**
+* StreamArn (string) **required**
 
 ### ListStreams
 
@@ -55,4 +75,8 @@ amazonaws_streams_dynamodb.GetShardIterator({}, context)
 amazonaws_streams_dynamodb.ListStreams({}, context)
 ```
 
+#### Parameters
+* ExclusiveStartStreamArn (string)
+* Limit (integer)
+* TableName (string)
 

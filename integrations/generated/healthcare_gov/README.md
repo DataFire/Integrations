@@ -28,6 +28,8 @@ Returns pages content.
 healthcare_gov.api.articles.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.blog.json.get
 Returns pages content.
@@ -37,6 +39,8 @@ Returns pages content.
 healthcare_gov.api.blog.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.glossary.json.get
 Returns pages content.
@@ -46,6 +50,8 @@ Returns pages content.
 healthcare_gov.api.glossary.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.questions.json.get
 Returns pages content.
@@ -55,6 +61,8 @@ Returns pages content.
 healthcare_gov.api.questions.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.states.json.get
 Returns pages content.
@@ -64,6 +72,8 @@ Returns pages content.
 healthcare_gov.api.states.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.topics.json.get
 Returns pages content.
@@ -73,6 +83,8 @@ Returns pages content.
 healthcare_gov.api.topics.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### blog.pageName.json.get
 Returns pages content.

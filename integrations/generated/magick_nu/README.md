@@ -42,6 +42,8 @@ Get all Template Strategies
 magick_nu.getStrategiesTemplates(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postTradingAccounts
 Add a Trading Account

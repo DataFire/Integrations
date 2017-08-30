@@ -28,6 +28,8 @@ ping pong
 versioneye.getFacebookPing(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postFacebookPing
 ping pong
@@ -37,6 +39,8 @@ ping pong
 versioneye.postFacebookPing(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getGithub
 
@@ -91,6 +95,8 @@ This endpoint works asynchronously and returns a status code. The status code is
 versioneye.getGithubSync(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### deleteGithubRepoKey
 
@@ -169,6 +175,8 @@ On Swagger, you can create session by adding additional parameter :api_key.
 versioneye.getMe(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getMeComments
 shows comments of authorized user
@@ -218,6 +226,8 @@ This endpoint requires the API key from a user. The result is a set of organisat
 versioneye.getOrganisations(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getOrganisationsOrgaNameInventory
 
@@ -685,6 +695,8 @@ check is the service up and running
 versioneye.getServicesPing(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### deleteSessions
 Close current session. It's very handy method when you re-generated your current API-key.
@@ -694,6 +706,8 @@ Close current session. It's very handy method when you re-generated your current
 versioneye.deleteSessions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getSessions
 
@@ -707,6 +721,8 @@ For othercase, it will return error message with status code 401.
 versioneye.getSessions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postSessions
  You need to append your api_key to request. 

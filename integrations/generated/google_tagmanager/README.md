@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_tagmanager.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.list
 Lists all GTM Accounts that a user has access to.

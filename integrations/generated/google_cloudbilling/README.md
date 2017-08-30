@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_cloudbilling.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### billingAccounts.list
 Lists the billing accounts that the current authenticated user

@@ -50,6 +50,8 @@ Exchange a refresh_token for an access_token
 furkot.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### trip.get
 list user's trips
@@ -59,6 +61,8 @@ list user's trips
 furkot.trip.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### trip.trip_id.stop.get
 list stops for a trip identified by {trip_id}

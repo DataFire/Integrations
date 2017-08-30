@@ -52,6 +52,8 @@ Retrieves list of apis templates
 swaggerhub.getApiTemplates(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getOwnerApis
 Retrieves an APIs.json listing of all APIs defined for this owner
@@ -653,6 +655,8 @@ Retrieves list of domains templates
 swaggerhub.getDomainTemplates(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getOwnerDomains
 Retrieves an APIs.json listing of all domains defined for this owner
@@ -1150,6 +1154,8 @@ Retrieves a list of all available plugins (ignore system plugins)
 swaggerhub.getAvailablePlugins(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### removePluginConfiguration
 Deletes the provided Plugin configuration

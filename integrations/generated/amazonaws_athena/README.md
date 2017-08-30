@@ -25,66 +25,101 @@ amazonaws_athena.BatchGetNamedQuery({}).then(data => {
 
 
 ```js
-amazonaws_athena.BatchGetNamedQuery({}, context)
+amazonaws_athena.BatchGetNamedQuery({
+  "NamedQueryIds": []
+}, context)
 ```
 
+#### Parameters
+* NamedQueryIds (array) **required**
 
 ### BatchGetQueryExecution
 
 
 
 ```js
-amazonaws_athena.BatchGetQueryExecution({}, context)
+amazonaws_athena.BatchGetQueryExecution({
+  "QueryExecutionIds": []
+}, context)
 ```
 
+#### Parameters
+* QueryExecutionIds (array) **required**
 
 ### CreateNamedQuery
 
 
 
 ```js
-amazonaws_athena.CreateNamedQuery({}, context)
+amazonaws_athena.CreateNamedQuery({
+  "Name": "",
+  "Database": "",
+  "QueryString": ""
+}, context)
 ```
 
+#### Parameters
+* ClientRequestToken (string)
+* Database (string) **required**
+* Description (string)
+* Name (string) **required**
+* QueryString (string) **required**
 
 ### DeleteNamedQuery
 
 
 
 ```js
-amazonaws_athena.DeleteNamedQuery({}, context)
+amazonaws_athena.DeleteNamedQuery({
+  "NamedQueryId": ""
+}, context)
 ```
 
+#### Parameters
+* NamedQueryId (string) **required**
 
 ### GetNamedQuery
 
 
 
 ```js
-amazonaws_athena.GetNamedQuery({}, context)
+amazonaws_athena.GetNamedQuery({
+  "NamedQueryId": ""
+}, context)
 ```
 
+#### Parameters
+* NamedQueryId (string) **required**
 
 ### GetQueryExecution
 
 
 
 ```js
-amazonaws_athena.GetQueryExecution({}, context)
+amazonaws_athena.GetQueryExecution({
+  "QueryExecutionId": ""
+}, context)
 ```
 
+#### Parameters
+* QueryExecutionId (string) **required**
 
 ### GetQueryResults
 
 
 
 ```js
-amazonaws_athena.GetQueryResults({}, context)
+amazonaws_athena.GetQueryResults({
+  "QueryExecutionId": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* QueryExecutionId (string) **required**
 
 ### ListNamedQueries
 
@@ -96,6 +131,8 @@ amazonaws_athena.ListNamedQueries({}, context)
 
 #### Parameters
 * MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
 * NextToken (string)
 
 ### ListQueryExecutions
@@ -109,22 +146,38 @@ amazonaws_athena.ListQueryExecutions({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### StartQueryExecution
 
 
 
 ```js
-amazonaws_athena.StartQueryExecution({}, context)
+amazonaws_athena.StartQueryExecution({
+  "QueryString": "",
+  "ResultConfiguration": {
+    "OutputLocation": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* ClientRequestToken (string)
+* QueryExecutionContext (object) - The database in which the query execution occurs.
+* QueryString (string) **required**
+* ResultConfiguration (object) **required** - The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
 
 ### StopQueryExecution
 
 
 
 ```js
-amazonaws_athena.StopQueryExecution({}, context)
+amazonaws_athena.StopQueryExecution({
+  "QueryExecutionId": ""
+}, context)
 ```
 
+#### Parameters
+* QueryExecutionId (string) **required**
 

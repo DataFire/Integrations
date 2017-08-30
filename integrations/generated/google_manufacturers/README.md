@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_manufacturers.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.products.list
 Lists all the products in a Manufacturer Center account.

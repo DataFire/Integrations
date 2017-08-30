@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_clouderrorreporting.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.groups.get
 Get the specified group.

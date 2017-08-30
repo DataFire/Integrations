@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_bigquery.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.list
 Lists all projects to which you have been granted any project role.

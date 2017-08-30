@@ -28,6 +28,8 @@ amazonaws_apigateway.UpdateAccount({}).then(data => {
 amazonaws_apigateway.UpdateAccount({}, context)
 ```
 
+#### Parameters
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetApiKeys
 
@@ -51,15 +53,20 @@ amazonaws_apigateway.UpdateApiKey({}, context)
 
 #### Parameters
 * apiKey (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### ImportApiKeys
 
 
 
 ```js
-amazonaws_apigateway.ImportApiKeys({}, context)
+amazonaws_apigateway.ImportApiKeys({
+  "body": ""
+}, context)
 ```
 
+#### Parameters
+* body (string) **required**
 
 ### GetClientCertificates
 
@@ -83,6 +90,7 @@ amazonaws_apigateway.UpdateClientCertificate({}, context)
 
 #### Parameters
 * clientcertificateId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetDomainNames
 
@@ -106,6 +114,7 @@ amazonaws_apigateway.UpdateDomainName({}, context)
 
 #### Parameters
 * domainName (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetBasePathMappings
 
@@ -131,6 +140,7 @@ amazonaws_apigateway.UpdateBasePathMapping({}, context)
 #### Parameters
 * domainName (string)
 * basePath (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetRestApis
 
@@ -154,6 +164,7 @@ amazonaws_apigateway.UpdateRestApi({}, context)
 
 #### Parameters
 * restapiId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetAuthorizers
 
@@ -177,6 +188,7 @@ amazonaws_apigateway.UpdateAuthorizer({}, context)
 #### Parameters
 * restapiId (string)
 * authorizerId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetDeployments
 
@@ -202,17 +214,21 @@ amazonaws_apigateway.UpdateDeployment({}, context)
 #### Parameters
 * restapiId (string)
 * deploymentId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### ImportDocumentationParts
 
 
 
 ```js
-amazonaws_apigateway.ImportDocumentationParts({}, context)
+amazonaws_apigateway.ImportDocumentationParts({
+  "body": ""
+}, context)
 ```
 
 #### Parameters
 * restapiId (string)
+* body (string) **required**
 
 ### UpdateDocumentationPart
 
@@ -225,6 +241,7 @@ amazonaws_apigateway.UpdateDocumentationPart({}, context)
 #### Parameters
 * restapiId (string)
 * partId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetDocumentationVersions
 
@@ -248,6 +265,7 @@ amazonaws_apigateway.UpdateDocumentationVersion({}, context)
 #### Parameters
 * restapiId (string)
 * docVersion (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetModels
 
@@ -273,6 +291,7 @@ amazonaws_apigateway.UpdateModel({}, context)
 #### Parameters
 * restapiId (string)
 * modelName (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetModelTemplate
 
@@ -308,6 +327,7 @@ amazonaws_apigateway.UpdateRequestValidator({}, context)
 #### Parameters
 * restapiId (string)
 * requestvalidatorId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetResources
 
@@ -327,12 +347,15 @@ amazonaws_apigateway.GetResources({}, context)
 
 
 ```js
-amazonaws_apigateway.CreateResource({}, context)
+amazonaws_apigateway.CreateResource({
+  "pathPart": ""
+}, context)
 ```
 
 #### Parameters
 * restapiId (string)
 * parentId (string)
+* pathPart (string) **required**
 
 ### UpdateResource
 
@@ -345,6 +368,7 @@ amazonaws_apigateway.UpdateResource({}, context)
 #### Parameters
 * restapiId (string)
 * resourceId (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### UpdateMethod
 
@@ -358,6 +382,7 @@ amazonaws_apigateway.UpdateMethod({}, context)
 * restapiId (string)
 * resourceId (string)
 * httpMethod (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### UpdateIntegration
 
@@ -371,6 +396,7 @@ amazonaws_apigateway.UpdateIntegration({}, context)
 * restapiId (string)
 * resourceId (string)
 * httpMethod (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### UpdateIntegrationResponse
 
@@ -385,6 +411,7 @@ amazonaws_apigateway.UpdateIntegrationResponse({}, context)
 * resourceId (string)
 * httpMethod (string)
 * statusCode (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### UpdateMethodResponse
 
@@ -399,6 +426,7 @@ amazonaws_apigateway.UpdateMethodResponse({}, context)
 * resourceId (string)
 * httpMethod (string)
 * statusCode (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetStages
 
@@ -422,6 +450,7 @@ amazonaws_apigateway.UpdateStage({}, context)
 #### Parameters
 * restapiId (string)
 * stageName (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### FlushStageAuthorizersCache
 
@@ -478,9 +507,13 @@ amazonaws_apigateway.GetSdk({}, context)
 
 
 ```js
-amazonaws_apigateway.ImportRestApi({}, context)
+amazonaws_apigateway.ImportRestApi({
+  "body": ""
+}, context)
 ```
 
+#### Parameters
+* body (string) **required**
 
 ### GetSdkTypes
 
@@ -490,6 +523,8 @@ amazonaws_apigateway.ImportRestApi({}, context)
 amazonaws_apigateway.GetSdkTypes({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetSdkType
 
@@ -526,6 +561,7 @@ amazonaws_apigateway.UpdateUsagePlan({
 
 #### Parameters
 * usageplanId (string) **required**
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetUsagePlanKeys
 
@@ -571,6 +607,7 @@ amazonaws_apigateway.UpdateUsage({
 #### Parameters
 * usageplanId (string) **required**
 * keyId (string) **required**
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
 ### GetUsage
 

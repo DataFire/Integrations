@@ -25,90 +25,149 @@ amazonaws_sqs.AddPermission({}).then(data => {
 
 
 ```js
-amazonaws_sqs.AddPermission({}, context)
+amazonaws_sqs.AddPermission({
+  "QueueUrl": "",
+  "Label": "",
+  "AWSAccountIds": [],
+  "Actions": []
+}, context)
 ```
 
+#### Parameters
+* AWSAccountIds (array) **required**
+* Actions (array) **required**
+* Label (string) **required**
+* QueueUrl (string) **required**
 
 ### ChangeMessageVisibility
 
 
 
 ```js
-amazonaws_sqs.ChangeMessageVisibility({}, context)
+amazonaws_sqs.ChangeMessageVisibility({
+  "QueueUrl": "",
+  "ReceiptHandle": "",
+  "VisibilityTimeout": 0
+}, context)
 ```
 
+#### Parameters
+* QueueUrl (string) **required**
+* ReceiptHandle (string) **required**
+* VisibilityTimeout (integer) **required**
 
 ### ChangeMessageVisibilityBatch
 
 
 
 ```js
-amazonaws_sqs.ChangeMessageVisibilityBatch({}, context)
+amazonaws_sqs.ChangeMessageVisibilityBatch({
+  "QueueUrl": "",
+  "Entries": []
+}, context)
 ```
 
+#### Parameters
+* Entries (array) **required**
+* QueueUrl (string) **required**
 
 ### CreateQueue
 
 
 
 ```js
-amazonaws_sqs.CreateQueue({}, context)
+amazonaws_sqs.CreateQueue({
+  "QueueName": ""
+}, context)
 ```
 
+#### Parameters
+* Attributes (array)
+* QueueName (string) **required**
 
 ### DeleteMessage
 
 
 
 ```js
-amazonaws_sqs.DeleteMessage({}, context)
+amazonaws_sqs.DeleteMessage({
+  "QueueUrl": "",
+  "ReceiptHandle": ""
+}, context)
 ```
 
+#### Parameters
+* QueueUrl (string) **required**
+* ReceiptHandle (string) **required**
 
 ### DeleteMessageBatch
 
 
 
 ```js
-amazonaws_sqs.DeleteMessageBatch({}, context)
+amazonaws_sqs.DeleteMessageBatch({
+  "QueueUrl": "",
+  "Entries": []
+}, context)
 ```
 
+#### Parameters
+* Entries (array) **required**
+* QueueUrl (string) **required**
 
 ### DeleteQueue
 
 
 
 ```js
-amazonaws_sqs.DeleteQueue({}, context)
+amazonaws_sqs.DeleteQueue({
+  "QueueUrl": ""
+}, context)
 ```
 
+#### Parameters
+* QueueUrl (string) **required**
 
 ### GetQueueAttributes
 
 
 
 ```js
-amazonaws_sqs.GetQueueAttributes({}, context)
+amazonaws_sqs.GetQueueAttributes({
+  "QueueUrl": ""
+}, context)
 ```
 
+#### Parameters
+* AttributeNames (array)
+* QueueUrl (string) **required**
 
 ### GetQueueUrl
 
 
 
 ```js
-amazonaws_sqs.GetQueueUrl({}, context)
+amazonaws_sqs.GetQueueUrl({
+  "QueueName": ""
+}, context)
 ```
 
+#### Parameters
+* QueueName (string) **required**
+* QueueOwnerAWSAccountId (string)
 
 ### ListDeadLetterSourceQueues
 
 
 
 ```js
-amazonaws_sqs.ListDeadLetterSourceQueues({}, context)
+amazonaws_sqs.ListDeadLetterSourceQueues({
+  "QueueUrl": ""
+}, context)
 ```
 
+#### Parameters
+* QueueUrl (string) **required**
 
 ### ListQueues
 
@@ -118,58 +177,102 @@ amazonaws_sqs.ListDeadLetterSourceQueues({}, context)
 amazonaws_sqs.ListQueues({}, context)
 ```
 
+#### Parameters
+* QueueNamePrefix (string)
 
 ### PurgeQueue
 
 
 
 ```js
-amazonaws_sqs.PurgeQueue({}, context)
+amazonaws_sqs.PurgeQueue({
+  "QueueUrl": ""
+}, context)
 ```
 
+#### Parameters
+* QueueUrl (string) **required**
 
 ### ReceiveMessage
 
 
 
 ```js
-amazonaws_sqs.ReceiveMessage({}, context)
+amazonaws_sqs.ReceiveMessage({
+  "QueueUrl": ""
+}, context)
 ```
 
+#### Parameters
+* AttributeNames (array)
+* MaxNumberOfMessages (integer)
+* MessageAttributeNames (array)
+* QueueUrl (string) **required**
+* ReceiveRequestAttemptId (string)
+* VisibilityTimeout (integer)
+* WaitTimeSeconds (integer)
 
 ### RemovePermission
 
 
 
 ```js
-amazonaws_sqs.RemovePermission({}, context)
+amazonaws_sqs.RemovePermission({
+  "QueueUrl": "",
+  "Label": ""
+}, context)
 ```
 
+#### Parameters
+* Label (string) **required**
+* QueueUrl (string) **required**
 
 ### SendMessage
 
 
 
 ```js
-amazonaws_sqs.SendMessage({}, context)
+amazonaws_sqs.SendMessage({
+  "QueueUrl": "",
+  "MessageBody": ""
+}, context)
 ```
 
+#### Parameters
+* DelaySeconds (integer)
+* MessageAttributes (array)
+* MessageBody (string) **required**
+* MessageDeduplicationId (string)
+* MessageGroupId (string)
+* QueueUrl (string) **required**
 
 ### SendMessageBatch
 
 
 
 ```js
-amazonaws_sqs.SendMessageBatch({}, context)
+amazonaws_sqs.SendMessageBatch({
+  "QueueUrl": "",
+  "Entries": []
+}, context)
 ```
 
+#### Parameters
+* Entries (array) **required**
+* QueueUrl (string) **required**
 
 ### SetQueueAttributes
 
 
 
 ```js
-amazonaws_sqs.SetQueueAttributes({}, context)
+amazonaws_sqs.SetQueueAttributes({
+  "QueueUrl": "",
+  "Attributes": []
+}, context)
 ```
 
+#### Parameters
+* Attributes (array) **required**
+* QueueUrl (string) **required**
 

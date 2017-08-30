@@ -67,6 +67,8 @@ Get health of Tune-in service (which includes its uptime).
 peel_ci.getHealth(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getStatuses
 For Twitter, statuses are synonymous with tweets.

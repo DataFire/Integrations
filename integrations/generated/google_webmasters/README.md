@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_webmasters.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sites.list
 Lists the user's Search Console sites.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_fusiontables.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### query.sqlGet
 Executes a SQL statement which can be any of 

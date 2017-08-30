@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 lufthansa_partner.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### baggage.baggagetripandcontact.searchID.get
 Retrieve passenger trip, contact and baggage details. This service is only accessible for LH privileged partners

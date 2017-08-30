@@ -28,6 +28,8 @@ AWS Greengrass seamlessly extends AWS onto physical devices so they can act loca
 amazonaws_greengrass.ListCoreDefinitions({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateCoreDefinition
 
@@ -41,6 +43,7 @@ amazonaws_greengrass.UpdateCoreDefinition({
 
 #### Parameters
 * CoreDefinitionId (string) **required**
+* Name (string)
 
 ### ListCoreDefinitionVersions
 
@@ -78,6 +81,8 @@ amazonaws_greengrass.GetCoreDefinitionVersion({
 amazonaws_greengrass.ListDeviceDefinitions({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateDeviceDefinition
 
@@ -91,6 +96,7 @@ amazonaws_greengrass.UpdateDeviceDefinition({
 
 #### Parameters
 * DeviceDefinitionId (string) **required**
+* Name (string)
 
 ### ListDeviceDefinitionVersions
 
@@ -128,6 +134,8 @@ amazonaws_greengrass.GetDeviceDefinitionVersion({
 amazonaws_greengrass.ListFunctionDefinitions({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateFunctionDefinition
 
@@ -141,6 +149,7 @@ amazonaws_greengrass.UpdateFunctionDefinition({
 
 #### Parameters
 * FunctionDefinitionId (string) **required**
+* Name (string)
 
 ### ListFunctionDefinitionVersions
 
@@ -178,6 +187,8 @@ amazonaws_greengrass.GetFunctionDefinitionVersion({
 amazonaws_greengrass.ListLoggerDefinitions({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateLoggerDefinition
 
@@ -191,6 +202,7 @@ amazonaws_greengrass.UpdateLoggerDefinition({
 
 #### Parameters
 * LoggerDefinitionId (string) **required**
+* Name (string)
 
 ### ListLoggerDefinitionVersions
 
@@ -228,6 +240,8 @@ amazonaws_greengrass.GetLoggerDefinitionVersion({
 amazonaws_greengrass.ListSubscriptionDefinitions({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateSubscriptionDefinition
 
@@ -241,6 +255,7 @@ amazonaws_greengrass.UpdateSubscriptionDefinition({
 
 #### Parameters
 * SubscriptionDefinitionId (string) **required**
+* Name (string)
 
 ### ListSubscriptionDefinitionVersions
 
@@ -278,6 +293,8 @@ amazonaws_greengrass.GetSubscriptionDefinitionVersion({
 amazonaws_greengrass.ListGroups({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateGroup
 
@@ -291,6 +308,7 @@ amazonaws_greengrass.UpdateGroup({
 
 #### Parameters
 * GroupId (string) **required**
+* Name (string)
 
 ### ListGroupCertificateAuthorities
 
@@ -317,6 +335,7 @@ amazonaws_greengrass.UpdateGroupCertificateConfiguration({
 
 #### Parameters
 * GroupId (string) **required**
+* CertificateExpiryInMilliseconds (string)
 
 ### GetGroupCertificateAuthority
 
@@ -410,6 +429,8 @@ amazonaws_greengrass.GetGroupVersion({
 amazonaws_greengrass.GetServiceRoleForAccount({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateConnectivityInfo
 
@@ -423,4 +444,5 @@ amazonaws_greengrass.UpdateConnectivityInfo({
 
 #### Parameters
 * ThingName (string) **required**
+* ConnectivityInfo (array)
 

@@ -109,6 +109,8 @@ station.</td>
 wmata_rail_station.Lines.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Path.get
 <h4 class="text-primary">Description</h4>
@@ -1074,6 +1076,8 @@ station.</td>
 wmata_rail_station.json.jLines.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### json.jPath.get
 <h4 class="text-primary">Description</h4>

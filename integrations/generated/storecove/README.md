@@ -180,6 +180,8 @@ include::examples/shop_accounts/shop_accounts_auth_failures/tabs.adoc[]
 storecove.shop_accounts_auth_failures(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### delete_shop_account
 Delete a specific ShopAccount.
@@ -234,4 +236,6 @@ include::examples/shops/shops_index/tabs.adoc[]
 storecove.shops_index(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

@@ -148,7 +148,8 @@ azure_arm_documentdb.DatabaseAccounts_CreateOrUpdate({
     "properties": {
       "locations": [],
       "databaseAccountOfferType": ""
-    }
+    },
+    "location": ""
   }
 }, context)
 ```

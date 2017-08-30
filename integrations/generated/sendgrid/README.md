@@ -74,6 +74,8 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 sendgrid.access_settings.whitelist.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### access_settings.whitelist.post
 **This endpoint allows you to add one or more IP addresses to your IP whitelist.**
@@ -510,6 +512,8 @@ Suppressions are a list of email addresses that will not receive content sent un
 sendgrid.asm.suppressions.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### asm.suppressions.global.post
 **This endpoint allows you to add one or more email addresses to the global suppressions group.**
@@ -917,6 +921,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.custom_fields.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contactdb.custom_fields.post
 **This endpoint allows you to create a custom field.**
@@ -984,6 +990,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 sendgrid.contactdb.lists.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contactdb.lists.post
 **This endpoint allows you to create a list for your recipients.**
@@ -1200,6 +1208,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 sendgrid.contactdb.recipients.billable_count.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contactdb.recipients.count.get
 **This endpoint allows you to retrieve the total number of Marketing Campaigns recipients.**
@@ -1211,6 +1221,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.recipients.count.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contactdb.recipients.search.get
 **This endpoint allows you to perform a search on all of your Marketing Campaigns recipients.**
@@ -1291,6 +1303,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.reserved_fields.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contactdb.segments.get
 **This endpoint allows you to retrieve all of your segments.**
@@ -1304,6 +1318,8 @@ For more information about segments in Marketing Campaigns, please see our [User
 sendgrid.contactdb.segments.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contactdb.segments.post
 **This endpoint allows you to create a segment.**
@@ -1496,6 +1512,8 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 sendgrid.ips.assigned.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ips.pools.get
 **This endpoint allows you to retreive all of your IP pools.**
@@ -1511,6 +1529,8 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 sendgrid.ips.pools.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ips.pools.post
 **This endpoint allows you to create an IP pool.**
@@ -1638,6 +1658,8 @@ For more general information about warming up IPs, please see our [Classroom](ht
 sendgrid.ips.warmup.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ips.warmup.post
 **This endpoint allows you to enter an IP address into warmup mode.**
@@ -1719,6 +1741,8 @@ More Information:
 sendgrid.mail.batch.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail.batch.batch_id.get
 **This endpoint allows you to validate a batch ID.**
@@ -1783,6 +1807,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.address_whitelist.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.address_whitelist.patch
 **This endpoint allows you to update your current email address whitelist settings.**
@@ -1811,6 +1837,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.bcc.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.bcc.patch
 **This endpoint allows you to update your current BCC mail settings.**
@@ -1839,6 +1867,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.bounce_purge.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.bounce_purge.patch
 **This endpoint allows you to update your current bounce purge settings.**
@@ -1867,6 +1897,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.footer.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.footer.patch
 **This endpoint allows you to update your current Footer mail settings.**
@@ -1895,6 +1927,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.forward_bounce.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.forward_bounce.patch
 **This endpoint allows you to update your current bounce forwarding mail settings.**
@@ -1923,6 +1957,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.forward_spam.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.forward_spam.patch
 **This endpoint allows you to update your current Forward Spam mail settings.**
@@ -1951,6 +1987,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.plain_content.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.plain_content.patch
 **This endpoint allows you to update your current Plain Content mail settings.**
@@ -1979,6 +2017,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.spam_check.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.spam_check.patch
 **This endpoint allows you to update your current spam checker mail settings.**
@@ -2009,6 +2049,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.template.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mail_settings.template.patch
 **This endpoint allows you to update your current legacy email template settings.**
@@ -2075,6 +2117,8 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
 sendgrid.partner_settings.new_relic.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### partner_settings.new_relic.patch
 **This endpoint allows you to update or change your New Relic partner settings.**
@@ -2101,6 +2145,8 @@ API Keys can be used to authenticate the use of [SendGrid’s v3 Web API](https:
 sendgrid.GET_scopes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### senders.get
 **This endpoint allows you to retrieve a list of all sender identities that have been created for your account.**
@@ -2112,6 +2158,8 @@ Sender Identities are required to be verified before use. If your domain has bee
 sendgrid.senders.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### POST_senders
 **This endpoint allows you to create a new sender identity.**
@@ -2806,6 +2854,8 @@ Transactional templates are templates created specifically for transactional ema
 sendgrid.GET_templates(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### POST_templates
 **This endpoint allows you to create a transactional template.**
@@ -3026,6 +3076,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.click.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tracking_settings.click.patch
 **This endpoint allows you to change your current click tracking setting. You can enable, or disable, click tracking using this endpoint.**
@@ -3058,6 +3110,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.google_analytics.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tracking_settings.google_analytics.patch
 **This endpoint allows you to update your current setting for Google Analytics.**
@@ -3092,6 +3146,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.open.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tracking_settings.open.patch
 **This endpoint allows you to update your current settings for open tracking.**
@@ -3124,6 +3180,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.subscription.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tracking_settings.subscription.patch
 **This endpoint allows you to update your current settings for subscription tracking.**
@@ -3158,6 +3216,8 @@ For more information about your user profile:
 sendgrid.user.account.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.credits.get
 **This endpoint allows you to retrieve the current credit balance for your account.**
@@ -3169,6 +3229,8 @@ Your monthly credit allotment limits the number of emails you may send before in
 sendgrid.user.credits.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.email.get
 **This endpoint allows you to retrieve the email address currently on file for your account.**
@@ -3184,6 +3246,8 @@ For more information about your user profile:
 sendgrid.user.email.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.email.put
 **This endpoint allows you to update the email address currently on file for your account.**
@@ -3231,6 +3295,8 @@ For more information about your user profile:
 sendgrid.user.profile.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.profile.patch
 **This endpoint allows you to update your current profile details.**
@@ -3261,6 +3327,8 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 sendgrid.user.scheduled_sends.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.scheduled_sends.post
 **This endpoint allows you to cancel or pause an email that has been scheduled to be sent.**
@@ -3336,6 +3404,8 @@ The Enforced TLS settings specify whether or not the recipient is required to su
 sendgrid.user.settings.enforced_tls.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.settings.enforced_tls.patch
 **This endpoint allows you to update your current Enforced TLS settings.**
@@ -3366,6 +3436,8 @@ For more information about your user profile:
 sendgrid.user.username.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.username.put
 **This endpoint allows you to update the username for your account.**
@@ -3398,6 +3470,8 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 sendgrid.user.webhooks.event.settings.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.webhooks.event.settings.patch
 **This endpoint allows you to update your current event webhook settings.**
@@ -3441,6 +3515,8 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 sendgrid.user.webhooks.parse.settings.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.webhooks.parse.settings.post
 **This endpoint allows you to create a new inbound parse setting.**
@@ -3578,6 +3654,8 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 sendgrid.whitelabel.domains.default.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### whitelabel.domains.subuser.delete
 **This endpoint allows you to disassociate a specific whitelabel from a subuser.**
@@ -3598,6 +3676,8 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 sendgrid.whitelabel.domains.subuser.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### whitelabel.domains.subuser.get
 **This endpoint allows you to retrieve all of the whitelabels that have been assigned to a specific subuser.**
@@ -3618,6 +3698,8 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 sendgrid.whitelabel.domains.subuser.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### whitelabel.domains.domain_id.delete
 **This endpoint allows you to delete a domain whitelabel.**

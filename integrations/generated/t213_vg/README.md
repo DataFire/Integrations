@@ -41,6 +41,8 @@ Get all attribute metadata.
 t213_vg.customerCustomerMetadataV1GetAllAttributesMetadataGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### customerCustomerMetadataV1GetAttributeMetadataGet
 Retrieve attribute metadata.
@@ -87,6 +89,8 @@ Get all attribute metadata.
 t213_vg.customerAddressMetadataV1GetAllAttributesMetadataGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### customerAddressMetadataV1GetAttributeMetadataGet
 Retrieve attribute metadata.
@@ -144,6 +148,8 @@ Get all types for options for bundle products
 t213_vg.bundleProductOptionTypeListV1GetItemsGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### bundleProductOptionManagementV1SavePut
 Add new option for bundle product
@@ -273,6 +279,8 @@ Creates an empty cart and quote for a guest.
 t213_vg.quoteCartManagementV1CreateEmptyCartPost(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### giftCardAccountGuestGiftCardAccountManagementV1CheckGiftCardGet
 
@@ -326,6 +334,8 @@ Lists active checkout agreements.
 t213_vg.checkoutAgreementsCheckoutAgreementsRepositoryV1GetListGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### quoteCartManagementV1GetCartForCustomerGet
 Returns information for the cart for a specified customer.
@@ -335,6 +345,8 @@ Returns information for the cart for a specified customer.
 t213_vg.quoteCartManagementV1GetCartForCustomerGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.post
 Creates an empty cart and quote for a specified customer.
@@ -344,6 +356,8 @@ Creates an empty cart and quote for a specified customer.
 t213_vg.V1.carts.mine.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### quoteCartRepositoryV1SavePut
 Save quote
@@ -364,6 +378,8 @@ Apply store credit
 t213_vg.customerBalanceBalanceManagementV1ApplyPost(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.billing_address.get
 Returns the billing address for a specified quote.
@@ -373,6 +389,8 @@ Returns the billing address for a specified quote.
 t213_vg.V1.carts.mine.billing_address.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.billing_address.post
 Assigns a specified billing address to a specified cart.
@@ -417,6 +435,8 @@ Deletes a coupon from a specified cart.
 t213_vg.V1.carts.mine.coupons.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.coupons.get
 Returns information for a coupon in a specified cart.
@@ -426,6 +446,8 @@ Returns information for a coupon in a specified cart.
 t213_vg.V1.carts.mine.coupons.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.coupons.couponCode.put
 Adds a coupon by code to a specified cart.
@@ -470,6 +492,8 @@ Return the gift message for a specified order.
 t213_vg.V1.carts.mine.gift_message.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.gift_message.post
 Set the gift message for an entire order.
@@ -541,6 +565,8 @@ Lists items that are assigned to a specified cart.
 t213_vg.V1.carts.mine.items.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.items.post
 Add/update the specified cart item.
@@ -599,6 +625,8 @@ Get payment information
 t213_vg.checkoutPaymentInformationManagementV1GetPaymentInformationGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### checkoutPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost
 Set payment information and place order for a specified cart.
@@ -619,6 +647,8 @@ Lists available payment methods for a specified shopping cart. This call returns
 t213_vg.V1.carts.mine.payment_methods.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.selected_payment_method.get
 Returns the payment method for a specified shopping cart.
@@ -628,6 +658,8 @@ Returns the payment method for a specified shopping cart.
 t213_vg.V1.carts.mine.selected_payment_method.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.selected_payment_method.put
 Adds a specified payment method to a specified shopping cart.
@@ -670,6 +702,8 @@ Lists applicable shipping methods for a specified quote.
 t213_vg.V1.carts.mine.shipping_methods.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.totals.get
 Returns quote totals data for a specified cart.
@@ -679,6 +713,8 @@ Returns quote totals data for a specified cart.
 t213_vg.V1.carts.mine.totals.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.carts.mine.totals_information.post
 Calculate quote totals based on address and shipping method.
@@ -1901,6 +1937,8 @@ Get customer by customer ID.
 t213_vg.V1.customers.me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### V1.customers.me.put
 Create or update a customer.
@@ -1932,6 +1970,8 @@ Retrieve default billing address for the given customerId.
 t213_vg.V1.customers.me.billingAddress.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### customerAccountManagementV1ChangePasswordByIdPut
 Change customer password.
@@ -1952,6 +1992,8 @@ Retrieve default shipping address for the given customerId.
 t213_vg.V1.customers.me.shippingAddress.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### customerAccountManagementV1InitiatePasswordResetPut
 Send an email to the customer with a password reset link.
@@ -2134,6 +2176,8 @@ Get all countries and regions information for the store.
 t213_vg.directoryCountryInformationAcquirerV1GetCountriesInfoGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### directoryCountryInformationAcquirerV1GetCountryInfoGet
 Get country and region information for the store.
@@ -2156,6 +2200,8 @@ Get currency information for the store.
 t213_vg.directoryCurrencyInformationAcquirerV1GetCurrencyInfoGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### eavAttributeSetManagementV1CreatePost
 Create attribute set from data
@@ -2313,6 +2359,8 @@ Enable an customer or guest user to create an empty cart and quote for an anonym
 t213_vg.quoteGuestCartManagementV1CreateEmptyCartPost(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### quoteGuestCartRepositoryV1GetGet
 Enable a guest user to return information for a specified cart.
@@ -2864,6 +2912,8 @@ Returns an array of enabled modules
 t213_vg.backendModuleServiceV1GetModulesGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### salesInvoiceOrderV1ExecutePost
 
@@ -3321,6 +3371,8 @@ Retrieve list of product attribute types
 t213_vg.catalogProductAttributeTypesListV1GetItemsGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### catalogProductAttributeRepositoryV1DeleteByIdDelete
 Delete Attribute by id
@@ -3438,6 +3490,8 @@ Retrieve information about available product link types
 t213_vg.catalogProductLinkTypeListV1GetItemsGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### catalogProductLinkTypeListV1GetItemAttributesGet
 Provide a list of the product link type attributes
@@ -3484,6 +3538,8 @@ Get custom option types
 t213_vg.catalogProductCustomOptionTypeListV1GetItemsGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### catalogProductCustomOptionRepositoryV1SavePut
 Save Custom Option
@@ -3507,6 +3563,8 @@ Retrieve available product types
 t213_vg.catalogProductTypeListV1GetProductTypesGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### catalogInventoryStockRegistryV1UpdateStockItemBySkuPut
 
@@ -4082,6 +4140,8 @@ Get all attribute metadata.
 t213_vg.rmaRmaAttributesManagementV1GetAllAttributesMetadataGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### rmaRmaAttributesManagementV1GetCustomAttributesMetadataGet
 Get custom attribute metadata for the given Data object's attribute set
@@ -4128,6 +4188,8 @@ Set reward points to quote
 t213_vg.rewardRewardManagementV1SetPost(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### salesRuleRuleRepositoryV1SavePost
 Save sales rule.
@@ -4397,6 +4459,8 @@ Retrieve list of all groups
 t213_vg.storeGroupRepositoryV1GetListGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### storeStoreRepositoryV1GetListGet
 Retrieve list of all stores
@@ -4406,6 +4470,8 @@ Retrieve list of all stores
 t213_vg.storeStoreRepositoryV1GetListGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### storeWebsiteRepositoryV1GetListGet
 Retrieve list of all websites
@@ -4415,6 +4481,8 @@ Retrieve list of all websites
 t213_vg.storeWebsiteRepositoryV1GetListGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### taxTaxClassRepositoryV1SavePost
 Create a Tax Class

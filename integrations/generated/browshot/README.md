@@ -108,6 +108,8 @@ Get all browsers.
 browshot.GetBrowsersInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetInstanceInfo
 Get information about an instance.
@@ -130,6 +132,8 @@ Get all instances.
 browshot.GetInstancesInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CreateScreenshot
 Screenshots requests to private and shared instances require a positive balance.

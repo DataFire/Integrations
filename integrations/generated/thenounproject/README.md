@@ -155,6 +155,8 @@ Returns current oauth usage and limits
 thenounproject.getApiQuotaStatus(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getUserCollections
 Returns a list of collections associated with a user

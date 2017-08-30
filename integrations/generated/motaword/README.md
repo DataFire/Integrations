@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 motaword.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getEndpoints
 The root endpoint will provide you a JSON Swagger definition.
@@ -57,6 +59,8 @@ The root endpoint will provide you a JSON Swagger definition.
 motaword.getEndpoints(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getFormats
 Get a list of supported formats for documents, style guides and extensions.
@@ -67,6 +71,8 @@ Get a list of supported formats for documents, style guides and extensions.
 motaword.getFormats(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### downloadGlobalGlossary
 Download your corporate account's global glossary. This endpoint is available only for corporate account customers.
@@ -76,6 +82,8 @@ Download your corporate account's global glossary. This endpoint is available on
 motaword.downloadGlobalGlossary(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### updateGlobalGlossary
 Update your corporate account's global glossary. This endpoint is available only for corporate account customers.
@@ -98,6 +106,8 @@ Get a list of supported languages
 motaword.getLanguages(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getAccount
 Get your account information and summary.
@@ -107,6 +117,8 @@ Get your account information and summary.
 motaword.getAccount(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getProjects
 Get a list of your projects
@@ -628,6 +640,8 @@ Download your corporate account's global style guide. This endpoint is available
 motaword.downloadGlobalStyleGuide(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### updateGlobalStyleGuide
 Update your corporate account's global style guide. This endpoint is available only for corporate account customers.

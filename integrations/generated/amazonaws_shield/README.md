@@ -25,9 +25,15 @@ amazonaws_shield.CreateProtection({}).then(data => {
 
 
 ```js
-amazonaws_shield.CreateProtection({}, context)
+amazonaws_shield.CreateProtection({
+  "Name": "",
+  "ResourceArn": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
+* ResourceArn (string) **required**
 
 ### CreateSubscription
 
@@ -37,15 +43,21 @@ amazonaws_shield.CreateProtection({}, context)
 amazonaws_shield.CreateSubscription({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteProtection
 
 
 
 ```js
-amazonaws_shield.DeleteProtection({}, context)
+amazonaws_shield.DeleteProtection({
+  "ProtectionId": ""
+}, context)
 ```
 
+#### Parameters
+* ProtectionId (string) **required**
 
 ### DeleteSubscription
 
@@ -55,24 +67,34 @@ amazonaws_shield.DeleteProtection({}, context)
 amazonaws_shield.DeleteSubscription({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DescribeAttack
 
 
 
 ```js
-amazonaws_shield.DescribeAttack({}, context)
+amazonaws_shield.DescribeAttack({
+  "AttackId": ""
+}, context)
 ```
 
+#### Parameters
+* AttackId (string) **required**
 
 ### DescribeProtection
 
 
 
 ```js
-amazonaws_shield.DescribeProtection({}, context)
+amazonaws_shield.DescribeProtection({
+  "ProtectionId": ""
+}, context)
 ```
 
+#### Parameters
+* ProtectionId (string) **required**
 
 ### DescribeSubscription
 
@@ -82,6 +104,8 @@ amazonaws_shield.DescribeProtection({}, context)
 amazonaws_shield.DescribeSubscription({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListAttacks
 
@@ -91,6 +115,12 @@ amazonaws_shield.DescribeSubscription({}, context)
 amazonaws_shield.ListAttacks({}, context)
 ```
 
+#### Parameters
+* EndTime (object) - The time range.
+* MaxResults (integer)
+* NextToken (string)
+* ResourceArns (array)
+* StartTime (object) - The time range.
 
 ### ListProtections
 
@@ -100,4 +130,7 @@ amazonaws_shield.ListAttacks({}, context)
 amazonaws_shield.ListProtections({}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
 

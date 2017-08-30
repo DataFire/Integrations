@@ -71,6 +71,8 @@ Used to obtain all advisories in Common Vulnerability Reporting Format (CVRF). F
 cisco.security.advisories.cvrf.all.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### security.advisories.cvrf.cve.cve_id.get
 Used to obtain an advisory in CVRF format for a given Common Vulnerability Enumerator (CVE). The `cve_id` format is CVE-YYYY-NNNN. For more information about CVE visit http://cve.mitre.org/
@@ -229,6 +231,8 @@ Used to obtain all Open Vulnerability and Assessment Language (OVAL) definitions
 cisco.security.advisories.oval.all.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### security.advisories.oval.cve.cve_id.get
 Used to obtain OVAL definitions for a given CVE Identifier. The `cve_id` format is CVE-YYYY-NNNN.

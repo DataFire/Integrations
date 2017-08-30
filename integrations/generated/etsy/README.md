@@ -41,6 +41,8 @@ Finds all Country.
 etsy.countries.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### users.user_id.favorites.listings.get
 Finds all favorite listings for a user
@@ -576,6 +578,8 @@ Retrieves a Receipt by id.
 etsy.receipts.receipt_id.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### receipts.receipt_id.put
 Updates a Receipt
@@ -675,6 +679,8 @@ Finds all Region.
 etsy.regions.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shipping.info.shipping_info_id.get
 Retrieves a ShippingInfo by id.
@@ -1163,6 +1169,8 @@ Retrieves all top-level Categories.
 etsy.taxonomy.categories.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### taxonomy.categories.tag.get
 Retrieves children of a top-level Category by tag.
@@ -1699,6 +1707,8 @@ Get a list of all methods available.
 etsy..get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### server.epoch.get
 Get server time, in epoch seconds notation.
@@ -1708,6 +1718,8 @@ Get server time, in epoch seconds notation.
 etsy.server.epoch.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### server.ping.get
 Check that the server is alive.
@@ -1717,4 +1729,6 @@ Check that the server is alive.
 etsy.server.ping.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

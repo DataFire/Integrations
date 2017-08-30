@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_licensing.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### licenseAssignments.insert
 Assign License.

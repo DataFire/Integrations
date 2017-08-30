@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_dataflow.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.workerMessages
 Send a worker_message to the service.

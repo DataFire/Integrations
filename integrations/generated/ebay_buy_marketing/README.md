@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 ebay_buy_marketing.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getMerchandisedProducts
 This call returns an array of products based on the category and metric specified. This includes details of the product, such as the eBay product ID (EPID), title, and user reviews and ratings for the product. You can use the epid returned by this call in the Browse API search call to retrieve items for this product. Restrictions For a list of supported sites and other restrictions, see API Restrictions.

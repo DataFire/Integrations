@@ -30,6 +30,8 @@ Shows all contacts under the client account.
 solarvps.contacts.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### dns.domain.get
 Shows all your records for a specific domain. You can try example.com below.
@@ -110,6 +112,8 @@ Shows all your domains
 solarvps.domains.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### domains.add.post
 Adds domain to SolarVPS Distributed DNS
@@ -175,6 +179,8 @@ Shows all your pods
 solarvps.pods.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### pods.podId.get
 Shows details of a specific pod. Enter 1 below to see an example
@@ -225,6 +231,8 @@ Shows all your monitors
 solarvps.solarray.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### solarray.critical.get
 Shows all your critical notifications
@@ -234,6 +242,8 @@ Shows all your critical notifications
 solarvps.solarray.critical.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tickets.get
 Shows all your tickets
@@ -243,6 +253,8 @@ Shows all your tickets
 solarvps.tickets.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tickets.department.add.post
 Available departments are support, billing, sales

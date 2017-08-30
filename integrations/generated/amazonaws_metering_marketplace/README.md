@@ -25,25 +25,47 @@ amazonaws_metering_marketplace.BatchMeterUsage({}).then(data => {
 
 
 ```js
-amazonaws_metering_marketplace.BatchMeterUsage({}, context)
+amazonaws_metering_marketplace.BatchMeterUsage({
+  "UsageRecords": [],
+  "ProductCode": ""
+}, context)
 ```
 
+#### Parameters
+* ProductCode (string) **required**
+* UsageRecords (array) **required**
 
 ### MeterUsage
 
 
 
 ```js
-amazonaws_metering_marketplace.MeterUsage({}, context)
+amazonaws_metering_marketplace.MeterUsage({
+  "ProductCode": "",
+  "Timestamp": "",
+  "UsageDimension": "",
+  "UsageQuantity": 0,
+  "DryRun": true
+}, context)
 ```
 
+#### Parameters
+* DryRun (boolean) **required**
+* ProductCode (string) **required**
+* Timestamp (string) **required**
+* UsageDimension (string) **required**
+* UsageQuantity (integer) **required**
 
 ### ResolveCustomer
 
 
 
 ```js
-amazonaws_metering_marketplace.ResolveCustomer({}, context)
+amazonaws_metering_marketplace.ResolveCustomer({
+  "RegistrationToken": ""
+}, context)
 ```
 
+#### Parameters
+* RegistrationToken (string) **required**
 

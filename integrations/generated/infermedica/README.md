@@ -28,6 +28,8 @@ Returns a list of all available conditions.
 infermedica.getAllConditions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getCondition
 Returns details of a single condition specified by id parameter.
@@ -66,6 +68,8 @@ Returns information about data used by diagnostic engine.
 infermedica.getDatabaseInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getMatchingObservation
 Returns details of a single observation if matched by the given phrase.
@@ -89,6 +93,8 @@ Returns a list of all available observations.
 infermedica.getAllObservations(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getObservation
 Returns details of a single observation specified by id parameter.
@@ -111,6 +117,8 @@ Returns a list of all available risk factors.
 infermedica.getAllRiskFactors(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getRiskFactor
 Returns details of a single risk factor specified by id parameter.

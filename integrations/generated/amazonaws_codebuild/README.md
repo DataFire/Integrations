@@ -25,36 +25,71 @@ amazonaws_codebuild.BatchGetBuilds({}).then(data => {
 
 
 ```js
-amazonaws_codebuild.BatchGetBuilds({}, context)
+amazonaws_codebuild.BatchGetBuilds({
+  "ids": []
+}, context)
 ```
 
+#### Parameters
+* ids (array) **required**
 
 ### BatchGetProjects
 
 
 
 ```js
-amazonaws_codebuild.BatchGetProjects({}, context)
+amazonaws_codebuild.BatchGetProjects({
+  "names": []
+}, context)
 ```
 
+#### Parameters
+* names (array) **required**
 
 ### CreateProject
 
 
 
 ```js
-amazonaws_codebuild.CreateProject({}, context)
+amazonaws_codebuild.CreateProject({
+  "name": "",
+  "source": {
+    "type": ""
+  },
+  "artifacts": {
+    "type": ""
+  },
+  "environment": {
+    "type": "",
+    "image": "",
+    "computeType": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* artifacts (object) **required** - Information about the build output artifacts for the build project.
+* description (string)
+* encryptionKey (string)
+* environment (object) **required** - Information about the build environment of the build project.
+* name (string) **required**
+* serviceRole (string)
+* source (object) **required** - Information about the build input source code for the build project.
+* tags (array)
+* timeoutInMinutes (integer)
 
 ### DeleteProject
 
 
 
 ```js
-amazonaws_codebuild.DeleteProject({}, context)
+amazonaws_codebuild.DeleteProject({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* name (string) **required**
 
 ### ListBuilds
 
@@ -64,15 +99,24 @@ amazonaws_codebuild.DeleteProject({}, context)
 amazonaws_codebuild.ListBuilds({}, context)
 ```
 
+#### Parameters
+* nextToken (string)
+* sortOrder (string)
 
 ### ListBuildsForProject
 
 
 
 ```js
-amazonaws_codebuild.ListBuildsForProject({}, context)
+amazonaws_codebuild.ListBuildsForProject({
+  "projectName": ""
+}, context)
 ```
 
+#### Parameters
+* nextToken (string)
+* projectName (string) **required**
+* sortOrder (string)
 
 ### ListCuratedEnvironmentImages
 
@@ -82,6 +126,8 @@ amazonaws_codebuild.ListBuildsForProject({}, context)
 amazonaws_codebuild.ListCuratedEnvironmentImages({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListProjects
 
@@ -91,31 +137,60 @@ amazonaws_codebuild.ListCuratedEnvironmentImages({}, context)
 amazonaws_codebuild.ListProjects({}, context)
 ```
 
+#### Parameters
+* nextToken (string)
+* sortBy (string)
+* sortOrder (string)
 
 ### StartBuild
 
 
 
 ```js
-amazonaws_codebuild.StartBuild({}, context)
+amazonaws_codebuild.StartBuild({
+  "projectName": ""
+}, context)
 ```
 
+#### Parameters
+* artifactsOverride (object) - Information about the build output artifacts for the build project.
+* buildspecOverride (string)
+* environmentVariablesOverride (array)
+* projectName (string) **required**
+* sourceVersion (string)
+* timeoutInMinutesOverride (integer)
 
 ### StopBuild
 
 
 
 ```js
-amazonaws_codebuild.StopBuild({}, context)
+amazonaws_codebuild.StopBuild({
+  "id": ""
+}, context)
 ```
 
+#### Parameters
+* id (string) **required**
 
 ### UpdateProject
 
 
 
 ```js
-amazonaws_codebuild.UpdateProject({}, context)
+amazonaws_codebuild.UpdateProject({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* artifacts (object) - Information about the build output artifacts for the build project.
+* description (string)
+* encryptionKey (string)
+* environment (object) - Information about the build environment of the build project.
+* name (string) **required**
+* serviceRole (string)
+* source (object) - Information about the build input source code for the build project.
+* tags (array)
+* timeoutInMinutes (integer)
 

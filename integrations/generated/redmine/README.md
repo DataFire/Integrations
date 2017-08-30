@@ -150,6 +150,8 @@ Creates a the project.
 redmine.projects.json.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.project_id.json.get
 Returns the project of given id or identifier.

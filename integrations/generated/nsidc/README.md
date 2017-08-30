@@ -66,6 +66,8 @@ Describes the web interface of NSIDC's data search engine
 nsidc.OpenSearchDescription.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### id
 In NSIDC Search and the Arctic Data Explorer, this endpoint is queried whenever the user types into the search terms box, and the returned suggestions are displayed in a dropdown beneath the search terms box. The q parameter and returned JSON follow the specifications of the OpenSearch Suggestions 1.0 extension.

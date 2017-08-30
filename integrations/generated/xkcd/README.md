@@ -29,6 +29,8 @@ Fetch current comic and metadata.
 xkcd.info.0.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### comicId.info.0.json.get
 Fetch comics and metadata  by comic id.

@@ -25,84 +25,127 @@ amazonaws_states.CreateActivity({}).then(data => {
 
 
 ```js
-amazonaws_states.CreateActivity({}, context)
+amazonaws_states.CreateActivity({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* name (string) **required**
 
 ### CreateStateMachine
 
 
 
 ```js
-amazonaws_states.CreateStateMachine({}, context)
+amazonaws_states.CreateStateMachine({
+  "name": "",
+  "definition": "",
+  "roleArn": ""
+}, context)
 ```
 
+#### Parameters
+* definition (string) **required**
+* name (string) **required**
+* roleArn (string) **required**
 
 ### DeleteActivity
 
 
 
 ```js
-amazonaws_states.DeleteActivity({}, context)
+amazonaws_states.DeleteActivity({
+  "activityArn": ""
+}, context)
 ```
 
+#### Parameters
+* activityArn (string) **required**
 
 ### DeleteStateMachine
 
 
 
 ```js
-amazonaws_states.DeleteStateMachine({}, context)
+amazonaws_states.DeleteStateMachine({
+  "stateMachineArn": ""
+}, context)
 ```
 
+#### Parameters
+* stateMachineArn (string) **required**
 
 ### DescribeActivity
 
 
 
 ```js
-amazonaws_states.DescribeActivity({}, context)
+amazonaws_states.DescribeActivity({
+  "activityArn": ""
+}, context)
 ```
 
+#### Parameters
+* activityArn (string) **required**
 
 ### DescribeExecution
 
 
 
 ```js
-amazonaws_states.DescribeExecution({}, context)
+amazonaws_states.DescribeExecution({
+  "executionArn": ""
+}, context)
 ```
 
+#### Parameters
+* executionArn (string) **required**
 
 ### DescribeStateMachine
 
 
 
 ```js
-amazonaws_states.DescribeStateMachine({}, context)
+amazonaws_states.DescribeStateMachine({
+  "stateMachineArn": ""
+}, context)
 ```
 
+#### Parameters
+* stateMachineArn (string) **required**
 
 ### GetActivityTask
 
 
 
 ```js
-amazonaws_states.GetActivityTask({}, context)
+amazonaws_states.GetActivityTask({
+  "activityArn": ""
+}, context)
 ```
 
+#### Parameters
+* activityArn (string) **required**
+* workerName (string)
 
 ### GetExecutionHistory
 
 
 
 ```js
-amazonaws_states.GetExecutionHistory({}, context)
+amazonaws_states.GetExecutionHistory({
+  "executionArn": ""
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* executionArn (string) **required**
+* maxResults (integer)
+* nextToken (string)
+* reverseOrder (boolean)
 
 ### ListActivities
 
@@ -115,18 +158,26 @@ amazonaws_states.ListActivities({}, context)
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* maxResults (integer)
+* nextToken (string)
 
 ### ListExecutions
 
 
 
 ```js
-amazonaws_states.ListExecutions({}, context)
+amazonaws_states.ListExecutions({
+  "stateMachineArn": ""
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* maxResults (integer)
+* nextToken (string)
+* stateMachineArn (string) **required**
+* statusFilter (string)
 
 ### ListStateMachines
 
@@ -139,49 +190,79 @@ amazonaws_states.ListStateMachines({}, context)
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* maxResults (integer)
+* nextToken (string)
 
 ### SendTaskFailure
 
 
 
 ```js
-amazonaws_states.SendTaskFailure({}, context)
+amazonaws_states.SendTaskFailure({
+  "taskToken": ""
+}, context)
 ```
 
+#### Parameters
+* cause (string)
+* error (string)
+* taskToken (string) **required**
 
 ### SendTaskHeartbeat
 
 
 
 ```js
-amazonaws_states.SendTaskHeartbeat({}, context)
+amazonaws_states.SendTaskHeartbeat({
+  "taskToken": ""
+}, context)
 ```
 
+#### Parameters
+* taskToken (string) **required**
 
 ### SendTaskSuccess
 
 
 
 ```js
-amazonaws_states.SendTaskSuccess({}, context)
+amazonaws_states.SendTaskSuccess({
+  "taskToken": "",
+  "output": ""
+}, context)
 ```
 
+#### Parameters
+* output (string) **required**
+* taskToken (string) **required**
 
 ### StartExecution
 
 
 
 ```js
-amazonaws_states.StartExecution({}, context)
+amazonaws_states.StartExecution({
+  "stateMachineArn": ""
+}, context)
 ```
 
+#### Parameters
+* input (string)
+* name (string)
+* stateMachineArn (string) **required**
 
 ### StopExecution
 
 
 
 ```js
-amazonaws_states.StopExecution({}, context)
+amazonaws_states.StopExecution({
+  "executionArn": ""
+}, context)
 ```
 
+#### Parameters
+* cause (string)
+* error (string)
+* executionArn (string) **required**
 

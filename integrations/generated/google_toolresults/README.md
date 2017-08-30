@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_toolresults.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.histories.list
 Lists Histories for a given Project.

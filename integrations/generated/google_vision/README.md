@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_vision.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### images.annotate
 Run image detection and annotation for a batch of images.

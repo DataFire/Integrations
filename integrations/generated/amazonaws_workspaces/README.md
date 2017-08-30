@@ -25,36 +25,56 @@ amazonaws_workspaces.CreateTags({}).then(data => {
 
 
 ```js
-amazonaws_workspaces.CreateTags({}, context)
+amazonaws_workspaces.CreateTags({
+  "ResourceId": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* ResourceId (string) **required**
+* Tags (array) **required**
 
 ### CreateWorkspaces
 
 
 
 ```js
-amazonaws_workspaces.CreateWorkspaces({}, context)
+amazonaws_workspaces.CreateWorkspaces({
+  "Workspaces": []
+}, context)
 ```
 
+#### Parameters
+* Workspaces (array) **required**
 
 ### DeleteTags
 
 
 
 ```js
-amazonaws_workspaces.DeleteTags({}, context)
+amazonaws_workspaces.DeleteTags({
+  "ResourceId": "",
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* ResourceId (string) **required**
+* TagKeys (array) **required**
 
 ### DescribeTags
 
 
 
 ```js
-amazonaws_workspaces.DescribeTags({}, context)
+amazonaws_workspaces.DescribeTags({
+  "ResourceId": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceId (string) **required**
 
 ### DescribeWorkspaceBundles
 
@@ -66,6 +86,9 @@ amazonaws_workspaces.DescribeWorkspaceBundles({}, context)
 
 #### Parameters
 * NextToken (string)
+* BundleIds (array)
+* NextToken (string)
+* Owner (string)
 
 ### DescribeWorkspaceDirectories
 
@@ -76,6 +99,8 @@ amazonaws_workspaces.DescribeWorkspaceDirectories({}, context)
 ```
 
 #### Parameters
+* NextToken (string)
+* DirectoryIds (array)
 * NextToken (string)
 
 ### DescribeWorkspaces
@@ -89,6 +114,12 @@ amazonaws_workspaces.DescribeWorkspaces({}, context)
 #### Parameters
 * Limit (string)
 * NextToken (string)
+* BundleId (string)
+* DirectoryId (string)
+* Limit (integer)
+* NextToken (string)
+* UserName (string)
+* WorkspaceIds (array)
 
 ### DescribeWorkspacesConnectionStatus
 
@@ -98,58 +129,87 @@ amazonaws_workspaces.DescribeWorkspaces({}, context)
 amazonaws_workspaces.DescribeWorkspacesConnectionStatus({}, context)
 ```
 
+#### Parameters
+* NextToken (string)
+* WorkspaceIds (array)
 
 ### ModifyWorkspaceProperties
 
 
 
 ```js
-amazonaws_workspaces.ModifyWorkspaceProperties({}, context)
+amazonaws_workspaces.ModifyWorkspaceProperties({
+  "WorkspaceId": "",
+  "WorkspaceProperties": {}
+}, context)
 ```
 
+#### Parameters
+* WorkspaceId (string) **required**
+* WorkspaceProperties (object) **required** - Describes the properties of a WorkSpace.
 
 ### RebootWorkspaces
 
 
 
 ```js
-amazonaws_workspaces.RebootWorkspaces({}, context)
+amazonaws_workspaces.RebootWorkspaces({
+  "RebootWorkspaceRequests": []
+}, context)
 ```
 
+#### Parameters
+* RebootWorkspaceRequests (array) **required**
 
 ### RebuildWorkspaces
 
 
 
 ```js
-amazonaws_workspaces.RebuildWorkspaces({}, context)
+amazonaws_workspaces.RebuildWorkspaces({
+  "RebuildWorkspaceRequests": []
+}, context)
 ```
 
+#### Parameters
+* RebuildWorkspaceRequests (array) **required**
 
 ### StartWorkspaces
 
 
 
 ```js
-amazonaws_workspaces.StartWorkspaces({}, context)
+amazonaws_workspaces.StartWorkspaces({
+  "StartWorkspaceRequests": []
+}, context)
 ```
 
+#### Parameters
+* StartWorkspaceRequests (array) **required**
 
 ### StopWorkspaces
 
 
 
 ```js
-amazonaws_workspaces.StopWorkspaces({}, context)
+amazonaws_workspaces.StopWorkspaces({
+  "StopWorkspaceRequests": []
+}, context)
 ```
 
+#### Parameters
+* StopWorkspaceRequests (array) **required**
 
 ### TerminateWorkspaces
 
 
 
 ```js
-amazonaws_workspaces.TerminateWorkspaces({}, context)
+amazonaws_workspaces.TerminateWorkspaces({
+  "TerminateWorkspaceRequests": []
+}, context)
 ```
 
+#### Parameters
+* TerminateWorkspaceRequests (array) **required**
 

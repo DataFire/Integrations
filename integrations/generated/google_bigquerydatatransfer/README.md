@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_bigquerydatatransfer.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.transferConfigs.runs.delete
 Deletes the specified transfer run.

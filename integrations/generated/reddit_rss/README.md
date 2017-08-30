@@ -28,6 +28,8 @@ reddit: the front page of the internet
 reddit_rss.frontPage(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### subreddit
 Retrieve the RSS feed

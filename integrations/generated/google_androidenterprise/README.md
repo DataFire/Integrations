@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_androidenterprise.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### enterprises.list
 Looks up an enterprise by domain name. This is only supported for enterprises created via the Google-initiated creation flow. Lookup of the id is not needed for enterprises created via the EMM-initiated flow since the EMM learns the enterprise ID in the callback specified in the Enterprises.generateSignupUrl call.

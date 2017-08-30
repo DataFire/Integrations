@@ -54,6 +54,8 @@ Exchange a refresh_token for an access_token
 medium.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### me.get
 Returns details of the user who has granted permission to the application.
@@ -63,6 +65,8 @@ Returns details of the user who has granted permission to the application.
 medium.me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### publications.publicationId.contributors.get
 This endpoint returns a list of contributors for a given publication. In other words, a list of Medium users who are allowed to publish under a publication, as well as a description of their exact role in the publication (for now, either an editor or a writer).

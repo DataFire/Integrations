@@ -1,6 +1,6 @@
 # @datafire/wmata_bus_realtime
 
-Client library for Real-Time Rail Predictions
+Client library for Real-Time Bus Predictions
 
 ## Installation and Usage
 ```bash
@@ -14,34 +14,19 @@ let wmata_bus_realtime = require('@datafire/wmata_bus_realtime').create({
   apiKeyQuery: "",
 });
 
-wmata_bus_realtime.GetPrediction.StationCodes.get({}).then(data => {
+wmata_bus_realtime.Predictions.get({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-Real-time rail prediction methods.
+Real-time bus prediction methods.
 
 ## Actions
-### GetPrediction.StationCodes.get
+### Predictions.get
 <h4 class="text-primary">Description</h4>
 
-<p>Returns next train arrival information for one or more stations. Will return
-an empty set of results when no predictions are available. Use <span class=
-"text-info">All</span> for the StationCodes parameter to return predictions for
-all stations.</p>
-
-<p>For terminal stations (e.g.: Greenbelt, Shady Grove, etc.), predictions may
-be displayed twice.</p>
-
-<p>Some stations have two platforms (e.g.: Gallery Place, Fort Totten, L'Enfant
-Plaza, and Metro Center). To retrieve complete predictions for these stations,
-be sure to pass in both StationCodes.</p>
-
-<p>For trains with no passengers, the DestinationName will be <span class=
-"text-info">No Passenger</span>.</p>
-
-<p>Next train arrival information is refreshed once every 20 to 30 seconds approximately.</p>
+<p>Returns next bus arrival times at a stop.</p>
 
 <h4 class="text-primary">Response Elements</h4>
 
@@ -56,127 +41,90 @@ be sure to pass in both StationCodes.</p>
 
 <tbody>
 <tr>
-<td>Trains</td>
+<td>Predictions</td>
 
 <td>
-Array containing train prediction information (<a href=
-"#AIMPredictionTrainInfo">AIMPredictionTrainInfo</a>).
+Array containing bus predictions (<a href=
+"#NextBusPrediction">NextBusPrediction</a>).
 </td>
+</tr>
+
+<tr>
+<td>StopName</td>
+
+<td>Full name of the given StopID.</td>
 </tr>
 
 <tr>
 <td colspan="2">
 <div class="text-primary" style="margin-top: 1em">
-<a id="AIMPredictionTrainInfo" name=
-"AIMPredictionTrainInfo">AIMPredictionTrainInfo
-Elements</a>
+<a id="NextBusPrediction" name=
+"NextBusPrediction">NextBusPrediction Elements</a>
 </div>
 </td>
 </tr>
 
 <tr>
-<td>Car</td>
+<td>DirectionNum</td>
 
-<td>Number of cars on a train, usually 6 or 8, but might also
-return <span class="text-info">-</span> or NULL.</td>
+<td>Denotes a binary direction (0 or 1) of the bus. There is no
+specific mapping to direction, but a different value for the same
+route signifies that the buses are traveling in opposite
+directions. Use the DirectionText element to show the actual
+destination of the bus.</td>
 </tr>
 
 <tr>
-<td>Destination</td>
+<td>DirectionText</td>
 
-<td>Abbreviated version of the final destination for a train. This
-is similar to what is displayed on the signs at stations.</td>
+<td>Customer-friendly description of direction and destination for
+a bus.</td>
 </tr>
 
 <tr>
-<td>DestinationCode</td>
+<td>Minutes</td>
 
-<td>Destination station code. Can be NULL. Use this value in other
-rail-related APIs to retrieve data about a station.</td>
+<td>Minutes until bus arrival at this stop. Numeric value.</td>
 </tr>
 
 <tr>
-<td>DestinationName</td>
+<td>RouteID</td>
 
-<td>When DestinationCode is populated, this is the full name of the
-destination station, as shown on the WMATA website.</td>
+<td>Base route name as shown on the bus. This can be used in other
+bus-related methods. Note that all variants will be shown as their
+base route names (i.e.: 10Av1 and 10Av2 will be shown as 10A).</td>
 </tr>
 
 <tr>
-<td>Group</td>
+<td>TripID</td>
 
-<td>Denotes the track this train is on, but does not necessarily
-equate to Track 1 or Track 2. With the exception of terminal
-stations, predictions at the same station with different Group
-values refer to trains on different tracks.</td>
+<td>Trip identifier. This can be correlated with the data in our
+bus schedule information as well as bus positions.</td>
 </tr>
 
 <tr>
-<td>Line</td>
+<td>VehicleID</td>
 
-<td>Two-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR,
-or SV). May also be blank or <span class="text-info">No</span> for
-trains with no passengers.</td>
-</tr>
-
-<tr>
-<td>LocationCode</td>
-
-<td>Station code for where the train is arriving. Useful when
-passing in <span class="text-info">All</span> as the StationCodes
-parameter. Use this value in other rail-related APIs to retrieve
-data about a station.</td>
-</tr>
-
-<tr>
-<td>LocationName</td>
-
-<td>Full name of the station where the train is arriving. Useful
-when passing in <span class="text-info">All</span> as the
-StationCodes parameter.</td>
-</tr>
-
-<tr>
-<td>Min</td>
-
-<td>Minutes until arrival. Can be a numeric value, <span class=
-"text-info">ARR</span> (arriving), <span class=
-"text-info">BRD</span> (boarding), <span class=
-"text-info">---</span>, or empty.</td>
+<td>Bus identifier. This can be correlated with results returned
+from bus positions.</td>
 </tr>
 </tbody>
 </table>
-<hr>
 
 
 ```js
-wmata_bus_realtime.GetPrediction.StationCodes.get({
-  "StationCodes": ""
+wmata_bus_realtime.Predictions.get({
+  "StopID": ""
 }, context)
 ```
 
 #### Parameters
-* StationCodes (string) **required** - Comma-separated list of station codes.  For all predictions, use "All".
+* StopID (string) **required** - 7-digit regional stop ID.
 
-### json.GetPrediction.StationCodes.get
+### json.jPredictions.get
 <h4 class="text-primary">Description</h4>
 
-<p>Returns next train arrival information for one or more stations. Will return
-an empty set of results when no predictions are available. Use <span class=
-"text-info">All</span> for the StationCodes parameter to return predictions for
-all stations.</p>
-
-<p>For terminal stations (e.g.: Greenbelt, Shady Grove, etc.), predictions may
-be displayed twice.</p>
-
-<p>Some stations have two platforms (e.g.: Gallery Place, Fort Totten, L'Enfant
-Plaza, and Metro Center). To retrieve complete predictions for these stations,
-be sure to pass in both StationCodes.</p>
-
-<p>For trains with no passengers, the DestinationName will be <span class=
-"text-info">No Passenger</span>.</p>
-
-<p>Next train arrival information is refreshed once every 20 to 30 seconds approximately.</p>
+<p>Returns next bus arrival times at a stop.</p>
 
 <h4 class="text-primary">Response Elements</h4>
 
@@ -191,105 +139,83 @@ be sure to pass in both StationCodes.</p>
 
 <tbody>
 <tr>
-<td>Trains</td>
+<td>Predictions</td>
 
 <td>
-Array containing train prediction information (<a href=
-"#AIMPredictionTrainInfo">AIMPredictionTrainInfo</a>).
+Array containing bus predictions (<a href=
+"#NextBusPrediction">NextBusPrediction</a>).
 </td>
+</tr>
+
+<tr>
+<td>StopName</td>
+
+<td>Full name of the given StopID.</td>
 </tr>
 
 <tr>
 <td colspan="2">
 <div class="text-primary" style="margin-top: 1em">
-<a id="AIMPredictionTrainInfo" name=
-"AIMPredictionTrainInfo">AIMPredictionTrainInfo
-Elements</a>
+<a id="NextBusPrediction" name=
+"NextBusPrediction">NextBusPrediction Elements</a>
 </div>
 </td>
 </tr>
 
 <tr>
-<td>Car</td>
+<td>DirectionNum</td>
 
-<td>Number of cars on a train, usually 6 or 8, but might also
-return <span class="text-info">-</span> or NULL.</td>
+<td>Denotes a binary direction (0 or 1) of the bus. There is no
+specific mapping to direction, but a different value for the same
+route signifies that the buses are traveling in opposite
+directions. Use the DirectionText element to show the actual
+destination of the bus.</td>
 </tr>
 
 <tr>
-<td>Destination</td>
+<td>DirectionText</td>
 
-<td>Abbreviated version of the final destination for a train. This
-is similar to what is displayed on the signs at stations.</td>
+<td>Customer-friendly description of direction and destination for
+a bus.</td>
 </tr>
 
 <tr>
-<td>DestinationCode</td>
+<td>Minutes</td>
 
-<td>Destination station code. Can be NULL. Use this value in other
-rail-related APIs to retrieve data about a station.</td>
+<td>Minutes until bus arrival at this stop. Numeric value.</td>
 </tr>
 
 <tr>
-<td>DestinationName</td>
+<td>RouteID</td>
 
-<td>When DestinationCode is populated, this is the full name of the
-destination station, as shown on the WMATA website.</td>
+<td>Base route name as shown on the bus. This can be used in other
+bus-related methods. Note that all variants will be shown as their
+base route names (i.e.: 10Av1 and 10Av2 will be shown as 10A).</td>
 </tr>
 
 <tr>
-<td>Group</td>
+<td>TripID</td>
 
-<td>Denotes the track this train is on, but does not necessarily
-equate to Track 1 or Track 2. With the exception of terminal
-stations, predictions at the same station with different Group
-values refer to trains on different tracks.</td>
+<td>Trip identifier. This can be correlated with the data in our
+bus schedule information as well as bus positions.</td>
 </tr>
 
 <tr>
-<td>Line</td>
+<td>VehicleID</td>
 
-<td>Two-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR,
-or SV). May also be blank or <span class="text-info">No</span> for
-trains with no passengers.</td>
-</tr>
-
-<tr>
-<td>LocationCode</td>
-
-<td>Station code for where the train is arriving. Useful when
-passing in <span class="text-info">All</span> as the StationCodes
-parameter. Use this value in other rail-related APIs to retrieve
-data about a station.</td>
-</tr>
-
-<tr>
-<td>LocationName</td>
-
-<td>Full name of the station where the train is arriving. Useful
-when passing in <span class="text-info">All</span> as the
-StationCodes parameter.</td>
-</tr>
-
-<tr>
-<td>Min</td>
-
-<td>Minutes until arrival. Can be a numeric value, <span class=
-"text-info">ARR</span> (arriving), <span class=
-"text-info">BRD</span> (boarding), <span class=
-"text-info">---</span>, or empty.</td>
+<td>Bus identifier. This can be correlated with results returned
+from bus positions.</td>
 </tr>
 </tbody>
 </table>
-<hr>
 
 
 ```js
-wmata_bus_realtime.json.GetPrediction.StationCodes.get({
-  "StationCodes": ""
+wmata_bus_realtime.json.jPredictions.get({
+  "StopID": ""
 }, context)
 ```
 
 #### Parameters
-* StationCodes (string) **required** - Comma-separated list of station codes.  For all predictions, use "All".
+* StopID (string) **required** - 7-digit regional stop ID.
 

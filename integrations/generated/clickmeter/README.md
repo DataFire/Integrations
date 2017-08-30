@@ -30,6 +30,8 @@ Retrieve current account data
 clickmeter.account.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### account.post
 Update current account data
@@ -276,6 +278,8 @@ Retrieve current account plan
 clickmeter.account.plan.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### aggregated.get
 Retrieve statistics about this customer for a timeframe
@@ -1355,6 +1359,8 @@ Retrieve current account data
 clickmeter.me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### me.plan.get
 Retrieve current account plan
@@ -1364,6 +1370,8 @@ Retrieve current account plan
 clickmeter.me.plan.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### reports.get
 Retrieve a top report
@@ -1419,6 +1427,8 @@ Retrieve count of retargeting scripts
 clickmeter.retargeting.count.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### retargeting.id.delete
 Deletes a retargeting script (and remove associations)

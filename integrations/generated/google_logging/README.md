@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_logging.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### entries.list
 Lists log entries. Use this method to retrieve log entries from Stackdriver Logging. For ways to export log entries, see Exporting Logs.

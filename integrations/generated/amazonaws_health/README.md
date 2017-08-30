@@ -25,11 +25,19 @@ amazonaws_health.DescribeAffectedEntities({}).then(data => {
 
 
 ```js
-amazonaws_health.DescribeAffectedEntities({}, context)
+amazonaws_health.DescribeAffectedEntities({
+  "filter": {
+    "eventArns": []
+  }
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
+* nextToken (string)
+* filter (object) **required** - The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.
+* locale (string)
+* maxResults (integer)
 * nextToken (string)
 
 ### DescribeEntityAggregates
@@ -40,17 +48,25 @@ amazonaws_health.DescribeAffectedEntities({}, context)
 amazonaws_health.DescribeEntityAggregates({}, context)
 ```
 
+#### Parameters
+* eventArns (array)
 
 ### DescribeEventAggregates
 
 
 
 ```js
-amazonaws_health.DescribeEventAggregates({}, context)
+amazonaws_health.DescribeEventAggregates({
+  "aggregateField": ""
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
+* nextToken (string)
+* aggregateField (string) **required**
+* filter (object) - The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.
+* maxResults (integer)
 * nextToken (string)
 
 ### DescribeEventDetails
@@ -58,9 +74,14 @@ amazonaws_health.DescribeEventAggregates({}, context)
 
 
 ```js
-amazonaws_health.DescribeEventDetails({}, context)
+amazonaws_health.DescribeEventDetails({
+  "eventArns": []
+}, context)
 ```
 
+#### Parameters
+* eventArns (array) **required**
+* locale (string)
 
 ### DescribeEventTypes
 
@@ -73,6 +94,10 @@ amazonaws_health.DescribeEventTypes({}, context)
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* filter (object) - The values to use to filter results from the <a>DescribeEventTypes</a> operation.
+* locale (string)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeEvents
 
@@ -84,5 +109,9 @@ amazonaws_health.DescribeEvents({}, context)
 
 #### Parameters
 * maxResults (string)
+* nextToken (string)
+* filter (object) - The values to use to filter results from the <a>DescribeEvents</a> and <a>DescribeEventAggregates</a> operations.
+* locale (string)
+* maxResults (integer)
 * nextToken (string)
 

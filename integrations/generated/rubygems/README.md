@@ -71,6 +71,8 @@ Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
 rubygems.gems.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### gems.yank.delete
 Remove a gem from RubyGems.org’s index.

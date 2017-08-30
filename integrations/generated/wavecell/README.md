@@ -31,6 +31,8 @@ This API allows Wavecell customers to originate request to send SMS messages any
 wavecell.SmsV1StatusGet(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### SendManyMessages
 

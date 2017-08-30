@@ -78,6 +78,8 @@ getPatientManagementDiagnoses
 patientview.getPatientManagementDiagnoses(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getPatientManagementLookupTypes
 getPatientManagementLookupTypes
@@ -87,6 +89,8 @@ getPatientManagementLookupTypes
 patientview.getPatientManagementLookupTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### validatePatientManagement
 validatePatientManagement

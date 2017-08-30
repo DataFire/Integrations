@@ -41,6 +41,8 @@ Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL
 openapi_converter_herokuapp.convertUrl(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### convert
 Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x 
@@ -63,6 +65,8 @@ Get the status of the API
 openapi_converter_herokuapp.getStatus(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### validateUrl
 Validate an OpenAPI 3.0.x definition

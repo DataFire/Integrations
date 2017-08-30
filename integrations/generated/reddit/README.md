@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 reddit.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sort.get
 This endpoint is a listing.
@@ -150,6 +152,8 @@ Retrieve a list of wiki pages in this subreddit
 reddit.wiki.pages.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### wiki.discussions.page.get
 Retrieve a list of discussions about this wiki page
@@ -286,6 +290,8 @@ See also: /api/subreddit_stylesheet.
 reddit.stylesheet.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sticky.get
 Redirect to one of the posts stickied in the current subreddit
@@ -310,6 +316,8 @@ Get the sidebar for the current subreddit
 reddit.sidebar.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### search.get
 Search links page.
@@ -344,6 +352,8 @@ Get the rules for the current subreddit
 reddit.rules.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### related.article.get
 Related page: performs a search using title of article as
@@ -373,6 +383,8 @@ The Serendipity button
 reddit.random.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### r.subreddit.sort.get
 This endpoint is a listing.
@@ -1655,6 +1667,8 @@ Return a list of trophies for the current user.
 reddit.api.v1.me.trophies.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.me.prefs.patch
 
@@ -1712,6 +1726,8 @@ Return a breakdown of subreddit karma.
 reddit.api.v1.me.karma.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.me.friends.username.put
 Create or update a "friend" relationship.
@@ -1761,6 +1777,8 @@ Returns the identity of the user currently authenticated via OAuth.
 reddit.api.v1.me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.gold.give.username.post
 
@@ -2054,6 +2072,8 @@ See also: /api/site_admin.
 reddit.api.submit_text.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.submit.post
 Submit a link to a subreddit.
@@ -2309,6 +2329,8 @@ See also: /api/save.
 reddit.api.saved_categories.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.save.post
 Save a link or comment.
@@ -2435,6 +2457,8 @@ Check whether CAPTCHAs are needed for API methods that define the
 reddit.api.needs_captcha.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.mute_message_author.post
 For muting user via modmail.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_language.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### documents.analyzeEntities
 Finds named entities (currently proper names and common nouns) in the text

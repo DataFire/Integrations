@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_gmail.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### users.drafts.list
 Lists the drafts in the user's mailbox.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_mirror.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.insert
 Inserts a new account for a user

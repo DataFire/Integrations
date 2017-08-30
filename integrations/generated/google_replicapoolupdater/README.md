@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_replicapoolupdater.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### zoneOperations.list
 Retrieves the list of Operation resources contained within the specified zone.

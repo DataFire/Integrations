@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_sheets.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### spreadsheets.create
 Creates a spreadsheet, returning the newly created spreadsheet.

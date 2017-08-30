@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 producthunt.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### users.username.get
 

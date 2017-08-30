@@ -41,6 +41,8 @@ Currencies
 taxamo.getCurrenciesDict(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getProductTypesDict
 Product types
@@ -50,6 +52,8 @@ Product types
 taxamo.getProductTypesDict(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### locateMyIP
 Locate IP
@@ -59,6 +63,8 @@ Locate IP
 taxamo.locateMyIP(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### locateGivenIP
 Locate provided IP

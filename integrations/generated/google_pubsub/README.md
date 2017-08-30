@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_pubsub.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.topics.create
 Creates the given topic with the given name.

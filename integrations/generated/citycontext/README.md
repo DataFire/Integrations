@@ -62,4 +62,6 @@ Get usage in current month
 citycontext.usage(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

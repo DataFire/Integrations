@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_youtubeanalytics.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### groupItems.delete
 Removes an item from a group.

@@ -32,6 +32,8 @@ Get the current application settings
 gitlab.getV3ApplicationSettings(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### putV3ApplicationSettings
 Modify application settings
@@ -151,6 +153,8 @@ gitlab.postV3CiLint({
 gitlab.getV3DeployKeys(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3Dockerfiles
 This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.
@@ -160,6 +164,8 @@ This feature was introduced in GitLab 8.15. This endpoint is deprecated and will
 gitlab.getV3Dockerfiles(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3DockerfilesName
 This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.
@@ -182,6 +188,8 @@ This feature was introduced in GitLab 8.8. This endpoint is deprecated and will 
 gitlab.getV3Gitignores(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3GitignoresName
 This feature was introduced in GitLab 8.8. This endpoint is deprecated and will be removed in GitLab 9.0.
@@ -204,6 +212,8 @@ This feature was introduced in GitLab 8.9. This endpoint is deprecated and will 
 gitlab.getV3GitlabCiYmls(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3GitlabCiYmlsName
 This feature was introduced in GitLab 8.9. This endpoint is deprecated and will be removed in GitLab 9.0.
@@ -557,6 +567,8 @@ Get the list of system hooks
 gitlab.getV3Hooks(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postV3Hooks
 Create a new system hook
@@ -609,6 +621,8 @@ gitlab.getV3HooksId({
 gitlab.postV3InternalAllowed(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3InternalBroadcastMessage
 
@@ -618,6 +632,8 @@ gitlab.postV3InternalAllowed(null, context)
 gitlab.getV3InternalBroadcastMessage(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3InternalCheck
 
@@ -627,6 +643,8 @@ gitlab.getV3InternalBroadcastMessage(null, context)
 gitlab.getV3InternalCheck(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3InternalDiscover
 
@@ -636,6 +654,8 @@ gitlab.getV3InternalCheck(null, context)
 gitlab.getV3InternalDiscover(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postV3InternalLfsAuthenticate
 
@@ -645,6 +665,8 @@ gitlab.getV3InternalDiscover(null, context)
 gitlab.postV3InternalLfsAuthenticate(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3InternalMergeRequestUrls
 
@@ -654,6 +676,8 @@ gitlab.postV3InternalLfsAuthenticate(null, context)
 gitlab.getV3InternalMergeRequestUrls(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postV3InternalTwoFactorRecoveryCodes
 
@@ -663,6 +687,8 @@ gitlab.getV3InternalMergeRequestUrls(null, context)
 gitlab.postV3InternalTwoFactorRecoveryCodes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3Issues
 Get currently authenticated user's issues
@@ -739,6 +765,8 @@ This feature was introduced in GitLab 8.12
 gitlab.getV3NotificationSettings(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### putV3NotificationSettings
 This feature was introduced in GitLab 8.12
@@ -5266,6 +5294,8 @@ Get the Sidekiq Compound metrics. Includes queue, process, and job statistics
 gitlab.getV3SidekiqCompoundMetrics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3SidekiqJobStats
 Get the Sidekiq job statistics
@@ -5275,6 +5305,8 @@ Get the Sidekiq job statistics
 gitlab.getV3SidekiqJobStats(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3SidekiqProcessMetrics
 Get the Sidekiq process metrics
@@ -5284,6 +5316,8 @@ Get the Sidekiq process metrics
 gitlab.getV3SidekiqProcessMetrics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3SidekiqQueueMetrics
 Get the Sidekiq queue metrics
@@ -5293,6 +5327,8 @@ Get the Sidekiq queue metrics
 gitlab.getV3SidekiqQueueMetrics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3Snippets
 This feature was introduced in GitLab 8.15.
@@ -5400,6 +5436,8 @@ This feature was introduced in GitLab 8.15.
 gitlab.getV3TemplatesDockerfiles(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3TemplatesDockerfilesName
 This feature was introduced in GitLab 8.15.
@@ -5422,6 +5460,8 @@ This feature was introduced in GitLab 8.8.
 gitlab.getV3TemplatesGitignores(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3TemplatesGitignoresName
 This feature was introduced in GitLab 8.8.
@@ -5444,6 +5484,8 @@ This feature was introduced in GitLab 8.9.
 gitlab.getV3TemplatesGitlabCiYmls(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3TemplatesGitlabCiYmlsName
 This feature was introduced in GitLab 8.9.
@@ -5490,6 +5532,8 @@ Mark all todos as done
 gitlab.deleteV3Todos(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3Todos
 Get a todo list
@@ -5524,6 +5568,8 @@ Get the currently authenticated user
 gitlab.getV3User(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getV3UserEmails
 Get the currently authenticated user's email addresses
@@ -5533,6 +5579,8 @@ Get the currently authenticated user's email addresses
 gitlab.getV3UserEmails(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postV3UserEmails
 Add new email address to the currently authenticated user
@@ -5581,6 +5629,8 @@ Get the currently authenticated user's SSH keys
 gitlab.getV3UserKeys(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### postV3UserKeys
 Add a new SSH key to the currently authenticated user
@@ -5867,4 +5917,6 @@ This feature was introduced in GitLab 8.13.
 gitlab.getV3Version(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

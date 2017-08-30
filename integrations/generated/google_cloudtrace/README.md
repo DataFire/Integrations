@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_cloudtrace.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.traces.list
 Returns of a list of traces that match the specified filter conditions.

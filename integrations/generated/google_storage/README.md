@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_storage.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### buckets.list
 Retrieves a list of buckets for a given project.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_blogger.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### blogs.getByUrl
 Retrieve a Blog by URL.

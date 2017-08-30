@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_videointelligence.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### videos.annotate
 Performs asynchronous video annotation. Progress and results can be

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_firebasedynamiclinks.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shortLinks.create
 Creates a short Dynamic Link given either a valid long Dynamic Link or

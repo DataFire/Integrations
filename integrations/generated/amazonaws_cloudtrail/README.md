@@ -25,27 +25,50 @@ amazonaws_cloudtrail.AddTags({}).then(data => {
 
 
 ```js
-amazonaws_cloudtrail.AddTags({}, context)
+amazonaws_cloudtrail.AddTags({
+  "ResourceId": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceId (string) **required**
+* TagsList (array) - A list of tags.
 
 ### CreateTrail
 
 
 
 ```js
-amazonaws_cloudtrail.CreateTrail({}, context)
+amazonaws_cloudtrail.CreateTrail({
+  "Name": "",
+  "S3BucketName": ""
+}, context)
 ```
 
+#### Parameters
+* CloudWatchLogsLogGroupArn (string)
+* CloudWatchLogsRoleArn (string)
+* EnableLogFileValidation (boolean)
+* IncludeGlobalServiceEvents (boolean)
+* IsMultiRegionTrail (boolean)
+* KmsKeyId (string)
+* Name (string) **required**
+* S3BucketName (string) **required**
+* S3KeyPrefix (string)
+* SnsTopicName (string)
 
 ### DeleteTrail
 
 
 
 ```js
-amazonaws_cloudtrail.DeleteTrail({}, context)
+amazonaws_cloudtrail.DeleteTrail({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### DescribeTrails
 
@@ -55,24 +78,35 @@ amazonaws_cloudtrail.DeleteTrail({}, context)
 amazonaws_cloudtrail.DescribeTrails({}, context)
 ```
 
+#### Parameters
+* includeShadowTrails (boolean)
+* trailNameList (array)
 
 ### GetEventSelectors
 
 
 
 ```js
-amazonaws_cloudtrail.GetEventSelectors({}, context)
+amazonaws_cloudtrail.GetEventSelectors({
+  "TrailName": ""
+}, context)
 ```
 
+#### Parameters
+* TrailName (string) **required**
 
 ### GetTrailStatus
 
 
 
 ```js
-amazonaws_cloudtrail.GetTrailStatus({}, context)
+amazonaws_cloudtrail.GetTrailStatus({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### ListPublicKeys
 
@@ -82,15 +116,24 @@ amazonaws_cloudtrail.GetTrailStatus({}, context)
 amazonaws_cloudtrail.ListPublicKeys({}, context)
 ```
 
+#### Parameters
+* EndTime (string)
+* NextToken (string)
+* StartTime (string)
 
 ### ListTags
 
 
 
 ```js
-amazonaws_cloudtrail.ListTags({}, context)
+amazonaws_cloudtrail.ListTags({
+  "ResourceIdList": []
+}, context)
 ```
 
+#### Parameters
+* NextToken (string)
+* ResourceIdList (array) **required**
 
 ### LookupEvents
 
@@ -103,49 +146,86 @@ amazonaws_cloudtrail.LookupEvents({}, context)
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* EndTime (string)
+* LookupAttributes (array)
+* MaxResults (integer)
+* NextToken (string)
+* StartTime (string)
 
 ### PutEventSelectors
 
 
 
 ```js
-amazonaws_cloudtrail.PutEventSelectors({}, context)
+amazonaws_cloudtrail.PutEventSelectors({
+  "TrailName": "",
+  "EventSelectors": []
+}, context)
 ```
 
+#### Parameters
+* EventSelectors (array) **required**
+* TrailName (string) **required**
 
 ### RemoveTags
 
 
 
 ```js
-amazonaws_cloudtrail.RemoveTags({}, context)
+amazonaws_cloudtrail.RemoveTags({
+  "ResourceId": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceId (string) **required**
+* TagsList (array) - A list of tags.
 
 ### StartLogging
 
 
 
 ```js
-amazonaws_cloudtrail.StartLogging({}, context)
+amazonaws_cloudtrail.StartLogging({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### StopLogging
 
 
 
 ```js
-amazonaws_cloudtrail.StopLogging({}, context)
+amazonaws_cloudtrail.StopLogging({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### UpdateTrail
 
 
 
 ```js
-amazonaws_cloudtrail.UpdateTrail({}, context)
+amazonaws_cloudtrail.UpdateTrail({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* CloudWatchLogsLogGroupArn (string)
+* CloudWatchLogsRoleArn (string)
+* EnableLogFileValidation (boolean)
+* IncludeGlobalServiceEvents (boolean)
+* IsMultiRegionTrail (boolean)
+* KmsKeyId (string)
+* Name (string) **required**
+* S3BucketName (string)
+* S3KeyPrefix (string)
+* SnsTopicName (string)
 

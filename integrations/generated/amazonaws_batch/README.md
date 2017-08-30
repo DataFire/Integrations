@@ -25,54 +25,91 @@ amazonaws_batch.CancelJob({}).then(data => {
 
 
 ```js
-amazonaws_batch.CancelJob({}, context)
+amazonaws_batch.CancelJob({
+  "jobId": "",
+  "reason": ""
+}, context)
 ```
 
+#### Parameters
+* jobId (string) **required**
+* reason (string) **required**
 
 ### CreateComputeEnvironment
 
 
 
 ```js
-amazonaws_batch.CreateComputeEnvironment({}, context)
+amazonaws_batch.CreateComputeEnvironment({
+  "computeEnvironmentName": "",
+  "type": "",
+  "serviceRole": ""
+}, context)
 ```
 
+#### Parameters
+* computeEnvironmentName (string) **required**
+* computeResources (object) - An object representing an AWS Batch compute resource.
+* serviceRole (string) **required**
+* state (string)
+* type (string) **required**
 
 ### CreateJobQueue
 
 
 
 ```js
-amazonaws_batch.CreateJobQueue({}, context)
+amazonaws_batch.CreateJobQueue({
+  "jobQueueName": "",
+  "priority": 0,
+  "computeEnvironmentOrder": []
+}, context)
 ```
 
+#### Parameters
+* computeEnvironmentOrder (array) **required**
+* jobQueueName (string) **required**
+* priority (integer) **required**
+* state (string)
 
 ### DeleteComputeEnvironment
 
 
 
 ```js
-amazonaws_batch.DeleteComputeEnvironment({}, context)
+amazonaws_batch.DeleteComputeEnvironment({
+  "computeEnvironment": ""
+}, context)
 ```
 
+#### Parameters
+* computeEnvironment (string) **required**
 
 ### DeleteJobQueue
 
 
 
 ```js
-amazonaws_batch.DeleteJobQueue({}, context)
+amazonaws_batch.DeleteJobQueue({
+  "jobQueue": ""
+}, context)
 ```
 
+#### Parameters
+* jobQueue (string) **required**
 
 ### DeregisterJobDefinition
 
 
 
 ```js
-amazonaws_batch.DeregisterJobDefinition({}, context)
+amazonaws_batch.DeregisterJobDefinition({
+  "jobDefinition": ""
+}, context)
 ```
 
+#### Parameters
+* jobDefinition (string) **required**
 
 ### DescribeComputeEnvironments
 
@@ -82,6 +119,10 @@ amazonaws_batch.DeregisterJobDefinition({}, context)
 amazonaws_batch.DescribeComputeEnvironments({}, context)
 ```
 
+#### Parameters
+* computeEnvironments (array)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeJobDefinitions
 
@@ -91,6 +132,12 @@ amazonaws_batch.DescribeComputeEnvironments({}, context)
 amazonaws_batch.DescribeJobDefinitions({}, context)
 ```
 
+#### Parameters
+* jobDefinitionName (string)
+* jobDefinitions (array)
+* maxResults (integer)
+* nextToken (string)
+* status (string)
 
 ### DescribeJobQueues
 
@@ -100,67 +147,123 @@ amazonaws_batch.DescribeJobDefinitions({}, context)
 amazonaws_batch.DescribeJobQueues({}, context)
 ```
 
+#### Parameters
+* jobQueues (array)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeJobs
 
 
 
 ```js
-amazonaws_batch.DescribeJobs({}, context)
+amazonaws_batch.DescribeJobs({
+  "jobs": []
+}, context)
 ```
 
+#### Parameters
+* jobs (array) **required**
 
 ### ListJobs
 
 
 
 ```js
-amazonaws_batch.ListJobs({}, context)
+amazonaws_batch.ListJobs({
+  "jobQueue": ""
+}, context)
 ```
 
+#### Parameters
+* jobQueue (string) **required**
+* jobStatus (string)
+* maxResults (integer)
+* nextToken (string)
 
 ### RegisterJobDefinition
 
 
 
 ```js
-amazonaws_batch.RegisterJobDefinition({}, context)
+amazonaws_batch.RegisterJobDefinition({
+  "jobDefinitionName": "",
+  "type": ""
+}, context)
 ```
 
+#### Parameters
+* containerProperties (object) - Container properties are used in job definitions to describe the container that is launched as part of a job.
+* jobDefinitionName (string) **required**
+* parameters (array)
+* retryStrategy (object) - The retry strategy associated with a job.
+* type (string) **required**
 
 ### SubmitJob
 
 
 
 ```js
-amazonaws_batch.SubmitJob({}, context)
+amazonaws_batch.SubmitJob({
+  "jobName": "",
+  "jobQueue": "",
+  "jobDefinition": ""
+}, context)
 ```
 
+#### Parameters
+* containerOverrides (object) - The overrides that should be sent to a container.
+* dependsOn (array)
+* jobDefinition (string) **required**
+* jobName (string) **required**
+* jobQueue (string) **required**
+* parameters (array)
+* retryStrategy (object) - The retry strategy associated with a job.
 
 ### TerminateJob
 
 
 
 ```js
-amazonaws_batch.TerminateJob({}, context)
+amazonaws_batch.TerminateJob({
+  "jobId": "",
+  "reason": ""
+}, context)
 ```
 
+#### Parameters
+* jobId (string) **required**
+* reason (string) **required**
 
 ### UpdateComputeEnvironment
 
 
 
 ```js
-amazonaws_batch.UpdateComputeEnvironment({}, context)
+amazonaws_batch.UpdateComputeEnvironment({
+  "computeEnvironment": ""
+}, context)
 ```
 
+#### Parameters
+* computeEnvironment (string) **required**
+* computeResources (object) - An object representing the attributes of a compute environment that can be updated.
+* serviceRole (string)
+* state (string)
 
 ### UpdateJobQueue
 
 
 
 ```js
-amazonaws_batch.UpdateJobQueue({}, context)
+amazonaws_batch.UpdateJobQueue({
+  "jobQueue": ""
+}, context)
 ```
 
+#### Parameters
+* computeEnvironmentOrder (array)
+* jobQueue (string) **required**
+* priority (integer)
+* state (string)
 

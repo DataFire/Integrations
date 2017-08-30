@@ -41,6 +41,8 @@ amazonaws_route53.GetChange({
 amazonaws_route53.GetCheckerIpRanges({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListReusableDelegationSets
 
@@ -50,6 +52,8 @@ amazonaws_route53.GetCheckerIpRanges({}, context)
 amazonaws_route53.ListReusableDelegationSets({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetReusableDelegationSet
 
@@ -72,6 +76,8 @@ amazonaws_route53.GetReusableDelegationSet({
 amazonaws_route53.GetGeoLocation({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListGeoLocations
 
@@ -81,6 +87,8 @@ amazonaws_route53.GetGeoLocation({}, context)
 amazonaws_route53.ListGeoLocations({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListHealthChecks
 
@@ -106,6 +114,20 @@ amazonaws_route53.UpdateHealthCheck({
 
 #### Parameters
 * HealthCheckId (string) **required**
+* AlarmIdentifier (object) - A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.
+* ChildHealthChecks (array)
+* EnableSNI (boolean)
+* FailureThreshold (integer)
+* FullyQualifiedDomainName (string)
+* HealthCheckVersion (integer)
+* HealthThreshold (integer)
+* IPAddress (string)
+* InsufficientDataHealthStatus (string)
+* Inverted (boolean)
+* Port (integer)
+* Regions (array)
+* ResourcePath (string)
+* SearchString (string)
 
 ### GetHealthCheckLastFailureReason
 
@@ -141,6 +163,8 @@ amazonaws_route53.GetHealthCheckStatus({
 amazonaws_route53.GetHealthCheckCount({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListHostedZones
 
@@ -166,6 +190,7 @@ amazonaws_route53.UpdateHostedZoneComment({
 
 #### Parameters
 * Id (string) **required**
+* Comment (string)
 
 ### AssociateVPCWithHostedZone
 
@@ -173,12 +198,15 @@ amazonaws_route53.UpdateHostedZoneComment({
 
 ```js
 amazonaws_route53.AssociateVPCWithHostedZone({
-  "Id": ""
+  "Id": "",
+  "VPC": {}
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* Comment (string)
+* VPC (object) **required** - (Private hosted zones only) A complex type that contains information about an Amazon VPC.
 
 ### ListVPCAssociationAuthorizations
 
@@ -199,12 +227,14 @@ amazonaws_route53.ListVPCAssociationAuthorizations({
 
 ```js
 amazonaws_route53.DeleteVPCAssociationAuthorization({
-  "Id": ""
+  "Id": "",
+  "VPC": {}
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* VPC (object) **required** - (Private hosted zones only) A complex type that contains information about an Amazon VPC.
 
 ### DisassociateVPCFromHostedZone
 
@@ -212,12 +242,15 @@ amazonaws_route53.DeleteVPCAssociationAuthorization({
 
 ```js
 amazonaws_route53.DisassociateVPCFromHostedZone({
-  "Id": ""
+  "Id": "",
+  "VPC": {}
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* Comment (string)
+* VPC (object) **required** - (Private hosted zones only) A complex type that contains information about an Amazon VPC.
 
 ### ListResourceRecordSets
 
@@ -242,12 +275,16 @@ amazonaws_route53.ListResourceRecordSets({
 
 ```js
 amazonaws_route53.ChangeResourceRecordSets({
-  "Id": ""
+  "Id": "",
+  "ChangeBatch": {
+    "Changes": []
+  }
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* ChangeBatch (object) **required** - The information for a change request.
 
 ### GetHostedZoneCount
 
@@ -257,6 +294,8 @@ amazonaws_route53.ChangeResourceRecordSets({
 amazonaws_route53.GetHostedZoneCount({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListHostedZonesByName
 
@@ -266,6 +305,8 @@ amazonaws_route53.GetHostedZoneCount({}, context)
 amazonaws_route53.ListHostedZonesByName({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListTagsForResources
 
@@ -273,12 +314,14 @@ amazonaws_route53.ListHostedZonesByName({}, context)
 
 ```js
 amazonaws_route53.ListTagsForResources({
-  "ResourceType": ""
+  "ResourceType": "",
+  "ResourceIds": []
 }, context)
 ```
 
 #### Parameters
 * ResourceType (string) **required**
+* ResourceIds (array) **required**
 
 ### ListTagsForResource
 
@@ -303,6 +346,8 @@ amazonaws_route53.ListTagsForResource({
 amazonaws_route53.TestDNSAnswer({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListTrafficPolicies
 
@@ -312,6 +357,8 @@ amazonaws_route53.TestDNSAnswer({}, context)
 amazonaws_route53.ListTrafficPolicies({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListTrafficPolicyVersions
 
@@ -331,9 +378,16 @@ amazonaws_route53.ListTrafficPolicyVersions({
 
 
 ```js
-amazonaws_route53.CreateTrafficPolicy({}, context)
+amazonaws_route53.CreateTrafficPolicy({
+  "Name": "",
+  "Document": ""
+}, context)
 ```
 
+#### Parameters
+* Comment (string)
+* Document (string) **required**
+* Name (string) **required**
 
 ### CreateTrafficPolicyVersion
 
@@ -341,12 +395,15 @@ amazonaws_route53.CreateTrafficPolicy({}, context)
 
 ```js
 amazonaws_route53.CreateTrafficPolicyVersion({
-  "Id": ""
+  "Id": "",
+  "Document": ""
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* Comment (string)
+* Document (string) **required**
 
 ### UpdateTrafficPolicyComment
 
@@ -354,21 +411,35 @@ amazonaws_route53.CreateTrafficPolicyVersion({
 
 ```js
 amazonaws_route53.UpdateTrafficPolicyComment({
-  "Id": ""
+  "Id": "",
+  "Comment": ""
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* Comment (string) **required**
 
 ### CreateTrafficPolicyInstance
 
 
 
 ```js
-amazonaws_route53.CreateTrafficPolicyInstance({}, context)
+amazonaws_route53.CreateTrafficPolicyInstance({
+  "HostedZoneId": "",
+  "Name": "",
+  "TTL": 0,
+  "TrafficPolicyId": "",
+  "TrafficPolicyVersion": 0
+}, context)
 ```
 
+#### Parameters
+* HostedZoneId (string) **required**
+* Name (string) **required**
+* TTL (integer) **required**
+* TrafficPolicyId (string) **required**
+* TrafficPolicyVersion (integer) **required**
 
 ### UpdateTrafficPolicyInstance
 
@@ -376,12 +447,18 @@ amazonaws_route53.CreateTrafficPolicyInstance({}, context)
 
 ```js
 amazonaws_route53.UpdateTrafficPolicyInstance({
-  "Id": ""
+  "Id": "",
+  "TTL": 0,
+  "TrafficPolicyId": "",
+  "TrafficPolicyVersion": 0
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* TTL (integer) **required**
+* TrafficPolicyId (string) **required**
+* TrafficPolicyVersion (integer) **required**
 
 ### GetTrafficPolicyInstanceCount
 
@@ -391,6 +468,8 @@ amazonaws_route53.UpdateTrafficPolicyInstance({
 amazonaws_route53.GetTrafficPolicyInstanceCount({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListTrafficPolicyInstances
 
@@ -400,6 +479,8 @@ amazonaws_route53.GetTrafficPolicyInstanceCount({}, context)
 amazonaws_route53.ListTrafficPolicyInstances({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListTrafficPolicyInstancesByHostedZone
 
@@ -409,6 +490,8 @@ amazonaws_route53.ListTrafficPolicyInstances({}, context)
 amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListTrafficPolicyInstancesByPolicy
 
@@ -418,4 +501,6 @@ amazonaws_route53.ListTrafficPolicyInstancesByHostedZone({}, context)
 amazonaws_route53.ListTrafficPolicyInstancesByPolicy({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

@@ -30,6 +30,8 @@ Get API definition
 bbc.getAPI(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listAvailability
 Discover details of on-demand availability for programmes and their versions
@@ -341,6 +343,8 @@ Get Schema definition
 bbc.getXSD(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listServices
 The services feed exposes the linear broadcast "services" from PIPs. These are the actual services which broadcast programmes (eg bbc_one_oxford is the service for BBC One in Oxford).

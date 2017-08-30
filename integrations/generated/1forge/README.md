@@ -9,9 +9,9 @@ npm install --save datafire @datafire/1forge
 
 ```js
 let datafire = require('datafire');
-let 1forge = require('@datafire/1forge').create();
+let forge = require('@datafire/1forge').create();
 
-1forge.quotes.get({}).then(data => {
+forge.quotes.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -25,16 +25,20 @@ Get quotes
 
 
 ```js
-1forge.quotes.get(null, context)
+forge.quotes.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### symbols.get
 Symbol List
 
 
 ```js
-1forge.symbols.get(null, context)
+forge.symbols.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

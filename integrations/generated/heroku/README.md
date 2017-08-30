@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 heroku.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addons.get
 List all available addons.

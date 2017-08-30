@@ -28,6 +28,8 @@ Lists all global course design templates. Only api callers that have full access
 learnifier.coursedesigns.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### extorgunit.get
 Returns information about the organization unit with the specified external id.
@@ -91,6 +93,8 @@ Returns a list of Global User Groups. Global User Groups are set up for the real
 learnifier.globalusergroups.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### globalusergroups.groupid.members.get
 Returns a list of all members in User Groups that are based on the Global Group with this groupid.
@@ -116,6 +120,8 @@ The response includes the display name, internal and external id and client numb
 learnifier.orgunits.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### orgunits.post
 Adds an Organization Unit

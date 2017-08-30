@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_tasks.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tasks.clear
 Clears all completed tasks from the specified task list. The affected tasks will be marked as 'hidden' and no longer be returned by default when retrieving all tasks for a task list.

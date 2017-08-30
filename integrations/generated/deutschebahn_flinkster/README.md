@@ -91,6 +91,8 @@ Show Service index.
 deutschebahn_flinkster.getIndex(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listCategories
 Search for categorie.

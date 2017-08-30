@@ -25,90 +25,168 @@ amazonaws_elasticloadbalancing.AddTags({}).then(data => {
 
 
 ```js
-amazonaws_elasticloadbalancing.AddTags({}, context)
+amazonaws_elasticloadbalancing.AddTags({
+  "ResourceArns": [],
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* ResourceArns (array) **required**
+* Tags (array) **required**
 
 ### CreateListener
 
 
 
 ```js
-amazonaws_elasticloadbalancing.CreateListener({}, context)
+amazonaws_elasticloadbalancing.CreateListener({
+  "LoadBalancerArn": "",
+  "Protocol": "",
+  "Port": 0,
+  "DefaultActions": []
+}, context)
 ```
 
+#### Parameters
+* Certificates (array)
+* DefaultActions (array) **required**
+* LoadBalancerArn (string) **required**
+* Port (integer) **required**
+* Protocol (string) **required**
+* SslPolicy (string)
 
 ### CreateLoadBalancer
 
 
 
 ```js
-amazonaws_elasticloadbalancing.CreateLoadBalancer({}, context)
+amazonaws_elasticloadbalancing.CreateLoadBalancer({
+  "Name": "",
+  "Subnets": []
+}, context)
 ```
 
+#### Parameters
+* IpAddressType (string)
+* Name (string) **required**
+* Scheme (string)
+* SecurityGroups (array)
+* Subnets (array) **required**
+* Tags (array)
 
 ### CreateRule
 
 
 
 ```js
-amazonaws_elasticloadbalancing.CreateRule({}, context)
+amazonaws_elasticloadbalancing.CreateRule({
+  "ListenerArn": "",
+  "Conditions": [],
+  "Priority": 0,
+  "Actions": []
+}, context)
 ```
 
+#### Parameters
+* Actions (array) **required**
+* Conditions (array) **required**
+* ListenerArn (string) **required**
+* Priority (integer) **required**
 
 ### CreateTargetGroup
 
 
 
 ```js
-amazonaws_elasticloadbalancing.CreateTargetGroup({}, context)
+amazonaws_elasticloadbalancing.CreateTargetGroup({
+  "Name": "",
+  "Protocol": "",
+  "Port": 0,
+  "VpcId": ""
+}, context)
 ```
 
+#### Parameters
+* HealthCheckIntervalSeconds (integer)
+* HealthCheckPath (string)
+* HealthCheckPort (string)
+* HealthCheckProtocol (string)
+* HealthCheckTimeoutSeconds (integer)
+* HealthyThresholdCount (integer)
+* Matcher (object) - Information to use when checking for a successful response from a target.
+* Name (string) **required**
+* Port (integer) **required**
+* Protocol (string) **required**
+* UnhealthyThresholdCount (integer)
+* VpcId (string) **required**
 
 ### DeleteListener
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DeleteListener({}, context)
+amazonaws_elasticloadbalancing.DeleteListener({
+  "ListenerArn": ""
+}, context)
 ```
 
+#### Parameters
+* ListenerArn (string) **required**
 
 ### DeleteLoadBalancer
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DeleteLoadBalancer({}, context)
+amazonaws_elasticloadbalancing.DeleteLoadBalancer({
+  "LoadBalancerArn": ""
+}, context)
 ```
 
+#### Parameters
+* LoadBalancerArn (string) **required**
 
 ### DeleteRule
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DeleteRule({}, context)
+amazonaws_elasticloadbalancing.DeleteRule({
+  "RuleArn": ""
+}, context)
 ```
 
+#### Parameters
+* RuleArn (string) **required**
 
 ### DeleteTargetGroup
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DeleteTargetGroup({}, context)
+amazonaws_elasticloadbalancing.DeleteTargetGroup({
+  "TargetGroupArn": ""
+}, context)
 ```
 
+#### Parameters
+* TargetGroupArn (string) **required**
 
 ### DeregisterTargets
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DeregisterTargets({}, context)
+amazonaws_elasticloadbalancing.DeregisterTargets({
+  "TargetGroupArn": "",
+  "Targets": []
+}, context)
 ```
 
+#### Parameters
+* TargetGroupArn (string) **required**
+* Targets (array) **required**
 
 ### DescribeAccountLimits
 
@@ -118,6 +196,9 @@ amazonaws_elasticloadbalancing.DeregisterTargets({}, context)
 amazonaws_elasticloadbalancing.DescribeAccountLimits({}, context)
 ```
 
+#### Parameters
+* Marker (string)
+* PageSize (integer)
 
 ### DescribeListeners
 
@@ -129,15 +210,23 @@ amazonaws_elasticloadbalancing.DescribeListeners({}, context)
 
 #### Parameters
 * Marker (string)
+* ListenerArns (array)
+* LoadBalancerArn (string)
+* Marker (string)
+* PageSize (integer)
 
 ### DescribeLoadBalancerAttributes
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DescribeLoadBalancerAttributes({}, context)
+amazonaws_elasticloadbalancing.DescribeLoadBalancerAttributes({
+  "LoadBalancerArn": ""
+}, context)
 ```
 
+#### Parameters
+* LoadBalancerArn (string) **required**
 
 ### DescribeLoadBalancers
 
@@ -149,6 +238,10 @@ amazonaws_elasticloadbalancing.DescribeLoadBalancers({}, context)
 
 #### Parameters
 * Marker (string)
+* LoadBalancerArns (array)
+* Marker (string)
+* Names (array)
+* PageSize (integer)
 
 ### DescribeRules
 
@@ -158,6 +251,9 @@ amazonaws_elasticloadbalancing.DescribeLoadBalancers({}, context)
 amazonaws_elasticloadbalancing.DescribeRules({}, context)
 ```
 
+#### Parameters
+* ListenerArn (string)
+* RuleArns (array)
 
 ### DescribeSSLPolicies
 
@@ -167,24 +263,36 @@ amazonaws_elasticloadbalancing.DescribeRules({}, context)
 amazonaws_elasticloadbalancing.DescribeSSLPolicies({}, context)
 ```
 
+#### Parameters
+* Marker (string)
+* Names (array)
+* PageSize (integer)
 
 ### DescribeTags
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DescribeTags({}, context)
+amazonaws_elasticloadbalancing.DescribeTags({
+  "ResourceArns": []
+}, context)
 ```
 
+#### Parameters
+* ResourceArns (array) **required**
 
 ### DescribeTargetGroupAttributes
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DescribeTargetGroupAttributes({}, context)
+amazonaws_elasticloadbalancing.DescribeTargetGroupAttributes({
+  "TargetGroupArn": ""
+}, context)
 ```
 
+#### Parameters
+* TargetGroupArn (string) **required**
 
 ### DescribeTargetGroups
 
@@ -196,112 +304,195 @@ amazonaws_elasticloadbalancing.DescribeTargetGroups({}, context)
 
 #### Parameters
 * Marker (string)
+* LoadBalancerArn (string)
+* Marker (string)
+* Names (array)
+* PageSize (integer)
+* TargetGroupArns (array)
 
 ### DescribeTargetHealth
 
 
 
 ```js
-amazonaws_elasticloadbalancing.DescribeTargetHealth({}, context)
+amazonaws_elasticloadbalancing.DescribeTargetHealth({
+  "TargetGroupArn": ""
+}, context)
 ```
 
+#### Parameters
+* TargetGroupArn (string) **required**
+* Targets (array)
 
 ### ModifyListener
 
 
 
 ```js
-amazonaws_elasticloadbalancing.ModifyListener({}, context)
+amazonaws_elasticloadbalancing.ModifyListener({
+  "ListenerArn": ""
+}, context)
 ```
 
+#### Parameters
+* Certificates (array)
+* DefaultActions (array)
+* ListenerArn (string) **required**
+* Port (integer)
+* Protocol (string)
+* SslPolicy (string)
 
 ### ModifyLoadBalancerAttributes
 
 
 
 ```js
-amazonaws_elasticloadbalancing.ModifyLoadBalancerAttributes({}, context)
+amazonaws_elasticloadbalancing.ModifyLoadBalancerAttributes({
+  "LoadBalancerArn": "",
+  "Attributes": []
+}, context)
 ```
 
+#### Parameters
+* Attributes (array) **required**
+* LoadBalancerArn (string) **required**
 
 ### ModifyRule
 
 
 
 ```js
-amazonaws_elasticloadbalancing.ModifyRule({}, context)
+amazonaws_elasticloadbalancing.ModifyRule({
+  "RuleArn": ""
+}, context)
 ```
 
+#### Parameters
+* Actions (array)
+* Conditions (array)
+* RuleArn (string) **required**
 
 ### ModifyTargetGroup
 
 
 
 ```js
-amazonaws_elasticloadbalancing.ModifyTargetGroup({}, context)
+amazonaws_elasticloadbalancing.ModifyTargetGroup({
+  "TargetGroupArn": ""
+}, context)
 ```
 
+#### Parameters
+* HealthCheckIntervalSeconds (integer)
+* HealthCheckPath (string)
+* HealthCheckPort (string)
+* HealthCheckProtocol (string)
+* HealthCheckTimeoutSeconds (integer)
+* HealthyThresholdCount (integer)
+* Matcher (object) - Information to use when checking for a successful response from a target.
+* TargetGroupArn (string) **required**
+* UnhealthyThresholdCount (integer)
 
 ### ModifyTargetGroupAttributes
 
 
 
 ```js
-amazonaws_elasticloadbalancing.ModifyTargetGroupAttributes({}, context)
+amazonaws_elasticloadbalancing.ModifyTargetGroupAttributes({
+  "TargetGroupArn": "",
+  "Attributes": []
+}, context)
 ```
 
+#### Parameters
+* Attributes (array) **required**
+* TargetGroupArn (string) **required**
 
 ### RegisterTargets
 
 
 
 ```js
-amazonaws_elasticloadbalancing.RegisterTargets({}, context)
+amazonaws_elasticloadbalancing.RegisterTargets({
+  "TargetGroupArn": "",
+  "Targets": []
+}, context)
 ```
 
+#### Parameters
+* TargetGroupArn (string) **required**
+* Targets (array) **required**
 
 ### RemoveTags
 
 
 
 ```js
-amazonaws_elasticloadbalancing.RemoveTags({}, context)
+amazonaws_elasticloadbalancing.RemoveTags({
+  "ResourceArns": [],
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* ResourceArns (array) **required**
+* TagKeys (array) **required**
 
 ### SetIpAddressType
 
 
 
 ```js
-amazonaws_elasticloadbalancing.SetIpAddressType({}, context)
+amazonaws_elasticloadbalancing.SetIpAddressType({
+  "LoadBalancerArn": "",
+  "IpAddressType": ""
+}, context)
 ```
 
+#### Parameters
+* IpAddressType (string) **required**
+* LoadBalancerArn (string) **required**
 
 ### SetRulePriorities
 
 
 
 ```js
-amazonaws_elasticloadbalancing.SetRulePriorities({}, context)
+amazonaws_elasticloadbalancing.SetRulePriorities({
+  "RulePriorities": []
+}, context)
 ```
 
+#### Parameters
+* RulePriorities (array) **required**
 
 ### SetSecurityGroups
 
 
 
 ```js
-amazonaws_elasticloadbalancing.SetSecurityGroups({}, context)
+amazonaws_elasticloadbalancing.SetSecurityGroups({
+  "LoadBalancerArn": "",
+  "SecurityGroups": []
+}, context)
 ```
 
+#### Parameters
+* LoadBalancerArn (string) **required**
+* SecurityGroups (array) **required**
 
 ### SetSubnets
 
 
 
 ```js
-amazonaws_elasticloadbalancing.SetSubnets({}, context)
+amazonaws_elasticloadbalancing.SetSubnets({
+  "LoadBalancerArn": "",
+  "Subnets": []
+}, context)
 ```
 
+#### Parameters
+* LoadBalancerArn (string) **required**
+* Subnets (array) **required**
 

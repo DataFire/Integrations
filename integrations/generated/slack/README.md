@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 slack.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### authTest
 Checks authentication and tells you who you are.
@@ -251,6 +253,8 @@ Lists custom emoji for a team.
 slack.emojiList(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### filesInfo
 Gets information about a team file.
@@ -401,6 +405,8 @@ Lists direct message channels for the calling user.
 slack.imList(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### imMark
 Sets the read cursor in a direct message channel.
@@ -492,4 +498,6 @@ Lists all users in a Slack team.
 slack.usersList(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

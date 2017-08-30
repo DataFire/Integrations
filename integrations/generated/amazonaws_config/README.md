@@ -25,45 +25,65 @@ amazonaws_config.DeleteConfigRule({}).then(data => {
 
 
 ```js
-amazonaws_config.DeleteConfigRule({}, context)
+amazonaws_config.DeleteConfigRule({
+  "ConfigRuleName": ""
+}, context)
 ```
 
+#### Parameters
+* ConfigRuleName (string) **required**
 
 ### DeleteConfigurationRecorder
 
 
 
 ```js
-amazonaws_config.DeleteConfigurationRecorder({}, context)
+amazonaws_config.DeleteConfigurationRecorder({
+  "ConfigurationRecorderName": ""
+}, context)
 ```
 
+#### Parameters
+* ConfigurationRecorderName (string) **required**
 
 ### DeleteDeliveryChannel
 
 
 
 ```js
-amazonaws_config.DeleteDeliveryChannel({}, context)
+amazonaws_config.DeleteDeliveryChannel({
+  "DeliveryChannelName": ""
+}, context)
 ```
 
+#### Parameters
+* DeliveryChannelName (string) **required**
 
 ### DeleteEvaluationResults
 
 
 
 ```js
-amazonaws_config.DeleteEvaluationResults({}, context)
+amazonaws_config.DeleteEvaluationResults({
+  "ConfigRuleName": ""
+}, context)
 ```
 
+#### Parameters
+* ConfigRuleName (string) **required**
 
 ### DeliverConfigSnapshot
 
 
 
 ```js
-amazonaws_config.DeliverConfigSnapshot({}, context)
+amazonaws_config.DeliverConfigSnapshot({
+  "deliveryChannelName": ""
+}, context)
 ```
 
+#### Parameters
+* deliveryChannelName (string) **required**
 
 ### DescribeComplianceByConfigRule
 
@@ -73,6 +93,10 @@ amazonaws_config.DeliverConfigSnapshot({}, context)
 amazonaws_config.DescribeComplianceByConfigRule({}, context)
 ```
 
+#### Parameters
+* ComplianceTypes (array)
+* ConfigRuleNames (array)
+* NextToken (string)
 
 ### DescribeComplianceByResource
 
@@ -82,6 +106,12 @@ amazonaws_config.DescribeComplianceByConfigRule({}, context)
 amazonaws_config.DescribeComplianceByResource({}, context)
 ```
 
+#### Parameters
+* ComplianceTypes (array)
+* Limit (integer)
+* NextToken (string)
+* ResourceId (string)
+* ResourceType (string)
 
 ### DescribeConfigRuleEvaluationStatus
 
@@ -91,6 +121,10 @@ amazonaws_config.DescribeComplianceByResource({}, context)
 amazonaws_config.DescribeConfigRuleEvaluationStatus({}, context)
 ```
 
+#### Parameters
+* ConfigRuleNames (array)
+* Limit (integer)
+* NextToken (string)
 
 ### DescribeConfigRules
 
@@ -100,6 +134,9 @@ amazonaws_config.DescribeConfigRuleEvaluationStatus({}, context)
 amazonaws_config.DescribeConfigRules({}, context)
 ```
 
+#### Parameters
+* ConfigRuleNames (array)
+* NextToken (string)
 
 ### DescribeConfigurationRecorderStatus
 
@@ -109,6 +146,8 @@ amazonaws_config.DescribeConfigRules({}, context)
 amazonaws_config.DescribeConfigurationRecorderStatus({}, context)
 ```
 
+#### Parameters
+* ConfigurationRecorderNames (array)
 
 ### DescribeConfigurationRecorders
 
@@ -118,6 +157,8 @@ amazonaws_config.DescribeConfigurationRecorderStatus({}, context)
 amazonaws_config.DescribeConfigurationRecorders({}, context)
 ```
 
+#### Parameters
+* ConfigurationRecorderNames (array)
 
 ### DescribeDeliveryChannelStatus
 
@@ -127,6 +168,8 @@ amazonaws_config.DescribeConfigurationRecorders({}, context)
 amazonaws_config.DescribeDeliveryChannelStatus({}, context)
 ```
 
+#### Parameters
+* DeliveryChannelNames (array)
 
 ### DescribeDeliveryChannels
 
@@ -136,24 +179,41 @@ amazonaws_config.DescribeDeliveryChannelStatus({}, context)
 amazonaws_config.DescribeDeliveryChannels({}, context)
 ```
 
+#### Parameters
+* DeliveryChannelNames (array)
 
 ### GetComplianceDetailsByConfigRule
 
 
 
 ```js
-amazonaws_config.GetComplianceDetailsByConfigRule({}, context)
+amazonaws_config.GetComplianceDetailsByConfigRule({
+  "ConfigRuleName": ""
+}, context)
 ```
 
+#### Parameters
+* ComplianceTypes (array)
+* ConfigRuleName (string) **required**
+* Limit (integer)
+* NextToken (string)
 
 ### GetComplianceDetailsByResource
 
 
 
 ```js
-amazonaws_config.GetComplianceDetailsByResource({}, context)
+amazonaws_config.GetComplianceDetailsByResource({
+  "ResourceType": "",
+  "ResourceId": ""
+}, context)
 ```
 
+#### Parameters
+* ComplianceTypes (array)
+* NextToken (string)
+* ResourceId (string) **required**
+* ResourceType (string) **required**
 
 ### GetComplianceSummaryByConfigRule
 
@@ -163,6 +223,8 @@ amazonaws_config.GetComplianceDetailsByResource({}, context)
 amazonaws_config.GetComplianceSummaryByConfigRule({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetComplianceSummaryByResourceType
 
@@ -172,63 +234,107 @@ amazonaws_config.GetComplianceSummaryByConfigRule({}, context)
 amazonaws_config.GetComplianceSummaryByResourceType({}, context)
 ```
 
+#### Parameters
+* ResourceTypes (array)
 
 ### GetResourceConfigHistory
 
 
 
 ```js
-amazonaws_config.GetResourceConfigHistory({}, context)
+amazonaws_config.GetResourceConfigHistory({
+  "resourceType": "",
+  "resourceId": ""
+}, context)
 ```
 
 #### Parameters
 * limit (string)
 * nextToken (string)
+* chronologicalOrder (string)
+* earlierTime (string)
+* laterTime (string)
+* limit (integer)
+* nextToken (string)
+* resourceId (string) **required**
+* resourceType (string) **required**
 
 ### ListDiscoveredResources
 
 
 
 ```js
-amazonaws_config.ListDiscoveredResources({}, context)
+amazonaws_config.ListDiscoveredResources({
+  "resourceType": ""
+}, context)
 ```
 
+#### Parameters
+* includeDeletedResources (boolean)
+* limit (integer)
+* nextToken (string)
+* resourceIds (array)
+* resourceName (string)
+* resourceType (string) **required**
 
 ### PutConfigRule
 
 
 
 ```js
-amazonaws_config.PutConfigRule({}, context)
+amazonaws_config.PutConfigRule({
+  "ConfigRule": {
+    "Source": {
+      "Owner": "",
+      "SourceIdentifier": ""
+    }
+  }
+}, context)
 ```
 
+#### Parameters
+* ConfigRule (object) **required** - <p>An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).</p> <note> <p>You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> </note> <p>For more information about developing and using AWS Config rules, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.</p>
 
 ### PutConfigurationRecorder
 
 
 
 ```js
-amazonaws_config.PutConfigurationRecorder({}, context)
+amazonaws_config.PutConfigurationRecorder({
+  "ConfigurationRecorder": {}
+}, context)
 ```
 
+#### Parameters
+* ConfigurationRecorder (object) **required** - An object that represents the recording of configuration changes of an AWS resource.
 
 ### PutDeliveryChannel
 
 
 
 ```js
-amazonaws_config.PutDeliveryChannel({}, context)
+amazonaws_config.PutDeliveryChannel({
+  "DeliveryChannel": {}
+}, context)
 ```
 
+#### Parameters
+* DeliveryChannel (object) **required** - The channel through which AWS Config delivers notifications and updated configuration states.
 
 ### PutEvaluations
 
 
 
 ```js
-amazonaws_config.PutEvaluations({}, context)
+amazonaws_config.PutEvaluations({
+  "ResultToken": ""
+}, context)
 ```
 
+#### Parameters
+* Evaluations (array)
+* ResultToken (string) **required**
+* TestMode (boolean)
 
 ### StartConfigRulesEvaluation
 
@@ -238,22 +344,32 @@ amazonaws_config.PutEvaluations({}, context)
 amazonaws_config.StartConfigRulesEvaluation({}, context)
 ```
 
+#### Parameters
+* ConfigRuleNames (array)
 
 ### StartConfigurationRecorder
 
 
 
 ```js
-amazonaws_config.StartConfigurationRecorder({}, context)
+amazonaws_config.StartConfigurationRecorder({
+  "ConfigurationRecorderName": ""
+}, context)
 ```
 
+#### Parameters
+* ConfigurationRecorderName (string) **required**
 
 ### StopConfigurationRecorder
 
 
 
 ```js
-amazonaws_config.StopConfigurationRecorder({}, context)
+amazonaws_config.StopConfigurationRecorder({
+  "ConfigurationRecorderName": ""
+}, context)
 ```
 
+#### Parameters
+* ConfigurationRecorderName (string) **required**
 

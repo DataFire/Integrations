@@ -3276,7 +3276,11 @@ mailchimp.postEcommerceStoresIdCarts({
   "store_id": "",
   "body": {
     "id": "",
-    "customer": {},
+    "customer": {
+      "id": "",
+      "email_address": "",
+      "opt_in_status": true
+    },
     "currency_code": "",
     "order_total": 0,
     "lines": []
@@ -3679,7 +3683,11 @@ mailchimp.postEcommerceStoresIdOrders({
   "store_id": "",
   "body": {
     "id": "",
-    "customer": {},
+    "customer": {
+      "id": "",
+      "email_address": "",
+      "opt_in_status": true
+    },
     "currency_code": "",
     "order_total": 0,
     "lines": []

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_cloudresourcemanager.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### liens.list
 List all Liens applied to the `parent` resource.

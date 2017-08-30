@@ -28,6 +28,8 @@ CNN.com delivers up-to-the-minute news and information on the latest top stories
 cnn_rss.topStories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### world
 CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.
@@ -37,6 +39,8 @@ CNN.com delivers up-to-the-minute news and information on the latest top stories
 cnn_rss.world(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### politics
 CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.
@@ -46,6 +50,8 @@ CNN.com delivers up-to-the-minute news and information on the latest top stories
 cnn_rss.politics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### business
 CNNMoney.com, the business website of CNN, combines business news and in-depth market analysis with practical advice and answers to personal finance questions.
@@ -55,4 +61,6 @@ CNNMoney.com, the business website of CNN, combines business news and in-depth m
 cnn_rss.business(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

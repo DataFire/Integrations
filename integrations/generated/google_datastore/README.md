@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_datastore.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.allocateIds
 Allocates IDs for the given keys, which is useful for referencing an entity

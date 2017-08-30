@@ -25,9 +25,16 @@ amazonaws_gamelift.CreateAlias({}).then(data => {
 
 
 ```js
-amazonaws_gamelift.CreateAlias({}, context)
+amazonaws_gamelift.CreateAlias({
+  "Name": "",
+  "RoutingStrategy": {}
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* Name (string) **required**
+* RoutingStrategy (object) **required** - Routing configuration for a fleet alias.
 
 ### CreateBuild
 
@@ -37,114 +44,197 @@ amazonaws_gamelift.CreateAlias({}, context)
 amazonaws_gamelift.CreateBuild({}, context)
 ```
 
+#### Parameters
+* Name (string)
+* OperatingSystem (string)
+* StorageLocation (object) - Location in Amazon Simple Storage Service (Amazon S3) where build files can be stored for access by Amazon GameLift. This location is specified in a <a>CreateBuild</a> request. For more details, see the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">Create a Build with Files in Amazon S3</a>.
+* Version (string)
 
 ### CreateFleet
 
 
 
 ```js
-amazonaws_gamelift.CreateFleet({}, context)
+amazonaws_gamelift.CreateFleet({
+  "Name": "",
+  "BuildId": "",
+  "EC2InstanceType": ""
+}, context)
 ```
 
+#### Parameters
+* BuildId (string) **required**
+* Description (string)
+* EC2InboundPermissions (array)
+* EC2InstanceType (string) **required**
+* LogPaths (array)
+* Name (string) **required**
+* NewGameSessionProtectionPolicy (string)
+* ResourceCreationLimitPolicy (object) - <p>Policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".</p> <p>The policy is evaluated when a player tries to create a new game session. For example, with a policy of 10 new game sessions and a time period of 60 minutes, on receiving a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified by <code>CreatorId</code>) has created fewer than 10 game sessions in the past 60 minutes.</p>
+* RuntimeConfiguration (object) - <p>Collection of server process configurations that describe what processes should be run on each instance in a fleet. An instance can launch and maintain multiple server processes based on the runtime configuration; it regularly checks for an updated runtime configuration and starts new server processes to match the latest version.</p> <p>The key purpose of a runtime configuration with multiple server process configurations is to be able to run more than one kind of game server in a single fleet. You can include configurations for more than one server executable in order to run two or more different programs to run on the same instance. This option might be useful, for example, to run more than one version of your game server on the same fleet. Another option is to specify configurations for the same server executable but with different launch parameters.</p> <p>A Amazon GameLift instance is limited to 50 processes running simultaneously. To calculate the total number of processes specified in a runtime configuration, add the values of the <code>ConcurrentExecutions</code> parameter for each <code> <a>ServerProcess</a> </code> object in the runtime configuration.</p>
+* ServerLaunchParameters (string)
+* ServerLaunchPath (string)
 
 ### CreateGameSession
 
 
 
 ```js
-amazonaws_gamelift.CreateGameSession({}, context)
+amazonaws_gamelift.CreateGameSession({
+  "MaximumPlayerSessionCount": 0
+}, context)
 ```
 
+#### Parameters
+* AliasId (string)
+* CreatorId (string)
+* FleetId (string)
+* GameProperties (array)
+* GameSessionId (string)
+* IdempotencyToken (string)
+* MaximumPlayerSessionCount (integer) **required**
+* Name (string)
 
 ### CreateGameSessionQueue
 
 
 
 ```js
-amazonaws_gamelift.CreateGameSessionQueue({}, context)
+amazonaws_gamelift.CreateGameSessionQueue({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Destinations (array)
+* Name (string) **required**
+* PlayerLatencyPolicies (array)
+* TimeoutInSeconds (integer)
 
 ### CreatePlayerSession
 
 
 
 ```js
-amazonaws_gamelift.CreatePlayerSession({}, context)
+amazonaws_gamelift.CreatePlayerSession({
+  "GameSessionId": "",
+  "PlayerId": ""
+}, context)
 ```
 
+#### Parameters
+* GameSessionId (string) **required**
+* PlayerData (string)
+* PlayerId (string) **required**
 
 ### CreatePlayerSessions
 
 
 
 ```js
-amazonaws_gamelift.CreatePlayerSessions({}, context)
+amazonaws_gamelift.CreatePlayerSessions({
+  "GameSessionId": "",
+  "PlayerIds": []
+}, context)
 ```
 
+#### Parameters
+* GameSessionId (string) **required**
+* PlayerDataMap (array)
+* PlayerIds (array) **required**
 
 ### DeleteAlias
 
 
 
 ```js
-amazonaws_gamelift.DeleteAlias({}, context)
+amazonaws_gamelift.DeleteAlias({
+  "AliasId": ""
+}, context)
 ```
 
+#### Parameters
+* AliasId (string) **required**
 
 ### DeleteBuild
 
 
 
 ```js
-amazonaws_gamelift.DeleteBuild({}, context)
+amazonaws_gamelift.DeleteBuild({
+  "BuildId": ""
+}, context)
 ```
 
+#### Parameters
+* BuildId (string) **required**
 
 ### DeleteFleet
 
 
 
 ```js
-amazonaws_gamelift.DeleteFleet({}, context)
+amazonaws_gamelift.DeleteFleet({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
 
 ### DeleteGameSessionQueue
 
 
 
 ```js
-amazonaws_gamelift.DeleteGameSessionQueue({}, context)
+amazonaws_gamelift.DeleteGameSessionQueue({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### DeleteScalingPolicy
 
 
 
 ```js
-amazonaws_gamelift.DeleteScalingPolicy({}, context)
+amazonaws_gamelift.DeleteScalingPolicy({
+  "Name": "",
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
+* Name (string) **required**
 
 ### DescribeAlias
 
 
 
 ```js
-amazonaws_gamelift.DescribeAlias({}, context)
+amazonaws_gamelift.DescribeAlias({
+  "AliasId": ""
+}, context)
 ```
 
+#### Parameters
+* AliasId (string) **required**
 
 ### DescribeBuild
 
 
 
 ```js
-amazonaws_gamelift.DescribeBuild({}, context)
+amazonaws_gamelift.DescribeBuild({
+  "BuildId": ""
+}, context)
 ```
 
+#### Parameters
+* BuildId (string) **required**
 
 ### DescribeEC2InstanceLimits
 
@@ -154,6 +244,8 @@ amazonaws_gamelift.DescribeBuild({}, context)
 amazonaws_gamelift.DescribeEC2InstanceLimits({}, context)
 ```
 
+#### Parameters
+* EC2InstanceType (string)
 
 ### DescribeFleetAttributes
 
@@ -163,6 +255,10 @@ amazonaws_gamelift.DescribeEC2InstanceLimits({}, context)
 amazonaws_gamelift.DescribeFleetAttributes({}, context)
 ```
 
+#### Parameters
+* FleetIds (array)
+* Limit (integer)
+* NextToken (string)
 
 ### DescribeFleetCapacity
 
@@ -172,24 +268,40 @@ amazonaws_gamelift.DescribeFleetAttributes({}, context)
 amazonaws_gamelift.DescribeFleetCapacity({}, context)
 ```
 
+#### Parameters
+* FleetIds (array)
+* Limit (integer)
+* NextToken (string)
 
 ### DescribeFleetEvents
 
 
 
 ```js
-amazonaws_gamelift.DescribeFleetEvents({}, context)
+amazonaws_gamelift.DescribeFleetEvents({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* EndTime (string)
+* FleetId (string) **required**
+* Limit (integer)
+* NextToken (string)
+* StartTime (string)
 
 ### DescribeFleetPortSettings
 
 
 
 ```js
-amazonaws_gamelift.DescribeFleetPortSettings({}, context)
+amazonaws_gamelift.DescribeFleetPortSettings({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
 
 ### DescribeFleetUtilization
 
@@ -199,6 +311,10 @@ amazonaws_gamelift.DescribeFleetPortSettings({}, context)
 amazonaws_gamelift.DescribeFleetUtilization({}, context)
 ```
 
+#### Parameters
+* FleetIds (array)
+* Limit (integer)
+* NextToken (string)
 
 ### DescribeGameSessionDetails
 
@@ -208,15 +324,26 @@ amazonaws_gamelift.DescribeFleetUtilization({}, context)
 amazonaws_gamelift.DescribeGameSessionDetails({}, context)
 ```
 
+#### Parameters
+* AliasId (string)
+* FleetId (string)
+* GameSessionId (string)
+* Limit (integer)
+* NextToken (string)
+* StatusFilter (string)
 
 ### DescribeGameSessionPlacement
 
 
 
 ```js
-amazonaws_gamelift.DescribeGameSessionPlacement({}, context)
+amazonaws_gamelift.DescribeGameSessionPlacement({
+  "PlacementId": ""
+}, context)
 ```
 
+#### Parameters
+* PlacementId (string) **required**
 
 ### DescribeGameSessionQueues
 
@@ -226,6 +353,10 @@ amazonaws_gamelift.DescribeGameSessionPlacement({}, context)
 amazonaws_gamelift.DescribeGameSessionQueues({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* Names (array)
+* NextToken (string)
 
 ### DescribeGameSessions
 
@@ -235,15 +366,29 @@ amazonaws_gamelift.DescribeGameSessionQueues({}, context)
 amazonaws_gamelift.DescribeGameSessions({}, context)
 ```
 
+#### Parameters
+* AliasId (string)
+* FleetId (string)
+* GameSessionId (string)
+* Limit (integer)
+* NextToken (string)
+* StatusFilter (string)
 
 ### DescribeInstances
 
 
 
 ```js
-amazonaws_gamelift.DescribeInstances({}, context)
+amazonaws_gamelift.DescribeInstances({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
+* InstanceId (string)
+* Limit (integer)
+* NextToken (string)
 
 ### DescribePlayerSessions
 
@@ -253,42 +398,70 @@ amazonaws_gamelift.DescribeInstances({}, context)
 amazonaws_gamelift.DescribePlayerSessions({}, context)
 ```
 
+#### Parameters
+* GameSessionId (string)
+* Limit (integer)
+* NextToken (string)
+* PlayerId (string)
+* PlayerSessionId (string)
+* PlayerSessionStatusFilter (string)
 
 ### DescribeRuntimeConfiguration
 
 
 
 ```js
-amazonaws_gamelift.DescribeRuntimeConfiguration({}, context)
+amazonaws_gamelift.DescribeRuntimeConfiguration({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
 
 ### DescribeScalingPolicies
 
 
 
 ```js
-amazonaws_gamelift.DescribeScalingPolicies({}, context)
+amazonaws_gamelift.DescribeScalingPolicies({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
+* Limit (integer)
+* NextToken (string)
+* StatusFilter (string)
 
 ### GetGameSessionLogUrl
 
 
 
 ```js
-amazonaws_gamelift.GetGameSessionLogUrl({}, context)
+amazonaws_gamelift.GetGameSessionLogUrl({
+  "GameSessionId": ""
+}, context)
 ```
 
+#### Parameters
+* GameSessionId (string) **required**
 
 ### GetInstanceAccess
 
 
 
 ```js
-amazonaws_gamelift.GetInstanceAccess({}, context)
+amazonaws_gamelift.GetInstanceAccess({
+  "FleetId": "",
+  "InstanceId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
+* InstanceId (string) **required**
 
 ### ListAliases
 
@@ -298,6 +471,11 @@ amazonaws_gamelift.GetInstanceAccess({}, context)
 amazonaws_gamelift.ListAliases({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* Name (string)
+* NextToken (string)
+* RoutingStrategyType (string)
 
 ### ListBuilds
 
@@ -307,6 +485,10 @@ amazonaws_gamelift.ListAliases({}, context)
 amazonaws_gamelift.ListBuilds({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextToken (string)
+* Status (string)
 
 ### ListFleets
 
@@ -316,33 +498,63 @@ amazonaws_gamelift.ListBuilds({}, context)
 amazonaws_gamelift.ListFleets({}, context)
 ```
 
+#### Parameters
+* BuildId (string)
+* Limit (integer)
+* NextToken (string)
 
 ### PutScalingPolicy
 
 
 
 ```js
-amazonaws_gamelift.PutScalingPolicy({}, context)
+amazonaws_gamelift.PutScalingPolicy({
+  "Name": "",
+  "FleetId": "",
+  "ScalingAdjustment": 0,
+  "ScalingAdjustmentType": "",
+  "Threshold": 0,
+  "ComparisonOperator": "",
+  "EvaluationPeriods": 0,
+  "MetricName": ""
+}, context)
 ```
 
+#### Parameters
+* ComparisonOperator (string) **required**
+* EvaluationPeriods (integer) **required**
+* FleetId (string) **required**
+* MetricName (string) **required**
+* Name (string) **required**
+* ScalingAdjustment (integer) **required**
+* ScalingAdjustmentType (string) **required**
+* Threshold (number) **required**
 
 ### RequestUploadCredentials
 
 
 
 ```js
-amazonaws_gamelift.RequestUploadCredentials({}, context)
+amazonaws_gamelift.RequestUploadCredentials({
+  "BuildId": ""
+}, context)
 ```
 
+#### Parameters
+* BuildId (string) **required**
 
 ### ResolveAlias
 
 
 
 ```js
-amazonaws_gamelift.ResolveAlias({}, context)
+amazonaws_gamelift.ResolveAlias({
+  "AliasId": ""
+}, context)
 ```
 
+#### Parameters
+* AliasId (string) **required**
 
 ### SearchGameSessions
 
@@ -352,94 +564,172 @@ amazonaws_gamelift.ResolveAlias({}, context)
 amazonaws_gamelift.SearchGameSessions({}, context)
 ```
 
+#### Parameters
+* AliasId (string)
+* FilterExpression (string)
+* FleetId (string)
+* Limit (integer)
+* NextToken (string)
+* SortExpression (string)
 
 ### StartGameSessionPlacement
 
 
 
 ```js
-amazonaws_gamelift.StartGameSessionPlacement({}, context)
+amazonaws_gamelift.StartGameSessionPlacement({
+  "PlacementId": "",
+  "GameSessionQueueName": "",
+  "MaximumPlayerSessionCount": 0
+}, context)
 ```
 
+#### Parameters
+* DesiredPlayerSessions (array)
+* GameProperties (array)
+* GameSessionName (string)
+* GameSessionQueueName (string) **required**
+* MaximumPlayerSessionCount (integer) **required**
+* PlacementId (string) **required**
+* PlayerLatencies (array)
 
 ### StopGameSessionPlacement
 
 
 
 ```js
-amazonaws_gamelift.StopGameSessionPlacement({}, context)
+amazonaws_gamelift.StopGameSessionPlacement({
+  "PlacementId": ""
+}, context)
 ```
 
+#### Parameters
+* PlacementId (string) **required**
 
 ### UpdateAlias
 
 
 
 ```js
-amazonaws_gamelift.UpdateAlias({}, context)
+amazonaws_gamelift.UpdateAlias({
+  "AliasId": ""
+}, context)
 ```
 
+#### Parameters
+* AliasId (string) **required**
+* Description (string)
+* Name (string)
+* RoutingStrategy (object) - Routing configuration for a fleet alias.
 
 ### UpdateBuild
 
 
 
 ```js
-amazonaws_gamelift.UpdateBuild({}, context)
+amazonaws_gamelift.UpdateBuild({
+  "BuildId": ""
+}, context)
 ```
 
+#### Parameters
+* BuildId (string) **required**
+* Name (string)
+* Version (string)
 
 ### UpdateFleetAttributes
 
 
 
 ```js
-amazonaws_gamelift.UpdateFleetAttributes({}, context)
+amazonaws_gamelift.UpdateFleetAttributes({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* FleetId (string) **required**
+* Name (string)
+* NewGameSessionProtectionPolicy (string)
+* ResourceCreationLimitPolicy (object) - <p>Policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".</p> <p>The policy is evaluated when a player tries to create a new game session. For example, with a policy of 10 new game sessions and a time period of 60 minutes, on receiving a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified by <code>CreatorId</code>) has created fewer than 10 game sessions in the past 60 minutes.</p>
 
 ### UpdateFleetCapacity
 
 
 
 ```js
-amazonaws_gamelift.UpdateFleetCapacity({}, context)
+amazonaws_gamelift.UpdateFleetCapacity({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* DesiredInstances (integer)
+* FleetId (string) **required**
+* MaxSize (integer)
+* MinSize (integer)
 
 ### UpdateFleetPortSettings
 
 
 
 ```js
-amazonaws_gamelift.UpdateFleetPortSettings({}, context)
+amazonaws_gamelift.UpdateFleetPortSettings({
+  "FleetId": ""
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
+* InboundPermissionAuthorizations (array)
+* InboundPermissionRevocations (array)
 
 ### UpdateGameSession
 
 
 
 ```js
-amazonaws_gamelift.UpdateGameSession({}, context)
+amazonaws_gamelift.UpdateGameSession({
+  "GameSessionId": ""
+}, context)
 ```
 
+#### Parameters
+* GameSessionId (string) **required**
+* MaximumPlayerSessionCount (integer)
+* Name (string)
+* PlayerSessionCreationPolicy (string)
+* ProtectionPolicy (string)
 
 ### UpdateGameSessionQueue
 
 
 
 ```js
-amazonaws_gamelift.UpdateGameSessionQueue({}, context)
+amazonaws_gamelift.UpdateGameSessionQueue({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Destinations (array)
+* Name (string) **required**
+* PlayerLatencyPolicies (array)
+* TimeoutInSeconds (integer)
 
 ### UpdateRuntimeConfiguration
 
 
 
 ```js
-amazonaws_gamelift.UpdateRuntimeConfiguration({}, context)
+amazonaws_gamelift.UpdateRuntimeConfiguration({
+  "FleetId": "",
+  "RuntimeConfiguration": {}
+}, context)
 ```
 
+#### Parameters
+* FleetId (string) **required**
+* RuntimeConfiguration (object) **required** - <p>Collection of server process configurations that describe what processes should be run on each instance in a fleet. An instance can launch and maintain multiple server processes based on the runtime configuration; it regularly checks for an updated runtime configuration and starts new server processes to match the latest version.</p> <p>The key purpose of a runtime configuration with multiple server process configurations is to be able to run more than one kind of game server in a single fleet. You can include configurations for more than one server executable in order to run two or more different programs to run on the same instance. This option might be useful, for example, to run more than one version of your game server on the same fleet. Another option is to specify configurations for the same server executable but with different launch parameters.</p> <p>A Amazon GameLift instance is limited to 50 processes running simultaneously. To calculate the total number of processes specified in a runtime configuration, add the values of the <code>ConcurrentExecutions</code> parameter for each <code> <a>ServerProcess</a> </code> object in the runtime configuration.</p>
 

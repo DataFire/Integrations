@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_adexchangeseller.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.list
 List all accounts available to this Ad Exchange account.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_groupsmigration.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### archive.insert
 Inserts a new mail into the archive of the Google group.

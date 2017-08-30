@@ -83,6 +83,8 @@ Get automatic order status transition list
 beezup.GetAutomaticTransitions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ConfigureAutomaticTransitions
 Configure automatic order status transitions
@@ -189,6 +191,8 @@ Harvest orders from all marketplaces
 beezup.HarvestAll(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetOrderListFull
 The purpose of this API is to reduce the request count.
@@ -223,6 +227,8 @@ Get marketplace accounts synchronization status
 beezup.GetMarketplaceAccountsSynchronization(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetOrder
 Get order details

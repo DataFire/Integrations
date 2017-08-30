@@ -25,117 +25,218 @@ amazonaws_codepipeline.AcknowledgeJob({}).then(data => {
 
 
 ```js
-amazonaws_codepipeline.AcknowledgeJob({}, context)
+amazonaws_codepipeline.AcknowledgeJob({
+  "jobId": "",
+  "nonce": ""
+}, context)
 ```
 
+#### Parameters
+* jobId (string) **required**
+* nonce (string) **required**
 
 ### AcknowledgeThirdPartyJob
 
 
 
 ```js
-amazonaws_codepipeline.AcknowledgeThirdPartyJob({}, context)
+amazonaws_codepipeline.AcknowledgeThirdPartyJob({
+  "jobId": "",
+  "nonce": "",
+  "clientToken": ""
+}, context)
 ```
 
+#### Parameters
+* clientToken (string) **required**
+* jobId (string) **required**
+* nonce (string) **required**
 
 ### CreateCustomActionType
 
 
 
 ```js
-amazonaws_codepipeline.CreateCustomActionType({}, context)
+amazonaws_codepipeline.CreateCustomActionType({
+  "category": "",
+  "provider": "",
+  "version": "",
+  "inputArtifactDetails": {
+    "minimumCount": 0,
+    "maximumCount": 0
+  },
+  "outputArtifactDetails": {
+    "minimumCount": 0,
+    "maximumCount": 0
+  }
+}, context)
 ```
 
+#### Parameters
+* category (string) **required**
+* configurationProperties (array)
+* inputArtifactDetails (object) **required** - Returns information about the details of an artifact.
+* outputArtifactDetails (object) **required** - Returns information about the details of an artifact.
+* provider (string) **required**
+* settings (object) - Returns information about the settings for an action type.
+* version (string) **required**
 
 ### CreatePipeline
 
 
 
 ```js
-amazonaws_codepipeline.CreatePipeline({}, context)
+amazonaws_codepipeline.CreatePipeline({
+  "pipeline": {
+    "name": "",
+    "roleArn": "",
+    "artifactStore": {
+      "type": "",
+      "location": ""
+    },
+    "stages": []
+  }
+}, context)
 ```
 
+#### Parameters
+* pipeline (object) **required** - Represents the structure of actions and stages to be performed in the pipeline.
 
 ### DeleteCustomActionType
 
 
 
 ```js
-amazonaws_codepipeline.DeleteCustomActionType({}, context)
+amazonaws_codepipeline.DeleteCustomActionType({
+  "category": "",
+  "provider": "",
+  "version": ""
+}, context)
 ```
 
+#### Parameters
+* category (string) **required**
+* provider (string) **required**
+* version (string) **required**
 
 ### DeletePipeline
 
 
 
 ```js
-amazonaws_codepipeline.DeletePipeline({}, context)
+amazonaws_codepipeline.DeletePipeline({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* name (string) **required**
 
 ### DisableStageTransition
 
 
 
 ```js
-amazonaws_codepipeline.DisableStageTransition({}, context)
+amazonaws_codepipeline.DisableStageTransition({
+  "pipelineName": "",
+  "stageName": "",
+  "transitionType": "",
+  "reason": ""
+}, context)
 ```
 
+#### Parameters
+* pipelineName (string) **required**
+* reason (string) **required**
+* stageName (string) **required**
+* transitionType (string) **required**
 
 ### EnableStageTransition
 
 
 
 ```js
-amazonaws_codepipeline.EnableStageTransition({}, context)
+amazonaws_codepipeline.EnableStageTransition({
+  "pipelineName": "",
+  "stageName": "",
+  "transitionType": ""
+}, context)
 ```
 
+#### Parameters
+* pipelineName (string) **required**
+* stageName (string) **required**
+* transitionType (string) **required**
 
 ### GetJobDetails
 
 
 
 ```js
-amazonaws_codepipeline.GetJobDetails({}, context)
+amazonaws_codepipeline.GetJobDetails({
+  "jobId": ""
+}, context)
 ```
 
+#### Parameters
+* jobId (string) **required**
 
 ### GetPipeline
 
 
 
 ```js
-amazonaws_codepipeline.GetPipeline({}, context)
+amazonaws_codepipeline.GetPipeline({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* name (string) **required**
+* version (integer)
 
 ### GetPipelineExecution
 
 
 
 ```js
-amazonaws_codepipeline.GetPipelineExecution({}, context)
+amazonaws_codepipeline.GetPipelineExecution({
+  "pipelineName": "",
+  "pipelineExecutionId": ""
+}, context)
 ```
 
+#### Parameters
+* pipelineExecutionId (string) **required**
+* pipelineName (string) **required**
 
 ### GetPipelineState
 
 
 
 ```js
-amazonaws_codepipeline.GetPipelineState({}, context)
+amazonaws_codepipeline.GetPipelineState({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* name (string) **required**
 
 ### GetThirdPartyJobDetails
 
 
 
 ```js
-amazonaws_codepipeline.GetThirdPartyJobDetails({}, context)
+amazonaws_codepipeline.GetThirdPartyJobDetails({
+  "jobId": "",
+  "clientToken": ""
+}, context)
 ```
 
+#### Parameters
+* clientToken (string) **required**
+* jobId (string) **required**
 
 ### ListActionTypes
 
@@ -145,6 +246,9 @@ amazonaws_codepipeline.GetThirdPartyJobDetails({}, context)
 amazonaws_codepipeline.ListActionTypes({}, context)
 ```
 
+#### Parameters
+* actionOwnerFilter (string)
+* nextToken (string)
 
 ### ListPipelines
 
@@ -154,103 +258,217 @@ amazonaws_codepipeline.ListActionTypes({}, context)
 amazonaws_codepipeline.ListPipelines({}, context)
 ```
 
+#### Parameters
+* nextToken (string)
 
 ### PollForJobs
 
 
 
 ```js
-amazonaws_codepipeline.PollForJobs({}, context)
+amazonaws_codepipeline.PollForJobs({
+  "actionTypeId": {
+    "category": "",
+    "owner": "",
+    "provider": "",
+    "version": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* actionTypeId (object) **required** - Represents information about an action type.
+* maxBatchSize (integer)
+* queryParam (array)
 
 ### PollForThirdPartyJobs
 
 
 
 ```js
-amazonaws_codepipeline.PollForThirdPartyJobs({}, context)
+amazonaws_codepipeline.PollForThirdPartyJobs({
+  "actionTypeId": {
+    "category": "",
+    "owner": "",
+    "provider": "",
+    "version": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* actionTypeId (object) **required** - Represents information about an action type.
+* maxBatchSize (integer)
 
 ### PutActionRevision
 
 
 
 ```js
-amazonaws_codepipeline.PutActionRevision({}, context)
+amazonaws_codepipeline.PutActionRevision({
+  "pipelineName": "",
+  "stageName": "",
+  "actionName": "",
+  "actionRevision": {
+    "revisionId": "",
+    "revisionChangeId": "",
+    "created": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* actionName (string) **required**
+* actionRevision (object) **required** - Represents information about the version (or revision) of an action.
+* pipelineName (string) **required**
+* stageName (string) **required**
 
 ### PutApprovalResult
 
 
 
 ```js
-amazonaws_codepipeline.PutApprovalResult({}, context)
+amazonaws_codepipeline.PutApprovalResult({
+  "pipelineName": "",
+  "stageName": "",
+  "actionName": "",
+  "result": {
+    "summary": "",
+    "status": ""
+  },
+  "token": ""
+}, context)
 ```
 
+#### Parameters
+* actionName (string) **required**
+* pipelineName (string) **required**
+* result (object) **required** - Represents information about the result of an approval request.
+* stageName (string) **required**
+* token (string) **required**
 
 ### PutJobFailureResult
 
 
 
 ```js
-amazonaws_codepipeline.PutJobFailureResult({}, context)
+amazonaws_codepipeline.PutJobFailureResult({
+  "jobId": "",
+  "failureDetails": {
+    "type": "",
+    "message": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* failureDetails (object) **required** - Represents information about failure details.
+* jobId (string) **required**
 
 ### PutJobSuccessResult
 
 
 
 ```js
-amazonaws_codepipeline.PutJobSuccessResult({}, context)
+amazonaws_codepipeline.PutJobSuccessResult({
+  "jobId": ""
+}, context)
 ```
 
+#### Parameters
+* continuationToken (string)
+* currentRevision (object) - Represents information about a current revision.
+* executionDetails (object) - The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.
+* jobId (string) **required**
 
 ### PutThirdPartyJobFailureResult
 
 
 
 ```js
-amazonaws_codepipeline.PutThirdPartyJobFailureResult({}, context)
+amazonaws_codepipeline.PutThirdPartyJobFailureResult({
+  "jobId": "",
+  "clientToken": "",
+  "failureDetails": {
+    "type": "",
+    "message": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* clientToken (string) **required**
+* failureDetails (object) **required** - Represents information about failure details.
+* jobId (string) **required**
 
 ### PutThirdPartyJobSuccessResult
 
 
 
 ```js
-amazonaws_codepipeline.PutThirdPartyJobSuccessResult({}, context)
+amazonaws_codepipeline.PutThirdPartyJobSuccessResult({
+  "jobId": "",
+  "clientToken": ""
+}, context)
 ```
 
+#### Parameters
+* clientToken (string) **required**
+* continuationToken (string)
+* currentRevision (object) - Represents information about a current revision.
+* executionDetails (object) - The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.
+* jobId (string) **required**
 
 ### RetryStageExecution
 
 
 
 ```js
-amazonaws_codepipeline.RetryStageExecution({}, context)
+amazonaws_codepipeline.RetryStageExecution({
+  "pipelineName": "",
+  "stageName": "",
+  "pipelineExecutionId": "",
+  "retryMode": ""
+}, context)
 ```
 
+#### Parameters
+* pipelineExecutionId (string) **required**
+* pipelineName (string) **required**
+* retryMode (string) **required**
+* stageName (string) **required**
 
 ### StartPipelineExecution
 
 
 
 ```js
-amazonaws_codepipeline.StartPipelineExecution({}, context)
+amazonaws_codepipeline.StartPipelineExecution({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* name (string) **required**
 
 ### UpdatePipeline
 
 
 
 ```js
-amazonaws_codepipeline.UpdatePipeline({}, context)
+amazonaws_codepipeline.UpdatePipeline({
+  "pipeline": {
+    "name": "",
+    "roleArn": "",
+    "artifactStore": {
+      "type": "",
+      "location": ""
+    },
+    "stages": []
+  }
+}, context)
 ```
 
+#### Parameters
+* pipeline (object) **required** - Represents the structure of actions and stages to be performed in the pipeline.
 

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_cloudmonitoring.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### metricDescriptors.list
 List metric descriptors that match the query. If the query is not set, then all of the metric descriptors will be returned. Large responses will be paginated, use the nextPageToken returned in the response to request subsequent pages of results by setting the pageToken query parameter to the value of the nextPageToken.

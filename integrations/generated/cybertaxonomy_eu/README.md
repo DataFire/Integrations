@@ -28,6 +28,8 @@ capabilities
 cybertaxonomy_eu.capabilities(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### search
 search

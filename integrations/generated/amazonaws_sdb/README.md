@@ -25,63 +25,103 @@ Amazon SimpleDB is a web service providing the core database functions of data i
 
 
 ```js
-amazonaws_sdb.BatchDeleteAttributes({}, context)
+amazonaws_sdb.BatchDeleteAttributes({
+  "DomainName": "",
+  "Items": []
+}, context)
 ```
 
+#### Parameters
+* DomainName (string) **required**
+* Items (array) **required**
 
 ### BatchPutAttributes
 
 
 
 ```js
-amazonaws_sdb.BatchPutAttributes({}, context)
+amazonaws_sdb.BatchPutAttributes({
+  "DomainName": "",
+  "Items": []
+}, context)
 ```
 
+#### Parameters
+* DomainName (string) **required**
+* Items (array) **required**
 
 ### CreateDomain
 
 
 
 ```js
-amazonaws_sdb.CreateDomain({}, context)
+amazonaws_sdb.CreateDomain({
+  "DomainName": ""
+}, context)
 ```
 
+#### Parameters
+* DomainName (string) **required**
 
 ### DeleteAttributes
 
 
 
 ```js
-amazonaws_sdb.DeleteAttributes({}, context)
+amazonaws_sdb.DeleteAttributes({
+  "DomainName": "",
+  "ItemName": ""
+}, context)
 ```
 
+#### Parameters
+* Attributes (array)
+* DomainName (string) **required**
+* Expected (object) -  Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. 
+* ItemName (string) **required**
 
 ### DeleteDomain
 
 
 
 ```js
-amazonaws_sdb.DeleteDomain({}, context)
+amazonaws_sdb.DeleteDomain({
+  "DomainName": ""
+}, context)
 ```
 
+#### Parameters
+* DomainName (string) **required**
 
 ### DomainMetadata
 
 
 
 ```js
-amazonaws_sdb.DomainMetadata({}, context)
+amazonaws_sdb.DomainMetadata({
+  "DomainName": ""
+}, context)
 ```
 
+#### Parameters
+* DomainName (string) **required**
 
 ### GetAttributes
 
 
 
 ```js
-amazonaws_sdb.GetAttributes({}, context)
+amazonaws_sdb.GetAttributes({
+  "DomainName": "",
+  "ItemName": ""
+}, context)
 ```
 
+#### Parameters
+* AttributeNames (array)
+* ConsistentRead (boolean)
+* DomainName (string) **required**
+* ItemName (string) **required**
 
 ### ListDomains
 
@@ -94,24 +134,40 @@ amazonaws_sdb.ListDomains({}, context)
 #### Parameters
 * MaxNumberOfDomains (string)
 * NextToken (string)
+* MaxNumberOfDomains (integer)
+* NextToken (string)
 
 ### PutAttributes
 
 
 
 ```js
-amazonaws_sdb.PutAttributes({}, context)
+amazonaws_sdb.PutAttributes({
+  "DomainName": "",
+  "ItemName": "",
+  "Attributes": []
+}, context)
 ```
 
+#### Parameters
+* Attributes (array) **required**
+* DomainName (string) **required**
+* Expected (object) -  Specifies the conditions under which data should be updated. If an update condition is specified for a request, the data will only be updated if the condition is satisfied. For example, if an attribute with a specific name and value exists, or if a specific attribute doesn't exist. 
+* ItemName (string) **required**
 
 ### Select
 
 
 
 ```js
-amazonaws_sdb.Select({}, context)
+amazonaws_sdb.Select({
+  "SelectExpression": ""
+}, context)
 ```
 
 #### Parameters
 * NextToken (string)
+* ConsistentRead (boolean)
+* NextToken (string)
+* SelectExpression (string) **required**
 

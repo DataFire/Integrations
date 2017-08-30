@@ -123,6 +123,8 @@ Delete all the items on a grocery list; faster operation than a sync with delete
 bigoven.GroceryList_Delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GroceryList_Get
 Get the user's grocery list.  User is determined by Basic Authentication.
@@ -132,6 +134,8 @@ Get the user's grocery list.  User is determined by Basic Authentication.
 bigoven.GroceryList_Get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GroceryList_Department
 Departmentalize a list of strings -- used for ad-hoc grocery list item addition
@@ -262,6 +266,8 @@ Get a list of recipe categories (the ID field can be used for include_cat in sea
 bigoven.Recipe_Categories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Review_DeleteReply
 DELETE a reply to a given review. Authenticated user must be the one who originally posted the reply.
@@ -739,6 +745,8 @@ Get a random, home-page-quality Recipe.
 bigoven.Recipe_GetRandomRecipe(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Recipe_Raves
 Get the recipe/comment tuples for those recipes with 4 or 5 star ratings

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_dns.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.get
 Fetch the representation of an existing Project.

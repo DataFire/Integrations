@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_dfareporting.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### files.get
 Retrieves a report file by its report ID and file ID.

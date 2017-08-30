@@ -82,6 +82,8 @@ All available languages. These language abbreviations can be used in the `Accept
 thetvdb.languages.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### languages.id.get
 Information about a particular language, given the language ID.
@@ -117,6 +119,8 @@ Refreshes your current, valid JWT token and returns a new token. Hit this route 
 thetvdb.refresh_token.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### search.series.get
 Allows the user to search for a series based on the following parameters.
@@ -140,6 +144,8 @@ Returns an array of parameters to query by in the `/search/series` route.
 thetvdb.search.series.params.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### series.id.get
 Returns a series records that contains all information known about a particular series id.
@@ -346,6 +352,8 @@ Returns an array of valid query keys for the `/updated/query/params` route.
 thetvdb.updated.query.params.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.get
 Returns basic information about the currently authenticated user.
@@ -355,6 +363,8 @@ Returns basic information about the currently authenticated user.
 thetvdb.user.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.favorites.get
 Returns an array of favorite series for a given user, will be a blank array if no favorites exist.
@@ -364,6 +374,8 @@ Returns an array of favorite series for a given user, will be a blank array if n
 thetvdb.user.favorites.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.favorites.id.delete
 Deletes the given series ID from the user’s favorite’s list and returns the updated list.
@@ -399,6 +411,8 @@ Returns an array of ratings for the given user.
 thetvdb.user.ratings.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.ratings.query.get
 Returns an array of ratings for a given user that match the query.
@@ -419,6 +433,8 @@ Returns a list of query params for use in the `/user/ratings/query` route.
 thetvdb.user.ratings.query.params.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.ratings.itemType.itemId.delete
 This route deletes a given rating of a given type.

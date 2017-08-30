@@ -25,279 +25,478 @@ amazonaws_storagegateway.ActivateGateway({}).then(data => {
 
 
 ```js
-amazonaws_storagegateway.ActivateGateway({}, context)
+amazonaws_storagegateway.ActivateGateway({
+  "ActivationKey": "",
+  "GatewayName": "",
+  "GatewayTimezone": "",
+  "GatewayRegion": ""
+}, context)
 ```
 
+#### Parameters
+* ActivationKey (string) **required**
+* GatewayName (string) **required** - The name you configured for your gateway.
+* GatewayRegion (string) **required**
+* GatewayTimezone (string) **required**
+* GatewayType (string)
+* MediumChangerType (string)
+* TapeDriveType (string)
 
 ### AddCache
 
 
 
 ```js
-amazonaws_storagegateway.AddCache({}, context)
+amazonaws_storagegateway.AddCache({
+  "GatewayARN": "",
+  "DiskIds": []
+}, context)
 ```
 
+#### Parameters
+* DiskIds (array) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### AddTagsToResource
 
 
 
 ```js
-amazonaws_storagegateway.AddTagsToResource({}, context)
+amazonaws_storagegateway.AddTagsToResource({
+  "ResourceARN": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* ResourceARN (string) **required**
+* Tags (array) **required**
 
 ### AddUploadBuffer
 
 
 
 ```js
-amazonaws_storagegateway.AddUploadBuffer({}, context)
+amazonaws_storagegateway.AddUploadBuffer({
+  "GatewayARN": "",
+  "DiskIds": []
+}, context)
 ```
 
+#### Parameters
+* DiskIds (array) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### AddWorkingStorage
 
 
 
 ```js
-amazonaws_storagegateway.AddWorkingStorage({}, context)
+amazonaws_storagegateway.AddWorkingStorage({
+  "GatewayARN": "",
+  "DiskIds": []
+}, context)
 ```
 
+#### Parameters
+* DiskIds (array) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### CancelArchival
 
 
 
 ```js
-amazonaws_storagegateway.CancelArchival({}, context)
+amazonaws_storagegateway.CancelArchival({
+  "GatewayARN": "",
+  "TapeARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* TapeARN (string) **required**
 
 ### CancelRetrieval
 
 
 
 ```js
-amazonaws_storagegateway.CancelRetrieval({}, context)
+amazonaws_storagegateway.CancelRetrieval({
+  "GatewayARN": "",
+  "TapeARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* TapeARN (string) **required**
 
 ### CreateCachediSCSIVolume
 
 
 
 ```js
-amazonaws_storagegateway.CreateCachediSCSIVolume({}, context)
+amazonaws_storagegateway.CreateCachediSCSIVolume({
+  "GatewayARN": "",
+  "VolumeSizeInBytes": 0,
+  "TargetName": "",
+  "NetworkInterfaceId": "",
+  "ClientToken": ""
+}, context)
 ```
 
+#### Parameters
+* ClientToken (string) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* NetworkInterfaceId (string) **required**
+* SnapshotId (string)
+* SourceVolumeARN (string)
+* TargetName (string) **required**
+* VolumeSizeInBytes (integer) **required**
 
 ### CreateNFSFileShare
 
 
 
 ```js
-amazonaws_storagegateway.CreateNFSFileShare({}, context)
+amazonaws_storagegateway.CreateNFSFileShare({
+  "ClientToken": "",
+  "GatewayARN": "",
+  "Role": "",
+  "LocationARN": ""
+}, context)
 ```
 
+#### Parameters
+* ClientList (array) - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. 
+* ClientToken (string) **required**
+* DefaultStorageClass (string) - <p/>
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* KMSEncrypted (boolean) - Indicates whether the write status of a file share is read-only. "true", if write status is read-only; otherwise "false".
+* KMSKey (string) - The ARN of the KMS key used for Amazon S3 server side encryption. 
+* LocationARN (string) **required** - The ARN of the backend storage used for storing file data. 
+* NFSFileShareDefaults (object) - Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in file gateways.
+* ReadOnly (boolean) - Indicates whether the write status of a file share is read-only. "true", if write status is read-only; otherwise "false".
+* Role (string) **required** - The ARN of the IAM role that file gateway assumes when it accesses the underlying storage. 
+* Squash (string) - Indicates the user mapped to anonymous user. Valid options: "RootSquash" - Only root is mapped to anonymous user, "NoSquash" - No one is mapped to anonymous user or "AllSquash" - Everyone is mapped to anonymous user.
 
 ### CreateSnapshot
 
 
 
 ```js
-amazonaws_storagegateway.CreateSnapshot({}, context)
+amazonaws_storagegateway.CreateSnapshot({
+  "VolumeARN": "",
+  "SnapshotDescription": ""
+}, context)
 ```
 
+#### Parameters
+* SnapshotDescription (string) **required**
+* VolumeARN (string) **required**
 
 ### CreateSnapshotFromVolumeRecoveryPoint
 
 
 
 ```js
-amazonaws_storagegateway.CreateSnapshotFromVolumeRecoveryPoint({}, context)
+amazonaws_storagegateway.CreateSnapshotFromVolumeRecoveryPoint({
+  "VolumeARN": "",
+  "SnapshotDescription": ""
+}, context)
 ```
 
+#### Parameters
+* SnapshotDescription (string) **required**
+* VolumeARN (string) **required**
 
 ### CreateStorediSCSIVolume
 
 
 
 ```js
-amazonaws_storagegateway.CreateStorediSCSIVolume({}, context)
+amazonaws_storagegateway.CreateStorediSCSIVolume({
+  "GatewayARN": "",
+  "DiskId": "",
+  "PreserveExistingData": true,
+  "TargetName": "",
+  "NetworkInterfaceId": ""
+}, context)
 ```
 
+#### Parameters
+* DiskId (string) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* NetworkInterfaceId (string) **required**
+* PreserveExistingData (boolean) **required**
+* SnapshotId (string)
+* TargetName (string) **required**
 
 ### CreateTapeWithBarcode
 
 
 
 ```js
-amazonaws_storagegateway.CreateTapeWithBarcode({}, context)
+amazonaws_storagegateway.CreateTapeWithBarcode({
+  "GatewayARN": "",
+  "TapeSizeInBytes": 0,
+  "TapeBarcode": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* TapeBarcode (string) **required**
+* TapeSizeInBytes (integer) **required**
 
 ### CreateTapes
 
 
 
 ```js
-amazonaws_storagegateway.CreateTapes({}, context)
+amazonaws_storagegateway.CreateTapes({
+  "GatewayARN": "",
+  "TapeSizeInBytes": 0,
+  "ClientToken": "",
+  "NumTapesToCreate": 0,
+  "TapeBarcodePrefix": ""
+}, context)
 ```
 
+#### Parameters
+* ClientToken (string) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* NumTapesToCreate (integer) **required**
+* TapeBarcodePrefix (string) **required**
+* TapeSizeInBytes (integer) **required**
 
 ### DeleteBandwidthRateLimit
 
 
 
 ```js
-amazonaws_storagegateway.DeleteBandwidthRateLimit({}, context)
+amazonaws_storagegateway.DeleteBandwidthRateLimit({
+  "GatewayARN": "",
+  "BandwidthType": ""
+}, context)
 ```
 
+#### Parameters
+* BandwidthType (string) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DeleteChapCredentials
 
 
 
 ```js
-amazonaws_storagegateway.DeleteChapCredentials({}, context)
+amazonaws_storagegateway.DeleteChapCredentials({
+  "TargetARN": "",
+  "InitiatorName": ""
+}, context)
 ```
 
+#### Parameters
+* InitiatorName (string) **required**
+* TargetARN (string) **required**
 
 ### DeleteFileShare
 
 
 
 ```js
-amazonaws_storagegateway.DeleteFileShare({}, context)
+amazonaws_storagegateway.DeleteFileShare({
+  "FileShareARN": ""
+}, context)
 ```
 
+#### Parameters
+* FileShareARN (string) **required** - The Amazon Resource Name (ARN) of the file share. 
 
 ### DeleteGateway
 
 
 
 ```js
-amazonaws_storagegateway.DeleteGateway({}, context)
+amazonaws_storagegateway.DeleteGateway({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DeleteSnapshotSchedule
 
 
 
 ```js
-amazonaws_storagegateway.DeleteSnapshotSchedule({}, context)
+amazonaws_storagegateway.DeleteSnapshotSchedule({
+  "VolumeARN": ""
+}, context)
 ```
 
+#### Parameters
+* VolumeARN (string) **required**
 
 ### DeleteTape
 
 
 
 ```js
-amazonaws_storagegateway.DeleteTape({}, context)
+amazonaws_storagegateway.DeleteTape({
+  "GatewayARN": "",
+  "TapeARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* TapeARN (string) **required**
 
 ### DeleteTapeArchive
 
 
 
 ```js
-amazonaws_storagegateway.DeleteTapeArchive({}, context)
+amazonaws_storagegateway.DeleteTapeArchive({
+  "TapeARN": ""
+}, context)
 ```
 
+#### Parameters
+* TapeARN (string) **required**
 
 ### DeleteVolume
 
 
 
 ```js
-amazonaws_storagegateway.DeleteVolume({}, context)
+amazonaws_storagegateway.DeleteVolume({
+  "VolumeARN": ""
+}, context)
 ```
 
+#### Parameters
+* VolumeARN (string) **required**
 
 ### DescribeBandwidthRateLimit
 
 
 
 ```js
-amazonaws_storagegateway.DescribeBandwidthRateLimit({}, context)
+amazonaws_storagegateway.DescribeBandwidthRateLimit({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DescribeCache
 
 
 
 ```js
-amazonaws_storagegateway.DescribeCache({}, context)
+amazonaws_storagegateway.DescribeCache({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DescribeCachediSCSIVolumes
 
 
 
 ```js
-amazonaws_storagegateway.DescribeCachediSCSIVolumes({}, context)
+amazonaws_storagegateway.DescribeCachediSCSIVolumes({
+  "VolumeARNs": []
+}, context)
 ```
 
+#### Parameters
+* VolumeARNs (array) **required**
 
 ### DescribeChapCredentials
 
 
 
 ```js
-amazonaws_storagegateway.DescribeChapCredentials({}, context)
+amazonaws_storagegateway.DescribeChapCredentials({
+  "TargetARN": ""
+}, context)
 ```
 
+#### Parameters
+* TargetARN (string) **required**
 
 ### DescribeGatewayInformation
 
 
 
 ```js
-amazonaws_storagegateway.DescribeGatewayInformation({}, context)
+amazonaws_storagegateway.DescribeGatewayInformation({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DescribeMaintenanceStartTime
 
 
 
 ```js
-amazonaws_storagegateway.DescribeMaintenanceStartTime({}, context)
+amazonaws_storagegateway.DescribeMaintenanceStartTime({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DescribeNFSFileShares
 
 
 
 ```js
-amazonaws_storagegateway.DescribeNFSFileShares({}, context)
+amazonaws_storagegateway.DescribeNFSFileShares({
+  "FileShareARNList": []
+}, context)
 ```
 
+#### Parameters
+* FileShareARNList (array) **required**
 
 ### DescribeSnapshotSchedule
 
 
 
 ```js
-amazonaws_storagegateway.DescribeSnapshotSchedule({}, context)
+amazonaws_storagegateway.DescribeSnapshotSchedule({
+  "VolumeARN": ""
+}, context)
 ```
 
+#### Parameters
+* VolumeARN (string) **required**
 
 ### DescribeStorediSCSIVolumes
 
 
 
 ```js
-amazonaws_storagegateway.DescribeStorediSCSIVolumes({}, context)
+amazonaws_storagegateway.DescribeStorediSCSIVolumes({
+  "VolumeARNs": []
+}, context)
 ```
 
+#### Parameters
+* VolumeARNs (array) **required**
 
 ### DescribeTapeArchives
 
@@ -310,17 +509,25 @@ amazonaws_storagegateway.DescribeTapeArchives({}, context)
 #### Parameters
 * Limit (string)
 * Marker (string)
+* Limit (integer)
+* Marker (string)
+* TapeARNs (array) - The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't specify a tape ARN, the response lists all tapes in both your VTL and VTS.
 
 ### DescribeTapeRecoveryPoints
 
 
 
 ```js
-amazonaws_storagegateway.DescribeTapeRecoveryPoints({}, context)
+amazonaws_storagegateway.DescribeTapeRecoveryPoints({
+  "GatewayARN": ""
+}, context)
 ```
 
 #### Parameters
 * Limit (string)
+* Marker (string)
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* Limit (integer)
 * Marker (string)
 
 ### DescribeTapes
@@ -328,51 +535,75 @@ amazonaws_storagegateway.DescribeTapeRecoveryPoints({}, context)
 
 
 ```js
-amazonaws_storagegateway.DescribeTapes({}, context)
+amazonaws_storagegateway.DescribeTapes({
+  "GatewayARN": ""
+}, context)
 ```
 
 #### Parameters
 * Limit (string)
 * Marker (string)
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* Limit (integer)
+* Marker (string)
+* TapeARNs (array) - The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't specify a tape ARN, the response lists all tapes in both your VTL and VTS.
 
 ### DescribeUploadBuffer
 
 
 
 ```js
-amazonaws_storagegateway.DescribeUploadBuffer({}, context)
+amazonaws_storagegateway.DescribeUploadBuffer({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DescribeVTLDevices
 
 
 
 ```js
-amazonaws_storagegateway.DescribeVTLDevices({}, context)
+amazonaws_storagegateway.DescribeVTLDevices({
+  "GatewayARN": ""
+}, context)
 ```
 
 #### Parameters
 * Limit (string)
 * Marker (string)
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* Limit (integer)
+* Marker (string)
+* VTLDeviceARNs (array)
 
 ### DescribeWorkingStorage
 
 
 
 ```js
-amazonaws_storagegateway.DescribeWorkingStorage({}, context)
+amazonaws_storagegateway.DescribeWorkingStorage({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### DisableGateway
 
 
 
 ```js
-amazonaws_storagegateway.DisableGateway({}, context)
+amazonaws_storagegateway.DisableGateway({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### ListFileShares
 
@@ -382,6 +613,10 @@ amazonaws_storagegateway.DisableGateway({}, context)
 amazonaws_storagegateway.ListFileShares({}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* Limit (integer)
+* Marker (string)
 
 ### ListGateways
 
@@ -394,24 +629,36 @@ amazonaws_storagegateway.ListGateways({}, context)
 #### Parameters
 * Limit (string)
 * Marker (string)
+* Limit (integer)
+* Marker (string)
 
 ### ListLocalDisks
 
 
 
 ```js
-amazonaws_storagegateway.ListLocalDisks({}, context)
+amazonaws_storagegateway.ListLocalDisks({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### ListTagsForResource
 
 
 
 ```js
-amazonaws_storagegateway.ListTagsForResource({}, context)
+amazonaws_storagegateway.ListTagsForResource({
+  "ResourceARN": ""
+}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* Marker (string)
+* ResourceARN (string) **required**
 
 ### ListTapes
 
@@ -421,24 +668,36 @@ amazonaws_storagegateway.ListTagsForResource({}, context)
 amazonaws_storagegateway.ListTapes({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* Marker (string)
+* TapeARNs (array) - The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't specify a tape ARN, the response lists all tapes in both your VTL and VTS.
 
 ### ListVolumeInitiators
 
 
 
 ```js
-amazonaws_storagegateway.ListVolumeInitiators({}, context)
+amazonaws_storagegateway.ListVolumeInitiators({
+  "VolumeARN": ""
+}, context)
 ```
 
+#### Parameters
+* VolumeARN (string) **required**
 
 ### ListVolumeRecoveryPoints
 
 
 
 ```js
-amazonaws_storagegateway.ListVolumeRecoveryPoints({}, context)
+amazonaws_storagegateway.ListVolumeRecoveryPoints({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### ListVolumes
 
@@ -451,148 +710,252 @@ amazonaws_storagegateway.ListVolumes({}, context)
 #### Parameters
 * Limit (string)
 * Marker (string)
+* GatewayARN (string) - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* Limit (integer)
+* Marker (string)
 
 ### RefreshCache
 
 
 
 ```js
-amazonaws_storagegateway.RefreshCache({}, context)
+amazonaws_storagegateway.RefreshCache({
+  "FileShareARN": ""
+}, context)
 ```
 
+#### Parameters
+* FileShareARN (string) **required** - The Amazon Resource Name (ARN) of the file share. 
 
 ### RemoveTagsFromResource
 
 
 
 ```js
-amazonaws_storagegateway.RemoveTagsFromResource({}, context)
+amazonaws_storagegateway.RemoveTagsFromResource({
+  "ResourceARN": "",
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* ResourceARN (string) **required**
+* TagKeys (array) **required**
 
 ### ResetCache
 
 
 
 ```js
-amazonaws_storagegateway.ResetCache({}, context)
+amazonaws_storagegateway.ResetCache({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### RetrieveTapeArchive
 
 
 
 ```js
-amazonaws_storagegateway.RetrieveTapeArchive({}, context)
+amazonaws_storagegateway.RetrieveTapeArchive({
+  "TapeARN": "",
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* TapeARN (string) **required**
 
 ### RetrieveTapeRecoveryPoint
 
 
 
 ```js
-amazonaws_storagegateway.RetrieveTapeRecoveryPoint({}, context)
+amazonaws_storagegateway.RetrieveTapeRecoveryPoint({
+  "TapeARN": "",
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* TapeARN (string) **required**
 
 ### SetLocalConsolePassword
 
 
 
 ```js
-amazonaws_storagegateway.SetLocalConsolePassword({}, context)
+amazonaws_storagegateway.SetLocalConsolePassword({
+  "GatewayARN": "",
+  "LocalConsolePassword": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* LocalConsolePassword (string) **required**
 
 ### ShutdownGateway
 
 
 
 ```js
-amazonaws_storagegateway.ShutdownGateway({}, context)
+amazonaws_storagegateway.ShutdownGateway({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### StartGateway
 
 
 
 ```js
-amazonaws_storagegateway.StartGateway({}, context)
+amazonaws_storagegateway.StartGateway({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### UpdateBandwidthRateLimit
 
 
 
 ```js
-amazonaws_storagegateway.UpdateBandwidthRateLimit({}, context)
+amazonaws_storagegateway.UpdateBandwidthRateLimit({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* AverageDownloadRateLimitInBitsPerSec (integer)
+* AverageUploadRateLimitInBitsPerSec (integer)
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### UpdateChapCredentials
 
 
 
 ```js
-amazonaws_storagegateway.UpdateChapCredentials({}, context)
+amazonaws_storagegateway.UpdateChapCredentials({
+  "TargetARN": "",
+  "SecretToAuthenticateInitiator": "",
+  "InitiatorName": ""
+}, context)
 ```
 
+#### Parameters
+* InitiatorName (string) **required**
+* SecretToAuthenticateInitiator (string) **required**
+* SecretToAuthenticateTarget (string)
+* TargetARN (string) **required**
 
 ### UpdateGatewayInformation
 
 
 
 ```js
-amazonaws_storagegateway.UpdateGatewayInformation({}, context)
+amazonaws_storagegateway.UpdateGatewayInformation({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* GatewayName (string) - The name you configured for your gateway.
+* GatewayTimezone (string)
 
 ### UpdateGatewaySoftwareNow
 
 
 
 ```js
-amazonaws_storagegateway.UpdateGatewaySoftwareNow({}, context)
+amazonaws_storagegateway.UpdateGatewaySoftwareNow({
+  "GatewayARN": ""
+}, context)
 ```
 
+#### Parameters
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
 
 ### UpdateMaintenanceStartTime
 
 
 
 ```js
-amazonaws_storagegateway.UpdateMaintenanceStartTime({}, context)
+amazonaws_storagegateway.UpdateMaintenanceStartTime({
+  "GatewayARN": "",
+  "HourOfDay": 0,
+  "MinuteOfHour": 0,
+  "DayOfWeek": 0
+}, context)
 ```
 
+#### Parameters
+* DayOfWeek (integer) **required**
+* GatewayARN (string) **required** - The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.
+* HourOfDay (integer) **required**
+* MinuteOfHour (integer) **required**
 
 ### UpdateNFSFileShare
 
 
 
 ```js
-amazonaws_storagegateway.UpdateNFSFileShare({}, context)
+amazonaws_storagegateway.UpdateNFSFileShare({
+  "FileShareARN": ""
+}, context)
 ```
 
+#### Parameters
+* ClientList (array) - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. 
+* DefaultStorageClass (string) - <p/>
+* FileShareARN (string) **required** - The Amazon Resource Name (ARN) of the file share. 
+* KMSEncrypted (boolean) - Indicates whether the write status of a file share is read-only. "true", if write status is read-only; otherwise "false".
+* KMSKey (string) - The ARN of the KMS key used for Amazon S3 server side encryption. 
+* NFSFileShareDefaults (object) - Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in file gateways.
+* ReadOnly (boolean) - Indicates whether the write status of a file share is read-only. "true", if write status is read-only; otherwise "false".
+* Squash (string) - Indicates the user mapped to anonymous user. Valid options: "RootSquash" - Only root is mapped to anonymous user, "NoSquash" - No one is mapped to anonymous user or "AllSquash" - Everyone is mapped to anonymous user.
 
 ### UpdateSnapshotSchedule
 
 
 
 ```js
-amazonaws_storagegateway.UpdateSnapshotSchedule({}, context)
+amazonaws_storagegateway.UpdateSnapshotSchedule({
+  "VolumeARN": "",
+  "StartAt": 0,
+  "RecurrenceInHours": 0
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* RecurrenceInHours (integer) **required**
+* StartAt (integer) **required**
+* VolumeARN (string) **required**
 
 ### UpdateVTLDeviceType
 
 
 
 ```js
-amazonaws_storagegateway.UpdateVTLDeviceType({}, context)
+amazonaws_storagegateway.UpdateVTLDeviceType({
+  "VTLDeviceARN": "",
+  "DeviceType": ""
+}, context)
 ```
 
+#### Parameters
+* DeviceType (string) **required**
+* VTLDeviceARN (string) **required**
 

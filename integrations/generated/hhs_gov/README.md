@@ -387,6 +387,8 @@ Returns the list of available MediaTypes.
 hhs_gov.getMediaTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getSources
 Returns the list of Sources.
@@ -454,6 +456,8 @@ Returns the list of TagLanguages
 hhs_gov.getTagLanguages(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getTagTypes
 Returns the list of TagTypes
@@ -463,6 +467,8 @@ Returns the list of TagTypes
 hhs_gov.getTagTypes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getTagById
 Returns the Tag identified by the 'id' in the specified 'format'.

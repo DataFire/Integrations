@@ -617,6 +617,8 @@ Fetch Server information
 traccar.server.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### server.put
 Update Server information
@@ -639,6 +641,8 @@ Close the Session
 traccar.session.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### session.get
 Fetch Session information

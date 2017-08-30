@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 reverb.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.post
 Create an account.
@@ -67,6 +69,8 @@ See all Reverb blog posts
 reverb.articles.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### articles.featured.get
 See featured Reverb blog posts
@@ -76,6 +80,8 @@ See featured Reverb blog posts
 reverb.articles.featured.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### articles.recently_featured.get
 
@@ -85,6 +91,8 @@ reverb.articles.featured.get(null, context)
 reverb.articles.recently_featured.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### articles.slug.get
 Display a single article
@@ -142,6 +150,8 @@ Autosuggest terms for searches
 reverb.autosuggest.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### cart.get
 Get all cart items
@@ -151,6 +161,8 @@ Get all cart items
 reverb.cart.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### cart.move_to_watch_list.cart_item_id.post
 Remove a cart item and add it to watch list
@@ -212,6 +224,8 @@ List of supported product categories
 reverb.categories.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### categories.flat.get
 
@@ -221,6 +235,8 @@ reverb.categories.get(null, context)
 reverb.categories.flat.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### categories.product_type.category.get
 Get subcategory details
@@ -258,6 +274,8 @@ List of curated collections
 reverb.collections.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### collections.slug.get
 Collection details
@@ -280,6 +298,8 @@ Returns a set of comparison shopping pages based on the current params
 reverb.comparison_shopping_pages.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### comparison_shopping_pages.id.get
 Show comparison shopping page
@@ -331,6 +351,8 @@ Retrieve a list of country codes with corresponding subregions
 reverb.countries.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### currencies.display.get
 List of supported display currencies for browsing listings
@@ -340,6 +362,8 @@ List of supported display currencies for browsing listings
 reverb.currencies.display.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### currencies.listing.get
 List of supported listing currencies for shops
@@ -349,6 +373,8 @@ List of supported listing currencies for shops
 reverb.currencies.listing.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### feedback.feedback_id.get
 Feedback details
@@ -384,6 +410,8 @@ List of supported product conditions
 reverb.listing_conditions.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listings.get
 Default search of listings includes only used & handmade. Add a filter to view all listings or use the /listings/all endpoint.
@@ -703,6 +731,8 @@ Get account details
 reverb.my.account.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.account.put
 Update account details
@@ -723,6 +753,8 @@ See all addresses in your address book
 reverb.my.addresses.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.addresses.post
 Create a new address in your address book
@@ -732,6 +764,8 @@ Create a new address in your address book
 reverb.my.addresses.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.addresses.address_id.delete
 Delete an existing address in your address book
@@ -833,6 +867,8 @@ Get your actionable status counts
 reverb.my.counts.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.feed.get
 Get listings from your feed
@@ -842,6 +878,8 @@ Get listings from your feed
 reverb.my.feed.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.feed.grid.get
 get your feed
@@ -851,6 +889,8 @@ get your feed
 reverb.my.feed.grid.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.feedback.received.get
 List of received feedback
@@ -860,6 +900,8 @@ List of received feedback
 reverb.my.feedback.received.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.feedback.sent.get
 List of sent feedback
@@ -869,6 +911,8 @@ List of sent feedback
 reverb.my.feedback.sent.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.follows.get
 See what the user is following
@@ -878,6 +922,8 @@ See what the user is following
 reverb.my.follows.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.follows.brands.slug.delete
 Unfollow a brand
@@ -1088,6 +1134,8 @@ Follow status for a search
 reverb.my.follows.search.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.follows.search.post
 Follow a search
@@ -1291,6 +1339,8 @@ Get a list of your lists (wishlist, watch list, etc)
 reverb.my.lists.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.negotiations.buying.get
 Get a list of active negotiations as a buyer
@@ -1366,6 +1416,8 @@ List of orders that need feedback
 reverb.my.orders.awaiting_feedback.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.orders.buying.all.get
 Returns all orders, newest first.
@@ -1375,6 +1427,8 @@ Returns all orders, newest first.
 reverb.my.orders.buying.all.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.orders.buying.buying_history.seller_id.get
 See previous orders from a seller
@@ -1397,6 +1451,8 @@ Returns unpaid orders, newest first.
 reverb.my.orders.buying.unpaid.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.orders.buying.id.get
 Returns order details for a buyer
@@ -1564,6 +1620,8 @@ Get a list of your recently viewed listings.
 reverb.my.viewed_listings.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.wishlist.get
 Get a list of wishlisted items
@@ -1573,6 +1631,8 @@ Get a list of wishlisted items
 reverb.my.wishlist.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### my.wishlist.id.delete
 Remove a listing from your wishlist
@@ -1660,6 +1720,8 @@ Get list of payment methods
 reverb.payment_methods.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### priceguide.get
 Search the Price Guide
@@ -1775,6 +1837,8 @@ View upcoming and live Reverb official sales.
 reverb.sales.reverb.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sales.seller.get
 View your created sales.
@@ -1784,6 +1848,8 @@ View your created sales.
 reverb.sales.seller.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sales.sale_id.listings.delete
 Remove a listing from a sale
@@ -1832,6 +1898,8 @@ List of supported shipping providers
 reverb.shipping.providers.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shipping.regions.get
 
@@ -1841,6 +1909,8 @@ reverb.shipping.providers.get(null, context)
 reverb.shipping.regions.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.get
 Get your own shop details
@@ -1850,6 +1920,8 @@ Get your own shop details
 reverb.shop.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.put
 Update your shop profile
@@ -1870,6 +1942,8 @@ List of supported product conditions
 reverb.shop.listing_conditions.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.payment_methods.get
 Get accepted payment methods
@@ -1879,6 +1953,8 @@ Get accepted payment methods
 reverb.shop.payment_methods.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.stats.get
 Get listings stats
@@ -1888,6 +1964,8 @@ Get listings stats
 reverb.shop.stats.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.stats.activity.get
 Get shop activity for a particular time period
@@ -1911,6 +1989,8 @@ Disable vacation mode. All listings will be re-enabled.
 reverb.shop.vacation.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.vacation.get
 Returns shop vacation status
@@ -1920,6 +2000,8 @@ Returns shop vacation status
 reverb.shop.vacation.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shop.vacation.post
 Enable vacation mode. All listings will be unavailable until vacation mode is turned off.
@@ -1929,6 +2011,8 @@ Enable vacation mode. All listings will be unavailable until vacation mode is tu
 reverb.shop.vacation.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### shops.slug.get
 Get details on a shop.
@@ -2003,6 +2087,8 @@ reverb.vinyl.listings.get({
 reverb.vinyl.listings.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### vinyl.listings.id.get
 
@@ -2025,6 +2111,8 @@ A list of wanted items by the user
 reverb.wants.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### wants.id.delete
 Unmark an item wanted.
@@ -2060,6 +2148,8 @@ Get webhook registrations
 reverb.webhooks.registrations.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### webhooks.registrations.post
 Register a webhook

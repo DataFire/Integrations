@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_prediction.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### hostedmodels.predict
 Submit input and request an output against a hosted model.

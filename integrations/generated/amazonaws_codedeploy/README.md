@@ -25,18 +25,30 @@ amazonaws_codedeploy.AddTagsToOnPremisesInstances({}).then(data => {
 
 
 ```js
-amazonaws_codedeploy.AddTagsToOnPremisesInstances({}, context)
+amazonaws_codedeploy.AddTagsToOnPremisesInstances({
+  "tags": [],
+  "instanceNames": []
+}, context)
 ```
 
+#### Parameters
+* instanceNames (array) **required**
+* tags (array) **required**
 
 ### BatchGetApplicationRevisions
 
 
 
 ```js
-amazonaws_codedeploy.BatchGetApplicationRevisions({}, context)
+amazonaws_codedeploy.BatchGetApplicationRevisions({
+  "applicationName": "",
+  "revisions": []
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* revisions (array) **required**
 
 ### BatchGetApplications
 
@@ -46,24 +58,38 @@ amazonaws_codedeploy.BatchGetApplicationRevisions({}, context)
 amazonaws_codedeploy.BatchGetApplications({}, context)
 ```
 
+#### Parameters
+* applicationNames (array)
 
 ### BatchGetDeploymentGroups
 
 
 
 ```js
-amazonaws_codedeploy.BatchGetDeploymentGroups({}, context)
+amazonaws_codedeploy.BatchGetDeploymentGroups({
+  "applicationName": "",
+  "deploymentGroupNames": []
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* deploymentGroupNames (array) **required**
 
 ### BatchGetDeploymentInstances
 
 
 
 ```js
-amazonaws_codedeploy.BatchGetDeploymentInstances({}, context)
+amazonaws_codedeploy.BatchGetDeploymentInstances({
+  "deploymentId": "",
+  "instanceIds": []
+}, context)
 ```
 
+#### Parameters
+* deploymentId (string) **required**
+* instanceIds (array) **required**
 
 ### BatchGetDeployments
 
@@ -73,6 +99,8 @@ amazonaws_codedeploy.BatchGetDeploymentInstances({}, context)
 amazonaws_codedeploy.BatchGetDeployments({}, context)
 ```
 
+#### Parameters
+* deploymentIds (array)
 
 ### BatchGetOnPremisesInstances
 
@@ -82,6 +110,8 @@ amazonaws_codedeploy.BatchGetDeployments({}, context)
 amazonaws_codedeploy.BatchGetOnPremisesInstances({}, context)
 ```
 
+#### Parameters
+* instanceNames (array)
 
 ### ContinueDeployment
 
@@ -91,152 +121,254 @@ amazonaws_codedeploy.BatchGetOnPremisesInstances({}, context)
 amazonaws_codedeploy.ContinueDeployment({}, context)
 ```
 
+#### Parameters
+* deploymentId (string)
 
 ### CreateApplication
 
 
 
 ```js
-amazonaws_codedeploy.CreateApplication({}, context)
+amazonaws_codedeploy.CreateApplication({
+  "applicationName": ""
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
 
 ### CreateDeployment
 
 
 
 ```js
-amazonaws_codedeploy.CreateDeployment({}, context)
+amazonaws_codedeploy.CreateDeployment({
+  "applicationName": ""
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* autoRollbackConfiguration (object) - Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment doesn't complete successfully.
+* deploymentConfigName (string)
+* deploymentGroupName (string)
+* description (string)
+* ignoreApplicationStopFailures (boolean)
+* revision (object) - Information about the location of an application revision.
+* targetInstances (object) - Information about the instances to be used in the replacement environment in a blue/green deployment.
+* updateOutdatedInstancesOnly (boolean)
 
 ### CreateDeploymentConfig
 
 
 
 ```js
-amazonaws_codedeploy.CreateDeploymentConfig({}, context)
+amazonaws_codedeploy.CreateDeploymentConfig({
+  "deploymentConfigName": ""
+}, context)
 ```
 
+#### Parameters
+* deploymentConfigName (string) **required**
+* minimumHealthyHosts (object) - Information about minimum healthy instance.
 
 ### CreateDeploymentGroup
 
 
 
 ```js
-amazonaws_codedeploy.CreateDeploymentGroup({}, context)
+amazonaws_codedeploy.CreateDeploymentGroup({
+  "applicationName": "",
+  "deploymentGroupName": "",
+  "serviceRoleArn": ""
+}, context)
 ```
 
+#### Parameters
+* alarmConfiguration (object) - Information about alarms associated with the deployment group.
+* applicationName (string) **required**
+* autoRollbackConfiguration (object) - Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment doesn't complete successfully.
+* autoScalingGroups (array)
+* blueGreenDeploymentConfiguration (object) - Information about blue/green deployment options for a deployment group.
+* deploymentConfigName (string)
+* deploymentGroupName (string) **required**
+* deploymentStyle (object) - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+* ec2TagFilters (array)
+* loadBalancerInfo (object) - Information about the load balancer used in a blue/green deployment.
+* onPremisesInstanceTagFilters (array)
+* serviceRoleArn (string) **required**
+* triggerConfigurations (array)
 
 ### DeleteApplication
 
 
 
 ```js
-amazonaws_codedeploy.DeleteApplication({}, context)
+amazonaws_codedeploy.DeleteApplication({
+  "applicationName": ""
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
 
 ### DeleteDeploymentConfig
 
 
 
 ```js
-amazonaws_codedeploy.DeleteDeploymentConfig({}, context)
+amazonaws_codedeploy.DeleteDeploymentConfig({
+  "deploymentConfigName": ""
+}, context)
 ```
 
+#### Parameters
+* deploymentConfigName (string) **required**
 
 ### DeleteDeploymentGroup
 
 
 
 ```js
-amazonaws_codedeploy.DeleteDeploymentGroup({}, context)
+amazonaws_codedeploy.DeleteDeploymentGroup({
+  "applicationName": "",
+  "deploymentGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* deploymentGroupName (string) **required**
 
 ### DeregisterOnPremisesInstance
 
 
 
 ```js
-amazonaws_codedeploy.DeregisterOnPremisesInstance({}, context)
+amazonaws_codedeploy.DeregisterOnPremisesInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### GetApplication
 
 
 
 ```js
-amazonaws_codedeploy.GetApplication({}, context)
+amazonaws_codedeploy.GetApplication({
+  "applicationName": ""
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
 
 ### GetApplicationRevision
 
 
 
 ```js
-amazonaws_codedeploy.GetApplicationRevision({}, context)
+amazonaws_codedeploy.GetApplicationRevision({
+  "applicationName": "",
+  "revision": {}
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* revision (object) **required** - Information about the location of an application revision.
 
 ### GetDeployment
 
 
 
 ```js
-amazonaws_codedeploy.GetDeployment({}, context)
+amazonaws_codedeploy.GetDeployment({
+  "deploymentId": ""
+}, context)
 ```
 
+#### Parameters
+* deploymentId (string) **required**
 
 ### GetDeploymentConfig
 
 
 
 ```js
-amazonaws_codedeploy.GetDeploymentConfig({}, context)
+amazonaws_codedeploy.GetDeploymentConfig({
+  "deploymentConfigName": ""
+}, context)
 ```
 
+#### Parameters
+* deploymentConfigName (string) **required**
 
 ### GetDeploymentGroup
 
 
 
 ```js
-amazonaws_codedeploy.GetDeploymentGroup({}, context)
+amazonaws_codedeploy.GetDeploymentGroup({
+  "applicationName": "",
+  "deploymentGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* deploymentGroupName (string) **required**
 
 ### GetDeploymentInstance
 
 
 
 ```js
-amazonaws_codedeploy.GetDeploymentInstance({}, context)
+amazonaws_codedeploy.GetDeploymentInstance({
+  "deploymentId": "",
+  "instanceId": ""
+}, context)
 ```
 
+#### Parameters
+* deploymentId (string) **required**
+* instanceId (string) **required**
 
 ### GetOnPremisesInstance
 
 
 
 ```js
-amazonaws_codedeploy.GetOnPremisesInstance({}, context)
+amazonaws_codedeploy.GetOnPremisesInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### ListApplicationRevisions
 
 
 
 ```js
-amazonaws_codedeploy.ListApplicationRevisions({}, context)
+amazonaws_codedeploy.ListApplicationRevisions({
+  "applicationName": ""
+}, context)
 ```
 
 #### Parameters
 * nextToken (string)
+* applicationName (string) **required**
+* deployed (string)
+* nextToken (string)
+* s3Bucket (string)
+* s3KeyPrefix (string)
+* sortBy (string)
+* sortOrder (string)
 
 ### ListApplications
 
@@ -247,6 +379,7 @@ amazonaws_codedeploy.ListApplications({}, context)
 ```
 
 #### Parameters
+* nextToken (string)
 * nextToken (string)
 
 ### ListDeploymentConfigs
@@ -259,16 +392,21 @@ amazonaws_codedeploy.ListDeploymentConfigs({}, context)
 
 #### Parameters
 * nextToken (string)
+* nextToken (string)
 
 ### ListDeploymentGroups
 
 
 
 ```js
-amazonaws_codedeploy.ListDeploymentGroups({}, context)
+amazonaws_codedeploy.ListDeploymentGroups({
+  "applicationName": ""
+}, context)
 ```
 
 #### Parameters
+* nextToken (string)
+* applicationName (string) **required**
 * nextToken (string)
 
 ### ListDeploymentInstances
@@ -276,10 +414,16 @@ amazonaws_codedeploy.ListDeploymentGroups({}, context)
 
 
 ```js
-amazonaws_codedeploy.ListDeploymentInstances({}, context)
+amazonaws_codedeploy.ListDeploymentInstances({
+  "deploymentId": ""
+}, context)
 ```
 
 #### Parameters
+* nextToken (string)
+* deploymentId (string) **required**
+* instanceStatusFilter (array)
+* instanceTypeFilter (array)
 * nextToken (string)
 
 ### ListDeployments
@@ -292,6 +436,11 @@ amazonaws_codedeploy.ListDeployments({}, context)
 
 #### Parameters
 * nextToken (string)
+* applicationName (string)
+* createTimeRange (object) - Information about a time range.
+* deploymentGroupName (string)
+* includeOnlyStatuses (array)
+* nextToken (string)
 
 ### ListOnPremisesInstances
 
@@ -301,33 +450,56 @@ amazonaws_codedeploy.ListDeployments({}, context)
 amazonaws_codedeploy.ListOnPremisesInstances({}, context)
 ```
 
+#### Parameters
+* nextToken (string)
+* registrationStatus (string)
+* tagFilters (array)
 
 ### RegisterApplicationRevision
 
 
 
 ```js
-amazonaws_codedeploy.RegisterApplicationRevision({}, context)
+amazonaws_codedeploy.RegisterApplicationRevision({
+  "applicationName": "",
+  "revision": {}
+}, context)
 ```
 
+#### Parameters
+* applicationName (string) **required**
+* description (string)
+* revision (object) **required** - Information about the location of an application revision.
 
 ### RegisterOnPremisesInstance
 
 
 
 ```js
-amazonaws_codedeploy.RegisterOnPremisesInstance({}, context)
+amazonaws_codedeploy.RegisterOnPremisesInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* iamSessionArn (string)
+* iamUserArn (string)
+* instanceName (string) **required**
 
 ### RemoveTagsFromOnPremisesInstances
 
 
 
 ```js
-amazonaws_codedeploy.RemoveTagsFromOnPremisesInstances({}, context)
+amazonaws_codedeploy.RemoveTagsFromOnPremisesInstances({
+  "tags": [],
+  "instanceNames": []
+}, context)
 ```
 
+#### Parameters
+* instanceNames (array) **required**
+* tags (array) **required**
 
 ### SkipWaitTimeForInstanceTermination
 
@@ -337,15 +509,22 @@ amazonaws_codedeploy.RemoveTagsFromOnPremisesInstances({}, context)
 amazonaws_codedeploy.SkipWaitTimeForInstanceTermination({}, context)
 ```
 
+#### Parameters
+* deploymentId (string)
 
 ### StopDeployment
 
 
 
 ```js
-amazonaws_codedeploy.StopDeployment({}, context)
+amazonaws_codedeploy.StopDeployment({
+  "deploymentId": ""
+}, context)
 ```
 
+#### Parameters
+* autoRollbackEnabled (boolean)
+* deploymentId (string) **required**
 
 ### UpdateApplication
 
@@ -355,13 +534,34 @@ amazonaws_codedeploy.StopDeployment({}, context)
 amazonaws_codedeploy.UpdateApplication({}, context)
 ```
 
+#### Parameters
+* applicationName (string)
+* newApplicationName (string)
 
 ### UpdateDeploymentGroup
 
 
 
 ```js
-amazonaws_codedeploy.UpdateDeploymentGroup({}, context)
+amazonaws_codedeploy.UpdateDeploymentGroup({
+  "applicationName": "",
+  "currentDeploymentGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* alarmConfiguration (object) - Information about alarms associated with the deployment group.
+* applicationName (string) **required**
+* autoRollbackConfiguration (object) - Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment doesn't complete successfully.
+* autoScalingGroups (array)
+* blueGreenDeploymentConfiguration (object) - Information about blue/green deployment options for a deployment group.
+* currentDeploymentGroupName (string) **required**
+* deploymentConfigName (string)
+* deploymentStyle (object) - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+* ec2TagFilters (array)
+* loadBalancerInfo (object) - Information about the load balancer used in a blue/green deployment.
+* newDeploymentGroupName (string)
+* onPremisesInstanceTagFilters (array)
+* serviceRoleArn (string)
+* triggerConfigurations (array)
 

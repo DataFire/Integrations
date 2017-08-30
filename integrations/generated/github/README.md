@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 github.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### emojis.get
 Lists all the emojis available to use on GitHub.
@@ -442,6 +444,8 @@ Render a Markdown document in raw mode
 github.markdown.raw.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### meta.get
 This gives some information about GitHub.com, the service.
@@ -451,6 +455,8 @@ This gives some information about GitHub.com, the service.
 github.meta.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### networks.owner.repo.events.get
 List public events for a network of repositories.
@@ -831,6 +837,8 @@ Note: Accessing this endpoint does not count against your rate limit.
 github.rate_limit.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### repos.owner.repo.delete
 Delete a Repository.
@@ -3574,6 +3582,8 @@ Get the authenticated user.
 github.user.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.patch
 Update the authenticated user.
@@ -3654,6 +3664,8 @@ List who the authenticated user is following.
 github.user.following.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.following.username.delete
 Unfollow a user.

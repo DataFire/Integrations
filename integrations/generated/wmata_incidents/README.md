@@ -365,6 +365,8 @@ StartLocationFullName</td>
 wmata_incidents.Incidents.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### json.BusIncidents.get
 <h4 class="text-primary">Description</h4>
@@ -708,4 +710,6 @@ StartLocationFullName</td>
 wmata_incidents.json.Incidents.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

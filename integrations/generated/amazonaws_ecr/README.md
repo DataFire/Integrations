@@ -25,75 +25,129 @@ Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry serv
 
 
 ```js
-amazonaws_ecr.BatchCheckLayerAvailability({}, context)
+amazonaws_ecr.BatchCheckLayerAvailability({
+  "repositoryName": "",
+  "layerDigests": []
+}, context)
 ```
 
+#### Parameters
+* layerDigests (array) **required**
+* registryId (string)
+* repositoryName (string) **required**
 
 ### BatchDeleteImage
 
 
 
 ```js
-amazonaws_ecr.BatchDeleteImage({}, context)
+amazonaws_ecr.BatchDeleteImage({
+  "repositoryName": "",
+  "imageIds": []
+}, context)
 ```
 
+#### Parameters
+* imageIds (array) **required**
+* registryId (string)
+* repositoryName (string) **required**
 
 ### BatchGetImage
 
 
 
 ```js
-amazonaws_ecr.BatchGetImage({}, context)
+amazonaws_ecr.BatchGetImage({
+  "repositoryName": "",
+  "imageIds": []
+}, context)
 ```
 
+#### Parameters
+* acceptedMediaTypes (array)
+* imageIds (array) **required**
+* registryId (string)
+* repositoryName (string) **required**
 
 ### CompleteLayerUpload
 
 
 
 ```js
-amazonaws_ecr.CompleteLayerUpload({}, context)
+amazonaws_ecr.CompleteLayerUpload({
+  "repositoryName": "",
+  "uploadId": "",
+  "layerDigests": []
+}, context)
 ```
 
+#### Parameters
+* layerDigests (array) **required**
+* registryId (string)
+* repositoryName (string) **required**
+* uploadId (string) **required**
 
 ### CreateRepository
 
 
 
 ```js
-amazonaws_ecr.CreateRepository({}, context)
+amazonaws_ecr.CreateRepository({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* repositoryName (string) **required**
 
 ### DeleteRepository
 
 
 
 ```js
-amazonaws_ecr.DeleteRepository({}, context)
+amazonaws_ecr.DeleteRepository({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* force (boolean)
+* registryId (string)
+* repositoryName (string) **required**
 
 ### DeleteRepositoryPolicy
 
 
 
 ```js
-amazonaws_ecr.DeleteRepositoryPolicy({}, context)
+amazonaws_ecr.DeleteRepositoryPolicy({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* registryId (string)
+* repositoryName (string) **required**
 
 ### DescribeImages
 
 
 
 ```js
-amazonaws_ecr.DescribeImages({}, context)
+amazonaws_ecr.DescribeImages({
+  "repositoryName": ""
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* filter (object) - An object representing a filter on a <a>DescribeImages</a> operation.
+* imageIds (array)
+* maxResults (integer)
+* nextToken (string)
+* registryId (string)
+* repositoryName (string) **required**
 
 ### DescribeRepositories
 
@@ -106,6 +160,10 @@ amazonaws_ecr.DescribeRepositories({}, context)
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* maxResults (integer)
+* nextToken (string)
+* registryId (string)
+* repositoryNames (array)
 
 ### GetAuthorizationToken
 
@@ -115,70 +173,125 @@ amazonaws_ecr.DescribeRepositories({}, context)
 amazonaws_ecr.GetAuthorizationToken({}, context)
 ```
 
+#### Parameters
+* registryIds (array)
 
 ### GetDownloadUrlForLayer
 
 
 
 ```js
-amazonaws_ecr.GetDownloadUrlForLayer({}, context)
+amazonaws_ecr.GetDownloadUrlForLayer({
+  "repositoryName": "",
+  "layerDigest": ""
+}, context)
 ```
 
+#### Parameters
+* layerDigest (string) **required**
+* registryId (string)
+* repositoryName (string) **required**
 
 ### GetRepositoryPolicy
 
 
 
 ```js
-amazonaws_ecr.GetRepositoryPolicy({}, context)
+amazonaws_ecr.GetRepositoryPolicy({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* registryId (string)
+* repositoryName (string) **required**
 
 ### InitiateLayerUpload
 
 
 
 ```js
-amazonaws_ecr.InitiateLayerUpload({}, context)
+amazonaws_ecr.InitiateLayerUpload({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* registryId (string)
+* repositoryName (string) **required**
 
 ### ListImages
 
 
 
 ```js
-amazonaws_ecr.ListImages({}, context)
+amazonaws_ecr.ListImages({
+  "repositoryName": ""
+}, context)
 ```
 
 #### Parameters
 * maxResults (string)
 * nextToken (string)
+* filter (object) - An object representing a filter on a <a>ListImages</a> operation.
+* maxResults (integer)
+* nextToken (string)
+* registryId (string)
+* repositoryName (string) **required**
 
 ### PutImage
 
 
 
 ```js
-amazonaws_ecr.PutImage({}, context)
+amazonaws_ecr.PutImage({
+  "repositoryName": "",
+  "imageManifest": ""
+}, context)
 ```
 
+#### Parameters
+* imageManifest (string) **required**
+* imageTag (string)
+* registryId (string)
+* repositoryName (string) **required**
 
 ### SetRepositoryPolicy
 
 
 
 ```js
-amazonaws_ecr.SetRepositoryPolicy({}, context)
+amazonaws_ecr.SetRepositoryPolicy({
+  "repositoryName": "",
+  "policyText": ""
+}, context)
 ```
 
+#### Parameters
+* force (boolean)
+* policyText (string) **required**
+* registryId (string)
+* repositoryName (string) **required**
 
 ### UploadLayerPart
 
 
 
 ```js
-amazonaws_ecr.UploadLayerPart({}, context)
+amazonaws_ecr.UploadLayerPart({
+  "repositoryName": "",
+  "uploadId": "",
+  "partFirstByte": 0,
+  "partLastByte": 0,
+  "layerPartBlob": ""
+}, context)
 ```
 
+#### Parameters
+* layerPartBlob (string) **required**
+* partFirstByte (integer) **required**
+* partLastByte (integer) **required**
+* registryId (string)
+* repositoryName (string) **required**
+* uploadId (string) **required**
 

@@ -9,9 +9,7 @@ npm install --save datafire @datafire/amazonaws_glue
 
 ```js
 let datafire = require('datafire');
-let amazonaws_glue = require('@datafire/amazonaws_glue').create({
-  hmac: "",
-});
+let amazonaws_glue = require('@datafire/amazonaws_glue').create();
 
 amazonaws_glue.BatchCreatePartition({}).then(data => {
   console.log(data);
@@ -23,1982 +21,1158 @@ Defines service operations used by the GlueFrontendService
 
 ## Actions
 ### BatchCreatePartition
-Creates one or more partitions in a batch operation.
+
 
 
 ```js
 amazonaws_glue.BatchCreatePartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionInputList": []
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionInputList": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionInputList (array) **required**
+* TableName (string) **required**
 
 ### BatchDeleteConnection
-Deletes a list of connection definitions from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.BatchDeleteConnection({
-  "body": {
-    "ConnectionNameList": []
-  },
-  "Action": "",
-  "Version": ""
+  "ConnectionNameList": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* ConnectionNameList (array) **required**
 
 ### BatchDeletePartition
-Deletes one or more partitions in a batch operation.
+
 
 
 ```js
 amazonaws_glue.BatchDeletePartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionsToDelete": []
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionsToDelete": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionsToDelete (array) **required**
+* TableName (string) **required**
 
 ### BatchDeleteTable
-Deletes multiple tables at once.
+
 
 
 ```js
 amazonaws_glue.BatchDeleteTable({
-  "body": {
-    "DatabaseName": "",
-    "TablesToDelete": []
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TablesToDelete": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* TablesToDelete (array) **required**
 
 ### BatchGetPartition
-Retrieves partitions in a batch request.
+
 
 
 ```js
 amazonaws_glue.BatchGetPartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionsToGet": []
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionsToGet": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionsToGet (array) **required**
+* TableName (string) **required**
 
 ### CreateClassifier
-Creates a <code>Classifier</code> in the user's account.
+
 
 
 ```js
-amazonaws_glue.CreateClassifier({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.CreateClassifier({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* GrokClassifier (object) - Specifies a Grok classifier for CreateClassifier to create.
 
 ### CreateConnection
-Creates a connection definition in the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.CreateConnection({
-  "body": {
-    "ConnectionInput": {}
-  },
-  "Action": "",
-  "Version": ""
+  "ConnectionInput": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* ConnectionInput (object) **required** - A structure used to specify a connection to create or update.
 
 ### CreateCrawler
-Creates a new <code>Crawler</code> with specified targets, role, configuration, and optional schedule. At least one crawl target must be specified, in either the <i>s3Targets</i> or the <i>jdbcTargets</i> field.
+
 
 
 ```js
 amazonaws_glue.CreateCrawler({
-  "body": {
-    "Name": "",
-    "Role": "",
-    "DatabaseName": "",
-    "Targets": {}
-  },
-  "Action": "",
-  "Version": ""
+  "Name": "",
+  "Role": "",
+  "DatabaseName": "",
+  "Targets": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Classifiers (array)
+* DatabaseName (string) **required**
+* Description (string)
+* Name (string) **required**
+* Role (string) **required**
+* Schedule (string)
+* SchemaChangePolicy (object) - Crawler policy for update and deletion behavior.
+* TablePrefix (string)
+* Targets (object) **required** - Specifies crawler targets.
 
 ### CreateDatabase
-Creates a new database in a Data Catalog.
+
 
 
 ```js
 amazonaws_glue.CreateDatabase({
-  "body": {
-    "DatabaseInput": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseInput": {
+    "Name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseInput (object) **required** - The structure used to create or updata a database.
 
 ### CreateDevEndpoint
-Creates a new DevEndpoint.
+
 
 
 ```js
 amazonaws_glue.CreateDevEndpoint({
-  "body": {
-    "EndpointName": "",
-    "RoleArn": "",
-    "SecurityGroupIds": [],
-    "SubnetId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "EndpointName": "",
+  "RoleArn": "",
+  "SecurityGroupIds": [],
+  "SubnetId": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* EndpointName (string) **required**
+* ExtraJarsS3Path (string)
+* ExtraPythonLibsS3Path (string)
+* NumberOfNodes (integer)
+* PublicKey (string)
+* RoleArn (string) **required**
+* SecurityGroupIds (array) **required**
+* SubnetId (string) **required**
 
 ### CreateJob
-Creates a new job.
+
 
 
 ```js
 amazonaws_glue.CreateJob({
-  "body": {
-    "Name": "",
-    "Role": "",
-    "Command": {}
-  },
-  "Action": "",
-  "Version": ""
+  "Name": "",
+  "Role": "",
+  "Command": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* AllocatedCapacity (integer)
+* Command (object) **required** - Specifies code that executes a job.
+* Connections (object) - Specifies the connections used by a job.
+* DefaultArguments (array)
+* Description (string)
+* ExecutionProperty (object) - An execution property of a job.
+* LogUri (string)
+* MaxRetries (integer)
+* Name (string) **required**
+* Role (string) **required**
 
 ### CreatePartition
-Creates a new partition.
+
 
 
 ```js
 amazonaws_glue.CreatePartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionInput": {}
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionInput": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionInput (object) **required** - The structure used to create and update a partion.
+* TableName (string) **required**
 
 ### CreateScript
-Transforms a directed acyclic graph (DAG) into a Python script.
+
 
 
 ```js
-amazonaws_glue.CreateScript({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.CreateScript({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* DagEdges (array)
+* DagNodes (array)
 
 ### CreateTable
-Creates a new table definition in the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.CreateTable({
-  "body": {
-    "DatabaseName": "",
-    "TableInput": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableInput": {
+    "Name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* TableInput (object) **required** - Structure used to create or update the table.
 
 ### CreateTrigger
-Creates a new trigger.
+
 
 
 ```js
 amazonaws_glue.CreateTrigger({
-  "body": {
-    "Name": "",
-    "Type": "",
-    "Actions": []
-  },
-  "Action": "",
-  "Version": ""
+  "Name": "",
+  "Type": "",
+  "Actions": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Actions (array) **required**
+* Description (string)
+* Name (string) **required**
+* Predicate (object) - Defines the predicate of the trigger, which determines when it fires.
+* Schedule (string)
+* Type (string) **required**
 
 ### CreateUserDefinedFunction
-Creates a new function definition in the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.CreateUserDefinedFunction({
-  "body": {
-    "DatabaseName": "",
-    "FunctionInput": {}
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "FunctionInput": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* FunctionInput (object) **required** - A structure used to create or updata a user-defined function.
 
 ### DeleteClassifier
-Removes a <code>Classifier</code> from the metadata store.
+
 
 
 ```js
 amazonaws_glue.DeleteClassifier({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### DeleteConnection
-Deletes a connection from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.DeleteConnection({
-  "body": {
-    "ConnectionName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "ConnectionName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* ConnectionName (string) **required**
 
 ### DeleteCrawler
-Removes a specified <code>Crawler</code> from the metadata store, unless the <code>Crawler</code> state is <code>RUNNING</code>.
+
 
 
 ```js
 amazonaws_glue.DeleteCrawler({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### DeleteDatabase
-Removes a specified Database from a Data Catalog.
+
 
 
 ```js
 amazonaws_glue.DeleteDatabase({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* Name (string) **required**
 
 ### DeleteDevEndpoint
-Deletes a specified DevEndpoint.
+
 
 
 ```js
 amazonaws_glue.DeleteDevEndpoint({
-  "body": {
-    "EndpointName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "EndpointName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* EndpointName (string) **required**
 
 ### DeleteJob
-Deletes a specified job.
+
 
 
 ```js
 amazonaws_glue.DeleteJob({
-  "body": {
-    "JobName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* JobName (string) **required**
 
 ### DeletePartition
-Deletes a specified partition.
+
 
 
 ```js
 amazonaws_glue.DeletePartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionValues": []
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionValues": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionValues (array) **required**
+* TableName (string) **required**
 
 ### DeleteTable
-Removes a table definition from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.DeleteTable({
-  "body": {
-    "DatabaseName": "",
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* Name (string) **required**
 
 ### DeleteTrigger
-Deletes a specified trigger.
+
 
 
 ```js
 amazonaws_glue.DeleteTrigger({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### DeleteUserDefinedFunction
-Deletes an existing function definition from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.DeleteUserDefinedFunction({
-  "body": {
-    "DatabaseName": "",
-    "FunctionName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "FunctionName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* FunctionName (string) **required**
 
 ### GetCatalogImportStatus
-Retrieves the status of a migration operation.
+
 
 
 ```js
-amazonaws_glue.GetCatalogImportStatus({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetCatalogImportStatus({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
 
 ### GetClassifier
-Retrieve a <code>Classifier</code> by name.
+
 
 
 ```js
 amazonaws_glue.GetClassifier({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### GetClassifiers
-Lists all Classifier objects in the metadata store.
+
 
 
 ```js
-amazonaws_glue.GetClassifiers({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetClassifiers({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetConnection
-Retrieves a connection definition from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.GetConnection({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* Name (string) **required**
 
 ### GetConnections
-Retrieves a list of connection definitions from the Data Catalog.
+
 
 
 ```js
-amazonaws_glue.GetConnections({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetConnections({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CatalogId (string)
+* Filter (object) - Filters the connection definitions returned by the <code>GetConnections</code> API.
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetCrawler
-Retrieves metadata for a specified <code>Crawler</code>.
+
 
 
 ```js
 amazonaws_glue.GetCrawler({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### GetCrawlerMetrics
-Retrieves metrics about specified crawlers.
+
 
 
 ```js
-amazonaws_glue.GetCrawlerMetrics({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetCrawlerMetrics({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CrawlerNameList (array)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetCrawlers
-Retrieves metadata for all <code>Crawlers</code> defined in the customer account.
+
 
 
 ```js
-amazonaws_glue.GetCrawlers({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetCrawlers({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetDatabase
-Retrieves the definition of a specified database.
+
 
 
 ```js
 amazonaws_glue.GetDatabase({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* Name (string) **required**
 
 ### GetDatabases
-Retrieves all Databases defined in a given Data Catalog.
+
 
 
 ```js
-amazonaws_glue.GetDatabases({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetDatabases({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CatalogId (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetDataflowGraph
-Transforms a Python script into a directed acyclic graph (DAG). 
+
 
 
 ```js
-amazonaws_glue.GetDataflowGraph({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetDataflowGraph({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* PythonScript (string)
 
 ### GetDevEndpoint
-Retrieves information about a specified DevEndpoint.
+
 
 
 ```js
 amazonaws_glue.GetDevEndpoint({
-  "body": {
-    "EndpointName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "EndpointName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* EndpointName (string) **required**
 
 ### GetDevEndpoints
-Retrieves all the DevEndpoints in this AWS account.
+
 
 
 ```js
-amazonaws_glue.GetDevEndpoints({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetDevEndpoints({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetJob
-Retrieves an existing job definition.
+
 
 
 ```js
 amazonaws_glue.GetJob({
-  "body": {
-    "JobName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* JobName (string) **required**
 
 ### GetJobRun
-Retrieves the metadata for a given job run.
+
 
 
 ```js
 amazonaws_glue.GetJobRun({
-  "body": {
-    "JobName": "",
-    "RunId": ""
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": "",
+  "RunId": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* JobName (string) **required**
+* PredecessorsIncluded (boolean)
+* RunId (string) **required**
 
 ### GetJobRuns
-Retrieves metadata for all runs of a given job.
+
 
 
 ```js
 amazonaws_glue.GetJobRuns({
-  "body": {
-    "JobName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* JobName (string) **required**
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetJobs
-Retrieves all current jobs.
+
 
 
 ```js
-amazonaws_glue.GetJobs({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetJobs({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetMapping
-Creates mappings.
+
 
 
 ```js
 amazonaws_glue.GetMapping({
-  "body": {
-    "Source": {
-      "DatabaseName": "",
-      "TableName": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
+  "Source": {
+    "DatabaseName": "",
+    "TableName": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Location (object) - The location of resources.
+* Sinks (array)
+* Source (object) **required** - Specifies a table definition in the Data Catalog.
 
 ### GetPartition
-Retrieves information about a specified partition.
+
 
 
 ```js
 amazonaws_glue.GetPartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionValues": []
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionValues": []
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionValues (array) **required**
+* TableName (string) **required**
 
 ### GetPartitions
-Retrieves information about the partitions in a table.
+
 
 
 ```js
 amazonaws_glue.GetPartitions({
-  "body": {
-    "DatabaseName": "",
-    "TableName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* Expression (string)
+* MaxResults (integer)
+* NextToken (string)
+* Segment (object) - Defines a non-overlapping region of a table's partitions, allowing multiple requests to be executed in parallel.
+* TableName (string) **required**
 
 ### GetPlan
-Gets a Python script to perform a specified mapping.
+
 
 
 ```js
 amazonaws_glue.GetPlan({
-  "body": {
-    "Mapping": [],
-    "Source": {
-      "DatabaseName": "",
-      "TableName": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
+  "Mapping": [],
+  "Source": {
+    "DatabaseName": "",
+    "TableName": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Location (object) - The location of resources.
+* Mapping (array) **required**
+* Sinks (array)
+* Source (object) **required** - Specifies a table definition in the Data Catalog.
 
 ### GetTable
-Retrieves the <code>Table</code> definition in a Data Catalog for a specified table.
+
 
 
 ```js
 amazonaws_glue.GetTable({
-  "body": {
-    "DatabaseName": "",
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* Name (string) **required**
 
 ### GetTableVersions
-Retrieves a list of strings that identify available versions of a specified table.
+
 
 
 ```js
 amazonaws_glue.GetTableVersions({
-  "body": {
-    "DatabaseName": "",
-    "TableName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* MaxResults (integer)
+* NextToken (string)
+* TableName (string) **required**
 
 ### GetTables
-Retrieves the definitions of some or all of the tables in a given <code>Database</code>.
+
 
 
 ```js
 amazonaws_glue.GetTables({
-  "body": {
-    "DatabaseName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* Expression (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetTrigger
-Retrieves the definition of a trigger.
+
 
 
 ```js
 amazonaws_glue.GetTrigger({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### GetTriggers
-Gets all the triggers associated with a job.
+
 
 
 ```js
-amazonaws_glue.GetTriggers({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.GetTriggers({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* DependentJobName (string)
+* MaxResults (integer)
+* NextToken (string)
 
 ### GetUserDefinedFunction
-Retrieves a specified function definition from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.GetUserDefinedFunction({
-  "body": {
-    "DatabaseName": "",
-    "FunctionName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "FunctionName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* FunctionName (string) **required**
 
 ### GetUserDefinedFunctions
-Retrieves a multiple function definitions from the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.GetUserDefinedFunctions({
-  "body": {
-    "DatabaseName": "",
-    "Pattern": ""
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "Pattern": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* MaxResults (string) - Pagination limit
-* NextToken (string) - Pagination token
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* MaxResults (string)
+* NextToken (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* MaxResults (integer)
+* NextToken (string)
+* Pattern (string) **required**
 
 ### ImportCatalogToGlue
-Imports an existing Athena Data Catalog to AWS Glue
+
 
 
 ```js
-amazonaws_glue.ImportCatalogToGlue({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.ImportCatalogToGlue({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
 
 ### ResetJobBookmark
-Resets a bookmark entry.
+
 
 
 ```js
 amazonaws_glue.ResetJobBookmark({
-  "body": {
-    "JobName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* JobName (string) **required**
 
 ### StartCrawler
-Starts a crawl using the specified <code>Crawler</code>, regardless of what is scheduled. If the <code>Crawler</code> is already running, does nothing.
+
 
 
 ```js
 amazonaws_glue.StartCrawler({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### StartCrawlerSchedule
-Changes the schedule state of the specified crawler to <code>SCHEDULED</code>, unless the crawler is already running or the schedule state is already <code>SCHEDULED</code>.
+
 
 
 ```js
 amazonaws_glue.StartCrawlerSchedule({
-  "body": {
-    "CrawlerName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "CrawlerName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CrawlerName (string) **required**
 
 ### StartJobRun
-Runs a job.
+
 
 
 ```js
 amazonaws_glue.StartJobRun({
-  "body": {
-    "JobName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* AllocatedCapacity (integer)
+* Arguments (array)
+* JobName (string) **required**
+* JobRunId (string)
 
 ### StartTrigger
-Starts an existing trigger.
+
 
 
 ```js
 amazonaws_glue.StartTrigger({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### StopCrawler
-If the specified <code>Crawler</code> is running, stops the crawl.
+
 
 
 ```js
 amazonaws_glue.StopCrawler({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### StopCrawlerSchedule
-Sets the schedule state of the specified crawler to <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is already running.
+
 
 
 ```js
 amazonaws_glue.StopCrawlerSchedule({
-  "body": {
-    "CrawlerName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "CrawlerName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CrawlerName (string) **required**
 
 ### StopTrigger
-Stops a specified trigger.
+
 
 
 ```js
 amazonaws_glue.StopTrigger({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
 
 ### UpdateClassifier
-Modifies an existing <code>Classifier</code>.
+
 
 
 ```js
-amazonaws_glue.UpdateClassifier({
-  "body": {},
-  "Action": "",
-  "Version": ""
-}, context)
+amazonaws_glue.UpdateClassifier({}, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* GrokClassifier (object) - Specifies a Grok classifier to update when passed to UpdateClassifier.
 
 ### UpdateConnection
-Updates a connection definition in the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.UpdateConnection({
-  "body": {
-    "Name": "",
-    "ConnectionInput": {}
-  },
-  "Action": "",
-  "Version": ""
+  "Name": "",
+  "ConnectionInput": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* ConnectionInput (object) **required** - A structure used to specify a connection to create or update.
+* Name (string) **required**
 
 ### UpdateCrawler
-Updates a <code>Crawler</code>. If a <code>Crawler</code> is running, you must stop it using <code>StopCrawler</code> before updating it.
+
 
 
 ```js
 amazonaws_glue.UpdateCrawler({
-  "body": {
-    "Name": ""
-  },
-  "Action": "",
-  "Version": ""
+  "Name": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Classifiers (array)
+* DatabaseName (string)
+* Description (string)
+* Name (string) **required**
+* Role (string)
+* Schedule (string)
+* SchemaChangePolicy (object) - Crawler policy for update and deletion behavior.
+* TablePrefix (string)
+* Targets (object) - Specifies crawler targets.
 
 ### UpdateCrawlerSchedule
-Updates the schedule of a crawler using a Cron expression. 
+
 
 
 ```js
 amazonaws_glue.UpdateCrawlerSchedule({
-  "body": {
-    "CrawlerName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "CrawlerName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CrawlerName (string) **required**
+* Schedule (string)
 
 ### UpdateDatabase
-Updates an existing database definition in a Data Catalog.
+
 
 
 ```js
 amazonaws_glue.UpdateDatabase({
-  "body": {
-    "Name": "",
-    "DatabaseInput": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
+  "Name": "",
+  "DatabaseInput": {
+    "Name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseInput (object) **required** - The structure used to create or updata a database.
+* Name (string) **required**
 
 ### UpdateDevEndpoint
-Updates a specified DevEndpoint.
+
 
 
 ```js
 amazonaws_glue.UpdateDevEndpoint({
-  "body": {
-    "EndpointName": ""
-  },
-  "Action": "",
-  "Version": ""
+  "EndpointName": ""
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CustomLibraries (object) - Custom libraries to be loaded into a DevEndpoint.
+* EndpointName (string) **required**
+* PublicKey (string)
 
 ### UpdateJob
-Updates an existing job definition.
+
 
 
 ```js
 amazonaws_glue.UpdateJob({
-  "body": {
-    "JobName": "",
-    "JobUpdate": {}
-  },
-  "Action": "",
-  "Version": ""
+  "JobName": "",
+  "JobUpdate": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* JobName (string) **required**
+* JobUpdate (object) **required** - Specifies information used to update an existing job.
 
 ### UpdatePartition
-Updates a partition.
+
 
 
 ```js
 amazonaws_glue.UpdatePartition({
-  "body": {
-    "DatabaseName": "",
-    "TableName": "",
-    "PartitionValueList": [],
-    "PartitionInput": {}
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableName": "",
+  "PartitionValueList": [],
+  "PartitionInput": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* PartitionInput (object) **required** - The structure used to create and update a partion.
+* PartitionValueList (array) **required**
+* TableName (string) **required**
 
 ### UpdateTable
-Updates a metadata table in the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.UpdateTable({
-  "body": {
-    "DatabaseName": "",
-    "TableInput": {
-      "Name": ""
-    }
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "TableInput": {
+    "Name": ""
+  }
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* TableInput (object) **required** - Structure used to create or update the table.
 
 ### UpdateTrigger
-Updates a trigger definition.
+
 
 
 ```js
 amazonaws_glue.UpdateTrigger({
-  "body": {
-    "Name": "",
-    "TriggerUpdate": {}
-  },
-  "Action": "",
-  "Version": ""
+  "Name": "",
+  "TriggerUpdate": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* Name (string) **required**
+* TriggerUpdate (object) **required** - A structure used to provide information used to updata a trigger.
 
 ### UpdateUserDefinedFunction
-Updates an existing function definition in the Data Catalog.
+
 
 
 ```js
 amazonaws_glue.UpdateUserDefinedFunction({
-  "body": {
-    "DatabaseName": "",
-    "FunctionName": "",
-    "FunctionInput": {}
-  },
-  "Action": "",
-  "Version": ""
+  "DatabaseName": "",
+  "FunctionName": "",
+  "FunctionInput": {}
 }, context)
 ```
 
 #### Parameters
-* body (object) **required**
-* Action (string) **required**
-* Version (string) **required**
-* X-Amz-Content-Sha256 (string)
-* X-Amz-Date (string)
-* X-Amz-Algorithm (string)
-* X-Amz-Credential (string)
-* X-Amz-Security-Token (string)
-* X-Amz-Signature (string)
-* X-Amz-SignedHeaders (string)
+* CatalogId (string)
+* DatabaseName (string) **required**
+* FunctionInput (object) **required** - A structure used to create or updata a user-defined function.
+* FunctionName (string) **required**
 

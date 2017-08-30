@@ -25,36 +25,72 @@ amazonaws_sts.AssumeRole({}).then(data => {
 
 
 ```js
-amazonaws_sts.AssumeRole({}, context)
+amazonaws_sts.AssumeRole({
+  "RoleArn": "",
+  "RoleSessionName": ""
+}, context)
 ```
 
+#### Parameters
+* DurationSeconds (integer)
+* ExternalId (string)
+* Policy (string)
+* RoleArn (string) **required**
+* RoleSessionName (string) **required**
+* SerialNumber (string)
+* TokenCode (string)
 
 ### AssumeRoleWithSAML
 
 
 
 ```js
-amazonaws_sts.AssumeRoleWithSAML({}, context)
+amazonaws_sts.AssumeRoleWithSAML({
+  "RoleArn": "",
+  "PrincipalArn": "",
+  "SAMLAssertion": ""
+}, context)
 ```
 
+#### Parameters
+* DurationSeconds (integer)
+* Policy (string)
+* PrincipalArn (string) **required**
+* RoleArn (string) **required**
+* SAMLAssertion (string) **required**
 
 ### AssumeRoleWithWebIdentity
 
 
 
 ```js
-amazonaws_sts.AssumeRoleWithWebIdentity({}, context)
+amazonaws_sts.AssumeRoleWithWebIdentity({
+  "RoleArn": "",
+  "RoleSessionName": "",
+  "WebIdentityToken": ""
+}, context)
 ```
 
+#### Parameters
+* DurationSeconds (integer)
+* Policy (string)
+* ProviderId (string)
+* RoleArn (string) **required**
+* RoleSessionName (string) **required**
+* WebIdentityToken (string) **required**
 
 ### DecodeAuthorizationMessage
 
 
 
 ```js
-amazonaws_sts.DecodeAuthorizationMessage({}, context)
+amazonaws_sts.DecodeAuthorizationMessage({
+  "EncodedMessage": ""
+}, context)
 ```
 
+#### Parameters
+* EncodedMessage (string) **required**
 
 ### GetCallerIdentity
 
@@ -64,15 +100,23 @@ amazonaws_sts.DecodeAuthorizationMessage({}, context)
 amazonaws_sts.GetCallerIdentity({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetFederationToken
 
 
 
 ```js
-amazonaws_sts.GetFederationToken({}, context)
+amazonaws_sts.GetFederationToken({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* DurationSeconds (integer)
+* Name (string) **required**
+* Policy (string)
 
 ### GetSessionToken
 
@@ -82,4 +126,8 @@ amazonaws_sts.GetFederationToken({}, context)
 amazonaws_sts.GetSessionToken({}, context)
 ```
 
+#### Parameters
+* DurationSeconds (integer)
+* SerialNumber (string)
+* TokenCode (string)
 

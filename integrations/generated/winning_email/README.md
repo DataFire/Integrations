@@ -44,6 +44,8 @@ Check how many API queries you've used, and what your limit is.
 winning_email.rateLimitStatus(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### status
 Check the status of the Winning Email API.
@@ -53,4 +55,6 @@ Check the status of the Winning Email API.
 winning_email.status(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

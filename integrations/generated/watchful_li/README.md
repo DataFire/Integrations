@@ -54,6 +54,8 @@ Returns a list of fields
 watchful_li.getFieldsAudits(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### deleteAuditById
 Delete a specific audit
@@ -109,6 +111,8 @@ Returns a list of fields
 watchful_li.getFieldsExtensions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ignoreExtensionUpdate
 Set 'ignore updates' for a given extension / site_id
@@ -181,6 +185,8 @@ Returns a list of fields
 watchful_li.getFieldsFeedbacks(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### logs.get
 Returns a list of logs
@@ -228,6 +234,8 @@ Returns a list of fields
 watchful_li.getFieldsLogs(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getTypesLogs
 Returns a list of log types
@@ -237,6 +245,8 @@ Returns a list of log types
 watchful_li.getTypesLogs(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### deleteLogById
 Delete a specific log
@@ -346,6 +356,8 @@ Returns a list of fields
 watchful_li.sites.metadata.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sites.id.delete
 Delete a specific Site
@@ -685,6 +697,8 @@ Returns a list of SSO Users
 watchful_li.getSsoUsers(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CreateSsoUsers
 Create a SSO User
@@ -778,6 +792,8 @@ Returns a list of fields
 watchful_li.tags.metadata.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tags.id.delete
 Delete a specific tag

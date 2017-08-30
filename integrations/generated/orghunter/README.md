@@ -30,6 +30,8 @@ Get the latest IRS data and most up to date charity information for your website
 orghunter.v1.categories.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### v1.charitybasic.post
 <p>This operation detail data.</p>

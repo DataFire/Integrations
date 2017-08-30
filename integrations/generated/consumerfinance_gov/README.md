@@ -28,6 +28,8 @@ Get a list of all datasets.
 consumerfinance_gov.getDatasets(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getDatasetHmda
 Get metadata for this dataset.
@@ -37,6 +39,8 @@ Get metadata for this dataset.
 consumerfinance_gov.getDatasetHmda(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getConceptHmda
 Get information about a particular concept in this dataset.

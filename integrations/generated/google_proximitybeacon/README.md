@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_proximitybeacon.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### beaconinfo.getforobserved
 Given one or more beacon observations, returns any beacon information

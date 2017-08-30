@@ -25,27 +25,45 @@ amazonaws_firehose.CreateDeliveryStream({}).then(data => {
 
 
 ```js
-amazonaws_firehose.CreateDeliveryStream({}, context)
+amazonaws_firehose.CreateDeliveryStream({
+  "DeliveryStreamName": ""
+}, context)
 ```
 
+#### Parameters
+* DeliveryStreamName (string) **required**
+* ElasticsearchDestinationConfiguration (object) - Describes the configuration of a destination in Amazon ES.
+* ExtendedS3DestinationConfiguration (object) - Describes the configuration of a destination in Amazon S3.
+* RedshiftDestinationConfiguration (object) - Describes the configuration of a destination in Amazon Redshift.
+* S3DestinationConfiguration (object) - Describes the configuration of a destination in Amazon S3.
 
 ### DeleteDeliveryStream
 
 
 
 ```js
-amazonaws_firehose.DeleteDeliveryStream({}, context)
+amazonaws_firehose.DeleteDeliveryStream({
+  "DeliveryStreamName": ""
+}, context)
 ```
 
+#### Parameters
+* DeliveryStreamName (string) **required**
 
 ### DescribeDeliveryStream
 
 
 
 ```js
-amazonaws_firehose.DescribeDeliveryStream({}, context)
+amazonaws_firehose.DescribeDeliveryStream({
+  "DeliveryStreamName": ""
+}, context)
 ```
 
+#### Parameters
+* DeliveryStreamName (string) **required**
+* ExclusiveStartDestinationId (string)
+* Limit (integer)
 
 ### ListDeliveryStreams
 
@@ -55,31 +73,60 @@ amazonaws_firehose.DescribeDeliveryStream({}, context)
 amazonaws_firehose.ListDeliveryStreams({}, context)
 ```
 
+#### Parameters
+* ExclusiveStartDeliveryStreamName (string)
+* Limit (integer)
 
 ### PutRecord
 
 
 
 ```js
-amazonaws_firehose.PutRecord({}, context)
+amazonaws_firehose.PutRecord({
+  "DeliveryStreamName": "",
+  "Record": {
+    "Data": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* DeliveryStreamName (string) **required**
+* Record (object) **required** - The unit of data in a delivery stream.
 
 ### PutRecordBatch
 
 
 
 ```js
-amazonaws_firehose.PutRecordBatch({}, context)
+amazonaws_firehose.PutRecordBatch({
+  "DeliveryStreamName": "",
+  "Records": []
+}, context)
 ```
 
+#### Parameters
+* DeliveryStreamName (string) **required**
+* Records (array) **required**
 
 ### UpdateDestination
 
 
 
 ```js
-amazonaws_firehose.UpdateDestination({}, context)
+amazonaws_firehose.UpdateDestination({
+  "DeliveryStreamName": "",
+  "CurrentDeliveryStreamVersionId": "",
+  "DestinationId": ""
+}, context)
 ```
 
+#### Parameters
+* CurrentDeliveryStreamVersionId (string) **required**
+* DeliveryStreamName (string) **required**
+* DestinationId (string) **required**
+* ElasticsearchDestinationUpdate (object) - Describes an update for a destination in Amazon ES.
+* ExtendedS3DestinationUpdate (object) - Describes an update for a destination in Amazon S3.
+* RedshiftDestinationUpdate (object) - Describes an update for a destination in Amazon Redshift.
+* S3DestinationUpdate (object) - Describes an update for a destination in Amazon S3.
 

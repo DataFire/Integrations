@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_fitness.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### users.dataSources.list
 Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible to other developers, or calls using other scopes.

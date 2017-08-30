@@ -25,9 +25,13 @@ amazonaws_cloudsearchdomain.UploadDocuments({}).then(data => {
 
 
 ```js
-amazonaws_cloudsearchdomain.UploadDocuments({}, context)
+amazonaws_cloudsearchdomain.UploadDocuments({
+  "documents": ""
+}, context)
 ```
 
+#### Parameters
+* documents (string) **required**
 
 ### Search
 
@@ -37,6 +41,8 @@ amazonaws_cloudsearchdomain.UploadDocuments({}, context)
 amazonaws_cloudsearchdomain.Search({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Suggest
 
@@ -46,4 +52,6 @@ amazonaws_cloudsearchdomain.Search({}, context)
 amazonaws_cloudsearchdomain.Suggest({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

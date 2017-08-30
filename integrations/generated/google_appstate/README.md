@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_appstate.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### states.list
 Lists all the states keys, and optionally the state data.

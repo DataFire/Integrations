@@ -9,9 +9,9 @@ npm install --save datafire @datafire/6_dot_authentiqio_appspot
 
 ```js
 let datafire = require('datafire');
-let 6_dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').create();
+let dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').create();
 
-6_dot_authentiqio_appspot.key.delete({}).then(data => {
+dot_authentiqio_appspot.key.delete({}).then(data => {
   console.log(data);
 })
 ```
@@ -30,7 +30,7 @@ complete the revocation.
 
 
 ```js
-6_dot_authentiqio_appspot.key.delete({
+dot_authentiqio_appspot.key.delete({
   "email": "",
   "phone": ""
 }, context)
@@ -51,7 +51,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-6_dot_authentiqio_appspot.key.post({
+dot_authentiqio_appspot.key.post({
   "body": null
 }, context)
 ```
@@ -64,7 +64,7 @@ Revoke an Identity (Key) with a revocation secret
 
 
 ```js
-6_dot_authentiqio_appspot.key.PK.delete({
+dot_authentiqio_appspot.key.PK.delete({
   "PK": "",
   "secret": ""
 }, context)
@@ -80,7 +80,7 @@ Get public details of an Authentiq ID.
 
 
 ```js
-6_dot_authentiqio_appspot.key.PK.get({
+dot_authentiqio_appspot.key.PK.get({
   "PK": ""
 }, context)
 ```
@@ -94,7 +94,7 @@ HEAD info on Authentiq ID
 
 
 ```js
-6_dot_authentiqio_appspot.key.PK.head({
+dot_authentiqio_appspot.key.PK.head({
   "PK": ""
 }, context)
 ```
@@ -114,7 +114,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-6_dot_authentiqio_appspot.key.PK.post({
+dot_authentiqio_appspot.key.PK.post({
   "PK": "",
   "body": null
 }, context)
@@ -137,7 +137,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-6_dot_authentiqio_appspot.key.PK.put({
+dot_authentiqio_appspot.key.PK.put({
   "PK": "",
   "body": null
 }, context)
@@ -154,7 +154,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-6_dot_authentiqio_appspot.login.post({
+dot_authentiqio_appspot.login.post({
   "body": null,
   "callback": ""
 }, context)
@@ -171,7 +171,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-6_dot_authentiqio_appspot.scope.post({
+dot_authentiqio_appspot.scope.post({
   "body": null
 }, context)
 ```
@@ -185,7 +185,7 @@ delete a verification job
 
 
 ```js
-6_dot_authentiqio_appspot.scope.job.delete({
+dot_authentiqio_appspot.scope.job.delete({
   "job": ""
 }, context)
 ```
@@ -198,7 +198,7 @@ get the status / current content of a verification job
 
 
 ```js
-6_dot_authentiqio_appspot.scope.job.get({
+dot_authentiqio_appspot.scope.job.get({
   "job": ""
 }, context)
 ```
@@ -211,7 +211,7 @@ HEAD to get the status of a verification job
 
 
 ```js
-6_dot_authentiqio_appspot.scope.job.head({
+dot_authentiqio_appspot.scope.job.head({
   "job": ""
 }, context)
 ```
@@ -224,7 +224,7 @@ this is a scope confirmation
 
 
 ```js
-6_dot_authentiqio_appspot.scope.job.post({
+dot_authentiqio_appspot.scope.job.post({
   "job": ""
 }, context)
 ```
@@ -239,7 +239,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-6_dot_authentiqio_appspot.scope.job.put({
+dot_authentiqio_appspot.scope.job.put({
   "job": ""
 }, context)
 ```

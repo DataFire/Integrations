@@ -25,9 +25,13 @@ amazonaws_monitoring.DeleteAlarms({}).then(data => {
 
 
 ```js
-amazonaws_monitoring.DeleteAlarms({}, context)
+amazonaws_monitoring.DeleteAlarms({
+  "AlarmNames": []
+}, context)
 ```
 
+#### Parameters
+* AlarmNames (array) **required**
 
 ### DescribeAlarmHistory
 
@@ -40,6 +44,12 @@ amazonaws_monitoring.DescribeAlarmHistory({}, context)
 #### Parameters
 * MaxRecords (string)
 * NextToken (string)
+* AlarmName (string)
+* EndDate (string)
+* HistoryItemType (string)
+* MaxRecords (integer)
+* NextToken (string)
+* StartDate (string)
 
 ### DescribeAlarms
 
@@ -52,42 +62,83 @@ amazonaws_monitoring.DescribeAlarms({}, context)
 #### Parameters
 * MaxRecords (string)
 * NextToken (string)
+* ActionPrefix (string)
+* AlarmNamePrefix (string)
+* AlarmNames (array)
+* MaxRecords (integer)
+* NextToken (string)
+* StateValue (string)
 
 ### DescribeAlarmsForMetric
 
 
 
 ```js
-amazonaws_monitoring.DescribeAlarmsForMetric({}, context)
+amazonaws_monitoring.DescribeAlarmsForMetric({
+  "MetricName": "",
+  "Namespace": ""
+}, context)
 ```
 
+#### Parameters
+* Dimensions (array)
+* ExtendedStatistic (string)
+* MetricName (string) **required**
+* Namespace (string) **required**
+* Period (integer)
+* Statistic (string)
+* Unit (string)
 
 ### DisableAlarmActions
 
 
 
 ```js
-amazonaws_monitoring.DisableAlarmActions({}, context)
+amazonaws_monitoring.DisableAlarmActions({
+  "AlarmNames": []
+}, context)
 ```
 
+#### Parameters
+* AlarmNames (array) **required**
 
 ### EnableAlarmActions
 
 
 
 ```js
-amazonaws_monitoring.EnableAlarmActions({}, context)
+amazonaws_monitoring.EnableAlarmActions({
+  "AlarmNames": []
+}, context)
 ```
 
+#### Parameters
+* AlarmNames (array) **required**
 
 ### GetMetricStatistics
 
 
 
 ```js
-amazonaws_monitoring.GetMetricStatistics({}, context)
+amazonaws_monitoring.GetMetricStatistics({
+  "Namespace": "",
+  "MetricName": "",
+  "StartTime": "",
+  "EndTime": "",
+  "Period": 0
+}, context)
 ```
 
+#### Parameters
+* Dimensions (array)
+* EndTime (string) **required**
+* ExtendedStatistics (array)
+* MetricName (string) **required**
+* Namespace (string) **required**
+* Period (integer) **required**
+* StartTime (string) **required**
+* Statistics (array)
+* Unit (string)
 
 ### ListMetrics
 
@@ -99,31 +150,77 @@ amazonaws_monitoring.ListMetrics({}, context)
 
 #### Parameters
 * NextToken (string)
+* Dimensions (array)
+* MetricName (string)
+* Namespace (string)
+* NextToken (string)
 
 ### PutMetricAlarm
 
 
 
 ```js
-amazonaws_monitoring.PutMetricAlarm({}, context)
+amazonaws_monitoring.PutMetricAlarm({
+  "AlarmName": "",
+  "MetricName": "",
+  "Namespace": "",
+  "Period": 0,
+  "EvaluationPeriods": 0,
+  "Threshold": 0,
+  "ComparisonOperator": ""
+}, context)
 ```
 
+#### Parameters
+* ActionsEnabled (boolean)
+* AlarmActions (array)
+* AlarmDescription (string)
+* AlarmName (string) **required**
+* ComparisonOperator (string) **required**
+* Dimensions (array)
+* EvaluateLowSampleCountPercentile (string)
+* EvaluationPeriods (integer) **required**
+* ExtendedStatistic (string)
+* InsufficientDataActions (array)
+* MetricName (string) **required**
+* Namespace (string) **required**
+* OKActions (array)
+* Period (integer) **required**
+* Statistic (string)
+* Threshold (number) **required**
+* TreatMissingData (string)
+* Unit (string)
 
 ### PutMetricData
 
 
 
 ```js
-amazonaws_monitoring.PutMetricData({}, context)
+amazonaws_monitoring.PutMetricData({
+  "Namespace": "",
+  "MetricData": []
+}, context)
 ```
 
+#### Parameters
+* MetricData (array) **required**
+* Namespace (string) **required**
 
 ### SetAlarmState
 
 
 
 ```js
-amazonaws_monitoring.SetAlarmState({}, context)
+amazonaws_monitoring.SetAlarmState({
+  "AlarmName": "",
+  "StateValue": "",
+  "StateReason": ""
+}, context)
 ```
 
+#### Parameters
+* AlarmName (string) **required**
+* StateReason (string) **required**
+* StateReasonData (string)
+* StateValue (string) **required**
 

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_dlp.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### content.inspect
 Find potentially sensitive info in a list of strings.

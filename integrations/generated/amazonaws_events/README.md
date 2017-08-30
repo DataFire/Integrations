@@ -25,45 +25,67 @@ amazonaws_events.DeleteRule({}).then(data => {
 
 
 ```js
-amazonaws_events.DeleteRule({}, context)
+amazonaws_events.DeleteRule({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### DescribeRule
 
 
 
 ```js
-amazonaws_events.DescribeRule({}, context)
+amazonaws_events.DescribeRule({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### DisableRule
 
 
 
 ```js
-amazonaws_events.DisableRule({}, context)
+amazonaws_events.DisableRule({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### EnableRule
 
 
 
 ```js
-amazonaws_events.EnableRule({}, context)
+amazonaws_events.EnableRule({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
 
 ### ListRuleNamesByTarget
 
 
 
 ```js
-amazonaws_events.ListRuleNamesByTarget({}, context)
+amazonaws_events.ListRuleNamesByTarget({
+  "TargetArn": ""
+}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextToken (string)
+* TargetArn (string) **required**
 
 ### ListRules
 
@@ -73,58 +95,99 @@ amazonaws_events.ListRuleNamesByTarget({}, context)
 amazonaws_events.ListRules({}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NamePrefix (string)
+* NextToken (string)
 
 ### ListTargetsByRule
 
 
 
 ```js
-amazonaws_events.ListTargetsByRule({}, context)
+amazonaws_events.ListTargetsByRule({
+  "Rule": ""
+}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* NextToken (string)
+* Rule (string) **required**
 
 ### PutEvents
 
 
 
 ```js
-amazonaws_events.PutEvents({}, context)
+amazonaws_events.PutEvents({
+  "Entries": []
+}, context)
 ```
 
+#### Parameters
+* Entries (array) **required**
 
 ### PutRule
 
 
 
 ```js
-amazonaws_events.PutRule({}, context)
+amazonaws_events.PutRule({
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* EventPattern (string)
+* Name (string) **required**
+* RoleArn (string)
+* ScheduleExpression (string)
+* State (string)
 
 ### PutTargets
 
 
 
 ```js
-amazonaws_events.PutTargets({}, context)
+amazonaws_events.PutTargets({
+  "Rule": "",
+  "Targets": []
+}, context)
 ```
 
+#### Parameters
+* Rule (string) **required**
+* Targets (array) **required**
 
 ### RemoveTargets
 
 
 
 ```js
-amazonaws_events.RemoveTargets({}, context)
+amazonaws_events.RemoveTargets({
+  "Rule": "",
+  "Ids": []
+}, context)
 ```
 
+#### Parameters
+* Ids (array) **required**
+* Rule (string) **required**
 
 ### TestEventPattern
 
 
 
 ```js
-amazonaws_events.TestEventPattern({}, context)
+amazonaws_events.TestEventPattern({
+  "EventPattern": "",
+  "Event": ""
+}, context)
 ```
 
+#### Parameters
+* Event (string) **required**
+* EventPattern (string) **required**
 

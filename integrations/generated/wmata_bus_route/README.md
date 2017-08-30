@@ -508,6 +508,8 @@ various other bus-related methods.</td>
 wmata_bus_route.Routes.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### StopSchedule.get
 <h4 class="text-primary">Description</h4>
@@ -1291,6 +1293,8 @@ various other bus-related methods.</td>
 wmata_bus_route.json.jRoutes.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### json.jStopSchedule.get
 <h4 class="text-primary">Description</h4>

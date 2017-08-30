@@ -25,207 +25,383 @@ amazonaws_servicecatalog.AcceptPortfolioShare({}).then(data => {
 
 
 ```js
-amazonaws_servicecatalog.AcceptPortfolioShare({}, context)
+amazonaws_servicecatalog.AcceptPortfolioShare({
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
 
 ### AssociatePrincipalWithPortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.AssociatePrincipalWithPortfolio({}, context)
+amazonaws_servicecatalog.AssociatePrincipalWithPortfolio({
+  "PortfolioId": "",
+  "PrincipalARN": "",
+  "PrincipalType": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
+* PrincipalARN (string) **required**
+* PrincipalType (string) **required**
 
 ### AssociateProductWithPortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.AssociateProductWithPortfolio({}, context)
+amazonaws_servicecatalog.AssociateProductWithPortfolio({
+  "ProductId": "",
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
+* ProductId (string) **required**
+* SourcePortfolioId (string)
 
 ### CreateConstraint
 
 
 
 ```js
-amazonaws_servicecatalog.CreateConstraint({}, context)
+amazonaws_servicecatalog.CreateConstraint({
+  "PortfolioId": "",
+  "ProductId": "",
+  "Parameters": "",
+  "Type": "",
+  "IdempotencyToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Description (string)
+* IdempotencyToken (string) **required**
+* Parameters (string) **required**
+* PortfolioId (string) **required**
+* ProductId (string) **required**
+* Type (string) **required**
 
 ### CreatePortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.CreatePortfolio({}, context)
+amazonaws_servicecatalog.CreatePortfolio({
+  "DisplayName": "",
+  "ProviderName": "",
+  "IdempotencyToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Description (string)
+* DisplayName (string) **required**
+* IdempotencyToken (string) **required**
+* ProviderName (string) **required**
+* Tags (array)
 
 ### CreatePortfolioShare
 
 
 
 ```js
-amazonaws_servicecatalog.CreatePortfolioShare({}, context)
+amazonaws_servicecatalog.CreatePortfolioShare({
+  "PortfolioId": "",
+  "AccountId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* AccountId (string) **required**
+* PortfolioId (string) **required**
 
 ### CreateProduct
 
 
 
 ```js
-amazonaws_servicecatalog.CreateProduct({}, context)
+amazonaws_servicecatalog.CreateProduct({
+  "Name": "",
+  "Owner": "",
+  "ProductType": "",
+  "ProvisioningArtifactParameters": {
+    "Info": []
+  },
+  "IdempotencyToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Description (string)
+* Distributor (string)
+* IdempotencyToken (string) **required**
+* Name (string) **required**
+* Owner (string) **required**
+* ProductType (string) **required**
+* ProvisioningArtifactParameters (object) **required** - Provisioning artifact properties.
+* SupportDescription (string)
+* SupportEmail (string)
+* SupportUrl (string)
+* Tags (array)
 
 ### CreateProvisioningArtifact
 
 
 
 ```js
-amazonaws_servicecatalog.CreateProvisioningArtifact({}, context)
+amazonaws_servicecatalog.CreateProvisioningArtifact({
+  "ProductId": "",
+  "Parameters": {
+    "Info": []
+  },
+  "IdempotencyToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* IdempotencyToken (string) **required**
+* Parameters (object) **required** - Provisioning artifact properties.
+* ProductId (string) **required**
 
 ### DeleteConstraint
 
 
 
 ```js
-amazonaws_servicecatalog.DeleteConstraint({}, context)
+amazonaws_servicecatalog.DeleteConstraint({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DeletePortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.DeletePortfolio({}, context)
+amazonaws_servicecatalog.DeletePortfolio({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DeletePortfolioShare
 
 
 
 ```js
-amazonaws_servicecatalog.DeletePortfolioShare({}, context)
+amazonaws_servicecatalog.DeletePortfolioShare({
+  "PortfolioId": "",
+  "AccountId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* AccountId (string) **required**
+* PortfolioId (string) **required**
 
 ### DeleteProduct
 
 
 
 ```js
-amazonaws_servicecatalog.DeleteProduct({}, context)
+amazonaws_servicecatalog.DeleteProduct({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DeleteProvisioningArtifact
 
 
 
 ```js
-amazonaws_servicecatalog.DeleteProvisioningArtifact({}, context)
+amazonaws_servicecatalog.DeleteProvisioningArtifact({
+  "ProductId": "",
+  "ProvisioningArtifactId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* ProductId (string) **required**
+* ProvisioningArtifactId (string) **required**
 
 ### DescribeConstraint
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeConstraint({}, context)
+amazonaws_servicecatalog.DescribeConstraint({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DescribePortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.DescribePortfolio({}, context)
+amazonaws_servicecatalog.DescribePortfolio({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DescribeProduct
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeProduct({}, context)
+amazonaws_servicecatalog.DescribeProduct({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DescribeProductAsAdmin
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeProductAsAdmin({}, context)
+amazonaws_servicecatalog.DescribeProductAsAdmin({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DescribeProductView
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeProductView({}, context)
+amazonaws_servicecatalog.DescribeProductView({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
 
 ### DescribeProvisioningArtifact
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeProvisioningArtifact({}, context)
+amazonaws_servicecatalog.DescribeProvisioningArtifact({
+  "ProvisioningArtifactId": "",
+  "ProductId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* ProductId (string) **required**
+* ProvisioningArtifactId (string) **required**
 
 ### DescribeProvisioningParameters
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeProvisioningParameters({}, context)
+amazonaws_servicecatalog.DescribeProvisioningParameters({
+  "ProductId": "",
+  "ProvisioningArtifactId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PathId (string)
+* ProductId (string) **required**
+* ProvisioningArtifactId (string) **required**
 
 ### DescribeRecord
 
 
 
 ```js
-amazonaws_servicecatalog.DescribeRecord({}, context)
+amazonaws_servicecatalog.DescribeRecord({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
+* PageSize (integer)
+* PageToken (string)
 
 ### DisassociatePrincipalFromPortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.DisassociatePrincipalFromPortfolio({}, context)
+amazonaws_servicecatalog.DisassociatePrincipalFromPortfolio({
+  "PortfolioId": "",
+  "PrincipalARN": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
+* PrincipalARN (string) **required**
 
 ### DisassociateProductFromPortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.DisassociateProductFromPortfolio({}, context)
+amazonaws_servicecatalog.DisassociateProductFromPortfolio({
+  "ProductId": "",
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
+* ProductId (string) **required**
 
 ### ListAcceptedPortfolioShares
 
@@ -235,33 +411,57 @@ amazonaws_servicecatalog.DisassociateProductFromPortfolio({}, context)
 amazonaws_servicecatalog.ListAcceptedPortfolioShares({}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PageSize (integer)
+* PageToken (string)
 
 ### ListConstraintsForPortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.ListConstraintsForPortfolio({}, context)
+amazonaws_servicecatalog.ListConstraintsForPortfolio({
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PageSize (integer)
+* PageToken (string)
+* PortfolioId (string) **required**
+* ProductId (string)
 
 ### ListLaunchPaths
 
 
 
 ```js
-amazonaws_servicecatalog.ListLaunchPaths({}, context)
+amazonaws_servicecatalog.ListLaunchPaths({
+  "ProductId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PageSize (integer)
+* PageToken (string)
+* ProductId (string) **required**
 
 ### ListPortfolioAccess
 
 
 
 ```js
-amazonaws_servicecatalog.ListPortfolioAccess({}, context)
+amazonaws_servicecatalog.ListPortfolioAccess({
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
 
 ### ListPortfolios
 
@@ -271,33 +471,56 @@ amazonaws_servicecatalog.ListPortfolioAccess({}, context)
 amazonaws_servicecatalog.ListPortfolios({}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PageSize (integer)
+* PageToken (string)
 
 ### ListPortfoliosForProduct
 
 
 
 ```js
-amazonaws_servicecatalog.ListPortfoliosForProduct({}, context)
+amazonaws_servicecatalog.ListPortfoliosForProduct({
+  "ProductId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PageSize (integer)
+* PageToken (string)
+* ProductId (string) **required**
 
 ### ListPrincipalsForPortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.ListPrincipalsForPortfolio({}, context)
+amazonaws_servicecatalog.ListPrincipalsForPortfolio({
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PageSize (integer)
+* PageToken (string)
+* PortfolioId (string) **required**
 
 ### ListProvisioningArtifacts
 
 
 
 ```js
-amazonaws_servicecatalog.ListProvisioningArtifacts({}, context)
+amazonaws_servicecatalog.ListProvisioningArtifacts({
+  "ProductId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* ProductId (string) **required**
 
 ### ListRecordHistory
 
@@ -307,24 +530,50 @@ amazonaws_servicecatalog.ListProvisioningArtifacts({}, context)
 amazonaws_servicecatalog.ListRecordHistory({}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* AccessLevelFilter (object) - The access level to limit results.
+* PageSize (integer)
+* PageToken (string)
+* SearchFilter (object) - The search filter to limit results when listing request history records.
 
 ### ProvisionProduct
 
 
 
 ```js
-amazonaws_servicecatalog.ProvisionProduct({}, context)
+amazonaws_servicecatalog.ProvisionProduct({
+  "ProductId": "",
+  "ProvisioningArtifactId": "",
+  "ProvisionedProductName": "",
+  "ProvisionToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* NotificationArns (array)
+* PathId (string)
+* ProductId (string) **required**
+* ProvisionToken (string) **required**
+* ProvisionedProductName (string) **required**
+* ProvisioningArtifactId (string) **required**
+* ProvisioningParameters (array)
+* Tags (array)
 
 ### RejectPortfolioShare
 
 
 
 ```js
-amazonaws_servicecatalog.RejectPortfolioShare({}, context)
+amazonaws_servicecatalog.RejectPortfolioShare({
+  "PortfolioId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PortfolioId (string) **required**
 
 ### ScanProvisionedProducts
 
@@ -334,6 +583,11 @@ amazonaws_servicecatalog.RejectPortfolioShare({}, context)
 amazonaws_servicecatalog.ScanProvisionedProducts({}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* AccessLevelFilter (object) - The access level to limit results.
+* PageSize (integer)
+* PageToken (string)
 
 ### SearchProducts
 
@@ -343,6 +597,13 @@ amazonaws_servicecatalog.ScanProvisionedProducts({}, context)
 amazonaws_servicecatalog.SearchProducts({}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Filters (array)
+* PageSize (integer)
+* PageToken (string)
+* SortBy (string)
+* SortOrder (string)
 
 ### SearchProductsAsAdmin
 
@@ -352,58 +613,125 @@ amazonaws_servicecatalog.SearchProducts({}, context)
 amazonaws_servicecatalog.SearchProductsAsAdmin({}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Filters (array)
+* PageSize (integer)
+* PageToken (string)
+* PortfolioId (string)
+* ProductSource (string)
+* SortBy (string)
+* SortOrder (string)
 
 ### TerminateProvisionedProduct
 
 
 
 ```js
-amazonaws_servicecatalog.TerminateProvisionedProduct({}, context)
+amazonaws_servicecatalog.TerminateProvisionedProduct({
+  "TerminateToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* IgnoreErrors (boolean)
+* ProvisionedProductId (string)
+* ProvisionedProductName (string)
+* TerminateToken (string) **required**
 
 ### UpdateConstraint
 
 
 
 ```js
-amazonaws_servicecatalog.UpdateConstraint({}, context)
+amazonaws_servicecatalog.UpdateConstraint({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Description (string)
+* Id (string) **required**
 
 ### UpdatePortfolio
 
 
 
 ```js
-amazonaws_servicecatalog.UpdatePortfolio({}, context)
+amazonaws_servicecatalog.UpdatePortfolio({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* AddTags (array)
+* Description (string)
+* DisplayName (string)
+* Id (string) **required**
+* ProviderName (string)
+* RemoveTags (array)
 
 ### UpdateProduct
 
 
 
 ```js
-amazonaws_servicecatalog.UpdateProduct({}, context)
+amazonaws_servicecatalog.UpdateProduct({
+  "Id": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* AddTags (array)
+* Description (string)
+* Distributor (string)
+* Id (string) **required**
+* Name (string)
+* Owner (string)
+* RemoveTags (array)
+* SupportDescription (string)
+* SupportEmail (string)
+* SupportUrl (string)
 
 ### UpdateProvisionedProduct
 
 
 
 ```js
-amazonaws_servicecatalog.UpdateProvisionedProduct({}, context)
+amazonaws_servicecatalog.UpdateProvisionedProduct({
+  "UpdateToken": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* PathId (string)
+* ProductId (string)
+* ProvisionedProductId (string)
+* ProvisionedProductName (string)
+* ProvisioningArtifactId (string)
+* ProvisioningParameters (array)
+* UpdateToken (string) **required**
 
 ### UpdateProvisioningArtifact
 
 
 
 ```js
-amazonaws_servicecatalog.UpdateProvisioningArtifact({}, context)
+amazonaws_servicecatalog.UpdateProvisioningArtifact({
+  "ProductId": "",
+  "ProvisioningArtifactId": ""
+}, context)
 ```
 
+#### Parameters
+* AcceptLanguage (string)
+* Description (string)
+* Name (string)
+* ProductId (string) **required**
+* ProvisioningArtifactId (string) **required**
 

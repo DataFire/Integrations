@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_cloudbuild.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.builds.list
 Lists previously requested builds.

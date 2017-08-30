@@ -28,6 +28,8 @@ amazonaws_polly.ListLexicons({}).then(data => {
 amazonaws_polly.ListLexicons({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### PutLexicon
 
@@ -35,21 +37,35 @@ amazonaws_polly.ListLexicons({}, context)
 
 ```js
 amazonaws_polly.PutLexicon({
-  "LexiconName": ""
+  "LexiconName": "",
+  "Content": ""
 }, context)
 ```
 
 #### Parameters
 * LexiconName (string) **required**
+* Content (string) **required**
 
 ### SynthesizeSpeech
 
 
 
 ```js
-amazonaws_polly.SynthesizeSpeech({}, context)
+amazonaws_polly.SynthesizeSpeech({
+  "OutputFormat": "",
+  "Text": "",
+  "VoiceId": ""
+}, context)
 ```
 
+#### Parameters
+* LexiconNames (array)
+* OutputFormat (string) **required**
+* SampleRate (string)
+* SpeechMarkTypes (array)
+* Text (string) **required**
+* TextType (string)
+* VoiceId (string) **required**
 
 ### DescribeVoices
 
@@ -59,4 +75,6 @@ amazonaws_polly.SynthesizeSpeech({}, context)
 amazonaws_polly.DescribeVoices({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

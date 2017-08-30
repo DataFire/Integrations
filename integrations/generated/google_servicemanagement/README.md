@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_servicemanagement.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### operations.list
 Lists service operations that match the specified filter in the request.

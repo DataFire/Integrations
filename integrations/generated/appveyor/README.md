@@ -107,6 +107,8 @@ Get collaborators
 appveyor.getCollaborators(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addCollaborator
 Add collaborator
@@ -220,6 +222,8 @@ Get environments
 appveyor.getEnvironments(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addEnvironment
 Add environment
@@ -298,6 +302,8 @@ Get projects
 appveyor.getProjects(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addProject
 Add project
@@ -321,7 +327,10 @@ Update project
 
 ```js
 appveyor.updateProject({
-  "body": {}
+  "body": {
+    "versionFormat": "",
+    "configuration": {}
+  }
 }, context)
 ```
 
@@ -576,6 +585,8 @@ Get roles
 appveyor.getRoles(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addRole
 Add role
@@ -639,6 +650,8 @@ Get users
 appveyor.getUsers(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addUser
 Add user

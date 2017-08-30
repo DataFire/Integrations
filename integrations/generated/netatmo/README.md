@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 netatmo.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addwebhook
 Links a callback url to a user.
@@ -259,6 +261,8 @@ The method getuser returns information about a user such as prefered language, p
 netatmo.getuser(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### partnerdevices
 The method partnerdevices returns the list of device_id to which your partner application has access to.
@@ -268,6 +272,8 @@ The method partnerdevices returns the list of device_id to which your partner ap
 netatmo.partnerdevices(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setpersonsaway
 Sets a person as 'Away' or the Home as 'Empty'. The event will be added to the user’s timeline.

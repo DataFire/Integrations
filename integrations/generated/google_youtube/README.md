@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_youtube.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### activities.list
 Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.

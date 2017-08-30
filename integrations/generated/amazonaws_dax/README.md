@@ -25,63 +25,113 @@ DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramaticall
 
 
 ```js
-amazonaws_dax.CreateCluster({}, context)
+amazonaws_dax.CreateCluster({
+  "ClusterName": "",
+  "NodeType": "",
+  "ReplicationFactor": 0,
+  "IamRoleArn": ""
+}, context)
 ```
 
+#### Parameters
+* AvailabilityZones (array)
+* ClusterName (string) **required**
+* Description (string)
+* IamRoleArn (string) **required**
+* NodeType (string) **required**
+* NotificationTopicArn (string)
+* ParameterGroupName (string)
+* PreferredMaintenanceWindow (string)
+* ReplicationFactor (integer) **required**
+* SecurityGroupIds (array)
+* SubnetGroupName (string)
+* Tags (array)
 
 ### CreateParameterGroup
 
 
 
 ```js
-amazonaws_dax.CreateParameterGroup({}, context)
+amazonaws_dax.CreateParameterGroup({
+  "ParameterGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* ParameterGroupName (string) **required**
 
 ### CreateSubnetGroup
 
 
 
 ```js
-amazonaws_dax.CreateSubnetGroup({}, context)
+amazonaws_dax.CreateSubnetGroup({
+  "SubnetGroupName": "",
+  "SubnetIds": []
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* SubnetGroupName (string) **required**
+* SubnetIds (array) **required**
 
 ### DecreaseReplicationFactor
 
 
 
 ```js
-amazonaws_dax.DecreaseReplicationFactor({}, context)
+amazonaws_dax.DecreaseReplicationFactor({
+  "ClusterName": "",
+  "NewReplicationFactor": 0
+}, context)
 ```
 
+#### Parameters
+* AvailabilityZones (array)
+* ClusterName (string) **required**
+* NewReplicationFactor (integer) **required**
+* NodeIdsToRemove (array)
 
 ### DeleteCluster
 
 
 
 ```js
-amazonaws_dax.DeleteCluster({}, context)
+amazonaws_dax.DeleteCluster({
+  "ClusterName": ""
+}, context)
 ```
 
+#### Parameters
+* ClusterName (string) **required**
 
 ### DeleteParameterGroup
 
 
 
 ```js
-amazonaws_dax.DeleteParameterGroup({}, context)
+amazonaws_dax.DeleteParameterGroup({
+  "ParameterGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* ParameterGroupName (string) **required**
 
 ### DeleteSubnetGroup
 
 
 
 ```js
-amazonaws_dax.DeleteSubnetGroup({}, context)
+amazonaws_dax.DeleteSubnetGroup({
+  "SubnetGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* SubnetGroupName (string) **required**
 
 ### DescribeClusters
 
@@ -91,6 +141,10 @@ amazonaws_dax.DeleteSubnetGroup({}, context)
 amazonaws_dax.DescribeClusters({}, context)
 ```
 
+#### Parameters
+* ClusterNames (array)
+* MaxResults (integer)
+* NextToken (string)
 
 ### DescribeDefaultParameters
 
@@ -100,6 +154,9 @@ amazonaws_dax.DescribeClusters({}, context)
 amazonaws_dax.DescribeDefaultParameters({}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
 
 ### DescribeEvents
 
@@ -109,6 +166,14 @@ amazonaws_dax.DescribeDefaultParameters({}, context)
 amazonaws_dax.DescribeEvents({}, context)
 ```
 
+#### Parameters
+* Duration (integer)
+* EndTime (string)
+* MaxResults (integer)
+* NextToken (string)
+* SourceName (string)
+* SourceType (string)
+* StartTime (string)
 
 ### DescribeParameterGroups
 
@@ -118,15 +183,26 @@ amazonaws_dax.DescribeEvents({}, context)
 amazonaws_dax.DescribeParameterGroups({}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* ParameterGroupNames (array)
 
 ### DescribeParameters
 
 
 
 ```js
-amazonaws_dax.DescribeParameters({}, context)
+amazonaws_dax.DescribeParameters({
+  "ParameterGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* ParameterGroupName (string) **required**
+* Source (string)
 
 ### DescribeSubnetGroups
 
@@ -136,76 +212,132 @@ amazonaws_dax.DescribeParameters({}, context)
 amazonaws_dax.DescribeSubnetGroups({}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* SubnetGroupNames (array)
 
 ### IncreaseReplicationFactor
 
 
 
 ```js
-amazonaws_dax.IncreaseReplicationFactor({}, context)
+amazonaws_dax.IncreaseReplicationFactor({
+  "ClusterName": "",
+  "NewReplicationFactor": 0
+}, context)
 ```
 
+#### Parameters
+* AvailabilityZones (array)
+* ClusterName (string) **required**
+* NewReplicationFactor (integer) **required**
 
 ### ListTags
 
 
 
 ```js
-amazonaws_dax.ListTags({}, context)
+amazonaws_dax.ListTags({
+  "ResourceName": ""
+}, context)
 ```
 
+#### Parameters
+* NextToken (string)
+* ResourceName (string) **required**
 
 ### RebootNode
 
 
 
 ```js
-amazonaws_dax.RebootNode({}, context)
+amazonaws_dax.RebootNode({
+  "ClusterName": "",
+  "NodeId": ""
+}, context)
 ```
 
+#### Parameters
+* ClusterName (string) **required**
+* NodeId (string) **required**
 
 ### TagResource
 
 
 
 ```js
-amazonaws_dax.TagResource({}, context)
+amazonaws_dax.TagResource({
+  "ResourceName": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* ResourceName (string) **required**
+* Tags (array) **required**
 
 ### UntagResource
 
 
 
 ```js
-amazonaws_dax.UntagResource({}, context)
+amazonaws_dax.UntagResource({
+  "ResourceName": "",
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* ResourceName (string) **required**
+* TagKeys (array) **required**
 
 ### UpdateCluster
 
 
 
 ```js
-amazonaws_dax.UpdateCluster({}, context)
+amazonaws_dax.UpdateCluster({
+  "ClusterName": ""
+}, context)
 ```
 
+#### Parameters
+* ClusterName (string) **required**
+* Description (string)
+* NotificationTopicArn (string)
+* NotificationTopicStatus (string)
+* ParameterGroupName (string)
+* PreferredMaintenanceWindow (string)
+* SecurityGroupIds (array)
 
 ### UpdateParameterGroup
 
 
 
 ```js
-amazonaws_dax.UpdateParameterGroup({}, context)
+amazonaws_dax.UpdateParameterGroup({
+  "ParameterGroupName": "",
+  "ParameterNameValues": []
+}, context)
 ```
 
+#### Parameters
+* ParameterGroupName (string) **required**
+* ParameterNameValues (array) **required**
 
 ### UpdateSubnetGroup
 
 
 
 ```js
-amazonaws_dax.UpdateSubnetGroup({}, context)
+amazonaws_dax.UpdateSubnetGroup({
+  "SubnetGroupName": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* SubnetGroupName (string) **required**
+* SubnetIds (array)
 

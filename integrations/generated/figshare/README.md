@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 figshare.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### private_account
 Account information for token/personal token
@@ -56,6 +58,8 @@ Account information for token/personal token
 figshare.private_account(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### private_articles_list
 Get Own Articles
@@ -536,6 +540,8 @@ List institution categories (including parent Categories)
 figshare.private_categories_list(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### private_collections_list
 List private collections
@@ -900,6 +906,8 @@ Account institution details
 figshare.private_institution_details(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### private_institution_articles
 Get Articles from own institution. User must be administrator of the institution
@@ -930,6 +938,8 @@ Returns the groups for which the account has administrative privileges (assigned
 figshare.private_institution_groups_list(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### private_licenses_list
 This is a private endpoint that requires OAuth. It will return a list with figshare public licenses AND licenses defined for account's institution.
@@ -939,6 +949,8 @@ This is a private endpoint that requires OAuth. It will return a list with figsh
 figshare.private_licenses_list(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### private_projects_list
 List private projects
@@ -1416,6 +1428,8 @@ Returns a list of public categories
 figshare.categories_list(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### collections_list
 Returns a list of public collections
@@ -1556,6 +1570,8 @@ Returns a list of public licenses
 figshare.licenses_list(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects_list
 Returns a list of public projects

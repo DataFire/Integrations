@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_groupssettings.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### groups.get
 Gets one resource by id.

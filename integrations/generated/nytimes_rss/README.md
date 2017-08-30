@@ -28,6 +28,8 @@ NYT > Home Page
 nytimes_rss.homePage(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### world
 NYT > World
@@ -37,6 +39,8 @@ NYT > World
 nytimes_rss.world(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### business
 NYT > Business Day
@@ -46,6 +50,8 @@ NYT > Business Day
 nytimes_rss.business(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sports
 NYT > Sports
@@ -55,6 +61,8 @@ NYT > Sports
 nytimes_rss.sports(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### science
 NYT > Science
@@ -64,4 +72,6 @@ NYT > Science
 nytimes_rss.science(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

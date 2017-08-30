@@ -25,54 +25,114 @@ amazonaws_cloudformation.CancelUpdateStack({}).then(data => {
 
 
 ```js
-amazonaws_cloudformation.CancelUpdateStack({}, context)
+amazonaws_cloudformation.CancelUpdateStack({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* ClientRequestToken (string)
+* StackName (string) **required**
 
 ### ContinueUpdateRollback
 
 
 
 ```js
-amazonaws_cloudformation.ContinueUpdateRollback({}, context)
+amazonaws_cloudformation.ContinueUpdateRollback({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* ClientRequestToken (string)
+* ResourcesToSkip (array)
+* RoleARN (string)
+* StackName (string) **required**
 
 ### CreateChangeSet
 
 
 
 ```js
-amazonaws_cloudformation.CreateChangeSet({}, context)
+amazonaws_cloudformation.CreateChangeSet({
+  "StackName": "",
+  "ChangeSetName": ""
+}, context)
 ```
 
+#### Parameters
+* Capabilities (array)
+* ChangeSetName (string) **required**
+* ChangeSetType (string)
+* ClientToken (string)
+* Description (string)
+* NotificationARNs (array)
+* Parameters (array)
+* ResourceTypes (array)
+* RoleARN (string)
+* StackName (string) **required**
+* Tags (array)
+* TemplateBody (string)
+* TemplateURL (string)
+* UsePreviousTemplate (boolean)
 
 ### CreateStack
 
 
 
 ```js
-amazonaws_cloudformation.CreateStack({}, context)
+amazonaws_cloudformation.CreateStack({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* Capabilities (array)
+* ClientRequestToken (string)
+* DisableRollback (boolean)
+* NotificationARNs (array)
+* OnFailure (string)
+* Parameters (array)
+* ResourceTypes (array)
+* RoleARN (string)
+* StackName (string) **required**
+* StackPolicyBody (string)
+* StackPolicyURL (string)
+* Tags (array)
+* TemplateBody (string)
+* TemplateURL (string)
+* TimeoutInMinutes (integer)
 
 ### DeleteChangeSet
 
 
 
 ```js
-amazonaws_cloudformation.DeleteChangeSet({}, context)
+amazonaws_cloudformation.DeleteChangeSet({
+  "ChangeSetName": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeSetName (string) **required**
+* StackName (string)
 
 ### DeleteStack
 
 
 
 ```js
-amazonaws_cloudformation.DeleteStack({}, context)
+amazonaws_cloudformation.DeleteStack({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* ClientRequestToken (string)
+* RetainResources (array)
+* RoleARN (string)
+* StackName (string) **required**
 
 ### DescribeAccountLimits
 
@@ -82,15 +142,23 @@ amazonaws_cloudformation.DeleteStack({}, context)
 amazonaws_cloudformation.DescribeAccountLimits({}, context)
 ```
 
+#### Parameters
+* NextToken (string)
 
 ### DescribeChangeSet
 
 
 
 ```js
-amazonaws_cloudformation.DescribeChangeSet({}, context)
+amazonaws_cloudformation.DescribeChangeSet({
+  "ChangeSetName": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeSetName (string) **required**
+* NextToken (string)
+* StackName (string)
 
 ### DescribeStackEvents
 
@@ -102,15 +170,23 @@ amazonaws_cloudformation.DescribeStackEvents({}, context)
 
 #### Parameters
 * NextToken (string)
+* NextToken (string)
+* StackName (string)
 
 ### DescribeStackResource
 
 
 
 ```js
-amazonaws_cloudformation.DescribeStackResource({}, context)
+amazonaws_cloudformation.DescribeStackResource({
+  "StackName": "",
+  "LogicalResourceId": ""
+}, context)
 ```
 
+#### Parameters
+* LogicalResourceId (string) **required**
+* StackName (string) **required**
 
 ### DescribeStackResources
 
@@ -120,6 +196,10 @@ amazonaws_cloudformation.DescribeStackResource({}, context)
 amazonaws_cloudformation.DescribeStackResources({}, context)
 ```
 
+#### Parameters
+* LogicalResourceId (string)
+* PhysicalResourceId (string)
+* StackName (string)
 
 ### DescribeStacks
 
@@ -131,6 +211,8 @@ amazonaws_cloudformation.DescribeStacks({}, context)
 
 #### Parameters
 * NextToken (string)
+* NextToken (string)
+* StackName (string)
 
 ### EstimateTemplateCost
 
@@ -140,24 +222,38 @@ amazonaws_cloudformation.DescribeStacks({}, context)
 amazonaws_cloudformation.EstimateTemplateCost({}, context)
 ```
 
+#### Parameters
+* Parameters (array)
+* TemplateBody (string)
+* TemplateURL (string)
 
 ### ExecuteChangeSet
 
 
 
 ```js
-amazonaws_cloudformation.ExecuteChangeSet({}, context)
+amazonaws_cloudformation.ExecuteChangeSet({
+  "ChangeSetName": ""
+}, context)
 ```
 
+#### Parameters
+* ChangeSetName (string) **required**
+* ClientRequestToken (string)
+* StackName (string)
 
 ### GetStackPolicy
 
 
 
 ```js
-amazonaws_cloudformation.GetStackPolicy({}, context)
+amazonaws_cloudformation.GetStackPolicy({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* StackName (string) **required**
 
 ### GetTemplate
 
@@ -167,6 +263,10 @@ amazonaws_cloudformation.GetStackPolicy({}, context)
 amazonaws_cloudformation.GetTemplate({}, context)
 ```
 
+#### Parameters
+* ChangeSetName (string)
+* StackName (string)
+* TemplateStage (string)
 
 ### GetTemplateSummary
 
@@ -176,15 +276,24 @@ amazonaws_cloudformation.GetTemplate({}, context)
 amazonaws_cloudformation.GetTemplateSummary({}, context)
 ```
 
+#### Parameters
+* StackName (string)
+* TemplateBody (string)
+* TemplateURL (string)
 
 ### ListChangeSets
 
 
 
 ```js
-amazonaws_cloudformation.ListChangeSets({}, context)
+amazonaws_cloudformation.ListChangeSets({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* NextToken (string)
+* StackName (string) **required**
 
 ### ListExports
 
@@ -196,16 +305,21 @@ amazonaws_cloudformation.ListExports({}, context)
 
 #### Parameters
 * NextToken (string)
+* NextToken (string)
 
 ### ListImports
 
 
 
 ```js
-amazonaws_cloudformation.ListImports({}, context)
+amazonaws_cloudformation.ListImports({
+  "ExportName": ""
+}, context)
 ```
 
 #### Parameters
+* NextToken (string)
+* ExportName (string) **required**
 * NextToken (string)
 
 ### ListStackResources
@@ -213,11 +327,15 @@ amazonaws_cloudformation.ListImports({}, context)
 
 
 ```js
-amazonaws_cloudformation.ListStackResources({}, context)
+amazonaws_cloudformation.ListStackResources({
+  "StackName": ""
+}, context)
 ```
 
 #### Parameters
 * NextToken (string)
+* NextToken (string)
+* StackName (string) **required**
 
 ### ListStacks
 
@@ -229,33 +347,69 @@ amazonaws_cloudformation.ListStacks({}, context)
 
 #### Parameters
 * NextToken (string)
+* NextToken (string)
+* StackStatusFilter (array)
 
 ### SetStackPolicy
 
 
 
 ```js
-amazonaws_cloudformation.SetStackPolicy({}, context)
+amazonaws_cloudformation.SetStackPolicy({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* StackName (string) **required**
+* StackPolicyBody (string)
+* StackPolicyURL (string)
 
 ### SignalResource
 
 
 
 ```js
-amazonaws_cloudformation.SignalResource({}, context)
+amazonaws_cloudformation.SignalResource({
+  "StackName": "",
+  "LogicalResourceId": "",
+  "UniqueId": "",
+  "Status": ""
+}, context)
 ```
 
+#### Parameters
+* LogicalResourceId (string) **required**
+* StackName (string) **required**
+* Status (string) **required**
+* UniqueId (string) **required**
 
 ### UpdateStack
 
 
 
 ```js
-amazonaws_cloudformation.UpdateStack({}, context)
+amazonaws_cloudformation.UpdateStack({
+  "StackName": ""
+}, context)
 ```
 
+#### Parameters
+* Capabilities (array)
+* ClientRequestToken (string)
+* NotificationARNs (array)
+* Parameters (array)
+* ResourceTypes (array)
+* RoleARN (string)
+* StackName (string) **required**
+* StackPolicyBody (string)
+* StackPolicyDuringUpdateBody (string)
+* StackPolicyDuringUpdateURL (string)
+* StackPolicyURL (string)
+* Tags (array)
+* TemplateBody (string)
+* TemplateURL (string)
+* UsePreviousTemplate (boolean)
 
 ### ValidateTemplate
 
@@ -265,4 +419,7 @@ amazonaws_cloudformation.UpdateStack({}, context)
 amazonaws_cloudformation.ValidateTemplate({}, context)
 ```
 
+#### Parameters
+* TemplateBody (string)
+* TemplateURL (string)
 

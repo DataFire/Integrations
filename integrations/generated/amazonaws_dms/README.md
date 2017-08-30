@@ -25,90 +25,177 @@ amazonaws_dms.AddTagsToResource({}).then(data => {
 
 
 ```js
-amazonaws_dms.AddTagsToResource({}, context)
+amazonaws_dms.AddTagsToResource({
+  "ResourceArn": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* ResourceArn (string) **required**
+* Tags (array) **required**
 
 ### CreateEndpoint
 
 
 
 ```js
-amazonaws_dms.CreateEndpoint({}, context)
+amazonaws_dms.CreateEndpoint({
+  "EndpointIdentifier": "",
+  "EndpointType": "",
+  "EngineName": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string)
+* DatabaseName (string)
+* EndpointIdentifier (string) **required**
+* EndpointType (string) **required**
+* EngineName (string) **required**
+* ExtraConnectionAttributes (string)
+* KmsKeyId (string)
+* Password (string)
+* Port (integer)
+* ServerName (string)
+* SslMode (string)
+* Tags (array)
+* Username (string)
 
 ### CreateReplicationInstance
 
 
 
 ```js
-amazonaws_dms.CreateReplicationInstance({}, context)
+amazonaws_dms.CreateReplicationInstance({
+  "ReplicationInstanceIdentifier": "",
+  "ReplicationInstanceClass": ""
+}, context)
 ```
 
+#### Parameters
+* AllocatedStorage (integer)
+* AutoMinorVersionUpgrade (boolean)
+* AvailabilityZone (string)
+* EngineVersion (string)
+* KmsKeyId (string)
+* MultiAZ (boolean)
+* PreferredMaintenanceWindow (string)
+* PubliclyAccessible (boolean)
+* ReplicationInstanceClass (string) **required**
+* ReplicationInstanceIdentifier (string) **required**
+* ReplicationSubnetGroupIdentifier (string)
+* Tags (array)
+* VpcSecurityGroupIds (array)
 
 ### CreateReplicationSubnetGroup
 
 
 
 ```js
-amazonaws_dms.CreateReplicationSubnetGroup({}, context)
+amazonaws_dms.CreateReplicationSubnetGroup({
+  "ReplicationSubnetGroupIdentifier": "",
+  "ReplicationSubnetGroupDescription": "",
+  "SubnetIds": []
+}, context)
 ```
 
+#### Parameters
+* ReplicationSubnetGroupDescription (string) **required**
+* ReplicationSubnetGroupIdentifier (string) **required**
+* SubnetIds (array) **required**
+* Tags (array)
 
 ### CreateReplicationTask
 
 
 
 ```js
-amazonaws_dms.CreateReplicationTask({}, context)
+amazonaws_dms.CreateReplicationTask({
+  "ReplicationTaskIdentifier": "",
+  "SourceEndpointArn": "",
+  "TargetEndpointArn": "",
+  "ReplicationInstanceArn": "",
+  "MigrationType": "",
+  "TableMappings": ""
+}, context)
 ```
 
+#### Parameters
+* CdcStartTime (string)
+* MigrationType (string) **required**
+* ReplicationInstanceArn (string) **required**
+* ReplicationTaskIdentifier (string) **required**
+* ReplicationTaskSettings (string)
+* SourceEndpointArn (string) **required**
+* TableMappings (string) **required**
+* Tags (array)
+* TargetEndpointArn (string) **required**
 
 ### DeleteCertificate
 
 
 
 ```js
-amazonaws_dms.DeleteCertificate({}, context)
+amazonaws_dms.DeleteCertificate({
+  "CertificateArn": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
 
 ### DeleteEndpoint
 
 
 
 ```js
-amazonaws_dms.DeleteEndpoint({}, context)
+amazonaws_dms.DeleteEndpoint({
+  "EndpointArn": ""
+}, context)
 ```
 
+#### Parameters
+* EndpointArn (string) **required**
 
 ### DeleteReplicationInstance
 
 
 
 ```js
-amazonaws_dms.DeleteReplicationInstance({}, context)
+amazonaws_dms.DeleteReplicationInstance({
+  "ReplicationInstanceArn": ""
+}, context)
 ```
 
+#### Parameters
+* ReplicationInstanceArn (string) **required**
 
 ### DeleteReplicationSubnetGroup
 
 
 
 ```js
-amazonaws_dms.DeleteReplicationSubnetGroup({}, context)
+amazonaws_dms.DeleteReplicationSubnetGroup({
+  "ReplicationSubnetGroupIdentifier": ""
+}, context)
 ```
 
+#### Parameters
+* ReplicationSubnetGroupIdentifier (string) **required**
 
 ### DeleteReplicationTask
 
 
 
 ```js
-amazonaws_dms.DeleteReplicationTask({}, context)
+amazonaws_dms.DeleteReplicationTask({
+  "ReplicationTaskArn": ""
+}, context)
 ```
 
+#### Parameters
+* ReplicationTaskArn (string) **required**
 
 ### DescribeAccountAttributes
 
@@ -118,6 +205,8 @@ amazonaws_dms.DeleteReplicationTask({}, context)
 amazonaws_dms.DescribeAccountAttributes({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DescribeCertificates
 
@@ -127,6 +216,10 @@ amazonaws_dms.DescribeAccountAttributes({}, context)
 amazonaws_dms.DescribeCertificates({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeConnections
 
@@ -136,6 +229,10 @@ amazonaws_dms.DescribeCertificates({}, context)
 amazonaws_dms.DescribeConnections({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeEndpointTypes
 
@@ -145,6 +242,10 @@ amazonaws_dms.DescribeConnections({}, context)
 amazonaws_dms.DescribeEndpointTypes({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeEndpoints
 
@@ -154,6 +255,10 @@ amazonaws_dms.DescribeEndpointTypes({}, context)
 amazonaws_dms.DescribeEndpoints({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeOrderableReplicationInstances
 
@@ -163,15 +268,22 @@ amazonaws_dms.DescribeEndpoints({}, context)
 amazonaws_dms.DescribeOrderableReplicationInstances({}, context)
 ```
 
+#### Parameters
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeRefreshSchemasStatus
 
 
 
 ```js
-amazonaws_dms.DescribeRefreshSchemasStatus({}, context)
+amazonaws_dms.DescribeRefreshSchemasStatus({
+  "EndpointArn": ""
+}, context)
 ```
 
+#### Parameters
+* EndpointArn (string) **required**
 
 ### DescribeReplicationInstances
 
@@ -181,6 +293,10 @@ amazonaws_dms.DescribeRefreshSchemasStatus({}, context)
 amazonaws_dms.DescribeReplicationInstances({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeReplicationSubnetGroups
 
@@ -190,6 +306,10 @@ amazonaws_dms.DescribeReplicationInstances({}, context)
 amazonaws_dms.DescribeReplicationSubnetGroups({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeReplicationTasks
 
@@ -199,121 +319,221 @@ amazonaws_dms.DescribeReplicationSubnetGroups({}, context)
 amazonaws_dms.DescribeReplicationTasks({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeSchemas
 
 
 
 ```js
-amazonaws_dms.DescribeSchemas({}, context)
+amazonaws_dms.DescribeSchemas({
+  "EndpointArn": ""
+}, context)
 ```
 
+#### Parameters
+* EndpointArn (string) **required**
+* Marker (string)
+* MaxRecords (integer)
 
 ### DescribeTableStatistics
 
 
 
 ```js
-amazonaws_dms.DescribeTableStatistics({}, context)
+amazonaws_dms.DescribeTableStatistics({
+  "ReplicationTaskArn": ""
+}, context)
 ```
 
+#### Parameters
+* Marker (string)
+* MaxRecords (integer)
+* ReplicationTaskArn (string) **required**
 
 ### ImportCertificate
 
 
 
 ```js
-amazonaws_dms.ImportCertificate({}, context)
+amazonaws_dms.ImportCertificate({
+  "CertificateIdentifier": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateIdentifier (string) **required**
+* CertificatePem (string)
+* CertificateWallet (string)
 
 ### ListTagsForResource
 
 
 
 ```js
-amazonaws_dms.ListTagsForResource({}, context)
+amazonaws_dms.ListTagsForResource({
+  "ResourceArn": ""
+}, context)
 ```
 
+#### Parameters
+* ResourceArn (string) **required**
 
 ### ModifyEndpoint
 
 
 
 ```js
-amazonaws_dms.ModifyEndpoint({}, context)
+amazonaws_dms.ModifyEndpoint({
+  "EndpointArn": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string)
+* DatabaseName (string)
+* EndpointArn (string) **required**
+* EndpointIdentifier (string)
+* EndpointType (string)
+* EngineName (string)
+* ExtraConnectionAttributes (string)
+* Password (string)
+* Port (integer)
+* ServerName (string)
+* SslMode (string)
+* Username (string)
 
 ### ModifyReplicationInstance
 
 
 
 ```js
-amazonaws_dms.ModifyReplicationInstance({}, context)
+amazonaws_dms.ModifyReplicationInstance({
+  "ReplicationInstanceArn": ""
+}, context)
 ```
 
+#### Parameters
+* AllocatedStorage (integer)
+* AllowMajorVersionUpgrade (boolean)
+* ApplyImmediately (boolean)
+* AutoMinorVersionUpgrade (boolean)
+* EngineVersion (string)
+* MultiAZ (boolean)
+* PreferredMaintenanceWindow (string)
+* ReplicationInstanceArn (string) **required**
+* ReplicationInstanceClass (string)
+* ReplicationInstanceIdentifier (string)
+* VpcSecurityGroupIds (array)
 
 ### ModifyReplicationSubnetGroup
 
 
 
 ```js
-amazonaws_dms.ModifyReplicationSubnetGroup({}, context)
+amazonaws_dms.ModifyReplicationSubnetGroup({
+  "ReplicationSubnetGroupIdentifier": "",
+  "SubnetIds": []
+}, context)
 ```
 
+#### Parameters
+* ReplicationSubnetGroupDescription (string)
+* ReplicationSubnetGroupIdentifier (string) **required**
+* SubnetIds (array) **required**
 
 ### ModifyReplicationTask
 
 
 
 ```js
-amazonaws_dms.ModifyReplicationTask({}, context)
+amazonaws_dms.ModifyReplicationTask({
+  "ReplicationTaskArn": ""
+}, context)
 ```
 
+#### Parameters
+* CdcStartTime (string)
+* MigrationType (string)
+* ReplicationTaskArn (string) **required**
+* ReplicationTaskIdentifier (string)
+* ReplicationTaskSettings (string)
+* TableMappings (string)
 
 ### RefreshSchemas
 
 
 
 ```js
-amazonaws_dms.RefreshSchemas({}, context)
+amazonaws_dms.RefreshSchemas({
+  "EndpointArn": "",
+  "ReplicationInstanceArn": ""
+}, context)
 ```
 
+#### Parameters
+* EndpointArn (string) **required**
+* ReplicationInstanceArn (string) **required**
 
 ### RemoveTagsFromResource
 
 
 
 ```js
-amazonaws_dms.RemoveTagsFromResource({}, context)
+amazonaws_dms.RemoveTagsFromResource({
+  "ResourceArn": "",
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* ResourceArn (string) **required**
+* TagKeys (array) **required**
 
 ### StartReplicationTask
 
 
 
 ```js
-amazonaws_dms.StartReplicationTask({}, context)
+amazonaws_dms.StartReplicationTask({
+  "ReplicationTaskArn": "",
+  "StartReplicationTaskType": ""
+}, context)
 ```
 
+#### Parameters
+* CdcStartTime (string)
+* ReplicationTaskArn (string) **required**
+* StartReplicationTaskType (string) **required**
 
 ### StopReplicationTask
 
 
 
 ```js
-amazonaws_dms.StopReplicationTask({}, context)
+amazonaws_dms.StopReplicationTask({
+  "ReplicationTaskArn": ""
+}, context)
 ```
 
+#### Parameters
+* ReplicationTaskArn (string) **required**
 
 ### TestConnection
 
 
 
 ```js
-amazonaws_dms.TestConnection({}, context)
+amazonaws_dms.TestConnection({
+  "ReplicationInstanceArn": "",
+  "EndpointArn": ""
+}, context)
 ```
 
+#### Parameters
+* EndpointArn (string) **required**
+* ReplicationInstanceArn (string) **required**
 

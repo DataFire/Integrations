@@ -26,12 +26,14 @@ amazonaws_lambda.InvokeAsync({}).then(data => {
 
 ```js
 amazonaws_lambda.InvokeAsync({
-  "FunctionName": ""
+  "FunctionName": "",
+  "InvokeArgs": ""
 }, context)
 ```
 
 #### Parameters
 * FunctionName (string) **required**
+* InvokeArgs (string) **required**
 
 ### ListEventSourceMappings
 
@@ -57,15 +59,40 @@ amazonaws_lambda.UpdateEventSourceMapping({
 
 #### Parameters
 * UUID (string) **required**
+* BatchSize (integer)
+* Enabled (boolean)
+* FunctionName (string)
 
 ### CreateFunction
 
 
 
 ```js
-amazonaws_lambda.CreateFunction({}, context)
+amazonaws_lambda.CreateFunction({
+  "FunctionName": "",
+  "Runtime": "",
+  "Role": "",
+  "Handler": "",
+  "Code": {}
+}, context)
 ```
 
+#### Parameters
+* Code (object) **required** - The code for the Lambda function.
+* DeadLetterConfig (object) - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+* Description (string)
+* Environment (object) - The parent object that contains your environment's configuration settings.
+* FunctionName (string) **required**
+* Handler (string) **required**
+* KMSKeyArn (string)
+* MemorySize (integer)
+* Publish (boolean)
+* Role (string) **required**
+* Runtime (string) **required**
+* Tags (array)
+* Timeout (integer)
+* TracingConfig (object) - The parent object that contains your function's tracing settings.
+* VpcConfig (object) - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 
 ### ListFunctions
 
@@ -119,6 +146,8 @@ amazonaws_lambda.UpdateAlias({
 #### Parameters
 * FunctionName (string) **required**
 * Name (string) **required**
+* Description (string)
+* FunctionVersion (string)
 
 ### UpdateFunctionCode
 
@@ -132,6 +161,12 @@ amazonaws_lambda.UpdateFunctionCode({
 
 #### Parameters
 * FunctionName (string) **required**
+* DryRun (boolean)
+* Publish (boolean)
+* S3Bucket (string)
+* S3Key (string)
+* S3ObjectVersion (string)
+* ZipFile (string)
 
 ### UpdateFunctionConfiguration
 
@@ -145,6 +180,17 @@ amazonaws_lambda.UpdateFunctionConfiguration({
 
 #### Parameters
 * FunctionName (string) **required**
+* DeadLetterConfig (object) - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+* Description (string)
+* Environment (object) - The parent object that contains your environment's configuration settings.
+* Handler (string)
+* KMSKeyArn (string)
+* MemorySize (integer)
+* Role (string)
+* Runtime (string)
+* Timeout (integer)
+* TracingConfig (object) - The parent object that contains your function's tracing settings.
+* VpcConfig (object) - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 
 ### Invoke
 
@@ -158,6 +204,7 @@ amazonaws_lambda.Invoke({
 
 #### Parameters
 * FunctionName (string) **required**
+* Payload (string)
 
 ### GetPolicy
 
@@ -199,6 +246,8 @@ amazonaws_lambda.PublishVersion({
 
 #### Parameters
 * FunctionName (string) **required**
+* CodeSha256 (string)
+* Description (string)
 
 ### GetAccountSettings
 
@@ -208,6 +257,8 @@ amazonaws_lambda.PublishVersion({
 amazonaws_lambda.GetAccountSettings({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UntagResource
 

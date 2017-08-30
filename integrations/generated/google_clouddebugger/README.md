@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_clouddebugger.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### controller.debuggees.register
 Registers the debuggee with the controller service.

@@ -125,7 +125,12 @@ Provisions the specified Analysis Services server based on the configuration spe
 azure_arm_analysisservices.Servers_Create({
   "resourceGroupName": "",
   "serverName": "",
-  "serverParameters": {},
+  "serverParameters": {
+    "location": "",
+    "sku": {
+      "name": ""
+    }
+  },
   "api-version": "",
   "subscriptionId": ""
 }, context)

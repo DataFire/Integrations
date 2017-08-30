@@ -31,6 +31,8 @@ mozilla_kinto.get_changess({}).then(data => {
 mozilla_kinto.server_info(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### get_openapi_spec
 
@@ -40,6 +42,8 @@ mozilla_kinto.server_info(null, context)
 mozilla_kinto.get_openapi_spec(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### __heartbeat__
 
@@ -49,6 +53,8 @@ mozilla_kinto.get_openapi_spec(null, context)
 mozilla_kinto.__heartbeat__(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### __lbheartbeat__
 
@@ -58,6 +64,8 @@ mozilla_kinto.__heartbeat__(null, context)
 mozilla_kinto.__lbheartbeat__(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### __version__
 
@@ -67,6 +75,8 @@ mozilla_kinto.__lbheartbeat__(null, context)
 mozilla_kinto.__version__(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### batch
 
@@ -279,6 +289,8 @@ mozilla_kinto.get_bucket({
 mozilla_kinto.contribute(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### get_blocklist
 

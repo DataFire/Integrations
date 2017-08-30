@@ -31,6 +31,8 @@ Returns your account's credit balance
 zoomconnect.getBalance(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### transfer
 Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. 
@@ -102,6 +104,8 @@ Returns all contacts
 zoomconnect.contacts.all.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### contacts.create.post
 Creates a  contact
@@ -244,6 +248,8 @@ Returns all groups
 zoomconnect.groups.all.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### groups.create.post
 Create a  group
@@ -467,6 +473,8 @@ Returns an example of the data to POST to send a single message.
 zoomconnect.sms.send.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sms.send.post
 Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are required. All other fields are optional.
@@ -487,6 +495,8 @@ Returns an example of the data to POST to send multiple messages in one transact
 zoomconnect.sms.send_bulk.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### sms.send_bulk.post
 Send multiple messages in one transaction.
@@ -583,6 +593,8 @@ Returns all templates
 zoomconnect.templates.all.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### templates.templateId.delete
 Deletes a  template

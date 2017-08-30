@@ -25,9 +25,16 @@ amazonaws_tagging.GetResources({}).then(data => {
 
 
 ```js
-amazonaws_tagging.GetResources({}, context)
+amazonaws_tagging.GetResources({
+  "TagsPerPage": 0
+}, context)
 ```
 
+#### Parameters
+* PaginationToken (string)
+* ResourceTypeFilters (array)
+* TagFilters (array)
+* TagsPerPage (integer) **required**
 
 ### GetTagKeys
 
@@ -37,31 +44,50 @@ amazonaws_tagging.GetResources({}, context)
 amazonaws_tagging.GetTagKeys({}, context)
 ```
 
+#### Parameters
+* PaginationToken (string)
 
 ### GetTagValues
 
 
 
 ```js
-amazonaws_tagging.GetTagValues({}, context)
+amazonaws_tagging.GetTagValues({
+  "Key": ""
+}, context)
 ```
 
+#### Parameters
+* Key (string) **required**
+* PaginationToken (string)
 
 ### TagResources
 
 
 
 ```js
-amazonaws_tagging.TagResources({}, context)
+amazonaws_tagging.TagResources({
+  "ResourceARNList": [],
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* ResourceARNList (array) **required**
+* Tags (array) **required**
 
 ### UntagResources
 
 
 
 ```js
-amazonaws_tagging.UntagResources({}, context)
+amazonaws_tagging.UntagResources({
+  "ResourceARNList": [],
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* ResourceARNList (array) **required**
+* TagKeys (array) **required**
 

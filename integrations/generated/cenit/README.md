@@ -32,6 +32,8 @@ Returns a list of connections you've previously created. The connections are ret
 cenit.setup.connection.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.connection.post
 Creates or updates the specified connection by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
@@ -41,6 +43,8 @@ Creates or updates the specified connection by setting the values of the paramet
 cenit.setup.connection.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.connection.id.delete
 Permanently deletes a connection. It cannot be undone.
@@ -76,6 +80,8 @@ Returns a list of connection roles you've previously created. The connection rol
 cenit.setup.connection_role.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.connection_role.post
 Creates or updates the specified connection role by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
@@ -85,6 +91,8 @@ Creates or updates the specified connection role by setting the values of the pa
 cenit.setup.connection_role.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.connection_role.id.delete
 Deletes the specified connection role.
@@ -120,6 +128,8 @@ Returns a list of data types you've previously created. The data types are retur
 cenit.setup.data_type.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.data_type.post
 Creates or updates the specified data type by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
@@ -129,6 +139,8 @@ Creates or updates the specified data type by setting the values of the paramete
 cenit.setup.data_type.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.data_type.id.delete
 Deletes the specified data type.
@@ -164,6 +176,8 @@ Returns a list of flows you've previously created. The flows are returned in sor
 cenit.setup.flow.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.flow.post
 Creates or updates the specified flow. Any parameters not provided will be left unchanged.
@@ -173,6 +187,8 @@ Creates or updates the specified flow. Any parameters not provided will be left 
 cenit.setup.flow.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.flow.id.delete
 Deletes the specified flow.
@@ -208,6 +224,8 @@ Returns a list of namespaces you've previously created. The namespaces are retur
 cenit.setup.namespace.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.namespace.post
 Creates or updates the specified namespace. Any parameters not provided will be left unchanged.
@@ -217,6 +235,8 @@ Creates or updates the specified namespace. Any parameters not provided will be 
 cenit.setup.namespace.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.namespace.id.delete
 Deletes the specified namespace.
@@ -252,6 +272,8 @@ Returns a list of events you've previously created. The events are returned in s
 cenit.setup.observer.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.observer.post
 Creates or updates the specified event observer. Any parameters not provided will be left unchanged.
@@ -261,6 +283,8 @@ Creates or updates the specified event observer. Any parameters not provided wil
 cenit.setup.observer.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.observer.id.delete
 Deletes the specified event observer.
@@ -296,6 +320,8 @@ Returns a list of schedulers you've previously created. The schedulers are retur
 cenit.setup.scheduler.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.scheduler.post
 Creates or updates the specified scheduler. Any parameters not provided will be left unchanged.
@@ -305,6 +331,8 @@ Creates or updates the specified scheduler. Any parameters not provided will be 
 cenit.setup.scheduler.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.scheduler.id.delete
 Deletes the specified scheduler.
@@ -340,6 +368,8 @@ Returns a list of schemas you've previously created. The schemas are returned in
 cenit.setup.schema.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.schema.post
 Creates or updates the specified schema. Any parameters not provided will be left unchanged.
@@ -349,6 +379,8 @@ Creates or updates the specified schema. Any parameters not provided will be lef
 cenit.setup.schema.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.schema.id.delete
 Deletes the specified schema.
@@ -384,6 +416,8 @@ Returns a list of translators you've previously created. The translators are ret
 cenit.setup.translator.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.translator.post
 Creates or updates the specified translator. Any parameters not provided will be left unchanged.
@@ -393,6 +427,8 @@ Creates or updates the specified translator. Any parameters not provided will be
 cenit.setup.translator.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.translator.id.delete
 Deletes the specified translator.
@@ -428,6 +464,8 @@ Returns a list of webhooks you've previously created. The webhooks are returned 
 cenit.setup.webhook.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.webhook.post
 Creates or updates the specified webhook. Any parameters not provided will be left unchanged.
@@ -437,6 +475,8 @@ Creates or updates the specified webhook. Any parameters not provided will be le
 cenit.setup.webhook.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### setup.webhook.id.delete
 Deletes the specified webhook.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 fitbit.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._collection_pathapiSubscriptions.json.get
 Get a list of user's subscriptions for your application in the format requested.
@@ -99,6 +101,8 @@ Retrieve the list of invites to become freinds for a user in the format requeste
 fitbit.user._.friends.invitations.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### foods.units.json.get
 Get list of all valid Fitbit food units in the format requested.
@@ -108,6 +112,8 @@ Get list of all valid Fitbit food units in the format requested.
 fitbit.foods.units.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### foods.food_id.json.get
 Get the details of a specific food in Fitbit Food database (or private food for the user) in the format requested. Note, that nutritional values currently included in response only for the private foods.
@@ -143,6 +149,8 @@ Get a tree of all valid Fitbit public activities from the activities catalog as 
 fitbit.activities.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.devices.json.get
 Retrieve the list of Fitbit devices for a user in the format requested.
@@ -152,6 +160,8 @@ Retrieve the list of Fitbit devices for a user in the format requested.
 fitbit.user._.devices.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.foods.log.goal.json.post
 Update (create) a user's daily calorie consumption goal or Food Plan and get a response in the format requested. Food Plan could not be created unless user already has active goal (Update-Weight-Goal). Depending on the weight goal setup only either MAINTENANCE (in case start weight is close to target weight or smaller) or one of the four other "lose" food plans could be created via intensity POST parameter.
@@ -187,6 +197,8 @@ Get a list of meals user created in his food log in the format requested.
 fitbit.user._.meals.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### foods.json.post
 Create new private food for a user and get a response in a format requested. Created private food could be found in results of Search Foods call.
@@ -282,6 +294,8 @@ Get a user's current weekly activity goals in the format requested using units i
 fitbit.user._.activities.goals.weekly.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.activities.goals.daily.json.get
 Get a user's current daily activity goals in the format requested using units in the unit system which corresponds to the Accept-Language header provided.
@@ -291,6 +305,8 @@ Get a user's current daily activity goals in the format requested using units in
 fitbit.user._.activities.goals.daily.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.activities.log.favorite.id.json.delete
 Delete the activity with the given id from user's list of favorite activities.
@@ -326,6 +342,8 @@ Get a list of a user's favorite foods in the format requested. A user marks a fo
 fitbit.user._.foods.log.favorite.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.foods.log.frequent.json.get
 Get a list of a user's frequent foods in the format requested. A frequent food in the list provides a quick way to log the food via the Log Food endpoint.
@@ -335,6 +353,8 @@ Get a list of a user's frequent foods in the format requested. A frequent food i
 fitbit.user._.foods.log.frequent.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.foods.log.recent.json.get
 Get a list of a user's recent foods in the format requested. A recent food provides a quick way to log the food via the Log Food endpoint.
@@ -344,6 +364,8 @@ Get a list of a user's recent foods in the format requested. A recent food provi
 fitbit.user._.foods.log.recent.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.activities.favorite.json.get
 Get a list of a user's favorite activities in the format requested. A user marks an activity as favorite on the user's Activities Tab. The activity ids in the list can be used to create a new activity log entry via the Log Activity.
@@ -353,6 +375,8 @@ Get a list of a user's favorite activities in the format requested. A user marks
 fitbit.user._.activities.favorite.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.activities.frequent.json.get
 Get a list of a user's frequent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided. A frequent activity record contains the distance and duration values recorded the last time the activity was logged. The record retrieved can therefore be used to log the activity via the Log Activity with the same or adjusted values for distance and duration.
@@ -362,6 +386,8 @@ Get a list of a user's frequent activities in the format requested using units i
 fitbit.user._.activities.frequent.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.activities.recent.json.get
 Get a list of a user's recent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided. A recent activity record contains the distance and duration values recorded the last time the activity was logged. The record retrieved can therefore be used to log the activity via the Log Activity with the same or adjusted values for distance and duration.
@@ -371,6 +397,8 @@ Get a list of a user's recent activities in the format requested using units in 
 fitbit.user._.activities.recent.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.user_id.sleep.minutesAsleep.date.start_date_or_end_date.end_date_or_period.json.get
 Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.
@@ -752,6 +780,8 @@ Get user's activity statistics in the format requested using units in the unit s
 fitbit.user._.activities.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.activities.json.post
 Create log entry for an activity using units in the unit system which corresponds to the Accept-Language header provided (or using optional custom distanceUnit).
@@ -761,6 +791,8 @@ Create log entry for an activity using units in the unit system which correspond
 fitbit.user._.activities.json.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user._.friends.leaderboard.json.get
 Get a leaderboard of user's friends progress in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Authorized user himself is also included in the response.
@@ -770,6 +802,8 @@ Get a leaderboard of user's friends progress in the format requested using units
 fitbit.user._.friends.leaderboard.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.user_id.friends.json.get
 Get user's friends in the format requested using units in the unit system which corresponds to the Accept-Language header provided.

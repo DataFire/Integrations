@@ -26,12 +26,14 @@ amazonaws_data_iot.UpdateThingShadow({}).then(data => {
 
 ```js
 amazonaws_data_iot.UpdateThingShadow({
-  "thingName": ""
+  "thingName": "",
+  "payload": ""
 }, context)
 ```
 
 #### Parameters
 * thingName (string) **required**
+* payload (string) **required**
 
 ### Publish
 
@@ -45,4 +47,5 @@ amazonaws_data_iot.Publish({
 
 #### Parameters
 * topic (string) **required**
+* payload (string)
 

@@ -25,27 +25,48 @@ amazonaws_kms.CancelKeyDeletion({}).then(data => {
 
 
 ```js
-amazonaws_kms.CancelKeyDeletion({}, context)
+amazonaws_kms.CancelKeyDeletion({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### CreateAlias
 
 
 
 ```js
-amazonaws_kms.CreateAlias({}, context)
+amazonaws_kms.CreateAlias({
+  "AliasName": "",
+  "TargetKeyId": ""
+}, context)
 ```
 
+#### Parameters
+* AliasName (string) **required**
+* TargetKeyId (string) **required**
 
 ### CreateGrant
 
 
 
 ```js
-amazonaws_kms.CreateGrant({}, context)
+amazonaws_kms.CreateGrant({
+  "KeyId": "",
+  "GranteePrincipal": ""
+}, context)
 ```
 
+#### Parameters
+* Constraints (object) - <p>A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p> <p>Grant constraints apply only to operations that accept encryption context as input. For example, the <code> <a>DescribeKey</a> </code> operation does not accept encryption context as input. A grant that allows the <code>DescribeKey</code> operation does so regardless of the grant constraints. In constrast, the <code> <a>Encrypt</a> </code> operation accepts encryption context as input. A grant that allows the <code>Encrypt</code> operation does so only when the encryption context of the <code>Encrypt</code> operation satisfies the grant constraints.</p>
+* GrantTokens (array)
+* GranteePrincipal (string) **required**
+* KeyId (string) **required**
+* Name (string)
+* Operations (array)
+* RetiringPrincipal (string)
 
 ### CreateKey
 
@@ -55,105 +76,171 @@ amazonaws_kms.CreateGrant({}, context)
 amazonaws_kms.CreateKey({}, context)
 ```
 
+#### Parameters
+* BypassPolicyLockoutSafetyCheck (boolean)
+* Description (string)
+* KeyUsage (string)
+* Origin (string)
+* Policy (string)
+* Tags (array)
 
 ### Decrypt
 
 
 
 ```js
-amazonaws_kms.Decrypt({}, context)
+amazonaws_kms.Decrypt({
+  "CiphertextBlob": ""
+}, context)
 ```
 
+#### Parameters
+* CiphertextBlob (string) **required**
+* EncryptionContext (array)
+* GrantTokens (array)
 
 ### DeleteAlias
 
 
 
 ```js
-amazonaws_kms.DeleteAlias({}, context)
+amazonaws_kms.DeleteAlias({
+  "AliasName": ""
+}, context)
 ```
 
+#### Parameters
+* AliasName (string) **required**
 
 ### DeleteImportedKeyMaterial
 
 
 
 ```js
-amazonaws_kms.DeleteImportedKeyMaterial({}, context)
+amazonaws_kms.DeleteImportedKeyMaterial({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### DescribeKey
 
 
 
 ```js
-amazonaws_kms.DescribeKey({}, context)
+amazonaws_kms.DescribeKey({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* GrantTokens (array)
+* KeyId (string) **required**
 
 ### DisableKey
 
 
 
 ```js
-amazonaws_kms.DisableKey({}, context)
+amazonaws_kms.DisableKey({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### DisableKeyRotation
 
 
 
 ```js
-amazonaws_kms.DisableKeyRotation({}, context)
+amazonaws_kms.DisableKeyRotation({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### EnableKey
 
 
 
 ```js
-amazonaws_kms.EnableKey({}, context)
+amazonaws_kms.EnableKey({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### EnableKeyRotation
 
 
 
 ```js
-amazonaws_kms.EnableKeyRotation({}, context)
+amazonaws_kms.EnableKeyRotation({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### Encrypt
 
 
 
 ```js
-amazonaws_kms.Encrypt({}, context)
+amazonaws_kms.Encrypt({
+  "KeyId": "",
+  "Plaintext": ""
+}, context)
 ```
 
+#### Parameters
+* EncryptionContext (array)
+* GrantTokens (array)
+* KeyId (string) **required**
+* Plaintext (string) **required**
 
 ### GenerateDataKey
 
 
 
 ```js
-amazonaws_kms.GenerateDataKey({}, context)
+amazonaws_kms.GenerateDataKey({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* EncryptionContext (array)
+* GrantTokens (array)
+* KeyId (string) **required**
+* KeySpec (string)
+* NumberOfBytes (integer)
 
 ### GenerateDataKeyWithoutPlaintext
 
 
 
 ```js
-amazonaws_kms.GenerateDataKeyWithoutPlaintext({}, context)
+amazonaws_kms.GenerateDataKeyWithoutPlaintext({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* EncryptionContext (array)
+* GrantTokens (array)
+* KeyId (string) **required**
+* KeySpec (string)
+* NumberOfBytes (integer)
 
 ### GenerateRandom
 
@@ -163,42 +250,72 @@ amazonaws_kms.GenerateDataKeyWithoutPlaintext({}, context)
 amazonaws_kms.GenerateRandom({}, context)
 ```
 
+#### Parameters
+* NumberOfBytes (integer)
 
 ### GetKeyPolicy
 
 
 
 ```js
-amazonaws_kms.GetKeyPolicy({}, context)
+amazonaws_kms.GetKeyPolicy({
+  "KeyId": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
+* PolicyName (string) **required**
 
 ### GetKeyRotationStatus
 
 
 
 ```js
-amazonaws_kms.GetKeyRotationStatus({}, context)
+amazonaws_kms.GetKeyRotationStatus({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
 
 ### GetParametersForImport
 
 
 
 ```js
-amazonaws_kms.GetParametersForImport({}, context)
+amazonaws_kms.GetParametersForImport({
+  "KeyId": "",
+  "WrappingAlgorithm": "",
+  "WrappingKeySpec": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
+* WrappingAlgorithm (string) **required**
+* WrappingKeySpec (string) **required**
 
 ### ImportKeyMaterial
 
 
 
 ```js
-amazonaws_kms.ImportKeyMaterial({}, context)
+amazonaws_kms.ImportKeyMaterial({
+  "KeyId": "",
+  "ImportToken": "",
+  "EncryptedKeyMaterial": ""
+}, context)
 ```
 
+#### Parameters
+* EncryptedKeyMaterial (string) **required**
+* ExpirationModel (string)
+* ImportToken (string) **required**
+* KeyId (string) **required**
+* ValidTo (string)
 
 ### ListAliases
 
@@ -211,17 +328,24 @@ amazonaws_kms.ListAliases({}, context)
 #### Parameters
 * Limit (string)
 * Marker (string)
+* Limit (integer)
+* Marker (string)
 
 ### ListGrants
 
 
 
 ```js
-amazonaws_kms.ListGrants({}, context)
+amazonaws_kms.ListGrants({
+  "KeyId": ""
+}, context)
 ```
 
 #### Parameters
 * Limit (string)
+* Marker (string)
+* KeyId (string) **required**
+* Limit (integer)
 * Marker (string)
 
 ### ListKeyPolicies
@@ -229,11 +353,16 @@ amazonaws_kms.ListGrants({}, context)
 
 
 ```js
-amazonaws_kms.ListKeyPolicies({}, context)
+amazonaws_kms.ListKeyPolicies({
+  "KeyId": ""
+}, context)
 ```
 
 #### Parameters
 * Limit (string)
+* Marker (string)
+* KeyId (string) **required**
+* Limit (integer)
 * Marker (string)
 
 ### ListKeys
@@ -247,42 +376,74 @@ amazonaws_kms.ListKeys({}, context)
 #### Parameters
 * Limit (string)
 * Marker (string)
+* Limit (integer)
+* Marker (string)
 
 ### ListResourceTags
 
 
 
 ```js
-amazonaws_kms.ListResourceTags({}, context)
+amazonaws_kms.ListResourceTags({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
+* Limit (integer)
+* Marker (string)
 
 ### ListRetirableGrants
 
 
 
 ```js
-amazonaws_kms.ListRetirableGrants({}, context)
+amazonaws_kms.ListRetirableGrants({
+  "RetiringPrincipal": ""
+}, context)
 ```
 
+#### Parameters
+* Limit (integer)
+* Marker (string)
+* RetiringPrincipal (string) **required**
 
 ### PutKeyPolicy
 
 
 
 ```js
-amazonaws_kms.PutKeyPolicy({}, context)
+amazonaws_kms.PutKeyPolicy({
+  "KeyId": "",
+  "PolicyName": "",
+  "Policy": ""
+}, context)
 ```
 
+#### Parameters
+* BypassPolicyLockoutSafetyCheck (boolean)
+* KeyId (string) **required**
+* Policy (string) **required**
+* PolicyName (string) **required**
 
 ### ReEncrypt
 
 
 
 ```js
-amazonaws_kms.ReEncrypt({}, context)
+amazonaws_kms.ReEncrypt({
+  "CiphertextBlob": "",
+  "DestinationKeyId": ""
+}, context)
 ```
 
+#### Parameters
+* CiphertextBlob (string) **required**
+* DestinationEncryptionContext (array)
+* DestinationKeyId (string) **required**
+* GrantTokens (array)
+* SourceEncryptionContext (array)
 
 ### RetireGrant
 
@@ -292,58 +453,97 @@ amazonaws_kms.ReEncrypt({}, context)
 amazonaws_kms.RetireGrant({}, context)
 ```
 
+#### Parameters
+* GrantId (string)
+* GrantToken (string)
+* KeyId (string)
 
 ### RevokeGrant
 
 
 
 ```js
-amazonaws_kms.RevokeGrant({}, context)
+amazonaws_kms.RevokeGrant({
+  "KeyId": "",
+  "GrantId": ""
+}, context)
 ```
 
+#### Parameters
+* GrantId (string) **required**
+* KeyId (string) **required**
 
 ### ScheduleKeyDeletion
 
 
 
 ```js
-amazonaws_kms.ScheduleKeyDeletion({}, context)
+amazonaws_kms.ScheduleKeyDeletion({
+  "KeyId": ""
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
+* PendingWindowInDays (integer)
 
 ### TagResource
 
 
 
 ```js
-amazonaws_kms.TagResource({}, context)
+amazonaws_kms.TagResource({
+  "KeyId": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
+* Tags (array) **required**
 
 ### UntagResource
 
 
 
 ```js
-amazonaws_kms.UntagResource({}, context)
+amazonaws_kms.UntagResource({
+  "KeyId": "",
+  "TagKeys": []
+}, context)
 ```
 
+#### Parameters
+* KeyId (string) **required**
+* TagKeys (array) **required**
 
 ### UpdateAlias
 
 
 
 ```js
-amazonaws_kms.UpdateAlias({}, context)
+amazonaws_kms.UpdateAlias({
+  "AliasName": "",
+  "TargetKeyId": ""
+}, context)
 ```
 
+#### Parameters
+* AliasName (string) **required**
+* TargetKeyId (string) **required**
 
 ### UpdateKeyDescription
 
 
 
 ```js
-amazonaws_kms.UpdateKeyDescription({}, context)
+amazonaws_kms.UpdateKeyDescription({
+  "KeyId": "",
+  "Description": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string) **required**
+* KeyId (string) **required**
 

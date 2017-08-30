@@ -25,45 +25,71 @@ amazonaws_acm.AddTagsToCertificate({}).then(data => {
 
 
 ```js
-amazonaws_acm.AddTagsToCertificate({}, context)
+amazonaws_acm.AddTagsToCertificate({
+  "CertificateArn": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
+* Tags (array) **required**
 
 ### DeleteCertificate
 
 
 
 ```js
-amazonaws_acm.DeleteCertificate({}, context)
+amazonaws_acm.DeleteCertificate({
+  "CertificateArn": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
 
 ### DescribeCertificate
 
 
 
 ```js
-amazonaws_acm.DescribeCertificate({}, context)
+amazonaws_acm.DescribeCertificate({
+  "CertificateArn": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
 
 ### GetCertificate
 
 
 
 ```js
-amazonaws_acm.GetCertificate({}, context)
+amazonaws_acm.GetCertificate({
+  "CertificateArn": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
 
 ### ImportCertificate
 
 
 
 ```js
-amazonaws_acm.ImportCertificate({}, context)
+amazonaws_acm.ImportCertificate({
+  "Certificate": "",
+  "PrivateKey": ""
+}, context)
 ```
 
+#### Parameters
+* Certificate (string) **required**
+* CertificateArn (string)
+* CertificateChain (string)
+* PrivateKey (string) **required**
 
 ### ListCertificates
 
@@ -76,40 +102,68 @@ amazonaws_acm.ListCertificates({}, context)
 #### Parameters
 * MaxItems (string)
 * NextToken (string)
+* CertificateStatuses (array)
+* MaxItems (integer)
+* NextToken (string)
 
 ### ListTagsForCertificate
 
 
 
 ```js
-amazonaws_acm.ListTagsForCertificate({}, context)
+amazonaws_acm.ListTagsForCertificate({
+  "CertificateArn": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
 
 ### RemoveTagsFromCertificate
 
 
 
 ```js
-amazonaws_acm.RemoveTagsFromCertificate({}, context)
+amazonaws_acm.RemoveTagsFromCertificate({
+  "CertificateArn": "",
+  "Tags": []
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
+* Tags (array) **required**
 
 ### RequestCertificate
 
 
 
 ```js
-amazonaws_acm.RequestCertificate({}, context)
+amazonaws_acm.RequestCertificate({
+  "DomainName": ""
+}, context)
 ```
 
+#### Parameters
+* DomainName (string) **required**
+* DomainValidationOptions (array)
+* IdempotencyToken (string)
+* SubjectAlternativeNames (array)
 
 ### ResendValidationEmail
 
 
 
 ```js
-amazonaws_acm.ResendValidationEmail({}, context)
+amazonaws_acm.ResendValidationEmail({
+  "CertificateArn": "",
+  "Domain": "",
+  "ValidationDomain": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateArn (string) **required**
+* Domain (string) **required**
+* ValidationDomain (string) **required**
 

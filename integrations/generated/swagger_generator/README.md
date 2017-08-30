@@ -28,6 +28,8 @@ Gets languages supported by the client generator
 swagger_generator.clientOptions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getClientOptions
 Returns options for a client library
@@ -78,6 +80,8 @@ Gets languages supported by the server generator
 swagger_generator.serverOptions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getServerOptions
 Returns options for a server framework

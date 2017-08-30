@@ -25,160 +25,285 @@ amazonaws_cognito_identity.CreateIdentityPool({}).then(data => {
 
 
 ```js
-amazonaws_cognito_identity.CreateIdentityPool({}, context)
+amazonaws_cognito_identity.CreateIdentityPool({
+  "IdentityPoolName": "",
+  "AllowUnauthenticatedIdentities": true
+}, context)
 ```
 
+#### Parameters
+* AllowUnauthenticatedIdentities (boolean) **required**
+* CognitoIdentityProviders (array)
+* DeveloperProviderName (string)
+* IdentityPoolName (string) **required**
+* OpenIdConnectProviderARNs (array)
+* SamlProviderARNs (array)
+* SupportedLoginProviders (array)
 
 ### DeleteIdentities
 
 
 
 ```js
-amazonaws_cognito_identity.DeleteIdentities({}, context)
+amazonaws_cognito_identity.DeleteIdentities({
+  "IdentityIdsToDelete": []
+}, context)
 ```
 
+#### Parameters
+* IdentityIdsToDelete (array) **required**
 
 ### DeleteIdentityPool
 
 
 
 ```js
-amazonaws_cognito_identity.DeleteIdentityPool({}, context)
+amazonaws_cognito_identity.DeleteIdentityPool({
+  "IdentityPoolId": ""
+}, context)
 ```
 
+#### Parameters
+* IdentityPoolId (string) **required**
 
 ### DescribeIdentity
 
 
 
 ```js
-amazonaws_cognito_identity.DescribeIdentity({}, context)
+amazonaws_cognito_identity.DescribeIdentity({
+  "IdentityId": ""
+}, context)
 ```
 
+#### Parameters
+* IdentityId (string) **required**
 
 ### DescribeIdentityPool
 
 
 
 ```js
-amazonaws_cognito_identity.DescribeIdentityPool({}, context)
+amazonaws_cognito_identity.DescribeIdentityPool({
+  "IdentityPoolId": ""
+}, context)
 ```
 
+#### Parameters
+* IdentityPoolId (string) **required**
 
 ### GetCredentialsForIdentity
 
 
 
 ```js
-amazonaws_cognito_identity.GetCredentialsForIdentity({}, context)
+amazonaws_cognito_identity.GetCredentialsForIdentity({
+  "IdentityId": ""
+}, context)
 ```
 
+#### Parameters
+* CustomRoleArn (string)
+* IdentityId (string) **required**
+* Logins (array)
 
 ### GetId
 
 
 
 ```js
-amazonaws_cognito_identity.GetId({}, context)
+amazonaws_cognito_identity.GetId({
+  "IdentityPoolId": ""
+}, context)
 ```
 
+#### Parameters
+* AccountId (string)
+* IdentityPoolId (string) **required**
+* Logins (array)
 
 ### GetIdentityPoolRoles
 
 
 
 ```js
-amazonaws_cognito_identity.GetIdentityPoolRoles({}, context)
+amazonaws_cognito_identity.GetIdentityPoolRoles({
+  "IdentityPoolId": ""
+}, context)
 ```
 
+#### Parameters
+* IdentityPoolId (string) **required**
 
 ### GetOpenIdToken
 
 
 
 ```js
-amazonaws_cognito_identity.GetOpenIdToken({}, context)
+amazonaws_cognito_identity.GetOpenIdToken({
+  "IdentityId": ""
+}, context)
 ```
 
+#### Parameters
+* IdentityId (string) **required**
+* Logins (array)
 
 ### GetOpenIdTokenForDeveloperIdentity
 
 
 
 ```js
-amazonaws_cognito_identity.GetOpenIdTokenForDeveloperIdentity({}, context)
+amazonaws_cognito_identity.GetOpenIdTokenForDeveloperIdentity({
+  "IdentityPoolId": "",
+  "Logins": []
+}, context)
 ```
 
+#### Parameters
+* IdentityId (string)
+* IdentityPoolId (string) **required**
+* Logins (array) **required**
+* TokenDuration (integer)
 
 ### ListIdentities
 
 
 
 ```js
-amazonaws_cognito_identity.ListIdentities({}, context)
+amazonaws_cognito_identity.ListIdentities({
+  "IdentityPoolId": "",
+  "MaxResults": 0
+}, context)
 ```
 
+#### Parameters
+* HideDisabled (boolean)
+* IdentityPoolId (string) **required**
+* MaxResults (integer) **required**
+* NextToken (string)
 
 ### ListIdentityPools
 
 
 
 ```js
-amazonaws_cognito_identity.ListIdentityPools({}, context)
+amazonaws_cognito_identity.ListIdentityPools({
+  "MaxResults": 0
+}, context)
 ```
 
+#### Parameters
+* MaxResults (integer) **required**
+* NextToken (string)
 
 ### LookupDeveloperIdentity
 
 
 
 ```js
-amazonaws_cognito_identity.LookupDeveloperIdentity({}, context)
+amazonaws_cognito_identity.LookupDeveloperIdentity({
+  "IdentityPoolId": ""
+}, context)
 ```
 
+#### Parameters
+* DeveloperUserIdentifier (string)
+* IdentityId (string)
+* IdentityPoolId (string) **required**
+* MaxResults (integer)
+* NextToken (string)
 
 ### MergeDeveloperIdentities
 
 
 
 ```js
-amazonaws_cognito_identity.MergeDeveloperIdentities({}, context)
+amazonaws_cognito_identity.MergeDeveloperIdentities({
+  "SourceUserIdentifier": "",
+  "DestinationUserIdentifier": "",
+  "DeveloperProviderName": "",
+  "IdentityPoolId": ""
+}, context)
 ```
 
+#### Parameters
+* DestinationUserIdentifier (string) **required**
+* DeveloperProviderName (string) **required**
+* IdentityPoolId (string) **required**
+* SourceUserIdentifier (string) **required**
 
 ### SetIdentityPoolRoles
 
 
 
 ```js
-amazonaws_cognito_identity.SetIdentityPoolRoles({}, context)
+amazonaws_cognito_identity.SetIdentityPoolRoles({
+  "IdentityPoolId": "",
+  "Roles": []
+}, context)
 ```
 
+#### Parameters
+* IdentityPoolId (string) **required**
+* RoleMappings (array)
+* Roles (array) **required**
 
 ### UnlinkDeveloperIdentity
 
 
 
 ```js
-amazonaws_cognito_identity.UnlinkDeveloperIdentity({}, context)
+amazonaws_cognito_identity.UnlinkDeveloperIdentity({
+  "IdentityId": "",
+  "IdentityPoolId": "",
+  "DeveloperProviderName": "",
+  "DeveloperUserIdentifier": ""
+}, context)
 ```
 
+#### Parameters
+* DeveloperProviderName (string) **required**
+* DeveloperUserIdentifier (string) **required**
+* IdentityId (string) **required**
+* IdentityPoolId (string) **required**
 
 ### UnlinkIdentity
 
 
 
 ```js
-amazonaws_cognito_identity.UnlinkIdentity({}, context)
+amazonaws_cognito_identity.UnlinkIdentity({
+  "IdentityId": "",
+  "Logins": [],
+  "LoginsToRemove": []
+}, context)
 ```
 
+#### Parameters
+* IdentityId (string) **required**
+* Logins (array) **required**
+* LoginsToRemove (array) **required**
 
 ### UpdateIdentityPool
 
 
 
 ```js
-amazonaws_cognito_identity.UpdateIdentityPool({}, context)
+amazonaws_cognito_identity.UpdateIdentityPool({
+  "IdentityPoolId": "",
+  "IdentityPoolName": "",
+  "AllowUnauthenticatedIdentities": true
+}, context)
 ```
 
+#### Parameters
+* AllowUnauthenticatedIdentities (boolean) **required**
+* CognitoIdentityProviders (array)
+* DeveloperProviderName (string)
+* IdentityPoolId (string) **required**
+* IdentityPoolName (string) **required**
+* OpenIdConnectProviderARNs (array)
+* SamlProviderARNs (array)
+* SupportedLoginProviders (array)
 

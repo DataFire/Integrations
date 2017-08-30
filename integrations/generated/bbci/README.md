@@ -486,6 +486,8 @@ Get schema
 bbci.Get_Schema_(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Search_
 Search
@@ -533,6 +535,8 @@ Get the current iPlayer business layer status. This tells the caller the status 
 bbci.Get_Status_(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.purchases.get
 Get user store purchases

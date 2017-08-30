@@ -66,4 +66,6 @@ Information about versions of application and data.
 o2_cz_sociodemo.getInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

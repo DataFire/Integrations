@@ -615,6 +615,8 @@ Returns information on the current user's photos.
 salesforcechatter.chatter.users.me.photo.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### chatter.users.me.photo.post
 Post photo to current user's profile.
@@ -624,6 +626,8 @@ Post photo to current user's profile.
 salesforcechatter.chatter.users.me.photo.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### chatter.users.me.photo.delete
 Delete photo of current user's profile.
@@ -633,6 +637,8 @@ Delete photo of current user's profile.
 salesforcechatter.chatter.users.me.photo.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### chatter.users.me.status.get
 Returns info of current user's status.
@@ -642,6 +648,8 @@ Returns info of current user's status.
 salesforcechatter.chatter.users.me.status.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### chatter.users.me.status.post
 Post text to current user's status.

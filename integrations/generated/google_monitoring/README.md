@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_monitoring.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.groups.delete
 Deletes an existing group.

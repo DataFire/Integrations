@@ -160,6 +160,8 @@ Get all available markets.
 yunbi.v2.markets.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### v2.members.me.json.get
 Get your profile and accounts info.
@@ -332,6 +334,8 @@ Get ticker of all markets.
 yunbi.v2.tickers.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### v2.tickers.market.json.get
 Get ticker of specific market.
@@ -354,6 +358,8 @@ Get server current time, in seconds since Unix epoch.
 yunbi.v2.timestamp.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### v2.trades.json.get
 Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.

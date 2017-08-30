@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_dataproc.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.regions.clusters.list
 Lists all regions/{region}/clusters in a project.

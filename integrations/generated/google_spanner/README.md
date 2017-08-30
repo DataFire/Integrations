@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_spanner.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.instances.databases.dropDatabase
 Drops (aka deletes) a Cloud Spanner database.

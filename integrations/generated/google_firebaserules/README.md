@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 google_firebaserules.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.releases.delete
 Delete a `Release` by resource name.

@@ -285,6 +285,8 @@ List the episodes voted for
 tvmaze.user.votes.episodes.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.votes.episodes.episode_id.delete
 Remove an episode vote

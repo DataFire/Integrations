@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_storagetransfer.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### googleServiceAccounts.get
 Returns the Google service account that is used by Storage Transfer

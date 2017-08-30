@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 spotify.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### albums.get
 [Get Several Albums](https://developer.spotify.com/web-api/get-several-albums/)
@@ -263,6 +265,8 @@ spotify.browse.new_releases.get({}, context)
 spotify.me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### me.following.delete
 [Unfollow Artists or Users](https://developer.spotify.com/web-api/unfollow-artists-users/)

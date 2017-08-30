@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_playmoviespartner.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.avails.list
 List Avails owned or managed by the partner.

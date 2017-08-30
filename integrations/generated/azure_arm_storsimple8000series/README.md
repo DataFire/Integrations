@@ -115,7 +115,9 @@ Creates or updates the manager.
 
 ```js
 azure_arm_storsimple8000series.Managers_CreateOrUpdate({
-  "parameters": {},
+  "parameters": {
+    "location": ""
+  },
   "subscriptionId": "",
   "resourceGroupName": "",
   "managerName": "",

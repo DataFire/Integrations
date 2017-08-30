@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_container.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.zones.clusters.list
 Lists all clusters owned by a project in either the specified zone or all

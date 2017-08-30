@@ -39,6 +39,8 @@ This allows to generate some simple views without need to fetch OpenAPI spec for
 apis_guru.listAPIs(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getMetrics
 Some basic metrics for the entire directory.
@@ -50,4 +52,6 @@ Just stunning numbers to put on a front page and are intended purely for WoW eff
 apis_guru.getMetrics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

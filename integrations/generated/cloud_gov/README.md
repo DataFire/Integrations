@@ -50,6 +50,8 @@ cloud_gov.List_Contracts({
 cloud_gov.Metadata(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### List_Naics
 <p>This endpoint lists all of the NAICS codes that are relevant to the OASIS family of vehicles. It takes no parameters.  </p>
@@ -59,6 +61,8 @@ cloud_gov.Metadata(null, context)
 cloud_gov.List_Naics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Get_Vendor
 <p>This endpoint returns a single vendor by their 9 digit DUNS number. DUNS numbers can be looked up in the <a href="https://www.sam.gov">System for Award Management</a> by vendor name.  </p>

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_reseller.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### customers.insert
 Order a new customer's account.

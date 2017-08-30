@@ -30,6 +30,8 @@ List actions
 ritc.listActions(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addAction
 Create a new action
@@ -101,6 +103,8 @@ Ping the server
 ritc.admin(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### logInRitc
 Log a message
@@ -123,6 +127,8 @@ Ping the server
 ritc.pingRitc(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listApps
 Get apps information
@@ -132,6 +138,8 @@ Get apps information
 ritc.listApps(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addApp
 Create a new app
@@ -154,6 +162,8 @@ Get app channels
 ritc.listAppChannels(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listAppChannelUsers
 Get users of a specified channel
@@ -206,6 +216,8 @@ Get external credentials
 ritc.listChannelExternalCredentials(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addChannelExternalCredentials
 Create new external credentials
@@ -337,6 +349,8 @@ Retrieve Channels
 ritc.listChannels(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addChannel
 Create a channel
@@ -359,6 +373,8 @@ Retrieve Channels anonymously
 ritc.listAnonymousChannels(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### removeChannel
 Delete a channel
@@ -467,6 +483,8 @@ Get org information
 ritc.getMyOrganization(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### listRules
 List rules
@@ -476,6 +494,8 @@ List rules
 ritc.listRules(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addRule
 Create a new rule
@@ -553,6 +573,8 @@ Triggers in an app
 ritc.listTriggers(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addTrigger
 Create a new trigger in an app
@@ -624,6 +646,8 @@ Users
 ritc.listAppUsers(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addAppUser
 Create a new App User
@@ -646,6 +670,8 @@ Admin users
 ritc.listAdminUsers(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addAdminUser
 Create a new admin user

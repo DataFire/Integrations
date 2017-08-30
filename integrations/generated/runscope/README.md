@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 runscope.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### account.get
 Information about the authorized account.
@@ -56,6 +58,8 @@ Information about the authorized account.
 runscope.account.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### buckets.get
 Returns a list of buckets.
@@ -65,6 +69,8 @@ Returns a list of buckets.
 runscope.buckets.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### buckets.post
 Create a new bucket

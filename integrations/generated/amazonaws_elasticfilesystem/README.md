@@ -26,12 +26,14 @@ amazonaws_elasticfilesystem.CreateTags({}).then(data => {
 
 ```js
 amazonaws_elasticfilesystem.CreateTags({
-  "FileSystemId": ""
+  "FileSystemId": "",
+  "Tags": []
 }, context)
 ```
 
 #### Parameters
 * FileSystemId (string) **required**
+* Tags (array) **required**
 
 ### DeleteTags
 
@@ -39,12 +41,14 @@ amazonaws_elasticfilesystem.CreateTags({
 
 ```js
 amazonaws_elasticfilesystem.DeleteTags({
-  "FileSystemId": ""
+  "FileSystemId": "",
+  "TagKeys": []
 }, context)
 ```
 
 #### Parameters
 * FileSystemId (string) **required**
+* TagKeys (array) **required**
 
 ### DescribeFileSystems
 
@@ -54,6 +58,8 @@ amazonaws_elasticfilesystem.DeleteTags({
 amazonaws_elasticfilesystem.DescribeFileSystems({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteFileSystem
 
@@ -76,6 +82,8 @@ amazonaws_elasticfilesystem.DeleteFileSystem({
 amazonaws_elasticfilesystem.DescribeMountTargets({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteMountTarget
 
@@ -102,6 +110,7 @@ amazonaws_elasticfilesystem.ModifyMountTargetSecurityGroups({
 
 #### Parameters
 * MountTargetId (string) **required**
+* SecurityGroups (array)
 
 ### DescribeTags
 

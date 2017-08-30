@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_ml.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.models.versions.delete
 Deletes a model version.

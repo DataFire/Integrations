@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_gamesmanagement.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### achievements.resetAll
 Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.

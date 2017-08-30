@@ -105,6 +105,8 @@ getInfo
 geneea.getInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### correctionGet
 <br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>

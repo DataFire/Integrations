@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_siteverification.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### webResource.getToken
 Get a verification token for placing on a website or domain.

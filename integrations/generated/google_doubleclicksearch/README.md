@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_doubleclicksearch.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### conversion.get
 Retrieves a list of conversions from a DoubleClick Search engine account.

@@ -28,6 +28,8 @@ Returns an API token associated with the user. This method requires HTTP Basic a
 pivotaltracker.tokens.active.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### tokens.active.post
 Returns an API token associated with the user.
@@ -93,6 +95,8 @@ Retrieves all of the user's projects.
 pivotaltracker.projects.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.post
 Adds a new project.
@@ -102,6 +106,8 @@ Adds a new project.
 pivotaltracker.projects.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.PROJECT_ID.memberships.get
 Retrieves all memberships for a project.
@@ -451,4 +457,6 @@ Allows integration with post-commit hooks of Source Control Management (SCM) sys
 pivotaltracker.source_commits.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

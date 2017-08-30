@@ -50,6 +50,8 @@ Exchange a refresh_token for an access_token
 authentiq.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### authorize
 Start a session with Authentiq Connect and authenticate a user.
@@ -102,6 +104,8 @@ Retrieve a list of clients.
 authentiq.client(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### createClient
 Register a new client with this Authentiq Connect provider.
@@ -213,6 +217,8 @@ Use this endpoint to retrieve a user's profile in case you've not already obtain
 authentiq.userInfo(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### authorizeIframe
 An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 ebay_buy_browse.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getItemByLegacyId
 This call is a bridge between the eBay legacy APIs, such as Trading, Shopping, and Finding and the eBay Buy APIs. There are differences between how legacy APIs and RESTful APIs return the identifier of an &quot;item&quot;. There is also a difference in what the item Id represents and in the format of the item Id value returned. This call lets you use the legacy item Ids retrieve the details of a specific item, such as description, price, and other information the buyer needs to make a purchasing decision. It also returns the RESTful item Id, which you can use with all the Buy API calls. For more information about how to use legacy Ids with the Buy APIs, see Legacy API compatibility in the Buying Integration guide. This call returns the item details, so it requires you pass in either the item Id of a non-variation item or the item Ids of both the parent and child of a item group (item with variations). Header needed for improved shipping information accuracy Although the X-EBAY-C-ENDUSERCTX header containing the contextualLocation is optional, it is strongly recommended that you use it when submitting this call. This header increases the accuracy of the estimated delivery window information and is needed for the calculated shipping information. You alwaysinclude the country code and you also include the zip code if zip codes are used in that country. For example: X-EBAY-C-ENDUSERCTX contextualLocation=country=US,zip=19406 Restrictions For a list of supported sites and other restrictions, see API Restrictions.

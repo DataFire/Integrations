@@ -25,9 +25,20 @@ amazonaws_elastictranscoder.CreateJob({}).then(data => {
 
 
 ```js
-amazonaws_elastictranscoder.CreateJob({}, context)
+amazonaws_elastictranscoder.CreateJob({
+  "PipelineId": ""
+}, context)
 ```
 
+#### Parameters
+* Input (object) - Information about the file that you're transcoding.
+* Inputs (array)
+* Output (object) - The <code>CreateJobOutput</code> structure.
+* OutputKeyPrefix (string)
+* Outputs (array)
+* PipelineId (string) **required**
+* Playlists (array)
+* UserMetadata (array)
 
 ### ReadJob
 
@@ -93,6 +104,13 @@ amazonaws_elastictranscoder.UpdatePipeline({
 
 #### Parameters
 * Id (string) **required**
+* AwsKmsKeyArn (string)
+* ContentConfig (object) - The <code>PipelineOutputConfig</code> structure.
+* InputBucket (string)
+* Name (string)
+* Notifications (object) - <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>
+* Role (string)
+* ThumbnailConfig (object) - The <code>PipelineOutputConfig</code> structure.
 
 ### UpdatePipelineNotifications
 
@@ -100,12 +118,14 @@ amazonaws_elastictranscoder.UpdatePipeline({
 
 ```js
 amazonaws_elastictranscoder.UpdatePipelineNotifications({
-  "Id": ""
+  "Id": "",
+  "Notifications": {}
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* Notifications (object) **required** - <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>
 
 ### UpdatePipelineStatus
 
@@ -113,12 +133,14 @@ amazonaws_elastictranscoder.UpdatePipelineNotifications({
 
 ```js
 amazonaws_elastictranscoder.UpdatePipelineStatus({
-  "Id": ""
+  "Id": "",
+  "Status": ""
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* Status (string) **required**
 
 ### ListPresets
 
@@ -149,7 +171,17 @@ amazonaws_elastictranscoder.ReadPreset({
 
 
 ```js
-amazonaws_elastictranscoder.TestRole({}, context)
+amazonaws_elastictranscoder.TestRole({
+  "Role": "",
+  "InputBucket": "",
+  "OutputBucket": "",
+  "Topics": []
+}, context)
 ```
 
+#### Parameters
+* InputBucket (string) **required**
+* OutputBucket (string) **required**
+* Role (string) **required**
+* Topics (array) **required**
 

@@ -34,6 +34,8 @@ Provides information about the signed in user.
 circleci.me.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### project.username.project.get
 Build summary for each of the last 30 builds for a single git repo.
@@ -368,6 +370,8 @@ List of all the projects you're following on CircleCI, with build information or
 circleci.projects.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### recent_builds.get
 Build summary for each of the last 30 recent builds, ordered by build_num.
@@ -391,4 +395,6 @@ Adds your Heroku API key to CircleCI, takes apikey as form param name.
 circleci.user.heroku_key.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

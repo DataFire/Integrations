@@ -13,6 +13,7 @@ function resolveRef(ref, base) {
 
 function getExample(schema, base) {
   if (!schema) return null;
+  base = base || schema;
   if (schema.$ref) {
     schema = resolveRef(schema.$ref, base || schema);
   }
@@ -25,38 +26,41 @@ function getExample(schema, base) {
     let obj = {};
     (schema.required || []).forEach(req => {
       if (!schema.properties || !schema.properties[req]) return;  // FIXME: 'req' could be in an allOf schema
-      obj[req] = getExample(schema.properties[req], base || schema);
-    })
+      obj[req] = getExample(schema.properties[req], base);
+    });
+    (schema.allOf || []).forEach(sub => {
+      Object.assign(obj, getExample(sub, base));
+    });
     return obj;
   }
   return null;
 }
 
-function schemaToMarkdown(schema, title) {
-  if (!schema) return '';
-  let newSchema = Object.assign({}, schema);
-  delete newSchema.definitions;
-  return `#### ${title || ''} Schema\n` + '```json\n' + JSON.stringify(newSchema, null, 2) + '\n```\n'
-}
-
-function actionToMarkdown(action) {
+function actionToMarkdown(action, integVarName) {
   let md = '';
   let id = action.id.substring(action.id.indexOf('/') + 1);
   let example = getExample(action.inputSchema);
   md += '### ' + id + '\n' + action.description + '\n\n';
+  let fnName = integVarName + '.' + action.id.substring(action.id.indexOf('/') + 1);
   md += `
 \`\`\`js
-${action.id.replace('/', '.')}(${JSON.stringify(example, null, 2)}, context)
+${fnName}(${JSON.stringify(example, null, 2)}, context)
 \`\`\`
 
 `
-  if (action.inputSchema.properties && Object.keys(action.inputSchema.properties).length) {
-    md += '#### Parameters\n';
-    Object.keys(action.inputSchema.properties).forEach(prop => {
-      let propSchema = action.inputSchema.properties[prop];
-      if (propSchema.$ref) propSchema = resolveRef(propSchema.$ref, action.inputSchema);
+
+  md += '#### Parameters\n';
+  let refBase = action.inputSchema;
+  let addedParameters = false;
+  function addSchemaToParameters(schema) {
+    if (!schema) return;
+    if (schema && schema.$ref) schema = resolveRef(schema.$ref, refBase);
+    Object.keys(schema.properties || {}).forEach(prop => {
+      addedParameters = true;
+      let propSchema = schema.properties[prop];
+      if (propSchema.$ref) propSchema = resolveRef(propSchema.$ref, refBase);
       md += `* ${prop} (${propSchema.type})`;
-      if ((action.inputSchema.required || []).indexOf(prop) !== -1) md += ' **required**';
+      if ((schema.required || []).indexOf(prop) !== -1) md += ' **required**';
       if (propSchema.description) {
         let desc = propSchema.description;
         let newLine = desc.indexOf('\n');
@@ -64,7 +68,12 @@ ${action.id.replace('/', '.')}(${JSON.stringify(example, null, 2)}, context)
         md += ' - ' + desc;
       }
       md += '\n';
-    })
+    });
+    (schema.allOf || []).forEach(addSchemaToParameters);
+  }
+  addSchemaToParameters(action.inputSchema);
+  if (!addedParameters) {
+    md += '*This action has no parameters*\n';
   }
   return md + '\n';
 }
@@ -90,6 +99,8 @@ iterateIntegs((dir, name, integ) => {
 }`
   }
 
+  let integVarName = integ.id.replace(/^[^a-z]+/, '');
+
   let md = `# @datafire/${integ.id}
 
 Client library for ${(integ.title || name)}
@@ -101,9 +112,9 @@ npm install --save datafire @datafire/${integ.id}
 
 \`\`\`js
 let datafire = require('datafire');
-let ${integ.id} = require('@datafire/${integ.id}').create(${accountCode});
+let ${integVarName} = require('@datafire/${integ.id}').create(${accountCode});
 
-${sampleAction.id.replace('/', '.')}({}).then(data => {
+${sampleAction.id.replace('/', '.').replace(integ.id, integVarName)}({}).then(data => {
   console.log(data);
 })
 \`\`\`
@@ -115,7 +126,7 @@ ${integ.description}
 `
   integ.allActions.forEach(action => {
     action.inputSchema.definitions = action.inputSchema.definitions || integ.definitions
-    md += actionToMarkdown(action);
+    md += actionToMarkdown(action, integVarName);
   })
   let readmeFile = path.join(dir, 'README.md');
   fs.writeFileSync(readmeFile, md);

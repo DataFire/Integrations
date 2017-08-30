@@ -50,6 +50,8 @@ Exchange a refresh_token for an access_token
 bitbucket.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addon.delete
 
@@ -59,6 +61,8 @@ bitbucket.oauthRefresh(null, context)
 bitbucket.addon.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addon.put
 
@@ -68,6 +72,8 @@ bitbucket.addon.delete(null, context)
 bitbucket.addon.put(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addon.linkers.get
 
@@ -77,6 +83,8 @@ bitbucket.addon.put(null, context)
 bitbucket.addon.linkers.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### addon.linkers.linker_key.get
 
@@ -215,6 +223,8 @@ $ curl https://api.bitbucket.org/2.0/hook_events
 bitbucket.hook_events.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### hook_events.subject_type.get
 Returns a paginated list of all valid webhook events for the
@@ -3990,6 +4000,8 @@ Returns the currently logged in user.
 bitbucket.user.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.emails.get
 Returns all the authenticated user's email addresses. Both
@@ -4000,6 +4012,8 @@ confirmed and unconfirmed.
 bitbucket.user.emails.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user.emails.email.get
 Returns details about a specific one of the authenticated user's

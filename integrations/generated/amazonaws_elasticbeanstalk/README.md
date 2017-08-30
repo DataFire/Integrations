@@ -28,24 +28,37 @@ amazonaws_elasticbeanstalk.AbortEnvironmentUpdate({}).then(data => {
 amazonaws_elasticbeanstalk.AbortEnvironmentUpdate({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
 
 ### ApplyEnvironmentManagedAction
 
 
 
 ```js
-amazonaws_elasticbeanstalk.ApplyEnvironmentManagedAction({}, context)
+amazonaws_elasticbeanstalk.ApplyEnvironmentManagedAction({
+  "ActionId": ""
+}, context)
 ```
 
+#### Parameters
+* ActionId (string) **required**
+* EnvironmentId (string)
+* EnvironmentName (string)
 
 ### CheckDNSAvailability
 
 
 
 ```js
-amazonaws_elasticbeanstalk.CheckDNSAvailability({}, context)
+amazonaws_elasticbeanstalk.CheckDNSAvailability({
+  "CNAMEPrefix": ""
+}, context)
 ```
 
+#### Parameters
+* CNAMEPrefix (string) **required**
 
 ### ComposeEnvironments
 
@@ -55,51 +68,111 @@ amazonaws_elasticbeanstalk.CheckDNSAvailability({}, context)
 amazonaws_elasticbeanstalk.ComposeEnvironments({}, context)
 ```
 
+#### Parameters
+* ApplicationName (string)
+* GroupName (string)
+* VersionLabels (array)
 
 ### CreateApplication
 
 
 
 ```js
-amazonaws_elasticbeanstalk.CreateApplication({}, context)
+amazonaws_elasticbeanstalk.CreateApplication({
+  "ApplicationName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* Description (string)
+* ResourceLifecycleConfig (object) - The resource lifecycle configuration for an application. Defines lifecycle settings for resources that belong to the application, and the service role that Elastic Beanstalk assumes in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle settings for application versions.
 
 ### CreateApplicationVersion
 
 
 
 ```js
-amazonaws_elasticbeanstalk.CreateApplicationVersion({}, context)
+amazonaws_elasticbeanstalk.CreateApplicationVersion({
+  "ApplicationName": "",
+  "VersionLabel": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* AutoCreateApplication (boolean)
+* BuildConfiguration (object) - Settings for an AWS CodeBuild build.
+* Description (string)
+* Process (boolean)
+* SourceBuildInformation (object) - Location of the source code for an application version.
+* SourceBundle (object) - The bucket and key of an item stored in Amazon S3.
+* VersionLabel (string) **required**
 
 ### CreateConfigurationTemplate
 
 
 
 ```js
-amazonaws_elasticbeanstalk.CreateConfigurationTemplate({}, context)
+amazonaws_elasticbeanstalk.CreateConfigurationTemplate({
+  "ApplicationName": "",
+  "TemplateName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* Description (string)
+* EnvironmentId (string)
+* OptionSettings (array)
+* PlatformArn (string)
+* SolutionStackName (string)
+* SourceConfiguration (object) - A specification for an environment configuration
+* TemplateName (string) **required**
 
 ### CreateEnvironment
 
 
 
 ```js
-amazonaws_elasticbeanstalk.CreateEnvironment({}, context)
+amazonaws_elasticbeanstalk.CreateEnvironment({
+  "ApplicationName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* CNAMEPrefix (string)
+* Description (string)
+* EnvironmentName (string)
+* GroupName (string)
+* OptionSettings (array)
+* OptionsToRemove (array)
+* PlatformArn (string)
+* SolutionStackName (string)
+* Tags (array)
+* TemplateName (string)
+* Tier (object) - Describes the properties of an environment tier
+* VersionLabel (string)
 
 ### CreatePlatformVersion
 
 
 
 ```js
-amazonaws_elasticbeanstalk.CreatePlatformVersion({}, context)
+amazonaws_elasticbeanstalk.CreatePlatformVersion({
+  "PlatformName": "",
+  "PlatformVersion": "",
+  "PlatformDefinitionBundle": {}
+}, context)
 ```
 
+#### Parameters
+* EnvironmentName (string)
+* OptionSettings (array)
+* PlatformDefinitionBundle (object) **required** - The bucket and key of an item stored in Amazon S3.
+* PlatformName (string) **required**
+* PlatformVersion (string) **required**
 
 ### CreateStorageLocation
 
@@ -109,42 +182,68 @@ amazonaws_elasticbeanstalk.CreatePlatformVersion({}, context)
 amazonaws_elasticbeanstalk.CreateStorageLocation({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteApplication
 
 
 
 ```js
-amazonaws_elasticbeanstalk.DeleteApplication({}, context)
+amazonaws_elasticbeanstalk.DeleteApplication({
+  "ApplicationName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* TerminateEnvByForce (boolean)
 
 ### DeleteApplicationVersion
 
 
 
 ```js
-amazonaws_elasticbeanstalk.DeleteApplicationVersion({}, context)
+amazonaws_elasticbeanstalk.DeleteApplicationVersion({
+  "ApplicationName": "",
+  "VersionLabel": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* DeleteSourceBundle (boolean)
+* VersionLabel (string) **required**
 
 ### DeleteConfigurationTemplate
 
 
 
 ```js
-amazonaws_elasticbeanstalk.DeleteConfigurationTemplate({}, context)
+amazonaws_elasticbeanstalk.DeleteConfigurationTemplate({
+  "ApplicationName": "",
+  "TemplateName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* TemplateName (string) **required**
 
 ### DeleteEnvironmentConfiguration
 
 
 
 ```js
-amazonaws_elasticbeanstalk.DeleteEnvironmentConfiguration({}, context)
+amazonaws_elasticbeanstalk.DeleteEnvironmentConfiguration({
+  "ApplicationName": "",
+  "EnvironmentName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* EnvironmentName (string) **required**
 
 ### DeletePlatformVersion
 
@@ -154,6 +253,8 @@ amazonaws_elasticbeanstalk.DeleteEnvironmentConfiguration({}, context)
 amazonaws_elasticbeanstalk.DeletePlatformVersion({}, context)
 ```
 
+#### Parameters
+* PlatformArn (string)
 
 ### DescribeApplicationVersions
 
@@ -163,6 +264,11 @@ amazonaws_elasticbeanstalk.DeletePlatformVersion({}, context)
 amazonaws_elasticbeanstalk.DescribeApplicationVersions({}, context)
 ```
 
+#### Parameters
+* ApplicationName (string)
+* MaxRecords (integer)
+* NextToken (string)
+* VersionLabels (array)
 
 ### DescribeApplications
 
@@ -172,6 +278,8 @@ amazonaws_elasticbeanstalk.DescribeApplicationVersions({}, context)
 amazonaws_elasticbeanstalk.DescribeApplications({}, context)
 ```
 
+#### Parameters
+* ApplicationNames (array)
 
 ### DescribeConfigurationOptions
 
@@ -181,15 +289,28 @@ amazonaws_elasticbeanstalk.DescribeApplications({}, context)
 amazonaws_elasticbeanstalk.DescribeConfigurationOptions({}, context)
 ```
 
+#### Parameters
+* ApplicationName (string)
+* EnvironmentName (string)
+* Options (array)
+* PlatformArn (string)
+* SolutionStackName (string)
+* TemplateName (string)
 
 ### DescribeConfigurationSettings
 
 
 
 ```js
-amazonaws_elasticbeanstalk.DescribeConfigurationSettings({}, context)
+amazonaws_elasticbeanstalk.DescribeConfigurationSettings({
+  "ApplicationName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* EnvironmentName (string)
+* TemplateName (string)
 
 ### DescribeEnvironmentHealth
 
@@ -199,6 +320,10 @@ amazonaws_elasticbeanstalk.DescribeConfigurationSettings({}, context)
 amazonaws_elasticbeanstalk.DescribeEnvironmentHealth({}, context)
 ```
 
+#### Parameters
+* AttributeNames (array)
+* EnvironmentId (string)
+* EnvironmentName (string)
 
 ### DescribeEnvironmentManagedActionHistory
 
@@ -208,6 +333,11 @@ amazonaws_elasticbeanstalk.DescribeEnvironmentHealth({}, context)
 amazonaws_elasticbeanstalk.DescribeEnvironmentManagedActionHistory({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
+* MaxItems (integer)
+* NextToken (string)
 
 ### DescribeEnvironmentManagedActions
 
@@ -217,6 +347,10 @@ amazonaws_elasticbeanstalk.DescribeEnvironmentManagedActionHistory({}, context)
 amazonaws_elasticbeanstalk.DescribeEnvironmentManagedActions({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
+* Status (string)
 
 ### DescribeEnvironmentResources
 
@@ -226,6 +360,9 @@ amazonaws_elasticbeanstalk.DescribeEnvironmentManagedActions({}, context)
 amazonaws_elasticbeanstalk.DescribeEnvironmentResources({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
 
 ### DescribeEnvironments
 
@@ -235,6 +372,13 @@ amazonaws_elasticbeanstalk.DescribeEnvironmentResources({}, context)
 amazonaws_elasticbeanstalk.DescribeEnvironments({}, context)
 ```
 
+#### Parameters
+* ApplicationName (string)
+* EnvironmentIds (array)
+* EnvironmentNames (array)
+* IncludeDeleted (boolean)
+* IncludedDeletedBackTo (string)
+* VersionLabel (string)
 
 ### DescribeEvents
 
@@ -247,6 +391,18 @@ amazonaws_elasticbeanstalk.DescribeEvents({}, context)
 #### Parameters
 * MaxRecords (string)
 * NextToken (string)
+* ApplicationName (string)
+* EndTime (string)
+* EnvironmentId (string)
+* EnvironmentName (string)
+* MaxRecords (integer)
+* NextToken (string)
+* PlatformArn (string)
+* RequestId (string)
+* Severity (string)
+* StartTime (string)
+* TemplateName (string)
+* VersionLabel (string)
 
 ### DescribeInstancesHealth
 
@@ -256,6 +412,11 @@ amazonaws_elasticbeanstalk.DescribeEvents({}, context)
 amazonaws_elasticbeanstalk.DescribeInstancesHealth({}, context)
 ```
 
+#### Parameters
+* AttributeNames (array)
+* EnvironmentId (string)
+* EnvironmentName (string)
+* NextToken (string)
 
 ### DescribePlatformVersion
 
@@ -265,6 +426,8 @@ amazonaws_elasticbeanstalk.DescribeInstancesHealth({}, context)
 amazonaws_elasticbeanstalk.DescribePlatformVersion({}, context)
 ```
 
+#### Parameters
+* PlatformArn (string)
 
 ### ListAvailableSolutionStacks
 
@@ -274,6 +437,8 @@ amazonaws_elasticbeanstalk.DescribePlatformVersion({}, context)
 amazonaws_elasticbeanstalk.ListAvailableSolutionStacks({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListPlatformVersions
 
@@ -283,6 +448,10 @@ amazonaws_elasticbeanstalk.ListAvailableSolutionStacks({}, context)
 amazonaws_elasticbeanstalk.ListPlatformVersions({}, context)
 ```
 
+#### Parameters
+* Filters (array)
+* MaxRecords (integer)
+* NextToken (string)
 
 ### RebuildEnvironment
 
@@ -292,15 +461,24 @@ amazonaws_elasticbeanstalk.ListPlatformVersions({}, context)
 amazonaws_elasticbeanstalk.RebuildEnvironment({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
 
 ### RequestEnvironmentInfo
 
 
 
 ```js
-amazonaws_elasticbeanstalk.RequestEnvironmentInfo({}, context)
+amazonaws_elasticbeanstalk.RequestEnvironmentInfo({
+  "InfoType": ""
+}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
+* InfoType (string) **required**
 
 ### RestartAppServer
 
@@ -310,15 +488,24 @@ amazonaws_elasticbeanstalk.RequestEnvironmentInfo({}, context)
 amazonaws_elasticbeanstalk.RestartAppServer({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
 
 ### RetrieveEnvironmentInfo
 
 
 
 ```js
-amazonaws_elasticbeanstalk.RetrieveEnvironmentInfo({}, context)
+amazonaws_elasticbeanstalk.RetrieveEnvironmentInfo({
+  "InfoType": ""
+}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
+* InfoType (string) **required**
 
 ### SwapEnvironmentCNAMEs
 
@@ -328,6 +515,11 @@ amazonaws_elasticbeanstalk.RetrieveEnvironmentInfo({}, context)
 amazonaws_elasticbeanstalk.SwapEnvironmentCNAMEs({}, context)
 ```
 
+#### Parameters
+* DestinationEnvironmentId (string)
+* DestinationEnvironmentName (string)
+* SourceEnvironmentId (string)
+* SourceEnvironmentName (string)
 
 ### TerminateEnvironment
 
@@ -337,42 +529,74 @@ amazonaws_elasticbeanstalk.SwapEnvironmentCNAMEs({}, context)
 amazonaws_elasticbeanstalk.TerminateEnvironment({}, context)
 ```
 
+#### Parameters
+* EnvironmentId (string)
+* EnvironmentName (string)
+* ForceTerminate (boolean)
+* TerminateResources (boolean)
 
 ### UpdateApplication
 
 
 
 ```js
-amazonaws_elasticbeanstalk.UpdateApplication({}, context)
+amazonaws_elasticbeanstalk.UpdateApplication({
+  "ApplicationName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* Description (string)
 
 ### UpdateApplicationResourceLifecycle
 
 
 
 ```js
-amazonaws_elasticbeanstalk.UpdateApplicationResourceLifecycle({}, context)
+amazonaws_elasticbeanstalk.UpdateApplicationResourceLifecycle({
+  "ApplicationName": "",
+  "ResourceLifecycleConfig": {}
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* ResourceLifecycleConfig (object) **required** - The resource lifecycle configuration for an application. Defines lifecycle settings for resources that belong to the application, and the service role that Elastic Beanstalk assumes in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle settings for application versions.
 
 ### UpdateApplicationVersion
 
 
 
 ```js
-amazonaws_elasticbeanstalk.UpdateApplicationVersion({}, context)
+amazonaws_elasticbeanstalk.UpdateApplicationVersion({
+  "ApplicationName": "",
+  "VersionLabel": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* Description (string)
+* VersionLabel (string) **required**
 
 ### UpdateConfigurationTemplate
 
 
 
 ```js
-amazonaws_elasticbeanstalk.UpdateConfigurationTemplate({}, context)
+amazonaws_elasticbeanstalk.UpdateConfigurationTemplate({
+  "ApplicationName": "",
+  "TemplateName": ""
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* Description (string)
+* OptionSettings (array)
+* OptionsToRemove (array)
+* TemplateName (string) **required**
 
 ### UpdateEnvironment
 
@@ -382,13 +606,34 @@ amazonaws_elasticbeanstalk.UpdateConfigurationTemplate({}, context)
 amazonaws_elasticbeanstalk.UpdateEnvironment({}, context)
 ```
 
+#### Parameters
+* ApplicationName (string)
+* Description (string)
+* EnvironmentId (string)
+* EnvironmentName (string)
+* GroupName (string)
+* OptionSettings (array)
+* OptionsToRemove (array)
+* PlatformArn (string)
+* SolutionStackName (string)
+* TemplateName (string)
+* Tier (object) - Describes the properties of an environment tier
+* VersionLabel (string)
 
 ### ValidateConfigurationSettings
 
 
 
 ```js
-amazonaws_elasticbeanstalk.ValidateConfigurationSettings({}, context)
+amazonaws_elasticbeanstalk.ValidateConfigurationSettings({
+  "ApplicationName": "",
+  "OptionSettings": []
+}, context)
 ```
 
+#### Parameters
+* ApplicationName (string) **required**
+* EnvironmentName (string)
+* OptionSettings (array) **required**
+* TemplateName (string)
 

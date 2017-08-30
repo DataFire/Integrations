@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 lyft.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetCost
 Estimate the cost of taking a Lyft between two points.
@@ -111,6 +113,8 @@ The v1 of this endpoint returns the user's ID, v2 will return more general info 
 lyft.GetProfile(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetRides
 Get a list of past & current rides for this passenger.

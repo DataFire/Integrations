@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_adexchangebuyer2.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### accounts.clients.list
 Lists all the clients for the current sponsor buyer.

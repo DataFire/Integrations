@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_people.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### people.getBatchGet
 Provides information about a list of specific people by specifying a list

@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_replicapool.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### instanceGroupManagers.list
 Retrieves the list of Instance Group Manager resources contained within the specified zone.

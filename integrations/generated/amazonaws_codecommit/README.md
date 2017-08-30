@@ -25,45 +25,72 @@ amazonaws_codecommit.BatchGetRepositories({}).then(data => {
 
 
 ```js
-amazonaws_codecommit.BatchGetRepositories({}, context)
+amazonaws_codecommit.BatchGetRepositories({
+  "repositoryNames": []
+}, context)
 ```
 
+#### Parameters
+* repositoryNames (array) **required**
 
 ### CreateBranch
 
 
 
 ```js
-amazonaws_codecommit.CreateBranch({}, context)
+amazonaws_codecommit.CreateBranch({
+  "repositoryName": "",
+  "branchName": "",
+  "commitId": ""
+}, context)
 ```
 
+#### Parameters
+* branchName (string) **required**
+* commitId (string) **required**
+* repositoryName (string) **required**
 
 ### CreateRepository
 
 
 
 ```js
-amazonaws_codecommit.CreateRepository({}, context)
+amazonaws_codecommit.CreateRepository({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* repositoryDescription (string)
+* repositoryName (string) **required**
 
 ### DeleteRepository
 
 
 
 ```js
-amazonaws_codecommit.DeleteRepository({}, context)
+amazonaws_codecommit.DeleteRepository({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* repositoryName (string) **required**
 
 ### GetBlob
 
 
 
 ```js
-amazonaws_codecommit.GetBlob({}, context)
+amazonaws_codecommit.GetBlob({
+  "repositoryName": "",
+  "blobId": ""
+}, context)
 ```
 
+#### Parameters
+* blobId (string) **required**
+* repositoryName (string) **required**
 
 ### GetBranch
 
@@ -73,56 +100,87 @@ amazonaws_codecommit.GetBlob({}, context)
 amazonaws_codecommit.GetBranch({}, context)
 ```
 
+#### Parameters
+* branchName (string)
+* repositoryName (string)
 
 ### GetCommit
 
 
 
 ```js
-amazonaws_codecommit.GetCommit({}, context)
+amazonaws_codecommit.GetCommit({
+  "repositoryName": "",
+  "commitId": ""
+}, context)
 ```
 
+#### Parameters
+* commitId (string) **required**
+* repositoryName (string) **required**
 
 ### GetDifferences
 
 
 
 ```js
-amazonaws_codecommit.GetDifferences({}, context)
+amazonaws_codecommit.GetDifferences({
+  "repositoryName": "",
+  "afterCommitSpecifier": ""
+}, context)
 ```
 
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* afterCommitSpecifier (string) **required**
+* afterPath (string)
+* beforeCommitSpecifier (string)
+* beforePath (string)
+* repositoryName (string) **required**
 
 ### GetRepository
 
 
 
 ```js
-amazonaws_codecommit.GetRepository({}, context)
+amazonaws_codecommit.GetRepository({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* repositoryName (string) **required**
 
 ### GetRepositoryTriggers
 
 
 
 ```js
-amazonaws_codecommit.GetRepositoryTriggers({}, context)
+amazonaws_codecommit.GetRepositoryTriggers({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* repositoryName (string) **required**
 
 ### ListBranches
 
 
 
 ```js
-amazonaws_codecommit.ListBranches({}, context)
+amazonaws_codecommit.ListBranches({
+  "repositoryName": ""
+}, context)
 ```
 
 #### Parameters
 * nextToken (string)
+* nextToken (string)
+* repositoryName (string) **required**
 
 ### ListRepositories
 
@@ -134,49 +192,81 @@ amazonaws_codecommit.ListRepositories({}, context)
 
 #### Parameters
 * nextToken (string)
+* nextToken (string)
+* order (string)
+* sortBy (string)
 
 ### PutRepositoryTriggers
 
 
 
 ```js
-amazonaws_codecommit.PutRepositoryTriggers({}, context)
+amazonaws_codecommit.PutRepositoryTriggers({
+  "repositoryName": "",
+  "triggers": []
+}, context)
 ```
 
+#### Parameters
+* repositoryName (string) **required**
+* triggers (array) **required**
 
 ### TestRepositoryTriggers
 
 
 
 ```js
-amazonaws_codecommit.TestRepositoryTriggers({}, context)
+amazonaws_codecommit.TestRepositoryTriggers({
+  "repositoryName": "",
+  "triggers": []
+}, context)
 ```
 
+#### Parameters
+* repositoryName (string) **required**
+* triggers (array) **required**
 
 ### UpdateDefaultBranch
 
 
 
 ```js
-amazonaws_codecommit.UpdateDefaultBranch({}, context)
+amazonaws_codecommit.UpdateDefaultBranch({
+  "repositoryName": "",
+  "defaultBranchName": ""
+}, context)
 ```
 
+#### Parameters
+* defaultBranchName (string) **required**
+* repositoryName (string) **required**
 
 ### UpdateRepositoryDescription
 
 
 
 ```js
-amazonaws_codecommit.UpdateRepositoryDescription({}, context)
+amazonaws_codecommit.UpdateRepositoryDescription({
+  "repositoryName": ""
+}, context)
 ```
 
+#### Parameters
+* repositoryDescription (string)
+* repositoryName (string) **required**
 
 ### UpdateRepositoryName
 
 
 
 ```js
-amazonaws_codecommit.UpdateRepositoryName({}, context)
+amazonaws_codecommit.UpdateRepositoryName({
+  "oldName": "",
+  "newName": ""
+}, context)
 ```
 
+#### Parameters
+* newName (string) **required**
+* oldName (string) **required**
 

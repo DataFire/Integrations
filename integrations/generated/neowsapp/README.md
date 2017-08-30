@@ -87,4 +87,6 @@ retrieveCurrentNeoStatistics
 neowsapp.retrieveCurrentNeoStatistics(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

@@ -147,4 +147,6 @@ Get forecast and realtime information for known points<br/>None
 oceandrivers.getWebCams(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

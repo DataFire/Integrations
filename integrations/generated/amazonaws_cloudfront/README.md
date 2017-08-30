@@ -81,21 +81,74 @@ amazonaws_cloudfront.GetDistribution({
 
 ```js
 amazonaws_cloudfront.UpdateDistribution({
-  "Id": ""
+  "Id": "",
+  "DistributionConfig": {
+    "CallerReference": "",
+    "Origins": {
+      "Quantity": 0
+    },
+    "DefaultCacheBehavior": {
+      "TargetOriginId": "",
+      "ForwardedValues": {
+        "QueryString": true,
+        "Cookies": {
+          "Forward": ""
+        }
+      },
+      "TrustedSigners": {
+        "Enabled": true,
+        "Quantity": 0
+      },
+      "ViewerProtocolPolicy": "",
+      "MinTTL": 0
+    },
+    "Comment": "",
+    "Enabled": true
+  }
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* DistributionConfig (object) **required** - A distribution configuration.
 
 ### CreateDistributionWithTags
 
 
 
 ```js
-amazonaws_cloudfront.CreateDistributionWithTags({}, context)
+amazonaws_cloudfront.CreateDistributionWithTags({
+  "DistributionConfigWithTags": {
+    "DistributionConfig": {
+      "CallerReference": "",
+      "Origins": {
+        "Quantity": 0
+      },
+      "DefaultCacheBehavior": {
+        "TargetOriginId": "",
+        "ForwardedValues": {
+          "QueryString": true,
+          "Cookies": {
+            "Forward": ""
+          }
+        },
+        "TrustedSigners": {
+          "Enabled": true,
+          "Quantity": 0
+        },
+        "ViewerProtocolPolicy": "",
+        "MinTTL": 0
+      },
+      "Comment": "",
+      "Enabled": true
+    },
+    "Tags": {}
+  }
+}, context)
 ```
 
+#### Parameters
+* DistributionConfigWithTags (object) **required** - A distribution Configuration and a list of tags to be associated with the distribution.
 
 ### ListDistributionsByWebACLId
 
@@ -141,12 +194,17 @@ amazonaws_cloudfront.GetCloudFrontOriginAccessIdentity({
 
 ```js
 amazonaws_cloudfront.UpdateCloudFrontOriginAccessIdentity({
-  "Id": ""
+  "Id": "",
+  "CloudFrontOriginAccessIdentityConfig": {
+    "CallerReference": "",
+    "Comment": ""
+  }
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* CloudFrontOriginAccessIdentityConfig (object) **required** - Origin access identity configuration. Send a <code>GET</code> request to the <code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code> resource. 
 
 ### ListStreamingDistributions
 
@@ -179,21 +237,54 @@ amazonaws_cloudfront.GetStreamingDistribution({
 
 ```js
 amazonaws_cloudfront.UpdateStreamingDistribution({
-  "Id": ""
+  "Id": "",
+  "StreamingDistributionConfig": {
+    "CallerReference": "",
+    "S3Origin": {
+      "DomainName": "",
+      "OriginAccessIdentity": ""
+    },
+    "Comment": "",
+    "TrustedSigners": {
+      "Enabled": true,
+      "Quantity": 0
+    },
+    "Enabled": true
+  }
 }, context)
 ```
 
 #### Parameters
 * Id (string) **required**
+* StreamingDistributionConfig (object) **required** - The RTMP distribution's configuration information.
 
 ### CreateStreamingDistributionWithTags
 
 
 
 ```js
-amazonaws_cloudfront.CreateStreamingDistributionWithTags({}, context)
+amazonaws_cloudfront.CreateStreamingDistributionWithTags({
+  "StreamingDistributionConfigWithTags": {
+    "StreamingDistributionConfig": {
+      "CallerReference": "",
+      "S3Origin": {
+        "DomainName": "",
+        "OriginAccessIdentity": ""
+      },
+      "Comment": "",
+      "TrustedSigners": {
+        "Enabled": true,
+        "Quantity": 0
+      },
+      "Enabled": true
+    },
+    "Tags": {}
+  }
+}, context)
 ```
 
+#### Parameters
+* StreamingDistributionConfigWithTags (object) **required** - A streaming distribution Configuration and a list of tags to be associated with the streaming distribution.
 
 ### ListTagsForResource
 
@@ -203,22 +294,32 @@ amazonaws_cloudfront.CreateStreamingDistributionWithTags({}, context)
 amazonaws_cloudfront.ListTagsForResource({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### TagResource
 
 
 
 ```js
-amazonaws_cloudfront.TagResource({}, context)
+amazonaws_cloudfront.TagResource({
+  "Tags": {}
+}, context)
 ```
 
+#### Parameters
+* Tags (object) **required** -  A complex type that contains zero or more <code>Tag</code> elements.
 
 ### UntagResource
 
 
 
 ```js
-amazonaws_cloudfront.UntagResource({}, context)
+amazonaws_cloudfront.UntagResource({
+  "TagKeys": {}
+}, context)
 ```
 
+#### Parameters
+* TagKeys (object) **required** -  A complex type that contains zero or more <code>Tag</code> elements.
 

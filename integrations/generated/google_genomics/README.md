@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_genomics.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### annotations.create
 Creates a new annotation. Caller must have WRITE permission

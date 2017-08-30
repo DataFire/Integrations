@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_cloudkms.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get
 Returns metadata for a given CryptoKeyVersion.

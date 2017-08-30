@@ -379,6 +379,8 @@ This endpoint retrieves a list of all microservices that are used in the IBM Con
 bluemix_containers.containers.version.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### containers.id.status.get
 This endpoint returns the current state of a container. This state can either be a transient state, such as BUILDING and NETWORKING, or a non-transient state, such as RUNNING, SHUTDOWN, CRASHED, or SUSPENDED.

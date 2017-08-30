@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_adexperiencereport.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### violatingSites.list
 Lists sites with Ad Experience Report statuses of "Failing" or "Warning".

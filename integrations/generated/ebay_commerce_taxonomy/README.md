@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 ebay_commerce_taxonomy.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### getCategoryTree
 This call retrieves the complete category tree that is identified by the category_tree_id parameter. The value of category_tree_id was returned by the Get a Default Category Tree ID call in the categoryTreeId field. The response contains details of all nodes of the specified eBay category tree, as well as the eBay marketplaces that use this category tree. Note: This call can return a very large payload, so you are strongly advised to submit the request with the following HTTP header: &nbsp;&nbsp;Accept-Encoding: application/gzip With this header (in addition to the required headers described under HTTP Request Headers), the call returns the response with gzip compression.

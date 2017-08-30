@@ -48,6 +48,8 @@ Exchange a refresh_token for an access_token
 bungie.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CommunityContent.GetCommunityContent
 Returns community content.
@@ -162,6 +164,8 @@ Activate a Talent Node.  Chill out, everyone: we haven't decided yet whether thi
 bungie.Destiny2.ActivateTalentNode(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.EquipItem
 Equip an item.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.
@@ -171,6 +175,8 @@ Equip an item.  You must have a valid Destiny Account, and either be in a social
 bungie.Destiny2.EquipItem(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.EquipItems
 Equip a list of items by itemInstanceIds.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.  Any items not found on your character will be ignored.
@@ -180,6 +186,8 @@ Equip a list of items by itemInstanceIds.  You must have a valid Destiny Account
 bungie.Destiny2.EquipItems(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.InsertSocketPlug
 Insert a plug into a socketed item.  I know how it sounds, but I assure you it's much more G-rated than you might be guessing.  We haven't decided yet whether this will be able to insert plugs that have side effects, but if we do it will require special scope permission for an application attempting to do so.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.  PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
@@ -189,6 +197,8 @@ Insert a plug into a socketed item.  I know how it sounds, but I assure you it's
 bungie.Destiny2.InsertSocketPlug(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.SetItemLockState
 Set the Lock State for an instanced item.  You must have a valid Destiny Account.
@@ -198,6 +208,8 @@ Set the Lock State for an instanced item.  You must have a valid Destiny Account
 bungie.Destiny2.SetItemLockState(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.TransferItem
 Transfer an item to/from your vault.  You must have a valid Destiny account.  You must also pass BOTH a reference AND an instance ID if it's an instanced item.  itshappening.gif
@@ -207,6 +219,8 @@ Transfer an item to/from your vault.  You must have a valid Destiny account.  Yo
 bungie.Destiny2.TransferItem(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.SearchDestinyEntities
 Gets a page list of Destiny items.
@@ -245,6 +259,8 @@ Returns the current version of the manifest as a json object.
 bungie.Destiny2.GetDestinyManifest(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.GetPublicMilestones
 Gets public information about currently available Milestones.
@@ -254,6 +270,8 @@ Gets public information about currently available Milestones.
 bungie.Destiny2.GetPublicMilestones(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.GetPublicMilestoneContent
 Gets custom localized content for the milestone of the given hash, if it exists.
@@ -305,6 +323,8 @@ Gets historical stats definitions.
 bungie.Destiny2.GetHistoricalStatsDefinition(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Destiny2.GetClanLeaderboards
 Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
@@ -777,6 +797,8 @@ Allows the caller to get a list of to 25 recruitment thread summary information 
 bungie.Forum.GetRecruitmentThreadSummaries(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Trending.GetTrendingCategories
 Returns trending items for Bungie.net, collapsed into the first page of items per category.  For pagination within a category, call GetTrendingCategory.
@@ -786,6 +808,8 @@ Returns trending items for Bungie.net, collapsed into the first page of items pe
 bungie.Trending.GetTrendingCategories(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Trending.GetTrendingCategory
 Returns paginated lists of trending items for a category.
@@ -825,6 +849,8 @@ Returns a list of all available user themes.
 bungie.User.GetAvailableThemes(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### User.GetBungieNetUserById
 Loads a bungienet user by membership id.
@@ -862,6 +888,8 @@ Returns a list of accounts associated with signed in user. This is useful for OA
 bungie.User.GetMembershipDataForCurrentUser(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### User.GetUserAliases
 Loads aliases of a bungienet membership id.

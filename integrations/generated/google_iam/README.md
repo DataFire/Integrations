@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_iam.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### roles.queryGrantableRoles
 Queries roles that can be granted on a particular resource.

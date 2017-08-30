@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_deploymentmanager.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### deployments.list
 Lists all deployments for a given project.

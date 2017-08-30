@@ -28,6 +28,8 @@ Return all layers
 waag.layers.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### layers.post
 Create new layer
@@ -37,6 +39,8 @@ Create new layer
 waag.layers.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### layers.layer.delete
 Delete a layer
@@ -346,6 +350,8 @@ Query context broker for contextElements
 waag.ngsi10.queryContext.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ngsi10.subscribeContext.post
 Create a new context subscription
@@ -355,6 +361,8 @@ Create a new context subscription
 waag.ngsi10.subscribeContext.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ngsi10.unsubscribeContext.post
 Delete a context subscription
@@ -364,6 +372,8 @@ Delete a context subscription
 waag.ngsi10.unsubscribeContext.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ngsi10.updateContext.post
 Add or update NGSI contextElements
@@ -373,6 +383,8 @@ Add or update NGSI contextElements
 waag.ngsi10.updateContext.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ngsi10.updateContextSubscription.post
 Update/edit a context subscription
@@ -382,6 +394,8 @@ Update/edit a context subscription
 waag.ngsi10.updateContextSubscription.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### objects.get
 Return all objects
@@ -391,6 +405,8 @@ Return all objects
 waag.objects.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### objects.cdk_id.delete
 Delete a single object
@@ -527,6 +543,8 @@ Return all owners
 waag.owners.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### owners.post
 Create new owner
@@ -536,6 +554,8 @@ Create new owner
 waag.owners.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### owners.owner.delete
 Delete owner - and all layers and data belonging to this owner
@@ -597,6 +617,8 @@ Close session
 waag.session.delete(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### session.get
 Return a session key

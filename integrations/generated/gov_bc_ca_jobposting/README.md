@@ -31,6 +31,8 @@ id and caption.
 gov_bc_ca_jobposting.jobTypes.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### jobs.post
 The job feed endpoint returns an array of job records that satisfy the supplied criteria.
@@ -59,6 +61,8 @@ id and caption.
 gov_bc_ca_jobposting.majorProjects.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### regions.get
 The Regions endpoint returns details of all of the
@@ -71,4 +75,6 @@ id and caption.
 gov_bc_ca_jobposting.regions.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

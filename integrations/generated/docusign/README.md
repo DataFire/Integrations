@@ -33,6 +33,8 @@ You do not need an integrator key to view the REST API versions and resources.
 docusign.ServiceInformation_GetServiceInformation(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ServiceInformation_GetResourceInformation
 Retrieves the base resources available for the DocuSign REST APIs.
@@ -50,6 +52,8 @@ Example: https://demo.docusign.net/restapi/help lists the REST API operations on
 docusign.ServiceInformation_GetResourceInformation(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Accounts_PostAccounts
 Creates new DocuSign accounts.
@@ -279,6 +283,8 @@ Retrieves the account provisioning information for the account.
 docusign.Accounts_GetProvisioning(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Accounts_DeleteAccount
 This closes the specified account. You must be an account admin to close your account. Once closed, an account must be reopened by DocuSign.
@@ -6149,6 +6155,8 @@ Retrieves a list of the billing plans associated with a distributor.
 docusign.BillingPlans_GetBillingPlans(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### BillingPlans_GetBillingPlan
 Retrieves the billing plan details for the specified billing plan ID.
@@ -6171,6 +6179,8 @@ Get membership account password rules
 docusign.PasswordRules_GetPasswordRules(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### APIRequestLog_DeleteRequestLogs
 Deletes the request log files.
@@ -6180,6 +6190,8 @@ Deletes the request log files.
 docusign.APIRequestLog_DeleteRequestLogs(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### APIRequestLog_GetRequestLogs
 Retrieves a list of log entries as a JSON or xml object or as a zip file containing the entries.
@@ -6226,6 +6238,8 @@ The response includes the current API request logging setting for the user, alon
 docusign.APIRequestLog_GetRequestLogSettings(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### APIRequestLog_PutRequestLogSettings
 Enables or disables API request logging for troubleshooting.
@@ -6309,6 +6323,8 @@ Revokes an OAuth2 authorization server token. After the revocation is complete, 
 docusign.OAuth2_PostRevoke(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### OAuth2_PostToken
 **Deprecated**
@@ -6321,4 +6337,6 @@ Creates an OAuth2 authorization server token endpoint.
 docusign.OAuth2_PostToken(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

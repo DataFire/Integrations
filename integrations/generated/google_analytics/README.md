@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_analytics.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### data.ga.get
 Returns Analytics data for a view (profile).

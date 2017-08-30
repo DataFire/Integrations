@@ -25,135 +25,222 @@ amazonaws_lightsail.AllocateStaticIp({}).then(data => {
 
 
 ```js
-amazonaws_lightsail.AllocateStaticIp({}, context)
+amazonaws_lightsail.AllocateStaticIp({
+  "staticIpName": ""
+}, context)
 ```
 
+#### Parameters
+* staticIpName (string) **required**
 
 ### AttachStaticIp
 
 
 
 ```js
-amazonaws_lightsail.AttachStaticIp({}, context)
+amazonaws_lightsail.AttachStaticIp({
+  "staticIpName": "",
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
+* staticIpName (string) **required**
 
 ### CloseInstancePublicPorts
 
 
 
 ```js
-amazonaws_lightsail.CloseInstancePublicPorts({}, context)
+amazonaws_lightsail.CloseInstancePublicPorts({
+  "portInfo": {},
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
+* portInfo (object) **required** - Describes information about the ports on your virtual private server (or <i>instance</i>).
 
 ### CreateDomain
 
 
 
 ```js
-amazonaws_lightsail.CreateDomain({}, context)
+amazonaws_lightsail.CreateDomain({
+  "domainName": ""
+}, context)
 ```
 
+#### Parameters
+* domainName (string) **required**
 
 ### CreateDomainEntry
 
 
 
 ```js
-amazonaws_lightsail.CreateDomainEntry({}, context)
+amazonaws_lightsail.CreateDomainEntry({
+  "domainName": "",
+  "domainEntry": {}
+}, context)
 ```
 
+#### Parameters
+* domainEntry (object) **required** - Describes a domain recordset entry.
+* domainName (string) **required**
 
 ### CreateInstanceSnapshot
 
 
 
 ```js
-amazonaws_lightsail.CreateInstanceSnapshot({}, context)
+amazonaws_lightsail.CreateInstanceSnapshot({
+  "instanceSnapshotName": "",
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
+* instanceSnapshotName (string) **required**
 
 ### CreateInstances
 
 
 
 ```js
-amazonaws_lightsail.CreateInstances({}, context)
+amazonaws_lightsail.CreateInstances({
+  "instanceNames": [],
+  "availabilityZone": "",
+  "blueprintId": "",
+  "bundleId": ""
+}, context)
 ```
 
+#### Parameters
+* availabilityZone (string) **required**
+* blueprintId (string) **required**
+* bundleId (string) **required**
+* customImageName (string)
+* instanceNames (array) **required**
+* keyPairName (string)
+* userData (string)
 
 ### CreateInstancesFromSnapshot
 
 
 
 ```js
-amazonaws_lightsail.CreateInstancesFromSnapshot({}, context)
+amazonaws_lightsail.CreateInstancesFromSnapshot({
+  "instanceNames": [],
+  "availabilityZone": "",
+  "instanceSnapshotName": "",
+  "bundleId": ""
+}, context)
 ```
 
+#### Parameters
+* availabilityZone (string) **required**
+* bundleId (string) **required**
+* instanceNames (array) **required**
+* instanceSnapshotName (string) **required**
+* keyPairName (string)
+* userData (string)
 
 ### CreateKeyPair
 
 
 
 ```js
-amazonaws_lightsail.CreateKeyPair({}, context)
+amazonaws_lightsail.CreateKeyPair({
+  "keyPairName": ""
+}, context)
 ```
 
+#### Parameters
+* keyPairName (string) **required**
 
 ### DeleteDomain
 
 
 
 ```js
-amazonaws_lightsail.DeleteDomain({}, context)
+amazonaws_lightsail.DeleteDomain({
+  "domainName": ""
+}, context)
 ```
 
+#### Parameters
+* domainName (string) **required**
 
 ### DeleteDomainEntry
 
 
 
 ```js
-amazonaws_lightsail.DeleteDomainEntry({}, context)
+amazonaws_lightsail.DeleteDomainEntry({
+  "domainName": "",
+  "domainEntry": {}
+}, context)
 ```
 
+#### Parameters
+* domainEntry (object) **required** - Describes a domain recordset entry.
+* domainName (string) **required**
 
 ### DeleteInstance
 
 
 
 ```js
-amazonaws_lightsail.DeleteInstance({}, context)
+amazonaws_lightsail.DeleteInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### DeleteInstanceSnapshot
 
 
 
 ```js
-amazonaws_lightsail.DeleteInstanceSnapshot({}, context)
+amazonaws_lightsail.DeleteInstanceSnapshot({
+  "instanceSnapshotName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceSnapshotName (string) **required**
 
 ### DeleteKeyPair
 
 
 
 ```js
-amazonaws_lightsail.DeleteKeyPair({}, context)
+amazonaws_lightsail.DeleteKeyPair({
+  "keyPairName": ""
+}, context)
 ```
 
+#### Parameters
+* keyPairName (string) **required**
 
 ### DetachStaticIp
 
 
 
 ```js
-amazonaws_lightsail.DetachStaticIp({}, context)
+amazonaws_lightsail.DetachStaticIp({
+  "staticIpName": ""
+}, context)
 ```
 
+#### Parameters
+* staticIpName (string) **required**
 
 ### DownloadDefaultKeyPair
 
@@ -163,6 +250,8 @@ amazonaws_lightsail.DetachStaticIp({}, context)
 amazonaws_lightsail.DownloadDefaultKeyPair({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetActiveNames
 
@@ -172,6 +261,8 @@ amazonaws_lightsail.DownloadDefaultKeyPair({}, context)
 amazonaws_lightsail.GetActiveNames({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### GetBlueprints
 
@@ -181,6 +272,9 @@ amazonaws_lightsail.GetActiveNames({}, context)
 amazonaws_lightsail.GetBlueprints({}, context)
 ```
 
+#### Parameters
+* includeInactive (boolean)
+* pageToken (string)
 
 ### GetBundles
 
@@ -190,15 +284,22 @@ amazonaws_lightsail.GetBlueprints({}, context)
 amazonaws_lightsail.GetBundles({}, context)
 ```
 
+#### Parameters
+* includeInactive (boolean)
+* pageToken (string)
 
 ### GetDomain
 
 
 
 ```js
-amazonaws_lightsail.GetDomain({}, context)
+amazonaws_lightsail.GetDomain({
+  "domainName": ""
+}, context)
 ```
 
+#### Parameters
+* domainName (string) **required**
 
 ### GetDomains
 
@@ -208,51 +309,86 @@ amazonaws_lightsail.GetDomain({}, context)
 amazonaws_lightsail.GetDomains({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### GetInstance
 
 
 
 ```js
-amazonaws_lightsail.GetInstance({}, context)
+amazonaws_lightsail.GetInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### GetInstanceAccessDetails
 
 
 
 ```js
-amazonaws_lightsail.GetInstanceAccessDetails({}, context)
+amazonaws_lightsail.GetInstanceAccessDetails({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
+* protocol (string)
 
 ### GetInstanceMetricData
 
 
 
 ```js
-amazonaws_lightsail.GetInstanceMetricData({}, context)
+amazonaws_lightsail.GetInstanceMetricData({
+  "instanceName": "",
+  "metricName": "",
+  "period": 0,
+  "startTime": "",
+  "endTime": "",
+  "unit": "",
+  "statistics": []
+}, context)
 ```
 
+#### Parameters
+* endTime (string) **required**
+* instanceName (string) **required**
+* metricName (string) **required**
+* period (integer) **required**
+* startTime (string) **required**
+* statistics (array) **required**
+* unit (string) **required**
 
 ### GetInstancePortStates
 
 
 
 ```js
-amazonaws_lightsail.GetInstancePortStates({}, context)
+amazonaws_lightsail.GetInstancePortStates({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### GetInstanceSnapshot
 
 
 
 ```js
-amazonaws_lightsail.GetInstanceSnapshot({}, context)
+amazonaws_lightsail.GetInstanceSnapshot({
+  "instanceSnapshotName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceSnapshotName (string) **required**
 
 ### GetInstanceSnapshots
 
@@ -262,15 +398,21 @@ amazonaws_lightsail.GetInstanceSnapshot({}, context)
 amazonaws_lightsail.GetInstanceSnapshots({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### GetInstanceState
 
 
 
 ```js
-amazonaws_lightsail.GetInstanceState({}, context)
+amazonaws_lightsail.GetInstanceState({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### GetInstances
 
@@ -280,15 +422,21 @@ amazonaws_lightsail.GetInstanceState({}, context)
 amazonaws_lightsail.GetInstances({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### GetKeyPair
 
 
 
 ```js
-amazonaws_lightsail.GetKeyPair({}, context)
+amazonaws_lightsail.GetKeyPair({
+  "keyPairName": ""
+}, context)
 ```
 
+#### Parameters
+* keyPairName (string) **required**
 
 ### GetKeyPairs
 
@@ -298,15 +446,21 @@ amazonaws_lightsail.GetKeyPair({}, context)
 amazonaws_lightsail.GetKeyPairs({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### GetOperation
 
 
 
 ```js
-amazonaws_lightsail.GetOperation({}, context)
+amazonaws_lightsail.GetOperation({
+  "operationId": ""
+}, context)
 ```
 
+#### Parameters
+* operationId (string) **required**
 
 ### GetOperations
 
@@ -316,15 +470,22 @@ amazonaws_lightsail.GetOperation({}, context)
 amazonaws_lightsail.GetOperations({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### GetOperationsForResource
 
 
 
 ```js
-amazonaws_lightsail.GetOperationsForResource({}, context)
+amazonaws_lightsail.GetOperationsForResource({
+  "resourceName": ""
+}, context)
 ```
 
+#### Parameters
+* pageToken (string)
+* resourceName (string) **required**
 
 ### GetRegions
 
@@ -334,15 +495,21 @@ amazonaws_lightsail.GetOperationsForResource({}, context)
 amazonaws_lightsail.GetRegions({}, context)
 ```
 
+#### Parameters
+* includeAvailabilityZones (boolean)
 
 ### GetStaticIp
 
 
 
 ```js
-amazonaws_lightsail.GetStaticIp({}, context)
+amazonaws_lightsail.GetStaticIp({
+  "staticIpName": ""
+}, context)
 ```
 
+#### Parameters
+* staticIpName (string) **required**
 
 ### GetStaticIps
 
@@ -352,15 +519,23 @@ amazonaws_lightsail.GetStaticIp({}, context)
 amazonaws_lightsail.GetStaticIps({}, context)
 ```
 
+#### Parameters
+* pageToken (string)
 
 ### ImportKeyPair
 
 
 
 ```js
-amazonaws_lightsail.ImportKeyPair({}, context)
+amazonaws_lightsail.ImportKeyPair({
+  "keyPairName": "",
+  "publicKeyBase64": ""
+}, context)
 ```
 
+#### Parameters
+* keyPairName (string) **required**
+* publicKeyBase64 (string) **required**
 
 ### IsVpcPeered
 
@@ -370,15 +545,23 @@ amazonaws_lightsail.ImportKeyPair({}, context)
 amazonaws_lightsail.IsVpcPeered({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### OpenInstancePublicPorts
 
 
 
 ```js
-amazonaws_lightsail.OpenInstancePublicPorts({}, context)
+amazonaws_lightsail.OpenInstancePublicPorts({
+  "portInfo": {},
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
+* portInfo (object) **required** - Describes information about the ports on your virtual private server (or <i>instance</i>).
 
 ### PeerVpc
 
@@ -388,42 +571,60 @@ amazonaws_lightsail.OpenInstancePublicPorts({}, context)
 amazonaws_lightsail.PeerVpc({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### RebootInstance
 
 
 
 ```js
-amazonaws_lightsail.RebootInstance({}, context)
+amazonaws_lightsail.RebootInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### ReleaseStaticIp
 
 
 
 ```js
-amazonaws_lightsail.ReleaseStaticIp({}, context)
+amazonaws_lightsail.ReleaseStaticIp({
+  "staticIpName": ""
+}, context)
 ```
 
+#### Parameters
+* staticIpName (string) **required**
 
 ### StartInstance
 
 
 
 ```js
-amazonaws_lightsail.StartInstance({}, context)
+amazonaws_lightsail.StartInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### StopInstance
 
 
 
 ```js
-amazonaws_lightsail.StopInstance({}, context)
+amazonaws_lightsail.StopInstance({
+  "instanceName": ""
+}, context)
 ```
 
+#### Parameters
+* instanceName (string) **required**
 
 ### UnpeerVpc
 
@@ -433,13 +634,21 @@ amazonaws_lightsail.StopInstance({}, context)
 amazonaws_lightsail.UnpeerVpc({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateDomainEntry
 
 
 
 ```js
-amazonaws_lightsail.UpdateDomainEntry({}, context)
+amazonaws_lightsail.UpdateDomainEntry({
+  "domainName": "",
+  "domainEntry": {}
+}, context)
 ```
 
+#### Parameters
+* domainEntry (object) **required** - Describes a domain recordset entry.
+* domainName (string) **required**
 

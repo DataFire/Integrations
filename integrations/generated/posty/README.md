@@ -28,6 +28,8 @@ Returns all available domains
 posty.api.v1.domains.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.domains.json.post
 Create new domain
@@ -37,6 +39,8 @@ Create new domain
 posty.api.v1.domains.json.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.domains.domain_name.json.delete
 Delete the specified domain
@@ -308,6 +312,8 @@ Returns a summary of all Resources
 posty.api.v1.summary.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.swagger_doc.json.get
 Swagger compatible API description
@@ -317,6 +323,8 @@ Swagger compatible API description
 posty.api.v1.swagger_doc.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.swagger_doc.name.json.get
 Swagger compatible API description for specific API
@@ -339,6 +347,8 @@ Returns all available transports
 posty.api.v1.transports.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.transports.json.post
 Create new transport
@@ -348,6 +358,8 @@ Create new transport
 posty.api.v1.transports.json.post(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### api.v1.transports.transport_name.json.delete
 Delete the specified transport

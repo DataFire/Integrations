@@ -38,9 +38,15 @@ amazonaws_iot.AcceptCertificateTransfer({
 
 
 ```js
-amazonaws_iot.RegisterCACertificate({}, context)
+amazonaws_iot.RegisterCACertificate({
+  "caCertificate": "",
+  "verificationCertificate": ""
+}, context)
 ```
 
+#### Parameters
+* caCertificate (string) **required**
+* verificationCertificate (string) **required**
 
 ### UpdateCACertificate
 
@@ -63,6 +69,8 @@ amazonaws_iot.UpdateCACertificate({
 amazonaws_iot.ListCACertificates({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CancelCertificateTransfer
 
@@ -82,9 +90,15 @@ amazonaws_iot.CancelCertificateTransfer({
 
 
 ```js
-amazonaws_iot.RegisterCertificate({}, context)
+amazonaws_iot.RegisterCertificate({
+  "certificatePem": ""
+}, context)
 ```
 
+#### Parameters
+* caCertificatePem (string)
+* certificatePem (string) **required**
+* status (string)
 
 ### ListCertificates
 
@@ -94,6 +108,8 @@ amazonaws_iot.RegisterCertificate({}, context)
 amazonaws_iot.ListCertificates({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListCertificatesByCA
 
@@ -116,6 +132,8 @@ amazonaws_iot.ListCertificatesByCA({
 amazonaws_iot.ListOutgoingCertificates({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateCertificate
 
@@ -138,6 +156,8 @@ amazonaws_iot.UpdateCertificate({
 amazonaws_iot.DescribeEndpoint({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CreateKeysAndCertificate
 
@@ -147,15 +167,23 @@ amazonaws_iot.DescribeEndpoint({}, context)
 amazonaws_iot.CreateKeysAndCertificate({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### SetLoggingOptions
 
 
 
 ```js
-amazonaws_iot.SetLoggingOptions({}, context)
+amazonaws_iot.SetLoggingOptions({
+  "loggingOptionsPayload": {
+    "roleArn": ""
+  }
+}, context)
 ```
 
+#### Parameters
+* loggingOptionsPayload (object) **required** - Describes the logging options payload.
 
 ### ListPolicies
 
@@ -165,6 +193,8 @@ amazonaws_iot.SetLoggingOptions({}, context)
 amazonaws_iot.ListPolicies({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetPolicy
 
@@ -215,6 +245,8 @@ amazonaws_iot.SetDefaultPolicyVersion({
 amazonaws_iot.ListPolicyPrincipals({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListPrincipalPolicies
 
@@ -224,6 +256,8 @@ amazonaws_iot.ListPolicyPrincipals({}, context)
 amazonaws_iot.ListPrincipalPolicies({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DetachPrincipalPolicy
 
@@ -246,6 +280,8 @@ amazonaws_iot.DetachPrincipalPolicy({
 amazonaws_iot.ListPrincipalThings({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetRegistrationCode
 
@@ -255,6 +291,8 @@ amazonaws_iot.ListPrincipalThings({}, context)
 amazonaws_iot.GetRegistrationCode({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### RejectCertificateTransfer
 
@@ -268,6 +306,7 @@ amazonaws_iot.RejectCertificateTransfer({
 
 #### Parameters
 * certificateId (string) **required**
+* rejectReason (string)
 
 ### ListTopicRules
 
@@ -277,6 +316,8 @@ amazonaws_iot.RejectCertificateTransfer({
 amazonaws_iot.ListTopicRules({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ReplaceTopicRule
 
@@ -284,12 +325,17 @@ amazonaws_iot.ListTopicRules({}, context)
 
 ```js
 amazonaws_iot.ReplaceTopicRule({
-  "ruleName": ""
+  "ruleName": "",
+  "topicRulePayload": {
+    "sql": "",
+    "actions": []
+  }
 }, context)
 ```
 
 #### Parameters
 * ruleName (string) **required**
+* topicRulePayload (object) **required** - Describes a rule.
 
 ### DisableTopicRule
 
@@ -325,6 +371,8 @@ amazonaws_iot.EnableTopicRule({
 amazonaws_iot.ListThingTypes({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DescribeThingType
 
@@ -351,6 +399,7 @@ amazonaws_iot.DeprecateThingType({
 
 #### Parameters
 * thingTypeName (string) **required**
+* undoDeprecate (boolean)
 
 ### ListThings
 
@@ -360,6 +409,8 @@ amazonaws_iot.DeprecateThingType({
 amazonaws_iot.ListThings({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### UpdateThing
 
@@ -373,6 +424,10 @@ amazonaws_iot.UpdateThing({
 
 #### Parameters
 * thingName (string) **required**
+* attributePayload (object) - The attribute payload.
+* expectedVersion (integer)
+* removeThingType (boolean)
+* thingTypeName (string)
 
 ### ListThingPrincipals
 
@@ -399,4 +454,5 @@ amazonaws_iot.TransferCertificate({
 
 #### Parameters
 * certificateId (string) **required**
+* transferMessage (string)
 

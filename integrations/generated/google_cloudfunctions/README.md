@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_cloudfunctions.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.locations.functions.list
 Returns a list of functions that belong to the requested project.

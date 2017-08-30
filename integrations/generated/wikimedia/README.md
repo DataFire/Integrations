@@ -106,6 +106,8 @@ This is the root of all legacy data endpoints. For the moment it only contains a
 wikimedia.metrics.legacy.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### metrics.legacy.pagecounts.aggregate.project.access_site.granularity.start.end.get
 Given a project and a date range, returns a timeseries of pagecounts. You can filter by access site (mobile or desktop) and you can choose between monthly, daily and hourly granularity as well.
@@ -144,6 +146,8 @@ This is the root of all pageview data endpoints.  The list of paths that this re
 wikimedia.metrics.pageviews.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### metrics.pageviews.aggregate.project.access.agent.granularity.start.end.get
 Given a date range, returns a timeseries of pageview counts. You can filter by project, access method and/or agent type. You can choose between daily and hourly granularity as well.

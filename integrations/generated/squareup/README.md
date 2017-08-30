@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 squareup.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListCustomers
 Lists a business's customers.
@@ -175,6 +177,8 @@ endpoint correspond to that `location_id` parameter.
 squareup.ListLocations(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CreateCheckout
 Creates a [Checkout](#type-checkout) response that links a

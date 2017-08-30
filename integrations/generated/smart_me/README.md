@@ -70,6 +70,8 @@ Gets all Devices
 smart_me.api.CustomDevice.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### CustomDevice_Post
 Creates or updates a Custom Device or updates it's values.
@@ -122,6 +124,8 @@ Gets all Devices
 smart_me.api.Devices.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### Devices_Post
 Creates or updates a Device or updates it's values. 
@@ -271,6 +275,8 @@ Gets the informations for the user.
 smart_me.User_Get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### VirtualMeterActive_Get
 Beta: Gets all active virtual meters.
@@ -280,6 +286,8 @@ Beta: Gets all active virtual meters.
 smart_me.VirtualMeterActive_Get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### VirtualMeterActive_Post
 Beta: Virtual Meter API: Activates a Meter and add the Consumption to a Virtual Meter assosiated with the User.
@@ -315,4 +323,6 @@ Beta: Gets all Meters available to activate as a Virtual Meter.
 smart_me.VirtualMeters_Get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 

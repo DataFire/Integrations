@@ -25,45 +25,71 @@ amazonaws_discovery.AssociateConfigurationItemsToApplication({}).then(data => {
 
 
 ```js
-amazonaws_discovery.AssociateConfigurationItemsToApplication({}, context)
+amazonaws_discovery.AssociateConfigurationItemsToApplication({
+  "applicationConfigurationId": "",
+  "configurationIds": []
+}, context)
 ```
 
+#### Parameters
+* applicationConfigurationId (string) **required**
+* configurationIds (array) **required**
 
 ### CreateApplication
 
 
 
 ```js
-amazonaws_discovery.CreateApplication({}, context)
+amazonaws_discovery.CreateApplication({
+  "name": ""
+}, context)
 ```
 
+#### Parameters
+* description (string)
+* name (string) **required**
 
 ### CreateTags
 
 
 
 ```js
-amazonaws_discovery.CreateTags({}, context)
+amazonaws_discovery.CreateTags({
+  "configurationIds": [],
+  "tags": []
+}, context)
 ```
 
+#### Parameters
+* configurationIds (array) **required**
+* tags (array) **required**
 
 ### DeleteApplications
 
 
 
 ```js
-amazonaws_discovery.DeleteApplications({}, context)
+amazonaws_discovery.DeleteApplications({
+  "configurationIds": []
+}, context)
 ```
 
+#### Parameters
+* configurationIds (array) **required**
 
 ### DeleteTags
 
 
 
 ```js
-amazonaws_discovery.DeleteTags({}, context)
+amazonaws_discovery.DeleteTags({
+  "configurationIds": []
+}, context)
 ```
 
+#### Parameters
+* configurationIds (array) **required**
+* tags (array)
 
 ### DescribeAgents
 
@@ -73,15 +99,24 @@ amazonaws_discovery.DeleteTags({}, context)
 amazonaws_discovery.DescribeAgents({}, context)
 ```
 
+#### Parameters
+* agentIds (array)
+* filters (array)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeConfigurations
 
 
 
 ```js
-amazonaws_discovery.DescribeConfigurations({}, context)
+amazonaws_discovery.DescribeConfigurations({
+  "configurationIds": []
+}, context)
 ```
 
+#### Parameters
+* configurationIds (array) **required**
 
 ### DescribeExportConfigurations
 
@@ -91,6 +126,10 @@ amazonaws_discovery.DescribeConfigurations({}, context)
 amazonaws_discovery.DescribeExportConfigurations({}, context)
 ```
 
+#### Parameters
+* exportIds (array)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeExportTasks
 
@@ -100,6 +139,10 @@ amazonaws_discovery.DescribeExportConfigurations({}, context)
 amazonaws_discovery.DescribeExportTasks({}, context)
 ```
 
+#### Parameters
+* exportIds (array)
+* maxResults (integer)
+* nextToken (string)
 
 ### DescribeTags
 
@@ -109,15 +152,25 @@ amazonaws_discovery.DescribeExportTasks({}, context)
 amazonaws_discovery.DescribeTags({}, context)
 ```
 
+#### Parameters
+* filters (array)
+* maxResults (integer)
+* nextToken (string)
 
 ### DisassociateConfigurationItemsFromApplication
 
 
 
 ```js
-amazonaws_discovery.DisassociateConfigurationItemsFromApplication({}, context)
+amazonaws_discovery.DisassociateConfigurationItemsFromApplication({
+  "applicationConfigurationId": "",
+  "configurationIds": []
+}, context)
 ```
 
+#### Parameters
+* applicationConfigurationId (string) **required**
+* configurationIds (array) **required**
 
 ### ExportConfigurations
 
@@ -127,6 +180,8 @@ amazonaws_discovery.DisassociateConfigurationItemsFromApplication({}, context)
 amazonaws_discovery.ExportConfigurations({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetDiscoverySummary
 
@@ -136,33 +191,55 @@ amazonaws_discovery.ExportConfigurations({}, context)
 amazonaws_discovery.GetDiscoverySummary({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListConfigurations
 
 
 
 ```js
-amazonaws_discovery.ListConfigurations({}, context)
+amazonaws_discovery.ListConfigurations({
+  "configurationType": ""
+}, context)
 ```
 
+#### Parameters
+* configurationType (string) **required**
+* filters (array)
+* maxResults (integer)
+* nextToken (string)
+* orderBy (array)
 
 ### ListServerNeighbors
 
 
 
 ```js
-amazonaws_discovery.ListServerNeighbors({}, context)
+amazonaws_discovery.ListServerNeighbors({
+  "configurationId": ""
+}, context)
 ```
 
+#### Parameters
+* configurationId (string) **required**
+* maxResults (integer)
+* neighborConfigurationIds (array)
+* nextToken (string)
+* portInformationNeeded (boolean)
 
 ### StartDataCollectionByAgentIds
 
 
 
 ```js
-amazonaws_discovery.StartDataCollectionByAgentIds({}, context)
+amazonaws_discovery.StartDataCollectionByAgentIds({
+  "agentIds": []
+}, context)
 ```
 
+#### Parameters
+* agentIds (array) **required**
 
 ### StartExportTask
 
@@ -172,22 +249,34 @@ amazonaws_discovery.StartDataCollectionByAgentIds({}, context)
 amazonaws_discovery.StartExportTask({}, context)
 ```
 
+#### Parameters
+* exportDataFormat (array)
 
 ### StopDataCollectionByAgentIds
 
 
 
 ```js
-amazonaws_discovery.StopDataCollectionByAgentIds({}, context)
+amazonaws_discovery.StopDataCollectionByAgentIds({
+  "agentIds": []
+}, context)
 ```
 
+#### Parameters
+* agentIds (array) **required**
 
 ### UpdateApplication
 
 
 
 ```js
-amazonaws_discovery.UpdateApplication({}, context)
+amazonaws_discovery.UpdateApplication({
+  "configurationId": ""
+}, context)
 ```
 
+#### Parameters
+* configurationId (string) **required**
+* description (string)
+* name (string)
 

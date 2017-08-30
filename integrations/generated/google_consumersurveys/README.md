@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_consumersurveys.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### mobileapppanels.list
 Lists the MobileAppPanels available to the authenticated user.

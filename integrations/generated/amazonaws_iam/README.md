@@ -25,63 +25,105 @@ amazonaws_iam.AddClientIDToOpenIDConnectProvider({}).then(data => {
 
 
 ```js
-amazonaws_iam.AddClientIDToOpenIDConnectProvider({}, context)
+amazonaws_iam.AddClientIDToOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": "",
+  "ClientID": ""
+}, context)
 ```
 
+#### Parameters
+* ClientID (string) **required**
+* OpenIDConnectProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### AddRoleToInstanceProfile
 
 
 
 ```js
-amazonaws_iam.AddRoleToInstanceProfile({}, context)
+amazonaws_iam.AddRoleToInstanceProfile({
+  "InstanceProfileName": "",
+  "RoleName": ""
+}, context)
 ```
 
+#### Parameters
+* InstanceProfileName (string) **required**
+* RoleName (string) **required**
 
 ### AddUserToGroup
 
 
 
 ```js
-amazonaws_iam.AddUserToGroup({}, context)
+amazonaws_iam.AddUserToGroup({
+  "GroupName": "",
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* UserName (string) **required**
 
 ### AttachGroupPolicy
 
 
 
 ```js
-amazonaws_iam.AttachGroupPolicy({}, context)
+amazonaws_iam.AttachGroupPolicy({
+  "GroupName": "",
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### AttachRolePolicy
 
 
 
 ```js
-amazonaws_iam.AttachRolePolicy({}, context)
+amazonaws_iam.AttachRolePolicy({
+  "RoleName": "",
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* RoleName (string) **required**
 
 ### AttachUserPolicy
 
 
 
 ```js
-amazonaws_iam.AttachUserPolicy({}, context)
+amazonaws_iam.AttachUserPolicy({
+  "UserName": "",
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* UserName (string) **required**
 
 ### ChangePassword
 
 
 
 ```js
-amazonaws_iam.ChangePassword({}, context)
+amazonaws_iam.ChangePassword({
+  "OldPassword": "",
+  "NewPassword": ""
+}, context)
 ```
 
+#### Parameters
+* NewPassword (string) **required**
+* OldPassword (string) **required**
 
 ### CreateAccessKey
 
@@ -91,150 +133,246 @@ amazonaws_iam.ChangePassword({}, context)
 amazonaws_iam.CreateAccessKey({}, context)
 ```
 
+#### Parameters
+* UserName (string)
 
 ### CreateAccountAlias
 
 
 
 ```js
-amazonaws_iam.CreateAccountAlias({}, context)
+amazonaws_iam.CreateAccountAlias({
+  "AccountAlias": ""
+}, context)
 ```
 
+#### Parameters
+* AccountAlias (string) **required**
 
 ### CreateGroup
 
 
 
 ```js
-amazonaws_iam.CreateGroup({}, context)
+amazonaws_iam.CreateGroup({
+  "GroupName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* Path (string)
 
 ### CreateInstanceProfile
 
 
 
 ```js
-amazonaws_iam.CreateInstanceProfile({}, context)
+amazonaws_iam.CreateInstanceProfile({
+  "InstanceProfileName": ""
+}, context)
 ```
 
+#### Parameters
+* InstanceProfileName (string) **required**
+* Path (string)
 
 ### CreateLoginProfile
 
 
 
 ```js
-amazonaws_iam.CreateLoginProfile({}, context)
+amazonaws_iam.CreateLoginProfile({
+  "UserName": "",
+  "Password": ""
+}, context)
 ```
 
+#### Parameters
+* Password (string) **required**
+* PasswordResetRequired (boolean)
+* UserName (string) **required**
 
 ### CreateOpenIDConnectProvider
 
 
 
 ```js
-amazonaws_iam.CreateOpenIDConnectProvider({}, context)
+amazonaws_iam.CreateOpenIDConnectProvider({
+  "Url": "",
+  "ThumbprintList": []
+}, context)
 ```
 
+#### Parameters
+* ClientIDList (array)
+* ThumbprintList (array) **required** - Contains a list of thumbprints of identity provider server certificates.
+* Url (string) **required** - Contains a URL that specifies the endpoint for an OpenID Connect provider.
 
 ### CreatePolicy
 
 
 
 ```js
-amazonaws_iam.CreatePolicy({}, context)
+amazonaws_iam.CreatePolicy({
+  "PolicyName": "",
+  "PolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* Path (string)
+* PolicyDocument (string) **required**
+* PolicyName (string) **required**
 
 ### CreatePolicyVersion
 
 
 
 ```js
-amazonaws_iam.CreatePolicyVersion({}, context)
+amazonaws_iam.CreatePolicyVersion({
+  "PolicyArn": "",
+  "PolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* PolicyDocument (string) **required**
+* SetAsDefault (boolean)
 
 ### CreateRole
 
 
 
 ```js
-amazonaws_iam.CreateRole({}, context)
+amazonaws_iam.CreateRole({
+  "RoleName": "",
+  "AssumeRolePolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* AssumeRolePolicyDocument (string) **required**
+* Description (string)
+* Path (string)
+* RoleName (string) **required**
 
 ### CreateSAMLProvider
 
 
 
 ```js
-amazonaws_iam.CreateSAMLProvider({}, context)
+amazonaws_iam.CreateSAMLProvider({
+  "SAMLMetadataDocument": "",
+  "Name": ""
+}, context)
 ```
 
+#### Parameters
+* Name (string) **required**
+* SAMLMetadataDocument (string) **required**
 
 ### CreateServiceLinkedRole
 
 
 
 ```js
-amazonaws_iam.CreateServiceLinkedRole({}, context)
+amazonaws_iam.CreateServiceLinkedRole({
+  "AWSServiceName": ""
+}, context)
 ```
 
+#### Parameters
+* AWSServiceName (string) **required**
+* CustomSuffix (string)
+* Description (string)
 
 ### CreateServiceSpecificCredential
 
 
 
 ```js
-amazonaws_iam.CreateServiceSpecificCredential({}, context)
+amazonaws_iam.CreateServiceSpecificCredential({
+  "UserName": "",
+  "ServiceName": ""
+}, context)
 ```
 
+#### Parameters
+* ServiceName (string) **required**
+* UserName (string) **required**
 
 ### CreateUser
 
 
 
 ```js
-amazonaws_iam.CreateUser({}, context)
+amazonaws_iam.CreateUser({
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* Path (string)
+* UserName (string) **required**
 
 ### CreateVirtualMFADevice
 
 
 
 ```js
-amazonaws_iam.CreateVirtualMFADevice({}, context)
+amazonaws_iam.CreateVirtualMFADevice({
+  "VirtualMFADeviceName": ""
+}, context)
 ```
 
+#### Parameters
+* Path (string)
+* VirtualMFADeviceName (string) **required**
 
 ### DeactivateMFADevice
 
 
 
 ```js
-amazonaws_iam.DeactivateMFADevice({}, context)
+amazonaws_iam.DeactivateMFADevice({
+  "UserName": "",
+  "SerialNumber": ""
+}, context)
 ```
 
+#### Parameters
+* SerialNumber (string) **required**
+* UserName (string) **required**
 
 ### DeleteAccessKey
 
 
 
 ```js
-amazonaws_iam.DeleteAccessKey({}, context)
+amazonaws_iam.DeleteAccessKey({
+  "AccessKeyId": ""
+}, context)
 ```
 
+#### Parameters
+* AccessKeyId (string) **required**
+* UserName (string)
 
 ### DeleteAccountAlias
 
 
 
 ```js
-amazonaws_iam.DeleteAccountAlias({}, context)
+amazonaws_iam.DeleteAccountAlias({
+  "AccountAlias": ""
+}, context)
 ```
 
+#### Parameters
+* AccountAlias (string) **required**
 
 ### DeleteAccountPasswordPolicy
 
@@ -244,195 +382,305 @@ amazonaws_iam.DeleteAccountAlias({}, context)
 amazonaws_iam.DeleteAccountPasswordPolicy({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DeleteGroup
 
 
 
 ```js
-amazonaws_iam.DeleteGroup({}, context)
+amazonaws_iam.DeleteGroup({
+  "GroupName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
 
 ### DeleteGroupPolicy
 
 
 
 ```js
-amazonaws_iam.DeleteGroupPolicy({}, context)
+amazonaws_iam.DeleteGroupPolicy({
+  "GroupName": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* PolicyName (string) **required**
 
 ### DeleteInstanceProfile
 
 
 
 ```js
-amazonaws_iam.DeleteInstanceProfile({}, context)
+amazonaws_iam.DeleteInstanceProfile({
+  "InstanceProfileName": ""
+}, context)
 ```
 
+#### Parameters
+* InstanceProfileName (string) **required**
 
 ### DeleteLoginProfile
 
 
 
 ```js
-amazonaws_iam.DeleteLoginProfile({}, context)
+amazonaws_iam.DeleteLoginProfile({
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* UserName (string) **required**
 
 ### DeleteOpenIDConnectProvider
 
 
 
 ```js
-amazonaws_iam.DeleteOpenIDConnectProvider({}, context)
+amazonaws_iam.DeleteOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": ""
+}, context)
 ```
 
+#### Parameters
+* OpenIDConnectProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### DeletePolicy
 
 
 
 ```js
-amazonaws_iam.DeletePolicy({}, context)
+amazonaws_iam.DeletePolicy({
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### DeletePolicyVersion
 
 
 
 ```js
-amazonaws_iam.DeletePolicyVersion({}, context)
+amazonaws_iam.DeletePolicyVersion({
+  "PolicyArn": "",
+  "VersionId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* VersionId (string) **required**
 
 ### DeleteRole
 
 
 
 ```js
-amazonaws_iam.DeleteRole({}, context)
+amazonaws_iam.DeleteRole({
+  "RoleName": ""
+}, context)
 ```
 
+#### Parameters
+* RoleName (string) **required**
 
 ### DeleteRolePolicy
 
 
 
 ```js
-amazonaws_iam.DeleteRolePolicy({}, context)
+amazonaws_iam.DeleteRolePolicy({
+  "RoleName": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyName (string) **required**
+* RoleName (string) **required**
 
 ### DeleteSAMLProvider
 
 
 
 ```js
-amazonaws_iam.DeleteSAMLProvider({}, context)
+amazonaws_iam.DeleteSAMLProvider({
+  "SAMLProviderArn": ""
+}, context)
 ```
 
+#### Parameters
+* SAMLProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### DeleteSSHPublicKey
 
 
 
 ```js
-amazonaws_iam.DeleteSSHPublicKey({}, context)
+amazonaws_iam.DeleteSSHPublicKey({
+  "UserName": "",
+  "SSHPublicKeyId": ""
+}, context)
 ```
 
+#### Parameters
+* SSHPublicKeyId (string) **required**
+* UserName (string) **required**
 
 ### DeleteServerCertificate
 
 
 
 ```js
-amazonaws_iam.DeleteServerCertificate({}, context)
+amazonaws_iam.DeleteServerCertificate({
+  "ServerCertificateName": ""
+}, context)
 ```
 
+#### Parameters
+* ServerCertificateName (string) **required**
 
 ### DeleteServiceSpecificCredential
 
 
 
 ```js
-amazonaws_iam.DeleteServiceSpecificCredential({}, context)
+amazonaws_iam.DeleteServiceSpecificCredential({
+  "ServiceSpecificCredentialId": ""
+}, context)
 ```
 
+#### Parameters
+* ServiceSpecificCredentialId (string) **required**
+* UserName (string)
 
 ### DeleteSigningCertificate
 
 
 
 ```js
-amazonaws_iam.DeleteSigningCertificate({}, context)
+amazonaws_iam.DeleteSigningCertificate({
+  "CertificateId": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateId (string) **required**
+* UserName (string)
 
 ### DeleteUser
 
 
 
 ```js
-amazonaws_iam.DeleteUser({}, context)
+amazonaws_iam.DeleteUser({
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* UserName (string) **required**
 
 ### DeleteUserPolicy
 
 
 
 ```js
-amazonaws_iam.DeleteUserPolicy({}, context)
+amazonaws_iam.DeleteUserPolicy({
+  "UserName": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyName (string) **required**
+* UserName (string) **required**
 
 ### DeleteVirtualMFADevice
 
 
 
 ```js
-amazonaws_iam.DeleteVirtualMFADevice({}, context)
+amazonaws_iam.DeleteVirtualMFADevice({
+  "SerialNumber": ""
+}, context)
 ```
 
+#### Parameters
+* SerialNumber (string) **required**
 
 ### DetachGroupPolicy
 
 
 
 ```js
-amazonaws_iam.DetachGroupPolicy({}, context)
+amazonaws_iam.DetachGroupPolicy({
+  "GroupName": "",
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### DetachRolePolicy
 
 
 
 ```js
-amazonaws_iam.DetachRolePolicy({}, context)
+amazonaws_iam.DetachRolePolicy({
+  "RoleName": "",
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* RoleName (string) **required**
 
 ### DetachUserPolicy
 
 
 
 ```js
-amazonaws_iam.DetachUserPolicy({}, context)
+amazonaws_iam.DetachUserPolicy({
+  "UserName": "",
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* UserName (string) **required**
 
 ### EnableMFADevice
 
 
 
 ```js
-amazonaws_iam.EnableMFADevice({}, context)
+amazonaws_iam.EnableMFADevice({
+  "UserName": "",
+  "SerialNumber": "",
+  "AuthenticationCode1": "",
+  "AuthenticationCode2": ""
+}, context)
 ```
 
+#### Parameters
+* AuthenticationCode1 (string) **required**
+* AuthenticationCode2 (string) **required**
+* SerialNumber (string) **required**
+* UserName (string) **required**
 
 ### GenerateCredentialReport
 
@@ -442,15 +690,21 @@ amazonaws_iam.EnableMFADevice({}, context)
 amazonaws_iam.GenerateCredentialReport({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetAccessKeyLastUsed
 
 
 
 ```js
-amazonaws_iam.GetAccessKeyLastUsed({}, context)
+amazonaws_iam.GetAccessKeyLastUsed({
+  "AccessKeyId": ""
+}, context)
 ```
 
+#### Parameters
+* AccessKeyId (string) **required**
 
 ### GetAccountAuthorizationDetails
 
@@ -463,6 +717,9 @@ amazonaws_iam.GetAccountAuthorizationDetails({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Filter (array)
+* Marker (string)
+* MaxItems (integer)
 
 ### GetAccountPasswordPolicy
 
@@ -472,6 +729,8 @@ amazonaws_iam.GetAccountAuthorizationDetails({}, context)
 amazonaws_iam.GetAccountPasswordPolicy({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetAccountSummary
 
@@ -481,24 +740,35 @@ amazonaws_iam.GetAccountPasswordPolicy({}, context)
 amazonaws_iam.GetAccountSummary({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetContextKeysForCustomPolicy
 
 
 
 ```js
-amazonaws_iam.GetContextKeysForCustomPolicy({}, context)
+amazonaws_iam.GetContextKeysForCustomPolicy({
+  "PolicyInputList": []
+}, context)
 ```
 
+#### Parameters
+* PolicyInputList (array) **required**
 
 ### GetContextKeysForPrincipalPolicy
 
 
 
 ```js
-amazonaws_iam.GetContextKeysForPrincipalPolicy({}, context)
+amazonaws_iam.GetContextKeysForPrincipalPolicy({
+  "PolicySourceArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyInputList (array)
+* PolicySourceArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### GetCredentialReport
 
@@ -508,117 +778,178 @@ amazonaws_iam.GetContextKeysForPrincipalPolicy({}, context)
 amazonaws_iam.GetCredentialReport({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### GetGroup
 
 
 
 ```js
-amazonaws_iam.GetGroup({}, context)
+amazonaws_iam.GetGroup({
+  "GroupName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* GroupName (string) **required**
+* Marker (string)
+* MaxItems (integer)
 
 ### GetGroupPolicy
 
 
 
 ```js
-amazonaws_iam.GetGroupPolicy({}, context)
+amazonaws_iam.GetGroupPolicy({
+  "GroupName": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* PolicyName (string) **required**
 
 ### GetInstanceProfile
 
 
 
 ```js
-amazonaws_iam.GetInstanceProfile({}, context)
+amazonaws_iam.GetInstanceProfile({
+  "InstanceProfileName": ""
+}, context)
 ```
 
+#### Parameters
+* InstanceProfileName (string) **required**
 
 ### GetLoginProfile
 
 
 
 ```js
-amazonaws_iam.GetLoginProfile({}, context)
+amazonaws_iam.GetLoginProfile({
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* UserName (string) **required**
 
 ### GetOpenIDConnectProvider
 
 
 
 ```js
-amazonaws_iam.GetOpenIDConnectProvider({}, context)
+amazonaws_iam.GetOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": ""
+}, context)
 ```
 
+#### Parameters
+* OpenIDConnectProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### GetPolicy
 
 
 
 ```js
-amazonaws_iam.GetPolicy({}, context)
+amazonaws_iam.GetPolicy({
+  "PolicyArn": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### GetPolicyVersion
 
 
 
 ```js
-amazonaws_iam.GetPolicyVersion({}, context)
+amazonaws_iam.GetPolicyVersion({
+  "PolicyArn": "",
+  "VersionId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* VersionId (string) **required**
 
 ### GetRole
 
 
 
 ```js
-amazonaws_iam.GetRole({}, context)
+amazonaws_iam.GetRole({
+  "RoleName": ""
+}, context)
 ```
 
+#### Parameters
+* RoleName (string) **required**
 
 ### GetRolePolicy
 
 
 
 ```js
-amazonaws_iam.GetRolePolicy({}, context)
+amazonaws_iam.GetRolePolicy({
+  "RoleName": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyName (string) **required**
+* RoleName (string) **required**
 
 ### GetSAMLProvider
 
 
 
 ```js
-amazonaws_iam.GetSAMLProvider({}, context)
+amazonaws_iam.GetSAMLProvider({
+  "SAMLProviderArn": ""
+}, context)
 ```
 
+#### Parameters
+* SAMLProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### GetSSHPublicKey
 
 
 
 ```js
-amazonaws_iam.GetSSHPublicKey({}, context)
+amazonaws_iam.GetSSHPublicKey({
+  "UserName": "",
+  "SSHPublicKeyId": "",
+  "Encoding": ""
+}, context)
 ```
 
+#### Parameters
+* Encoding (string) **required**
+* SSHPublicKeyId (string) **required**
+* UserName (string) **required**
 
 ### GetServerCertificate
 
 
 
 ```js
-amazonaws_iam.GetServerCertificate({}, context)
+amazonaws_iam.GetServerCertificate({
+  "ServerCertificateName": ""
+}, context)
 ```
 
+#### Parameters
+* ServerCertificateName (string) **required**
 
 ### GetUser
 
@@ -628,15 +959,23 @@ amazonaws_iam.GetServerCertificate({}, context)
 amazonaws_iam.GetUser({}, context)
 ```
 
+#### Parameters
+* UserName (string)
 
 ### GetUserPolicy
 
 
 
 ```js
-amazonaws_iam.GetUserPolicy({}, context)
+amazonaws_iam.GetUserPolicy({
+  "UserName": "",
+  "PolicyName": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyName (string) **required**
+* UserName (string) **required**
 
 ### ListAccessKeys
 
@@ -649,6 +988,9 @@ amazonaws_iam.ListAccessKeys({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* UserName (string)
 
 ### ListAccountAliases
 
@@ -661,66 +1003,98 @@ amazonaws_iam.ListAccountAliases({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
 
 ### ListAttachedGroupPolicies
 
 
 
 ```js
-amazonaws_iam.ListAttachedGroupPolicies({}, context)
+amazonaws_iam.ListAttachedGroupPolicies({
+  "GroupName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* GroupName (string) **required**
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
 
 ### ListAttachedRolePolicies
 
 
 
 ```js
-amazonaws_iam.ListAttachedRolePolicies({}, context)
+amazonaws_iam.ListAttachedRolePolicies({
+  "RoleName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
+* RoleName (string) **required**
 
 ### ListAttachedUserPolicies
 
 
 
 ```js
-amazonaws_iam.ListAttachedUserPolicies({}, context)
+amazonaws_iam.ListAttachedUserPolicies({
+  "UserName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
+* UserName (string) **required**
 
 ### ListEntitiesForPolicy
 
 
 
 ```js
-amazonaws_iam.ListEntitiesForPolicy({}, context)
+amazonaws_iam.ListEntitiesForPolicy({
+  "PolicyArn": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* EntityFilter (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### ListGroupPolicies
 
 
 
 ```js
-amazonaws_iam.ListGroupPolicies({}, context)
+amazonaws_iam.ListGroupPolicies({
+  "GroupName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* GroupName (string) **required**
+* Marker (string)
+* MaxItems (integer)
 
 ### ListGroups
 
@@ -733,18 +1107,26 @@ amazonaws_iam.ListGroups({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
 
 ### ListGroupsForUser
 
 
 
 ```js
-amazonaws_iam.ListGroupsForUser({}, context)
+amazonaws_iam.ListGroupsForUser({
+  "UserName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* UserName (string) **required**
 
 ### ListInstanceProfiles
 
@@ -757,18 +1139,26 @@ amazonaws_iam.ListInstanceProfiles({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
 
 ### ListInstanceProfilesForRole
 
 
 
 ```js
-amazonaws_iam.ListInstanceProfilesForRole({}, context)
+amazonaws_iam.ListInstanceProfilesForRole({
+  "RoleName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* RoleName (string) **required**
 
 ### ListMFADevices
 
@@ -781,6 +1171,9 @@ amazonaws_iam.ListMFADevices({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* UserName (string)
 
 ### ListOpenIDConnectProviders
 
@@ -790,6 +1183,8 @@ amazonaws_iam.ListMFADevices({}, context)
 amazonaws_iam.ListOpenIDConnectProviders({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListPolicies
 
@@ -802,30 +1197,45 @@ amazonaws_iam.ListPolicies({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* OnlyAttached (boolean)
+* PathPrefix (string)
+* Scope (string)
 
 ### ListPolicyVersions
 
 
 
 ```js
-amazonaws_iam.ListPolicyVersions({}, context)
+amazonaws_iam.ListPolicyVersions({
+  "PolicyArn": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### ListRolePolicies
 
 
 
 ```js
-amazonaws_iam.ListRolePolicies({}, context)
+amazonaws_iam.ListRolePolicies({
+  "RoleName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* RoleName (string) **required**
 
 ### ListRoles
 
@@ -838,6 +1248,9 @@ amazonaws_iam.ListRoles({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
 
 ### ListSAMLProviders
 
@@ -847,6 +1260,8 @@ amazonaws_iam.ListRoles({}, context)
 amazonaws_iam.ListSAMLProviders({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### ListSSHPublicKeys
 
@@ -859,6 +1274,9 @@ amazonaws_iam.ListSSHPublicKeys({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* UserName (string)
 
 ### ListServerCertificates
 
@@ -871,6 +1289,9 @@ amazonaws_iam.ListServerCertificates({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
 
 ### ListServiceSpecificCredentials
 
@@ -880,6 +1301,9 @@ amazonaws_iam.ListServerCertificates({}, context)
 amazonaws_iam.ListServiceSpecificCredentials({}, context)
 ```
 
+#### Parameters
+* ServiceName (string)
+* UserName (string)
 
 ### ListSigningCertificates
 
@@ -892,18 +1316,26 @@ amazonaws_iam.ListSigningCertificates({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* UserName (string)
 
 ### ListUserPolicies
 
 
 
 ```js
-amazonaws_iam.ListUserPolicies({}, context)
+amazonaws_iam.ListUserPolicies({
+  "UserName": ""
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* UserName (string) **required**
 
 ### ListUsers
 
@@ -916,6 +1348,9 @@ amazonaws_iam.ListUsers({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* Marker (string)
+* MaxItems (integer)
+* PathPrefix (string)
 
 ### ListVirtualMFADevices
 
@@ -928,120 +1363,220 @@ amazonaws_iam.ListVirtualMFADevices({}, context)
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* AssignmentStatus (string)
+* Marker (string)
+* MaxItems (integer)
 
 ### PutGroupPolicy
 
 
 
 ```js
-amazonaws_iam.PutGroupPolicy({}, context)
+amazonaws_iam.PutGroupPolicy({
+  "GroupName": "",
+  "PolicyName": "",
+  "PolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* PolicyDocument (string) **required**
+* PolicyName (string) **required**
 
 ### PutRolePolicy
 
 
 
 ```js
-amazonaws_iam.PutRolePolicy({}, context)
+amazonaws_iam.PutRolePolicy({
+  "RoleName": "",
+  "PolicyName": "",
+  "PolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyDocument (string) **required**
+* PolicyName (string) **required**
+* RoleName (string) **required**
 
 ### PutUserPolicy
 
 
 
 ```js
-amazonaws_iam.PutUserPolicy({}, context)
+amazonaws_iam.PutUserPolicy({
+  "UserName": "",
+  "PolicyName": "",
+  "PolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyDocument (string) **required**
+* PolicyName (string) **required**
+* UserName (string) **required**
 
 ### RemoveClientIDFromOpenIDConnectProvider
 
 
 
 ```js
-amazonaws_iam.RemoveClientIDFromOpenIDConnectProvider({}, context)
+amazonaws_iam.RemoveClientIDFromOpenIDConnectProvider({
+  "OpenIDConnectProviderArn": "",
+  "ClientID": ""
+}, context)
 ```
 
+#### Parameters
+* ClientID (string) **required**
+* OpenIDConnectProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### RemoveRoleFromInstanceProfile
 
 
 
 ```js
-amazonaws_iam.RemoveRoleFromInstanceProfile({}, context)
+amazonaws_iam.RemoveRoleFromInstanceProfile({
+  "InstanceProfileName": "",
+  "RoleName": ""
+}, context)
 ```
 
+#### Parameters
+* InstanceProfileName (string) **required**
+* RoleName (string) **required**
 
 ### RemoveUserFromGroup
 
 
 
 ```js
-amazonaws_iam.RemoveUserFromGroup({}, context)
+amazonaws_iam.RemoveUserFromGroup({
+  "GroupName": "",
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* UserName (string) **required**
 
 ### ResetServiceSpecificCredential
 
 
 
 ```js
-amazonaws_iam.ResetServiceSpecificCredential({}, context)
+amazonaws_iam.ResetServiceSpecificCredential({
+  "ServiceSpecificCredentialId": ""
+}, context)
 ```
 
+#### Parameters
+* ServiceSpecificCredentialId (string) **required**
+* UserName (string)
 
 ### ResyncMFADevice
 
 
 
 ```js
-amazonaws_iam.ResyncMFADevice({}, context)
+amazonaws_iam.ResyncMFADevice({
+  "UserName": "",
+  "SerialNumber": "",
+  "AuthenticationCode1": "",
+  "AuthenticationCode2": ""
+}, context)
 ```
 
+#### Parameters
+* AuthenticationCode1 (string) **required**
+* AuthenticationCode2 (string) **required**
+* SerialNumber (string) **required**
+* UserName (string) **required**
 
 ### SetDefaultPolicyVersion
 
 
 
 ```js
-amazonaws_iam.SetDefaultPolicyVersion({}, context)
+amazonaws_iam.SetDefaultPolicyVersion({
+  "PolicyArn": "",
+  "VersionId": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* VersionId (string) **required**
 
 ### SimulateCustomPolicy
 
 
 
 ```js
-amazonaws_iam.SimulateCustomPolicy({}, context)
+amazonaws_iam.SimulateCustomPolicy({
+  "PolicyInputList": [],
+  "ActionNames": []
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* ActionNames (array) **required**
+* CallerArn (string)
+* ContextEntries (array)
+* Marker (string)
+* MaxItems (integer)
+* PolicyInputList (array) **required**
+* ResourceArns (array)
+* ResourceHandlingOption (string)
+* ResourceOwner (string)
+* ResourcePolicy (string)
 
 ### SimulatePrincipalPolicy
 
 
 
 ```js
-amazonaws_iam.SimulatePrincipalPolicy({}, context)
+amazonaws_iam.SimulatePrincipalPolicy({
+  "PolicySourceArn": "",
+  "ActionNames": []
+}, context)
 ```
 
 #### Parameters
 * MaxItems (string)
 * Marker (string)
+* ActionNames (array) **required**
+* CallerArn (string)
+* ContextEntries (array)
+* Marker (string)
+* MaxItems (integer)
+* PolicyInputList (array)
+* PolicySourceArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* ResourceArns (array)
+* ResourceHandlingOption (string)
+* ResourceOwner (string)
+* ResourcePolicy (string)
 
 ### UpdateAccessKey
 
 
 
 ```js
-amazonaws_iam.UpdateAccessKey({}, context)
+amazonaws_iam.UpdateAccessKey({
+  "AccessKeyId": "",
+  "Status": ""
+}, context)
 ```
 
+#### Parameters
+* AccessKeyId (string) **required**
+* Status (string) **required**
+* UserName (string)
 
 ### UpdateAccountPasswordPolicy
 
@@ -1051,130 +1586,231 @@ amazonaws_iam.UpdateAccessKey({}, context)
 amazonaws_iam.UpdateAccountPasswordPolicy({}, context)
 ```
 
+#### Parameters
+* AllowUsersToChangePassword (boolean)
+* HardExpiry (boolean)
+* MaxPasswordAge (integer)
+* MinimumPasswordLength (integer)
+* PasswordReusePrevention (integer)
+* RequireLowercaseCharacters (boolean)
+* RequireNumbers (boolean)
+* RequireSymbols (boolean)
+* RequireUppercaseCharacters (boolean)
 
 ### UpdateAssumeRolePolicy
 
 
 
 ```js
-amazonaws_iam.UpdateAssumeRolePolicy({}, context)
+amazonaws_iam.UpdateAssumeRolePolicy({
+  "RoleName": "",
+  "PolicyDocument": ""
+}, context)
 ```
 
+#### Parameters
+* PolicyDocument (string) **required**
+* RoleName (string) **required**
 
 ### UpdateGroup
 
 
 
 ```js
-amazonaws_iam.UpdateGroup({}, context)
+amazonaws_iam.UpdateGroup({
+  "GroupName": ""
+}, context)
 ```
 
+#### Parameters
+* GroupName (string) **required**
+* NewGroupName (string)
+* NewPath (string)
 
 ### UpdateLoginProfile
 
 
 
 ```js
-amazonaws_iam.UpdateLoginProfile({}, context)
+amazonaws_iam.UpdateLoginProfile({
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* Password (string)
+* PasswordResetRequired (boolean)
+* UserName (string) **required**
 
 ### UpdateOpenIDConnectProviderThumbprint
 
 
 
 ```js
-amazonaws_iam.UpdateOpenIDConnectProviderThumbprint({}, context)
+amazonaws_iam.UpdateOpenIDConnectProviderThumbprint({
+  "OpenIDConnectProviderArn": "",
+  "ThumbprintList": []
+}, context)
 ```
 
+#### Parameters
+* OpenIDConnectProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
+* ThumbprintList (array) **required** - Contains a list of thumbprints of identity provider server certificates.
 
 ### UpdateRoleDescription
 
 
 
 ```js
-amazonaws_iam.UpdateRoleDescription({}, context)
+amazonaws_iam.UpdateRoleDescription({
+  "RoleName": "",
+  "Description": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string) **required**
+* RoleName (string) **required**
 
 ### UpdateSAMLProvider
 
 
 
 ```js
-amazonaws_iam.UpdateSAMLProvider({}, context)
+amazonaws_iam.UpdateSAMLProvider({
+  "SAMLMetadataDocument": "",
+  "SAMLProviderArn": ""
+}, context)
 ```
 
+#### Parameters
+* SAMLMetadataDocument (string) **required**
+* SAMLProviderArn (string) **required** - <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.</p> <p>For more information about ARNs, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>. </p>
 
 ### UpdateSSHPublicKey
 
 
 
 ```js
-amazonaws_iam.UpdateSSHPublicKey({}, context)
+amazonaws_iam.UpdateSSHPublicKey({
+  "UserName": "",
+  "SSHPublicKeyId": "",
+  "Status": ""
+}, context)
 ```
 
+#### Parameters
+* SSHPublicKeyId (string) **required**
+* Status (string) **required**
+* UserName (string) **required**
 
 ### UpdateServerCertificate
 
 
 
 ```js
-amazonaws_iam.UpdateServerCertificate({}, context)
+amazonaws_iam.UpdateServerCertificate({
+  "ServerCertificateName": ""
+}, context)
 ```
 
+#### Parameters
+* NewPath (string)
+* NewServerCertificateName (string)
+* ServerCertificateName (string) **required**
 
 ### UpdateServiceSpecificCredential
 
 
 
 ```js
-amazonaws_iam.UpdateServiceSpecificCredential({}, context)
+amazonaws_iam.UpdateServiceSpecificCredential({
+  "ServiceSpecificCredentialId": "",
+  "Status": ""
+}, context)
 ```
 
+#### Parameters
+* ServiceSpecificCredentialId (string) **required**
+* Status (string) **required**
+* UserName (string)
 
 ### UpdateSigningCertificate
 
 
 
 ```js
-amazonaws_iam.UpdateSigningCertificate({}, context)
+amazonaws_iam.UpdateSigningCertificate({
+  "CertificateId": "",
+  "Status": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateId (string) **required**
+* Status (string) **required**
+* UserName (string)
 
 ### UpdateUser
 
 
 
 ```js
-amazonaws_iam.UpdateUser({}, context)
+amazonaws_iam.UpdateUser({
+  "UserName": ""
+}, context)
 ```
 
+#### Parameters
+* NewPath (string)
+* NewUserName (string)
+* UserName (string) **required**
 
 ### UploadSSHPublicKey
 
 
 
 ```js
-amazonaws_iam.UploadSSHPublicKey({}, context)
+amazonaws_iam.UploadSSHPublicKey({
+  "UserName": "",
+  "SSHPublicKeyBody": ""
+}, context)
 ```
 
+#### Parameters
+* SSHPublicKeyBody (string) **required**
+* UserName (string) **required**
 
 ### UploadServerCertificate
 
 
 
 ```js
-amazonaws_iam.UploadServerCertificate({}, context)
+amazonaws_iam.UploadServerCertificate({
+  "ServerCertificateName": "",
+  "CertificateBody": "",
+  "PrivateKey": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateBody (string) **required**
+* CertificateChain (string)
+* Path (string)
+* PrivateKey (string) **required**
+* ServerCertificateName (string) **required**
 
 ### UploadSigningCertificate
 
 
 
 ```js
-amazonaws_iam.UploadSigningCertificate({}, context)
+amazonaws_iam.UploadSigningCertificate({
+  "CertificateBody": ""
+}, context)
 ```
 
+#### Parameters
+* CertificateBody (string) **required**
+* UserName (string)
 

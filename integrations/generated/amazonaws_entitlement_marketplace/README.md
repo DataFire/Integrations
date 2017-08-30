@@ -25,7 +25,14 @@ amazonaws_entitlement_marketplace.GetEntitlements({}).then(data => {
 
 
 ```js
-amazonaws_entitlement_marketplace.GetEntitlements({}, context)
+amazonaws_entitlement_marketplace.GetEntitlements({
+  "ProductCode": ""
+}, context)
 ```
 
+#### Parameters
+* Filter (array)
+* MaxResults (integer)
+* NextToken (string)
+* ProductCode (string) **required**
 

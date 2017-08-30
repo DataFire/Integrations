@@ -30,6 +30,8 @@ Get the list of schedules for all your extractors
 import_schedule.extractor.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### extractor.post
 Schedule and extractor to run at a specific time

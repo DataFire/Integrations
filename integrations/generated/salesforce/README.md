@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 salesforce.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### .get
 Lists summary information about each Salesforce version currently available, including the version, label, and a link to each version's root.
@@ -56,6 +58,8 @@ Lists summary information about each Salesforce version currently available, inc
 salesforce..get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### version.get
 Lists available resources for the specified API version, including resource name and URI.

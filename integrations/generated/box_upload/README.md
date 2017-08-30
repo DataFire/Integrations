@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 box_upload.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### uploadFile
 Use the Uploads API to allow users to add a new file.

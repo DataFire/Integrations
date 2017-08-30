@@ -41,6 +41,8 @@ Recent User Comments
 nytimes_community.user_content.recent.json.get(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### user_content.url.json.get
 Comments by URL

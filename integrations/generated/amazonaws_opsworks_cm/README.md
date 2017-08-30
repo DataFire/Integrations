@@ -25,45 +25,89 @@ amazonaws_opsworks_cm.AssociateNode({}).then(data => {
 
 
 ```js
-amazonaws_opsworks_cm.AssociateNode({}, context)
+amazonaws_opsworks_cm.AssociateNode({
+  "ServerName": "",
+  "NodeName": "",
+  "EngineAttributes": []
+}, context)
 ```
 
+#### Parameters
+* EngineAttributes (array) **required**
+* NodeName (string) **required** - The node name that is used by <code>chef-client</code> for a new node. For more information, see the <a href="http://docs.aws.amazon.com/https:/docs.chef.io/nodes.html#about-node-names">Chef Documentation</a>. 
+* ServerName (string) **required**
 
 ### CreateBackup
 
 
 
 ```js
-amazonaws_opsworks_cm.CreateBackup({}, context)
+amazonaws_opsworks_cm.CreateBackup({
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* Description (string)
+* ServerName (string) **required**
 
 ### CreateServer
 
 
 
 ```js
-amazonaws_opsworks_cm.CreateServer({}, context)
+amazonaws_opsworks_cm.CreateServer({
+  "ServerName": "",
+  "InstanceProfileArn": "",
+  "InstanceType": "",
+  "ServiceRoleArn": ""
+}, context)
 ```
 
+#### Parameters
+* AssociatePublicIpAddress (boolean)
+* BackupId (string)
+* BackupRetentionCount (integer)
+* DisableAutomatedBackup (boolean)
+* Engine (string)
+* EngineAttributes (array)
+* EngineModel (string)
+* EngineVersion (string)
+* InstanceProfileArn (string) **required**
+* InstanceType (string) **required**
+* KeyPair (string)
+* PreferredBackupWindow (string) - <p> <code>DDD:HH:MM</code> (weekly start time) or <code>HH:MM</code> (daily start time). </p> <p> Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+* PreferredMaintenanceWindow (string) - <p> <code>DDD:HH:MM</code> (weekly start time) or <code>HH:MM</code> (daily start time). </p> <p> Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+* SecurityGroupIds (array)
+* ServerName (string) **required**
+* ServiceRoleArn (string) **required**
+* SubnetIds (array)
 
 ### DeleteBackup
 
 
 
 ```js
-amazonaws_opsworks_cm.DeleteBackup({}, context)
+amazonaws_opsworks_cm.DeleteBackup({
+  "BackupId": ""
+}, context)
 ```
 
+#### Parameters
+* BackupId (string) **required**
 
 ### DeleteServer
 
 
 
 ```js
-amazonaws_opsworks_cm.DeleteServer({}, context)
+amazonaws_opsworks_cm.DeleteServer({
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* ServerName (string) **required**
 
 ### DescribeAccountAttributes
 
@@ -73,6 +117,8 @@ amazonaws_opsworks_cm.DeleteServer({}, context)
 amazonaws_opsworks_cm.DescribeAccountAttributes({}, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### DescribeBackups
 
@@ -82,24 +128,41 @@ amazonaws_opsworks_cm.DescribeAccountAttributes({}, context)
 amazonaws_opsworks_cm.DescribeBackups({}, context)
 ```
 
+#### Parameters
+* BackupId (string)
+* MaxResults (integer)
+* NextToken (string)
+* ServerName (string)
 
 ### DescribeEvents
 
 
 
 ```js
-amazonaws_opsworks_cm.DescribeEvents({}, context)
+amazonaws_opsworks_cm.DescribeEvents({
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* ServerName (string) **required**
 
 ### DescribeNodeAssociationStatus
 
 
 
 ```js
-amazonaws_opsworks_cm.DescribeNodeAssociationStatus({}, context)
+amazonaws_opsworks_cm.DescribeNodeAssociationStatus({
+  "NodeAssociationStatusToken": "",
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* NodeAssociationStatusToken (string) **required**
+* ServerName (string) **required**
 
 ### DescribeServers
 
@@ -109,49 +172,87 @@ amazonaws_opsworks_cm.DescribeNodeAssociationStatus({}, context)
 amazonaws_opsworks_cm.DescribeServers({}, context)
 ```
 
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* ServerName (string)
 
 ### DisassociateNode
 
 
 
 ```js
-amazonaws_opsworks_cm.DisassociateNode({}, context)
+amazonaws_opsworks_cm.DisassociateNode({
+  "ServerName": "",
+  "NodeName": ""
+}, context)
 ```
 
+#### Parameters
+* EngineAttributes (array)
+* NodeName (string) **required** - The node name that is used by <code>chef-client</code> for a new node. For more information, see the <a href="http://docs.aws.amazon.com/https:/docs.chef.io/nodes.html#about-node-names">Chef Documentation</a>. 
+* ServerName (string) **required**
 
 ### RestoreServer
 
 
 
 ```js
-amazonaws_opsworks_cm.RestoreServer({}, context)
+amazonaws_opsworks_cm.RestoreServer({
+  "BackupId": "",
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* BackupId (string) **required**
+* InstanceType (string)
+* KeyPair (string)
+* ServerName (string) **required**
 
 ### StartMaintenance
 
 
 
 ```js
-amazonaws_opsworks_cm.StartMaintenance({}, context)
+amazonaws_opsworks_cm.StartMaintenance({
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* ServerName (string) **required**
 
 ### UpdateServer
 
 
 
 ```js
-amazonaws_opsworks_cm.UpdateServer({}, context)
+amazonaws_opsworks_cm.UpdateServer({
+  "ServerName": ""
+}, context)
 ```
 
+#### Parameters
+* BackupRetentionCount (integer)
+* DisableAutomatedBackup (boolean)
+* PreferredBackupWindow (string) - <p> <code>DDD:HH:MM</code> (weekly start time) or <code>HH:MM</code> (daily start time). </p> <p> Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+* PreferredMaintenanceWindow (string) - <p> <code>DDD:HH:MM</code> (weekly start time) or <code>HH:MM</code> (daily start time). </p> <p> Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+* ServerName (string) **required**
 
 ### UpdateServerEngineAttributes
 
 
 
 ```js
-amazonaws_opsworks_cm.UpdateServerEngineAttributes({}, context)
+amazonaws_opsworks_cm.UpdateServerEngineAttributes({
+  "ServerName": "",
+  "AttributeName": ""
+}, context)
 ```
 
+#### Parameters
+* AttributeName (string) **required**
+* AttributeValue (string)
+* ServerName (string) **required**
 

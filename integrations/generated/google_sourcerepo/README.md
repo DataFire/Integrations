@@ -47,6 +47,8 @@ Exchange a refresh_token for an access_token
 google_sourcerepo.oauthRefresh(null, context)
 ```
 
+#### Parameters
+*This action has no parameters*
 
 ### projects.repos.delete
 Deletes a repo.
