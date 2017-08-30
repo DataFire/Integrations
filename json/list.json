@@ -12949,8 +12949,8 @@
   },
   "wmata_bus_realtime": {
     "id": "wmata_bus_realtime",
-    "title": "Real-Time Rail Predictions",
-    "description": "Real-time rail prediction methods.",
+    "title": "Real-Time Bus Predictions",
+    "description": "Real-time bus prediction methods.",
     "security": {
       "wmata_bus_realtime": {
         "integration": "wmata_bus_realtime",
@@ -12967,7 +12967,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "wmata_bus_route": {
     "id": "wmata_bus_route",
@@ -13015,8 +13015,8 @@
   },
   "wmata_rail_realtime": {
     "id": "wmata_rail_realtime",
-    "title": "Real-Time Bus Predictions",
-    "description": "Real-time bus prediction methods.",
+    "title": "Real-Time Rail Predictions",
+    "description": "Real-time rail prediction methods.",
     "security": {
       "wmata_rail_realtime": {
         "integration": "wmata_rail_realtime",
@@ -13033,7 +13033,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "wmata_rail_station": {
     "id": "wmata_rail_station",
