@@ -12584,7 +12584,7 @@
   "trello": {
     "id": "trello",
     "title": "Trello",
-    "description": "This document describes the REST API of Trello as published by Trello.com. - [Official Documentation](https://trello.com...",
+    "description": "Trello’s boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible and rewarding w...",
     "security": {
       "trello": {
         "integration": "trello",

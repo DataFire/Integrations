@@ -1,7 +1,7 @@
 {
   "id": "trello",
   "title": "Trello",
-  "description": "This document describes the REST API of Trello as published by Trello.com. - [Official Documentation](https://trello.com/docs/index.html) - [The HTML pages that were scraped in order to generate this specification.](https://trello.com/docs/api)",
+  "description": "Trello’s boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible and rewarding way.",
   "security": {
     "trello": {
       "integration": "trello",
