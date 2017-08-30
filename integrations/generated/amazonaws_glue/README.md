@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_glue
 
 ```js
 let datafire = require('datafire');
-let amazonaws_glue = require('@datafire/amazonaws_glue').create();
+let amazonaws_glue = require('@datafire/amazonaws_glue').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_glue.BatchCreatePartition({}).then(data => {
   console.log(data);

@@ -1,0 +1,3538 @@
+{
+  "id": "amazonaws_lightsail",
+  "title": "Amazon Lightsail",
+  "description": "Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lightsail includes everything you need to launch your project quickly - a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP - for a low, predictable price. You manage those Lightsail servers through the Lightsail console or by using the API or command-line interface (CLI).\n\nFor more information about Lightsail concepts and tasks, see the [Lightsail Dev Guide](https://lightsail.aws.amazon.com/ls/docs/all).\n\nTo use the Lightsail API or the CLI, you will need to use AWS Identity and Access Management (IAM) to generate access keys. For details about how to set this up, see the [Lightsail Dev Guide](http://lightsail.aws.amazon.com/ls/docs/how-to/article/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli).",
+  "security": {
+    "amazonaws_lightsail": {
+      "integration": "amazonaws_lightsail",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.svg"
+  },
+  "actionCount": 47,
+  "definitions": {
+    "AccessDeniedException": {
+      "description": "Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "AccessDeniedException"
+    },
+    "AccessDirection": {
+      "enum": [
+        "inbound",
+        "outbound"
+      ],
+      "type": "string",
+      "title": "AccessDirection"
+    },
+    "AccountSetupInProgressException": {
+      "description": "Lightsail throws this exception when an account is still in the setup in progress state.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "AccountSetupInProgressException"
+    },
+    "AllocateStaticIpRequest": {
+      "properties": {
+        "staticIpName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the static IP address."
+        }
+      },
+      "required": [
+        "staticIpName"
+      ],
+      "type": "object",
+      "title": "AllocateStaticIpRequest"
+    },
+    "AllocateStaticIpResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the static IP address you allocated."
+        }
+      },
+      "type": "object",
+      "title": "AllocateStaticIpResult"
+    },
+    "AttachStaticIpRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The instance name to which you want to attach the static IP address."
+        },
+        "staticIpName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the static IP."
+        }
+      },
+      "required": [
+        "staticIpName",
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "AttachStaticIpRequest"
+    },
+    "AttachStaticIpResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about your API operations."
+        }
+      },
+      "type": "object",
+      "title": "AttachStaticIpResult"
+    },
+    "AvailabilityZone": {
+      "description": "Describes an Availability Zone.",
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The state of the Availability Zone."
+        },
+        "zoneName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the Availability Zone."
+        }
+      },
+      "type": "object",
+      "title": "AvailabilityZone"
+    },
+    "AvailabilityZoneList": {
+      "items": {
+        "$ref": "#/definitions/AvailabilityZone"
+      },
+      "type": "array",
+      "title": "AvailabilityZoneList"
+    },
+    "Base64": {
+      "type": "string",
+      "title": "Base64"
+    },
+    "Blueprint": {
+      "description": "Describes a blueprint (a virtual private server image).",
+      "properties": {
+        "blueprintId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID for the virtual private server image (e.g., <code>app_wordpress_4_4</code> or <code>app_lamp_7_0</code>)."
+        },
+        "description": {
+          "$ref": "#/definitions/string",
+          "description": "The description of the blueprint."
+        },
+        "group": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The group name of the blueprint (e.g., <code>amazon-linux</code>)."
+        },
+        "isActive": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate old blueprints and keep the most recent versions active."
+        },
+        "licenseUrl": {
+          "$ref": "#/definitions/string",
+          "description": "The end-user license agreement URL for the image or blueprint."
+        },
+        "minPower": {
+          "$ref": "#/definitions/integer",
+          "description": "The minimum machine size required to run this blueprint. <code>0</code> indicates that the blueprint runs on all instances."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The friendly name of the blueprint (e.g., <code>Amazon Linux</code>)."
+        },
+        "productUrl": {
+          "$ref": "#/definitions/string",
+          "description": "The product URL to learn more about the image or blueprint."
+        },
+        "type": {
+          "$ref": "#/definitions/BlueprintType",
+          "description": "The type of the blueprint (e.g., <code>os</code> or <code>app</code>)."
+        },
+        "version": {
+          "$ref": "#/definitions/string",
+          "description": "The version number of the operating system, application, or stack (e.g., <code>2016.03.0</code>)."
+        },
+        "versionCode": {
+          "$ref": "#/definitions/string",
+          "description": "The version code."
+        }
+      },
+      "type": "object",
+      "title": "Blueprint"
+    },
+    "BlueprintList": {
+      "items": {
+        "$ref": "#/definitions/Blueprint"
+      },
+      "type": "array",
+      "title": "BlueprintList"
+    },
+    "BlueprintType": {
+      "enum": [
+        "os",
+        "app"
+      ],
+      "type": "string",
+      "title": "BlueprintType"
+    },
+    "Bundle": {
+      "description": "Describes a bundle, which is a set of specs describing your virtual private server (or <i>instance</i>).",
+      "properties": {
+        "bundleId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The bundle ID (e.g., <code>micro_1_0</code>)."
+        },
+        "cpuCount": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of vCPUs included in the bundle (e.g., <code>2</code>)."
+        },
+        "diskSizeInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The size of the SSD (e.g., <code>30</code>)."
+        },
+        "instanceType": {
+          "$ref": "#/definitions/string",
+          "description": "The Amazon EC2 instance type (e.g., <code>t2.micro</code>)."
+        },
+        "isActive": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether the bundle is active."
+        },
+        "name": {
+          "$ref": "#/definitions/string",
+          "description": "A friendly name for the bundle (e.g., <code>Micro</code>)."
+        },
+        "power": {
+          "$ref": "#/definitions/integer",
+          "description": "The power of the bundle (e.g., <code>500</code>)."
+        },
+        "price": {
+          "$ref": "#/definitions/float",
+          "description": "The price in US dollars (e.g., <code>5.0</code>)."
+        },
+        "ramSizeInGb": {
+          "$ref": "#/definitions/float",
+          "description": "The amount of RAM in GB (e.g., <code>2.0</code>)."
+        },
+        "transferPerMonthInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The data transfer rate per month in GB (e.g., <code>2000</code>)."
+        }
+      },
+      "type": "object",
+      "title": "Bundle"
+    },
+    "BundleList": {
+      "items": {
+        "$ref": "#/definitions/Bundle"
+      },
+      "type": "array",
+      "title": "BundleList"
+    },
+    "CloseInstancePublicPortsRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance on which you're attempting to close the public ports."
+        },
+        "portInfo": {
+          "$ref": "#/definitions/PortInfo",
+          "description": "Information about the public port you are trying to close."
+        }
+      },
+      "required": [
+        "portInfo",
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "CloseInstancePublicPortsRequest"
+    },
+    "CloseInstancePublicPortsResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs that contains information about the operation."
+        }
+      },
+      "type": "object",
+      "title": "CloseInstancePublicPortsResult"
+    },
+    "CreateDomainEntryRequest": {
+      "properties": {
+        "domainEntry": {
+          "$ref": "#/definitions/DomainEntry",
+          "description": "An array of key-value pairs containing information about the domain entry request."
+        },
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The domain name (e.g., <code>example.com</code>) for which you want to create the domain entry."
+        }
+      },
+      "required": [
+        "domainName",
+        "domainEntry"
+      ],
+      "type": "object",
+      "title": "CreateDomainEntryRequest"
+    },
+    "CreateDomainEntryResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the operation."
+        }
+      },
+      "type": "object",
+      "title": "CreateDomainEntryResult"
+    },
+    "CreateDomainRequest": {
+      "properties": {
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "<p>The domain name to manage (e.g., <code>example.com</code>).</p> <note> <p>You cannot register a new domain name using Lightsail. You must register a domain name using Amazon Route 53 or another domain name registrar. If you have already registered your domain, you can enter its name in this parameter to manage the DNS records for that domain.</p> </note>"
+        }
+      },
+      "required": [
+        "domainName"
+      ],
+      "type": "object",
+      "title": "CreateDomainRequest"
+    },
+    "CreateDomainResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the domain resource you created."
+        }
+      },
+      "type": "object",
+      "title": "CreateDomainResult"
+    },
+    "CreateInstanceSnapshotRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The Lightsail instance on which to base your snapshot."
+        },
+        "instanceSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name for your new snapshot."
+        }
+      },
+      "required": [
+        "instanceSnapshotName",
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "CreateInstanceSnapshotRequest"
+    },
+    "CreateInstanceSnapshotResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your create instances snapshot request."
+        }
+      },
+      "type": "object",
+      "title": "CreateInstanceSnapshotResult"
+    },
+    "CreateInstancesFromSnapshotRequest": {
+      "properties": {
+        "availabilityZone": {
+          "$ref": "#/definitions/string",
+          "description": "The Availability Zone where you want to create your instances. Use the following formatting: <code>us-east-1a</code> (case sensitive)."
+        },
+        "bundleId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The bundle of specification information for your virtual private server (or <i>instance</i>), including the pricing plan (e.g., <code>micro_1_0</code>)."
+        },
+        "instanceNames": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names for your new instances."
+        },
+        "instanceSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance snapshot on which you are basing your new instances. Use the get instance snapshots operation to return information about your existing snapshots."
+        },
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name for your key pair."
+        },
+        "userData": {
+          "$ref": "#/definitions/string",
+          "description": "<p>You can create a launch script that configures a server with additional user data. For example, <code>apt-get –y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps\">Dev Guide</a>.</p> </note>"
+        }
+      },
+      "required": [
+        "instanceNames",
+        "availabilityZone",
+        "instanceSnapshotName",
+        "bundleId"
+      ],
+      "type": "object",
+      "title": "CreateInstancesFromSnapshotRequest"
+    },
+    "CreateInstancesFromSnapshotResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your create instances from snapshot request."
+        }
+      },
+      "type": "object",
+      "title": "CreateInstancesFromSnapshotResult"
+    },
+    "CreateInstancesRequest": {
+      "properties": {
+        "availabilityZone": {
+          "$ref": "#/definitions/string",
+          "description": "The Availability Zone in which to create your instance. Use the following format: <code>us-east-1a</code> (case sensitive)."
+        },
+        "blueprintId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or <code>app_lamp_7_0</code>). Use the get blueprints operation to return a list of available images (or <i>blueprints</i>)."
+        },
+        "bundleId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The bundle of specification information for your virtual private server (or <i>instance</i>), including the pricing plan (e.g., <code>micro_1_0</code>)."
+        },
+        "customImageName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name for your custom image."
+        },
+        "instanceNames": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: <code>[\"MyFirstInstance\",\"MySecondInstance\"]</code> "
+        },
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of your key pair."
+        },
+        "userData": {
+          "$ref": "#/definitions/string",
+          "description": "<p>A launch script you can create that configures a server with additional user data. For example, you might want to run <code>apt-get –y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps\">Dev Guide</a>.</p> </note>"
+        }
+      },
+      "required": [
+        "instanceNames",
+        "availabilityZone",
+        "blueprintId",
+        "bundleId"
+      ],
+      "type": "object",
+      "title": "CreateInstancesRequest"
+    },
+    "CreateInstancesResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your create instances request."
+        }
+      },
+      "type": "object",
+      "title": "CreateInstancesResult"
+    },
+    "CreateKeyPairRequest": {
+      "properties": {
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name for your new key pair."
+        }
+      },
+      "required": [
+        "keyPairName"
+      ],
+      "type": "object",
+      "title": "CreateKeyPairRequest"
+    },
+    "CreateKeyPairResult": {
+      "properties": {
+        "keyPair": {
+          "$ref": "#/definitions/KeyPair",
+          "description": "An array of key-value pairs containing information about the new key pair you just created."
+        },
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the results of your create key pair request."
+        },
+        "privateKeyBase64": {
+          "$ref": "#/definitions/Base64",
+          "description": "A base64-encoded RSA private key."
+        },
+        "publicKeyBase64": {
+          "$ref": "#/definitions/Base64",
+          "description": "A base64-encoded public key of the <code>ssh-rsa</code> type."
+        }
+      },
+      "type": "object",
+      "title": "CreateKeyPairResult"
+    },
+    "DeleteDomainEntryRequest": {
+      "properties": {
+        "domainEntry": {
+          "$ref": "#/definitions/DomainEntry",
+          "description": "An array of key-value pairs containing information about your domain entries."
+        },
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain entry to delete."
+        }
+      },
+      "required": [
+        "domainName",
+        "domainEntry"
+      ],
+      "type": "object",
+      "title": "DeleteDomainEntryRequest"
+    },
+    "DeleteDomainEntryResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the results of your delete domain entry request."
+        }
+      },
+      "type": "object",
+      "title": "DeleteDomainEntryResult"
+    },
+    "DeleteDomainRequest": {
+      "properties": {
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The specific domain name to delete."
+        }
+      },
+      "required": [
+        "domainName"
+      ],
+      "type": "object",
+      "title": "DeleteDomainRequest"
+    },
+    "DeleteDomainResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the results of your delete domain request."
+        }
+      },
+      "type": "object",
+      "title": "DeleteDomainResult"
+    },
+    "DeleteInstanceRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance to delete."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "DeleteInstanceRequest"
+    },
+    "DeleteInstanceResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your delete instance request."
+        }
+      },
+      "type": "object",
+      "title": "DeleteInstanceResult"
+    },
+    "DeleteInstanceSnapshotRequest": {
+      "properties": {
+        "instanceSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the snapshot to delete."
+        }
+      },
+      "required": [
+        "instanceSnapshotName"
+      ],
+      "type": "object",
+      "title": "DeleteInstanceSnapshotRequest"
+    },
+    "DeleteInstanceSnapshotResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your delete instance snapshot request."
+        }
+      },
+      "type": "object",
+      "title": "DeleteInstanceSnapshotResult"
+    },
+    "DeleteKeyPairRequest": {
+      "properties": {
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the key pair to delete."
+        }
+      },
+      "required": [
+        "keyPairName"
+      ],
+      "type": "object",
+      "title": "DeleteKeyPairRequest"
+    },
+    "DeleteKeyPairResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the results of your delete key pair request."
+        }
+      },
+      "type": "object",
+      "title": "DeleteKeyPairResult"
+    },
+    "DetachStaticIpRequest": {
+      "properties": {
+        "staticIpName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the static IP to detach from the instance."
+        }
+      },
+      "required": [
+        "staticIpName"
+      ],
+      "type": "object",
+      "title": "DetachStaticIpRequest"
+    },
+    "DetachStaticIpResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your detach static IP request."
+        }
+      },
+      "type": "object",
+      "title": "DetachStaticIpResult"
+    },
+    "Disk": {
+      "description": "Describes the hard disk (an SSD).",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the disk."
+        },
+        "attachedTo": {
+          "$ref": "#/definitions/string",
+          "description": "The resources to which the disk is attached."
+        },
+        "attachmentState": {
+          "$ref": "#/definitions/string",
+          "description": "The attachment state of the disk."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The date when the disk was created."
+        },
+        "gbInUse": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of GB in use by the disk."
+        },
+        "iops": {
+          "$ref": "#/definitions/integer",
+          "description": "The input/output operations per second (IOPS) of the disk."
+        },
+        "isAttached": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether the disk is attached."
+        },
+        "isSystemDisk": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it)."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The region and Availability Zone where the disk is located."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the disk."
+        },
+        "path": {
+          "$ref": "#/definitions/string",
+          "description": "The disk path."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type of the disk. "
+        },
+        "sizeInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The size of the disk in GB."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object",
+      "title": "Disk"
+    },
+    "DiskList": {
+      "items": {
+        "$ref": "#/definitions/Disk"
+      },
+      "type": "array",
+      "title": "DiskList"
+    },
+    "Domain": {
+      "description": "Describes a domain where you are storing recordsets in Lightsail.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the domain recordset (e.g., <code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>)."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The date when the domain recordset was created."
+        },
+        "domainEntries": {
+          "$ref": "#/definitions/DomainEntryList",
+          "description": "An array of key-value pairs containing information about the domain entries."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The AWS Region and Availability Zones where the domain recordset was created."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the domain."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type. "
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object",
+      "title": "Domain"
+    },
+    "DomainEntry": {
+      "description": "Describes a domain recordset entry.",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID of the domain recordset entry."
+        },
+        "name": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain."
+        },
+        "options": {
+          "$ref": "#/definitions/DomainEntryOptions",
+          "description": "The options for the domain entry."
+        },
+        "target": {
+          "$ref": "#/definitions/string",
+          "description": "The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>)."
+        },
+        "type": {
+          "$ref": "#/definitions/DomainEntryType",
+          "description": "The type of domain entry (e.g., <code>SOA</code> or <code>NS</code>)."
+        }
+      },
+      "type": "object",
+      "title": "DomainEntry"
+    },
+    "DomainEntryList": {
+      "items": {
+        "$ref": "#/definitions/DomainEntry"
+      },
+      "type": "array",
+      "title": "DomainEntryList"
+    },
+    "DomainEntryOptions": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DomainEntryOptionsKeys"
+          },
+          "value": {
+            "$ref": "#/definitions/string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "DomainEntryOptions"
+    },
+    "DomainEntryOptionsKeys": {
+      "type": "string",
+      "title": "DomainEntryOptionsKeys"
+    },
+    "DomainEntryType": {
+      "type": "string",
+      "title": "DomainEntryType"
+    },
+    "DomainList": {
+      "items": {
+        "$ref": "#/definitions/Domain"
+      },
+      "type": "array",
+      "title": "DomainList"
+    },
+    "DomainName": {
+      "type": "string",
+      "title": "DomainName"
+    },
+    "DownloadDefaultKeyPairRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DownloadDefaultKeyPairRequest"
+    },
+    "DownloadDefaultKeyPairResult": {
+      "properties": {
+        "privateKeyBase64": {
+          "$ref": "#/definitions/Base64",
+          "description": "A base64-encoded RSA private key."
+        },
+        "publicKeyBase64": {
+          "$ref": "#/definitions/Base64",
+          "description": "A base64-encoded public key of the <code>ssh-rsa</code> type."
+        }
+      },
+      "type": "object",
+      "title": "DownloadDefaultKeyPairResult"
+    },
+    "GetActiveNamesRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for paginating results from your get active names request."
+        }
+      },
+      "type": "object",
+      "title": "GetActiveNamesRequest"
+    },
+    "GetActiveNamesResult": {
+      "properties": {
+        "activeNames": {
+          "$ref": "#/definitions/StringList",
+          "description": "The list of active names returned by the get active names request."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get active names request."
+        }
+      },
+      "type": "object",
+      "title": "GetActiveNamesResult"
+    },
+    "GetBlueprintsRequest": {
+      "properties": {
+        "includeInactive": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether to include inactive results in your request."
+        },
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get blueprints request."
+        }
+      },
+      "type": "object",
+      "title": "GetBlueprintsRequest"
+    },
+    "GetBlueprintsResult": {
+      "properties": {
+        "blueprints": {
+          "$ref": "#/definitions/BlueprintList",
+          "description": "An array of key-value pairs that contains information about the available blueprints."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get blueprints request."
+        }
+      },
+      "type": "object",
+      "title": "GetBlueprintsResult"
+    },
+    "GetBundlesRequest": {
+      "properties": {
+        "includeInactive": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value that indicates whether to include inactive bundle results in your request."
+        },
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get bundles request."
+        }
+      },
+      "type": "object",
+      "title": "GetBundlesRequest"
+    },
+    "GetBundlesResult": {
+      "properties": {
+        "bundles": {
+          "$ref": "#/definitions/BundleList",
+          "description": "An array of key-value pairs that contains information about the available bundles."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get active names request."
+        }
+      },
+      "type": "object",
+      "title": "GetBundlesResult"
+    },
+    "GetDomainRequest": {
+      "properties": {
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The domain name for which your want to return information about."
+        }
+      },
+      "required": [
+        "domainName"
+      ],
+      "type": "object",
+      "title": "GetDomainRequest"
+    },
+    "GetDomainResult": {
+      "properties": {
+        "domain": {
+          "$ref": "#/definitions/Domain",
+          "description": "An array of key-value pairs containing information about your get domain request."
+        }
+      },
+      "type": "object",
+      "title": "GetDomainResult"
+    },
+    "GetDomainsRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get domains request."
+        }
+      },
+      "type": "object",
+      "title": "GetDomainsRequest"
+    },
+    "GetDomainsResult": {
+      "properties": {
+        "domains": {
+          "$ref": "#/definitions/DomainList",
+          "description": "An array of key-value pairs containing information about each of the domain entries in the user's account."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get active names request."
+        }
+      },
+      "type": "object",
+      "title": "GetDomainsResult"
+    },
+    "GetInstanceAccessDetailsRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance to access."
+        },
+        "protocol": {
+          "$ref": "#/definitions/InstanceAccessProtocol",
+          "description": "The protocol to use to connect to your instance. Defaults to <code>ssh</code>."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "GetInstanceAccessDetailsRequest"
+    },
+    "GetInstanceAccessDetailsResult": {
+      "properties": {
+        "accessDetails": {
+          "$ref": "#/definitions/InstanceAccessDetails",
+          "description": "An array of key-value pairs containing information about a get instance access request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceAccessDetailsResult"
+    },
+    "GetInstanceMetricDataRequest": {
+      "properties": {
+        "endTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The end time of the time period."
+        },
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance for which you want to get metrics data."
+        },
+        "metricName": {
+          "$ref": "#/definitions/InstanceMetricName",
+          "description": "The metric name to get data about. "
+        },
+        "period": {
+          "$ref": "#/definitions/MetricPeriod",
+          "description": "The time period for which you are requesting data."
+        },
+        "startTime": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The start time of the time period."
+        },
+        "statistics": {
+          "$ref": "#/definitions/MetricStatisticList",
+          "description": "The instance statistics. "
+        },
+        "unit": {
+          "$ref": "#/definitions/MetricUnit",
+          "description": "The unit. The list of valid values is below."
+        }
+      },
+      "required": [
+        "instanceName",
+        "metricName",
+        "period",
+        "startTime",
+        "endTime",
+        "unit",
+        "statistics"
+      ],
+      "type": "object",
+      "title": "GetInstanceMetricDataRequest"
+    },
+    "GetInstanceMetricDataResult": {
+      "properties": {
+        "metricData": {
+          "$ref": "#/definitions/MetricDatapointList",
+          "description": "An array of key-value pairs containing information about the results of your get instance metric data request."
+        },
+        "metricName": {
+          "$ref": "#/definitions/InstanceMetricName",
+          "description": "The metric name to return data for. "
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceMetricDataResult"
+    },
+    "GetInstancePortStatesRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "GetInstancePortStatesRequest"
+    },
+    "GetInstancePortStatesResult": {
+      "properties": {
+        "portStates": {
+          "$ref": "#/definitions/PortStateList",
+          "description": "Information about the port states resulting from your request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstancePortStatesResult"
+    },
+    "GetInstanceRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "GetInstanceRequest"
+    },
+    "GetInstanceResult": {
+      "properties": {
+        "instance": {
+          "$ref": "#/definitions/Instance",
+          "description": "An array of key-value pairs containing information about the specified instance."
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceResult"
+    },
+    "GetInstanceSnapshotRequest": {
+      "properties": {
+        "instanceSnapshotName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the snapshot for which you are requesting information."
+        }
+      },
+      "required": [
+        "instanceSnapshotName"
+      ],
+      "type": "object",
+      "title": "GetInstanceSnapshotRequest"
+    },
+    "GetInstanceSnapshotResult": {
+      "properties": {
+        "instanceSnapshot": {
+          "$ref": "#/definitions/InstanceSnapshot",
+          "description": "An array of key-value pairs containing information about the results of your get instance snapshot request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceSnapshotResult"
+    },
+    "GetInstanceSnapshotsRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get instance snapshots request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceSnapshotsRequest"
+    },
+    "GetInstanceSnapshotsResult": {
+      "properties": {
+        "instanceSnapshots": {
+          "$ref": "#/definitions/InstanceSnapshotList",
+          "description": "An array of key-value pairs containing information about the results of your get instance snapshots request."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get instance snapshots request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceSnapshotsResult"
+    },
+    "GetInstanceStateRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance to get state information about."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "GetInstanceStateRequest"
+    },
+    "GetInstanceStateResult": {
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/InstanceState",
+          "description": "The state of the instance."
+        }
+      },
+      "type": "object",
+      "title": "GetInstanceStateResult"
+    },
+    "GetInstancesRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get instances request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstancesRequest"
+    },
+    "GetInstancesResult": {
+      "properties": {
+        "instances": {
+          "$ref": "#/definitions/InstanceList",
+          "description": "An array of key-value pairs containing information about your instances."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get instances request."
+        }
+      },
+      "type": "object",
+      "title": "GetInstancesResult"
+    },
+    "GetKeyPairRequest": {
+      "properties": {
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the key pair for which you are requesting information."
+        }
+      },
+      "required": [
+        "keyPairName"
+      ],
+      "type": "object",
+      "title": "GetKeyPairRequest"
+    },
+    "GetKeyPairResult": {
+      "properties": {
+        "keyPair": {
+          "$ref": "#/definitions/KeyPair",
+          "description": "An array of key-value pairs containing information about the key pair."
+        }
+      },
+      "type": "object",
+      "title": "GetKeyPairResult"
+    },
+    "GetKeyPairsRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get key pairs request."
+        }
+      },
+      "type": "object",
+      "title": "GetKeyPairsRequest"
+    },
+    "GetKeyPairsResult": {
+      "properties": {
+        "keyPairs": {
+          "$ref": "#/definitions/KeyPairList",
+          "description": "An array of key-value pairs containing information about the key pairs."
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get key pairs request."
+        }
+      },
+      "type": "object",
+      "title": "GetKeyPairsResult"
+    },
+    "GetOperationRequest": {
+      "properties": {
+        "operationId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A GUID used to identify the operation."
+        }
+      },
+      "required": [
+        "operationId"
+      ],
+      "type": "object",
+      "title": "GetOperationRequest"
+    },
+    "GetOperationResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the results of your get operation request."
+        }
+      },
+      "type": "object",
+      "title": "GetOperationResult"
+    },
+    "GetOperationsForResourceRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get operations for resource request."
+        },
+        "resourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the resource for which you are requesting information."
+        }
+      },
+      "required": [
+        "resourceName"
+      ],
+      "type": "object",
+      "title": "GetOperationsForResourceRequest"
+    },
+    "GetOperationsForResourceResult": {
+      "properties": {
+        "nextPageCount": {
+          "$ref": "#/definitions/string",
+          "description": "Returns the number of pages of results that remain."
+        },
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your get operations for resource request."
+        }
+      },
+      "type": "object",
+      "title": "GetOperationsForResourceResult"
+    },
+    "GetOperationsRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get operations request."
+        }
+      },
+      "type": "object",
+      "title": "GetOperationsRequest"
+    },
+    "GetOperationsResult": {
+      "properties": {
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get operations request."
+        },
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the results of your get operations request."
+        }
+      },
+      "type": "object",
+      "title": "GetOperationsResult"
+    },
+    "GetRegionsRequest": {
+      "properties": {
+        "includeAvailabilityZones": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-1a</code>."
+        }
+      },
+      "type": "object",
+      "title": "GetRegionsRequest"
+    },
+    "GetRegionsResult": {
+      "properties": {
+        "regions": {
+          "$ref": "#/definitions/RegionList",
+          "description": "An array of key-value pairs containing information about your get regions request."
+        }
+      },
+      "type": "object",
+      "title": "GetRegionsResult"
+    },
+    "GetStaticIpRequest": {
+      "properties": {
+        "staticIpName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the static IP in Lightsail."
+        }
+      },
+      "required": [
+        "staticIpName"
+      ],
+      "type": "object",
+      "title": "GetStaticIpRequest"
+    },
+    "GetStaticIpResult": {
+      "properties": {
+        "staticIp": {
+          "$ref": "#/definitions/StaticIp",
+          "description": "An array of key-value pairs containing information about the requested static IP."
+        }
+      },
+      "type": "object",
+      "title": "GetStaticIpResult"
+    },
+    "GetStaticIpsRequest": {
+      "properties": {
+        "pageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get static IPs request."
+        }
+      },
+      "type": "object",
+      "title": "GetStaticIpsRequest"
+    },
+    "GetStaticIpsResult": {
+      "properties": {
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "A token used for advancing to the next page of results from your get static IPs request."
+        },
+        "staticIps": {
+          "$ref": "#/definitions/StaticIpList",
+          "description": "An array of key-value pairs containing information about your get static IPs request."
+        }
+      },
+      "type": "object",
+      "title": "GetStaticIpsResult"
+    },
+    "ImportKeyPairRequest": {
+      "properties": {
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the key pair for which you want to import the public key."
+        },
+        "publicKeyBase64": {
+          "$ref": "#/definitions/Base64",
+          "description": "A base64-encoded public key of the <code>ssh-rsa</code> type."
+        }
+      },
+      "required": [
+        "keyPairName",
+        "publicKeyBase64"
+      ],
+      "type": "object",
+      "title": "ImportKeyPairRequest"
+    },
+    "ImportKeyPairResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "ImportKeyPairResult"
+    },
+    "Instance": {
+      "description": "Describes an instance (a virtual private server).",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the instance (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE</code>)."
+        },
+        "blueprintId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The blueprint ID (e.g., <code>os_amlinux_2016_03</code>)."
+        },
+        "blueprintName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The friendly name of the blueprint (e.g., <code>Amazon Linux</code>)."
+        },
+        "bundleId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The bundle for the instance (e.g., <code>micro_1_0</code>)."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the instance was created (e.g., <code>1479734909.17</code>)."
+        },
+        "hardware": {
+          "$ref": "#/definitions/InstanceHardware",
+          "description": "The size of the vCPU and the amount of RAM for the instance."
+        },
+        "ipv6Address": {
+          "$ref": "#/definitions/IpV6Address",
+          "description": "The IPv6 address of the instance."
+        },
+        "isStaticIp": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether this instance has a static IP assigned to it."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The region name and availability zone where the instance is located."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name the user gave the instance (e.g., <code>Amazon_Linux-1GB-Virginia-1</code>)."
+        },
+        "networking": {
+          "$ref": "#/definitions/InstanceNetworking",
+          "description": "Information about the public ports and monthly data transfer rates for the instance."
+        },
+        "privateIpAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The private IP address of the instance."
+        },
+        "publicIpAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The public IP address of the instance."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource (usually <code>Instance</code>)."
+        },
+        "sshKeyName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the SSH key being used to connect to the instance (e.g., <code>LightsailDefaultKeyPair</code>)."
+        },
+        "state": {
+          "$ref": "#/definitions/InstanceState",
+          "description": "The status code and the state (e.g., <code>running</code>) for the instance."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        },
+        "username": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The user name for connecting to the instance (e.g., <code>ec2-user</code>)."
+        }
+      },
+      "type": "object",
+      "title": "Instance"
+    },
+    "InstanceAccessDetails": {
+      "description": "The parameters for gaining temporary access to one of your Amazon Lightsail instances.",
+      "properties": {
+        "certKey": {
+          "$ref": "#/definitions/string",
+          "description": "For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to <code>tempkey-cert.pub</code>."
+        },
+        "expiresAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "For SSH access, the date on which the temporary keys expire."
+        },
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of this Amazon Lightsail instance."
+        },
+        "ipAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The public IP address of the Amazon Lightsail instance."
+        },
+        "password": {
+          "$ref": "#/definitions/string",
+          "description": "For RDP access, the temporary password of the Amazon EC2 instance."
+        },
+        "privateKey": {
+          "$ref": "#/definitions/string",
+          "description": "For SSH access, the temporary private key. For OpenSSH clients (e.g., command line SSH), you should save this value to <code>tempkey</code>)."
+        },
+        "protocol": {
+          "$ref": "#/definitions/InstanceAccessProtocol",
+          "description": "The protocol for these Amazon Lightsail instance access details."
+        },
+        "username": {
+          "$ref": "#/definitions/string",
+          "description": "The user name to use when logging in to the Amazon Lightsail instance."
+        }
+      },
+      "type": "object",
+      "title": "InstanceAccessDetails"
+    },
+    "InstanceAccessProtocol": {
+      "enum": [
+        "ssh",
+        "rdp"
+      ],
+      "type": "string",
+      "title": "InstanceAccessProtocol"
+    },
+    "InstanceHardware": {
+      "description": "Describes the hardware for the instance.",
+      "properties": {
+        "cpuCount": {
+          "$ref": "#/definitions/integer",
+          "description": "The number of vCPUs the instance has."
+        },
+        "disks": {
+          "$ref": "#/definitions/DiskList",
+          "description": "The disks attached to the instance."
+        },
+        "ramSizeInGb": {
+          "$ref": "#/definitions/float",
+          "description": "The amount of RAM in GB on the instance (e.g., <code>1.0</code>)."
+        }
+      },
+      "type": "object",
+      "title": "InstanceHardware"
+    },
+    "InstanceList": {
+      "items": {
+        "$ref": "#/definitions/Instance"
+      },
+      "type": "array",
+      "title": "InstanceList"
+    },
+    "InstanceMetricName": {
+      "enum": [
+        "CPUUtilization",
+        "NetworkIn",
+        "NetworkOut",
+        "StatusCheckFailed",
+        "StatusCheckFailed_Instance",
+        "StatusCheckFailed_System"
+      ],
+      "type": "string",
+      "title": "InstanceMetricName"
+    },
+    "InstanceNetworking": {
+      "description": "Describes monthly data transfer rates and port information for an instance.",
+      "properties": {
+        "monthlyTransfer": {
+          "$ref": "#/definitions/MonthlyTransfer",
+          "description": "The amount of data in GB allocated for monthly data transfers."
+        },
+        "ports": {
+          "$ref": "#/definitions/InstancePortInfoList",
+          "description": "An array of key-value pairs containing information about the ports on the instance."
+        }
+      },
+      "type": "object",
+      "title": "InstanceNetworking"
+    },
+    "InstancePortInfo": {
+      "description": "Describes information about the instance ports.",
+      "properties": {
+        "accessDirection": {
+          "$ref": "#/definitions/AccessDirection",
+          "description": "The access direction (<code>inbound</code> or <code>outbound</code>)."
+        },
+        "accessFrom": {
+          "$ref": "#/definitions/string",
+          "description": "The location from which access is allowed (e.g., <code>Anywhere (0.0.0.0/0)</code>)."
+        },
+        "accessType": {
+          "$ref": "#/definitions/PortAccessType",
+          "description": "The type of access (<code>Public</code> or <code>Private</code>)."
+        },
+        "commonName": {
+          "$ref": "#/definitions/string",
+          "description": "The common name."
+        },
+        "fromPort": {
+          "$ref": "#/definitions/Port",
+          "description": "The first port in the range."
+        },
+        "protocol": {
+          "$ref": "#/definitions/NetworkProtocol",
+          "description": "The protocol. "
+        },
+        "toPort": {
+          "$ref": "#/definitions/Port",
+          "description": "The last port in the range."
+        }
+      },
+      "type": "object",
+      "title": "InstancePortInfo"
+    },
+    "InstancePortInfoList": {
+      "items": {
+        "$ref": "#/definitions/InstancePortInfo"
+      },
+      "type": "array",
+      "title": "InstancePortInfoList"
+    },
+    "InstanceSnapshot": {
+      "description": "Describes the snapshot of the virtual private server, or <i>instance</i>.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the snapshot (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE</code>)."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the snapshot was created (e.g., <code>1479907467.024</code>)."
+        },
+        "fromBlueprintId": {
+          "$ref": "#/definitions/string",
+          "description": "The blueprint ID from which you created the snapshot (e.g., <code>os_debian_8_3</code>). A blueprint is a virtual private server (or <i>instance</i>) image used to create instances quickly."
+        },
+        "fromBundleId": {
+          "$ref": "#/definitions/string",
+          "description": "The bundle ID from which you created the snapshot (e.g., <code>micro_1_0</code>)."
+        },
+        "fromInstanceArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE</code>)."
+        },
+        "fromInstanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The instance from which the snapshot was created."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The region name and availability zone where you created the snapshot."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the snapshot."
+        },
+        "progress": {
+          "$ref": "#/definitions/string",
+          "description": "The progress of the snapshot."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource (usually <code>InstanceSnapshot</code>)."
+        },
+        "sizeInGb": {
+          "$ref": "#/definitions/integer",
+          "description": "The size in GB of the SSD."
+        },
+        "state": {
+          "$ref": "#/definitions/InstanceSnapshotState",
+          "description": "The state the snapshot is in."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object",
+      "title": "InstanceSnapshot"
+    },
+    "InstanceSnapshotList": {
+      "items": {
+        "$ref": "#/definitions/InstanceSnapshot"
+      },
+      "type": "array",
+      "title": "InstanceSnapshotList"
+    },
+    "InstanceSnapshotState": {
+      "enum": [
+        "pending",
+        "error",
+        "available"
+      ],
+      "type": "string",
+      "title": "InstanceSnapshotState"
+    },
+    "InstanceState": {
+      "description": "Describes the virtual private server (or <i>instance</i>) status.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/integer",
+          "description": "The status code for the instance."
+        },
+        "name": {
+          "$ref": "#/definitions/string",
+          "description": "The state of the instance (e.g., <code>running</code> or <code>pending</code>)."
+        }
+      },
+      "type": "object",
+      "title": "InstanceState"
+    },
+    "InvalidInputException": {
+      "description": "Lightsail throws this exception when user input does not conform to the validation rules of an input field.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "InvalidInputException"
+    },
+    "IpAddress": {
+      "pattern": "([0-9]{1,3}\\.){3}[0-9]{1,3}",
+      "type": "string",
+      "title": "IpAddress"
+    },
+    "IpV6Address": {
+      "pattern": "([A-F0-9]{1,4}:){7}[A-F0-9]{1,4}",
+      "type": "string",
+      "title": "IpV6Address"
+    },
+    "IsVpcPeeredRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "IsVpcPeeredRequest"
+    },
+    "IsVpcPeeredResult": {
+      "properties": {
+        "isPeered": {
+          "$ref": "#/definitions/boolean",
+          "description": "Returns <code>true</code> if the Lightsail VPC is peered; otherwise, <code>false</code>."
+        }
+      },
+      "type": "object",
+      "title": "IsVpcPeeredResult"
+    },
+    "IsoDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "IsoDate"
+    },
+    "KeyPair": {
+      "description": "Describes the SSH key pair.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the key pair (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>)."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the key pair was created (e.g., <code>1479816991.349</code>)."
+        },
+        "fingerprint": {
+          "$ref": "#/definitions/Base64",
+          "description": "The RSA fingerprint of the key pair."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The region name and Availability Zone where the key pair was created."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The friendly name of the SSH key pair."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type (usually <code>KeyPair</code>)."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object",
+      "title": "KeyPair"
+    },
+    "KeyPairList": {
+      "items": {
+        "$ref": "#/definitions/KeyPair"
+      },
+      "type": "array",
+      "title": "KeyPairList"
+    },
+    "MetricDatapoint": {
+      "description": "Describes the metric data point.",
+      "properties": {
+        "average": {
+          "$ref": "#/definitions/double",
+          "description": "The average."
+        },
+        "maximum": {
+          "$ref": "#/definitions/double",
+          "description": "The maximum."
+        },
+        "minimum": {
+          "$ref": "#/definitions/double",
+          "description": "The minimum."
+        },
+        "sampleCount": {
+          "$ref": "#/definitions/double",
+          "description": "The sample count."
+        },
+        "sum": {
+          "$ref": "#/definitions/double",
+          "description": "The sum."
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp",
+          "description": "The timestamp (e.g., <code>1479816991.349</code>)."
+        },
+        "unit": {
+          "$ref": "#/definitions/MetricUnit",
+          "description": "The unit. "
+        }
+      },
+      "type": "object",
+      "title": "MetricDatapoint"
+    },
+    "MetricDatapointList": {
+      "items": {
+        "$ref": "#/definitions/MetricDatapoint"
+      },
+      "type": "array",
+      "title": "MetricDatapointList"
+    },
+    "MetricPeriod": {
+      "maximum": 86400,
+      "minimum": 60,
+      "type": "integer",
+      "title": "MetricPeriod"
+    },
+    "MetricStatistic": {
+      "enum": [
+        "Minimum",
+        "Maximum",
+        "Sum",
+        "Average",
+        "SampleCount"
+      ],
+      "type": "string",
+      "title": "MetricStatistic"
+    },
+    "MetricStatisticList": {
+      "items": {
+        "$ref": "#/definitions/MetricStatistic"
+      },
+      "type": "array",
+      "title": "MetricStatisticList"
+    },
+    "MetricUnit": {
+      "enum": [
+        "Seconds",
+        "Microseconds",
+        "Milliseconds",
+        "Bytes",
+        "Kilobytes",
+        "Megabytes",
+        "Gigabytes",
+        "Terabytes",
+        "Bits",
+        "Kilobits",
+        "Megabits",
+        "Gigabits",
+        "Terabits",
+        "Percent",
+        "Count",
+        "Bytes/Second",
+        "Kilobytes/Second",
+        "Megabytes/Second",
+        "Gigabytes/Second",
+        "Terabytes/Second",
+        "Bits/Second",
+        "Kilobits/Second",
+        "Megabits/Second",
+        "Gigabits/Second",
+        "Terabits/Second",
+        "Count/Second",
+        "None"
+      ],
+      "type": "string",
+      "title": "MetricUnit"
+    },
+    "MonthlyTransfer": {
+      "description": "Describes the monthly data transfer in and out of your virtual private server (or <i>instance</i>).",
+      "properties": {
+        "gbPerMonthAllocated": {
+          "$ref": "#/definitions/integer",
+          "description": "The amount allocated per month (in GB)."
+        }
+      },
+      "type": "object",
+      "title": "MonthlyTransfer"
+    },
+    "NetworkProtocol": {
+      "enum": [
+        "tcp",
+        "all",
+        "udp"
+      ],
+      "type": "string",
+      "title": "NetworkProtocol"
+    },
+    "NonEmptyString": {
+      "pattern": ".*\\S.*",
+      "type": "string",
+      "title": "NonEmptyString"
+    },
+    "NotFoundException": {
+      "description": "Lightsail throws this exception when it cannot find a resource.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "NotFoundException"
+    },
+    "OpenInstancePublicPortsRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance for which you want to open the public ports."
+        },
+        "portInfo": {
+          "$ref": "#/definitions/PortInfo",
+          "description": "An array of key-value pairs containing information about the port mappings."
+        }
+      },
+      "required": [
+        "portInfo",
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "OpenInstancePublicPortsRequest"
+    },
+    "OpenInstancePublicPortsResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "OpenInstancePublicPortsResult"
+    },
+    "Operation": {
+      "description": "Describes the API operation.",
+      "properties": {
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the operation was initialized (e.g., <code>1479816991.349</code>)."
+        },
+        "errorCode": {
+          "$ref": "#/definitions/string",
+          "description": "The error code."
+        },
+        "errorDetails": {
+          "$ref": "#/definitions/string",
+          "description": "The error details."
+        },
+        "id": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID of the operation."
+        },
+        "isTerminal": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether the operation is terminal."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The region and Availability Zone."
+        },
+        "operationDetails": {
+          "$ref": "#/definitions/string",
+          "description": "Details about the operation (e.g., <code>Debian-1GB-Virginia-1</code>)."
+        },
+        "operationType": {
+          "$ref": "#/definitions/OperationType",
+          "description": "The type of operation. "
+        },
+        "resourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The resource name."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type. "
+        },
+        "status": {
+          "$ref": "#/definitions/OperationStatus",
+          "description": "The status of the operation. "
+        },
+        "statusChangedAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the status was changed (e.g., <code>1479816991.349</code>)."
+        }
+      },
+      "type": "object",
+      "title": "Operation"
+    },
+    "OperationFailureException": {
+      "description": "Lightsail throws this exception when an operation fails to execute.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "OperationFailureException"
+    },
+    "OperationList": {
+      "items": {
+        "$ref": "#/definitions/Operation"
+      },
+      "type": "array",
+      "title": "OperationList"
+    },
+    "OperationStatus": {
+      "enum": [
+        "NotStarted",
+        "Started",
+        "Failed",
+        "Completed"
+      ],
+      "type": "string",
+      "title": "OperationStatus"
+    },
+    "OperationType": {
+      "enum": [
+        "DeleteInstance",
+        "CreateInstance",
+        "StopInstance",
+        "StartInstance",
+        "RebootInstance",
+        "OpenInstancePublicPorts",
+        "CloseInstancePublicPorts",
+        "AllocateStaticIp",
+        "ReleaseStaticIp",
+        "AttachStaticIp",
+        "DetachStaticIp",
+        "UpdateDomainEntry",
+        "DeleteDomainEntry",
+        "CreateDomain",
+        "DeleteDomain",
+        "CreateInstanceSnapshot",
+        "DeleteInstanceSnapshot",
+        "CreateInstancesFromSnapshot"
+      ],
+      "type": "string",
+      "title": "OperationType"
+    },
+    "PeerVpcRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "PeerVpcRequest"
+    },
+    "PeerVpcResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "PeerVpcResult"
+    },
+    "Port": {
+      "maximum": 65535,
+      "minimum": 0,
+      "type": "integer",
+      "title": "Port"
+    },
+    "PortAccessType": {
+      "enum": [
+        "Public",
+        "Private"
+      ],
+      "type": "string",
+      "title": "PortAccessType"
+    },
+    "PortInfo": {
+      "description": "Describes information about the ports on your virtual private server (or <i>instance</i>).",
+      "properties": {
+        "fromPort": {
+          "$ref": "#/definitions/Port",
+          "description": "The first port in the range."
+        },
+        "protocol": {
+          "$ref": "#/definitions/NetworkProtocol",
+          "description": "The protocol. "
+        },
+        "toPort": {
+          "$ref": "#/definitions/Port",
+          "description": "The last port in the range."
+        }
+      },
+      "type": "object",
+      "title": "PortInfo"
+    },
+    "PortState": {
+      "enum": [
+        "open",
+        "closed"
+      ],
+      "type": "string",
+      "title": "PortState"
+    },
+    "PortStateList": {
+      "items": {
+        "$ref": "#/definitions/PortState"
+      },
+      "type": "array",
+      "title": "PortStateList"
+    },
+    "RebootInstanceRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance to reboot."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "RebootInstanceRequest"
+    },
+    "RebootInstanceResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "RebootInstanceResult"
+    },
+    "Region": {
+      "description": "Describes the AWS Region.",
+      "properties": {
+        "availabilityZones": {
+          "$ref": "#/definitions/AvailabilityZoneList",
+          "description": "The Availability Zones."
+        },
+        "continentCode": {
+          "$ref": "#/definitions/string",
+          "description": "The continent code (e.g., <code>NA</code>, meaning North America)."
+        },
+        "description": {
+          "$ref": "#/definitions/string",
+          "description": "The description of the AWS Region (e.g., <code>This region is recommended to serve users in the eastern United States and eastern Canada</code>)."
+        },
+        "displayName": {
+          "$ref": "#/definitions/string",
+          "description": "The display name (e.g., <code>Virginia</code>)."
+        },
+        "name": {
+          "$ref": "#/definitions/RegionName",
+          "description": "The region name (e.g., <code>us-east-1</code>)."
+        }
+      },
+      "type": "object",
+      "title": "Region"
+    },
+    "RegionList": {
+      "items": {
+        "$ref": "#/definitions/Region"
+      },
+      "type": "array",
+      "title": "RegionList"
+    },
+    "RegionName": {
+      "enum": [
+        "us-east-1",
+        "us-west-1",
+        "us-west-2",
+        "eu-west-1",
+        "eu-central-1",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-northeast-1",
+        "ap-northeast-2"
+      ],
+      "type": "string",
+      "title": "RegionName"
+    },
+    "ReleaseStaticIpRequest": {
+      "properties": {
+        "staticIpName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the static IP to delete."
+        }
+      },
+      "required": [
+        "staticIpName"
+      ],
+      "type": "object",
+      "title": "ReleaseStaticIpRequest"
+    },
+    "ReleaseStaticIpResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "ReleaseStaticIpResult"
+    },
+    "ResourceLocation": {
+      "description": "Describes the resource location.",
+      "properties": {
+        "availabilityZone": {
+          "$ref": "#/definitions/string",
+          "description": "The Availability Zone."
+        },
+        "regionName": {
+          "$ref": "#/definitions/RegionName",
+          "description": "The AWS Region name."
+        }
+      },
+      "type": "object",
+      "title": "ResourceLocation"
+    },
+    "ResourceName": {
+      "pattern": "\\w[\\w\\-]*\\w",
+      "type": "string",
+      "title": "ResourceName"
+    },
+    "ResourceType": {
+      "enum": [
+        "Instance",
+        "StaticIp",
+        "KeyPair",
+        "InstanceSnapshot",
+        "Domain",
+        "PeeredVpc"
+      ],
+      "type": "string",
+      "title": "ResourceType"
+    },
+    "ServiceException": {
+      "description": "A general service exception.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "ServiceException"
+    },
+    "StartInstanceRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance (a virtual private server) to start."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "StartInstanceRequest"
+    },
+    "StartInstanceResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "StartInstanceResult"
+    },
+    "StaticIp": {
+      "description": "Describes the static IP.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Resource Name (ARN) of the static IP (e.g., <code>arn:aws:lightsail:us-east-1:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE</code>)."
+        },
+        "attachedTo": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The instance where the static IP is attached (e.g., <code>Amazon_Linux-1GB-Virginia-1</code>)."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/IsoDate",
+          "description": "The timestamp when the static IP was created (e.g., <code>1479735304.222</code>)."
+        },
+        "ipAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The static IP address."
+        },
+        "isAttached": {
+          "$ref": "#/definitions/boolean",
+          "description": "A Boolean value indicating whether the static IP is attached."
+        },
+        "location": {
+          "$ref": "#/definitions/ResourceLocation",
+          "description": "The region and Availability Zone where the static IP was created."
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the static IP (e.g., <code>StaticIP-Virginia-EXAMPLE</code>)."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type (usually <code>StaticIp</code>)."
+        },
+        "supportCode": {
+          "$ref": "#/definitions/string",
+          "description": "The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily."
+        }
+      },
+      "type": "object",
+      "title": "StaticIp"
+    },
+    "StaticIpList": {
+      "items": {
+        "$ref": "#/definitions/StaticIp"
+      },
+      "type": "array",
+      "title": "StaticIpList"
+    },
+    "StopInstanceRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the instance (a virtual private server) to stop."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object",
+      "title": "StopInstanceRequest"
+    },
+    "StopInstanceResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "StopInstanceResult"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/string"
+      },
+      "type": "array",
+      "title": "StringList"
+    },
+    "UnauthenticatedException": {
+      "description": "Lightsail throws this exception when the user has not been authenticated.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/string"
+        },
+        "docs": {
+          "$ref": "#/definitions/string"
+        },
+        "message": {
+          "$ref": "#/definitions/string"
+        },
+        "tip": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "UnauthenticatedException"
+    },
+    "UnpeerVpcRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "UnpeerVpcRequest"
+    },
+    "UnpeerVpcResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "UnpeerVpcResult"
+    },
+    "UpdateDomainEntryRequest": {
+      "properties": {
+        "domainEntry": {
+          "$ref": "#/definitions/DomainEntry",
+          "description": "An array of key-value pairs containing information about the domain entry."
+        },
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": "The name of the domain recordset to update."
+        }
+      },
+      "required": [
+        "domainName",
+        "domainEntry"
+      ],
+      "type": "object",
+      "title": "UpdateDomainEntryRequest"
+    },
+    "UpdateDomainEntryResult": {
+      "properties": {
+        "operations": {
+          "$ref": "#/definitions/OperationList",
+          "description": "An array of key-value pairs containing information about the request operation."
+        }
+      },
+      "type": "object",
+      "title": "UpdateDomainEntryResult"
+    },
+    "boolean": {
+      "type": "boolean",
+      "title": "boolean"
+    },
+    "double": {
+      "format": "double",
+      "type": "number",
+      "title": "double"
+    },
+    "float": {
+      "format": "float",
+      "type": "number",
+      "title": "float"
+    },
+    "integer": {
+      "type": "integer",
+      "title": "integer"
+    },
+    "string": {
+      "type": "string",
+      "title": "string"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "timestamp"
+    }
+  },
+  "actions": [
+    {
+      "id": "AllocateStaticIp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AllocateStaticIpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AllocateStaticIpResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "AttachStaticIp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AttachStaticIpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttachStaticIpResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CloseInstancePublicPorts",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CloseInstancePublicPortsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CloseInstancePublicPortsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CreateDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDomainResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CreateDomainEntry",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateDomainEntryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDomainEntryResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CreateInstanceSnapshot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateInstanceSnapshotRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateInstanceSnapshotResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CreateInstances",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateInstancesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateInstancesResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CreateInstancesFromSnapshot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateInstancesFromSnapshotRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateInstancesFromSnapshotResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "CreateKeyPair",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateKeyPairRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateKeyPairResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DeleteDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteDomainResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DeleteDomainEntry",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDomainEntryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteDomainEntryResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DeleteInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteInstanceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteInstanceResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DeleteInstanceSnapshot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteInstanceSnapshotRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteInstanceSnapshotResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DeleteKeyPair",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteKeyPairRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteKeyPairResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DetachStaticIp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetachStaticIpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetachStaticIpResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "DownloadDefaultKeyPair",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DownloadDefaultKeyPairRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DownloadDefaultKeyPairResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetActiveNames",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetActiveNamesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetActiveNamesResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetBlueprints",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBlueprintsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBlueprintsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetBundles",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBundlesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBundlesResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDomainResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetDomains",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDomainsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDomainsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstanceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstanceResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstanceAccessDetails",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstanceAccessDetailsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstanceAccessDetailsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstanceMetricData",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstanceMetricDataRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstanceMetricDataResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstancePortStates",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstancePortStatesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstancePortStatesResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstanceSnapshot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstanceSnapshotRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstanceSnapshotResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstanceSnapshots",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstanceSnapshotsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstanceSnapshotsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstanceState",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstanceStateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstanceStateResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetInstances",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetInstancesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetInstancesResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetKeyPair",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetKeyPairRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetKeyPairResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetKeyPairs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetKeyPairsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetKeyPairsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetOperation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetOperationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetOperationResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetOperations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetOperationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetOperationsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetOperationsForResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetOperationsForResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetOperationsForResourceResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetRegions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRegionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRegionsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetStaticIp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetStaticIpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetStaticIpResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "GetStaticIps",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetStaticIpsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetStaticIpsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "ImportKeyPair",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ImportKeyPairRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ImportKeyPairResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "IsVpcPeered",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/IsVpcPeeredRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IsVpcPeeredResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "OpenInstancePublicPorts",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/OpenInstancePublicPortsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OpenInstancePublicPortsResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "PeerVpc",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PeerVpcRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PeerVpcResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "RebootInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RebootInstanceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RebootInstanceResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "ReleaseStaticIp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ReleaseStaticIpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ReleaseStaticIpResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "StartInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartInstanceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartInstanceResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "StopInstance",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopInstanceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopInstanceResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "UnpeerVpc",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UnpeerVpcRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UnpeerVpcResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    },
+    {
+      "id": "UpdateDomainEntry",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDomainEntryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDomainEntryResult"
+      },
+      "security": {
+        "amazonaws_lightsail": {
+          "integration": "amazonaws_lightsail"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

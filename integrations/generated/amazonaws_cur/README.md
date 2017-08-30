@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_cur
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cur = require('@datafire/amazonaws_cur').create();
+let amazonaws_cur = require('@datafire/amazonaws_cur').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_cur.DeleteReportDefinition({}).then(data => {
   console.log(data);

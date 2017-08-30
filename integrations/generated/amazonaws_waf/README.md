@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_waf
 
 ```js
 let datafire = require('datafire');
-let amazonaws_waf = require('@datafire/amazonaws_waf').create();
+let amazonaws_waf = require('@datafire/amazonaws_waf').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_waf.CreateByteMatchSet({}).then(data => {
   console.log(data);

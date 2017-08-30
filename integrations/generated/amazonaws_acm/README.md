@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_acm
 
 ```js
 let datafire = require('datafire');
-let amazonaws_acm = require('@datafire/amazonaws_acm').create();
+let amazonaws_acm = require('@datafire/amazonaws_acm').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_acm.AddTagsToCertificate({}).then(data => {
   console.log(data);

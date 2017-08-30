@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_swf
 
 ```js
 let datafire = require('datafire');
-let amazonaws_swf = require('@datafire/amazonaws_swf').create();
+let amazonaws_swf = require('@datafire/amazonaws_swf').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_swf.CountClosedWorkflowExecutions({}).then(data => {
   console.log(data);

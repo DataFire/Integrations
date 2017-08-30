@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_entitlement_marketplace
 
 ```js
 let datafire = require('datafire');
-let amazonaws_entitlement_marketplace = require('@datafire/amazonaws_entitlement_marketplace').create();
+let amazonaws_entitlement_marketplace = require('@datafire/amazonaws_entitlement_marketplace').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_entitlement_marketplace.GetEntitlements({}).then(data => {
   console.log(data);

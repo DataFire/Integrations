@@ -1,0 +1,5394 @@
+{
+  "id": "amazonaws_storagegateway",
+  "title": "AWS Storage Gateway",
+  "description": "AWS Storage Gateway Service\n\nAWS Storage Gateway is the service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure. The service enables you to securely upload data to the AWS cloud for cost effective backup and rapid disaster recovery.\n\nUse the following links to get started using the _AWS Storage Gateway Service API Reference_:\n\n*   [AWS Storage Gateway Required Request Headers](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders): Describes the required headers that you must send with every POST request to AWS Storage Gateway.\n\n*   [Signing Requests](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests): AWS Storage Gateway requires that you authenticate every request you send; this topic describes how sign such a request.\n\n*   [Error Responses](http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses): Provides reference information about AWS Storage Gateway errors.\n\n*   [Operations in AWS Storage Gateway](http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html): Contains detailed descriptions of all AWS Storage Gateway operations, their request parameters, response elements, possible errors, and examples of requests and responses.\n\n*   [AWS Storage Gateway Regions and Endpoints](http://docs.aws.amazon.com/general/latest/general/latest/gr/rande.html#sg_region): Provides a list of each region and endpoints available for use with AWS Storage Gateway.\n\n AWS Storage Gateway resource IDs are in uppercase. When you use these resource IDs with the Amazon EC2 API, EC2 expects resource IDs in lowercase. You must change your resource ID to lowercase to use it with the EC2 API. For example, in Storage Gateway the ID for a volume might be `vol-AA22BB012345DAF670`. When you use this ID with the EC2 API, you must change it to `vol-aa22bb012345daf670`. Otherwise, the EC2 API might not behave as expected.  IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway volumes are changing to a longer format. Starting in December 2016, all new volumes and snapshots will be created with a 17-character string. Starting in April 2016, you will be able to use these longer IDs so you can test your systems with the new format. For more information, see [Longer EC2 and EBS Resource IDs](https://aws.amazon.com/ec2/faqs/#longer-ids).\n\nFor example, a volume Amazon Resource Name (ARN) with the longer volume ID format looks like the following:\n\n`arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG`.\n\nA snapshot ID with the longer ID format looks like the following: `snap-78e226633445566ee`.\n\nFor more information, see [Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016](https://forums.aws.amazon.com/ann.jspa?annID=3557).",
+  "security": {
+    "amazonaws_storagegateway": {
+      "integration": "amazonaws_storagegateway",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_storagegateway.svg"
+  },
+  "actionCount": 62,
+  "definitions": {
+    "ActivateGatewayInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>ActivateGatewayInput$ActivationKey</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayName</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayRegion</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayTimezone</a> </p> </li> <li> <p> <a>ActivateGatewayInput$GatewayType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$TapeDriveType</a> </p> </li> <li> <p> <a>ActivateGatewayInput$MediumChangerType</a> </p> </li> </ul>",
+      "example": {
+        "ActivationKey": "29AV1-3OFV9-VVIUB-NKT0I-LRO6V",
+        "GatewayName": "My_Gateway",
+        "GatewayRegion": "us-east-1",
+        "GatewayTimezone": "GMT-12:00",
+        "GatewayType": "STORED",
+        "MediumChangerType": "AWS-Gateway-VTL",
+        "TapeDriveType": "IBM-ULT3580-TD5"
+      },
+      "properties": {
+        "ActivationKey": {
+          "$ref": "#/definitions/ActivationKey",
+          "description": "Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter <code>activationKey</code>. It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the <code>ActivateGateway</code> API call determine the actual configuration of your gateway."
+        },
+        "GatewayName": {
+          "$ref": "#/definitions/GatewayName",
+          "description": "The name you configured for your gateway."
+        },
+        "GatewayRegion": {
+          "$ref": "#/definitions/RegionId",
+          "description": "<p>A value that indicates the region where you want to store the snapshot backups. The gateway region specified must be the same region as the region in your <code>Host</code> header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region\">Regions and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</p> <p> Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"sa-east-1\"</p>"
+        },
+        "GatewayTimezone": {
+          "$ref": "#/definitions/GatewayTimezone",
+          "description": "A value that indicates the time zone you want to set for the gateway. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule."
+        },
+        "GatewayType": {
+          "$ref": "#/definitions/GatewayType",
+          "description": "<p>A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is <code>STORED</code>. </p> <p> Valid Values: \"STORED\", \"CACHED\", \"VTL\", \"FILE_S3\"</p>"
+        },
+        "MediumChangerType": {
+          "$ref": "#/definitions/MediumChangerType",
+          "description": "<p>The value that indicates the type of medium changer to use for tape gateway. This field is optional.</p> <p> Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"</p>"
+        },
+        "TapeDriveType": {
+          "$ref": "#/definitions/TapeDriveType",
+          "description": "<p>The value that indicates the type of tape drive to use for tape gateway. This field is optional.</p> <p> Valid Values: \"IBM-ULT3580-TD5\" </p>"
+        }
+      },
+      "required": [
+        "ActivationKey",
+        "GatewayName",
+        "GatewayTimezone",
+        "GatewayRegion"
+      ],
+      "type": "object",
+      "title": "ActivateGatewayInput"
+    },
+    "ActivateGatewayOutput": {
+      "description": "<p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It is a string made of information such as your account, gateway name, and region. This ARN is used to reference the gateway in other API operations as well as resource-based authorization.</p> <note> <p>For gateways activated prior to September 02, 2015 the gateway ARN contains the gateway name rather than the gateway id. Changing the name of the gateway has no effect on the gateway ARN.</p> </note>",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "ActivateGatewayOutput"
+    },
+    "ActivationKey": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string",
+      "title": "ActivationKey"
+    },
+    "AddCacheInput": {
+      "example": {
+        "DiskIds": [
+          "pci-0000:03:00.0-scsi-0:0:0:0",
+          "pci-0000:03:00.0-scsi-0:0:1:0"
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "DiskIds": {
+          "$ref": "#/definitions/DiskIds"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "DiskIds"
+      ],
+      "type": "object",
+      "title": "AddCacheInput"
+    },
+    "AddCacheOutput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "AddCacheOutput"
+    },
+    "AddTagsToResourceInput": {
+      "description": "AddTagsToResourceInput",
+      "example": {
+        "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+        "Tags": [
+          {
+            "Key": "Dev Gatgeway Region",
+            "Value": "East Coast"
+          }
+        ]
+      },
+      "properties": {
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the resource you want to add tags to."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "<p>The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.</p> <note> <p>Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : / @.</p> </note>"
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "AddTagsToResourceInput"
+    },
+    "AddTagsToResourceOutput": {
+      "description": "AddTagsToResourceOutput",
+      "example": {
+        "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+      },
+      "properties": {
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the resource you want to add tags to."
+        }
+      },
+      "type": "object",
+      "title": "AddTagsToResourceOutput"
+    },
+    "AddUploadBufferInput": {
+      "example": {
+        "DiskIds": [
+          "pci-0000:03:00.0-scsi-0:0:0:0",
+          "pci-0000:03:00.0-scsi-0:0:1:0"
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "DiskIds": {
+          "$ref": "#/definitions/DiskIds"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "DiskIds"
+      ],
+      "type": "object",
+      "title": "AddUploadBufferInput"
+    },
+    "AddUploadBufferOutput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "AddUploadBufferOutput"
+    },
+    "AddWorkingStorageInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>AddWorkingStorageInput$DiskIds</a> </p> </li> </ul>",
+      "example": {
+        "DiskIds": [
+          "pci-0000:03:00.0-scsi-0:0:0:0",
+          "pci-0000:03:00.0-scsi-0:0:1:0"
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "DiskIds": {
+          "$ref": "#/definitions/DiskIds",
+          "description": "An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the <a>ListLocalDisks</a> API."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "DiskIds"
+      ],
+      "type": "object",
+      "title": "AddWorkingStorageInput"
+    },
+    "AddWorkingStorageOutput": {
+      "description": "A JSON object containing the of the gateway for which working storage was configured.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "AddWorkingStorageOutput"
+    },
+    "BandwidthDownloadRateLimit": {
+      "minimum": 102400,
+      "type": "integer",
+      "title": "BandwidthDownloadRateLimit"
+    },
+    "BandwidthType": {
+      "maxLength": 25,
+      "minLength": 3,
+      "type": "string",
+      "title": "BandwidthType"
+    },
+    "BandwidthUploadRateLimit": {
+      "minimum": 51200,
+      "type": "integer",
+      "title": "BandwidthUploadRateLimit"
+    },
+    "Boolean": {
+      "description": "Indicates whether the write status of a file share is read-only. \"true\", if write status is read-only; otherwise \"false\".",
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "CachediSCSIVolume": {
+      "description": "Describes an iSCSI cached volume.",
+      "properties": {
+        "CreatedDate": {
+          "$ref": "#/definitions/CreatedDate"
+        },
+        "SourceSnapshotId": {
+          "$ref": "#/definitions/SnapshotId",
+          "description": "If the cached volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included."
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the storage volume."
+        },
+        "VolumeId": {
+          "$ref": "#/definitions/VolumeId",
+          "description": "The unique identifier of the volume, e.g. vol-AE4B946D."
+        },
+        "VolumeProgress": {
+          "$ref": "#/definitions/DoubleObject",
+          "description": "Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the cached volume is not restoring or bootstrapping."
+        },
+        "VolumeSizeInBytes": {
+          "$ref": "#/definitions/long",
+          "description": "The size of the volume in bytes."
+        },
+        "VolumeStatus": {
+          "$ref": "#/definitions/VolumeStatus",
+          "description": "One of the VolumeStatus values that indicates the state of the storage volume."
+        },
+        "VolumeType": {
+          "$ref": "#/definitions/VolumeType",
+          "description": "One of the VolumeType enumeration values that describes the type of the volume."
+        },
+        "VolumeiSCSIAttributes": {
+          "$ref": "#/definitions/VolumeiSCSIAttributes",
+          "description": "An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI attributes for one stored volume."
+        }
+      },
+      "type": "object",
+      "title": "CachediSCSIVolume"
+    },
+    "CachediSCSIVolumes": {
+      "items": {
+        "$ref": "#/definitions/CachediSCSIVolume"
+      },
+      "type": "array",
+      "title": "CachediSCSIVolumes"
+    },
+    "CancelArchivalInput": {
+      "description": "CancelArchivalInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for."
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "TapeARN"
+      ],
+      "type": "object",
+      "title": "CancelArchivalInput"
+    },
+    "CancelArchivalOutput": {
+      "description": "CancelArchivalOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled."
+        }
+      },
+      "type": "object",
+      "title": "CancelArchivalOutput"
+    },
+    "CancelRetrievalInput": {
+      "description": "CancelRetrievalInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for."
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "TapeARN"
+      ],
+      "type": "object",
+      "title": "CancelRetrievalInput"
+    },
+    "CancelRetrievalOutput": {
+      "description": "CancelRetrievalOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled."
+        }
+      },
+      "type": "object",
+      "title": "CancelRetrievalOutput"
+    },
+    "ChapCredentials": {
+      "items": {
+        "$ref": "#/definitions/ChapInfo"
+      },
+      "type": "array",
+      "title": "ChapCredentials"
+    },
+    "ChapInfo": {
+      "description": "Describes Challenge-Handshake Authentication Protocol (CHAP) information that supports authentication between your gateway and iSCSI initiators.",
+      "properties": {
+        "InitiatorName": {
+          "$ref": "#/definitions/IqnName",
+          "description": "The iSCSI initiator that connects to the target."
+        },
+        "SecretToAuthenticateInitiator": {
+          "$ref": "#/definitions/ChapSecret",
+          "description": "The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target."
+        },
+        "SecretToAuthenticateTarget": {
+          "$ref": "#/definitions/ChapSecret",
+          "description": "The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client)."
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "<p>The Amazon Resource Name (ARN) of the volume.</p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
+        }
+      },
+      "type": "object",
+      "title": "ChapInfo"
+    },
+    "ChapSecret": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "ChapSecret"
+    },
+    "ClientToken": {
+      "maxLength": 100,
+      "minLength": 5,
+      "type": "string",
+      "title": "ClientToken"
+    },
+    "CreateCachediSCSIVolumeInput": {
+      "example": {
+        "ClientToken": "cachedvol112233",
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "NetworkInterfaceId": "10.1.1.1",
+        "SnapshotId": "snap-f47b7b94",
+        "TargetName": "my-volume",
+        "VolumeSizeInBytes": 536870912000
+      },
+      "properties": {
+        "ClientToken": {
+          "$ref": "#/definitions/ClientToken"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "NetworkInterfaceId": {
+          "$ref": "#/definitions/NetworkInterfaceId"
+        },
+        "SnapshotId": {
+          "$ref": "#/definitions/SnapshotId"
+        },
+        "SourceVolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than the size of the existing volume, in bytes."
+        },
+        "TargetName": {
+          "$ref": "#/definitions/TargetName"
+        },
+        "VolumeSizeInBytes": {
+          "$ref": "#/definitions/long"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "VolumeSizeInBytes",
+        "TargetName",
+        "NetworkInterfaceId",
+        "ClientToken"
+      ],
+      "type": "object",
+      "title": "CreateCachediSCSIVolumeInput"
+    },
+    "CreateCachediSCSIVolumeOutput": {
+      "example": {
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN"
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        }
+      },
+      "type": "object",
+      "title": "CreateCachediSCSIVolumeOutput"
+    },
+    "CreateNFSFileShareInput": {
+      "description": "CreateNFSFileShareInput",
+      "properties": {
+        "ClientList": {
+          "$ref": "#/definitions/FileShareClientList",
+          "description": "The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. "
+        },
+        "ClientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "A unique string value that you supply that is used by file gateway to ensure idempotent file share creation."
+        },
+        "DefaultStorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The Amazon Resource Name (ARN) of the file gateway on which you want to create a file share."
+        },
+        "KMSEncrypted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional."
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey",
+          "description": "The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional."
+        },
+        "LocationARN": {
+          "$ref": "#/definitions/LocationARN",
+          "description": "The ARN of the backend storage used for storing file data. "
+        },
+        "NFSFileShareDefaults": {
+          "$ref": "#/definitions/NFSFileShareDefaults",
+          "description": "File share default values. Optional."
+        },
+        "ReadOnly": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Sets the write status of a file share. \"true\", if the write status is read-only; otherwise \"false."
+        },
+        "Role": {
+          "$ref": "#/definitions/Role",
+          "description": "The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage. "
+        },
+        "Squash": {
+          "$ref": "#/definitions/Squash",
+          "description": "Maps a user to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user. "
+        }
+      },
+      "required": [
+        "ClientToken",
+        "GatewayARN",
+        "Role",
+        "LocationARN"
+      ],
+      "type": "object",
+      "title": "CreateNFSFileShareInput"
+    },
+    "CreateNFSFileShareOutput": {
+      "description": "CreateNFSFileShareOutput",
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN",
+          "description": "The Amazon Resource Name (ARN) of the newly created file share. "
+        }
+      },
+      "type": "object",
+      "title": "CreateNFSFileShareOutput"
+    },
+    "CreateSnapshotFromVolumeRecoveryPointInput": {
+      "example": {
+        "SnapshotDescription": "My root volume snapshot as of 2017-06-30T10:10:10.000Z",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "SnapshotDescription": {
+          "$ref": "#/definitions/SnapshotDescription"
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        }
+      },
+      "required": [
+        "VolumeARN",
+        "SnapshotDescription"
+      ],
+      "type": "object",
+      "title": "CreateSnapshotFromVolumeRecoveryPointInput"
+    },
+    "CreateSnapshotFromVolumeRecoveryPointOutput": {
+      "example": {
+        "SnapshotId": "snap-78e22663",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+        "VolumeRecoveryPointTime": "2017-06-30T10:10:10.000Z"
+      },
+      "properties": {
+        "SnapshotId": {
+          "$ref": "#/definitions/SnapshotId"
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        },
+        "VolumeRecoveryPointTime": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "CreateSnapshotFromVolumeRecoveryPointOutput"
+    },
+    "CreateSnapshotInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateSnapshotInput$SnapshotDescription</a> </p> </li> <li> <p> <a>CreateSnapshotInput$VolumeARN</a> </p> </li> </ul>",
+      "example": {
+        "SnapshotDescription": "My root volume snapshot as of 10/03/2017",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "SnapshotDescription": {
+          "$ref": "#/definitions/SnapshotDescription",
+          "description": "Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the <b>Description</b> field, and in the AWS Storage Gateway snapshot <b>Details</b> pane, <b>Description</b> field"
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes."
+        }
+      },
+      "required": [
+        "VolumeARN",
+        "SnapshotDescription"
+      ],
+      "type": "object",
+      "title": "CreateSnapshotInput"
+    },
+    "CreateSnapshotOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "SnapshotId": "snap-78e22663",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "SnapshotId": {
+          "$ref": "#/definitions/SnapshotId",
+          "description": "The snapshot ID that is used to refer to the snapshot in future operations such as describing snapshots (Amazon Elastic Compute Cloud API <code>DescribeSnapshots</code>) or creating a volume from a snapshot (<a>CreateStorediSCSIVolume</a>)."
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the volume of which the snapshot was taken."
+        }
+      },
+      "type": "object",
+      "title": "CreateSnapshotOutput"
+    },
+    "CreateStorediSCSIVolumeInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>CreateStorediSCSIVolumeInput$DiskId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$SnapshotId</a> </p> </li> <li> <p> <a>CreateStorediSCSIVolumeInput$TargetName</a> </p> </li> </ul>",
+      "example": {
+        "DiskId": "pci-0000:03:00.0-scsi-0:0:0:0",
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "NetworkInterfaceId": "10.1.1.1",
+        "PreserveExistingData": true,
+        "SnapshotId": "snap-f47b7b94",
+        "TargetName": "my-volume"
+      },
+      "properties": {
+        "DiskId": {
+          "$ref": "#/definitions/DiskId",
+          "description": "The unique identifier for the gateway local disk that is configured as a stored volume. Use <a href=\"http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html\">ListLocalDisks</a> to list disk IDs for a gateway."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "NetworkInterfaceId": {
+          "$ref": "#/definitions/NetworkInterfaceId",
+          "description": "<p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of the network interfaces available on a gateway.</p> <p> Valid Values: A valid IP address.</p>"
+        },
+        "PreserveExistingData": {
+          "$ref": "#/definitions/boolean",
+          "description": "<p>Specify this field as true if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.</p> <p> Valid Values: true, false</p>"
+        },
+        "SnapshotId": {
+          "$ref": "#/definitions/SnapshotId",
+          "description": "The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html\">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>."
+        },
+        "TargetName": {
+          "$ref": "#/definitions/TargetName",
+          "description": "The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying <code>TargetName</code> as <i>myvolume</i> results in the target ARN of arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway."
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "DiskId",
+        "PreserveExistingData",
+        "TargetName",
+        "NetworkInterfaceId"
+      ],
+      "type": "object",
+      "title": "CreateStorediSCSIVolumeInput"
+    },
+    "CreateStorediSCSIVolumeOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+        "VolumeSizeInBytes": 1099511627776
+      },
+      "properties": {
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to connect to the target."
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the configured volume."
+        },
+        "VolumeSizeInBytes": {
+          "$ref": "#/definitions/long",
+          "description": "The size of the volume in bytes."
+        }
+      },
+      "type": "object",
+      "title": "CreateStorediSCSIVolumeOutput"
+    },
+    "CreateTapeWithBarcodeInput": {
+      "description": "CreateTapeWithBarcodeInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "TapeBarcode": "TEST12345",
+        "TapeSizeInBytes": 107374182400
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
+        },
+        "TapeBarcode": {
+          "$ref": "#/definitions/TapeBarcode",
+          "description": "The barcode that you want to assign to the tape."
+        },
+        "TapeSizeInBytes": {
+          "$ref": "#/definitions/TapeSize",
+          "description": "<p>The size, in bytes, of the virtual tape that you want to create.</p> <note> <p>The size must be aligned by gigabyte (1024*1024*1024 byte).</p> </note>"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "TapeSizeInBytes",
+        "TapeBarcode"
+      ],
+      "type": "object",
+      "title": "CreateTapeWithBarcodeInput"
+    },
+    "CreateTapeWithBarcodeOutput": {
+      "description": "CreateTapeOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST12345"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "A unique Amazon Resource Name (ARN) that represents the virtual tape that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateTapeWithBarcodeOutput"
+    },
+    "CreateTapesInput": {
+      "description": "CreateTapesInput",
+      "example": {
+        "ClientToken": "77777",
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "NumTapesToCreate": 3,
+        "TapeBarcodePrefix": "TEST",
+        "TapeSizeInBytes": 107374182400
+      },
+      "properties": {
+        "ClientToken": {
+          "$ref": "#/definitions/ClientToken",
+          "description": "<p>A unique identifier that you use to retry a request. If you retry a request, use the same <code>ClientToken</code> you specified in the initial request.</p> <note> <p>Using the same <code>ClientToken</code> prevents creating the tape multiple times.</p> </note>"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
+        },
+        "NumTapesToCreate": {
+          "$ref": "#/definitions/NumTapesToCreate",
+          "description": "The number of virtual tapes that you want to create."
+        },
+        "TapeBarcodePrefix": {
+          "$ref": "#/definitions/TapeBarcodePrefix",
+          "description": "<p>A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.</p> <note> <p>The prefix must be 1 to 4 characters in length and must be one of the uppercase letters from A to Z.</p> </note>"
+        },
+        "TapeSizeInBytes": {
+          "$ref": "#/definitions/TapeSize",
+          "description": "<p>The size, in bytes, of the virtual tapes that you want to create.</p> <note> <p>The size must be aligned by gigabyte (1024*1024*1024 byte).</p> </note>"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "TapeSizeInBytes",
+        "ClientToken",
+        "NumTapesToCreate",
+        "TapeBarcodePrefix"
+      ],
+      "type": "object",
+      "title": "CreateTapesInput"
+    },
+    "CreateTapesOutput": {
+      "description": "CreateTapeOutput",
+      "example": {
+        "TapeARNs": [
+          "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST38A29D",
+          "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST3AA29F",
+          "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST3BA29E"
+        ]
+      },
+      "properties": {
+        "TapeARNs": {
+          "$ref": "#/definitions/TapeARNs",
+          "description": "A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created."
+        }
+      },
+      "type": "object",
+      "title": "CreateTapesOutput"
+    },
+    "CreatedDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CreatedDate"
+    },
+    "DayOfWeek": {
+      "maximum": 6,
+      "minimum": 0,
+      "type": "integer",
+      "title": "DayOfWeek"
+    },
+    "DeleteBandwidthRateLimitInput": {
+      "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DeleteBandwidthRateLimitInput$BandwidthType</a> </p> </li> </ul>",
+      "example": {
+        "BandwidthType": "All",
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "BandwidthType": {
+          "$ref": "#/definitions/BandwidthType",
+          "description": "<p>One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.</p> <p>Valid Values: <code>Upload</code>, <code>Download</code>, <code>All</code>.</p>"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "BandwidthType"
+      ],
+      "type": "object",
+      "title": "DeleteBandwidthRateLimitInput"
+    },
+    "DeleteBandwidthRateLimitOutput": {
+      "description": "A JSON object containing the of the gateway whose bandwidth rate information was deleted.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "DeleteBandwidthRateLimitOutput"
+    },
+    "DeleteChapCredentialsInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>DeleteChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>DeleteChapCredentialsInput$TargetARN</a> </p> </li> </ul>",
+      "example": {
+        "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+      },
+      "properties": {
+        "InitiatorName": {
+          "$ref": "#/definitions/IqnName",
+          "description": "The iSCSI initiator that connects to the target."
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN."
+        }
+      },
+      "required": [
+        "TargetARN",
+        "InitiatorName"
+      ],
+      "type": "object",
+      "title": "DeleteChapCredentialsInput"
+    },
+    "DeleteChapCredentialsOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+      },
+      "properties": {
+        "InitiatorName": {
+          "$ref": "#/definitions/IqnName",
+          "description": "The iSCSI initiator that connects to the target."
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "The Amazon Resource Name (ARN) of the target."
+        }
+      },
+      "type": "object",
+      "title": "DeleteChapCredentialsOutput"
+    },
+    "DeleteFileShareInput": {
+      "description": "DeleteFileShareInput",
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN",
+          "description": "The Amazon Resource Name (ARN) of the file share to be deleted. "
+        }
+      },
+      "required": [
+        "FileShareARN"
+      ],
+      "type": "object",
+      "title": "DeleteFileShareInput"
+    },
+    "DeleteFileShareOutput": {
+      "description": "DeleteFileShareOutput",
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN",
+          "description": "The Amazon Resource Name (ARN) of the deleted file share. "
+        }
+      },
+      "type": "object",
+      "title": "DeleteFileShareOutput"
+    },
+    "DeleteGatewayInput": {
+      "description": "A JSON object containing the id of the gateway to delete.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DeleteGatewayInput"
+    },
+    "DeleteGatewayOutput": {
+      "description": "A JSON object containing the id of the deleted gateway.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "DeleteGatewayOutput"
+    },
+    "DeleteSnapshotScheduleInput": {
+      "example": {
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        }
+      },
+      "required": [
+        "VolumeARN"
+      ],
+      "type": "object",
+      "title": "DeleteSnapshotScheduleInput"
+    },
+    "DeleteSnapshotScheduleOutput": {
+      "example": {
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        }
+      },
+      "type": "object",
+      "title": "DeleteSnapshotScheduleOutput"
+    },
+    "DeleteTapeArchiveInput": {
+      "description": "DeleteTapeArchiveInput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS)."
+        }
+      },
+      "required": [
+        "TapeARN"
+      ],
+      "type": "object",
+      "title": "DeleteTapeArchiveInput"
+    },
+    "DeleteTapeArchiveOutput": {
+      "description": "DeleteTapeArchiveOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS)."
+        }
+      },
+      "type": "object",
+      "title": "DeleteTapeArchiveOutput"
+    },
+    "DeleteTapeInput": {
+      "description": "DeleteTapeInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:204469490176:gateway/sgw-12A3456B",
+        "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape to delete."
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "TapeARN"
+      ],
+      "type": "object",
+      "title": "DeleteTapeInput"
+    },
+    "DeleteTapeOutput": {
+      "description": "DeleteTapeOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST05A2A0"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the deleted virtual tape."
+        }
+      },
+      "type": "object",
+      "title": "DeleteTapeOutput"
+    },
+    "DeleteVolumeInput": {
+      "description": "A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to delete.",
+      "example": {
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes."
+        }
+      },
+      "required": [
+        "VolumeARN"
+      ],
+      "type": "object",
+      "title": "DeleteVolumeInput"
+    },
+    "DeleteVolumeOutput": {
+      "description": "A JSON object containing the of the storage volume that was deleted",
+      "example": {
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request."
+        }
+      },
+      "type": "object",
+      "title": "DeleteVolumeOutput"
+    },
+    "DescribeBandwidthRateLimitInput": {
+      "description": "A JSON object containing the of the gateway.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeBandwidthRateLimitInput"
+    },
+    "DescribeBandwidthRateLimitOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "AverageDownloadRateLimitInBitsPerSec": 204800,
+        "AverageUploadRateLimitInBitsPerSec": 102400,
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "AverageDownloadRateLimitInBitsPerSec": {
+          "$ref": "#/definitions/BandwidthDownloadRateLimit",
+          "description": "The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set."
+        },
+        "AverageUploadRateLimitInBitsPerSec": {
+          "$ref": "#/definitions/BandwidthUploadRateLimit",
+          "description": "The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "DescribeBandwidthRateLimitOutput"
+    },
+    "DescribeCacheInput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeCacheInput"
+    },
+    "DescribeCacheOutput": {
+      "example": {
+        "CacheAllocatedInBytes": 2199023255552,
+        "CacheDirtyPercentage": 0.07,
+        "CacheHitPercentage": 99.68,
+        "CacheMissPercentage": 0.32,
+        "CacheUsedPercentage": 0.07,
+        "DiskIds": [
+          "pci-0000:03:00.0-scsi-0:0:0:0",
+          "pci-0000:04:00.0-scsi-0:1:0:0"
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "CacheAllocatedInBytes": {
+          "$ref": "#/definitions/long"
+        },
+        "CacheDirtyPercentage": {
+          "$ref": "#/definitions/double"
+        },
+        "CacheHitPercentage": {
+          "$ref": "#/definitions/double"
+        },
+        "CacheMissPercentage": {
+          "$ref": "#/definitions/double"
+        },
+        "CacheUsedPercentage": {
+          "$ref": "#/definitions/double"
+        },
+        "DiskIds": {
+          "$ref": "#/definitions/DiskIds"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "DescribeCacheOutput"
+    },
+    "DescribeCachediSCSIVolumesInput": {
+      "example": {
+        "VolumeARNs": [
+          "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+        ]
+      },
+      "properties": {
+        "VolumeARNs": {
+          "$ref": "#/definitions/VolumeARNs"
+        }
+      },
+      "required": [
+        "VolumeARNs"
+      ],
+      "type": "object",
+      "title": "DescribeCachediSCSIVolumesInput"
+    },
+    "DescribeCachediSCSIVolumesOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "CachediSCSIVolumes": [
+          {
+            "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+            "VolumeId": "vol-1122AABB",
+            "VolumeSizeInBytes": 1099511627776,
+            "VolumeStatus": "AVAILABLE",
+            "VolumeType": "CACHED iSCSI",
+            "VolumeiSCSIAttributes": {
+              "ChapEnabled": true,
+              "LunNumber": 1,
+              "NetworkInterfaceId": "10.243.43.207",
+              "NetworkInterfacePort": 3260,
+              "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+            }
+          }
+        ]
+      },
+      "properties": {
+        "CachediSCSIVolumes": {
+          "$ref": "#/definitions/CachediSCSIVolumes",
+          "description": "An array of objects where each object contains metadata about one cached volume."
+        }
+      },
+      "type": "object",
+      "title": "DescribeCachediSCSIVolumesOutput"
+    },
+    "DescribeChapCredentialsInput": {
+      "description": "A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume target.",
+      "example": {
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+      },
+      "properties": {
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN."
+        }
+      },
+      "required": [
+        "TargetARN"
+      ],
+      "type": "object",
+      "title": "DescribeChapCredentialsInput"
+    },
+    "DescribeChapCredentialsOutput": {
+      "description": "A JSON object containing a .",
+      "example": {
+        "ChapCredentials": [
+          {
+            "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+            "SecretToAuthenticateInitiator": "111111111111",
+            "SecretToAuthenticateTarget": "222222222222",
+            "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+          }
+        ]
+      },
+      "properties": {
+        "ChapCredentials": {
+          "$ref": "#/definitions/ChapCredentials",
+          "description": "<p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:</p> <ul> <li> <p> <b>InitiatorName</b>: The iSCSI initiator that connects to the target.</p> </li> <li> <p> <b>SecretToAuthenticateInitiator</b>: The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.</p> </li> <li> <p> <b>SecretToAuthenticateTarget</b>: The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).</p> </li> <li> <p> <b>TargetARN</b>: The Amazon Resource Name (ARN) of the storage volume.</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeChapCredentialsOutput"
+    },
+    "DescribeGatewayInformationInput": {
+      "description": "A JSON object containing the id of the gateway.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeGatewayInformationInput"
+    },
+    "DescribeGatewayInformationOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "GatewayId": "sgw-AABB1122",
+        "GatewayName": "My_Gateway",
+        "GatewayNetworkInterfaces": [
+          {
+            "Ipv4Address": "10.35.69.216"
+          }
+        ],
+        "GatewayState": "STATE_RUNNING",
+        "GatewayTimezone": "GMT-8:00",
+        "GatewayType": "STORED",
+        "LastSoftwareUpdate": "2016-01-02T16:00:00",
+        "NextUpdateAvailabilityDate": "2017-01-02T16:00:00"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "GatewayId": {
+          "$ref": "#/definitions/GatewayId",
+          "description": "The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations."
+        },
+        "GatewayName": {
+          "$ref": "#/definitions/string",
+          "description": "The name you configured for your gateway."
+        },
+        "GatewayNetworkInterfaces": {
+          "$ref": "#/definitions/GatewayNetworkInterfaces",
+          "description": "A <a>NetworkInterface</a> array that contains descriptions of the gateway network interfaces."
+        },
+        "GatewayState": {
+          "$ref": "#/definitions/GatewayState",
+          "description": "A value that indicates the operating state of the gateway."
+        },
+        "GatewayTimezone": {
+          "$ref": "#/definitions/GatewayTimezone",
+          "description": "A value that indicates the time zone configured for the gateway."
+        },
+        "GatewayType": {
+          "$ref": "#/definitions/GatewayType",
+          "description": "The type of the gateway."
+        },
+        "LastSoftwareUpdate": {
+          "$ref": "#/definitions/LastSoftwareUpdate",
+          "description": "The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response."
+        },
+        "NextUpdateAvailabilityDate": {
+          "$ref": "#/definitions/NextUpdateAvailabilityDate",
+          "description": "The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeGatewayInformationOutput"
+    },
+    "DescribeMaintenanceStartTimeInput": {
+      "description": "A JSON object containing the of the gateway.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeMaintenanceStartTimeInput"
+    },
+    "DescribeMaintenanceStartTimeOutput": {
+      "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>DescribeMaintenanceStartTimeOutput$DayOfWeek</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$HourOfDay</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$MinuteOfHour</a> </p> </li> <li> <p> <a>DescribeMaintenanceStartTimeOutput$Timezone</a> </p> </li> </ul>",
+      "example": {
+        "DayOfWeek": 2,
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "HourOfDay": 15,
+        "MinuteOfHour": 35,
+        "Timezone": "GMT+7:00"
+      },
+      "properties": {
+        "DayOfWeek": {
+          "$ref": "#/definitions/DayOfWeek",
+          "description": "An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "HourOfDay": {
+          "$ref": "#/definitions/HourOfDay",
+          "description": "The hour component of the maintenance start time represented as <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour of the day is in the time zone of the gateway."
+        },
+        "MinuteOfHour": {
+          "$ref": "#/definitions/MinuteOfHour",
+          "description": "The minute component of the maintenance start time represented as <i>mm</i>, where <i>mm</i> is the minute (0 to 59). The minute of the hour is in the time zone of the gateway."
+        },
+        "Timezone": {
+          "$ref": "#/definitions/GatewayTimezone"
+        }
+      },
+      "type": "object",
+      "title": "DescribeMaintenanceStartTimeOutput"
+    },
+    "DescribeNFSFileSharesInput": {
+      "description": "DescribeNFSFileSharesInput",
+      "properties": {
+        "FileShareARNList": {
+          "$ref": "#/definitions/FileShareARNList",
+          "description": "An array containing the Amazon Resource Name (ARN) of each file share to be described. "
+        }
+      },
+      "required": [
+        "FileShareARNList"
+      ],
+      "type": "object",
+      "title": "DescribeNFSFileSharesInput"
+    },
+    "DescribeNFSFileSharesOutput": {
+      "description": "DescribeNFSFileSharesOutput",
+      "properties": {
+        "NFSFileShareInfoList": {
+          "$ref": "#/definitions/NFSFileShareInfoList",
+          "description": "An array containing a description for each requested file share. "
+        }
+      },
+      "type": "object",
+      "title": "DescribeNFSFileSharesOutput"
+    },
+    "DescribeSnapshotScheduleInput": {
+      "description": "A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.",
+      "example": {
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes."
+        }
+      },
+      "required": [
+        "VolumeARN"
+      ],
+      "type": "object",
+      "title": "DescribeSnapshotScheduleInput"
+    },
+    "DescribeSnapshotScheduleOutput": {
+      "example": {
+        "Description": "sgw-AABB1122:vol-AABB1122:Schedule",
+        "RecurrenceInHours": 24,
+        "StartAt": 6,
+        "Timezone": "GMT+7:00",
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description"
+        },
+        "RecurrenceInHours": {
+          "$ref": "#/definitions/RecurrenceInHours"
+        },
+        "StartAt": {
+          "$ref": "#/definitions/HourOfDay"
+        },
+        "Timezone": {
+          "$ref": "#/definitions/GatewayTimezone"
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        }
+      },
+      "type": "object",
+      "title": "DescribeSnapshotScheduleOutput"
+    },
+    "DescribeStorediSCSIVolumesInput": {
+      "description": "A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.",
+      "example": {
+        "VolumeARNs": [
+          "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+        ]
+      },
+      "properties": {
+        "VolumeARNs": {
+          "$ref": "#/definitions/VolumeARNs",
+          "description": "An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway."
+        }
+      },
+      "required": [
+        "VolumeARNs"
+      ],
+      "type": "object",
+      "title": "DescribeStorediSCSIVolumesInput"
+    },
+    "DescribeStorediSCSIVolumesOutput": {
+      "example": {
+        "StorediSCSIVolumes": [
+          {
+            "PreservedExistingData": false,
+            "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+            "VolumeDiskId": "pci-0000:03:00.0-scsi-0:0:0:0",
+            "VolumeId": "vol-1122AABB",
+            "VolumeProgress": 23.7,
+            "VolumeSizeInBytes": 1099511627776,
+            "VolumeStatus": "BOOTSTRAPPING",
+            "VolumeiSCSIAttributes": {
+              "ChapEnabled": true,
+              "NetworkInterfaceId": "10.243.43.207",
+              "NetworkInterfacePort": 3260,
+              "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+            }
+          }
+        ]
+      },
+      "properties": {
+        "StorediSCSIVolumes": {
+          "$ref": "#/definitions/StorediSCSIVolumes"
+        }
+      },
+      "type": "object",
+      "title": "DescribeStorediSCSIVolumesOutput"
+    },
+    "DescribeTapeArchivesInput": {
+      "description": "DescribeTapeArchivesInput",
+      "example": {
+        "Limit": 123,
+        "Marker": "1",
+        "TapeARNs": [
+          "arn:aws:storagegateway:us-east-1:999999999999:tape/AM08A1AD",
+          "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+        ]
+      },
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "Specifies that the number of virtual tapes descried be limited to the specified number."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which to begin describing virtual tapes."
+        },
+        "TapeARNs": {
+          "$ref": "#/definitions/TapeARNs",
+          "description": "Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTapeArchivesInput"
+    },
+    "DescribeTapeArchivesOutput": {
+      "description": "DescribeTapeArchivesOutput",
+      "example": {
+        "Marker": "1",
+        "TapeArchives": [
+          {
+            "CompletionTime": "2016-12-16T13:50Z",
+            "TapeARN": "arn:aws:storagegateway:us-east-1:999999999:tape/AM08A1AD",
+            "TapeBarcode": "AM08A1AD",
+            "TapeSizeInBytes": 107374182400,
+            "TapeStatus": "ARCHIVED"
+          },
+          {
+            "CompletionTime": "2016-12-16T13:59Z",
+            "TapeARN": "arn:aws:storagegateway:us-east-1:999999999:tape/AMZN01A2A4",
+            "TapeBarcode": "AMZN01A2A4",
+            "TapeSizeInBytes": 429496729600,
+            "TapeStatus": "ARCHIVED"
+          }
+        ]
+      },
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response."
+        },
+        "TapeArchives": {
+          "$ref": "#/definitions/TapeArchives",
+          "description": "An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTapeArchivesOutput"
+    },
+    "DescribeTapeRecoveryPointsInput": {
+      "description": "DescribeTapeRecoveryPointsInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "Limit": 1,
+        "Marker": "1"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "Specifies that the number of virtual tape recovery points that are described be limited to the specified number."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which to begin describing the virtual tape recovery points."
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeTapeRecoveryPointsInput"
+    },
+    "DescribeTapeRecoveryPointsOutput": {
+      "description": "DescribeTapeRecoveryPointsOutput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "Marker": "1",
+        "TapeRecoveryPointInfos": [
+          {
+            "TapeARN": "arn:aws:storagegateway:us-east-1:999999999:tape/AMZN01A2A4",
+            "TapeRecoveryPointTime": "2016-12-16T13:50Z",
+            "TapeSizeInBytes": 1471550497,
+            "TapeStatus": "AVAILABLE"
+          }
+        ]
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "<p>An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.</p> <p>Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.</p>"
+        },
+        "TapeRecoveryPointInfos": {
+          "$ref": "#/definitions/TapeRecoveryPointInfos",
+          "description": "An array of TapeRecoveryPointInfos that are available for the specified gateway."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTapeRecoveryPointsOutput"
+    },
+    "DescribeTapesInput": {
+      "description": "DescribeTapesInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "Limit": 2,
+        "Marker": "1",
+        "TapeARNs": [
+          "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
+          "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0"
+        ]
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "<p>Specifies that the number of virtual tapes described be limited to the specified number.</p> <note> <p>Amazon Web Services may impose its own limit, if this field is not set.</p> </note>"
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "<p>A marker value, obtained in a previous call to <code>DescribeTapes</code>. This marker indicates which page of results to retrieve. </p> <p>If not specified, the first page of results is retrieved.</p>"
+        },
+        "TapeARNs": {
+          "$ref": "#/definitions/TapeARNs",
+          "description": "Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway."
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeTapesInput"
+    },
+    "DescribeTapesOutput": {
+      "description": "DescribeTapesOutput",
+      "example": {
+        "Marker": "1",
+        "Tapes": [
+          {
+            "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST04A2A1",
+            "TapeBarcode": "TEST04A2A1",
+            "TapeSizeInBytes": 107374182400,
+            "TapeStatus": "AVAILABLE"
+          },
+          {
+            "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST05A2A0",
+            "TapeBarcode": "TEST05A2A0",
+            "TapeSizeInBytes": 107374182400,
+            "TapeStatus": "AVAILABLE"
+          }
+        ]
+      },
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "<p>An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results.</p> <p>If a response does not contain a marker, then there are no more results to be retrieved.</p>"
+        },
+        "Tapes": {
+          "$ref": "#/definitions/Tapes",
+          "description": "An array of virtual tape descriptions."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTapesOutput"
+    },
+    "DescribeUploadBufferInput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeUploadBufferInput"
+    },
+    "DescribeUploadBufferOutput": {
+      "example": {
+        "DiskIds": [
+          "pci-0000:03:00.0-scsi-0:0:0:0",
+          "pci-0000:04:00.0-scsi-0:1:0:0"
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "UploadBufferAllocatedInBytes": 161061273600,
+        "UploadBufferUsedInBytes": 0
+      },
+      "properties": {
+        "DiskIds": {
+          "$ref": "#/definitions/DiskIds"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "UploadBufferAllocatedInBytes": {
+          "$ref": "#/definitions/long"
+        },
+        "UploadBufferUsedInBytes": {
+          "$ref": "#/definitions/long"
+        }
+      },
+      "type": "object",
+      "title": "DescribeUploadBufferOutput"
+    },
+    "DescribeVTLDevicesInput": {
+      "description": "DescribeVTLDevicesInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "Limit": 123,
+        "Marker": "1",
+        "VTLDeviceARNs": []
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "Specifies that the number of VTL devices described be limited to the specified number."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which to begin describing the VTL devices."
+        },
+        "VTLDeviceARNs": {
+          "$ref": "#/definitions/VTLDeviceARNs",
+          "description": "<p>An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.</p> <note> <p>All of the specified VTL devices must be from the same gateway. If no VTL devices are specified, the result will contain all devices on the specified gateway.</p> </note>"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeVTLDevicesInput"
+    },
+    "DescribeVTLDevicesOutput": {
+      "description": "DescribeVTLDevicesOutput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "Marker": "1",
+        "VTLDevices": [
+          {
+            "DeviceiSCSIAttributes": {
+              "ChapEnabled": false,
+              "NetworkInterfaceId": "10.243.43.207",
+              "NetworkInterfacePort": 3260,
+              "TargetARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-mediachanger"
+            },
+            "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001",
+            "VTLDeviceProductIdentifier": "L700",
+            "VTLDeviceType": "Medium Changer",
+            "VTLDeviceVendor": "STK"
+          },
+          {
+            "DeviceiSCSIAttributes": {
+              "ChapEnabled": false,
+              "NetworkInterfaceId": "10.243.43.209",
+              "NetworkInterfacePort": 3260,
+              "TargetARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-tapedrive-01"
+            },
+            "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_TAPEDRIVE_00001",
+            "VTLDeviceProductIdentifier": "ULT3580-TD5",
+            "VTLDeviceType": "Tape Drive",
+            "VTLDeviceVendor": "IBM"
+          },
+          {
+            "DeviceiSCSIAttributes": {
+              "ChapEnabled": false,
+              "NetworkInterfaceId": "10.243.43.209",
+              "NetworkInterfacePort": 3260,
+              "TargetARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-tapedrive-02"
+            },
+            "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_TAPEDRIVE_00002",
+            "VTLDeviceProductIdentifier": "ULT3580-TD5",
+            "VTLDeviceType": "Tape Drive",
+            "VTLDeviceVendor": "IBM"
+          }
+        ]
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response."
+        },
+        "VTLDevices": {
+          "$ref": "#/definitions/VTLDevices",
+          "description": "An array of VTL device objects composed of the Amazon Resource Name(ARN) of the VTL devices."
+        }
+      },
+      "type": "object",
+      "title": "DescribeVTLDevicesOutput"
+    },
+    "DescribeWorkingStorageInput": {
+      "description": "A JSON object containing the of the gateway.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DescribeWorkingStorageInput"
+    },
+    "DescribeWorkingStorageOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "DiskIds": [
+          "pci-0000:03:00.0-scsi-0:0:0:0",
+          "pci-0000:03:00.0-scsi-0:0:1:0"
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "WorkingStorageAllocatedInBytes": 2199023255552,
+        "WorkingStorageUsedInBytes": 789207040
+      },
+      "properties": {
+        "DiskIds": {
+          "$ref": "#/definitions/DiskIds",
+          "description": "An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "WorkingStorageAllocatedInBytes": {
+          "$ref": "#/definitions/long",
+          "description": "The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0."
+        },
+        "WorkingStorageUsedInBytes": {
+          "$ref": "#/definitions/long",
+          "description": "The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0."
+        }
+      },
+      "type": "object",
+      "title": "DescribeWorkingStorageOutput"
+    },
+    "Description": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "Description"
+    },
+    "DeviceType": {
+      "maxLength": 50,
+      "minLength": 2,
+      "type": "string",
+      "title": "DeviceType"
+    },
+    "DeviceiSCSIAttributes": {
+      "description": "Lists iSCSI information about a VTL device.",
+      "properties": {
+        "ChapEnabled": {
+          "$ref": "#/definitions/boolean",
+          "description": "Indicates whether mutual CHAP is enabled for the iSCSI target."
+        },
+        "NetworkInterfaceId": {
+          "$ref": "#/definitions/NetworkInterfaceId",
+          "description": "The network interface identifier of the VTL device."
+        },
+        "NetworkInterfacePort": {
+          "$ref": "#/definitions/integer",
+          "description": "The port used to communicate with iSCSI VTL device targets."
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "Specifies the unique Amazon Resource Name(ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target."
+        }
+      },
+      "type": "object",
+      "title": "DeviceiSCSIAttributes"
+    },
+    "DisableGatewayInput": {
+      "description": "DisableGatewayInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "DisableGatewayInput"
+    },
+    "DisableGatewayOutput": {
+      "description": "DisableGatewayOutput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The unique Amazon Resource Name of the disabled gateway."
+        }
+      },
+      "type": "object",
+      "title": "DisableGatewayOutput"
+    },
+    "Disk": {
+      "properties": {
+        "DiskAllocationResource": {
+          "$ref": "#/definitions/string"
+        },
+        "DiskAllocationType": {
+          "$ref": "#/definitions/DiskAllocationType"
+        },
+        "DiskId": {
+          "$ref": "#/definitions/DiskId"
+        },
+        "DiskNode": {
+          "$ref": "#/definitions/string"
+        },
+        "DiskPath": {
+          "$ref": "#/definitions/string"
+        },
+        "DiskSizeInBytes": {
+          "$ref": "#/definitions/long"
+        },
+        "DiskStatus": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "Disk"
+    },
+    "DiskAllocationType": {
+      "maxLength": 100,
+      "minLength": 3,
+      "type": "string",
+      "title": "DiskAllocationType"
+    },
+    "DiskId": {
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string",
+      "title": "DiskId"
+    },
+    "DiskIds": {
+      "items": {
+        "$ref": "#/definitions/DiskId"
+      },
+      "type": "array",
+      "title": "DiskIds"
+    },
+    "Disks": {
+      "items": {
+        "$ref": "#/definitions/Disk"
+      },
+      "type": "array",
+      "title": "Disks"
+    },
+    "DoubleObject": {
+      "format": "double",
+      "type": "number",
+      "title": "DoubleObject"
+    },
+    "ErrorCode": {
+      "enum": [
+        "ActivationKeyExpired",
+        "ActivationKeyInvalid",
+        "ActivationKeyNotFound",
+        "GatewayInternalError",
+        "GatewayNotConnected",
+        "GatewayNotFound",
+        "GatewayProxyNetworkConnectionBusy",
+        "AuthenticationFailure",
+        "BandwidthThrottleScheduleNotFound",
+        "Blocked",
+        "CannotExportSnapshot",
+        "ChapCredentialNotFound",
+        "DiskAlreadyAllocated",
+        "DiskDoesNotExist",
+        "DiskSizeGreaterThanVolumeMaxSize",
+        "DiskSizeLessThanVolumeSize",
+        "DiskSizeNotGigAligned",
+        "DuplicateCertificateInfo",
+        "DuplicateSchedule",
+        "EndpointNotFound",
+        "IAMNotSupported",
+        "InitiatorInvalid",
+        "InitiatorNotFound",
+        "InternalError",
+        "InvalidGateway",
+        "InvalidEndpoint",
+        "InvalidParameters",
+        "InvalidSchedule",
+        "LocalStorageLimitExceeded",
+        "LunAlreadyAllocated ",
+        "LunInvalid",
+        "MaximumContentLengthExceeded",
+        "MaximumTapeCartridgeCountExceeded",
+        "MaximumVolumeCountExceeded",
+        "NetworkConfigurationChanged",
+        "NoDisksAvailable",
+        "NotImplemented",
+        "NotSupported",
+        "OperationAborted",
+        "OutdatedGateway",
+        "ParametersNotImplemented",
+        "RegionInvalid",
+        "RequestTimeout",
+        "ServiceUnavailable",
+        "SnapshotDeleted",
+        "SnapshotIdInvalid",
+        "SnapshotInProgress",
+        "SnapshotNotFound",
+        "SnapshotScheduleNotFound",
+        "StagingAreaFull",
+        "StorageFailure",
+        "TapeCartridgeNotFound",
+        "TargetAlreadyExists",
+        "TargetInvalid",
+        "TargetNotFound",
+        "UnauthorizedOperation",
+        "VolumeAlreadyExists",
+        "VolumeIdInvalid",
+        "VolumeInUse",
+        "VolumeNotFound",
+        "VolumeNotReady"
+      ],
+      "type": "string",
+      "title": "ErrorCode"
+    },
+    "FileShareARN": {
+      "description": "The Amazon Resource Name (ARN) of the file share. ",
+      "maxLength": 500,
+      "minLength": 50,
+      "type": "string",
+      "title": "FileShareARN"
+    },
+    "FileShareARNList": {
+      "items": {
+        "$ref": "#/definitions/FileShareARN"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array",
+      "title": "FileShareARNList"
+    },
+    "FileShareClientList": {
+      "description": "The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. ",
+      "items": {
+        "$ref": "#/definitions/IPV4AddressCIDR"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array",
+      "title": "FileShareClientList"
+    },
+    "FileShareId": {
+      "description": "The ID of the file share. ",
+      "maxLength": 30,
+      "minLength": 12,
+      "type": "string",
+      "title": "FileShareId"
+    },
+    "FileShareInfo": {
+      "description": "Describes a file share.",
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN"
+        },
+        "FileShareId": {
+          "$ref": "#/definitions/FileShareId"
+        },
+        "FileShareStatus": {
+          "$ref": "#/definitions/FileShareStatus"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "FileShareInfo"
+    },
+    "FileShareInfoList": {
+      "items": {
+        "$ref": "#/definitions/FileShareInfo"
+      },
+      "type": "array",
+      "title": "FileShareInfoList"
+    },
+    "FileShareStatus": {
+      "description": "The status of the file share. Possible values are CREATING, UPDATING, AVAILABLE and DELETING. ",
+      "maxLength": 50,
+      "minLength": 3,
+      "type": "string",
+      "title": "FileShareStatus"
+    },
+    "GatewayARN": {
+      "description": "The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.",
+      "maxLength": 500,
+      "minLength": 50,
+      "type": "string",
+      "title": "GatewayARN"
+    },
+    "GatewayId": {
+      "maxLength": 30,
+      "minLength": 12,
+      "type": "string",
+      "title": "GatewayId"
+    },
+    "GatewayInfo": {
+      "description": "Describes a gateway object.",
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
+        },
+        "GatewayId": {
+          "$ref": "#/definitions/GatewayId",
+          "description": "The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations."
+        },
+        "GatewayName": {
+          "$ref": "#/definitions/string",
+          "description": "The name of the gateway."
+        },
+        "GatewayOperationalState": {
+          "$ref": "#/definitions/GatewayOperationalState",
+          "description": "<p>The state of the gateway.</p> <p>Valid Values: DISABLED or ACTIVE</p>"
+        },
+        "GatewayType": {
+          "$ref": "#/definitions/GatewayType",
+          "description": "The type of the gateway."
+        }
+      },
+      "type": "object",
+      "title": "GatewayInfo"
+    },
+    "GatewayName": {
+      "description": "The name you configured for your gateway.",
+      "maxLength": 255,
+      "minLength": 2,
+      "pattern": "^[ -\\.0-\\[\\]-~]*[!-\\.0-\\[\\]-~][ -\\.0-\\[\\]-~]*$",
+      "type": "string",
+      "title": "GatewayName"
+    },
+    "GatewayNetworkInterfaces": {
+      "items": {
+        "$ref": "#/definitions/NetworkInterface"
+      },
+      "type": "array",
+      "title": "GatewayNetworkInterfaces"
+    },
+    "GatewayOperationalState": {
+      "maxLength": 25,
+      "minLength": 2,
+      "type": "string",
+      "title": "GatewayOperationalState"
+    },
+    "GatewayState": {
+      "maxLength": 25,
+      "minLength": 2,
+      "type": "string",
+      "title": "GatewayState"
+    },
+    "GatewayTimezone": {
+      "maxLength": 10,
+      "minLength": 3,
+      "type": "string",
+      "title": "GatewayTimezone"
+    },
+    "GatewayType": {
+      "maxLength": 20,
+      "minLength": 2,
+      "type": "string",
+      "title": "GatewayType"
+    },
+    "Gateways": {
+      "items": {
+        "$ref": "#/definitions/GatewayInfo"
+      },
+      "type": "array",
+      "title": "Gateways"
+    },
+    "HourOfDay": {
+      "maximum": 23,
+      "minimum": 0,
+      "type": "integer",
+      "title": "HourOfDay"
+    },
+    "IPV4AddressCIDR": {
+      "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+      "type": "string",
+      "title": "IPV4AddressCIDR"
+    },
+    "Initiator": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string",
+      "title": "Initiator"
+    },
+    "Initiators": {
+      "items": {
+        "$ref": "#/definitions/Initiator"
+      },
+      "type": "array",
+      "title": "Initiators"
+    },
+    "InternalServerError": {
+      "description": "An internal server error has occurred during the request. For more information, see the error and message fields.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/StorageGatewayError",
+          "description": "A <a>StorageGatewayError</a> that provides more information about the cause of the error."
+        },
+        "message": {
+          "$ref": "#/definitions/string",
+          "description": "A human-readable message describing the error that occurred."
+        }
+      },
+      "type": "object",
+      "title": "InternalServerError"
+    },
+    "InvalidGatewayRequestException": {
+      "description": "An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/StorageGatewayError",
+          "description": "A <a>StorageGatewayError</a> that provides more detail about the cause of the error."
+        },
+        "message": {
+          "$ref": "#/definitions/string",
+          "description": "A human-readable message describing the error that occurred."
+        }
+      },
+      "type": "object",
+      "title": "InvalidGatewayRequestException"
+    },
+    "IqnName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[0-9a-z:.-]+",
+      "type": "string",
+      "title": "IqnName"
+    },
+    "KMSKey": {
+      "description": "The ARN of the KMS key used for Amazon S3 server side encryption. ",
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string",
+      "title": "KMSKey"
+    },
+    "LastSoftwareUpdate": {
+      "maxLength": 25,
+      "minLength": 1,
+      "type": "string",
+      "title": "LastSoftwareUpdate"
+    },
+    "ListFileSharesInput": {
+      "description": "ListFileShareInput",
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The Amazon resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed."
+        },
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "Opaque pagination token returned from a previous ListFileShares operation. If present, <code>Marker</code> specifies where to continue the list from after a previous call to ListFileShares. Optional."
+        }
+      },
+      "type": "object",
+      "title": "ListFileSharesInput"
+    },
+    "ListFileSharesOutput": {
+      "description": "ListFileShareOutput",
+      "properties": {
+        "FileShareInfoList": {
+          "$ref": "#/definitions/FileShareInfoList",
+          "description": "An array of information about the file gateway's file shares. "
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "If the request includes <code>Marker</code>, the response returns that value in this field. "
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "If a value is present, there are more file shares to return. In a subsequent request, use <code>NextMarker</code> as the value for <code>Marker</code> to retrieve the next set of file shares. "
+        }
+      },
+      "type": "object",
+      "title": "ListFileSharesOutput"
+    },
+    "ListGatewaysInput": {
+      "description": "<p>A JSON object containing zero or more of the following fields:</p> <ul> <li> <p> <a>ListGatewaysInput$Limit</a> </p> </li> <li> <p> <a>ListGatewaysInput$Marker</a> </p> </li> </ul>",
+      "example": {
+        "Limit": 2,
+        "Marker": "1"
+      },
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "Specifies that the list of gateways returned be limited to the specified number of items."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which to begin the returned list of gateways."
+        }
+      },
+      "type": "object",
+      "title": "ListGatewaysInput"
+    },
+    "ListGatewaysOutput": {
+      "example": {
+        "Gateways": [
+          {
+            "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+          },
+          {
+            "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-23A4567C"
+          }
+        ],
+        "Marker": "1"
+      },
+      "properties": {
+        "Gateways": {
+          "$ref": "#/definitions/Gateways"
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker"
+        }
+      },
+      "type": "object",
+      "title": "ListGatewaysOutput"
+    },
+    "ListLocalDisksInput": {
+      "description": "A JSON object containing the of the gateway.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "ListLocalDisksInput"
+    },
+    "ListLocalDisksOutput": {
+      "example": {
+        "Disks": [
+          {
+            "DiskAllocationType": "CACHE_STORAGE",
+            "DiskId": "pci-0000:03:00.0-scsi-0:0:0:0",
+            "DiskNode": "SCSI(0:0)",
+            "DiskPath": "/dev/sda",
+            "DiskSizeInBytes": 1099511627776,
+            "DiskStatus": "missing"
+          },
+          {
+            "DiskAllocationResource": "",
+            "DiskAllocationType": "UPLOAD_BUFFER",
+            "DiskId": "pci-0000:03:00.0-scsi-0:0:1:0",
+            "DiskNode": "SCSI(0:1)",
+            "DiskPath": "/dev/sdb",
+            "DiskSizeInBytes": 1099511627776,
+            "DiskStatus": "present"
+          }
+        ],
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "Disks": {
+          "$ref": "#/definitions/Disks"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "ListLocalDisksOutput"
+    },
+    "ListTagsForResourceInput": {
+      "description": "ListTagsForResourceInput",
+      "example": {
+        "Limit": 1,
+        "Marker": "1",
+        "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+      },
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "Specifies that the list of tags returned be limited to the specified number of items."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which to begin returning the list of tags."
+        },
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the resource for which you want to list tags."
+        }
+      },
+      "required": [
+        "ResourceARN"
+      ],
+      "type": "object",
+      "title": "ListTagsForResourceInput"
+    },
+    "ListTagsForResourceOutput": {
+      "description": "ListTagsForResourceOutput",
+      "example": {
+        "Marker": "1",
+        "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+        "Tags": [
+          {
+            "Key": "Dev Gatgeway Region",
+            "Value": "East Coast"
+          }
+        ]
+      },
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "An opaque string that indicates the position at which to stop returning the list of tags."
+        },
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "he Amazon Resource Name (ARN) of the resource for which you want to list tags."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "An array that contains the tags for the specified resource."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsForResourceOutput"
+    },
+    "ListTapesInput": {
+      "description": "<p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListTapesInput$Limit</a> </p> </li> <li> <p> <a>ListTapesInput$Marker</a> </p> </li> <li> <p> <a>ListTapesInput$TapeARNs</a> </p> </li> </ul>",
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "An optional number limit for the tapes in the list returned by this call."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "A string that indicates the position at which to begin the returned list of tapes."
+        },
+        "TapeARNs": {
+          "$ref": "#/definitions/TapeARNs"
+        }
+      },
+      "type": "object",
+      "title": "ListTapesInput"
+    },
+    "ListTapesOutput": {
+      "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListTapesOutput$Marker</a> </p> </li> <li> <p> <a>ListTapesOutput$VolumeInfos</a> </p> </li> </ul>",
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body."
+        },
+        "TapeInfos": {
+          "$ref": "#/definitions/TapeInfos"
+        }
+      },
+      "type": "object",
+      "title": "ListTapesOutput"
+    },
+    "ListVolumeInitiatorsInput": {
+      "description": "ListVolumeInitiatorsInput",
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes for the gateway."
+        }
+      },
+      "required": [
+        "VolumeARN"
+      ],
+      "type": "object",
+      "title": "ListVolumeInitiatorsInput"
+    },
+    "ListVolumeInitiatorsOutput": {
+      "description": "ListVolumeInitiatorsOutput",
+      "properties": {
+        "Initiators": {
+          "$ref": "#/definitions/Initiators",
+          "description": "The host names and port numbers of all iSCSI initiators that are connected to the gateway."
+        }
+      },
+      "type": "object",
+      "title": "ListVolumeInitiatorsOutput"
+    },
+    "ListVolumeRecoveryPointsInput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "ListVolumeRecoveryPointsInput"
+    },
+    "ListVolumeRecoveryPointsOutput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "VolumeRecoveryPointInfos": [
+          {
+            "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+            "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z",
+            "VolumeSizeInBytes": 536870912000
+          }
+        ]
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "VolumeRecoveryPointInfos": {
+          "$ref": "#/definitions/VolumeRecoveryPointInfos"
+        }
+      },
+      "type": "object",
+      "title": "ListVolumeRecoveryPointsOutput"
+    },
+    "ListVolumesInput": {
+      "description": "<p>A JSON object that contains one or more of the following fields:</p> <ul> <li> <p> <a>ListVolumesInput$Limit</a> </p> </li> <li> <p> <a>ListVolumesInput$Marker</a> </p> </li> </ul>",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "Limit": 2,
+        "Marker": "1"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Limit": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "Specifies that the list of volumes returned be limited to the specified number of items."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker",
+          "description": "A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request."
+        }
+      },
+      "type": "object",
+      "title": "ListVolumesInput"
+    },
+    "ListVolumesOutput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "Marker": "1",
+        "VolumeInfos": [
+          {
+            "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+            "GatewayId": "sgw-12A3456B",
+            "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+            "VolumeId": "vol-1122AABB",
+            "VolumeSizeInBytes": 107374182400,
+            "VolumeType": "STORED"
+          },
+          {
+            "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C",
+            "GatewayId": "sgw-gw-13B4567C",
+            "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C/volume/vol-3344CCDD",
+            "VolumeId": "vol-1122AABB",
+            "VolumeSizeInBytes": 107374182400,
+            "VolumeType": "STORED"
+          }
+        ]
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker"
+        },
+        "VolumeInfos": {
+          "$ref": "#/definitions/VolumeInfos"
+        }
+      },
+      "type": "object",
+      "title": "ListVolumesOutput"
+    },
+    "LocalConsolePassword": {
+      "format": "password",
+      "maxLength": 512,
+      "minLength": 6,
+      "pattern": "^[ -~]+$",
+      "type": "string",
+      "title": "LocalConsolePassword"
+    },
+    "LocationARN": {
+      "description": "The ARN of the backend storage used for storing file data. ",
+      "maxLength": 310,
+      "minLength": 16,
+      "type": "string",
+      "title": "LocationARN"
+    },
+    "Marker": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string",
+      "title": "Marker"
+    },
+    "MediumChangerType": {
+      "maxLength": 50,
+      "minLength": 2,
+      "type": "string",
+      "title": "MediumChangerType"
+    },
+    "MinuteOfHour": {
+      "maximum": 59,
+      "minimum": 0,
+      "type": "integer",
+      "title": "MinuteOfHour"
+    },
+    "NFSFileShareDefaults": {
+      "description": "Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in file gateways.",
+      "properties": {
+        "DirectoryMode": {
+          "$ref": "#/definitions/PermissionMode",
+          "description": "The Unix directory mode in the form \"nnnn\". For example, \"0666\" represents the default access mode for all directories inside the file share. The default value is 0777."
+        },
+        "FileMode": {
+          "$ref": "#/definitions/PermissionMode",
+          "description": "The Unix file mode in the form \"nnnn\". For example, \"0666\" represents the default file mode inside the file share. The default value is 0666. "
+        },
+        "GroupId": {
+          "$ref": "#/definitions/PermissionId",
+          "description": "The default group ID for the file share (unless the files have another group ID specified). The default value is nfsnobody. "
+        },
+        "OwnerId": {
+          "$ref": "#/definitions/PermissionId",
+          "description": "The default owner ID for files in the file share (unless the files have another owner ID specified). The default value is nfsnobody. "
+        }
+      },
+      "type": "object",
+      "title": "NFSFileShareDefaults"
+    },
+    "NFSFileShareInfo": {
+      "description": "The Unix file permissions and ownership information assigned, by default, to native S3 objects when Storage Gateway discovers them in S3 buckets. This operation is only supported in file gateways.",
+      "properties": {
+        "ClientList": {
+          "$ref": "#/definitions/FileShareClientList"
+        },
+        "DefaultStorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
+        },
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN"
+        },
+        "FileShareId": {
+          "$ref": "#/definitions/FileShareId"
+        },
+        "FileShareStatus": {
+          "$ref": "#/definitions/FileShareStatus"
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "KMSEncrypted": {
+          "$ref": "#/definitions/boolean",
+          "description": "True to use Amazon S3 server side encryption with your own KMS key, or false to use a key managed by Amazon S3. Optional. "
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey"
+        },
+        "LocationARN": {
+          "$ref": "#/definitions/LocationARN"
+        },
+        "NFSFileShareDefaults": {
+          "$ref": "#/definitions/NFSFileShareDefaults"
+        },
+        "Path": {
+          "$ref": "#/definitions/Path"
+        },
+        "ReadOnly": {
+          "$ref": "#/definitions/Boolean"
+        },
+        "Role": {
+          "$ref": "#/definitions/Role"
+        },
+        "Squash": {
+          "$ref": "#/definitions/Squash"
+        }
+      },
+      "type": "object",
+      "title": "NFSFileShareInfo"
+    },
+    "NFSFileShareInfoList": {
+      "items": {
+        "$ref": "#/definitions/NFSFileShareInfo"
+      },
+      "type": "array",
+      "title": "NFSFileShareInfoList"
+    },
+    "NetworkInterface": {
+      "description": "Describes a gateway's network interface.",
+      "properties": {
+        "Ipv4Address": {
+          "$ref": "#/definitions/string",
+          "description": "The Internet Protocol version 4 (IPv4) address of the interface."
+        },
+        "Ipv6Address": {
+          "$ref": "#/definitions/string",
+          "description": "The Internet Protocol version 6 (IPv6) address of the interface. <i>Currently not supported</i>."
+        },
+        "MacAddress": {
+          "$ref": "#/definitions/string",
+          "description": "<p>The Media Access Control (MAC) address of the interface.</p> <note> <p>This is currently unsupported and will not be returned in output.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "NetworkInterface"
+    },
+    "NetworkInterfaceId": {
+      "pattern": "\\A(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}\\z",
+      "type": "string",
+      "title": "NetworkInterfaceId"
+    },
+    "NextUpdateAvailabilityDate": {
+      "maxLength": 25,
+      "minLength": 1,
+      "type": "string",
+      "title": "NextUpdateAvailabilityDate"
+    },
+    "NumTapesToCreate": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer",
+      "title": "NumTapesToCreate"
+    },
+    "Path": {
+      "description": "The file share path used by the NFS client to identify the mount point. ",
+      "type": "string",
+      "title": "Path"
+    },
+    "PermissionId": {
+      "maximum": 4294967294,
+      "minimum": 0,
+      "type": "integer",
+      "title": "PermissionId"
+    },
+    "PermissionMode": {
+      "maxLength": 4,
+      "minLength": 1,
+      "pattern": "^[0-7]{4}$",
+      "type": "string",
+      "title": "PermissionMode"
+    },
+    "PositiveIntObject": {
+      "minimum": 1,
+      "type": "integer",
+      "title": "PositiveIntObject"
+    },
+    "RecurrenceInHours": {
+      "maximum": 24,
+      "minimum": 1,
+      "type": "integer",
+      "title": "RecurrenceInHours"
+    },
+    "RefreshCacheInput": {
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN"
+        }
+      },
+      "required": [
+        "FileShareARN"
+      ],
+      "type": "object",
+      "title": "RefreshCacheInput"
+    },
+    "RefreshCacheOutput": {
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN"
+        }
+      },
+      "type": "object",
+      "title": "RefreshCacheOutput"
+    },
+    "RegionId": {
+      "maxLength": 25,
+      "minLength": 1,
+      "type": "string",
+      "title": "RegionId"
+    },
+    "RemoveTagsFromResourceInput": {
+      "description": "RemoveTagsFromResourceInput",
+      "example": {
+        "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B",
+        "TagKeys": [
+          "Dev Gatgeway Region",
+          "East Coast"
+        ]
+      },
+      "properties": {
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the resource you want to remove the tags from."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "The keys of the tags you want to remove from the specified resource. A tag is composed of a key/value pair."
+        }
+      },
+      "required": [
+        "ResourceARN",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "RemoveTagsFromResourceInput"
+    },
+    "RemoveTagsFromResourceOutput": {
+      "description": "RemoveTagsFromResourceOutput",
+      "example": {
+        "ResourceARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+      },
+      "properties": {
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "The Amazon Resource Name (ARN) of the resource that the tags were removed from."
+        }
+      },
+      "type": "object",
+      "title": "RemoveTagsFromResourceOutput"
+    },
+    "ResetCacheInput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "ResetCacheInput"
+    },
+    "ResetCacheOutput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "ResetCacheOutput"
+    },
+    "ResourceARN": {
+      "maxLength": 500,
+      "minLength": 50,
+      "type": "string",
+      "title": "ResourceARN"
+    },
+    "RetrieveTapeArchiveInput": {
+      "description": "RetrieveTapeArchiveInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "<p>The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region.</p> <p>You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.</p>"
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS)."
+        }
+      },
+      "required": [
+        "TapeARN",
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "RetrieveTapeArchiveInput"
+    },
+    "RetrieveTapeArchiveOutput": {
+      "description": "RetrieveTapeArchiveOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the retrieved virtual tape."
+        }
+      },
+      "type": "object",
+      "title": "RetrieveTapeArchiveOutput"
+    },
+    "RetrieveTapeRecoveryPointInput": {
+      "description": "RetrieveTapeRecoveryPointInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point."
+        }
+      },
+      "required": [
+        "TapeARN",
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "RetrieveTapeRecoveryPointInput"
+    },
+    "RetrieveTapeRecoveryPointOutput": {
+      "description": "RetrieveTapeRecoveryPointOutput",
+      "example": {
+        "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST0AA2AF"
+      },
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved."
+        }
+      },
+      "type": "object",
+      "title": "RetrieveTapeRecoveryPointOutput"
+    },
+    "Role": {
+      "description": "The ARN of the IAM role that file gateway assumes when it accesses the underlying storage. ",
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string",
+      "title": "Role"
+    },
+    "ServiceUnavailableError": {
+      "description": "An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/StorageGatewayError",
+          "description": "A <a>StorageGatewayError</a> that provides more information about the cause of the error."
+        },
+        "message": {
+          "$ref": "#/definitions/string",
+          "description": "A human-readable message describing the error that occurred."
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableError"
+    },
+    "SetLocalConsolePasswordInput": {
+      "description": "SetLocalConsolePasswordInput",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+        "LocalConsolePassword": "PassWordMustBeAtLeast6Chars."
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "LocalConsolePassword": {
+          "$ref": "#/definitions/LocalConsolePassword",
+          "description": "The password you want to set for your VM local console."
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "LocalConsolePassword"
+      ],
+      "type": "object",
+      "title": "SetLocalConsolePasswordInput"
+    },
+    "SetLocalConsolePasswordOutput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "SetLocalConsolePasswordOutput"
+    },
+    "ShutdownGatewayInput": {
+      "description": "A JSON object containing the of the gateway to shut down.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "ShutdownGatewayInput"
+    },
+    "ShutdownGatewayOutput": {
+      "description": "A JSON object containing the of the gateway that was shut down.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "ShutdownGatewayOutput"
+    },
+    "SnapshotDescription": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "title": "SnapshotDescription"
+    },
+    "SnapshotId": {
+      "pattern": "\\Asnap-([0-9A-Fa-f]{8}|[0-9A-Fa-f]{17})\\z",
+      "type": "string",
+      "title": "SnapshotId"
+    },
+    "Squash": {
+      "description": "Indicates the user mapped to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user.",
+      "maxLength": 15,
+      "minLength": 5,
+      "type": "string",
+      "title": "Squash"
+    },
+    "StartGatewayInput": {
+      "description": "A JSON object containing the of the gateway to start.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "StartGatewayInput"
+    },
+    "StartGatewayOutput": {
+      "description": "A JSON object containing the of the gateway that was restarted.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "StartGatewayOutput"
+    },
+    "StorageClass": {
+      "description": "<p/>",
+      "maxLength": 20,
+      "minLength": 5,
+      "type": "string",
+      "title": "StorageClass"
+    },
+    "StorageGatewayError": {
+      "description": "Provides additional information about an error that was returned by the service as an or. See the <code>errorCode</code> and <code>errorDetails</code> members for more information about the error.",
+      "properties": {
+        "errorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "Additional information about the error."
+        },
+        "errorDetails": {
+          "$ref": "#/definitions/errorDetails",
+          "description": "Human-readable text that provides detail about the error that occurred."
+        }
+      },
+      "type": "object",
+      "title": "StorageGatewayError"
+    },
+    "StorediSCSIVolume": {
+      "description": "Describes an iSCSI stored volume.",
+      "properties": {
+        "CreatedDate": {
+          "$ref": "#/definitions/CreatedDate"
+        },
+        "PreservedExistingData": {
+          "$ref": "#/definitions/boolean",
+          "description": "<p>Indicates if when the stored volume was created, existing data on the underlying local disk was preserved.</p> <p> Valid Values: true, false</p>"
+        },
+        "SourceSnapshotId": {
+          "$ref": "#/definitions/SnapshotId",
+          "description": "If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included."
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the storage volume."
+        },
+        "VolumeDiskId": {
+          "$ref": "#/definitions/DiskId",
+          "description": "The ID of the local disk that was specified in the <a>CreateStorediSCSIVolume</a> operation."
+        },
+        "VolumeId": {
+          "$ref": "#/definitions/VolumeId",
+          "description": "The unique identifier of the volume, e.g. vol-AE4B946D."
+        },
+        "VolumeProgress": {
+          "$ref": "#/definitions/DoubleObject",
+          "description": "Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping."
+        },
+        "VolumeSizeInBytes": {
+          "$ref": "#/definitions/long",
+          "description": "The size of the volume in bytes."
+        },
+        "VolumeStatus": {
+          "$ref": "#/definitions/VolumeStatus",
+          "description": "One of the VolumeStatus values that indicates the state of the storage volume."
+        },
+        "VolumeType": {
+          "$ref": "#/definitions/VolumeType",
+          "description": "One of the VolumeType enumeration values describing the type of the volume."
+        },
+        "VolumeiSCSIAttributes": {
+          "$ref": "#/definitions/VolumeiSCSIAttributes",
+          "description": "An <a>VolumeiSCSIAttributes</a> object that represents a collection of iSCSI attributes for one stored volume."
+        }
+      },
+      "type": "object",
+      "title": "StorediSCSIVolume"
+    },
+    "StorediSCSIVolumes": {
+      "items": {
+        "$ref": "#/definitions/StorediSCSIVolume"
+      },
+      "type": "array",
+      "title": "StorediSCSIVolumes"
+    },
+    "Tag": {
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey"
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue"
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-%@]*)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeys"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "Tape": {
+      "description": "Describes a virtual tape object.",
+      "properties": {
+        "Progress": {
+          "$ref": "#/definitions/DoubleObject",
+          "description": "<p>For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete.</p> <p>Range: 0 (not started) to 100 (complete).</p>"
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape."
+        },
+        "TapeBarcode": {
+          "$ref": "#/definitions/TapeBarcode",
+          "description": "The barcode that identifies a specific virtual tape."
+        },
+        "TapeCreatedDate": {
+          "$ref": "#/definitions/Time"
+        },
+        "TapeSizeInBytes": {
+          "$ref": "#/definitions/TapeSize",
+          "description": "The size, in bytes, of the virtual tape."
+        },
+        "TapeStatus": {
+          "$ref": "#/definitions/TapeStatus",
+          "description": "The current state of the virtual tape."
+        },
+        "VTLDevice": {
+          "$ref": "#/definitions/VTLDeviceARN",
+          "description": "The virtual tape library (VTL) device that the virtual tape is associated with."
+        }
+      },
+      "type": "object",
+      "title": "Tape"
+    },
+    "TapeARN": {
+      "maxLength": 500,
+      "minLength": 50,
+      "pattern": "^arn:(aws|aws-cn):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
+      "type": "string",
+      "title": "TapeARN"
+    },
+    "TapeARNs": {
+      "description": "The Amazon Resource Name (ARN) of each of the tapes you want to list. If you don't specify a tape ARN, the response lists all tapes in both your VTL and VTS.",
+      "items": {
+        "$ref": "#/definitions/TapeARN"
+      },
+      "type": "array",
+      "title": "TapeARNs"
+    },
+    "TapeArchive": {
+      "description": "Represents a virtual tape that is archived in the virtual tape shelf (VTS).",
+      "properties": {
+        "CompletionTime": {
+          "$ref": "#/definitions/Time",
+          "description": "<p>The time that the archiving of the virtual tape was completed.</p> <p>The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.</p>"
+        },
+        "RetrievedTo": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "<p>The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being retrieved to.</p> <p>The virtual tape is retrieved from the virtual tape shelf (VTS).</p>"
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of an archived virtual tape."
+        },
+        "TapeBarcode": {
+          "$ref": "#/definitions/TapeBarcode",
+          "description": "The barcode that identifies the archived virtual tape."
+        },
+        "TapeCreatedDate": {
+          "$ref": "#/definitions/Time"
+        },
+        "TapeSizeInBytes": {
+          "$ref": "#/definitions/TapeSize",
+          "description": "The size, in bytes, of the archived virtual tape."
+        },
+        "TapeStatus": {
+          "$ref": "#/definitions/TapeArchiveStatus",
+          "description": "The current state of the archived virtual tape."
+        }
+      },
+      "type": "object",
+      "title": "TapeArchive"
+    },
+    "TapeArchiveStatus": {
+      "type": "string",
+      "title": "TapeArchiveStatus"
+    },
+    "TapeArchives": {
+      "items": {
+        "$ref": "#/definitions/TapeArchive"
+      },
+      "type": "array",
+      "title": "TapeArchives"
+    },
+    "TapeBarcode": {
+      "maxLength": 16,
+      "minLength": 7,
+      "pattern": "^[A-Z0-9]*$",
+      "type": "string",
+      "title": "TapeBarcode"
+    },
+    "TapeBarcodePrefix": {
+      "maxLength": 4,
+      "minLength": 1,
+      "pattern": "^[A-Z]*$",
+      "type": "string",
+      "title": "TapeBarcodePrefix"
+    },
+    "TapeDriveType": {
+      "maxLength": 50,
+      "minLength": 2,
+      "type": "string",
+      "title": "TapeDriveType"
+    },
+    "TapeInfo": {
+      "description": "Describes a virtual tape.",
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN",
+          "description": "The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a> operation to return a list of gateways for your account and region."
+        },
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of a virtual tape."
+        },
+        "TapeBarcode": {
+          "$ref": "#/definitions/TapeBarcode",
+          "description": "The barcode that identifies a specific virtual tape."
+        },
+        "TapeSizeInBytes": {
+          "$ref": "#/definitions/TapeSize",
+          "description": "The size, in bytes, of a virtual tape."
+        },
+        "TapeStatus": {
+          "$ref": "#/definitions/TapeStatus",
+          "description": "The status of the tape."
+        }
+      },
+      "type": "object",
+      "title": "TapeInfo"
+    },
+    "TapeInfos": {
+      "description": "An array of <a>TapeInfo</a> objects, where each object describes an a single tape. If there not tapes in the tape library or VTS, then the <code>TapeInfos</code> is an empty array.",
+      "items": {
+        "$ref": "#/definitions/TapeInfo"
+      },
+      "type": "array",
+      "title": "TapeInfos"
+    },
+    "TapeRecoveryPointInfo": {
+      "description": "Describes a recovery point.",
+      "properties": {
+        "TapeARN": {
+          "$ref": "#/definitions/TapeARN",
+          "description": "The Amazon Resource Name (ARN) of the virtual tape."
+        },
+        "TapeRecoveryPointTime": {
+          "$ref": "#/definitions/Time",
+          "description": "<p>The time when the point-in-time view of the virtual tape was replicated for later recovery.</p> <p>The string format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.</p>"
+        },
+        "TapeSizeInBytes": {
+          "$ref": "#/definitions/TapeSize",
+          "description": "The size, in bytes, of the virtual tapes to recover."
+        },
+        "TapeStatus": {
+          "$ref": "#/definitions/TapeRecoveryPointStatus"
+        }
+      },
+      "type": "object",
+      "title": "TapeRecoveryPointInfo"
+    },
+    "TapeRecoveryPointInfos": {
+      "items": {
+        "$ref": "#/definitions/TapeRecoveryPointInfo"
+      },
+      "type": "array",
+      "title": "TapeRecoveryPointInfos"
+    },
+    "TapeRecoveryPointStatus": {
+      "type": "string",
+      "title": "TapeRecoveryPointStatus"
+    },
+    "TapeSize": {
+      "type": "integer",
+      "title": "TapeSize"
+    },
+    "TapeStatus": {
+      "type": "string",
+      "title": "TapeStatus"
+    },
+    "Tapes": {
+      "items": {
+        "$ref": "#/definitions/Tape"
+      },
+      "type": "array",
+      "title": "Tapes"
+    },
+    "TargetARN": {
+      "maxLength": 800,
+      "minLength": 50,
+      "type": "string",
+      "title": "TargetARN"
+    },
+    "TargetName": {
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "^[-\\.;a-z0-9]+$",
+      "type": "string",
+      "title": "TargetName"
+    },
+    "Time": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Time"
+    },
+    "UpdateBandwidthRateLimitInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a> </p> </li> <li> <p> <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a> </p> </li> </ul>",
+      "example": {
+        "AverageDownloadRateLimitInBitsPerSec": 102400,
+        "AverageUploadRateLimitInBitsPerSec": 51200,
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "AverageDownloadRateLimitInBitsPerSec": {
+          "$ref": "#/definitions/BandwidthDownloadRateLimit",
+          "description": "The average download bandwidth rate limit in bits per second."
+        },
+        "AverageUploadRateLimitInBitsPerSec": {
+          "$ref": "#/definitions/BandwidthUploadRateLimit",
+          "description": "The average upload bandwidth rate limit in bits per second."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "UpdateBandwidthRateLimitInput"
+    },
+    "UpdateBandwidthRateLimitOutput": {
+      "description": "A JSON object containing the of the gateway whose throttle information was updated.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "UpdateBandwidthRateLimitOutput"
+    },
+    "UpdateChapCredentialsInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateChapCredentialsInput$InitiatorName</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a> </p> </li> <li> <p> <a>UpdateChapCredentialsInput$TargetARN</a> </p> </li> </ul>",
+      "example": {
+        "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+        "SecretToAuthenticateInitiator": "111111111111",
+        "SecretToAuthenticateTarget": "222222222222",
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+      },
+      "properties": {
+        "InitiatorName": {
+          "$ref": "#/definitions/IqnName",
+          "description": "The iSCSI initiator that connects to the target."
+        },
+        "SecretToAuthenticateInitiator": {
+          "$ref": "#/definitions/ChapSecret",
+          "description": "<p>The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.</p> <note> <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p> </note>"
+        },
+        "SecretToAuthenticateTarget": {
+          "$ref": "#/definitions/ChapSecret",
+          "description": "<p>The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).</p> <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p> <note> <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p> </note>"
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified VolumeARN."
+        }
+      },
+      "required": [
+        "TargetARN",
+        "SecretToAuthenticateInitiator",
+        "InitiatorName"
+      ],
+      "type": "object",
+      "title": "UpdateChapCredentialsInput"
+    },
+    "UpdateChapCredentialsOutput": {
+      "description": "A JSON object containing the following fields:",
+      "example": {
+        "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
+        "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+      },
+      "properties": {
+        "InitiatorName": {
+          "$ref": "#/definitions/IqnName",
+          "description": "The iSCSI initiator that connects to the target. This is the same initiator name specified in the request."
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "The Amazon Resource Name (ARN) of the target. This is the same target specified in the request."
+        }
+      },
+      "type": "object",
+      "title": "UpdateChapCredentialsOutput"
+    },
+    "UpdateGatewayInformationInput": {
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "GatewayName": "MyGateway2",
+        "GatewayTimezone": "GMT-12:00"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "GatewayName": {
+          "$ref": "#/definitions/GatewayName"
+        },
+        "GatewayTimezone": {
+          "$ref": "#/definitions/GatewayTimezone"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "UpdateGatewayInformationInput"
+    },
+    "UpdateGatewayInformationOutput": {
+      "description": "A JSON object containing the ARN of the gateway that was updated.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "GatewayName": ""
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "GatewayName": {
+          "$ref": "#/definitions/string"
+        }
+      },
+      "type": "object",
+      "title": "UpdateGatewayInformationOutput"
+    },
+    "UpdateGatewaySoftwareNowInput": {
+      "description": "A JSON object containing the of the gateway to update.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "required": [
+        "GatewayARN"
+      ],
+      "type": "object",
+      "title": "UpdateGatewaySoftwareNowInput"
+    },
+    "UpdateGatewaySoftwareNowOutput": {
+      "description": "A JSON object containing the of the gateway that was updated.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "UpdateGatewaySoftwareNowOutput"
+    },
+    "UpdateMaintenanceStartTimeInput": {
+      "description": "<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$HourOfDay</a> </p> </li> <li> <p> <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a> </p> </li> </ul>",
+      "example": {
+        "DayOfWeek": 2,
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+        "HourOfDay": 0,
+        "MinuteOfHour": 30
+      },
+      "properties": {
+        "DayOfWeek": {
+          "$ref": "#/definitions/DayOfWeek",
+          "description": "The maintenance start time day of the week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday."
+        },
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "HourOfDay": {
+          "$ref": "#/definitions/HourOfDay",
+          "description": "The hour component of the maintenance start time represented as <i>hh</i>, where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time zone of the gateway."
+        },
+        "MinuteOfHour": {
+          "$ref": "#/definitions/MinuteOfHour",
+          "description": "The minute component of the maintenance start time represented as <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The minute of the hour is in the time zone of the gateway."
+        }
+      },
+      "required": [
+        "GatewayARN",
+        "HourOfDay",
+        "MinuteOfHour",
+        "DayOfWeek"
+      ],
+      "type": "object",
+      "title": "UpdateMaintenanceStartTimeInput"
+    },
+    "UpdateMaintenanceStartTimeOutput": {
+      "description": "A JSON object containing the of the gateway whose maintenance start time is updated.",
+      "example": {
+        "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+      },
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        }
+      },
+      "type": "object",
+      "title": "UpdateMaintenanceStartTimeOutput"
+    },
+    "UpdateNFSFileShareInput": {
+      "description": "UpdateNFSFileShareInput",
+      "properties": {
+        "ClientList": {
+          "$ref": "#/definitions/FileShareClientList",
+          "description": "The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks."
+        },
+        "DefaultStorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional."
+        },
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN",
+          "description": "The Amazon Resource Name (ARN) of the file share to be updated. "
+        },
+        "KMSEncrypted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional. "
+        },
+        "KMSKey": {
+          "$ref": "#/definitions/KMSKey",
+          "description": "The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional. "
+        },
+        "NFSFileShareDefaults": {
+          "$ref": "#/definitions/NFSFileShareDefaults",
+          "description": "The default values for the file share. Optional."
+        },
+        "ReadOnly": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Sets the write status of a file share. \"true\", if the write status is read-only; otherwise \"false."
+        },
+        "Squash": {
+          "$ref": "#/definitions/Squash",
+          "description": "Indicates the user mapped to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user."
+        }
+      },
+      "required": [
+        "FileShareARN"
+      ],
+      "type": "object",
+      "title": "UpdateNFSFileShareInput"
+    },
+    "UpdateNFSFileShareOutput": {
+      "description": "UpdateNFSFileShareOutput",
+      "properties": {
+        "FileShareARN": {
+          "$ref": "#/definitions/FileShareARN",
+          "description": "The Amazon Resource Name (ARN) of the updated file share. "
+        }
+      },
+      "type": "object",
+      "title": "UpdateNFSFileShareOutput"
+    },
+    "UpdateSnapshotScheduleInput": {
+      "description": "<p>A JSON object containing one or more of the following fields:</p> <ul> <li> <p> <a>UpdateSnapshotScheduleInput$Description</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$StartAt</a> </p> </li> <li> <p> <a>UpdateSnapshotScheduleInput$VolumeARN</a> </p> </li> </ul>",
+      "example": {
+        "Description": "Hourly snapshot",
+        "RecurrenceInHours": 1,
+        "StartAt": 0,
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "Optional description of the snapshot that overwrites the existing description."
+        },
+        "RecurrenceInHours": {
+          "$ref": "#/definitions/RecurrenceInHours",
+          "description": "Frequency of snapshots. Specify the number of hours between snapshots."
+        },
+        "StartAt": {
+          "$ref": "#/definitions/HourOfDay",
+          "description": "The hour of the day at which the snapshot schedule begins represented as <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour of the day is in the time zone of the gateway."
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes."
+        }
+      },
+      "required": [
+        "VolumeARN",
+        "StartAt",
+        "RecurrenceInHours"
+      ],
+      "type": "object",
+      "title": "UpdateSnapshotScheduleInput"
+    },
+    "UpdateSnapshotScheduleOutput": {
+      "description": "A JSON object containing the of the updated storage volume.",
+      "example": {
+        "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+      },
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "<p/>"
+        }
+      },
+      "type": "object",
+      "title": "UpdateSnapshotScheduleOutput"
+    },
+    "UpdateVTLDeviceTypeInput": {
+      "example": {
+        "DeviceType": "Medium Changer",
+        "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+      },
+      "properties": {
+        "DeviceType": {
+          "$ref": "#/definitions/DeviceType",
+          "description": "<p>The type of medium changer you want to select.</p> <p> Valid Values: \"STK-L700\", \"AWS-Gateway-VTL\"</p>"
+        },
+        "VTLDeviceARN": {
+          "$ref": "#/definitions/VTLDeviceARN",
+          "description": "The Amazon Resource Name (ARN) of the medium changer you want to select."
+        }
+      },
+      "required": [
+        "VTLDeviceARN",
+        "DeviceType"
+      ],
+      "type": "object",
+      "title": "UpdateVTLDeviceTypeInput"
+    },
+    "UpdateVTLDeviceTypeOutput": {
+      "description": "UpdateVTLDeviceTypeOutput",
+      "example": {
+        "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+      },
+      "properties": {
+        "VTLDeviceARN": {
+          "$ref": "#/definitions/VTLDeviceARN",
+          "description": "The Amazon Resource Name (ARN) of the medium changer you have selected."
+        }
+      },
+      "type": "object",
+      "title": "UpdateVTLDeviceTypeOutput"
+    },
+    "VTLDevice": {
+      "description": "Represents a device object associated with a tape gateway.",
+      "properties": {
+        "DeviceiSCSIAttributes": {
+          "$ref": "#/definitions/DeviceiSCSIAttributes",
+          "description": "A list of iSCSI information about a VTL device."
+        },
+        "VTLDeviceARN": {
+          "$ref": "#/definitions/VTLDeviceARN",
+          "description": "Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer)."
+        },
+        "VTLDeviceProductIdentifier": {
+          "$ref": "#/definitions/VTLDeviceProductIdentifier"
+        },
+        "VTLDeviceType": {
+          "$ref": "#/definitions/VTLDeviceType"
+        },
+        "VTLDeviceVendor": {
+          "$ref": "#/definitions/VTLDeviceVendor"
+        }
+      },
+      "type": "object",
+      "title": "VTLDevice"
+    },
+    "VTLDeviceARN": {
+      "maxLength": 500,
+      "minLength": 50,
+      "type": "string",
+      "title": "VTLDeviceARN"
+    },
+    "VTLDeviceARNs": {
+      "items": {
+        "$ref": "#/definitions/VTLDeviceARN"
+      },
+      "type": "array",
+      "title": "VTLDeviceARNs"
+    },
+    "VTLDeviceProductIdentifier": {
+      "type": "string",
+      "title": "VTLDeviceProductIdentifier"
+    },
+    "VTLDeviceType": {
+      "type": "string",
+      "title": "VTLDeviceType"
+    },
+    "VTLDeviceVendor": {
+      "type": "string",
+      "title": "VTLDeviceVendor"
+    },
+    "VTLDevices": {
+      "items": {
+        "$ref": "#/definitions/VTLDevice"
+      },
+      "type": "array",
+      "title": "VTLDevices"
+    },
+    "VolumeARN": {
+      "maxLength": 500,
+      "minLength": 50,
+      "type": "string",
+      "title": "VolumeARN"
+    },
+    "VolumeARNs": {
+      "items": {
+        "$ref": "#/definitions/VolumeARN"
+      },
+      "type": "array",
+      "title": "VolumeARNs"
+    },
+    "VolumeId": {
+      "maxLength": 30,
+      "minLength": 12,
+      "type": "string",
+      "title": "VolumeId"
+    },
+    "VolumeInfo": {
+      "description": "Describes a storage volume object.",
+      "properties": {
+        "GatewayARN": {
+          "$ref": "#/definitions/GatewayARN"
+        },
+        "GatewayId": {
+          "$ref": "#/definitions/GatewayId",
+          "description": "<p>The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.</p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
+        },
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN",
+          "description": "<p>The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:</p> <p> <code>arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB</code> </p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
+        },
+        "VolumeId": {
+          "$ref": "#/definitions/VolumeId",
+          "description": "<p>The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations.</p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
+        },
+        "VolumeSizeInBytes": {
+          "$ref": "#/definitions/long",
+          "description": "<p>The size of the volume in bytes.</p> <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
+        },
+        "VolumeType": {
+          "$ref": "#/definitions/VolumeType"
+        }
+      },
+      "type": "object",
+      "title": "VolumeInfo"
+    },
+    "VolumeInfos": {
+      "items": {
+        "$ref": "#/definitions/VolumeInfo"
+      },
+      "type": "array",
+      "title": "VolumeInfos"
+    },
+    "VolumeRecoveryPointInfo": {
+      "properties": {
+        "VolumeARN": {
+          "$ref": "#/definitions/VolumeARN"
+        },
+        "VolumeRecoveryPointTime": {
+          "$ref": "#/definitions/string"
+        },
+        "VolumeSizeInBytes": {
+          "$ref": "#/definitions/long"
+        },
+        "VolumeUsageInBytes": {
+          "$ref": "#/definitions/long"
+        }
+      },
+      "type": "object",
+      "title": "VolumeRecoveryPointInfo"
+    },
+    "VolumeRecoveryPointInfos": {
+      "items": {
+        "$ref": "#/definitions/VolumeRecoveryPointInfo"
+      },
+      "type": "array",
+      "title": "VolumeRecoveryPointInfos"
+    },
+    "VolumeStatus": {
+      "maxLength": 50,
+      "minLength": 3,
+      "type": "string",
+      "title": "VolumeStatus"
+    },
+    "VolumeType": {
+      "maxLength": 100,
+      "minLength": 3,
+      "type": "string",
+      "title": "VolumeType"
+    },
+    "VolumeiSCSIAttributes": {
+      "description": "Lists iSCSI information about a volume.",
+      "properties": {
+        "ChapEnabled": {
+          "$ref": "#/definitions/boolean",
+          "description": "Indicates whether mutual CHAP is enabled for the iSCSI target."
+        },
+        "LunNumber": {
+          "$ref": "#/definitions/PositiveIntObject",
+          "description": "The logical disk number."
+        },
+        "NetworkInterfaceId": {
+          "$ref": "#/definitions/NetworkInterfaceId",
+          "description": "The network interface identifier."
+        },
+        "NetworkInterfacePort": {
+          "$ref": "#/definitions/integer",
+          "description": "The port used to communicate with iSCSI targets."
+        },
+        "TargetARN": {
+          "$ref": "#/definitions/TargetARN",
+          "description": "The Amazon Resource Name (ARN) of the volume target."
+        }
+      },
+      "type": "object",
+      "title": "VolumeiSCSIAttributes"
+    },
+    "boolean": {
+      "type": "boolean",
+      "title": "boolean"
+    },
+    "double": {
+      "format": "double",
+      "type": "number",
+      "title": "double"
+    },
+    "errorDetails": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/string"
+          },
+          "value": {
+            "$ref": "#/definitions/string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "errorDetails"
+    },
+    "integer": {
+      "type": "integer",
+      "title": "integer"
+    },
+    "long": {
+      "type": "integer",
+      "title": "long"
+    },
+    "string": {
+      "type": "string",
+      "title": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "ActivateGateway",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ActivateGatewayInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActivateGatewayOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "AddCache",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddCacheInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddCacheOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "AddTagsToResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddTagsToResourceInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTagsToResourceOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "AddUploadBuffer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddUploadBufferInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddUploadBufferOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "AddWorkingStorage",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddWorkingStorageInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddWorkingStorageOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CancelArchival",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CancelArchivalInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CancelArchivalOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CancelRetrieval",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CancelRetrievalInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CancelRetrievalOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateCachediSCSIVolume",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateCachediSCSIVolumeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateCachediSCSIVolumeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateNFSFileShare",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateNFSFileShareInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateNFSFileShareOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateSnapshot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSnapshotInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSnapshotOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateSnapshotFromVolumeRecoveryPoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSnapshotFromVolumeRecoveryPointInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSnapshotFromVolumeRecoveryPointOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateStorediSCSIVolume",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateStorediSCSIVolumeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateStorediSCSIVolumeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateTapeWithBarcode",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTapeWithBarcodeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateTapeWithBarcodeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "CreateTapes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTapesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateTapesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteBandwidthRateLimit",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBandwidthRateLimitInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteBandwidthRateLimitOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteChapCredentials",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteChapCredentialsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteChapCredentialsOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteFileShare",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteFileShareInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteFileShareOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteGateway",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteGatewayInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteGatewayOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteSnapshotSchedule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSnapshotScheduleInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteSnapshotScheduleOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteTape",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTapeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteTapeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteTapeArchive",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTapeArchiveInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteTapeArchiveOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DeleteVolume",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteVolumeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteVolumeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeBandwidthRateLimit",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeBandwidthRateLimitInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeBandwidthRateLimitOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeCache",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeCacheInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeCacheOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeCachediSCSIVolumes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeCachediSCSIVolumesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeCachediSCSIVolumesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeChapCredentials",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeChapCredentialsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeChapCredentialsOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeGatewayInformation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeGatewayInformationInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeGatewayInformationOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeMaintenanceStartTime",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeMaintenanceStartTimeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeMaintenanceStartTimeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeNFSFileShares",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeNFSFileSharesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeNFSFileSharesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeSnapshotSchedule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeSnapshotScheduleInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSnapshotScheduleOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeStorediSCSIVolumes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStorediSCSIVolumesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStorediSCSIVolumesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeTapeArchives",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTapeArchivesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTapeArchivesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeTapeRecoveryPoints",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTapeRecoveryPointsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTapeRecoveryPointsOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeTapes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTapesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTapesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeUploadBuffer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUploadBufferInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUploadBufferOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeVTLDevices",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeVTLDevicesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeVTLDevicesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DescribeWorkingStorage",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeWorkingStorageInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeWorkingStorageOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "DisableGateway",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisableGatewayInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisableGatewayOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListFileShares",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListFileSharesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFileSharesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListGateways",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGatewaysInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGatewaysOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListLocalDisks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListLocalDisksInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListLocalDisksOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForResourceInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForResourceOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListTapes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTapesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTapesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListVolumeInitiators",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListVolumeInitiatorsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListVolumeInitiatorsOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListVolumeRecoveryPoints",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListVolumeRecoveryPointsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListVolumeRecoveryPointsOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ListVolumes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListVolumesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListVolumesOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "RefreshCache",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RefreshCacheInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RefreshCacheOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "RemoveTagsFromResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveTagsFromResourceInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveTagsFromResourceOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ResetCache",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ResetCacheInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResetCacheOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "RetrieveTapeArchive",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RetrieveTapeArchiveInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveTapeArchiveOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "RetrieveTapeRecoveryPoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RetrieveTapeRecoveryPointInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveTapeRecoveryPointOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "SetLocalConsolePassword",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetLocalConsolePasswordInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetLocalConsolePasswordOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "ShutdownGateway",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ShutdownGatewayInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ShutdownGatewayOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "StartGateway",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartGatewayInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartGatewayOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateBandwidthRateLimit",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateBandwidthRateLimitInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateBandwidthRateLimitOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateChapCredentials",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateChapCredentialsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateChapCredentialsOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateGatewayInformation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGatewayInformationInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGatewayInformationOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateGatewaySoftwareNow",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGatewaySoftwareNowInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGatewaySoftwareNowOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateMaintenanceStartTime",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateMaintenanceStartTimeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateMaintenanceStartTimeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateNFSFileShare",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateNFSFileShareInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateNFSFileShareOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateSnapshotSchedule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateSnapshotScheduleInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSnapshotScheduleOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    },
+    {
+      "id": "UpdateVTLDeviceType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateVTLDeviceTypeInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateVTLDeviceTypeOutput"
+      },
+      "security": {
+        "amazonaws_storagegateway": {
+          "integration": "amazonaws_storagegateway"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

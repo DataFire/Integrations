@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_waf_regional
 
 ```js
 let datafire = require('datafire');
-let amazonaws_waf_regional = require('@datafire/amazonaws_waf_regional').create();
+let amazonaws_waf_regional = require('@datafire/amazonaws_waf_regional').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_waf_regional.AssociateWebACL({}).then(data => {
   console.log(data);

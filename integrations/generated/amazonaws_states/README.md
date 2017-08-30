@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_states
 
 ```js
 let datafire = require('datafire');
-let amazonaws_states = require('@datafire/amazonaws_states').create();
+let amazonaws_states = require('@datafire/amazonaws_states').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_states.CreateActivity({}).then(data => {
   console.log(data);

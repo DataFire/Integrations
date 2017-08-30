@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_autoscaling
 
 ```js
 let datafire = require('datafire');
-let amazonaws_autoscaling = require('@datafire/amazonaws_autoscaling').create();
+let amazonaws_autoscaling = require('@datafire/amazonaws_autoscaling').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_autoscaling.DeleteScalingPolicy({}).then(data => {
   console.log(data);

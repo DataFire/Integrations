@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_config
 
 ```js
 let datafire = require('datafire');
-let amazonaws_config = require('@datafire/amazonaws_config').create();
+let amazonaws_config = require('@datafire/amazonaws_config').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_config.DeleteConfigRule({}).then(data => {
   console.log(data);

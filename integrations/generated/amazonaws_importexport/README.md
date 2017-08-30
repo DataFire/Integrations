@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_importexport
 
 ```js
 let datafire = require('datafire');
-let amazonaws_importexport = require('@datafire/amazonaws_importexport').create();
+let amazonaws_importexport = require('@datafire/amazonaws_importexport').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_importexport.CancelJob({}).then(data => {
   console.log(data);

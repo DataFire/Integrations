@@ -11,7 +11,7 @@ fs.readdirSync(DIR)
     .forEach(name => {
       let pkgFile = DIR + '/' + name + '/package.json';
       let pkg = require(pkgFile);
-      pkg.version = '3.0.2';
+      pkg.version = '3.0.3';
       pkg.dependencies['aws-sdk'] = '^2.105.0';
       fs.writeFileSync(pkgFile, JSON.stringify(pkg, null, 2));
 

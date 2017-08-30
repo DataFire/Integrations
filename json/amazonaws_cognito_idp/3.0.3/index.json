@@ -1,0 +1,5324 @@
+{
+  "id": "amazonaws_cognito_idp",
+  "title": "Amazon Cognito Identity Provider",
+  "description": "Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.\n\nThis API reference provides information about user pools in Amazon Cognito User Pools.\n\nFor more information, see the Amazon Cognito Documentation.",
+  "security": {
+    "amazonaws_cognito_idp": {
+      "integration": "amazonaws_cognito_idp",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpg"
+  },
+  "actionCount": 65,
+  "definitions": {
+    "AddCustomAttributesRequest": {
+      "description": "Represents the request to add custom attributes.",
+      "properties": {
+        "CustomAttributes": {
+          "$ref": "#/definitions/CustomAttributesListType",
+          "description": "An array of custom attributes, such as Mutable and Name."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to add custom attributes."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "CustomAttributes"
+      ],
+      "type": "object",
+      "title": "AddCustomAttributesRequest"
+    },
+    "AddCustomAttributesResponse": {
+      "description": "Represents the response from the server for the request to add custom attributes.",
+      "properties": {},
+      "type": "object",
+      "title": "AddCustomAttributesResponse"
+    },
+    "AdminAddUserToGroupRequest": {
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The group name."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The username for the user."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "GroupName"
+      ],
+      "type": "object",
+      "title": "AdminAddUserToGroupRequest"
+    },
+    "AdminConfirmSignUpRequest": {
+      "description": "Represents the request to confirm user registration.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for which you want to confirm user registration."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name for which you want to confirm user registration."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminConfirmSignUpRequest"
+    },
+    "AdminConfirmSignUpResponse": {
+      "description": "Represents the response from the server for the request to confirm registration.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminConfirmSignUpResponse"
+    },
+    "AdminCreateUserConfigType": {
+      "description": "The type of configuration for creating a new user profile.",
+      "properties": {
+        "AllowAdminCreateUserOnly": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app."
+        },
+        "InviteMessageTemplate": {
+          "$ref": "#/definitions/MessageTemplateType",
+          "description": "The message template to be used for the welcome message to new users."
+        },
+        "UnusedAccountValidityDays": {
+          "$ref": "#/definitions/AdminCreateUserUnusedAccountValidityDaysType",
+          "description": "The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying \"RESEND\" for the MessageAction parameter. The default value for this paameter is 7."
+        }
+      },
+      "type": "object",
+      "title": "AdminCreateUserConfigType"
+    },
+    "AdminCreateUserRequest": {
+      "description": "Represents the request to create a user in the specified user pool.",
+      "properties": {
+        "DesiredDeliveryMediums": {
+          "$ref": "#/definitions/DeliveryMediumListType",
+          "description": "Specify \"EMAIL\" if email will be used to send the welcome message. Specify \"SMS\" if the phone number will be used. The default value is \"SMS\". More than one value can be specified."
+        },
+        "ForceAliasCreation": {
+          "$ref": "#/definitions/ForceAliasCreation",
+          "description": "<p>This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.</p> <p>If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.</p>"
+        },
+        "MessageAction": {
+          "$ref": "#/definitions/MessageActionType",
+          "description": "Set to \"RESEND\" to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to \"SUPPRESS\" to suppress sending the message. Only one value can be specified."
+        },
+        "TemporaryPassword": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "<p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p> <p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p> <p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call AdminCreateUser again, specifying \"RESEND\" for the MessageAction parameter.</p>"
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than Username. However, any attributes that you specify as required (in CreateUserPool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to AdminCreateUser) or by the user (when he or she signs up in response to your welcome message).</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to AdminCreateUser, you can set the email_verified attribute to True, and you can set the phone_number_verified attribute to True. (You cannot do this by calling other operations such as AdminUpdateUserAttributes.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the email_verified attribute is set to True, or if \"EMAIL\" is specified in the DesiredDeliveryMediums parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the phone_number_verified attribute is set to True, or if \"SMS\" is specified in the DesiredDeliveryMediums parameter.</p> </li> </ul>"
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where the user will be created."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed."
+        },
+        "ValidationData": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "<p>The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.</p> <p>To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.</p> <p>The user's validation data is not persisted.</p>"
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminCreateUserRequest"
+    },
+    "AdminCreateUserResponse": {
+      "description": "Represents the response from the server to the request to create the user.",
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/UserType",
+          "description": "The user returned in the request to create a new user."
+        }
+      },
+      "type": "object",
+      "title": "AdminCreateUserResponse"
+    },
+    "AdminCreateUserUnusedAccountValidityDaysType": {
+      "maximum": 90,
+      "minimum": 0,
+      "type": "integer",
+      "title": "AdminCreateUserUnusedAccountValidityDaysType"
+    },
+    "AdminDeleteUserAttributesRequest": {
+      "description": "Represents the request to delete user attributes as an administrator.",
+      "properties": {
+        "UserAttributeNames": {
+          "$ref": "#/definitions/AttributeNameListType",
+          "description": "An array of strings representing the user attribute names you wish to delete."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to delete user attributes."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user from which you would like to delete attributes."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "UserAttributeNames"
+      ],
+      "type": "object",
+      "title": "AdminDeleteUserAttributesRequest"
+    },
+    "AdminDeleteUserAttributesResponse": {
+      "description": "Represents the response received from the server for a request to delete user attributes.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminDeleteUserAttributesResponse"
+    },
+    "AdminDeleteUserRequest": {
+      "description": "Represents the request to delete a user as an administrator.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to delete the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to delete."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminDeleteUserRequest"
+    },
+    "AdminDisableUserRequest": {
+      "description": "Represents the request to disable any user as an administrator.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to disable the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to disable."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminDisableUserRequest"
+    },
+    "AdminDisableUserResponse": {
+      "description": "Represents the response received from the server to disable the user as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminDisableUserResponse"
+    },
+    "AdminEnableUserRequest": {
+      "description": "Represents the request that enables the user as an administrator.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to enable the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to ebable."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminEnableUserRequest"
+    },
+    "AdminEnableUserResponse": {
+      "description": "Represents the response from the server for the request to enable a user as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminEnableUserResponse"
+    },
+    "AdminForgetDeviceRequest": {
+      "description": "Sends the forgot device request, as an administrator.",
+      "properties": {
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "DeviceKey"
+      ],
+      "type": "object",
+      "title": "AdminForgetDeviceRequest"
+    },
+    "AdminGetDeviceRequest": {
+      "description": "Represents the request to get the device, as an administrator.",
+      "properties": {
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name."
+        }
+      },
+      "required": [
+        "DeviceKey",
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminGetDeviceRequest"
+    },
+    "AdminGetDeviceResponse": {
+      "description": "Gets the device response, as an administrator.",
+      "properties": {
+        "Device": {
+          "$ref": "#/definitions/DeviceType",
+          "description": "The device."
+        }
+      },
+      "required": [
+        "Device"
+      ],
+      "type": "object",
+      "title": "AdminGetDeviceResponse"
+    },
+    "AdminGetUserRequest": {
+      "description": "Represents the request to get the specified user as an administrator.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to get information about the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to retrieve."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminGetUserRequest"
+    },
+    "AdminGetUserResponse": {
+      "description": "Represents the response from the server from the request to get the specified user as an administrator.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Indicates that the status is enabled."
+        },
+        "MFAOptions": {
+          "$ref": "#/definitions/MFAOptionListType",
+          "description": "Specifies the options for MFA (e.g., email or phone number)."
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "An array of name-value pairs representing user attributes."
+        },
+        "UserCreateDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the user was created."
+        },
+        "UserLastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the user was last modified."
+        },
+        "UserStatus": {
+          "$ref": "#/definitions/UserStatusType",
+          "description": "<p>The user status. Can be one of the following:</p> <ul> <li> <p>UNCONFIRMED - User has been created but not confirmed.</p> </li> <li> <p>CONFIRMED - User has been confirmed.</p> </li> <li> <p>ARCHIVED - User is no longer active.</p> </li> <li> <p>COMPROMISED - User is disabled due to a potential security threat.</p> </li> <li> <p>UNKNOWN - User status is not known.</p> </li> </ul>"
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user about whom you are receiving information."
+        }
+      },
+      "required": [
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminGetUserResponse"
+    },
+    "AdminInitiateAuthRequest": {
+      "description": "Initiates the authorization request, as an administrator.",
+      "properties": {
+        "AuthFlow": {
+          "$ref": "#/definitions/AuthFlowType",
+          "description": "The authentication flow."
+        },
+        "AuthParameters": {
+          "$ref": "#/definitions/AuthParametersType",
+          "description": "The authentication parameters."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client app ID."
+        },
+        "ClientMetadata": {
+          "$ref": "#/definitions/ClientMetadataType",
+          "description": "The client app metadata."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The ID of the Amazon Cognito user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ClientId",
+        "AuthFlow"
+      ],
+      "type": "object",
+      "title": "AdminInitiateAuthRequest"
+    },
+    "AdminInitiateAuthResponse": {
+      "description": "Initiates the authentication response, as an administrator.",
+      "properties": {
+        "AuthenticationResult": {
+          "$ref": "#/definitions/AuthenticationResultType",
+          "description": "The result of the authentication response."
+        },
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeNameType",
+          "description": "The name of the challenge."
+        },
+        "ChallengeParameters": {
+          "$ref": "#/definitions/ChallengeParametersType",
+          "description": "The challenge parameters."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session."
+        }
+      },
+      "type": "object",
+      "title": "AdminInitiateAuthResponse"
+    },
+    "AdminListDevicesRequest": {
+      "description": "Represents the request to list devices, as an administrator.",
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The limit of the devices request."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/SearchPaginationTokenType",
+          "description": "The pagination token."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminListDevicesRequest"
+    },
+    "AdminListDevicesResponse": {
+      "description": "Lists the device's response, as an administrator.",
+      "properties": {
+        "Devices": {
+          "$ref": "#/definitions/DeviceListType",
+          "description": "The devices in the list of devices response."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/SearchPaginationTokenType",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "AdminListDevicesResponse"
+    },
+    "AdminListGroupsForUserRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The limit of the request to list groups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The username for the user."
+        }
+      },
+      "required": [
+        "Username",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "AdminListGroupsForUserRequest"
+    },
+    "AdminListGroupsForUserResponse": {
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupListType",
+          "description": "The groups that the user belongs to."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        }
+      },
+      "type": "object",
+      "title": "AdminListGroupsForUserResponse"
+    },
+    "AdminRemoveUserFromGroupRequest": {
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The group name."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The username for the user."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "GroupName"
+      ],
+      "type": "object",
+      "title": "AdminRemoveUserFromGroupRequest"
+    },
+    "AdminResetUserPasswordRequest": {
+      "description": "Represents the request to reset a user's password as an administrator.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to reset the user's password."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user whose password you wish to reset."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminResetUserPasswordRequest"
+    },
+    "AdminResetUserPasswordResponse": {
+      "description": "Represents the response from the server to reset a user password as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminResetUserPasswordResponse"
+    },
+    "AdminRespondToAuthChallengeRequest": {
+      "description": "The request to respond to the authentication challenge, as an administrator.",
+      "properties": {
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeNameType",
+          "description": "The name of the challenge."
+        },
+        "ChallengeResponses": {
+          "$ref": "#/definitions/ChallengeResponsesType",
+          "description": "The challenge response."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client ID."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The ID of the Amazon Cognito user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ClientId",
+        "ChallengeName"
+      ],
+      "type": "object",
+      "title": "AdminRespondToAuthChallengeRequest"
+    },
+    "AdminRespondToAuthChallengeResponse": {
+      "description": "Responds to the authentication challenge, as an administrator.",
+      "properties": {
+        "AuthenticationResult": {
+          "$ref": "#/definitions/AuthenticationResultType",
+          "description": "The result returned by the server in response to the authentication request."
+        },
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeNameType",
+          "description": "The name of the challenge."
+        },
+        "ChallengeParameters": {
+          "$ref": "#/definitions/ChallengeParametersType",
+          "description": "The challenge parameters."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session."
+        }
+      },
+      "type": "object",
+      "title": "AdminRespondToAuthChallengeResponse"
+    },
+    "AdminSetUserSettingsRequest": {
+      "description": "Represents the request to set user settings as an administrator.",
+      "properties": {
+        "MFAOptions": {
+          "$ref": "#/definitions/MFAOptionListType",
+          "description": "Specifies the options for MFA (e.g., email or phone number)."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to set the user's settings, such as MFA options."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user for whom you wish to set user settings."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "MFAOptions"
+      ],
+      "type": "object",
+      "title": "AdminSetUserSettingsRequest"
+    },
+    "AdminSetUserSettingsResponse": {
+      "description": "Represents the response from the server to set user settings as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminSetUserSettingsResponse"
+    },
+    "AdminUpdateDeviceStatusRequest": {
+      "description": "The request to update the device status, as an administrator.",
+      "properties": {
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        },
+        "DeviceRememberedStatus": {
+          "$ref": "#/definitions/DeviceRememberedStatusType",
+          "description": "The status indicating whether a device has been remembered or not."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID&gt;"
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "DeviceKey"
+      ],
+      "type": "object",
+      "title": "AdminUpdateDeviceStatusRequest"
+    },
+    "AdminUpdateDeviceStatusResponse": {
+      "description": "The status response from the request to update the device, as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminUpdateDeviceStatusResponse"
+    },
+    "AdminUpdateUserAttributesRequest": {
+      "description": "Represents the request to update the user's attributes as an administrator.",
+      "properties": {
+        "UserAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "An array of name-value pairs representing user attributes."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to update user attributes."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user for whom you want to update user attributes."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username",
+        "UserAttributes"
+      ],
+      "type": "object",
+      "title": "AdminUpdateUserAttributesRequest"
+    },
+    "AdminUpdateUserAttributesResponse": {
+      "description": "Represents the response from the server for the request to update user attributes as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminUpdateUserAttributesResponse"
+    },
+    "AdminUserGlobalSignOutRequest": {
+      "description": "The request to sign out of all devices, as an administrator.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "AdminUserGlobalSignOutRequest"
+    },
+    "AdminUserGlobalSignOutResponse": {
+      "description": "The global sign-out response, as an administrator.",
+      "properties": {},
+      "type": "object",
+      "title": "AdminUserGlobalSignOutResponse"
+    },
+    "AliasAttributeType": {
+      "enum": [
+        "phone_number",
+        "email",
+        "preferred_username"
+      ],
+      "type": "string",
+      "title": "AliasAttributeType"
+    },
+    "AliasAttributesListType": {
+      "items": {
+        "$ref": "#/definitions/AliasAttributeType"
+      },
+      "type": "array",
+      "title": "AliasAttributesListType"
+    },
+    "AliasExistsException": {
+      "description": "This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception tells user that an account with this email or phone already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message sent to the user when an alias exists."
+        }
+      },
+      "type": "object",
+      "title": "AliasExistsException"
+    },
+    "ArnType": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+      "type": "string",
+      "title": "ArnType"
+    },
+    "AttributeDataType": {
+      "enum": [
+        "String",
+        "Number",
+        "DateTime",
+        "Boolean"
+      ],
+      "type": "string",
+      "title": "AttributeDataType"
+    },
+    "AttributeListType": {
+      "items": {
+        "$ref": "#/definitions/AttributeType"
+      },
+      "type": "array",
+      "title": "AttributeListType"
+    },
+    "AttributeNameListType": {
+      "items": {
+        "$ref": "#/definitions/AttributeNameType"
+      },
+      "type": "array",
+      "title": "AttributeNameListType"
+    },
+    "AttributeNameType": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "AttributeNameType"
+    },
+    "AttributeType": {
+      "description": "Specifies whether the attribute is standard or custom.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/AttributeNameType",
+          "description": "The name of the attribute."
+        },
+        "Value": {
+          "$ref": "#/definitions/AttributeValueType",
+          "description": "The value of the attribute."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "AttributeType"
+    },
+    "AttributeValueType": {
+      "format": "password",
+      "maxLength": 2048,
+      "type": "string",
+      "title": "AttributeValueType"
+    },
+    "AuthFlowType": {
+      "enum": [
+        "USER_SRP_AUTH",
+        "REFRESH_TOKEN_AUTH",
+        "REFRESH_TOKEN",
+        "CUSTOM_AUTH",
+        "ADMIN_NO_SRP_AUTH"
+      ],
+      "type": "string",
+      "title": "AuthFlowType"
+    },
+    "AuthParametersType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/StringType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "AuthParametersType"
+    },
+    "AuthenticationResultType": {
+      "description": "The result type of the authentication result.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token of the authentication result."
+        },
+        "ExpiresIn": {
+          "$ref": "#/definitions/IntegerType",
+          "description": "The expiration period of the authentication result."
+        },
+        "IdToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The ID token of the authentication result."
+        },
+        "NewDeviceMetadata": {
+          "$ref": "#/definitions/NewDeviceMetadataType",
+          "description": "The new device metadata from an authentication result."
+        },
+        "RefreshToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The refresh token of the authentication result."
+        },
+        "TokenType": {
+          "$ref": "#/definitions/StringType",
+          "description": "The token type of the authentication result."
+        }
+      },
+      "type": "object",
+      "title": "AuthenticationResultType"
+    },
+    "BooleanType": {
+      "type": "boolean",
+      "title": "BooleanType"
+    },
+    "ChallengeNameType": {
+      "enum": [
+        "SMS_MFA",
+        "PASSWORD_VERIFIER",
+        "CUSTOM_CHALLENGE",
+        "DEVICE_SRP_AUTH",
+        "DEVICE_PASSWORD_VERIFIER",
+        "ADMIN_NO_SRP_AUTH",
+        "NEW_PASSWORD_REQUIRED"
+      ],
+      "type": "string",
+      "title": "ChallengeNameType"
+    },
+    "ChallengeParametersType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/StringType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ChallengeParametersType"
+    },
+    "ChallengeResponsesType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/StringType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ChallengeResponsesType"
+    },
+    "ChangePasswordRequest": {
+      "description": "Represents the request to change a user password.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token in the change password request."
+        },
+        "PreviousPassword": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "The old password in the change password request."
+        },
+        "ProposedPassword": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "The new password in the change password request."
+        }
+      },
+      "required": [
+        "PreviousPassword",
+        "ProposedPassword"
+      ],
+      "type": "object",
+      "title": "ChangePasswordRequest"
+    },
+    "ChangePasswordResponse": {
+      "description": "The response from the server to the change password request.",
+      "properties": {},
+      "type": "object",
+      "title": "ChangePasswordResponse"
+    },
+    "ClientIdType": {
+      "format": "password",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+]+",
+      "type": "string",
+      "title": "ClientIdType"
+    },
+    "ClientMetadataType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/StringType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ClientMetadataType"
+    },
+    "ClientNameType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w\\s+=,.@-]+",
+      "type": "string",
+      "title": "ClientNameType"
+    },
+    "ClientPermissionListType": {
+      "items": {
+        "$ref": "#/definitions/ClientPermissionType"
+      },
+      "type": "array",
+      "title": "ClientPermissionListType"
+    },
+    "ClientPermissionType": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "ClientPermissionType"
+    },
+    "ClientSecretType": {
+      "format": "password",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[\\w+]+",
+      "type": "string",
+      "title": "ClientSecretType"
+    },
+    "CodeDeliveryDetailsListType": {
+      "items": {
+        "$ref": "#/definitions/CodeDeliveryDetailsType"
+      },
+      "type": "array",
+      "title": "CodeDeliveryDetailsListType"
+    },
+    "CodeDeliveryDetailsType": {
+      "description": "The type of code delivery details being returned from the server.",
+      "properties": {
+        "AttributeName": {
+          "$ref": "#/definitions/AttributeNameType",
+          "description": "The name of the attribute in the code delivery details type."
+        },
+        "DeliveryMedium": {
+          "$ref": "#/definitions/DeliveryMediumType",
+          "description": "The delivery medium (email message or phone number)."
+        },
+        "Destination": {
+          "$ref": "#/definitions/StringType",
+          "description": "The destination for the code delivery details."
+        }
+      },
+      "type": "object",
+      "title": "CodeDeliveryDetailsType"
+    },
+    "CodeDeliveryFailureException": {
+      "description": "This exception is thrown when a verification code fails to deliver successfully.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message sent when a verification code fails to deliver successfully."
+        }
+      },
+      "type": "object",
+      "title": "CodeDeliveryFailureException"
+    },
+    "CodeMismatchException": {
+      "description": "This exception is thrown if the provided code does not match what the server was expecting.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message provided when the code mismatch exception is thrown."
+        }
+      },
+      "type": "object",
+      "title": "CodeMismatchException"
+    },
+    "CompletionMessageType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w]+",
+      "type": "string",
+      "title": "CompletionMessageType"
+    },
+    "ConcurrentModificationException": {
+      "description": "This exception is thrown if two or more modifications are happening concurrently.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message provided when the concurrent exception is thrown."
+        }
+      },
+      "type": "object",
+      "title": "ConcurrentModificationException"
+    },
+    "ConfirmDeviceRequest": {
+      "description": "Confirms the device request.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        },
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        },
+        "DeviceName": {
+          "$ref": "#/definitions/DeviceNameType",
+          "description": "The device name."
+        },
+        "DeviceSecretVerifierConfig": {
+          "$ref": "#/definitions/DeviceSecretVerifierConfigType",
+          "description": "The configuration of the device secret verifier."
+        }
+      },
+      "required": [
+        "AccessToken",
+        "DeviceKey"
+      ],
+      "type": "object",
+      "title": "ConfirmDeviceRequest"
+    },
+    "ConfirmDeviceResponse": {
+      "description": "Confirms the device response.",
+      "properties": {
+        "UserConfirmationNecessary": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Indicates whether the user confirmation is necessary to confirm the device response."
+        }
+      },
+      "type": "object",
+      "title": "ConfirmDeviceResponse"
+    },
+    "ConfirmForgotPasswordRequest": {
+      "description": "The request representing the confirmation for a password reset.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "ConfirmationCode": {
+          "$ref": "#/definitions/ConfirmationCodeType",
+          "description": "The confirmation code sent by a user's request to retrieve a forgotten password."
+        },
+        "Password": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "The password sent by sent by a user's request to retrieve a forgotten password."
+        },
+        "SecretHash": {
+          "$ref": "#/definitions/SecretHashType",
+          "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user for whom you want to enter a code to retrieve a forgotten password."
+        }
+      },
+      "required": [
+        "ClientId",
+        "Username",
+        "ConfirmationCode",
+        "Password"
+      ],
+      "type": "object",
+      "title": "ConfirmForgotPasswordRequest"
+    },
+    "ConfirmForgotPasswordResponse": {
+      "description": "The response from the server that results from a user's request to retrieve a forgotten password.",
+      "properties": {},
+      "type": "object",
+      "title": "ConfirmForgotPasswordResponse"
+    },
+    "ConfirmSignUpRequest": {
+      "description": "Represents the request to confirm registration of a user.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "ConfirmationCode": {
+          "$ref": "#/definitions/ConfirmationCodeType",
+          "description": "The confirmation code sent by a user's request to confirm registration."
+        },
+        "ForceAliasCreation": {
+          "$ref": "#/definitions/ForceAliasCreation",
+          "description": "Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an <b>AliasExistsException</b> error."
+        },
+        "SecretHash": {
+          "$ref": "#/definitions/SecretHashType",
+          "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user whose registration you wish to confirm."
+        }
+      },
+      "required": [
+        "ClientId",
+        "Username",
+        "ConfirmationCode"
+      ],
+      "type": "object",
+      "title": "ConfirmSignUpRequest"
+    },
+    "ConfirmSignUpResponse": {
+      "description": "Represents the response from the server for the registration confirmation.",
+      "properties": {},
+      "type": "object",
+      "title": "ConfirmSignUpResponse"
+    },
+    "ConfirmationCodeType": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "[\\S]+",
+      "type": "string",
+      "title": "ConfirmationCodeType"
+    },
+    "CreateGroupRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/DescriptionType",
+          "description": "A string containing the description of the group."
+        },
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group. Must be unique."
+        },
+        "Precedence": {
+          "$ref": "#/definitions/PrecedenceType",
+          "description": "<p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower <code>Precedence</code> values take precedence over groups with higher or null <code>Precedence</code> values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>"
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The role ARN for the group."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "GroupName",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "CreateGroupRequest"
+    },
+    "CreateGroupResponse": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/GroupType",
+          "description": "The group object for the group."
+        }
+      },
+      "type": "object",
+      "title": "CreateGroupResponse"
+    },
+    "CreateUserImportJobRequest": {
+      "description": "Represents the request to create the user import job.",
+      "properties": {
+        "CloudWatchLogsRoleArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The role ARN for the Amazon CloudWatch Logging role for the user import job."
+        },
+        "JobName": {
+          "$ref": "#/definitions/UserImportJobNameType",
+          "description": "The job name for the user import job."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are being imported into."
+        }
+      },
+      "required": [
+        "JobName",
+        "UserPoolId",
+        "CloudWatchLogsRoleArn"
+      ],
+      "type": "object",
+      "title": "CreateUserImportJobRequest"
+    },
+    "CreateUserImportJobResponse": {
+      "description": "Represents the response from the server to the request to create the user import job.",
+      "properties": {
+        "UserImportJob": {
+          "$ref": "#/definitions/UserImportJobType",
+          "description": "The job object that represents the user import job."
+        }
+      },
+      "type": "object",
+      "title": "CreateUserImportJobResponse"
+    },
+    "CreateUserPoolClientRequest": {
+      "description": "Represents the request to create a user pool client.",
+      "properties": {
+        "ClientName": {
+          "$ref": "#/definitions/ClientNameType",
+          "description": "The client name for the user pool client you would like to create."
+        },
+        "ExplicitAuthFlows": {
+          "$ref": "#/definitions/ExplicitAuthFlowsListType",
+          "description": "The explicit authentication flows."
+        },
+        "GenerateSecret": {
+          "$ref": "#/definitions/GenerateSecret",
+          "description": "Boolean to specify whether you want to generate a secret for the user pool client being created."
+        },
+        "ReadAttributes": {
+          "$ref": "#/definitions/ClientPermissionListType",
+          "description": "The read attributes."
+        },
+        "RefreshTokenValidity": {
+          "$ref": "#/definitions/RefreshTokenValidityType",
+          "description": "The validity of the refresh token, in days."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to create a user pool client."
+        },
+        "WriteAttributes": {
+          "$ref": "#/definitions/ClientPermissionListType",
+          "description": "The write attributes."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ClientName"
+      ],
+      "type": "object",
+      "title": "CreateUserPoolClientRequest"
+    },
+    "CreateUserPoolClientResponse": {
+      "description": "Represents the response from the server to create a user pool client.",
+      "properties": {
+        "UserPoolClient": {
+          "$ref": "#/definitions/UserPoolClientType",
+          "description": "The user pool client that was just created."
+        }
+      },
+      "type": "object",
+      "title": "CreateUserPoolClientResponse"
+    },
+    "CreateUserPoolRequest": {
+      "description": "Represents the request to create a user pool.",
+      "properties": {
+        "AdminCreateUserConfig": {
+          "$ref": "#/definitions/AdminCreateUserConfigType",
+          "description": "The configuration for AdminCreateUser requests."
+        },
+        "AliasAttributes": {
+          "$ref": "#/definitions/AliasAttributesListType",
+          "description": "Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or <b>preferred_username</b>."
+        },
+        "AutoVerifiedAttributes": {
+          "$ref": "#/definitions/VerifiedAttributesListType",
+          "description": "The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>."
+        },
+        "DeviceConfiguration": {
+          "$ref": "#/definitions/DeviceConfigurationType",
+          "description": "The device configuration."
+        },
+        "EmailConfiguration": {
+          "$ref": "#/definitions/EmailConfigurationType",
+          "description": "The email configuration."
+        },
+        "EmailVerificationMessage": {
+          "$ref": "#/definitions/EmailVerificationMessageType",
+          "description": "A string representing the email verification message."
+        },
+        "EmailVerificationSubject": {
+          "$ref": "#/definitions/EmailVerificationSubjectType",
+          "description": "A string representing the email verification subject."
+        },
+        "LambdaConfig": {
+          "$ref": "#/definitions/LambdaConfigType",
+          "description": "The Lambda trigger configuration information for the new user pool."
+        },
+        "MfaConfiguration": {
+          "$ref": "#/definitions/UserPoolMfaType",
+          "description": "Specifies MFA configuration details."
+        },
+        "Policies": {
+          "$ref": "#/definitions/UserPoolPolicyType",
+          "description": "The policies associated with the new user pool."
+        },
+        "PoolName": {
+          "$ref": "#/definitions/UserPoolNameType",
+          "description": "A string used to name the user pool."
+        },
+        "Schema": {
+          "$ref": "#/definitions/SchemaAttributesListType",
+          "description": "An array of schema attributes for the new user pool. These attributes can be standard or custom attributes."
+        },
+        "SmsAuthenticationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "A string representing the SMS authentication message."
+        },
+        "SmsConfiguration": {
+          "$ref": "#/definitions/SmsConfigurationType",
+          "description": "The SMS configuration."
+        },
+        "SmsVerificationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "A string representing the SMS verification message."
+        },
+        "UserPoolTags": {
+          "$ref": "#/definitions/UserPoolTagsType",
+          "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
+        }
+      },
+      "required": [
+        "PoolName"
+      ],
+      "type": "object",
+      "title": "CreateUserPoolRequest"
+    },
+    "CreateUserPoolResponse": {
+      "description": "Represents the response from the server for the request to create a user pool.",
+      "properties": {
+        "UserPool": {
+          "$ref": "#/definitions/UserPoolType",
+          "description": "A container for the user pool details."
+        }
+      },
+      "type": "object",
+      "title": "CreateUserPoolResponse"
+    },
+    "CustomAttributeNameType": {
+      "maxLength": 20,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "CustomAttributeNameType"
+    },
+    "CustomAttributesListType": {
+      "items": {
+        "$ref": "#/definitions/SchemaAttributeType"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array",
+      "title": "CustomAttributesListType"
+    },
+    "DateType": {
+      "format": "date-time",
+      "type": "string",
+      "title": "DateType"
+    },
+    "DeleteGroupRequest": {
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "GroupName",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "DeleteGroupRequest"
+    },
+    "DeleteUserAttributesRequest": {
+      "description": "Represents the request to delete user attributes.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token used in the request to delete user attributes."
+        },
+        "UserAttributeNames": {
+          "$ref": "#/definitions/AttributeNameListType",
+          "description": "An array of strings representing the user attribute names you wish to delete."
+        }
+      },
+      "required": [
+        "UserAttributeNames"
+      ],
+      "type": "object",
+      "title": "DeleteUserAttributesRequest"
+    },
+    "DeleteUserAttributesResponse": {
+      "description": "Represents the response from the server to delete user attributes.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteUserAttributesResponse"
+    },
+    "DeleteUserPoolClientRequest": {
+      "description": "Represents the request to delete a user pool client.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to delete the client."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ClientId"
+      ],
+      "type": "object",
+      "title": "DeleteUserPoolClientRequest"
+    },
+    "DeleteUserPoolRequest": {
+      "description": "Represents the request to delete a user pool.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool you want to delete."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "DeleteUserPoolRequest"
+    },
+    "DeleteUserRequest": {
+      "description": "Represents the request to delete a user.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token from a request to delete a user."
+        }
+      },
+      "type": "object",
+      "title": "DeleteUserRequest"
+    },
+    "DeliveryMediumListType": {
+      "items": {
+        "$ref": "#/definitions/DeliveryMediumType"
+      },
+      "type": "array",
+      "title": "DeliveryMediumListType"
+    },
+    "DeliveryMediumType": {
+      "enum": [
+        "SMS",
+        "EMAIL"
+      ],
+      "type": "string",
+      "title": "DeliveryMediumType"
+    },
+    "DescribeUserImportJobRequest": {
+      "description": "Represents the request to describe the user import job.",
+      "properties": {
+        "JobId": {
+          "$ref": "#/definitions/UserImportJobIdType",
+          "description": "The job ID for the user import job."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are being imported into."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "JobId"
+      ],
+      "type": "object",
+      "title": "DescribeUserImportJobRequest"
+    },
+    "DescribeUserImportJobResponse": {
+      "description": "Represents the response from the server to the request to describe the user import job.",
+      "properties": {
+        "UserImportJob": {
+          "$ref": "#/definitions/UserImportJobType",
+          "description": "The job object that represents the user import job."
+        }
+      },
+      "type": "object",
+      "title": "DescribeUserImportJobResponse"
+    },
+    "DescribeUserPoolClientRequest": {
+      "description": "Represents the request to describe a user pool client.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool you want to describe."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ClientId"
+      ],
+      "type": "object",
+      "title": "DescribeUserPoolClientRequest"
+    },
+    "DescribeUserPoolClientResponse": {
+      "description": "Represents the response from the server from a request to describe the user pool client.",
+      "properties": {
+        "UserPoolClient": {
+          "$ref": "#/definitions/UserPoolClientType",
+          "description": "The user pool client from a server response to describe the user pool client."
+        }
+      },
+      "type": "object",
+      "title": "DescribeUserPoolClientResponse"
+    },
+    "DescribeUserPoolRequest": {
+      "description": "Represents the request to describe the user pool.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool you want to describe."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "DescribeUserPoolRequest"
+    },
+    "DescribeUserPoolResponse": {
+      "description": "Represents the response to describe the user pool.",
+      "properties": {
+        "UserPool": {
+          "$ref": "#/definitions/UserPoolType",
+          "description": "The container of metadata returned by the server to describe the pool."
+        }
+      },
+      "type": "object",
+      "title": "DescribeUserPoolResponse"
+    },
+    "DescriptionType": {
+      "maxLength": 2048,
+      "type": "string",
+      "title": "DescriptionType"
+    },
+    "DeviceConfigurationType": {
+      "description": "The type of configuration for the user pool's device tracking.",
+      "properties": {
+        "ChallengeRequiredOnNewDevice": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Indicates whether a challenge is required on a new device. Only applicable to a new device."
+        },
+        "DeviceOnlyRememberedOnUserPrompt": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "If true, a device is only remembered on user prompt."
+        }
+      },
+      "type": "object",
+      "title": "DeviceConfigurationType"
+    },
+    "DeviceKeyType": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "[\\w-]+_[0-9a-f-]+",
+      "type": "string",
+      "title": "DeviceKeyType"
+    },
+    "DeviceListType": {
+      "items": {
+        "$ref": "#/definitions/DeviceType"
+      },
+      "type": "array",
+      "title": "DeviceListType"
+    },
+    "DeviceNameType": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "DeviceNameType"
+    },
+    "DeviceRememberedStatusType": {
+      "enum": [
+        "remembered",
+        "not_remembered"
+      ],
+      "type": "string",
+      "title": "DeviceRememberedStatusType"
+    },
+    "DeviceSecretVerifierConfigType": {
+      "description": "The device verifier against which it will be authenticated.",
+      "properties": {
+        "PasswordVerifier": {
+          "$ref": "#/definitions/StringType",
+          "description": "The password verifier."
+        },
+        "Salt": {
+          "$ref": "#/definitions/StringType",
+          "description": "The salt."
+        }
+      },
+      "type": "object",
+      "title": "DeviceSecretVerifierConfigType"
+    },
+    "DeviceType": {
+      "description": "The device type.",
+      "properties": {
+        "DeviceAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "The device attributes."
+        },
+        "DeviceCreateDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date of the device."
+        },
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        },
+        "DeviceLastAuthenticatedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date in which the device was last authenticated."
+        },
+        "DeviceLastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last modified date of the device."
+        }
+      },
+      "type": "object",
+      "title": "DeviceType"
+    },
+    "EmailAddressType": {
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+@[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "EmailAddressType"
+    },
+    "EmailConfigurationType": {
+      "description": "The email configuration type.",
+      "properties": {
+        "ReplyToEmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The REPLY-TO email address."
+        },
+        "SourceArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The Amazon Resource Name (ARN) of the email source."
+        }
+      },
+      "type": "object",
+      "title": "EmailConfigurationType"
+    },
+    "EmailVerificationMessageType": {
+      "maxLength": 2048,
+      "minLength": 6,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+      "type": "string",
+      "title": "EmailVerificationMessageType"
+    },
+    "EmailVerificationSubjectType": {
+      "maxLength": 140,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+      "type": "string",
+      "title": "EmailVerificationSubjectType"
+    },
+    "ExpiredCodeException": {
+      "description": "This exception is thrown if a code has expired.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the expired code exception is thrown."
+        }
+      },
+      "type": "object",
+      "title": "ExpiredCodeException"
+    },
+    "ExplicitAuthFlowsListType": {
+      "items": {
+        "$ref": "#/definitions/ExplicitAuthFlowsType"
+      },
+      "type": "array",
+      "title": "ExplicitAuthFlowsListType"
+    },
+    "ExplicitAuthFlowsType": {
+      "enum": [
+        "ADMIN_NO_SRP_AUTH",
+        "CUSTOM_AUTH_FLOW_ONLY"
+      ],
+      "type": "string",
+      "title": "ExplicitAuthFlowsType"
+    },
+    "ForceAliasCreation": {
+      "type": "boolean",
+      "title": "ForceAliasCreation"
+    },
+    "ForgetDeviceRequest": {
+      "description": "Represents the request to forget the device.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token for the forgotten device request."
+        },
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        }
+      },
+      "required": [
+        "DeviceKey"
+      ],
+      "type": "object",
+      "title": "ForgetDeviceRequest"
+    },
+    "ForgotPasswordRequest": {
+      "description": "Represents the request to reset a user's password.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "SecretHash": {
+          "$ref": "#/definitions/SecretHashType",
+          "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user for whom you want to enter a code to reset a forgotten password."
+        }
+      },
+      "required": [
+        "ClientId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "ForgotPasswordRequest"
+    },
+    "ForgotPasswordResponse": {
+      "description": "Respresents the response from the server regarding the request to reset a password.",
+      "properties": {
+        "CodeDeliveryDetails": {
+          "$ref": "#/definitions/CodeDeliveryDetailsType",
+          "description": "The code delivery details returned by the server in response to the request to reset a password."
+        }
+      },
+      "type": "object",
+      "title": "ForgotPasswordResponse"
+    },
+    "GenerateSecret": {
+      "type": "boolean",
+      "title": "GenerateSecret"
+    },
+    "GetCSVHeaderRequest": {
+      "description": "Represents the request to get the header information for the .csv file for the user import job.",
+      "properties": {
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are to be imported into."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "GetCSVHeaderRequest"
+    },
+    "GetCSVHeaderResponse": {
+      "description": "Represents the response from the server to the request to get the header information for the .csv file for the user import job.",
+      "properties": {
+        "CSVHeader": {
+          "$ref": "#/definitions/ListOfStringTypes",
+          "description": "The header information for the .csv file for the user import job."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are to be imported into."
+        }
+      },
+      "type": "object",
+      "title": "GetCSVHeaderResponse"
+    },
+    "GetDeviceRequest": {
+      "description": "Represents the request to get the device.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        },
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        }
+      },
+      "required": [
+        "DeviceKey"
+      ],
+      "type": "object",
+      "title": "GetDeviceRequest"
+    },
+    "GetDeviceResponse": {
+      "description": "Gets the device response.",
+      "properties": {
+        "Device": {
+          "$ref": "#/definitions/DeviceType",
+          "description": "The device."
+        }
+      },
+      "required": [
+        "Device"
+      ],
+      "type": "object",
+      "title": "GetDeviceResponse"
+    },
+    "GetGroupRequest": {
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "GroupName",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "GetGroupRequest"
+    },
+    "GetGroupResponse": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/GroupType",
+          "description": "The group object for the group."
+        }
+      },
+      "type": "object",
+      "title": "GetGroupResponse"
+    },
+    "GetUserAttributeVerificationCodeRequest": {
+      "description": "Represents the request to get user attribute verification.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token returned by the server response to get the user attribute verification code."
+        },
+        "AttributeName": {
+          "$ref": "#/definitions/AttributeNameType",
+          "description": "The attribute name returned by the server response to get the user attribute verification code."
+        }
+      },
+      "required": [
+        "AttributeName"
+      ],
+      "type": "object",
+      "title": "GetUserAttributeVerificationCodeRequest"
+    },
+    "GetUserAttributeVerificationCodeResponse": {
+      "description": "The verification code response returned by the server response to get the user attribute verification code.",
+      "properties": {
+        "CodeDeliveryDetails": {
+          "$ref": "#/definitions/CodeDeliveryDetailsType",
+          "description": "The code delivery details returned by the server in response to the request to get the user attribute verification code."
+        }
+      },
+      "type": "object",
+      "title": "GetUserAttributeVerificationCodeResponse"
+    },
+    "GetUserRequest": {
+      "description": "Represents the request to get information about the user.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token returned by the server response to get information about the user."
+        }
+      },
+      "type": "object",
+      "title": "GetUserRequest"
+    },
+    "GetUserResponse": {
+      "description": "Represents the response from the server from the request to get information about the user.",
+      "properties": {
+        "MFAOptions": {
+          "$ref": "#/definitions/MFAOptionListType",
+          "description": "Specifies the options for MFA (e.g., email or phone number)."
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "An array of name-value pairs representing user attributes."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to retrieve from the get user request."
+        }
+      },
+      "required": [
+        "Username",
+        "UserAttributes"
+      ],
+      "type": "object",
+      "title": "GetUserResponse"
+    },
+    "GlobalSignOutRequest": {
+      "description": "Represents the request to sign out all devices.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        }
+      },
+      "type": "object",
+      "title": "GlobalSignOutRequest"
+    },
+    "GlobalSignOutResponse": {
+      "description": "The response to the request to sign out all devices.",
+      "properties": {},
+      "type": "object",
+      "title": "GlobalSignOutResponse"
+    },
+    "GroupExistsException": {
+      "description": "This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object",
+      "title": "GroupExistsException"
+    },
+    "GroupListType": {
+      "items": {
+        "$ref": "#/definitions/GroupType"
+      },
+      "type": "array",
+      "title": "GroupListType"
+    },
+    "GroupNameType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "GroupNameType"
+    },
+    "GroupType": {
+      "description": "The group type.",
+      "properties": {
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the group was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/DescriptionType",
+          "description": "A string containing the description of the group."
+        },
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the group was last modified."
+        },
+        "Precedence": {
+          "$ref": "#/definitions/PrecedenceType",
+          "description": "<p>A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the user's tokens. Groups with higher <code>Precedence</code> values take precedence over groups with lower <code>Precedence</code> values or with null <code>Precedence</code> values.</p> <p>Two groups can have the same <code>Precedence</code> value. If this happens, neither group takes precedence over the other. If two groups with the same <code>Precedence</code> have the same role ARN, that role is used in the <code>cognito:preferred_role</code> claim in tokens for users in each group. If the two groups have different role ARNs, the <code>cognito:preferred_role</code> claim is not set in users' tokens.</p> <p>The default <code>Precedence</code> value is null.</p>"
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The role ARN for the group."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "type": "object",
+      "title": "GroupType"
+    },
+    "InitiateAuthRequest": {
+      "description": "Initiates the authentication request.",
+      "properties": {
+        "AuthFlow": {
+          "$ref": "#/definitions/AuthFlowType",
+          "description": "The authentication flow."
+        },
+        "AuthParameters": {
+          "$ref": "#/definitions/AuthParametersType",
+          "description": "The authentication parameters."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client ID."
+        },
+        "ClientMetadata": {
+          "$ref": "#/definitions/ClientMetadataType",
+          "description": "The client app's metadata."
+        }
+      },
+      "required": [
+        "AuthFlow",
+        "ClientId"
+      ],
+      "type": "object",
+      "title": "InitiateAuthRequest"
+    },
+    "InitiateAuthResponse": {
+      "description": "Initiates the authentication response.",
+      "properties": {
+        "AuthenticationResult": {
+          "$ref": "#/definitions/AuthenticationResultType",
+          "description": "The result returned by the server in response to the request to initiate authentication."
+        },
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeNameType",
+          "description": "The name of the challenge."
+        },
+        "ChallengeParameters": {
+          "$ref": "#/definitions/ChallengeParametersType",
+          "description": "The challenge parameters."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session."
+        }
+      },
+      "type": "object",
+      "title": "InitiateAuthResponse"
+    },
+    "IntegerType": {
+      "type": "integer",
+      "title": "IntegerType"
+    },
+    "InternalErrorException": {
+      "description": "This exception is thrown when Amazon Cognito encounters an internal error.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when Amazon Cognito throws an internal error exception."
+        }
+      },
+      "type": "object",
+      "title": "InternalErrorException"
+    },
+    "InvalidEmailRoleAccessPolicyException": {
+      "description": "This exception is thrown when Amazon Cognito is not allowed to use your email identity. HTTP status code: 400.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when you have an unverified email address or the identity policy is not set on an email address that Amazon Cognito can access."
+        }
+      },
+      "type": "object",
+      "title": "InvalidEmailRoleAccessPolicyException"
+    },
+    "InvalidLambdaResponseException": {
+      "description": "This exception is thrown when the Amazon Cognito service encounters an invalid AWS Lambda response.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service throws an invalid AWS Lambda response exception."
+        }
+      },
+      "type": "object",
+      "title": "InvalidLambdaResponseException"
+    },
+    "InvalidParameterException": {
+      "description": "This exception is thrown when the Amazon Cognito service encounters an invalid parameter.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service throws an invalid parameter exception."
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "InvalidPasswordException": {
+      "description": "This exception is thrown when the Amazon Cognito service encounters an invalid password.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service throws an invalid user password exception."
+        }
+      },
+      "type": "object",
+      "title": "InvalidPasswordException"
+    },
+    "InvalidSmsRoleAccessPolicyException": {
+      "description": "This exception is returned when the role provided for SMS configuration does not have permission to publish using Amazon SNS.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message retuned when the invalid SMS role access policy exception is thrown."
+        }
+      },
+      "type": "object",
+      "title": "InvalidSmsRoleAccessPolicyException"
+    },
+    "InvalidSmsRoleTrustRelationshipException": {
+      "description": "This exception is thrown when the trust relationship is invalid for the role provided for SMS configuration. This can happen if you do not trust <b>cognito-idp.amazonaws.com</b> or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the role trust relationship for the SMS message is invalid."
+        }
+      },
+      "type": "object",
+      "title": "InvalidSmsRoleTrustRelationshipException"
+    },
+    "InvalidUserPoolConfigurationException": {
+      "description": "This exception is thrown when the user pool configuration is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the user pool configuration is invalid."
+        }
+      },
+      "type": "object",
+      "title": "InvalidUserPoolConfigurationException"
+    },
+    "LambdaConfigType": {
+      "description": "Specifies the type of configuration for AWS Lambda triggers.",
+      "properties": {
+        "CreateAuthChallenge": {
+          "$ref": "#/definitions/ArnType",
+          "description": "Creates an authentication challenge."
+        },
+        "CustomMessage": {
+          "$ref": "#/definitions/ArnType",
+          "description": "A custom Message AWS Lambda trigger."
+        },
+        "DefineAuthChallenge": {
+          "$ref": "#/definitions/ArnType",
+          "description": "Defines the authentication challenge."
+        },
+        "PostAuthentication": {
+          "$ref": "#/definitions/ArnType",
+          "description": "A post-authentication AWS Lambda trigger."
+        },
+        "PostConfirmation": {
+          "$ref": "#/definitions/ArnType",
+          "description": "A post-confirmation AWS Lambda trigger."
+        },
+        "PreAuthentication": {
+          "$ref": "#/definitions/ArnType",
+          "description": "A pre-authentication AWS Lambda trigger."
+        },
+        "PreSignUp": {
+          "$ref": "#/definitions/ArnType",
+          "description": "A pre-registration AWS Lambda trigger."
+        },
+        "VerifyAuthChallengeResponse": {
+          "$ref": "#/definitions/ArnType",
+          "description": "Verifies the authentication challenge response."
+        }
+      },
+      "type": "object",
+      "title": "LambdaConfigType"
+    },
+    "LimitExceededException": {
+      "description": "This exception is thrown when a user exceeds the limit for a requested AWS resource.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when Amazon Cognito throws a limit exceeded exception."
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListDevicesRequest": {
+      "description": "Represents the request to list the devices.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access tokens for the request to list devices."
+        },
+        "Limit": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The limit of the device request."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/SearchPaginationTokenType",
+          "description": "The pagination token for the list request."
+        }
+      },
+      "required": [
+        "AccessToken"
+      ],
+      "type": "object",
+      "title": "ListDevicesRequest"
+    },
+    "ListDevicesResponse": {
+      "description": "Represents the response to list devices.",
+      "properties": {
+        "Devices": {
+          "$ref": "#/definitions/DeviceListType",
+          "description": "The devices returned in the list devices response."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/SearchPaginationTokenType",
+          "description": "The pagination token for the list device response."
+        }
+      },
+      "type": "object",
+      "title": "ListDevicesResponse"
+    },
+    "ListGroupsRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The limit of the request to list groups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "ListGroupsRequest"
+    },
+    "ListGroupsResponse": {
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupListType",
+          "description": "The group objects for the groups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        }
+      },
+      "type": "object",
+      "title": "ListGroupsResponse"
+    },
+    "ListOfStringTypes": {
+      "items": {
+        "$ref": "#/definitions/StringType"
+      },
+      "type": "array",
+      "title": "ListOfStringTypes"
+    },
+    "ListUserImportJobsRequest": {
+      "description": "Represents the request to list the user import jobs.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/PoolQueryLimitType",
+          "description": "The maximum number of import jobs you want the request to return."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are being imported into."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "MaxResults"
+      ],
+      "type": "object",
+      "title": "ListUserImportJobsRequest"
+    },
+    "ListUserImportJobsResponse": {
+      "description": "Represents the response from the server to the request to list the user import jobs.",
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "An identifier that can be used to return the next set of user import jobs in the list."
+        },
+        "UserImportJobs": {
+          "$ref": "#/definitions/UserImportJobsListType",
+          "description": "The user import jobs."
+        }
+      },
+      "type": "object",
+      "title": "ListUserImportJobsResponse"
+    },
+    "ListUserPoolClientsRequest": {
+      "description": "Represents the request to list the user pool clients.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/QueryLimit",
+          "description": "The maximum number of results you want the request to return when listing the user pool clients."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to list user pool clients."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "ListUserPoolClientsRequest"
+    },
+    "ListUserPoolClientsResponse": {
+      "description": "Represents the response from the server that lists user pool clients.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPoolClients": {
+          "$ref": "#/definitions/UserPoolClientListType",
+          "description": "The user pool clients in the response that lists user pool clients."
+        }
+      },
+      "type": "object",
+      "title": "ListUserPoolClientsResponse"
+    },
+    "ListUserPoolsRequest": {
+      "description": "Represents the request to list user pools.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/PoolQueryLimitType",
+          "description": "The maximum number of results you want the request to return when listing the user pools."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        }
+      },
+      "required": [
+        "MaxResults"
+      ],
+      "type": "object",
+      "title": "ListUserPoolsRequest"
+    },
+    "ListUserPoolsResponse": {
+      "description": "Represents the response to list user pools.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPools": {
+          "$ref": "#/definitions/UserPoolListType",
+          "description": "The user pools from the response to list users."
+        }
+      },
+      "type": "object",
+      "title": "ListUserPoolsResponse"
+    },
+    "ListUsersInGroupRequest": {
+      "properties": {
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        },
+        "Limit": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The limit of the request to list users."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "GroupName"
+      ],
+      "type": "object",
+      "title": "ListUsersInGroupRequest"
+    },
+    "ListUsersInGroupResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "Users": {
+          "$ref": "#/definitions/UsersListType",
+          "description": "The users returned in the request to list users."
+        }
+      },
+      "type": "object",
+      "title": "ListUsersInGroupResponse"
+    },
+    "ListUsersRequest": {
+      "description": "Represents the request to list users.",
+      "properties": {
+        "AttributesToGet": {
+          "$ref": "#/definitions/SearchedAttributeNamesListType",
+          "description": "The attributes to get from the request to list users."
+        },
+        "Filter": {
+          "$ref": "#/definitions/UserFilterType",
+          "description": "The filter for the list users request."
+        },
+        "Limit": {
+          "$ref": "#/definitions/QueryLimitType",
+          "description": "The limit of the request to list users."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/SearchPaginationTokenType",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for which you want to list users."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "ListUsersRequest"
+    },
+    "ListUsersResponse": {
+      "description": "The response from the request to list users.",
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/SearchPaginationTokenType",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
+        },
+        "Users": {
+          "$ref": "#/definitions/UsersListType",
+          "description": "The users returned in the request to list users."
+        }
+      },
+      "type": "object",
+      "title": "ListUsersResponse"
+    },
+    "LongType": {
+      "type": "integer",
+      "title": "LongType"
+    },
+    "MFAMethodNotFoundException": {
+      "description": "This exception is thrown when Amazon Cognito cannot find a multi-factor authentication (MFA) method.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when Amazon Cognito throws an MFA method not found exception."
+        }
+      },
+      "type": "object",
+      "title": "MFAMethodNotFoundException"
+    },
+    "MFAOptionListType": {
+      "items": {
+        "$ref": "#/definitions/MFAOptionType"
+      },
+      "type": "array",
+      "title": "MFAOptionListType"
+    },
+    "MFAOptionType": {
+      "description": "Specifies the different settings for multi-factor authentication (MFA).",
+      "properties": {
+        "AttributeName": {
+          "$ref": "#/definitions/AttributeNameType",
+          "description": "The attribute name of the MFA option type."
+        },
+        "DeliveryMedium": {
+          "$ref": "#/definitions/DeliveryMediumType",
+          "description": "The delivery medium (email message or SMS message) to send the MFA code."
+        }
+      },
+      "type": "object",
+      "title": "MFAOptionType"
+    },
+    "MessageActionType": {
+      "enum": [
+        "RESEND",
+        "SUPPRESS"
+      ],
+      "type": "string",
+      "title": "MessageActionType"
+    },
+    "MessageTemplateType": {
+      "description": "The message template structure.",
+      "properties": {
+        "EmailMessage": {
+          "$ref": "#/definitions/EmailVerificationMessageType",
+          "description": "The message template for email messages."
+        },
+        "EmailSubject": {
+          "$ref": "#/definitions/EmailVerificationSubjectType",
+          "description": "The subject line for email messages."
+        },
+        "SMSMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "The message template for SMS messages."
+        }
+      },
+      "type": "object",
+      "title": "MessageTemplateType"
+    },
+    "MessageType": {
+      "type": "string",
+      "title": "MessageType"
+    },
+    "NewDeviceMetadataType": {
+      "description": "The new device metadata type.",
+      "properties": {
+        "DeviceGroupKey": {
+          "$ref": "#/definitions/StringType",
+          "description": "The device group key."
+        },
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        }
+      },
+      "type": "object",
+      "title": "NewDeviceMetadataType"
+    },
+    "NotAuthorizedException": {
+      "description": "This exception gets thrown when a user is not authorized.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service returns a not authorized exception."
+        }
+      },
+      "type": "object",
+      "title": "NotAuthorizedException"
+    },
+    "NumberAttributeConstraintsType": {
+      "description": "The minimum and maximum value of an attribute that is of the number data type.",
+      "properties": {
+        "MaxValue": {
+          "$ref": "#/definitions/StringType",
+          "description": "The maximum value of an attribute that is of the number data type."
+        },
+        "MinValue": {
+          "$ref": "#/definitions/StringType",
+          "description": "The minimum value of an attribute that is of the number data type."
+        }
+      },
+      "type": "object",
+      "title": "NumberAttributeConstraintsType"
+    },
+    "PaginationKey": {
+      "minLength": 1,
+      "pattern": "[\\S]+",
+      "type": "string",
+      "title": "PaginationKey"
+    },
+    "PaginationKeyType": {
+      "minLength": 1,
+      "pattern": "[\\S]+",
+      "type": "string",
+      "title": "PaginationKeyType"
+    },
+    "PasswordPolicyMinLengthType": {
+      "maximum": 99,
+      "minimum": 6,
+      "type": "integer",
+      "title": "PasswordPolicyMinLengthType"
+    },
+    "PasswordPolicyType": {
+      "description": "The password policy type.",
+      "properties": {
+        "MinimumLength": {
+          "$ref": "#/definitions/PasswordPolicyMinLengthType",
+          "description": "The minimum length of the password policy that you have set. Cannot be less than 6."
+        },
+        "RequireLowercase": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password."
+        },
+        "RequireNumbers": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "In the password policy that you have set, refers to whether you have required users to use at least one number in their password."
+        },
+        "RequireSymbols": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password."
+        },
+        "RequireUppercase": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password."
+        }
+      },
+      "type": "object",
+      "title": "PasswordPolicyType"
+    },
+    "PasswordResetRequiredException": {
+      "description": "This exception is thrown when a password reset is required.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when a password reset is required."
+        }
+      },
+      "type": "object",
+      "title": "PasswordResetRequiredException"
+    },
+    "PasswordType": {
+      "format": "password",
+      "maxLength": 256,
+      "minLength": 6,
+      "pattern": "[\\S]+",
+      "type": "string",
+      "title": "PasswordType"
+    },
+    "PoolQueryLimitType": {
+      "maximum": 60,
+      "minimum": 1,
+      "type": "integer",
+      "title": "PoolQueryLimitType"
+    },
+    "PreSignedUrlType": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "type": "string",
+      "title": "PreSignedUrlType"
+    },
+    "PrecedenceType": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "PrecedenceType"
+    },
+    "PreconditionNotMetException": {
+      "description": "This exception is thrown when a precondition is not met.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when a precondition is not met."
+        }
+      },
+      "type": "object",
+      "title": "PreconditionNotMetException"
+    },
+    "QueryLimit": {
+      "maximum": 60,
+      "minimum": 1,
+      "type": "integer",
+      "title": "QueryLimit"
+    },
+    "QueryLimitType": {
+      "maximum": 60,
+      "minimum": 0,
+      "type": "integer",
+      "title": "QueryLimitType"
+    },
+    "RefreshTokenValidityType": {
+      "maximum": 3650,
+      "minimum": 0,
+      "type": "integer",
+      "title": "RefreshTokenValidityType"
+    },
+    "ResendConfirmationCodeRequest": {
+      "description": "Represents the request to resend the confirmation code.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "SecretHash": {
+          "$ref": "#/definitions/SecretHashType",
+          "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user to whom you wish to resend a confirmation code."
+        }
+      },
+      "required": [
+        "ClientId",
+        "Username"
+      ],
+      "type": "object",
+      "title": "ResendConfirmationCodeRequest"
+    },
+    "ResendConfirmationCodeResponse": {
+      "description": "The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.",
+      "properties": {
+        "CodeDeliveryDetails": {
+          "$ref": "#/definitions/CodeDeliveryDetailsType",
+          "description": "The code delivery details returned by the server in response to the request to resend the confirmation code."
+        }
+      },
+      "type": "object",
+      "title": "ResendConfirmationCodeResponse"
+    },
+    "ResourceNotFoundException": {
+      "description": "This exception is thrown when the Amazon Cognito service cannot find the requested resource.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service returns a resource not found exception."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "RespondToAuthChallengeRequest": {
+      "description": "The request to respond to an authentication challenge.",
+      "properties": {
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeNameType",
+          "description": "The name of the challenge."
+        },
+        "ChallengeResponses": {
+          "$ref": "#/definitions/ChallengeResponsesType",
+          "description": "The responses to the authentication challenge."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client ID."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session."
+        }
+      },
+      "required": [
+        "ClientId",
+        "ChallengeName"
+      ],
+      "type": "object",
+      "title": "RespondToAuthChallengeRequest"
+    },
+    "RespondToAuthChallengeResponse": {
+      "description": "The response to respond to the authentication challenge.",
+      "properties": {
+        "AuthenticationResult": {
+          "$ref": "#/definitions/AuthenticationResultType",
+          "description": "The result returned by the server in response to the request to respond to the authentication challenge."
+        },
+        "ChallengeName": {
+          "$ref": "#/definitions/ChallengeNameType",
+          "description": "The challenge name."
+        },
+        "ChallengeParameters": {
+          "$ref": "#/definitions/ChallengeParametersType",
+          "description": "The challenge parameters."
+        },
+        "Session": {
+          "$ref": "#/definitions/SessionType",
+          "description": "The session."
+        }
+      },
+      "type": "object",
+      "title": "RespondToAuthChallengeResponse"
+    },
+    "SchemaAttributeType": {
+      "description": "Contains information about the schema attribute.",
+      "properties": {
+        "AttributeDataType": {
+          "$ref": "#/definitions/AttributeDataType",
+          "description": "The attribute data type."
+        },
+        "DeveloperOnlyAttribute": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether the attribute type is developer only."
+        },
+        "Mutable": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether the attribute can be changed once it has been created."
+        },
+        "Name": {
+          "$ref": "#/definitions/CustomAttributeNameType",
+          "description": "A schema attribute of the name type."
+        },
+        "NumberAttributeConstraints": {
+          "$ref": "#/definitions/NumberAttributeConstraintsType",
+          "description": "Specifies the constraints for an attribute of the number type."
+        },
+        "Required": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail."
+        },
+        "StringAttributeConstraints": {
+          "$ref": "#/definitions/StringAttributeConstraintsType",
+          "description": "Specifies the constraints for an attribute of the string type."
+        }
+      },
+      "type": "object",
+      "title": "SchemaAttributeType"
+    },
+    "SchemaAttributesListType": {
+      "items": {
+        "$ref": "#/definitions/SchemaAttributeType"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "SchemaAttributesListType"
+    },
+    "SearchPaginationTokenType": {
+      "minLength": 1,
+      "pattern": "[\\S]+",
+      "type": "string",
+      "title": "SearchPaginationTokenType"
+    },
+    "SearchedAttributeNamesListType": {
+      "items": {
+        "$ref": "#/definitions/AttributeNameType"
+      },
+      "type": "array",
+      "title": "SearchedAttributeNamesListType"
+    },
+    "SecretHashType": {
+      "format": "password",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+=/]+",
+      "type": "string",
+      "title": "SecretHashType"
+    },
+    "SessionType": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string",
+      "title": "SessionType"
+    },
+    "SetUserSettingsRequest": {
+      "description": "Represents the request to set user settings.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token for the set user settings request."
+        },
+        "MFAOptions": {
+          "$ref": "#/definitions/MFAOptionListType",
+          "description": "Specifies the options for MFA (e.g., email or phone number)."
+        }
+      },
+      "required": [
+        "AccessToken",
+        "MFAOptions"
+      ],
+      "type": "object",
+      "title": "SetUserSettingsRequest"
+    },
+    "SetUserSettingsResponse": {
+      "description": "The response from the server for a set user settings request.",
+      "properties": {},
+      "type": "object",
+      "title": "SetUserSettingsResponse"
+    },
+    "SignUpRequest": {
+      "description": "Represents the request to register a user.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "Password": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "The password of the user you wish to register."
+        },
+        "SecretHash": {
+          "$ref": "#/definitions/SecretHashType",
+          "description": "A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message."
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "An array of name-value pairs representing user attributes."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to register."
+        },
+        "ValidationData": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "The validation data in the request to register a user."
+        }
+      },
+      "required": [
+        "ClientId",
+        "Username",
+        "Password"
+      ],
+      "type": "object",
+      "title": "SignUpRequest"
+    },
+    "SignUpResponse": {
+      "description": "The response from the server for a registration request.",
+      "properties": {
+        "CodeDeliveryDetails": {
+          "$ref": "#/definitions/CodeDeliveryDetailsType",
+          "description": "The code delivery details returned by the server response to the user registration request."
+        },
+        "UserConfirmed": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "A response from the server indicating that a user registration has been confirmed."
+        }
+      },
+      "type": "object",
+      "title": "SignUpResponse"
+    },
+    "SmsConfigurationType": {
+      "description": "The SMS configuratoin type.",
+      "properties": {
+        "ExternalId": {
+          "$ref": "#/definitions/StringType",
+          "description": "The external ID."
+        },
+        "SnsCallerArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller."
+        }
+      },
+      "required": [
+        "SnsCallerArn"
+      ],
+      "type": "object",
+      "title": "SmsConfigurationType"
+    },
+    "SmsVerificationMessageType": {
+      "maxLength": 140,
+      "minLength": 6,
+      "pattern": ".*\\{####\\}.*",
+      "type": "string",
+      "title": "SmsVerificationMessageType"
+    },
+    "StartUserImportJobRequest": {
+      "description": "Represents the request to start the user import job.",
+      "properties": {
+        "JobId": {
+          "$ref": "#/definitions/UserImportJobIdType",
+          "description": "The job ID for the user import job."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are being imported into."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "JobId"
+      ],
+      "type": "object",
+      "title": "StartUserImportJobRequest"
+    },
+    "StartUserImportJobResponse": {
+      "description": "Represents the response from the server to the request to start the user import job.",
+      "properties": {
+        "UserImportJob": {
+          "$ref": "#/definitions/UserImportJobType",
+          "description": "The job object that represents the user import job."
+        }
+      },
+      "type": "object",
+      "title": "StartUserImportJobResponse"
+    },
+    "StatusType": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "title": "StatusType"
+    },
+    "StopUserImportJobRequest": {
+      "description": "Represents the request to stop the user import job.",
+      "properties": {
+        "JobId": {
+          "$ref": "#/definitions/UserImportJobIdType",
+          "description": "The job ID for the user import job."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are being imported into."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "JobId"
+      ],
+      "type": "object",
+      "title": "StopUserImportJobRequest"
+    },
+    "StopUserImportJobResponse": {
+      "description": "Represents the response from the server to the request to stop the user import job.",
+      "properties": {
+        "UserImportJob": {
+          "$ref": "#/definitions/UserImportJobType",
+          "description": "The job object that represents the user import job."
+        }
+      },
+      "type": "object",
+      "title": "StopUserImportJobResponse"
+    },
+    "StringAttributeConstraintsType": {
+      "description": "The type of constraints associated with an attribute of the string type.",
+      "properties": {
+        "MaxLength": {
+          "$ref": "#/definitions/StringType",
+          "description": "The maximum length of an attribute value of the string type."
+        },
+        "MinLength": {
+          "$ref": "#/definitions/StringType",
+          "description": "The minimum length of an attribute value of the string type."
+        }
+      },
+      "type": "object",
+      "title": "StringAttributeConstraintsType"
+    },
+    "StringType": {
+      "type": "string",
+      "title": "StringType"
+    },
+    "TokenModelType": {
+      "format": "password",
+      "pattern": "[A-Za-z0-9-_=.]+",
+      "type": "string",
+      "title": "TokenModelType"
+    },
+    "TooManyFailedAttemptsException": {
+      "description": "This exception gets thrown when the user has made too many failed attempts for a given action (e.g., sign in).",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service returns a too many failed attempts exception."
+        }
+      },
+      "type": "object",
+      "title": "TooManyFailedAttemptsException"
+    },
+    "TooManyRequestsException": {
+      "description": "This exception gets thrown when the user has made too many requests for a given operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service returns a too many requests exception."
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "UnexpectedLambdaException": {
+      "description": "This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service returns an unexpected AWS Lambda exception."
+        }
+      },
+      "type": "object",
+      "title": "UnexpectedLambdaException"
+    },
+    "UnsupportedUserStateException": {
+      "description": "The request failed because the user is in an unsupported state.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the user is in an unsupported state."
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedUserStateException"
+    },
+    "UpdateDeviceStatusRequest": {
+      "description": "Represents the request to update the device status.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token."
+        },
+        "DeviceKey": {
+          "$ref": "#/definitions/DeviceKeyType",
+          "description": "The device key."
+        },
+        "DeviceRememberedStatus": {
+          "$ref": "#/definitions/DeviceRememberedStatusType",
+          "description": "The status of whether a device is remembered."
+        }
+      },
+      "required": [
+        "AccessToken",
+        "DeviceKey"
+      ],
+      "type": "object",
+      "title": "UpdateDeviceStatusRequest"
+    },
+    "UpdateDeviceStatusResponse": {
+      "description": "The response to the request to update the device status.",
+      "properties": {},
+      "type": "object",
+      "title": "UpdateDeviceStatusResponse"
+    },
+    "UpdateGroupRequest": {
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/DescriptionType",
+          "description": "A string containing the new description of the group."
+        },
+        "GroupName": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        },
+        "Precedence": {
+          "$ref": "#/definitions/PrecedenceType",
+          "description": "The new precedence value for the group. For more information about this parameter, see <a href=\"API_CreateGroupRequeste.html\">CreateGroupRequest</a>."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The new role ARN for the group. This is used for setting the <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the token."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "GroupName",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "UpdateGroupRequest"
+    },
+    "UpdateGroupResponse": {
+      "properties": {
+        "Group": {
+          "$ref": "#/definitions/GroupType",
+          "description": "The group object for the group."
+        }
+      },
+      "type": "object",
+      "title": "UpdateGroupResponse"
+    },
+    "UpdateUserAttributesRequest": {
+      "description": "Represents the request to update user attributes.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "The access token for the request to update user attributes."
+        },
+        "UserAttributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "An array of name-value pairs representing user attributes."
+        }
+      },
+      "required": [
+        "UserAttributes"
+      ],
+      "type": "object",
+      "title": "UpdateUserAttributesRequest"
+    },
+    "UpdateUserAttributesResponse": {
+      "description": "Represents the response from the server for the request to update user attributes.",
+      "properties": {
+        "CodeDeliveryDetailsList": {
+          "$ref": "#/definitions/CodeDeliveryDetailsListType",
+          "description": "The code delivery details list from the server for the request to update user attributes."
+        }
+      },
+      "type": "object",
+      "title": "UpdateUserAttributesResponse"
+    },
+    "UpdateUserPoolClientRequest": {
+      "description": "Represents the request to update the user pool client.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "ClientName": {
+          "$ref": "#/definitions/ClientNameType",
+          "description": "The client name from the update user pool client request."
+        },
+        "ExplicitAuthFlows": {
+          "$ref": "#/definitions/ExplicitAuthFlowsListType",
+          "description": "Explicit authentication flows."
+        },
+        "ReadAttributes": {
+          "$ref": "#/definitions/ClientPermissionListType",
+          "description": "The read-only attributes of the user pool."
+        },
+        "RefreshTokenValidity": {
+          "$ref": "#/definitions/RefreshTokenValidityType",
+          "description": "The validity of the refresh token, in days."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to update the user pool client."
+        },
+        "WriteAttributes": {
+          "$ref": "#/definitions/ClientPermissionListType",
+          "description": "The writeable attributes of the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ClientId"
+      ],
+      "type": "object",
+      "title": "UpdateUserPoolClientRequest"
+    },
+    "UpdateUserPoolClientResponse": {
+      "description": "Represents the response from the server to the request to update the user pool client.",
+      "properties": {
+        "UserPoolClient": {
+          "$ref": "#/definitions/UserPoolClientType",
+          "description": "The user pool client value from the response from the server when an update user pool client request is made."
+        }
+      },
+      "type": "object",
+      "title": "UpdateUserPoolClientResponse"
+    },
+    "UpdateUserPoolRequest": {
+      "description": "Represents the request to update the user pool.",
+      "properties": {
+        "AdminCreateUserConfig": {
+          "$ref": "#/definitions/AdminCreateUserConfigType",
+          "description": "The configuration for AdminCreateUser requests."
+        },
+        "AutoVerifiedAttributes": {
+          "$ref": "#/definitions/VerifiedAttributesListType",
+          "description": "The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools."
+        },
+        "DeviceConfiguration": {
+          "$ref": "#/definitions/DeviceConfigurationType",
+          "description": "Device configuration."
+        },
+        "EmailConfiguration": {
+          "$ref": "#/definitions/EmailConfigurationType",
+          "description": "Email configuration."
+        },
+        "EmailVerificationMessage": {
+          "$ref": "#/definitions/EmailVerificationMessageType",
+          "description": "The contents of the email verification message."
+        },
+        "EmailVerificationSubject": {
+          "$ref": "#/definitions/EmailVerificationSubjectType",
+          "description": "The subject of the email verfication message."
+        },
+        "LambdaConfig": {
+          "$ref": "#/definitions/LambdaConfigType",
+          "description": "The AWS Lambda configuration information from the request to update the user pool."
+        },
+        "MfaConfiguration": {
+          "$ref": "#/definitions/UserPoolMfaType",
+          "description": "<p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p> </li> <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> </ul>"
+        },
+        "Policies": {
+          "$ref": "#/definitions/UserPoolPolicyType",
+          "description": "A container with the policies you wish to update in a user pool."
+        },
+        "SmsAuthenticationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "The contents of the SMS authentication message."
+        },
+        "SmsConfiguration": {
+          "$ref": "#/definitions/SmsConfigurationType",
+          "description": "SMS configuration."
+        },
+        "SmsVerificationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "A container with information about the SMS verification message."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool you want to update."
+        },
+        "UserPoolTags": {
+          "$ref": "#/definitions/UserPoolTagsType",
+          "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "UpdateUserPoolRequest"
+    },
+    "UpdateUserPoolResponse": {
+      "description": "Represents the response from the server when you make a request to update the user pool.",
+      "properties": {},
+      "type": "object",
+      "title": "UpdateUserPoolResponse"
+    },
+    "UserFilterType": {
+      "maxLength": 256,
+      "type": "string",
+      "title": "UserFilterType"
+    },
+    "UserImportInProgressException": {
+      "description": "This exception is thrown when you are trying to modify a user pool while a user import job is in progress for that pool.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the user pool has an import job running."
+        }
+      },
+      "type": "object",
+      "title": "UserImportInProgressException"
+    },
+    "UserImportJobIdType": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "import-[0-9a-zA-Z-]+",
+      "type": "string",
+      "title": "UserImportJobIdType"
+    },
+    "UserImportJobNameType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w\\s+=,.@-]+",
+      "type": "string",
+      "title": "UserImportJobNameType"
+    },
+    "UserImportJobStatusType": {
+      "enum": [
+        "Created",
+        "Pending",
+        "InProgress",
+        "Stopping",
+        "Expired",
+        "Stopped",
+        "Failed",
+        "Succeeded"
+      ],
+      "type": "string",
+      "title": "UserImportJobStatusType"
+    },
+    "UserImportJobType": {
+      "description": "The user import job type.",
+      "properties": {
+        "CloudWatchLogsRoleArn": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see \"Creating the CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide."
+        },
+        "CompletionDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date when the user imoprt job was completed."
+        },
+        "CompletionMessage": {
+          "$ref": "#/definitions/CompletionMessageType",
+          "description": "The message returned when the user import job is completed."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date when the user import job was created."
+        },
+        "FailedUsers": {
+          "$ref": "#/definitions/LongType",
+          "description": "The number of users that could not be imported."
+        },
+        "ImportedUsers": {
+          "$ref": "#/definitions/LongType",
+          "description": "The number of users that were successfully imported."
+        },
+        "JobId": {
+          "$ref": "#/definitions/UserImportJobIdType",
+          "description": "The job ID for the user import job."
+        },
+        "JobName": {
+          "$ref": "#/definitions/UserImportJobNameType",
+          "description": "The job name for the user import job."
+        },
+        "PreSignedUrl": {
+          "$ref": "#/definitions/PreSignedUrlType",
+          "description": "The pre-signed URL to be used to upload the .csv file."
+        },
+        "SkippedUsers": {
+          "$ref": "#/definitions/LongType",
+          "description": "The number of users that were skipped."
+        },
+        "StartDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date when the user import job was started."
+        },
+        "Status": {
+          "$ref": "#/definitions/UserImportJobStatusType",
+          "description": "<p>The status of the user import job. One of the following:</p> <ul> <li> <p>Created - The job was created but not started.</p> </li> <li> <p>Pending - A transition state. You have started the job, but it has not begun importing users yet.</p> </li> <li> <p>InProgress - The job has started, and users are being imported.</p> </li> <li> <p>Stopping - You have stopped the job, but the job has not stopped importing users yet.</p> </li> <li> <p>Stopped - You have stopped the job, and the job has stopped importing users.</p> </li> <li> <p>Succeeded - The job has completed successfully.</p> </li> <li> <p>Failed - The job has stopped due to an error.</p> </li> <li> <p>Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p> </li> </ul>"
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that the users are being imported into."
+        }
+      },
+      "type": "object",
+      "title": "UserImportJobType"
+    },
+    "UserImportJobsListType": {
+      "items": {
+        "$ref": "#/definitions/UserImportJobType"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "UserImportJobsListType"
+    },
+    "UserLambdaValidationException": {
+      "description": "This exception gets thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when the Amazon Cognito service returns a user validation exception with the AWS Lambda service."
+        }
+      },
+      "type": "object",
+      "title": "UserLambdaValidationException"
+    },
+    "UserNotConfirmedException": {
+      "description": "This exception is thrown when a user is not confirmed successfully.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when a user is not confirmed successfully."
+        }
+      },
+      "type": "object",
+      "title": "UserNotConfirmedException"
+    },
+    "UserNotFoundException": {
+      "description": "This exception is thrown when a user is not found.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when a user is not found."
+        }
+      },
+      "type": "object",
+      "title": "UserNotFoundException"
+    },
+    "UserPoolClientDescription": {
+      "description": "The description of the user pool client.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "ClientName": {
+          "$ref": "#/definitions/ClientNameType",
+          "description": "The client name from the user pool client description."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool where you want to describe the user pool client."
+        }
+      },
+      "type": "object",
+      "title": "UserPoolClientDescription"
+    },
+    "UserPoolClientListType": {
+      "items": {
+        "$ref": "#/definitions/UserPoolClientDescription"
+      },
+      "type": "array",
+      "title": "UserPoolClientListType"
+    },
+    "UserPoolClientType": {
+      "description": "A user pool of the client type.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The ID of the client associated with the user pool."
+        },
+        "ClientName": {
+          "$ref": "#/definitions/ClientNameType",
+          "description": "The client name from the user pool request of the client type."
+        },
+        "ClientSecret": {
+          "$ref": "#/definitions/ClientSecretType",
+          "description": "The client secret from the user pool request of the client type."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date from the user pool request of the client type."
+        },
+        "ExplicitAuthFlows": {
+          "$ref": "#/definitions/ExplicitAuthFlowsListType",
+          "description": "The explicit authentication flows."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last modified date from the user pool request of the client type."
+        },
+        "ReadAttributes": {
+          "$ref": "#/definitions/ClientPermissionListType",
+          "description": "The Read-only attributes."
+        },
+        "RefreshTokenValidity": {
+          "$ref": "#/definitions/RefreshTokenValidityType",
+          "description": "The validity of the refresh token, in days."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool client."
+        },
+        "WriteAttributes": {
+          "$ref": "#/definitions/ClientPermissionListType",
+          "description": "The writeable attributes."
+        }
+      },
+      "type": "object",
+      "title": "UserPoolClientType"
+    },
+    "UserPoolDescriptionType": {
+      "description": "A user pool description.",
+      "properties": {
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date in a user pool description."
+        },
+        "Id": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The ID in a user pool description."
+        },
+        "LambdaConfig": {
+          "$ref": "#/definitions/LambdaConfigType",
+          "description": "The AWS Lambda configuration information in a user pool description."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last modified date in a user pool description."
+        },
+        "Name": {
+          "$ref": "#/definitions/UserPoolNameType",
+          "description": "The name in a user pool description."
+        },
+        "Status": {
+          "$ref": "#/definitions/StatusType",
+          "description": "The user pool status in a user pool description."
+        }
+      },
+      "type": "object",
+      "title": "UserPoolDescriptionType"
+    },
+    "UserPoolIdType": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+      "type": "string",
+      "title": "UserPoolIdType"
+    },
+    "UserPoolListType": {
+      "items": {
+        "$ref": "#/definitions/UserPoolDescriptionType"
+      },
+      "type": "array",
+      "title": "UserPoolListType"
+    },
+    "UserPoolMfaType": {
+      "enum": [
+        "OFF",
+        "ON",
+        "OPTIONAL"
+      ],
+      "type": "string",
+      "title": "UserPoolMfaType"
+    },
+    "UserPoolNameType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w\\s+=,.@-]+",
+      "type": "string",
+      "title": "UserPoolNameType"
+    },
+    "UserPoolPolicyType": {
+      "description": "The type of policy in a user pool.",
+      "properties": {
+        "PasswordPolicy": {
+          "$ref": "#/definitions/PasswordPolicyType",
+          "description": "A container with information about the user pool password policy."
+        }
+      },
+      "type": "object",
+      "title": "UserPoolPolicyType"
+    },
+    "UserPoolTaggingException": {
+      "description": "This exception gets thrown when a user pool tag cannot be set or updated.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object",
+      "title": "UserPoolTaggingException"
+    },
+    "UserPoolTagsType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/StringType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "UserPoolTagsType"
+    },
+    "UserPoolType": {
+      "description": "A container with information about the user pool type.",
+      "properties": {
+        "AdminCreateUserConfig": {
+          "$ref": "#/definitions/AdminCreateUserConfigType",
+          "description": "The configuration for AdminCreateUser requests."
+        },
+        "AliasAttributes": {
+          "$ref": "#/definitions/AliasAttributesListType",
+          "description": "Specifies the attributes that are aliased in a user pool."
+        },
+        "AutoVerifiedAttributes": {
+          "$ref": "#/definitions/VerifiedAttributesListType",
+          "description": "Specifies the attributes that are auto-verified in a user pool."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date of a user pool."
+        },
+        "DeviceConfiguration": {
+          "$ref": "#/definitions/DeviceConfigurationType",
+          "description": "The device configuration."
+        },
+        "EmailConfiguration": {
+          "$ref": "#/definitions/EmailConfigurationType",
+          "description": "The email configuration."
+        },
+        "EmailConfigurationFailure": {
+          "$ref": "#/definitions/StringType",
+          "description": "The reason why the email configuration cannot send the messages to your users."
+        },
+        "EmailVerificationMessage": {
+          "$ref": "#/definitions/EmailVerificationMessageType",
+          "description": "The contents of the email verification message."
+        },
+        "EmailVerificationSubject": {
+          "$ref": "#/definitions/EmailVerificationSubjectType",
+          "description": "The subject of the email verification message."
+        },
+        "EstimatedNumberOfUsers": {
+          "$ref": "#/definitions/IntegerType",
+          "description": "A number estimating the size of the user pool."
+        },
+        "Id": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The ID of the user pool."
+        },
+        "LambdaConfig": {
+          "$ref": "#/definitions/LambdaConfigType",
+          "description": "A container describing the AWS Lambda triggers associated with a user pool."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last modified date of a user pool."
+        },
+        "MfaConfiguration": {
+          "$ref": "#/definitions/UserPoolMfaType",
+          "description": "<p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA tokens are not required and cannot be specified during user registration.</p> </li> <li> <p> <code>ON</code> - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when registering to create an MFA token.</p> </li> </ul>"
+        },
+        "Name": {
+          "$ref": "#/definitions/UserPoolNameType",
+          "description": "The name of the user pool."
+        },
+        "Policies": {
+          "$ref": "#/definitions/UserPoolPolicyType",
+          "description": "A container describing the policies associated with a user pool."
+        },
+        "SchemaAttributes": {
+          "$ref": "#/definitions/SchemaAttributesListType",
+          "description": "A container with the schema attributes of a user pool."
+        },
+        "SmsAuthenticationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "The contents of the SMS authentication message."
+        },
+        "SmsConfiguration": {
+          "$ref": "#/definitions/SmsConfigurationType",
+          "description": "The SMS configuration."
+        },
+        "SmsConfigurationFailure": {
+          "$ref": "#/definitions/StringType",
+          "description": "The reason why the SMS configuration cannot send the message(s) to your users."
+        },
+        "SmsVerificationMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "The contents of the SMS verification message."
+        },
+        "Status": {
+          "$ref": "#/definitions/StatusType",
+          "description": "The status of a user pool."
+        },
+        "UserPoolTags": {
+          "$ref": "#/definitions/UserPoolTagsType",
+          "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
+        }
+      },
+      "type": "object",
+      "title": "UserPoolType"
+    },
+    "UserStatusType": {
+      "enum": [
+        "UNCONFIRMED",
+        "CONFIRMED",
+        "ARCHIVED",
+        "COMPROMISED",
+        "UNKNOWN",
+        "RESET_REQUIRED",
+        "FORCE_CHANGE_PASSWORD"
+      ],
+      "type": "string",
+      "title": "UserStatusType"
+    },
+    "UserType": {
+      "description": "The user type.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeListType",
+          "description": "A container with information about the user type attributes."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Specifies whether the user is enabled."
+        },
+        "MFAOptions": {
+          "$ref": "#/definitions/MFAOptionListType",
+          "description": "The MFA options for the user."
+        },
+        "UserCreateDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date of the user."
+        },
+        "UserLastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last modified date of the user."
+        },
+        "UserStatus": {
+          "$ref": "#/definitions/UserStatusType",
+          "description": "<p>The user status. Can be one of the following:</p> <ul> <li> <p>UNCONFIRMED - User has been created but not confirmed.</p> </li> <li> <p>CONFIRMED - User has been confirmed.</p> </li> <li> <p>ARCHIVED - User is no longer active.</p> </li> <li> <p>COMPROMISED - User is disabled due to a potential security threat.</p> </li> <li> <p>UNKNOWN - User status is not known.</p> </li> </ul>"
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The user name of the user you wish to describe."
+        }
+      },
+      "type": "object",
+      "title": "UserType"
+    },
+    "UsernameExistsException": {
+      "description": "This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The message returned when Amazon Cognito throws a user name exists exception."
+        }
+      },
+      "type": "object",
+      "title": "UsernameExistsException"
+    },
+    "UsernameType": {
+      "format": "password",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "UsernameType"
+    },
+    "UsersListType": {
+      "items": {
+        "$ref": "#/definitions/UserType"
+      },
+      "type": "array",
+      "title": "UsersListType"
+    },
+    "VerifiedAttributeType": {
+      "enum": [
+        "phone_number",
+        "email"
+      ],
+      "type": "string",
+      "title": "VerifiedAttributeType"
+    },
+    "VerifiedAttributesListType": {
+      "items": {
+        "$ref": "#/definitions/VerifiedAttributeType"
+      },
+      "type": "array",
+      "title": "VerifiedAttributesListType"
+    },
+    "VerifyUserAttributeRequest": {
+      "description": "Represents the request to verify user attributes.",
+      "properties": {
+        "AccessToken": {
+          "$ref": "#/definitions/TokenModelType",
+          "description": "Represents the access token of the request to verify user attributes."
+        },
+        "AttributeName": {
+          "$ref": "#/definitions/AttributeNameType",
+          "description": "The attribute name in the request to verify user attributes."
+        },
+        "Code": {
+          "$ref": "#/definitions/ConfirmationCodeType",
+          "description": "The verification code in the request to verify user attributes."
+        }
+      },
+      "required": [
+        "AttributeName",
+        "Code"
+      ],
+      "type": "object",
+      "title": "VerifyUserAttributeRequest"
+    },
+    "VerifyUserAttributeResponse": {
+      "description": "A container representing the response from the server from the request to verify user attributes.",
+      "properties": {},
+      "type": "object",
+      "title": "VerifyUserAttributeResponse"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddCustomAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddCustomAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddCustomAttributesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminAddUserToGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminAddUserToGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminConfirmSignUp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminConfirmSignUpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminConfirmSignUpResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminCreateUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminCreateUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminCreateUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminDeleteUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminDeleteUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminDeleteUserAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminDeleteUserAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminDeleteUserAttributesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminDisableUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminDisableUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminDisableUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminEnableUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminEnableUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminEnableUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminForgetDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminForgetDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminGetDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminGetDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminGetDeviceResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminGetUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminGetUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminGetUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminInitiateAuth",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminInitiateAuthRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminInitiateAuthResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminListDevices",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminListDevicesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminListDevicesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminListGroupsForUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminListGroupsForUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminListGroupsForUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminRemoveUserFromGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminRemoveUserFromGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminResetUserPassword",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminResetUserPasswordRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminResetUserPasswordResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminRespondToAuthChallenge",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminRespondToAuthChallengeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminRespondToAuthChallengeResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminSetUserSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminSetUserSettingsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminSetUserSettingsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminUpdateDeviceStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminUpdateDeviceStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminUpdateDeviceStatusResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminUpdateUserAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminUpdateUserAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminUpdateUserAttributesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminUserGlobalSignOut",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminUserGlobalSignOutRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminUserGlobalSignOutResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ChangePassword",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ChangePasswordRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ChangePasswordResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ConfirmDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ConfirmDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfirmDeviceResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ConfirmForgotPassword",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ConfirmForgotPasswordRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfirmForgotPasswordResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ConfirmSignUp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ConfirmSignUpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConfirmSignUpResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "CreateGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateGroupResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "CreateUserImportJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateUserImportJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateUserImportJobResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "CreateUserPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateUserPoolRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateUserPoolResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "CreateUserPoolClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateUserPoolClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateUserPoolClientResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteUserAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteUserAttributesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteUserPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserPoolRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteUserPoolClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserPoolClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DescribeUserImportJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUserImportJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUserImportJobResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DescribeUserPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUserPoolRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUserPoolResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DescribeUserPoolClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUserPoolClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUserPoolClientResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ForgetDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ForgetDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ForgotPassword",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ForgotPasswordRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ForgotPasswordResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetCSVHeader",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCSVHeaderRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCSVHeaderResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetDevice",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDeviceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeviceResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetGroupResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetUserAttributeVerificationCode",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetUserAttributeVerificationCodeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetUserAttributeVerificationCodeResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GlobalSignOut",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GlobalSignOutRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GlobalSignOutResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "InitiateAuth",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/InitiateAuthRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InitiateAuthResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListDevices",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDevicesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDevicesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListGroups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGroupsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGroupsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListUserImportJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListUserImportJobsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUserImportJobsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListUserPoolClients",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListUserPoolClientsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUserPoolClientsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListUserPools",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListUserPoolsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUserPoolsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListUsers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListUsersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUsersResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListUsersInGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListUsersInGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUsersInGroupResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ResendConfirmationCode",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ResendConfirmationCodeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResendConfirmationCodeResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "RespondToAuthChallenge",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RespondToAuthChallengeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RespondToAuthChallengeResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "SetUserSettings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetUserSettingsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetUserSettingsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "SignUp",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SignUpRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SignUpResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "StartUserImportJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartUserImportJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartUserImportJobResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "StopUserImportJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopUserImportJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopUserImportJobResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateDeviceStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDeviceStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDeviceStatusResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateGroup",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateGroupResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateUserAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateUserAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateUserAttributesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateUserPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateUserPoolRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateUserPoolResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateUserPoolClient",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateUserPoolClientRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateUserPoolClientResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "VerifyUserAttribute",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/VerifyUserAttributeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VerifyUserAttributeResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

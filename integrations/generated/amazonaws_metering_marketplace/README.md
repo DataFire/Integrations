@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_metering_marketplace
 
 ```js
 let datafire = require('datafire');
-let amazonaws_metering_marketplace = require('@datafire/amazonaws_metering_marketplace').create();
+let amazonaws_metering_marketplace = require('@datafire/amazonaws_metering_marketplace').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_metering_marketplace.BatchMeterUsage({}).then(data => {
   console.log(data);

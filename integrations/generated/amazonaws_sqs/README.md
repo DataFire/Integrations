@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_sqs
 
 ```js
 let datafire = require('datafire');
-let amazonaws_sqs = require('@datafire/amazonaws_sqs').create();
+let amazonaws_sqs = require('@datafire/amazonaws_sqs').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_sqs.AddPermission({}).then(data => {
   console.log(data);

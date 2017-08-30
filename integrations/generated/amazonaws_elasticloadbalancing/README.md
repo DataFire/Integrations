@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_elasticloadbalancing
 
 ```js
 let datafire = require('datafire');
-let amazonaws_elasticloadbalancing = require('@datafire/amazonaws_elasticloadbalancing').create();
+let amazonaws_elasticloadbalancing = require('@datafire/amazonaws_elasticloadbalancing').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_elasticloadbalancing.AddTags({}).then(data => {
   console.log(data);

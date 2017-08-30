@@ -1,0 +1,3511 @@
+{
+  "id": "amazonaws_iot",
+  "title": "AWS IoT",
+  "description": "AWS IoT\n\nAWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.\n\nFor more information about how AWS IoT works, see the [Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html).",
+  "security": {
+    "amazonaws_iot": {
+      "integration": "amazonaws_iot",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iot.svg"
+  },
+  "actionCount": 34,
+  "definitions": {
+    "AcceptCertificateTransferRequest": {
+      "description": "The input for the AcceptCertificateTransfer operation.",
+      "properties": {},
+      "type": "object",
+      "title": "AcceptCertificateTransferRequest"
+    },
+    "Action": {
+      "description": "Describes the actions associated with a rule.",
+      "properties": {
+        "cloudwatchAlarm": {
+          "$ref": "#/definitions/CloudwatchAlarmAction",
+          "description": "Change the state of a CloudWatch alarm."
+        },
+        "cloudwatchMetric": {
+          "$ref": "#/definitions/CloudwatchMetricAction",
+          "description": "Capture a CloudWatch metric."
+        },
+        "dynamoDB": {
+          "$ref": "#/definitions/DynamoDBAction",
+          "description": "Write to a DynamoDB table."
+        },
+        "dynamoDBv2": {
+          "$ref": "#/definitions/DynamoDBv2Action",
+          "description": "Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column."
+        },
+        "elasticsearch": {
+          "$ref": "#/definitions/ElasticsearchAction",
+          "description": "Write data to an Amazon Elasticsearch Service domain."
+        },
+        "firehose": {
+          "$ref": "#/definitions/FirehoseAction",
+          "description": "Write to an Amazon Kinesis Firehose stream."
+        },
+        "kinesis": {
+          "$ref": "#/definitions/KinesisAction",
+          "description": "Write data to an Amazon Kinesis stream."
+        },
+        "lambda": {
+          "$ref": "#/definitions/LambdaAction",
+          "description": "Invoke a Lambda function."
+        },
+        "republish": {
+          "$ref": "#/definitions/RepublishAction",
+          "description": "Publish to another MQTT topic."
+        },
+        "s3": {
+          "$ref": "#/definitions/S3Action",
+          "description": "Write to an Amazon S3 bucket."
+        },
+        "sns": {
+          "$ref": "#/definitions/SnsAction",
+          "description": "Publish to an Amazon SNS topic."
+        },
+        "sqs": {
+          "$ref": "#/definitions/SqsAction",
+          "description": "Publish to an Amazon SQS queue."
+        }
+      },
+      "type": "object",
+      "title": "Action"
+    },
+    "ActionList": {
+      "items": {
+        "$ref": "#/definitions/Action"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array",
+      "title": "ActionList"
+    },
+    "AlarmName": {
+      "type": "string",
+      "title": "AlarmName"
+    },
+    "AllowAutoRegistration": {
+      "type": "boolean",
+      "title": "AllowAutoRegistration"
+    },
+    "AscendingOrder": {
+      "type": "boolean",
+      "title": "AscendingOrder"
+    },
+    "AttachPrincipalPolicyRequest": {
+      "description": "The input for the AttachPrincipalPolicy operation.",
+      "properties": {},
+      "type": "object",
+      "title": "AttachPrincipalPolicyRequest"
+    },
+    "AttachThingPrincipalRequest": {
+      "description": "The input for the AttachThingPrincipal operation.",
+      "properties": {},
+      "type": "object",
+      "title": "AttachThingPrincipalRequest"
+    },
+    "AttachThingPrincipalResponse": {
+      "description": "The output from the AttachThingPrincipal operation.",
+      "properties": {},
+      "type": "object",
+      "title": "AttachThingPrincipalResponse"
+    },
+    "AttributeName": {
+      "maxLength": 128,
+      "pattern": "[a-zA-Z0-9_.,@/:#-]+",
+      "type": "string",
+      "title": "AttributeName"
+    },
+    "AttributePayload": {
+      "description": "The attribute payload.",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/Attributes",
+          "description": "<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p><code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})</code></p>"
+        },
+        "merge": {
+          "$ref": "#/definitions/Flag",
+          "description": "<p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with the attributes stored in the registry, instead of overwriting them.</p> <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p> <note> <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code>.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "AttributePayload"
+    },
+    "AttributeValue": {
+      "description": "An attribute value for an Thing. An empty or null value in Update means that existing value for that attribute should be deleted. Empty and null values in create are ignored.",
+      "maxLength": 800,
+      "pattern": "[a-zA-Z0-9_.,@/:#-]*",
+      "type": "string",
+      "title": "AttributeValue"
+    },
+    "Attributes": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/AttributeName"
+          },
+          "value": {
+            "$ref": "#/definitions/AttributeValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Attributes"
+    },
+    "AutoRegistrationStatus": {
+      "enum": [
+        "ENABLE",
+        "DISABLE"
+      ],
+      "type": "string",
+      "title": "AutoRegistrationStatus"
+    },
+    "AwsAccountId": {
+      "pattern": "[0-9]{12}",
+      "type": "string",
+      "title": "AwsAccountId"
+    },
+    "AwsArn": {
+      "type": "string",
+      "title": "AwsArn"
+    },
+    "AwsIotSqlVersion": {
+      "type": "string",
+      "title": "AwsIotSqlVersion"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "BucketName": {
+      "type": "string",
+      "title": "BucketName"
+    },
+    "CACertificate": {
+      "description": "A CA certificate.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The ARN of the CA certificate."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The ID of the CA certificate."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the CA certificate was created."
+        },
+        "status": {
+          "$ref": "#/definitions/CACertificateStatus",
+          "description": "<p>The status of the CA certificate. </p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
+        }
+      },
+      "type": "object",
+      "title": "CACertificate"
+    },
+    "CACertificateDescription": {
+      "description": "Describes a CA certificate.",
+      "properties": {
+        "autoRegistrationStatus": {
+          "$ref": "#/definitions/AutoRegistrationStatus",
+          "description": "Whether the CA certificate configured for auto registration of device certificates. Valid values are \"ENABLE\" and \"DISABLE\""
+        },
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The CA certificate ARN."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The CA certificate ID."
+        },
+        "certificatePem": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The CA certificate data, in PEM format."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the CA certificate was created."
+        },
+        "ownedBy": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The owner of the CA certificate."
+        },
+        "status": {
+          "$ref": "#/definitions/CACertificateStatus",
+          "description": "The status of a CA certificate."
+        }
+      },
+      "type": "object",
+      "title": "CACertificateDescription"
+    },
+    "CACertificateStatus": {
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ],
+      "type": "string",
+      "title": "CACertificateStatus"
+    },
+    "CACertificates": {
+      "items": {
+        "$ref": "#/definitions/CACertificate"
+      },
+      "type": "array",
+      "title": "CACertificates"
+    },
+    "CancelCertificateTransferRequest": {
+      "description": "The input for the CancelCertificateTransfer operation.",
+      "properties": {},
+      "type": "object",
+      "title": "CancelCertificateTransferRequest"
+    },
+    "CannedAccessControlList": {
+      "enum": [
+        "private",
+        "public-read",
+        "public-read-write",
+        "aws-exec-read",
+        "authenticated-read",
+        "bucket-owner-read",
+        "bucket-owner-full-control",
+        "log-delivery-write"
+      ],
+      "type": "string",
+      "title": "CannedAccessControlList"
+    },
+    "Certificate": {
+      "description": "Information about a certificate.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The ARN of the certificate."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The ID of the certificate."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date and time the certificate was created."
+        },
+        "status": {
+          "$ref": "#/definitions/CertificateStatus",
+          "description": "<p>The status of the certificate.</p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
+        }
+      },
+      "type": "object",
+      "title": "Certificate"
+    },
+    "CertificateArn": {
+      "type": "string",
+      "title": "CertificateArn"
+    },
+    "CertificateConflictException": {
+      "description": "Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "CertificateConflictException"
+    },
+    "CertificateDescription": {
+      "description": "Describes a certificate.",
+      "properties": {
+        "caCertificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The certificate ID of the CA certificate used to sign this certificate."
+        },
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The ARN of the certificate."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The ID of the certificate."
+        },
+        "certificatePem": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The certificate data, in PEM format."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date and time the certificate was created."
+        },
+        "lastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date and time the certificate was last modified."
+        },
+        "ownedBy": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The ID of the AWS account that owns the certificate."
+        },
+        "previousOwnedBy": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The ID of the AWS account of the previous owner of the certificate."
+        },
+        "status": {
+          "$ref": "#/definitions/CertificateStatus",
+          "description": "The status of the certificate."
+        },
+        "transferData": {
+          "$ref": "#/definitions/TransferData",
+          "description": "The transfer data."
+        }
+      },
+      "type": "object",
+      "title": "CertificateDescription"
+    },
+    "CertificateId": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "(0x)?[a-fA-F0-9]+",
+      "type": "string",
+      "title": "CertificateId"
+    },
+    "CertificatePem": {
+      "maxLength": 65536,
+      "minLength": 1,
+      "type": "string",
+      "title": "CertificatePem"
+    },
+    "CertificateSigningRequest": {
+      "minLength": 1,
+      "type": "string",
+      "title": "CertificateSigningRequest"
+    },
+    "CertificateStateException": {
+      "description": "The certificate operation is not allowed.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "CertificateStateException"
+    },
+    "CertificateStatus": {
+      "enum": [
+        "ACTIVE",
+        "INACTIVE",
+        "REVOKED",
+        "PENDING_TRANSFER",
+        "REGISTER_INACTIVE",
+        "PENDING_ACTIVATION"
+      ],
+      "type": "string",
+      "title": "CertificateStatus"
+    },
+    "CertificateValidationException": {
+      "description": "The certificate is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "Additional information about the exception."
+        }
+      },
+      "type": "object",
+      "title": "CertificateValidationException"
+    },
+    "Certificates": {
+      "items": {
+        "$ref": "#/definitions/Certificate"
+      },
+      "type": "array",
+      "title": "Certificates"
+    },
+    "ClientId": {
+      "type": "string",
+      "title": "ClientId"
+    },
+    "CloudwatchAlarmAction": {
+      "description": "Describes an action that updates a CloudWatch alarm.",
+      "properties": {
+        "alarmName": {
+          "$ref": "#/definitions/AlarmName",
+          "description": "The CloudWatch alarm name."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The IAM role that allows access to the CloudWatch alarm."
+        },
+        "stateReason": {
+          "$ref": "#/definitions/StateReason",
+          "description": "The reason for the alarm change."
+        },
+        "stateValue": {
+          "$ref": "#/definitions/StateValue",
+          "description": "The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA."
+        }
+      },
+      "required": [
+        "roleArn",
+        "alarmName",
+        "stateReason",
+        "stateValue"
+      ],
+      "type": "object",
+      "title": "CloudwatchAlarmAction"
+    },
+    "CloudwatchMetricAction": {
+      "description": "Describes an action that captures a CloudWatch metric.",
+      "properties": {
+        "metricName": {
+          "$ref": "#/definitions/MetricName",
+          "description": "The CloudWatch metric name."
+        },
+        "metricNamespace": {
+          "$ref": "#/definitions/MetricNamespace",
+          "description": "The CloudWatch metric namespace name."
+        },
+        "metricTimestamp": {
+          "$ref": "#/definitions/MetricTimestamp",
+          "description": "An optional <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\">Unix timestamp</a>."
+        },
+        "metricUnit": {
+          "$ref": "#/definitions/MetricUnit",
+          "description": "The <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\">metric unit</a> supported by CloudWatch."
+        },
+        "metricValue": {
+          "$ref": "#/definitions/MetricValue",
+          "description": "The CloudWatch metric value."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The IAM role that allows access to the CloudWatch metric."
+        }
+      },
+      "required": [
+        "roleArn",
+        "metricNamespace",
+        "metricName",
+        "metricValue",
+        "metricUnit"
+      ],
+      "type": "object",
+      "title": "CloudwatchMetricAction"
+    },
+    "CreateCertificateFromCsrRequest": {
+      "description": "The input for the CreateCertificateFromCsr operation.",
+      "properties": {
+        "certificateSigningRequest": {
+          "$ref": "#/definitions/CertificateSigningRequest",
+          "description": "The certificate signing request (CSR)."
+        }
+      },
+      "required": [
+        "certificateSigningRequest"
+      ],
+      "type": "object",
+      "title": "CreateCertificateFromCsrRequest"
+    },
+    "CreateCertificateFromCsrResponse": {
+      "description": "The output from the CreateCertificateFromCsr operation.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The ID of the certificate. Certificate management operations only take a certificateId."
+        },
+        "certificatePem": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The certificate data, in PEM format."
+        }
+      },
+      "type": "object",
+      "title": "CreateCertificateFromCsrResponse"
+    },
+    "CreateKeysAndCertificateRequest": {
+      "description": "The input for the CreateKeysAndCertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "CreateKeysAndCertificateRequest"
+    },
+    "CreateKeysAndCertificateResponse": {
+      "description": "The output of the CreateKeysAndCertificate operation.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The ARN of the certificate."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate)."
+        },
+        "certificatePem": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The certificate data, in PEM format."
+        },
+        "keyPair": {
+          "$ref": "#/definitions/KeyPair",
+          "description": "The generated key pair."
+        }
+      },
+      "type": "object",
+      "title": "CreateKeysAndCertificateResponse"
+    },
+    "CreatePolicyRequest": {
+      "description": "The input for the CreatePolicy operation.",
+      "properties": {
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The JSON document that describes the policy. <b>policyDocument</b> must have a minimum length of 1, with a maximum length of 2048, excluding whitespace."
+        }
+      },
+      "required": [
+        "policyDocument"
+      ],
+      "type": "object",
+      "title": "CreatePolicyRequest"
+    },
+    "CreatePolicyResponse": {
+      "description": "The output from the CreatePolicy operation.",
+      "properties": {
+        "policyArn": {
+          "$ref": "#/definitions/PolicyArn",
+          "description": "The policy ARN."
+        },
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The JSON document that describes the policy."
+        },
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "The policy name."
+        },
+        "policyVersionId": {
+          "$ref": "#/definitions/PolicyVersionId",
+          "description": "The policy version ID."
+        }
+      },
+      "type": "object",
+      "title": "CreatePolicyResponse"
+    },
+    "CreatePolicyVersionRequest": {
+      "description": "The input for the CreatePolicyVersion operation.",
+      "properties": {
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces"
+        }
+      },
+      "required": [
+        "policyDocument"
+      ],
+      "type": "object",
+      "title": "CreatePolicyVersionRequest"
+    },
+    "CreatePolicyVersionResponse": {
+      "description": "The output of the CreatePolicyVersion operation.",
+      "properties": {
+        "isDefaultVersion": {
+          "$ref": "#/definitions/IsDefaultVersion",
+          "description": "Specifies whether the policy version is the default."
+        },
+        "policyArn": {
+          "$ref": "#/definitions/PolicyArn",
+          "description": "The policy ARN."
+        },
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The JSON document that describes the policy."
+        },
+        "policyVersionId": {
+          "$ref": "#/definitions/PolicyVersionId",
+          "description": "The policy version ID."
+        }
+      },
+      "type": "object",
+      "title": "CreatePolicyVersionResponse"
+    },
+    "CreateThingRequest": {
+      "description": "The input for the CreateThing operation.",
+      "properties": {
+        "attributePayload": {
+          "$ref": "#/definitions/AttributePayload",
+          "description": "<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p><code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})</code></p>"
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The name of the thing type associated with the new thing."
+        }
+      },
+      "type": "object",
+      "title": "CreateThingRequest"
+    },
+    "CreateThingResponse": {
+      "description": "The output of the CreateThing operation.",
+      "properties": {
+        "thingArn": {
+          "$ref": "#/definitions/ThingArn",
+          "description": "The ARN of the new thing."
+        },
+        "thingName": {
+          "$ref": "#/definitions/ThingName",
+          "description": "The name of the new thing."
+        }
+      },
+      "type": "object",
+      "title": "CreateThingResponse"
+    },
+    "CreateThingTypeRequest": {
+      "description": "The input for the CreateThingType operation.",
+      "properties": {
+        "thingTypeProperties": {
+          "$ref": "#/definitions/ThingTypeProperties",
+          "description": "The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names."
+        }
+      },
+      "type": "object",
+      "title": "CreateThingTypeRequest"
+    },
+    "CreateThingTypeResponse": {
+      "description": "The output of the CreateThingType operation.",
+      "properties": {
+        "thingTypeArn": {
+          "$ref": "#/definitions/ThingTypeArn",
+          "description": "The Amazon Resource Name (ARN) of the thing type."
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The name of the thing type."
+        }
+      },
+      "type": "object",
+      "title": "CreateThingTypeResponse"
+    },
+    "CreateTopicRuleRequest": {
+      "description": "The input for the CreateTopicRule operation.",
+      "properties": {
+        "topicRulePayload": {
+          "$ref": "#/definitions/TopicRulePayload",
+          "description": "The rule payload."
+        }
+      },
+      "required": [
+        "topicRulePayload"
+      ],
+      "type": "object",
+      "title": "CreateTopicRuleRequest"
+    },
+    "CreatedAtDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CreatedAtDate"
+    },
+    "CreationDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CreationDate"
+    },
+    "DateType": {
+      "format": "date-time",
+      "type": "string",
+      "title": "DateType"
+    },
+    "DeleteCACertificateRequest": {
+      "description": "Input for the DeleteCACertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCACertificateRequest"
+    },
+    "DeleteCACertificateResponse": {
+      "description": "The output for the DeleteCACertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCACertificateResponse"
+    },
+    "DeleteCertificateRequest": {
+      "description": "The input for the DeleteCertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCertificateRequest"
+    },
+    "DeleteConflictException": {
+      "description": "You can't delete the resource because it is attached to one or more resources.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "DeleteConflictException"
+    },
+    "DeletePolicyRequest": {
+      "description": "The input for the DeletePolicy operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeletePolicyRequest"
+    },
+    "DeletePolicyVersionRequest": {
+      "description": "The input for the DeletePolicyVersion operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeletePolicyVersionRequest"
+    },
+    "DeleteRegistrationCodeRequest": {
+      "description": "The input for the DeleteRegistrationCode operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteRegistrationCodeRequest"
+    },
+    "DeleteRegistrationCodeResponse": {
+      "description": "The output for the DeleteRegistrationCode operation. ",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteRegistrationCodeResponse"
+    },
+    "DeleteThingRequest": {
+      "description": "The input for the DeleteThing operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThingRequest"
+    },
+    "DeleteThingResponse": {
+      "description": "The output of the DeleteThing operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThingResponse"
+    },
+    "DeleteThingTypeRequest": {
+      "description": "The input for the DeleteThingType operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThingTypeRequest"
+    },
+    "DeleteThingTypeResponse": {
+      "description": "The output for the DeleteThingType operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThingTypeResponse"
+    },
+    "DeleteTopicRuleRequest": {
+      "description": "The input for the DeleteTopicRule operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTopicRuleRequest"
+    },
+    "DeliveryStreamName": {
+      "type": "string",
+      "title": "DeliveryStreamName"
+    },
+    "DeprecateThingTypeRequest": {
+      "description": "The input for the DeprecateThingType operation.",
+      "properties": {
+        "undoDeprecate": {
+          "$ref": "#/definitions/UndoDeprecate",
+          "description": "Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can associate it with things."
+        }
+      },
+      "type": "object",
+      "title": "DeprecateThingTypeRequest"
+    },
+    "DeprecateThingTypeResponse": {
+      "description": "The output for the DeprecateThingType operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeprecateThingTypeResponse"
+    },
+    "DeprecationDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "DeprecationDate"
+    },
+    "DescribeCACertificateRequest": {
+      "description": "The input for the DescribeCACertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DescribeCACertificateRequest"
+    },
+    "DescribeCACertificateResponse": {
+      "description": "The output from the DescribeCACertificate operation.",
+      "properties": {
+        "certificateDescription": {
+          "$ref": "#/definitions/CACertificateDescription",
+          "description": "The CA certificate description."
+        }
+      },
+      "type": "object",
+      "title": "DescribeCACertificateResponse"
+    },
+    "DescribeCertificateRequest": {
+      "description": "The input for the DescribeCertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DescribeCertificateRequest"
+    },
+    "DescribeCertificateResponse": {
+      "description": "The output of the DescribeCertificate operation.",
+      "properties": {
+        "certificateDescription": {
+          "$ref": "#/definitions/CertificateDescription",
+          "description": "The description of the certificate."
+        }
+      },
+      "type": "object",
+      "title": "DescribeCertificateResponse"
+    },
+    "DescribeEndpointRequest": {
+      "description": "The input for the DescribeEndpoint operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DescribeEndpointRequest"
+    },
+    "DescribeEndpointResponse": {
+      "description": "The output from the DescribeEndpoint operation.",
+      "properties": {
+        "endpointAddress": {
+          "$ref": "#/definitions/EndpointAddress",
+          "description": "The endpoint. The format of the endpoint is as follows: <i>identifier</i>.iot.<i>region</i>.amazonaws.com."
+        }
+      },
+      "type": "object",
+      "title": "DescribeEndpointResponse"
+    },
+    "DescribeThingRequest": {
+      "description": "The input for the DescribeThing operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DescribeThingRequest"
+    },
+    "DescribeThingResponse": {
+      "description": "The output from the DescribeThing operation.",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/Attributes",
+          "description": "The thing attributes."
+        },
+        "defaultClientId": {
+          "$ref": "#/definitions/ClientId",
+          "description": "The default client ID."
+        },
+        "thingName": {
+          "$ref": "#/definitions/ThingName",
+          "description": "The name of the thing."
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The thing type name."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "<p>The current version of the thing record in the registry.</p> <note> <p>To avoid unintentional changes to the information in the registry, you can pass the version information in the <code>expectedVersion</code> parameter of the <code>UpdateThing</code> and <code>DeleteThing</code> calls.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeThingResponse"
+    },
+    "DescribeThingTypeRequest": {
+      "description": "The input for the DescribeThingType operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DescribeThingTypeRequest"
+    },
+    "DescribeThingTypeResponse": {
+      "description": "The output for the DescribeThingType operation.",
+      "properties": {
+        "thingTypeMetadata": {
+          "$ref": "#/definitions/ThingTypeMetadata"
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The name of the thing type."
+        },
+        "thingTypeProperties": {
+          "$ref": "#/definitions/ThingTypeProperties",
+          "description": "The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names."
+        }
+      },
+      "type": "object",
+      "title": "DescribeThingTypeResponse"
+    },
+    "Description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "DetachPrincipalPolicyRequest": {
+      "description": "The input for the DetachPrincipalPolicy operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DetachPrincipalPolicyRequest"
+    },
+    "DetachThingPrincipalRequest": {
+      "description": "The input for the DetachThingPrincipal operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DetachThingPrincipalRequest"
+    },
+    "DetachThingPrincipalResponse": {
+      "description": "The output from the DetachThingPrincipal operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DetachThingPrincipalResponse"
+    },
+    "DisableTopicRuleRequest": {
+      "description": "The input for the DisableTopicRuleRequest operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DisableTopicRuleRequest"
+    },
+    "DynamoDBAction": {
+      "description": "<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p><code>\"hashKeyValue\": \"${topic(3)}\"</code></p> <p>The following field uses the timestamp:</p> <p><code>\"rangeKeyValue\": \"${timestamp()}\"</code></p>",
+      "properties": {
+        "hashKeyField": {
+          "$ref": "#/definitions/HashKeyField",
+          "description": "The hash key name."
+        },
+        "hashKeyType": {
+          "$ref": "#/definitions/DynamoKeyType",
+          "description": "The hash key type. Valid values are \"STRING\" or \"NUMBER\""
+        },
+        "hashKeyValue": {
+          "$ref": "#/definitions/HashKeyValue",
+          "description": "The hash key value."
+        },
+        "operation": {
+          "$ref": "#/definitions/DynamoOperation",
+          "description": "The type of operation to be performed. This follows the substitution template, so it can be <code>${operation}</code>, but the substitution must result in one of the following: <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>."
+        },
+        "payloadField": {
+          "$ref": "#/definitions/PayloadField",
+          "description": "The action payload. This name can be customized."
+        },
+        "rangeKeyField": {
+          "$ref": "#/definitions/RangeKeyField",
+          "description": "The range key name."
+        },
+        "rangeKeyType": {
+          "$ref": "#/definitions/DynamoKeyType",
+          "description": "The range key type. Valid values are \"STRING\" or \"NUMBER\""
+        },
+        "rangeKeyValue": {
+          "$ref": "#/definitions/RangeKeyValue",
+          "description": "The range key value."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access to the DynamoDB table."
+        },
+        "tableName": {
+          "$ref": "#/definitions/TableName",
+          "description": "The name of the DynamoDB table."
+        }
+      },
+      "required": [
+        "tableName",
+        "roleArn",
+        "hashKeyField",
+        "hashKeyValue"
+      ],
+      "type": "object",
+      "title": "DynamoDBAction"
+    },
+    "DynamoDBv2Action": {
+      "description": "<p>Describes an action to write to a DynamoDB table.</p> <p>This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.</p>",
+      "properties": {
+        "putItem": {
+          "$ref": "#/definitions/PutItemInput",
+          "description": "<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p><code>{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }</code></p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>"
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access to the DynamoDB table."
+        }
+      },
+      "type": "object",
+      "title": "DynamoDBv2Action"
+    },
+    "DynamoKeyType": {
+      "enum": [
+        "STRING",
+        "NUMBER"
+      ],
+      "type": "string",
+      "title": "DynamoKeyType"
+    },
+    "DynamoOperation": {
+      "type": "string",
+      "title": "DynamoOperation"
+    },
+    "ElasticsearchAction": {
+      "description": "Describes an action that writes data to an Amazon Elasticsearch Service domain.",
+      "properties": {
+        "endpoint": {
+          "$ref": "#/definitions/ElasticsearchEndpoint",
+          "description": "The endpoint of your Elasticsearch domain."
+        },
+        "id": {
+          "$ref": "#/definitions/ElasticsearchId",
+          "description": "The unique identifier for the document you are storing."
+        },
+        "index": {
+          "$ref": "#/definitions/ElasticsearchIndex",
+          "description": "The Elasticsearch index where you want to store your data."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The IAM role ARN that has access to Elasticsearch."
+        },
+        "type": {
+          "$ref": "#/definitions/ElasticsearchType",
+          "description": "The type of document you are storing."
+        }
+      },
+      "required": [
+        "roleArn",
+        "endpoint",
+        "index",
+        "type",
+        "id"
+      ],
+      "type": "object",
+      "title": "ElasticsearchAction"
+    },
+    "ElasticsearchEndpoint": {
+      "pattern": "https?://.*",
+      "type": "string",
+      "title": "ElasticsearchEndpoint"
+    },
+    "ElasticsearchId": {
+      "type": "string",
+      "title": "ElasticsearchId"
+    },
+    "ElasticsearchIndex": {
+      "type": "string",
+      "title": "ElasticsearchIndex"
+    },
+    "ElasticsearchType": {
+      "type": "string",
+      "title": "ElasticsearchType"
+    },
+    "EnableTopicRuleRequest": {
+      "description": "The input for the EnableTopicRuleRequest operation.",
+      "properties": {},
+      "type": "object",
+      "title": "EnableTopicRuleRequest"
+    },
+    "EndpointAddress": {
+      "type": "string",
+      "title": "EndpointAddress"
+    },
+    "FirehoseAction": {
+      "description": "Describes an action that writes data to an Amazon Kinesis Firehose stream.",
+      "properties": {
+        "deliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The delivery stream name."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The IAM role that grants access to the Amazon Kinesis Firehost stream."
+        },
+        "separator": {
+          "$ref": "#/definitions/FirehoseSeparator",
+          "description": "A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma)."
+        }
+      },
+      "required": [
+        "roleArn",
+        "deliveryStreamName"
+      ],
+      "type": "object",
+      "title": "FirehoseAction"
+    },
+    "FirehoseSeparator": {
+      "pattern": "([\\n\\t])|(\\r\\n)|(,)",
+      "type": "string",
+      "title": "FirehoseSeparator"
+    },
+    "Flag": {
+      "type": "boolean",
+      "title": "Flag"
+    },
+    "FunctionArn": {
+      "type": "string",
+      "title": "FunctionArn"
+    },
+    "GetLoggingOptionsRequest": {
+      "description": "The input for the GetLoggingOptions operation.",
+      "properties": {},
+      "type": "object",
+      "title": "GetLoggingOptionsRequest"
+    },
+    "GetLoggingOptionsResponse": {
+      "description": "The output from the GetLoggingOptions operation.",
+      "properties": {
+        "logLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The logging level."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access."
+        }
+      },
+      "type": "object",
+      "title": "GetLoggingOptionsResponse"
+    },
+    "GetPolicyRequest": {
+      "description": "The input for the GetPolicy operation.",
+      "properties": {},
+      "type": "object",
+      "title": "GetPolicyRequest"
+    },
+    "GetPolicyResponse": {
+      "description": "The output from the GetPolicy operation.",
+      "properties": {
+        "defaultVersionId": {
+          "$ref": "#/definitions/PolicyVersionId",
+          "description": "The default policy version ID."
+        },
+        "policyArn": {
+          "$ref": "#/definitions/PolicyArn",
+          "description": "The policy ARN."
+        },
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The JSON document that describes the policy."
+        },
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "The policy name."
+        }
+      },
+      "type": "object",
+      "title": "GetPolicyResponse"
+    },
+    "GetPolicyVersionRequest": {
+      "description": "The input for the GetPolicyVersion operation.",
+      "properties": {},
+      "type": "object",
+      "title": "GetPolicyVersionRequest"
+    },
+    "GetPolicyVersionResponse": {
+      "description": "The output from the GetPolicyVersion operation.",
+      "properties": {
+        "isDefaultVersion": {
+          "$ref": "#/definitions/IsDefaultVersion",
+          "description": "Specifies whether the policy version is the default."
+        },
+        "policyArn": {
+          "$ref": "#/definitions/PolicyArn",
+          "description": "The policy ARN."
+        },
+        "policyDocument": {
+          "$ref": "#/definitions/PolicyDocument",
+          "description": "The JSON document that describes the policy."
+        },
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "The policy name."
+        },
+        "policyVersionId": {
+          "$ref": "#/definitions/PolicyVersionId",
+          "description": "The policy version ID."
+        }
+      },
+      "type": "object",
+      "title": "GetPolicyVersionResponse"
+    },
+    "GetRegistrationCodeRequest": {
+      "description": "The input to the GetRegistrationCode operation.",
+      "properties": {},
+      "type": "object",
+      "title": "GetRegistrationCodeRequest"
+    },
+    "GetRegistrationCodeResponse": {
+      "description": "The output from the GetRegistrationCode operation.",
+      "properties": {
+        "registrationCode": {
+          "$ref": "#/definitions/RegistrationCode",
+          "description": "The CA certificate registration code."
+        }
+      },
+      "type": "object",
+      "title": "GetRegistrationCodeResponse"
+    },
+    "GetTopicRuleRequest": {
+      "description": "The input for the GetTopicRule operation.",
+      "properties": {},
+      "type": "object",
+      "title": "GetTopicRuleRequest"
+    },
+    "GetTopicRuleResponse": {
+      "description": "The output from the GetTopicRule operation.",
+      "properties": {
+        "rule": {
+          "$ref": "#/definitions/TopicRule",
+          "description": "The rule."
+        },
+        "ruleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The rule ARN."
+        }
+      },
+      "type": "object",
+      "title": "GetTopicRuleResponse"
+    },
+    "HashKeyField": {
+      "type": "string",
+      "title": "HashKeyField"
+    },
+    "HashKeyValue": {
+      "type": "string",
+      "title": "HashKeyValue"
+    },
+    "InternalException": {
+      "description": "An unexpected error has occurred.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "InternalException"
+    },
+    "InternalFailureException": {
+      "description": "An unexpected error has occurred.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "InternalFailureException"
+    },
+    "InvalidRequestException": {
+      "description": "The request is not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "InvalidRequestException"
+    },
+    "IsDefaultVersion": {
+      "type": "boolean",
+      "title": "IsDefaultVersion"
+    },
+    "IsDisabled": {
+      "type": "boolean",
+      "title": "IsDisabled"
+    },
+    "Key": {
+      "type": "string",
+      "title": "Key"
+    },
+    "KeyPair": {
+      "description": "Describes a key pair.",
+      "properties": {
+        "PrivateKey": {
+          "$ref": "#/definitions/PrivateKey",
+          "description": "The private key."
+        },
+        "PublicKey": {
+          "$ref": "#/definitions/PublicKey",
+          "description": "The public key."
+        }
+      },
+      "type": "object",
+      "title": "KeyPair"
+    },
+    "KinesisAction": {
+      "description": "Describes an action to write data to an Amazon Kinesis stream.",
+      "properties": {
+        "partitionKey": {
+          "$ref": "#/definitions/PartitionKey",
+          "description": "The partition key."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access to the Amazon Kinesis stream."
+        },
+        "streamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the Amazon Kinesis stream."
+        }
+      },
+      "required": [
+        "roleArn",
+        "streamName"
+      ],
+      "type": "object",
+      "title": "KinesisAction"
+    },
+    "LambdaAction": {
+      "description": "Describes an action to invoke a Lambda function.",
+      "properties": {
+        "functionArn": {
+          "$ref": "#/definitions/FunctionArn",
+          "description": "The ARN of the Lambda function."
+        }
+      },
+      "required": [
+        "functionArn"
+      ],
+      "type": "object",
+      "title": "LambdaAction"
+    },
+    "LimitExceededException": {
+      "description": "The number of attached entities exceeds the limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListCACertificatesRequest": {
+      "description": "Input for the ListCACertificates operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListCACertificatesRequest"
+    },
+    "ListCACertificatesResponse": {
+      "description": "The output from the ListCACertificates operation.",
+      "properties": {
+        "certificates": {
+          "$ref": "#/definitions/CACertificates",
+          "description": "The CA certificates registered in your AWS account."
+        },
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The current position within the list of CA certificates."
+        }
+      },
+      "type": "object",
+      "title": "ListCACertificatesResponse"
+    },
+    "ListCertificatesByCARequest": {
+      "description": "The input to the ListCertificatesByCA operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListCertificatesByCARequest"
+    },
+    "ListCertificatesByCAResponse": {
+      "description": "The output of the ListCertificatesByCA operation.",
+      "properties": {
+        "certificates": {
+          "$ref": "#/definitions/Certificates",
+          "description": "The device certificates signed by the specified CA certificate."
+        },
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListCertificatesByCAResponse"
+    },
+    "ListCertificatesRequest": {
+      "description": "The input for the ListCertificates operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListCertificatesRequest"
+    },
+    "ListCertificatesResponse": {
+      "description": "The output of the ListCertificates operation.",
+      "properties": {
+        "certificates": {
+          "$ref": "#/definitions/Certificates",
+          "description": "The descriptions of the certificates."
+        },
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        }
+      },
+      "type": "object",
+      "title": "ListCertificatesResponse"
+    },
+    "ListOutgoingCertificatesRequest": {
+      "description": "The input to the ListOutgoingCertificates operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListOutgoingCertificatesRequest"
+    },
+    "ListOutgoingCertificatesResponse": {
+      "description": "The output from the ListOutgoingCertificates operation.",
+      "properties": {
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results."
+        },
+        "outgoingCertificates": {
+          "$ref": "#/definitions/OutgoingCertificates",
+          "description": "The certificates that are being transfered but not yet accepted."
+        }
+      },
+      "type": "object",
+      "title": "ListOutgoingCertificatesResponse"
+    },
+    "ListPoliciesRequest": {
+      "description": "The input for the ListPolicies operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListPoliciesRequest"
+    },
+    "ListPoliciesResponse": {
+      "description": "The output from the ListPolicies operation.",
+      "properties": {
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        },
+        "policies": {
+          "$ref": "#/definitions/Policies",
+          "description": "The descriptions of the policies."
+        }
+      },
+      "type": "object",
+      "title": "ListPoliciesResponse"
+    },
+    "ListPolicyPrincipalsRequest": {
+      "description": "The input for the ListPolicyPrincipals operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListPolicyPrincipalsRequest"
+    },
+    "ListPolicyPrincipalsResponse": {
+      "description": "The output from the ListPolicyPrincipals operation.",
+      "properties": {
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        },
+        "principals": {
+          "$ref": "#/definitions/Principals",
+          "description": "The descriptions of the principals."
+        }
+      },
+      "type": "object",
+      "title": "ListPolicyPrincipalsResponse"
+    },
+    "ListPolicyVersionsRequest": {
+      "description": "The input for the ListPolicyVersions operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListPolicyVersionsRequest"
+    },
+    "ListPolicyVersionsResponse": {
+      "description": "The output from the ListPolicyVersions operation.",
+      "properties": {
+        "policyVersions": {
+          "$ref": "#/definitions/PolicyVersions",
+          "description": "The policy versions."
+        }
+      },
+      "type": "object",
+      "title": "ListPolicyVersionsResponse"
+    },
+    "ListPrincipalPoliciesRequest": {
+      "description": "The input for the ListPrincipalPolicies operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListPrincipalPoliciesRequest"
+    },
+    "ListPrincipalPoliciesResponse": {
+      "description": "The output from the ListPrincipalPolicies operation.",
+      "properties": {
+        "nextMarker": {
+          "$ref": "#/definitions/Marker",
+          "description": "The marker for the next set of results, or null if there are no additional results."
+        },
+        "policies": {
+          "$ref": "#/definitions/Policies",
+          "description": "The policies."
+        }
+      },
+      "type": "object",
+      "title": "ListPrincipalPoliciesResponse"
+    },
+    "ListPrincipalThingsRequest": {
+      "description": "The input for the ListPrincipalThings operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListPrincipalThingsRequest"
+    },
+    "ListPrincipalThingsResponse": {
+      "description": "The output from the ListPrincipalThings operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of results, or <b>null</b> if there are no additional results."
+        },
+        "things": {
+          "$ref": "#/definitions/ThingNameList",
+          "description": "The things."
+        }
+      },
+      "type": "object",
+      "title": "ListPrincipalThingsResponse"
+    },
+    "ListThingPrincipalsRequest": {
+      "description": "The input for the ListThingPrincipal operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListThingPrincipalsRequest"
+    },
+    "ListThingPrincipalsResponse": {
+      "description": "The output from the ListThingPrincipals operation.",
+      "properties": {
+        "principals": {
+          "$ref": "#/definitions/Principals",
+          "description": "The principals associated with the thing."
+        }
+      },
+      "type": "object",
+      "title": "ListThingPrincipalsResponse"
+    },
+    "ListThingTypesRequest": {
+      "description": "The input for the ListThingTypes operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListThingTypesRequest"
+    },
+    "ListThingTypesResponse": {
+      "description": "The output for the ListThingTypes operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of results, or <b>null</b> if there are no additional results."
+        },
+        "thingTypes": {
+          "$ref": "#/definitions/ThingTypeList",
+          "description": "The thing types."
+        }
+      },
+      "type": "object",
+      "title": "ListThingTypesResponse"
+    },
+    "ListThingsRequest": {
+      "description": "The input for the ListThings operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListThingsRequest"
+    },
+    "ListThingsResponse": {
+      "description": "The output from the ListThings operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token for the next set of results, or <b>null</b> if there are no additional results."
+        },
+        "things": {
+          "$ref": "#/definitions/ThingAttributeList",
+          "description": "The things."
+        }
+      },
+      "type": "object",
+      "title": "ListThingsResponse"
+    },
+    "ListTopicRulesRequest": {
+      "description": "The input for the ListTopicRules operation.",
+      "properties": {},
+      "type": "object",
+      "title": "ListTopicRulesRequest"
+    },
+    "ListTopicRulesResponse": {
+      "description": "The output from the ListTopicRules operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A token used to retrieve the next value."
+        },
+        "rules": {
+          "$ref": "#/definitions/TopicRuleList",
+          "description": "The rules."
+        }
+      },
+      "type": "object",
+      "title": "ListTopicRulesResponse"
+    },
+    "LogLevel": {
+      "enum": [
+        "DEBUG",
+        "INFO",
+        "ERROR",
+        "WARN",
+        "DISABLED"
+      ],
+      "type": "string",
+      "title": "LogLevel"
+    },
+    "LoggingOptionsPayload": {
+      "description": "Describes the logging options payload.",
+      "properties": {
+        "logLevel": {
+          "$ref": "#/definitions/LogLevel",
+          "description": "The logging level."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access."
+        }
+      },
+      "required": [
+        "roleArn"
+      ],
+      "type": "object",
+      "title": "LoggingOptionsPayload"
+    },
+    "MalformedPolicyException": {
+      "description": "The policy documentation is not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "MalformedPolicyException"
+    },
+    "Marker": {
+      "type": "string",
+      "title": "Marker"
+    },
+    "MaxResults": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "Message": {
+      "maxLength": 128,
+      "type": "string",
+      "title": "Message"
+    },
+    "MessageFormat": {
+      "enum": [
+        "RAW",
+        "JSON"
+      ],
+      "type": "string",
+      "title": "MessageFormat"
+    },
+    "MetricName": {
+      "type": "string",
+      "title": "MetricName"
+    },
+    "MetricNamespace": {
+      "type": "string",
+      "title": "MetricNamespace"
+    },
+    "MetricTimestamp": {
+      "type": "string",
+      "title": "MetricTimestamp"
+    },
+    "MetricUnit": {
+      "type": "string",
+      "title": "MetricUnit"
+    },
+    "MetricValue": {
+      "type": "string",
+      "title": "MetricValue"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "OptionalVersion": {
+      "type": "integer",
+      "title": "OptionalVersion"
+    },
+    "OutgoingCertificate": {
+      "description": "A certificate that has been transfered but not yet accepted.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The certificate ARN."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The certificate ID."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The certificate creation date."
+        },
+        "transferDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the transfer was initiated."
+        },
+        "transferMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The transfer message."
+        },
+        "transferredTo": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The AWS account to which the transfer was made."
+        }
+      },
+      "type": "object",
+      "title": "OutgoingCertificate"
+    },
+    "OutgoingCertificates": {
+      "items": {
+        "$ref": "#/definitions/OutgoingCertificate"
+      },
+      "type": "array",
+      "title": "OutgoingCertificates"
+    },
+    "PageSize": {
+      "maximum": 250,
+      "minimum": 1,
+      "type": "integer",
+      "title": "PageSize"
+    },
+    "PartitionKey": {
+      "type": "string",
+      "title": "PartitionKey"
+    },
+    "PayloadField": {
+      "type": "string",
+      "title": "PayloadField"
+    },
+    "Policies": {
+      "items": {
+        "$ref": "#/definitions/Policy"
+      },
+      "type": "array",
+      "title": "Policies"
+    },
+    "Policy": {
+      "description": "Describes an AWS IoT policy.",
+      "properties": {
+        "policyArn": {
+          "$ref": "#/definitions/PolicyArn",
+          "description": "The policy ARN."
+        },
+        "policyName": {
+          "$ref": "#/definitions/PolicyName",
+          "description": "The policy name."
+        }
+      },
+      "type": "object",
+      "title": "Policy"
+    },
+    "PolicyArn": {
+      "type": "string",
+      "title": "PolicyArn"
+    },
+    "PolicyDocument": {
+      "type": "string",
+      "title": "PolicyDocument"
+    },
+    "PolicyName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+=,.@-]+",
+      "type": "string",
+      "title": "PolicyName"
+    },
+    "PolicyVersion": {
+      "description": "Describes a policy version.",
+      "properties": {
+        "createDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date and time the policy was created."
+        },
+        "isDefaultVersion": {
+          "$ref": "#/definitions/IsDefaultVersion",
+          "description": "Specifies whether the policy version is the default."
+        },
+        "versionId": {
+          "$ref": "#/definitions/PolicyVersionId",
+          "description": "The policy version ID."
+        }
+      },
+      "type": "object",
+      "title": "PolicyVersion"
+    },
+    "PolicyVersionId": {
+      "pattern": "[0-9]+",
+      "type": "string",
+      "title": "PolicyVersionId"
+    },
+    "PolicyVersions": {
+      "items": {
+        "$ref": "#/definitions/PolicyVersion"
+      },
+      "type": "array",
+      "title": "PolicyVersions"
+    },
+    "Principal": {
+      "type": "string",
+      "title": "Principal"
+    },
+    "PrincipalArn": {
+      "type": "string",
+      "title": "PrincipalArn"
+    },
+    "Principals": {
+      "items": {
+        "$ref": "#/definitions/PrincipalArn"
+      },
+      "type": "array",
+      "title": "Principals"
+    },
+    "PrivateKey": {
+      "format": "password",
+      "minLength": 1,
+      "type": "string",
+      "title": "PrivateKey"
+    },
+    "PublicKey": {
+      "minLength": 1,
+      "type": "string",
+      "title": "PublicKey"
+    },
+    "PutItemInput": {
+      "description": "The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.",
+      "properties": {
+        "tableName": {
+          "$ref": "#/definitions/TableName",
+          "description": "The table where the message data will be written"
+        }
+      },
+      "required": [
+        "tableName"
+      ],
+      "type": "object",
+      "title": "PutItemInput"
+    },
+    "QueueUrl": {
+      "type": "string",
+      "title": "QueueUrl"
+    },
+    "RangeKeyField": {
+      "type": "string",
+      "title": "RangeKeyField"
+    },
+    "RangeKeyValue": {
+      "type": "string",
+      "title": "RangeKeyValue"
+    },
+    "RegisterCACertificateRequest": {
+      "description": "The input to the RegisterCACertificate operation.",
+      "properties": {
+        "caCertificate": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The CA certificate."
+        },
+        "verificationCertificate": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The private key verification certificate."
+        }
+      },
+      "required": [
+        "caCertificate",
+        "verificationCertificate"
+      ],
+      "type": "object",
+      "title": "RegisterCACertificateRequest"
+    },
+    "RegisterCACertificateResponse": {
+      "description": "The output from the RegisterCACertificateResponse operation.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The CA certificate ARN."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The CA certificate identifier."
+        }
+      },
+      "type": "object",
+      "title": "RegisterCACertificateResponse"
+    },
+    "RegisterCertificateRequest": {
+      "description": "The input to the RegisterCertificate operation.",
+      "properties": {
+        "caCertificatePem": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The CA certificate used to sign the device certificate being registered."
+        },
+        "certificatePem": {
+          "$ref": "#/definitions/CertificatePem",
+          "description": "The certificate data, in PEM format."
+        },
+        "status": {
+          "$ref": "#/definitions/CertificateStatus"
+        }
+      },
+      "required": [
+        "certificatePem"
+      ],
+      "type": "object",
+      "title": "RegisterCertificateRequest"
+    },
+    "RegisterCertificateResponse": {
+      "description": "The output from the RegisterCertificate operation.",
+      "properties": {
+        "certificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The certificate ARN."
+        },
+        "certificateId": {
+          "$ref": "#/definitions/CertificateId",
+          "description": "The certificate identifier."
+        }
+      },
+      "type": "object",
+      "title": "RegisterCertificateResponse"
+    },
+    "RegistrationCode": {
+      "maxLength": 64,
+      "minLength": 64,
+      "pattern": "(0x)?[a-fA-F0-9]+",
+      "type": "string",
+      "title": "RegistrationCode"
+    },
+    "RegistrationCodeValidationException": {
+      "description": "The registration code is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "Additional information about the exception."
+        }
+      },
+      "type": "object",
+      "title": "RegistrationCodeValidationException"
+    },
+    "RejectCertificateTransferRequest": {
+      "description": "The input for the RejectCertificateTransfer operation.",
+      "properties": {
+        "rejectReason": {
+          "$ref": "#/definitions/Message",
+          "description": "The reason the certificate transfer was rejected."
+        }
+      },
+      "type": "object",
+      "title": "RejectCertificateTransferRequest"
+    },
+    "RemoveThingType": {
+      "type": "boolean",
+      "title": "RemoveThingType"
+    },
+    "ReplaceTopicRuleRequest": {
+      "description": "The input for the ReplaceTopicRule operation.",
+      "properties": {
+        "topicRulePayload": {
+          "$ref": "#/definitions/TopicRulePayload",
+          "description": "The rule payload."
+        }
+      },
+      "required": [
+        "topicRulePayload"
+      ],
+      "type": "object",
+      "title": "ReplaceTopicRuleRequest"
+    },
+    "RepublishAction": {
+      "description": "Describes an action to republish to another topic.",
+      "properties": {
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access."
+        },
+        "topic": {
+          "$ref": "#/definitions/TopicPattern",
+          "description": "The name of the MQTT topic."
+        }
+      },
+      "required": [
+        "roleArn",
+        "topic"
+      ],
+      "type": "object",
+      "title": "RepublishAction"
+    },
+    "ResourceAlreadyExistsException": {
+      "description": "The resource already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        },
+        "resourceArn": {
+          "$ref": "#/definitions/resourceArn",
+          "description": "The ARN of the resource that caused the exception."
+        },
+        "resourceId": {
+          "$ref": "#/definitions/resourceId",
+          "description": "The ID of the resource that caused the exception."
+        }
+      },
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "RuleArn": {
+      "type": "string",
+      "title": "RuleArn"
+    },
+    "RuleName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "type": "string",
+      "title": "RuleName"
+    },
+    "S3Action": {
+      "description": "Describes an action to write data to an Amazon S3 bucket.",
+      "properties": {
+        "bucketName": {
+          "$ref": "#/definitions/BucketName",
+          "description": "The Amazon S3 bucket."
+        },
+        "cannedAcl": {
+          "$ref": "#/definitions/CannedAccessControlList",
+          "description": "The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\">S3 canned ACLs</a>."
+        },
+        "key": {
+          "$ref": "#/definitions/Key",
+          "description": "The object key."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access."
+        }
+      },
+      "required": [
+        "roleArn",
+        "bucketName",
+        "key"
+      ],
+      "type": "object",
+      "title": "S3Action"
+    },
+    "SQL": {
+      "type": "string",
+      "title": "SQL"
+    },
+    "SearchableAttributes": {
+      "items": {
+        "$ref": "#/definitions/AttributeName"
+      },
+      "type": "array",
+      "title": "SearchableAttributes"
+    },
+    "ServiceUnavailableException": {
+      "description": "The service is temporarily unavailable.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "SetAsActive": {
+      "type": "boolean",
+      "title": "SetAsActive"
+    },
+    "SetAsActiveFlag": {
+      "type": "boolean",
+      "title": "SetAsActiveFlag"
+    },
+    "SetAsDefault": {
+      "type": "boolean",
+      "title": "SetAsDefault"
+    },
+    "SetDefaultPolicyVersionRequest": {
+      "description": "The input for the SetDefaultPolicyVersion operation.",
+      "properties": {},
+      "type": "object",
+      "title": "SetDefaultPolicyVersionRequest"
+    },
+    "SetLoggingOptionsRequest": {
+      "description": "The input for the SetLoggingOptions operation.",
+      "properties": {
+        "loggingOptionsPayload": {
+          "$ref": "#/definitions/LoggingOptionsPayload",
+          "description": "The logging options payload."
+        }
+      },
+      "required": [
+        "loggingOptionsPayload"
+      ],
+      "type": "object",
+      "title": "SetLoggingOptionsRequest"
+    },
+    "SnsAction": {
+      "description": "Describes an action to publish to an Amazon SNS topic.",
+      "properties": {
+        "messageFormat": {
+          "$ref": "#/definitions/MessageFormat",
+          "description": "The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\"></a> refer to their official documentation."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access."
+        },
+        "targetArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the SNS topic."
+        }
+      },
+      "required": [
+        "targetArn",
+        "roleArn"
+      ],
+      "type": "object",
+      "title": "SnsAction"
+    },
+    "SqlParseException": {
+      "description": "The Rule-SQL expression can't be parsed correctly.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "SqlParseException"
+    },
+    "SqsAction": {
+      "description": "Describes an action to publish data to an Amazon SQS queue.",
+      "properties": {
+        "queueUrl": {
+          "$ref": "#/definitions/QueueUrl",
+          "description": "The URL of the Amazon SQS queue."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/AwsArn",
+          "description": "The ARN of the IAM role that grants access."
+        },
+        "useBase64": {
+          "$ref": "#/definitions/UseBase64",
+          "description": "Specifies whether to use Base64 encoding."
+        }
+      },
+      "required": [
+        "roleArn",
+        "queueUrl"
+      ],
+      "type": "object",
+      "title": "SqsAction"
+    },
+    "StateReason": {
+      "type": "string",
+      "title": "StateReason"
+    },
+    "StateValue": {
+      "type": "string",
+      "title": "StateValue"
+    },
+    "StreamName": {
+      "type": "string",
+      "title": "StreamName"
+    },
+    "TableName": {
+      "type": "string",
+      "title": "TableName"
+    },
+    "ThingArn": {
+      "type": "string",
+      "title": "ThingArn"
+    },
+    "ThingAttribute": {
+      "description": "The properties of the thing, including thing name, thing type name, and a list of thing attributes.",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/Attributes",
+          "description": "A list of thing attributes which are name-value pairs."
+        },
+        "thingName": {
+          "$ref": "#/definitions/ThingName",
+          "description": "The name of the thing."
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The name of the thing type, if the thing has been associated with a type."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the thing record in the registry."
+        }
+      },
+      "type": "object",
+      "title": "ThingAttribute"
+    },
+    "ThingAttributeList": {
+      "items": {
+        "$ref": "#/definitions/ThingAttribute"
+      },
+      "type": "array",
+      "title": "ThingAttributeList"
+    },
+    "ThingName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string",
+      "title": "ThingName"
+    },
+    "ThingNameList": {
+      "items": {
+        "$ref": "#/definitions/ThingName"
+      },
+      "type": "array",
+      "title": "ThingNameList"
+    },
+    "ThingTypeArn": {
+      "type": "string",
+      "title": "ThingTypeArn"
+    },
+    "ThingTypeDefinition": {
+      "description": "The definition of the thing type, including thing type name and description.",
+      "properties": {
+        "thingTypeMetadata": {
+          "$ref": "#/definitions/ThingTypeMetadata"
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The name of the thing type."
+        },
+        "thingTypeProperties": {
+          "$ref": "#/definitions/ThingTypeProperties",
+          "description": "The ThingTypeProperties for the thing type."
+        }
+      },
+      "type": "object",
+      "title": "ThingTypeDefinition"
+    },
+    "ThingTypeDescription": {
+      "maxLength": 2028,
+      "pattern": "[\\p{Graph}\\x20]*",
+      "type": "string",
+      "title": "ThingTypeDescription"
+    },
+    "ThingTypeList": {
+      "items": {
+        "$ref": "#/definitions/ThingTypeDefinition"
+      },
+      "type": "array",
+      "title": "ThingTypeList"
+    },
+    "ThingTypeMetadata": {
+      "description": "The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when time was deprecated.",
+      "properties": {
+        "creationDate": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "The date and time when the thing type was created."
+        },
+        "deprecationDate": {
+          "$ref": "#/definitions/DeprecationDate",
+          "description": "The date and time when the thing type was deprecated."
+        }
+      },
+      "type": "object",
+      "title": "ThingTypeMetadata"
+    },
+    "ThingTypeName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9:_-]+",
+      "type": "string",
+      "title": "ThingTypeName"
+    },
+    "ThingTypeProperties": {
+      "description": "The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.",
+      "properties": {
+        "searchableAttributes": {
+          "$ref": "#/definitions/SearchableAttributes",
+          "description": "A list of searchable thing attribute names."
+        },
+        "thingTypeDescription": {
+          "$ref": "#/definitions/ThingTypeDescription",
+          "description": "The description of the thing type."
+        }
+      },
+      "type": "object",
+      "title": "ThingTypeProperties"
+    },
+    "ThrottlingException": {
+      "description": "The rate exceeds the limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ThrottlingException"
+    },
+    "Topic": {
+      "type": "string",
+      "title": "Topic"
+    },
+    "TopicPattern": {
+      "type": "string",
+      "title": "TopicPattern"
+    },
+    "TopicRule": {
+      "description": "Describes a rule.",
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/ActionList",
+          "description": "The actions associated with the rule."
+        },
+        "awsIotSqlVersion": {
+          "$ref": "#/definitions/AwsIotSqlVersion",
+          "description": "The version of the SQL rules engine to use when evaluating the rule."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAtDate",
+          "description": "The date and time the rule was created."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description of the rule."
+        },
+        "ruleDisabled": {
+          "$ref": "#/definitions/IsDisabled",
+          "description": "Specifies whether the rule is disabled."
+        },
+        "ruleName": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        },
+        "sql": {
+          "$ref": "#/definitions/SQL",
+          "description": "The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters."
+        }
+      },
+      "type": "object",
+      "title": "TopicRule"
+    },
+    "TopicRuleList": {
+      "items": {
+        "$ref": "#/definitions/TopicRuleListItem"
+      },
+      "type": "array",
+      "title": "TopicRuleList"
+    },
+    "TopicRuleListItem": {
+      "description": "Describes a rule.",
+      "properties": {
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAtDate",
+          "description": "The date and time the rule was created."
+        },
+        "ruleArn": {
+          "$ref": "#/definitions/RuleArn",
+          "description": "The rule ARN."
+        },
+        "ruleDisabled": {
+          "$ref": "#/definitions/IsDisabled",
+          "description": "Specifies whether the rule is disabled."
+        },
+        "ruleName": {
+          "$ref": "#/definitions/RuleName",
+          "description": "The name of the rule."
+        },
+        "topicPattern": {
+          "$ref": "#/definitions/TopicPattern",
+          "description": "The pattern for the topic names that apply."
+        }
+      },
+      "type": "object",
+      "title": "TopicRuleListItem"
+    },
+    "TopicRulePayload": {
+      "description": "Describes a rule.",
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/ActionList",
+          "description": "The actions associated with the rule."
+        },
+        "awsIotSqlVersion": {
+          "$ref": "#/definitions/AwsIotSqlVersion",
+          "description": "The version of the SQL rules engine to use when evaluating the rule."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description of the rule."
+        },
+        "ruleDisabled": {
+          "$ref": "#/definitions/IsDisabled",
+          "description": "Specifies whether the rule is disabled."
+        },
+        "sql": {
+          "$ref": "#/definitions/SQL",
+          "description": "The SQL statement used to query the topic. For more information, see <a href=\"http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference\">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>."
+        }
+      },
+      "required": [
+        "sql",
+        "actions"
+      ],
+      "type": "object",
+      "title": "TopicRulePayload"
+    },
+    "TransferAlreadyCompletedException": {
+      "description": "You can't revert the certificate transfer because the transfer is already complete.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "TransferAlreadyCompletedException"
+    },
+    "TransferCertificateRequest": {
+      "description": "The input for the TransferCertificate operation.",
+      "properties": {
+        "transferMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The transfer message."
+        }
+      },
+      "type": "object",
+      "title": "TransferCertificateRequest"
+    },
+    "TransferCertificateResponse": {
+      "description": "The output from the TransferCertificate operation.",
+      "properties": {
+        "transferredCertificateArn": {
+          "$ref": "#/definitions/CertificateArn",
+          "description": "The ARN of the certificate."
+        }
+      },
+      "type": "object",
+      "title": "TransferCertificateResponse"
+    },
+    "TransferConflictException": {
+      "description": "You can't transfer the certificate because authorization policies are still attached.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "TransferConflictException"
+    },
+    "TransferData": {
+      "description": "Data used to transfer a certificate to an AWS account.",
+      "properties": {
+        "acceptDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the transfer was accepted."
+        },
+        "rejectDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the transfer was rejected."
+        },
+        "rejectReason": {
+          "$ref": "#/definitions/Message",
+          "description": "The reason why the transfer was rejected."
+        },
+        "transferDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the transfer took place."
+        },
+        "transferMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "The transfer message."
+        }
+      },
+      "type": "object",
+      "title": "TransferData"
+    },
+    "UnauthorizedException": {
+      "description": "You are not authorized to perform this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedException"
+    },
+    "UndoDeprecate": {
+      "type": "boolean",
+      "title": "UndoDeprecate"
+    },
+    "UpdateCACertificateRequest": {
+      "description": "The input to the UpdateCACertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "UpdateCACertificateRequest"
+    },
+    "UpdateCertificateRequest": {
+      "description": "The input for the UpdateCertificate operation.",
+      "properties": {},
+      "type": "object",
+      "title": "UpdateCertificateRequest"
+    },
+    "UpdateThingRequest": {
+      "description": "The input for the UpdateThing operation.",
+      "properties": {
+        "attributePayload": {
+          "$ref": "#/definitions/AttributePayload",
+          "description": "<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p><code>{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}})</code></p> <p>This data is used to add new attributes or update existing attributes.</p>"
+        },
+        "expectedVersion": {
+          "$ref": "#/definitions/OptionalVersion",
+          "description": "The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>UpdateThing</code> request is rejected with a <code>VersionConflictException</code>."
+        },
+        "removeThingType": {
+          "$ref": "#/definitions/RemoveThingType",
+          "description": "Remove a thing type association. If <b>true</b>, the assocation is removed."
+        },
+        "thingTypeName": {
+          "$ref": "#/definitions/ThingTypeName",
+          "description": "The name of the thing type."
+        }
+      },
+      "type": "object",
+      "title": "UpdateThingRequest"
+    },
+    "UpdateThingResponse": {
+      "description": "The output from the UpdateThing operation.",
+      "properties": {},
+      "type": "object",
+      "title": "UpdateThingResponse"
+    },
+    "UseBase64": {
+      "type": "boolean",
+      "title": "UseBase64"
+    },
+    "Version": {
+      "type": "integer",
+      "title": "Version"
+    },
+    "VersionConflictException": {
+      "description": "An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "VersionConflictException"
+    },
+    "VersionsLimitExceededException": {
+      "description": "The number of policy versions exceeds the limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "VersionsLimitExceededException"
+    },
+    "errorMessage": {
+      "type": "string",
+      "title": "errorMessage"
+    },
+    "resourceArn": {
+      "type": "string",
+      "title": "resourceArn"
+    },
+    "resourceId": {
+      "type": "string",
+      "title": "resourceId"
+    }
+  },
+  "actions": [
+    {
+      "id": "AcceptCertificateTransfer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "certificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/AcceptCertificateTransferRequest"
+          }
+        ],
+        "required": [
+          "certificateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "RegisterCACertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RegisterCACertificateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RegisterCACertificateResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "UpdateCACertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "caCertificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateCACertificateRequest"
+          }
+        ],
+        "required": [
+          "caCertificateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListCACertificates",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListCACertificatesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCACertificatesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "CancelCertificateTransfer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "certificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CancelCertificateTransferRequest"
+          }
+        ],
+        "required": [
+          "certificateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "RegisterCertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RegisterCertificateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RegisterCertificateResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListCertificates",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListCertificatesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCertificatesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListCertificatesByCA",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "caCertificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListCertificatesByCARequest"
+          }
+        ],
+        "required": [
+          "caCertificateId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCertificatesByCAResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListOutgoingCertificates",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListOutgoingCertificatesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListOutgoingCertificatesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "UpdateCertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "certificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateCertificateRequest"
+          }
+        ],
+        "required": [
+          "certificateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "DescribeEndpoint",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEndpointRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEndpointResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "CreateKeysAndCertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateKeysAndCertificateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateKeysAndCertificateResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "SetLoggingOptions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetLoggingOptionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListPolicies",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPoliciesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPoliciesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "GetPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "policyName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetPolicyRequest"
+          }
+        ],
+        "required": [
+          "policyName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetPolicyResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListPolicyVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "policyName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPolicyVersionsRequest"
+          }
+        ],
+        "required": [
+          "policyName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPolicyVersionsResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "SetDefaultPolicyVersion",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "policyName": {
+            "type": "string"
+          },
+          "policyVersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetDefaultPolicyVersionRequest"
+          }
+        ],
+        "required": [
+          "policyName",
+          "policyVersionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListPolicyPrincipals",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPolicyPrincipalsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPolicyPrincipalsResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListPrincipalPolicies",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPrincipalPoliciesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPrincipalPoliciesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "DetachPrincipalPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "policyName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetachPrincipalPolicyRequest"
+          }
+        ],
+        "required": [
+          "policyName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListPrincipalThings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPrincipalThingsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPrincipalThingsResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "GetRegistrationCode",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRegistrationCodeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRegistrationCodeResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "RejectCertificateTransfer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "certificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/RejectCertificateTransferRequest"
+          }
+        ],
+        "required": [
+          "certificateId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListTopicRules",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTopicRulesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTopicRulesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ReplaceTopicRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ruleName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ReplaceTopicRuleRequest"
+          }
+        ],
+        "required": [
+          "ruleName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "DisableTopicRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ruleName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisableTopicRuleRequest"
+          }
+        ],
+        "required": [
+          "ruleName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "EnableTopicRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ruleName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/EnableTopicRuleRequest"
+          }
+        ],
+        "required": [
+          "ruleName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListThingTypes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListThingTypesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListThingTypesResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "DescribeThingType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingTypeName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeThingTypeRequest"
+          }
+        ],
+        "required": [
+          "thingTypeName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeThingTypeResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "DeprecateThingType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingTypeName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeprecateThingTypeRequest"
+          }
+        ],
+        "required": [
+          "thingTypeName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeprecateThingTypeResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListThings",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListThingsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListThingsResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "UpdateThing",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateThingRequest"
+          }
+        ],
+        "required": [
+          "thingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateThingResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "ListThingPrincipals",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListThingPrincipalsRequest"
+          }
+        ],
+        "required": [
+          "thingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListThingPrincipalsResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    },
+    {
+      "id": "TransferCertificate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "certificateId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/TransferCertificateRequest"
+          }
+        ],
+        "required": [
+          "certificateId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TransferCertificateResponse"
+      },
+      "security": {
+        "amazonaws_iot": {
+          "integration": "amazonaws_iot"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_dynamodb
 
 ```js
 let datafire = require('datafire');
-let amazonaws_dynamodb = require('@datafire/amazonaws_dynamodb').create();
+let amazonaws_dynamodb = require('@datafire/amazonaws_dynamodb').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_dynamodb.BatchGetItem({}).then(data => {
   console.log(data);

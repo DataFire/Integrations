@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_elastictranscoder
 
 ```js
 let datafire = require('datafire');
-let amazonaws_elastictranscoder = require('@datafire/amazonaws_elastictranscoder').create();
+let amazonaws_elastictranscoder = require('@datafire/amazonaws_elastictranscoder').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_elastictranscoder.CreateJob({}).then(data => {
   console.log(data);

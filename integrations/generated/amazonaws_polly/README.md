@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_polly
 
 ```js
 let datafire = require('datafire');
-let amazonaws_polly = require('@datafire/amazonaws_polly').create();
+let amazonaws_polly = require('@datafire/amazonaws_polly').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_polly.ListLexicons({}).then(data => {
   console.log(data);

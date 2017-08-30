@@ -1,0 +1,865 @@
+{
+  "id": "amazonaws_shield",
+  "title": "AWS Shield",
+  "description": "AWS Shield Advanced\n\nThis is the _AWS Shield Advanced API Reference_. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the [AWS WAF and AWS Shield Developer Guide](http://docs.aws.amazon.com/waf/latest/developerguide/).",
+  "security": {
+    "amazonaws_shield": {
+      "integration": "amazonaws_shield",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_shield.svg"
+  },
+  "actionCount": 9,
+  "definitions": {
+    "AttackDetail": {
+      "description": "The details of a DDoS attack.",
+      "properties": {
+        "AttackCounters": {
+          "$ref": "#/definitions/SummarizedCounterList",
+          "description": "List of counters that describe the attack for the specified time period."
+        },
+        "AttackId": {
+          "$ref": "#/definitions/AttackId",
+          "description": "The unique identifier (ID) of the attack."
+        },
+        "EndTime": {
+          "$ref": "#/definitions/AttackTimestamp",
+          "description": "The time the attack ended, in the format 2016-12-16T13:50Z."
+        },
+        "Mitigations": {
+          "$ref": "#/definitions/MitigationList",
+          "description": "List of mitigation actions taken for the attack."
+        },
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The ARN (Amazon Resource Name) of the resource that was attacked."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/AttackTimestamp",
+          "description": "The time the attack started, in the format 2016-12-16T13:50Z."
+        },
+        "SubResources": {
+          "$ref": "#/definitions/SubResourceSummaryList",
+          "description": "If applicable, additional detail about the resource being attacked, for example, IP address or URL."
+        }
+      },
+      "type": "object",
+      "title": "AttackDetail"
+    },
+    "AttackId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\\\-]*",
+      "type": "string",
+      "title": "AttackId"
+    },
+    "AttackSummaries": {
+      "items": {
+        "$ref": "#/definitions/AttackSummary"
+      },
+      "type": "array",
+      "title": "AttackSummaries"
+    },
+    "AttackSummary": {
+      "description": "Summarizes all DDoS attacks for a specified time period.",
+      "properties": {
+        "AttackId": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier (ID) of the attack."
+        },
+        "AttackVectors": {
+          "$ref": "#/definitions/AttackVectorDescriptionList",
+          "description": "The list of attacks for a specified time period."
+        },
+        "EndTime": {
+          "$ref": "#/definitions/AttackTimestamp",
+          "description": "The end time of the attack, in the format 2016-12-16T13:50Z."
+        },
+        "ResourceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The ARN (Amazon Resource Name) of the resource that was attacked."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/AttackTimestamp",
+          "description": "The start time of the attack, in the format 2016-12-16T13:50Z."
+        }
+      },
+      "type": "object",
+      "title": "AttackSummary"
+    },
+    "AttackTimestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "AttackTimestamp"
+    },
+    "AttackVectorDescription": {
+      "description": "Describes the attack.",
+      "properties": {
+        "VectorType": {
+          "$ref": "#/definitions/String",
+          "description": "The attack type, for example, SNMP reflection or SYN flood."
+        }
+      },
+      "required": [
+        "VectorType"
+      ],
+      "type": "object",
+      "title": "AttackVectorDescription"
+    },
+    "AttackVectorDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/AttackVectorDescription"
+      },
+      "type": "array",
+      "title": "AttackVectorDescriptionList"
+    },
+    "CreateProtectionRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ProtectionName",
+          "description": "Friendly name for the <code>Protection</code> you are creating."
+        },
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The ARN (Amazon Resource Name) of the resource to be protected."
+        }
+      },
+      "required": [
+        "Name",
+        "ResourceArn"
+      ],
+      "type": "object",
+      "title": "CreateProtectionRequest"
+    },
+    "CreateProtectionResponse": {
+      "properties": {
+        "ProtectionId": {
+          "$ref": "#/definitions/ProtectionId",
+          "description": "The unique identifier (ID) for the <a>Protection</a> object that is created."
+        }
+      },
+      "type": "object",
+      "title": "CreateProtectionResponse"
+    },
+    "CreateSubscriptionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateSubscriptionRequest"
+    },
+    "CreateSubscriptionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateSubscriptionResponse"
+    },
+    "DeleteProtectionRequest": {
+      "properties": {
+        "ProtectionId": {
+          "$ref": "#/definitions/ProtectionId",
+          "description": "The unique identifier (ID) for the <a>Protection</a> object to be deleted."
+        }
+      },
+      "required": [
+        "ProtectionId"
+      ],
+      "type": "object",
+      "title": "DeleteProtectionRequest"
+    },
+    "DeleteProtectionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteProtectionResponse"
+    },
+    "DeleteSubscriptionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSubscriptionRequest"
+    },
+    "DeleteSubscriptionResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteSubscriptionResponse"
+    },
+    "DescribeAttackRequest": {
+      "properties": {
+        "AttackId": {
+          "$ref": "#/definitions/AttackId",
+          "description": "The unique identifier (ID) for the attack that to be described."
+        }
+      },
+      "required": [
+        "AttackId"
+      ],
+      "type": "object",
+      "title": "DescribeAttackRequest"
+    },
+    "DescribeAttackResponse": {
+      "properties": {
+        "Attack": {
+          "$ref": "#/definitions/AttackDetail",
+          "description": "The attack that is described."
+        }
+      },
+      "type": "object",
+      "title": "DescribeAttackResponse"
+    },
+    "DescribeProtectionRequest": {
+      "properties": {
+        "ProtectionId": {
+          "$ref": "#/definitions/ProtectionId",
+          "description": "The unique identifier (ID) for the <a>Protection</a> object that is described."
+        }
+      },
+      "required": [
+        "ProtectionId"
+      ],
+      "type": "object",
+      "title": "DescribeProtectionRequest"
+    },
+    "DescribeProtectionResponse": {
+      "properties": {
+        "Protection": {
+          "$ref": "#/definitions/Protection",
+          "description": "The <a>Protection</a> object that is described."
+        }
+      },
+      "type": "object",
+      "title": "DescribeProtectionResponse"
+    },
+    "DescribeSubscriptionRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeSubscriptionRequest"
+    },
+    "DescribeSubscriptionResponse": {
+      "properties": {
+        "Subscription": {
+          "$ref": "#/definitions/Subscription",
+          "description": "The AWS Shield Advanced subscription details for an account."
+        }
+      },
+      "type": "object",
+      "title": "DescribeSubscriptionResponse"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number",
+      "title": "Double"
+    },
+    "DurationInSeconds": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "DurationInSeconds"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InternalErrorException": {
+      "description": "Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalErrorException"
+    },
+    "InvalidOperationException": {
+      "description": "Exception that indicates that the operation would not cause any change to occur.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidOperationException"
+    },
+    "InvalidParameterException": {
+      "description": "Exception that indicates that the parameters passed to the API are invalid. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "InvalidResourceException": {
+      "description": "Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidResourceException"
+    },
+    "LimitNumber": {
+      "type": "integer",
+      "title": "LimitNumber"
+    },
+    "LimitType": {
+      "type": "string",
+      "title": "LimitType"
+    },
+    "LimitsExceededException": {
+      "description": "Exception that indicates that the operation would exceed a limit.",
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/LimitNumber"
+        },
+        "Type": {
+          "$ref": "#/definitions/LimitType"
+        },
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "LimitsExceededException"
+    },
+    "ListAttacksRequest": {
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/TimeRange",
+          "description": "The end of the time period for the attacks."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of <a>AttackSummary</a> objects to be returned. If this is left blank, the first 20 results will be returned."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call."
+        },
+        "ResourceArns": {
+          "$ref": "#/definitions/ResourceArnFilterList",
+          "description": "The ARN (Amazon Resource Name) of the resource that was attacked. If this is left blank, all applicable resources for this account will be included."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/TimeRange",
+          "description": "The time period for the attacks."
+        }
+      },
+      "type": "object",
+      "title": "ListAttacksRequest"
+    },
+    "ListAttacksResponse": {
+      "properties": {
+        "AttackSummaries": {
+          "$ref": "#/definitions/AttackSummaries",
+          "description": "The attack information for the specified time range."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the <code>NextMarker</code> parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of items."
+        }
+      },
+      "type": "object",
+      "title": "ListAttacksResponse"
+    },
+    "ListProtectionsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of <a>Protection</a> objects to be returned. If this is left blank the first 20 results will be returned."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call."
+        }
+      },
+      "type": "object",
+      "title": "ListProtectionsRequest"
+    },
+    "ListProtectionsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections."
+        },
+        "Protections": {
+          "$ref": "#/definitions/Protections",
+          "description": "The array of enabled <a>Protection</a> objects."
+        }
+      },
+      "type": "object",
+      "title": "ListProtectionsResponse"
+    },
+    "LockedSubscriptionException": {
+      "description": "Exception that indicates that the subscription has been modified by another client. You can retry the request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "LockedSubscriptionException"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "Mitigation": {
+      "description": "The mitigation applied to a DDoS attack.",
+      "properties": {
+        "MitigationName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the mitigation taken for this attack."
+        }
+      },
+      "type": "object",
+      "title": "Mitigation"
+    },
+    "MitigationList": {
+      "items": {
+        "$ref": "#/definitions/Mitigation"
+      },
+      "type": "array",
+      "title": "MitigationList"
+    },
+    "OptimisticLockException": {
+      "description": "Exception that indicates that the protection state has been modified by another client. You can retry the request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "OptimisticLockException"
+    },
+    "Protection": {
+      "description": "An object that represents a resource that is under DDoS protection.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/ProtectionId",
+          "description": "The unique identifier (ID) of the protection."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProtectionName",
+          "description": "The friendly name of the protection. For example, <code>My CloudFront distributions</code>."
+        },
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The ARN (Amazon Resource Name) of the AWS resource that is protected."
+        }
+      },
+      "type": "object",
+      "title": "Protection"
+    },
+    "ProtectionId": {
+      "maxLength": 36,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9\\\\-]*",
+      "type": "string",
+      "title": "ProtectionId"
+    },
+    "ProtectionName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[ a-zA-Z0-9_\\\\.\\\\-]*",
+      "type": "string",
+      "title": "ProtectionName"
+    },
+    "Protections": {
+      "items": {
+        "$ref": "#/definitions/Protection"
+      },
+      "type": "array",
+      "title": "Protections"
+    },
+    "ResourceAlreadyExistsException": {
+      "description": "Exception indicating the specified resource already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceAlreadyExistsException"
+    },
+    "ResourceArn": {
+      "minLength": 1,
+      "type": "string",
+      "title": "ResourceArn"
+    },
+    "ResourceArnFilterList": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
+      },
+      "type": "array",
+      "title": "ResourceArnFilterList"
+    },
+    "ResourceNotFoundException": {
+      "description": "Exception indicating the specified resource does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "SubResourceSummary": {
+      "description": "The attack information for the specified SubResource.",
+      "properties": {
+        "AttackVectors": {
+          "$ref": "#/definitions/SummarizedAttackVectorList",
+          "description": "The list of attack types and associated counters."
+        },
+        "Counters": {
+          "$ref": "#/definitions/SummarizedCounterList",
+          "description": "The counters that describe the details of the attack."
+        },
+        "Id": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier (ID) of the <code>SubResource</code>."
+        },
+        "Type": {
+          "$ref": "#/definitions/SubResourceType",
+          "description": "The <code>SubResource</code> type."
+        }
+      },
+      "type": "object",
+      "title": "SubResourceSummary"
+    },
+    "SubResourceSummaryList": {
+      "items": {
+        "$ref": "#/definitions/SubResourceSummary"
+      },
+      "type": "array",
+      "title": "SubResourceSummaryList"
+    },
+    "SubResourceType": {
+      "enum": [
+        "IP",
+        "URL"
+      ],
+      "type": "string",
+      "title": "SubResourceType"
+    },
+    "Subscription": {
+      "description": "Information about the AWS Shield Advanced subscription for an account.",
+      "properties": {
+        "StartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time of the subscription, in the format \"2016-12-16T13:50Z\"."
+        },
+        "TimeCommitmentInSeconds": {
+          "$ref": "#/definitions/DurationInSeconds",
+          "description": "The length, in seconds, of the AWS Shield Advanced subscription for the account."
+        }
+      },
+      "type": "object",
+      "title": "Subscription"
+    },
+    "SummarizedAttackVector": {
+      "description": "A summary of information about the attack.",
+      "properties": {
+        "VectorCounters": {
+          "$ref": "#/definitions/SummarizedCounterList",
+          "description": "The list of counters that describe the details of the attack."
+        },
+        "VectorType": {
+          "$ref": "#/definitions/String",
+          "description": "The attack type, for example, SNMP reflection or SYN flood."
+        }
+      },
+      "required": [
+        "VectorType"
+      ],
+      "type": "object",
+      "title": "SummarizedAttackVector"
+    },
+    "SummarizedAttackVectorList": {
+      "items": {
+        "$ref": "#/definitions/SummarizedAttackVector"
+      },
+      "type": "array",
+      "title": "SummarizedAttackVectorList"
+    },
+    "SummarizedCounter": {
+      "description": "The counter that describes a DDoS attack.",
+      "properties": {
+        "Average": {
+          "$ref": "#/definitions/Double",
+          "description": "The average value of the counter for a specified time period."
+        },
+        "Max": {
+          "$ref": "#/definitions/Double",
+          "description": "The maximum value of the counter for a specified time period."
+        },
+        "N": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of counters for a specified time period."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The counter name."
+        },
+        "Sum": {
+          "$ref": "#/definitions/Double",
+          "description": "The total of counter values for a specified time period."
+        },
+        "Unit": {
+          "$ref": "#/definitions/String",
+          "description": "The unit of the counters."
+        }
+      },
+      "type": "object",
+      "title": "SummarizedCounter"
+    },
+    "SummarizedCounterList": {
+      "items": {
+        "$ref": "#/definitions/SummarizedCounter"
+      },
+      "type": "array",
+      "title": "SummarizedCounterList"
+    },
+    "TimeRange": {
+      "description": "The time range.",
+      "properties": {
+        "FromInclusive": {
+          "$ref": "#/definitions/AttackTimestamp",
+          "description": "The start time, in the format 2016-12-16T13:50Z."
+        },
+        "ToExclusive": {
+          "$ref": "#/definitions/AttackTimestamp",
+          "description": "The end time, in the format 2016-12-16T15:50Z."
+        }
+      },
+      "type": "object",
+      "title": "TimeRange"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "Token": {
+      "minLength": 1,
+      "type": "string",
+      "title": "Token"
+    },
+    "errorMessage": {
+      "type": "string",
+      "title": "errorMessage"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateProtection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateProtectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateProtectionResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "CreateSubscription",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateSubscriptionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSubscriptionResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "DeleteProtection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteProtectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteProtectionResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "DeleteSubscription",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteSubscriptionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteSubscriptionResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "DescribeAttack",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeAttackRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAttackResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "DescribeProtection",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeProtectionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeProtectionResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "DescribeSubscription",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeSubscriptionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSubscriptionResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "ListAttacks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListAttacksRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAttacksResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    },
+    {
+      "id": "ListProtections",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListProtectionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListProtectionsResponse"
+      },
+      "security": {
+        "amazonaws_shield": {
+          "integration": "amazonaws_shield"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

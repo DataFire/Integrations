@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_shield
 
 ```js
 let datafire = require('datafire');
-let amazonaws_shield = require('@datafire/amazonaws_shield').create();
+let amazonaws_shield = require('@datafire/amazonaws_shield').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_shield.CreateProtection({}).then(data => {
   console.log(data);

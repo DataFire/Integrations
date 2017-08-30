@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_kinesisanalytics
 
 ```js
 let datafire = require('datafire');
-let amazonaws_kinesisanalytics = require('@datafire/amazonaws_kinesisanalytics').create();
+let amazonaws_kinesisanalytics = require('@datafire/amazonaws_kinesisanalytics').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_kinesisanalytics.AddApplicationInput({}).then(data => {
   console.log(data);

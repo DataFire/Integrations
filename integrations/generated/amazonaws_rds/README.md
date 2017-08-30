@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_rds
 
 ```js
 let datafire = require('datafire');
-let amazonaws_rds = require('@datafire/amazonaws_rds').create();
+let amazonaws_rds = require('@datafire/amazonaws_rds').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_rds.AddRoleToDBCluster({}).then(data => {
   console.log(data);

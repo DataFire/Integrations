@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_route53domains
 
 ```js
 let datafire = require('datafire');
-let amazonaws_route53domains = require('@datafire/amazonaws_route53domains').create();
+let amazonaws_route53domains = require('@datafire/amazonaws_route53domains').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_route53domains.CheckDomainAvailability({}).then(data => {
   console.log(data);

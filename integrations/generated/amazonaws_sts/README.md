@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_sts
 
 ```js
 let datafire = require('datafire');
-let amazonaws_sts = require('@datafire/amazonaws_sts').create();
+let amazonaws_sts = require('@datafire/amazonaws_sts').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_sts.AssumeRole({}).then(data => {
   console.log(data);

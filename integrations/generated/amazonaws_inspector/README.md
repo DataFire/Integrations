@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_inspector
 
 ```js
 let datafire = require('datafire');
-let amazonaws_inspector = require('@datafire/amazonaws_inspector').create();
+let amazonaws_inspector = require('@datafire/amazonaws_inspector').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_inspector.AddAttributesToFindings({}).then(data => {
   console.log(data);

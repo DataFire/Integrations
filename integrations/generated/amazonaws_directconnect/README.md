@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_directconnect
 
 ```js
 let datafire = require('datafire');
-let amazonaws_directconnect = require('@datafire/amazonaws_directconnect').create();
+let amazonaws_directconnect = require('@datafire/amazonaws_directconnect').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_directconnect.AllocateConnectionOnInterconnect({}).then(data => {
   console.log(data);

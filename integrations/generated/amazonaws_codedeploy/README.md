@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_codedeploy
 
 ```js
 let datafire = require('datafire');
-let amazonaws_codedeploy = require('@datafire/amazonaws_codedeploy').create();
+let amazonaws_codedeploy = require('@datafire/amazonaws_codedeploy').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_codedeploy.AddTagsToOnPremisesInstances({}).then(data => {
   console.log(data);

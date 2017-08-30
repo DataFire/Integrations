@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_mgh
 
 ```js
 let datafire = require('datafire');
-let amazonaws_mgh = require('@datafire/amazonaws_mgh').create();
+let amazonaws_mgh = require('@datafire/amazonaws_mgh').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_mgh.AssociateCreatedArtifact({}).then(data => {
   console.log(data);

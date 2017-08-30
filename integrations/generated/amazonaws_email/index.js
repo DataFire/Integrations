@@ -15,9 +15,11 @@ let integ = module.exports = new datafire.Integration({
 });
 integ.security[INTEGRATION_ID]= {
   integration: INTEGRATION_ID,
-  accessKeyId: "",
-  secretAccessKey: "",
-  region: "AWS region (if applicable)",
+  fields: {
+    accessKeyId: "",
+    secretAccessKey: "",
+    region: "AWS region (if applicable)",
+  }
 }
 
 function maybeCamelCase(str) {

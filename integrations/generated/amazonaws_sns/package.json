@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_sns",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": "index.js",
   "description": "DataFire integration for Amazon Simple Notification Service",
   "repository": {

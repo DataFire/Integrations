@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_elasticbeanstalk
 
 ```js
 let datafire = require('datafire');
-let amazonaws_elasticbeanstalk = require('@datafire/amazonaws_elasticbeanstalk').create();
+let amazonaws_elasticbeanstalk = require('@datafire/amazonaws_elasticbeanstalk').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_elasticbeanstalk.AbortEnvironmentUpdate({}).then(data => {
   console.log(data);

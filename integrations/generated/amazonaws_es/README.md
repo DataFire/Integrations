@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_es
 
 ```js
 let datafire = require('datafire');
-let amazonaws_es = require('@datafire/amazonaws_es').create();
+let amazonaws_es = require('@datafire/amazonaws_es').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_es.ListDomainNames({}).then(data => {
   console.log(data);

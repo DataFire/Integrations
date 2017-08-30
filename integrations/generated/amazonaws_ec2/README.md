@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_ec2
 
 ```js
 let datafire = require('datafire');
-let amazonaws_ec2 = require('@datafire/amazonaws_ec2').create();
+let amazonaws_ec2 = require('@datafire/amazonaws_ec2').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_ec2.AcceptReservedInstancesExchangeQuote({}).then(data => {
   console.log(data);

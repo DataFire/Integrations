@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_pinpoint
 
 ```js
 let datafire = require('datafire');
-let amazonaws_pinpoint = require('@datafire/amazonaws_pinpoint').create();
+let amazonaws_pinpoint = require('@datafire/amazonaws_pinpoint').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_pinpoint.GetCampaigns({}).then(data => {
   console.log(data);

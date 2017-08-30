@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_elasticache
 
 ```js
 let datafire = require('datafire');
-let amazonaws_elasticache = require('@datafire/amazonaws_elasticache').create();
+let amazonaws_elasticache = require('@datafire/amazonaws_elasticache').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_elasticache.AddTagsToResource({}).then(data => {
   console.log(data);

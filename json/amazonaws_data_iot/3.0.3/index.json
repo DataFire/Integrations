@@ -1,0 +1,300 @@
+{
+  "id": "amazonaws_data_iot",
+  "title": "AWS IoT Data Plane",
+  "description": "AWS IoT\n\nAWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.",
+  "security": {
+    "amazonaws_data_iot": {
+      "integration": "amazonaws_data_iot",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_iot.jpg"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "ConflictException": {
+      "description": "The specified version does not match the version of the document.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ConflictException"
+    },
+    "DeleteThingShadowRequest": {
+      "description": "The input for the DeleteThingShadow operation.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteThingShadowRequest"
+    },
+    "DeleteThingShadowResponse": {
+      "description": "The output from the DeleteThingShadow operation.",
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/JsonDocument",
+          "description": "The state information, in JSON format."
+        }
+      },
+      "required": [
+        "payload"
+      ],
+      "type": "object",
+      "title": "DeleteThingShadowResponse"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "GetThingShadowRequest": {
+      "description": "The input for the GetThingShadow operation.",
+      "properties": {},
+      "type": "object",
+      "title": "GetThingShadowRequest"
+    },
+    "GetThingShadowResponse": {
+      "description": "The output from the GetThingShadow operation.",
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/JsonDocument",
+          "description": "The state information, in JSON format."
+        }
+      },
+      "type": "object",
+      "title": "GetThingShadowResponse"
+    },
+    "InternalFailureException": {
+      "description": "An unexpected error has occurred.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "InternalFailureException"
+    },
+    "InvalidRequestException": {
+      "description": "The request is not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "InvalidRequestException"
+    },
+    "JsonDocument": {
+      "type": "string",
+      "title": "JsonDocument"
+    },
+    "MethodNotAllowedException": {
+      "description": "The specified combination of HTTP verb and URI is not supported.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "MethodNotAllowedException"
+    },
+    "Payload": {
+      "type": "string",
+      "title": "Payload"
+    },
+    "PublishRequest": {
+      "description": "The input for the Publish operation.",
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/Payload",
+          "description": "The state information, in JSON format."
+        }
+      },
+      "type": "object",
+      "title": "PublishRequest"
+    },
+    "Qos": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer",
+      "title": "Qos"
+    },
+    "RequestEntityTooLargeException": {
+      "description": "The payload exceeds the maximum size allowed.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "RequestEntityTooLargeException"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ServiceUnavailableException": {
+      "description": "The service is temporarily unavailable.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "ThingName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_-]+",
+      "type": "string",
+      "title": "ThingName"
+    },
+    "ThrottlingException": {
+      "description": "The rate exceeds the limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "ThrottlingException"
+    },
+    "Topic": {
+      "type": "string",
+      "title": "Topic"
+    },
+    "UnauthorizedException": {
+      "description": "You are not authorized to perform this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedException"
+    },
+    "UnsupportedDocumentEncodingException": {
+      "description": "The document encoding is not supported.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage",
+          "description": "The message for the exception."
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedDocumentEncodingException"
+    },
+    "UpdateThingShadowRequest": {
+      "description": "The input for the UpdateThingShadow operation.",
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/JsonDocument",
+          "description": "The state information, in JSON format."
+        }
+      },
+      "required": [
+        "payload"
+      ],
+      "type": "object",
+      "title": "UpdateThingShadowRequest"
+    },
+    "UpdateThingShadowResponse": {
+      "description": "The output from the UpdateThingShadow operation.",
+      "properties": {
+        "payload": {
+          "$ref": "#/definitions/JsonDocument",
+          "description": "The state information, in JSON format."
+        }
+      },
+      "type": "object",
+      "title": "UpdateThingShadowResponse"
+    },
+    "errorMessage": {
+      "type": "string",
+      "title": "errorMessage"
+    }
+  },
+  "actions": [
+    {
+      "id": "UpdateThingShadow",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "thingName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateThingShadowRequest"
+          }
+        ],
+        "required": [
+          "thingName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateThingShadowResponse"
+      },
+      "security": {
+        "amazonaws_data_iot": {
+          "integration": "amazonaws_data_iot"
+        }
+      }
+    },
+    {
+      "id": "Publish",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PublishRequest"
+          }
+        ],
+        "required": [
+          "topic"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_data_iot": {
+          "integration": "amazonaws_data_iot"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

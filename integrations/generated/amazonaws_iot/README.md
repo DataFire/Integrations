@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_iot
 
 ```js
 let datafire = require('datafire');
-let amazonaws_iot = require('@datafire/amazonaws_iot').create();
+let amazonaws_iot = require('@datafire/amazonaws_iot').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_iot.AcceptCertificateTransfer({}).then(data => {
   console.log(data);

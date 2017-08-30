@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_firehose
 
 ```js
 let datafire = require('datafire');
-let amazonaws_firehose = require('@datafire/amazonaws_firehose').create();
+let amazonaws_firehose = require('@datafire/amazonaws_firehose').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_firehose.CreateDeliveryStream({}).then(data => {
   console.log(data);

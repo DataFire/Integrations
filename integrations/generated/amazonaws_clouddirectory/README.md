@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_clouddirectory
 
 ```js
 let datafire = require('datafire');
-let amazonaws_clouddirectory = require('@datafire/amazonaws_clouddirectory').create();
+let amazonaws_clouddirectory = require('@datafire/amazonaws_clouddirectory').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_clouddirectory.BatchRead({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_streams_dynamodb
 
 ```js
 let datafire = require('datafire');
-let amazonaws_streams_dynamodb = require('@datafire/amazonaws_streams_dynamodb').create();
+let amazonaws_streams_dynamodb = require('@datafire/amazonaws_streams_dynamodb').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_streams_dynamodb.DescribeStream({}).then(data => {
   console.log(data);

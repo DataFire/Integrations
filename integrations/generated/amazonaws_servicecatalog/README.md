@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_servicecatalog
 
 ```js
 let datafire = require('datafire');
-let amazonaws_servicecatalog = require('@datafire/amazonaws_servicecatalog').create();
+let amazonaws_servicecatalog = require('@datafire/amazonaws_servicecatalog').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_servicecatalog.AcceptPortfolioShare({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_budgets
 
 ```js
 let datafire = require('datafire');
-let amazonaws_budgets = require('@datafire/amazonaws_budgets').create();
+let amazonaws_budgets = require('@datafire/amazonaws_budgets').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_budgets.CreateBudget({}).then(data => {
   console.log(data);

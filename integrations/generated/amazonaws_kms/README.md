@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_kms
 
 ```js
 let datafire = require('datafire');
-let amazonaws_kms = require('@datafire/amazonaws_kms').create();
+let amazonaws_kms = require('@datafire/amazonaws_kms').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_kms.CancelKeyDeletion({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_email
 
 ```js
 let datafire = require('datafire');
-let amazonaws_email = require('@datafire/amazonaws_email').create();
+let amazonaws_email = require('@datafire/amazonaws_email').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_email.CloneReceiptRuleSet({}).then(data => {
   console.log(data);

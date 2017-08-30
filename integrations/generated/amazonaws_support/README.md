@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_support
 
 ```js
 let datafire = require('datafire');
-let amazonaws_support = require('@datafire/amazonaws_support').create();
+let amazonaws_support = require('@datafire/amazonaws_support').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_support.AddAttachmentsToSet({}).then(data => {
   console.log(data);

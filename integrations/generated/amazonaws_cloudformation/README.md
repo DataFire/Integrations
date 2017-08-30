@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_cloudformation
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudformation = require('@datafire/amazonaws_cloudformation').create();
+let amazonaws_cloudformation = require('@datafire/amazonaws_cloudformation').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_cloudformation.CancelUpdateStack({}).then(data => {
   console.log(data);

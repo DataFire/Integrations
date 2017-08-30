@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_devicefarm
 
 ```js
 let datafire = require('datafire');
-let amazonaws_devicefarm = require('@datafire/amazonaws_devicefarm').create();
+let amazonaws_devicefarm = require('@datafire/amazonaws_devicefarm').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_devicefarm.CreateDevicePool({}).then(data => {
   console.log(data);

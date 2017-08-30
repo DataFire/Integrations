@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_greengrass
 
 ```js
 let datafire = require('datafire');
-let amazonaws_greengrass = require('@datafire/amazonaws_greengrass').create();
+let amazonaws_greengrass = require('@datafire/amazonaws_greengrass').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_greengrass.ListCoreDefinitions({}).then(data => {
   console.log(data);

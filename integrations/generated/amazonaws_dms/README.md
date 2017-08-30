@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_dms
 
 ```js
 let datafire = require('datafire');
-let amazonaws_dms = require('@datafire/amazonaws_dms').create();
+let amazonaws_dms = require('@datafire/amazonaws_dms').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_dms.AddTagsToResource({}).then(data => {
   console.log(data);

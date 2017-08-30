@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_elasticmapreduce
 
 ```js
 let datafire = require('datafire');
-let amazonaws_elasticmapreduce = require('@datafire/amazonaws_elasticmapreduce').create();
+let amazonaws_elasticmapreduce = require('@datafire/amazonaws_elasticmapreduce').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_elasticmapreduce.AddInstanceFleet({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_dax
 
 ```js
 let datafire = require('datafire');
-let amazonaws_dax = require('@datafire/amazonaws_dax').create();
+let amazonaws_dax = require('@datafire/amazonaws_dax').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_dax.CreateCluster({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_monitoring
 
 ```js
 let datafire = require('datafire');
-let amazonaws_monitoring = require('@datafire/amazonaws_monitoring').create();
+let amazonaws_monitoring = require('@datafire/amazonaws_monitoring').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_monitoring.DeleteAlarms({}).then(data => {
   console.log(data);

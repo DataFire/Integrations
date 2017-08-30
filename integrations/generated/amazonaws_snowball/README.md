@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_snowball
 
 ```js
 let datafire = require('datafire');
-let amazonaws_snowball = require('@datafire/amazonaws_snowball').create();
+let amazonaws_snowball = require('@datafire/amazonaws_snowball').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_snowball.CancelCluster({}).then(data => {
   console.log(data);

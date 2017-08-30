@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_apigateway
 
 ```js
 let datafire = require('datafire');
-let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').create();
+let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_apigateway.UpdateAccount({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_redshift
 
 ```js
 let datafire = require('datafire');
-let amazonaws_redshift = require('@datafire/amazonaws_redshift').create();
+let amazonaws_redshift = require('@datafire/amazonaws_redshift').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_redshift.AuthorizeClusterSecurityGroupIngress({}).then(data => {
   console.log(data);

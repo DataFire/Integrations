@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_cognito_sync
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cognito_sync = require('@datafire/amazonaws_cognito_sync').create();
+let amazonaws_cognito_sync = require('@datafire/amazonaws_cognito_sync').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_cognito_sync.ListIdentityPoolUsage({}).then(data => {
   console.log(data);

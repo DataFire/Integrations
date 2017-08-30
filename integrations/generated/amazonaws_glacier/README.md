@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_glacier
 
 ```js
 let datafire = require('datafire');
-let amazonaws_glacier = require('@datafire/amazonaws_glacier').create();
+let amazonaws_glacier = require('@datafire/amazonaws_glacier').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_glacier.SetDataRetrievalPolicy({}).then(data => {
   console.log(data);

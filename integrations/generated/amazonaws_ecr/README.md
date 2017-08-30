@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_ecr
 
 ```js
 let datafire = require('datafire');
-let amazonaws_ecr = require('@datafire/amazonaws_ecr').create();
+let amazonaws_ecr = require('@datafire/amazonaws_ecr').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_ecr.BatchCheckLayerAvailability({}).then(data => {
   console.log(data);

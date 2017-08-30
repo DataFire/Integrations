@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_ssm
 
 ```js
 let datafire = require('datafire');
-let amazonaws_ssm = require('@datafire/amazonaws_ssm').create();
+let amazonaws_ssm = require('@datafire/amazonaws_ssm').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_ssm.AddTagsToResource({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_storagegateway
 
 ```js
 let datafire = require('datafire');
-let amazonaws_storagegateway = require('@datafire/amazonaws_storagegateway').create();
+let amazonaws_storagegateway = require('@datafire/amazonaws_storagegateway').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_storagegateway.ActivateGateway({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_cloudhsmv2
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cloudhsmv2 = require('@datafire/amazonaws_cloudhsmv2').create();
+let amazonaws_cloudhsmv2 = require('@datafire/amazonaws_cloudhsmv2').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_cloudhsmv2.CreateCluster({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_iam
 
 ```js
 let datafire = require('datafire');
-let amazonaws_iam = require('@datafire/amazonaws_iam').create();
+let amazonaws_iam = require('@datafire/amazonaws_iam').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_iam.AddClientIDToOpenIDConnectProvider({}).then(data => {
   console.log(data);

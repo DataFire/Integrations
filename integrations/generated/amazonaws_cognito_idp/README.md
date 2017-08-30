@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_cognito_idp
 
 ```js
 let datafire = require('datafire');
-let amazonaws_cognito_idp = require('@datafire/amazonaws_cognito_idp').create();
+let amazonaws_cognito_idp = require('@datafire/amazonaws_cognito_idp').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_cognito_idp.AddCustomAttributes({}).then(data => {
   console.log(data);

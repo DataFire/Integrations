@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_codestar
 
 ```js
 let datafire = require('datafire');
-let amazonaws_codestar = require('@datafire/amazonaws_codestar').create();
+let amazonaws_codestar = require('@datafire/amazonaws_codestar').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_codestar.AssociateTeamMember({}).then(data => {
   console.log(data);

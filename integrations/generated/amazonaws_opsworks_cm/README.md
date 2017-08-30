@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_opsworks_cm
 
 ```js
 let datafire = require('datafire');
-let amazonaws_opsworks_cm = require('@datafire/amazonaws_opsworks_cm').create();
+let amazonaws_opsworks_cm = require('@datafire/amazonaws_opsworks_cm').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_opsworks_cm.AssociateNode({}).then(data => {
   console.log(data);

@@ -9,7 +9,11 @@ npm install --save datafire @datafire/amazonaws_tagging
 
 ```js
 let datafire = require('datafire');
-let amazonaws_tagging = require('@datafire/amazonaws_tagging').create();
+let amazonaws_tagging = require('@datafire/amazonaws_tagging').create({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "",
+});
 
 amazonaws_tagging.GetResources({}).then(data => {
   console.log(data);
