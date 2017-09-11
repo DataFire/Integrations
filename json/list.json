@@ -10368,7 +10368,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.png"
     },
     "actionCount": 10,
     "tags": [
@@ -11076,7 +11076,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lyft.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lyft.png"
     },
     "actionCount": 18,
     "tags": [
