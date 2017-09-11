@@ -1,0 +1,167 @@
+{
+  "id": "aucklandmuseum",
+  "title": "Auckland Museum",
+  "description": "This is technical documentation for the Auckland Museum API\n",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/aucklandmuseum.png"
+  },
+  "actionCount": 6,
+  "actions": [
+    {
+      "id": "id.media.path.get",
+      "title": "id.media.path.get",
+      "description": "Gets `media` at a given path\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The media `identifier`\n"
+          },
+          "rendering": {
+            "type": "string",
+            "description": "The desired media `rendering`\n\nPossible values:\n* `original.jpg`\n* `original.pdf`\n* `thumbnail.jpg` (fixed with 70px)\n* `standard.jpg` (fixed width 440px and height 440px)\n* `preview.jpg` (fixed height 100px)\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "id.identifier.get",
+      "title": "id.identifier.get",
+      "description": "Gets information about a `subject` identified by the `identifier`.\n\nThe response format depends upon the `Accept` header.\n  - `text/html` - the default response type. Returned data can be easily viewed in any modern Internet Browser\n  - `application/ld+json` - the response will be in [JSON-LD](http://json-ld.org/)\n  - `application/json` - the response will be a simple JSON Object with keys (predicates) and values (objects).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "The identifier path of the `subject` you're looking for\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "identifier"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "search.index.operation.get",
+      "title": "search.index.operation.get",
+      "description": "Use this endpoint to perform simple search queries for finding information and subjects you may be interested in\n\nSearches performed via this endpoint run against an [Elastic](www.elastic.co) server. This endpoint mirrors the Elastic search API documented [here](https://www.elastic.co/guide/en/elasticsearch/reference/1.5/search-search.html)\n\nUse the\n  - `collectionsonline` index to perform searches over other all\nCollections data\n  - `cenotaph` index to perform searches over Cenotaph data\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "string",
+            "description": "search index name\nPossible values:\n* `collectionsonline`\n* `cenotaph`\n"
+          },
+          "operation": {
+            "type": "string",
+            "description": "One of the supported elasticsearch operations like `_search` or `_suggest`"
+          },
+          "q": {
+            "type": "string",
+            "description": "One of the supported elasticsearch query parameter values for key `q`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "operation"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "search.index.operation.post",
+      "title": "search.index.operation.post",
+      "description": "Searches performed via this endpoint run against an [Elastic](www.elastic.co) server. This endpoint mirrors the Elastic search API documented [here](https://www.elastic.co/guide/en/elasticsearch/reference/1.5/search-search.html)\n\nUse the\n  - `collectionsonline` index to perform searches over other all Collections data\n  - `cenotaph` index to perform searches over Cenotaph data\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "string",
+            "description": "search index name\nPossible values:\n* `collectionsonline`\n* `cenotaph`\n"
+          },
+          "operation": {
+            "type": "string",
+            "description": "One of the supported elasticsearch operations like `_search` or `_suggest`"
+          },
+          "body": {
+            "format": "application/json",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "operation"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "sparql.get",
+      "title": "sparql.get",
+      "description": "You can execute your [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) queries against this endpoint.\n\nThe sparql query should be provided as the value of the request parameter `query`.\nSet the `Accept` header to `application/sparql-results+xml` to get results in XML. Set it to `application/sparql-results+json` to get results in JSON. \n\n**Note:** This endpoints supports [JSON-P](http://json-p.org/). In order to get a JSON-P response, set the query parameter `callback` to your preferred callback function name. The default function name is `callback()`. When using JSON-P, there is no need to set the `Accept` header because the response will always be in `application/javascript`.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "sparql query"
+          },
+          "callback": {
+            "type": "string",
+            "description": "The [JSON-P](http://json-p.org/) callback parameter"
+          },
+          "infer": {
+            "type": "boolean",
+            "description": "Whether to get inferred results in the response"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "title": "json",
+        "type": "object"
+      }
+    },
+    {
+      "id": "sparql.post",
+      "title": "sparql.post",
+      "description": "You can execute your [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) queries against this endpoint.\nThe sparql query should be provided as the value of the request parameter `query`.\nSet the `Accept` header to `application/sparql-results+xml` to get results in XML. Set it to `application/sparql-results+json` to get results in JSON. \n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "sparql query"
+          },
+          "infer": {
+            "type": "boolean",
+            "description": "Whether to get inferred results in the response"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

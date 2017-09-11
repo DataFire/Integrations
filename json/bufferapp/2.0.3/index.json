@@ -23,7 +23,7 @@
     }
   },
   "logo": {
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.svg"
   },
   "actionCount": 20,
   "definitions": {

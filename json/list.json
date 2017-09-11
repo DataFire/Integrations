@@ -67,7 +67,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -91,7 +91,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -116,7 +116,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_athena": {
     "id": "amazonaws_athena",
@@ -140,7 +140,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -164,7 +164,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -188,7 +188,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -213,7 +213,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -238,7 +238,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -262,7 +262,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -286,7 +286,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -310,7 +310,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudhsmv2": {
     "id": "amazonaws_cloudhsmv2",
@@ -335,7 +335,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -359,7 +359,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -384,7 +384,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -408,7 +408,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -432,7 +432,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -456,7 +456,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -480,7 +480,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -504,7 +504,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -529,7 +529,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -554,7 +554,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -579,7 +579,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -604,7 +604,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -628,7 +628,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -653,7 +653,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -678,7 +678,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -702,7 +702,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_dax": {
     "id": "amazonaws_dax",
@@ -727,7 +727,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -751,7 +751,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -775,7 +775,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -800,7 +800,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -824,7 +824,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -848,7 +848,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -872,7 +872,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -896,7 +896,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -920,7 +920,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -944,7 +944,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -968,7 +968,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -992,7 +992,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -1017,7 +1017,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -1041,7 +1041,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -1066,7 +1066,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -1090,7 +1090,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -1114,7 +1114,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -1139,7 +1139,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -1164,7 +1164,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -1189,7 +1189,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -1213,7 +1213,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -1237,7 +1237,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -1261,7 +1261,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_glue": {
     "id": "amazonaws_glue",
@@ -1286,7 +1286,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
@@ -1310,7 +1310,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -1335,7 +1335,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -1359,7 +1359,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -1383,7 +1383,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -1407,7 +1407,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -1431,7 +1431,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -1455,7 +1455,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -1478,7 +1478,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -1502,7 +1502,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -1526,7 +1526,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -1550,7 +1550,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -1574,7 +1574,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -1599,7 +1599,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -1624,7 +1624,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_mgh": {
     "id": "amazonaws_mgh",
@@ -1649,7 +1649,32 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
+  },
+  "amazonaws_mobile": {
+    "id": "amazonaws_mobile",
+    "title": "AWS Mobile",
+    "description": " AWS Mobile Service provides mobile app and website developers with capabilities required to configure AWS resources and...",
+    "security": {
+      "amazonaws_mobile": {
+        "integration": "amazonaws_mobile",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobile.jpg"
+    },
+    "actionCount": 7,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "3.0.4"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -1673,7 +1698,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -1698,7 +1723,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -1722,7 +1747,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -1747,7 +1772,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -1771,7 +1796,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -1796,7 +1821,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -1820,7 +1845,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -1843,7 +1868,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -1867,7 +1892,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -1891,7 +1916,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -1915,7 +1940,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -1939,7 +1964,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -1962,7 +1987,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -1987,7 +2012,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -2012,7 +2037,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -2035,7 +2060,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -2060,7 +2085,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -2084,7 +2109,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -2108,7 +2133,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -2132,7 +2157,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -2156,7 +2181,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -2180,7 +2205,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -2204,7 +2229,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -2229,7 +2254,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -2254,7 +2279,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -2278,7 +2303,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -2303,7 +2328,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -2327,7 +2352,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -2352,7 +2377,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -2376,7 +2401,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -2401,7 +2426,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -2425,7 +2450,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -2450,7 +2475,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -2474,7 +2499,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -2498,7 +2523,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -2523,7 +2548,7 @@
       "cloud",
       "aws"
     ],
-    "latestVersion": "3.0.3"
+    "latestVersion": "3.0.4"
   },
   "apacta": {
     "id": "apacta",
@@ -2954,6 +2979,36 @@
     "actionCount": 45,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "ato_gov_au": {
+    "id": "ato_gov_au",
+    "title": "Business Registries",
+    "description": "# Introduction The Business Registries API is built on HTTP. The API is RESTful. It has predictable resource URIs. The A...",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#D3D3D3",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ato_gov_au.png"
+    },
+    "actionCount": 74,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "aucklandmuseum": {
+    "id": "aucklandmuseum",
+    "title": "Auckland Museum",
+    "description": "This is technical documentation for the Auckland Museum API",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/aucklandmuseum.png"
+    },
+    "actionCount": 6,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
   },
   "authentiq": {
     "id": "authentiq",
@@ -4820,7 +4875,7 @@
       }
     },
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.svg"
     },
     "actionCount": 20,
     "tags": [
@@ -4875,6 +4930,29 @@
     ],
     "latestVersion": "2.0.0"
   },
+  "callfire": {
+    "id": "callfire",
+    "title": "CallFire",
+    "description": "CallFire",
+    "security": {
+      "callfire": {
+        "integration": "callfire",
+        "fields": {
+          "username": "Your username",
+          "password": "Your password"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/callfire.png"
+    },
+    "actionCount": 111,
+    "tags": [
+      "telecom"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "cambase": {
     "id": "cambase",
     "title": "Cambase.io",
@@ -4886,6 +4964,86 @@
     "actionCount": 17,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "ccp_is": {
+    "id": "ccp_is",
+    "title": "EVE Swagger Interface",
+    "description": "An OpenAPI for EVE Online",
+    "security": {
+      "ccp_is": {
+        "integration": "ccp_is",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.eveonline.com/oauth/authorize",
+          "flow": "implicit",
+          "scopes": {
+            "esi-assets.read_assets.v1": "EVE SSO scope esi-assets.read_assets.v1",
+            "esi-bookmarks.read_character_bookmarks.v1": "EVE SSO scope esi-bookmarks.read_character_bookmarks.v1",
+            "esi-calendar.read_calendar_events.v1": "EVE SSO scope esi-calendar.read_calendar_events.v1",
+            "esi-calendar.respond_calendar_events.v1": "EVE SSO scope esi-calendar.respond_calendar_events.v1",
+            "esi-characters.read_agents_research.v1": "EVE SSO scope esi-characters.read_agents_research.v1",
+            "esi-characters.read_blueprints.v1": "EVE SSO scope esi-characters.read_blueprints.v1",
+            "esi-characters.read_chat_channels.v1": "EVE SSO scope esi-characters.read_chat_channels.v1",
+            "esi-characters.read_contacts.v1": "EVE SSO scope esi-characters.read_contacts.v1",
+            "esi-characters.read_corporation_roles.v1": "EVE SSO scope esi-characters.read_corporation_roles.v1",
+            "esi-characters.read_fatigue.v1": "EVE SSO scope esi-characters.read_fatigue.v1",
+            "esi-characters.read_loyalty.v1": "EVE SSO scope esi-characters.read_loyalty.v1",
+            "esi-characters.read_medals.v1": "EVE SSO scope esi-characters.read_medals.v1",
+            "esi-characters.read_notifications.v1": "EVE SSO scope esi-characters.read_notifications.v1",
+            "esi-characters.read_opportunities.v1": "EVE SSO scope esi-characters.read_opportunities.v1",
+            "esi-characters.read_standings.v1": "EVE SSO scope esi-characters.read_standings.v1",
+            "esi-characters.write_contacts.v1": "EVE SSO scope esi-characters.write_contacts.v1",
+            "esi-clones.read_clones.v1": "EVE SSO scope esi-clones.read_clones.v1",
+            "esi-clones.read_implants.v1": "EVE SSO scope esi-clones.read_implants.v1",
+            "esi-contracts.read_character_contracts.v1": "EVE SSO scope esi-contracts.read_character_contracts.v1",
+            "esi-corporations.read_corporation_membership.v1": "EVE SSO scope esi-corporations.read_corporation_membership.v1",
+            "esi-corporations.read_structures.v1": "EVE SSO scope esi-corporations.read_structures.v1",
+            "esi-corporations.track_members.v1": "EVE SSO scope esi-corporations.track_members.v1",
+            "esi-corporations.write_structures.v1": "EVE SSO scope esi-corporations.write_structures.v1",
+            "esi-fittings.read_fittings.v1": "EVE SSO scope esi-fittings.read_fittings.v1",
+            "esi-fittings.write_fittings.v1": "EVE SSO scope esi-fittings.write_fittings.v1",
+            "esi-fleets.read_fleet.v1": "EVE SSO scope esi-fleets.read_fleet.v1",
+            "esi-fleets.write_fleet.v1": "EVE SSO scope esi-fleets.write_fleet.v1",
+            "esi-industry.read_character_jobs.v1": "EVE SSO scope esi-industry.read_character_jobs.v1",
+            "esi-killmails.read_corporation_killmails.v1": "EVE SSO scope esi-killmails.read_corporation_killmails.v1",
+            "esi-killmails.read_killmails.v1": "EVE SSO scope esi-killmails.read_killmails.v1",
+            "esi-location.read_location.v1": "EVE SSO scope esi-location.read_location.v1",
+            "esi-location.read_online.v1": "EVE SSO scope esi-location.read_online.v1",
+            "esi-location.read_ship_type.v1": "EVE SSO scope esi-location.read_ship_type.v1",
+            "esi-mail.organize_mail.v1": "EVE SSO scope esi-mail.organize_mail.v1",
+            "esi-mail.read_mail.v1": "EVE SSO scope esi-mail.read_mail.v1",
+            "esi-mail.send_mail.v1": "EVE SSO scope esi-mail.send_mail.v1",
+            "esi-markets.read_character_orders.v1": "EVE SSO scope esi-markets.read_character_orders.v1",
+            "esi-markets.structure_markets.v1": "EVE SSO scope esi-markets.structure_markets.v1",
+            "esi-planets.manage_planets.v1": "EVE SSO scope esi-planets.manage_planets.v1",
+            "esi-search.search_structures.v1": "EVE SSO scope esi-search.search_structures.v1",
+            "esi-skills.read_skillqueue.v1": "EVE SSO scope esi-skills.read_skillqueue.v1",
+            "esi-skills.read_skills.v1": "EVE SSO scope esi-skills.read_skills.v1",
+            "esi-ui.open_window.v1": "EVE SSO scope esi-ui.open_window.v1",
+            "esi-ui.write_waypoint.v1": "EVE SSO scope esi-ui.write_waypoint.v1",
+            "esi-universe.read_structures.v1": "EVE SSO scope esi-universe.read_structures.v1",
+            "esi-wallet.read_character_wallet.v1": "EVE SSO scope esi-wallet.read_character_wallet.v1",
+            "esi-wallet.read_corporation_wallets.v1": "EVE SSO scope esi-wallet.read_corporation_wallets.v1"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ccp_is.jpeg"
+    },
+    "actionCount": 158,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
   },
   "cenit": {
     "id": "cenit",
@@ -4949,6 +5107,46 @@
       "developer tools"
     ],
     "latestVersion": "2.0.3"
+  },
+  "circuitsandbox": {
+    "id": "circuitsandbox",
+    "title": "REST API Version 2",
+    "description": "Circuit REST API to interact with the Circuit system.",
+    "security": {
+      "circuitsandbox": {
+        "integration": "circuitsandbox",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://circuitsandbox.net/oauth/authorize",
+          "flow": "implicit",
+          "scopes": {
+            "ALL": "allows full access to all functionalities of the REST API",
+            "CALLS": "allows to start or join real time collaboration session",
+            "READ_CONVERSATIONS": "allows to read conversations of the authenticated user",
+            "READ_USER": "allows to read user information for all users that belong to the tenant of the authenticated user",
+            "READ_USER_PROFILE": "allows to read the user profile of the authenticated user",
+            "WRITE_CONVERSATIONS": "allows to create and update conversations of the authenticated user or to post messages",
+            "WRITE_USER_PROFILE": "allows to update the user profile of the authenticated user"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circuitsandbox.png"
+    },
+    "actionCount": 43,
+    "tags": [
+      "messaging"
+    ],
+    "latestVersion": "2.0.0"
   },
   "cisco": {
     "id": "cisco",
@@ -5224,6 +5422,20 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "dataatwork": {
+    "id": "dataatwork",
+    "title": "Open Skills",
+    "description": "A complete and standard data store for canonical and emerging skills, knowledge, abilities, tools, technolgies, and how ...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dataatwork.jpg"
+    },
+    "actionCount": 13,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "datumbox": {
     "id": "datumbox",
     "title": "DatumBox",
@@ -5352,6 +5564,28 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/docusign.png"
     },
     "actionCount": 303,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "dropx": {
+    "id": "dropx",
+    "title": "DropX",
+    "description": "dropX.io API provides programmatic access to the e-commerce intelligence data.",
+    "security": {
+      "dropx": {
+        "integration": "dropx",
+        "fields": {
+          "api_key": "authentication header should be in header"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dropx.svg"
+    },
+    "actionCount": 7,
     "tags": [
       "ecommerce"
     ],
@@ -5972,6 +6206,46 @@
       "media"
     ],
     "latestVersion": "2.0.3"
+  },
+  "giphy": {
+    "id": "giphy",
+    "title": "Giphy",
+    "description": "Giphy API",
+    "security": {
+      "giphy": {
+        "integration": "giphy",
+        "fields": {
+          "api_key": "API key"
+        }
+      }
+    },
+    "actionCount": 10,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "gisgraphy": {
+    "id": "gisgraphy",
+    "title": "Gisgraphy webservices",
+    "description": "Since 2006, [Gisgraphy](http://www.gisgraphy.com) is a free, open source framework that offers the possibility to do geo...",
+    "security": {
+      "gisgraphy": {
+        "integration": "gisgraphy",
+        "fields": {
+          "api_key": "API key"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gisgraphy.png"
+    },
+    "actionCount": 6,
+    "tags": [
+      "location"
+    ],
+    "latestVersion": "2.0.0"
   },
   "github": {
     "id": "github",
@@ -10684,6 +10958,28 @@
     "tags": [],
     "latestVersion": "2.0.5"
   },
+  "lotadata": {
+    "id": "lotadata",
+    "title": "LotaData",
+    "description": "Access the most exhaustive, accurate and up-to-date collection of global and hyper-local geocoded events and activities ...",
+    "security": {
+      "lotadata": {
+        "integration": "lotadata",
+        "fields": {
+          "api_key": "Your API key"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lotadata.png"
+    },
+    "actionCount": 4,
+    "tags": [
+      "location"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "lufthansa_partner": {
     "id": "lufthansa_partner",
     "title": "Lufthansa Partner",
@@ -11124,6 +11420,44 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "npr": {
+    "id": "npr",
+    "title": "NPR One API Reference",
+    "description": "NPR One is a smart application that brings the best of NPR and Member Station programming, newscasts,",
+    "security": {
+      "npr": {
+        "integration": "npr",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://api.npr.org/authorization/v2/authorize",
+          "flow": "accessCode",
+          "scopes": {
+            "identity.readonly": "See your personal information, such as your first name, last name, and favorite station.",
+            "identity.write": "Update your personal information, such as your favorite station(s) or program(s) you follow, on your behalf.",
+            "listening.readonly": "See your NPR One listening history and get audio recommendations.",
+            "listening.write": "Record that you have heard, marked as interesting, and/or skipped NPR One stories in order to personalize future audio recommendations.",
+            "localactivation": "Connect you with your local NPR member station for communication purposes."
+          },
+          "tokenUrl": "https://api.npr.org/authorization/v2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/npr.jpg"
+    },
+    "actionCount": 25,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "npr_rss": {
     "id": "npr_rss",
     "title": "NPR RSS",
@@ -11556,6 +11890,21 @@
     "actionCount": 6,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "osisoft": {
+    "id": "osisoft",
+    "title": "PI Web API 2017 Swagger Spec",
+    "description": "Swagger Spec file that describes PI Web API",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/osisoft.jpeg"
+    },
+    "actionCount": 345,
+    "tags": [
+      "enterprise"
+    ],
+    "latestVersion": "2.0.0"
   },
   "owler": {
     "id": "owler",
@@ -12036,6 +12385,20 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "ritekit": {
+    "id": "ritekit",
+    "title": "RiteKit",
+    "description": "RiteKit API is based on REST principles.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ritekit.jpg"
+    },
+    "actionCount": 12,
+    "tags": [
+      "social"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "rottentomatoes": {
     "id": "rottentomatoes",
     "title": "Rotten Tomatoes",
@@ -12116,8 +12479,7 @@
       }
     },
     "logo": {
-      "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/runscope.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/runscope.svg"
     },
     "actionCount": 27,
     "tags": [
@@ -13333,6 +13695,20 @@
       "financial"
     ],
     "latestVersion": "2.0.3"
+  },
+  "zalando": {
+    "id": "zalando",
+    "title": "Zalando Shop",
+    "description": "The shop API empowers developers to build amazing new apps or websites using Zalando shop data and services.",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zalando.jpg"
+    },
+    "actionCount": 20,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
   },
   "zappiti": {
     "id": "zappiti",

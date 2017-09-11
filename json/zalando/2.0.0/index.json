@@ -1,0 +1,2382 @@
+{
+  "id": "zalando",
+  "title": "Zalando Shop",
+  "description": "The shop API empowers developers to build amazing new apps or websites using Zalando shop data and services.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zalando.jpg"
+  },
+  "actionCount": 20,
+  "definitions": {
+    "Article": {
+      "description": "A single article",
+      "properties": {
+        "activationDate": {
+          "description": "timestamp the article was available in the Zalando webshop",
+          "format": "date-time",
+          "type": "string"
+        },
+        "additionalInfos": {
+          "description": "any additional information of the article ",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "ageGroups": {
+          "description": "age group of the article belongs to",
+          "items": {
+            "enum": [
+              "BABY",
+              "CHILD",
+              "TEEN",
+              "ADULT"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "attributes": {
+          "description": "article attributes",
+          "items": {
+            "$ref": "#/definitions/Article-Attribute"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "available": {
+          "description": "will be true if at least one article unit is available",
+          "type": "boolean"
+        },
+        "brand": {
+          "$ref": "#/definitions/Brand"
+        },
+        "categoryKeys": {
+          "description": "category keys of the article belongs to",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "color": {
+          "description": "the main color of the article",
+          "type": "string"
+        },
+        "genders": {
+          "description": "gender of the article belongs to",
+          "items": {
+            "enum": [
+              "MALE",
+              "FEMALE"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "id": {
+          "description": "unique article id",
+          "type": "string"
+        },
+        "media": {
+          "$ref": "#/definitions/Article-Media"
+        },
+        "modelId": {
+          "description": "unique article model id",
+          "type": "string"
+        },
+        "name": {
+          "description": "article name",
+          "type": "string"
+        },
+        "season": {
+          "description": "collection season the article belongs to",
+          "enum": [
+            "SUMMER",
+            "WINTER",
+            "ALL"
+          ],
+          "type": "string"
+        },
+        "seasonYear": {
+          "description": "collection year the article belongs to. Could be either a year or 'ALL'",
+          "pattern": "^ALL$|^20[0-9]{2}$",
+          "type": "string"
+        },
+        "shopUrl": {
+          "description": "url of the article within the Zalando webshop",
+          "format": "uri",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "units": {
+          "description": "price of the article",
+          "items": {
+            "$ref": "#/definitions/Article-Unit"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "modelId",
+        "name",
+        "shopUrl",
+        "color",
+        "available",
+        "season",
+        "seasonYear",
+        "activationDate",
+        "additionalInfos",
+        "genders",
+        "ageGroups",
+        "brand",
+        "categoryKeys",
+        "attributes",
+        "units",
+        "media"
+      ],
+      "type": "object",
+      "title": "Article"
+    },
+    "Article-Attribute": {
+      "description": "Zalando API Article Attribute Schema",
+      "properties": {
+        "name": {
+          "description": "name of the article attribute",
+          "type": "string"
+        },
+        "values": {
+          "description": "value of the article attribute",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "values"
+      ],
+      "type": "object",
+      "title": "Article-Attribute"
+    },
+    "Article-Image": {
+      "description": "Zalando API Article Image Schema",
+      "properties": {
+        "largeHdUrl": {
+          "description": "large HD image of the article",
+          "format": "uri",
+          "type": "string"
+        },
+        "largeUrl": {
+          "description": "large image of the article",
+          "format": "uri",
+          "type": "string"
+        },
+        "mediumHdUrl": {
+          "description": "medium HD image of the article",
+          "format": "uri",
+          "type": "string"
+        },
+        "mediumUrl": {
+          "description": "medium image of the article",
+          "format": "uri",
+          "type": "string"
+        },
+        "orderNumber": {
+          "description": "sequence of the article images",
+          "type": "integer"
+        },
+        "smallHdUrl": {
+          "description": "small HD image of the article",
+          "format": "uri",
+          "type": "string"
+        },
+        "smallUrl": {
+          "description": "small image of the article",
+          "format": "uri",
+          "type": "string"
+        },
+        "thumbnailHdUrl": {
+          "description": "thumbnail HD url of the article images",
+          "format": "uri",
+          "type": "string"
+        },
+        "type": {
+          "description": "model or non model type article images",
+          "type": "string"
+        }
+      },
+      "required": [
+        "orderNumber",
+        "type",
+        "thumbnailHdUrl",
+        "smallUrl",
+        "smallHdUrl",
+        "mediumUrl",
+        "mediumHdUrl",
+        "largeUrl",
+        "largeHdUrl"
+      ],
+      "type": "object",
+      "title": "Article-Image"
+    },
+    "Article-Media": {
+      "description": "Zalando API Article Media Schema",
+      "properties": {
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Article-Image"
+          },
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "images"
+      ],
+      "type": "object",
+      "title": "Article-Media"
+    },
+    "Article-Price": {
+      "description": "Zalando API Article Price Schema",
+      "properties": {
+        "currency": {
+          "description": "",
+          "type": "string"
+        },
+        "formatted": {
+          "description": "",
+          "type": "string"
+        },
+        "value": {
+          "description": "",
+          "type": "number"
+        }
+      },
+      "required": [
+        "currency",
+        "value",
+        "formatted"
+      ],
+      "type": "object",
+      "title": "Article-Price"
+    },
+    "Article-Review": {
+      "description": "Zalando API Article Review Schema",
+      "properties": {
+        "articleId": {
+          "type": "string"
+        },
+        "articleModelId": {
+          "type": "string"
+        },
+        "articleSizeRatings": {
+          "description": "",
+          "properties": {
+            "BOOTLEG_WIDTH": {
+              "type": "integer"
+            },
+            "CHEST": {
+              "type": "integer"
+            },
+            "CHEST_GIRTH": {
+              "type": "integer"
+            },
+            "COLLAR_SIZE": {
+              "type": "integer"
+            },
+            "CUP_SIZE": {
+              "type": "integer"
+            },
+            "HIPS_OR_REAR": {
+              "type": "integer"
+            },
+            "LEG_FIT": {
+              "type": "integer"
+            },
+            "LENGTH": {
+              "type": "integer"
+            },
+            "OVERALL": {
+              "type": "integer"
+            },
+            "SHOE_WIDTH": {
+              "type": "integer"
+            },
+            "SHOULDERS": {
+              "type": "integer"
+            },
+            "SLEEVES": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "created": {
+          "description": "article review created date and time",
+          "format": "date-time",
+          "type": "string"
+        },
+        "customerCity": {
+          "description": "customer city in the article review",
+          "type": "string"
+        },
+        "customerCountry": {
+          "description": "customer country in the article review",
+          "type": "string"
+        },
+        "customerNickname": {
+          "description": "Customer short name in the article review",
+          "type": "string"
+        },
+        "description": {
+          "description": "description of the article review",
+          "type": "string"
+        },
+        "helpfulCount": {
+          "description": "customer review helpful count of the article",
+          "type": "integer"
+        },
+        "language": {
+          "description": "language in the article review",
+          "type": "string"
+        },
+        "rating": {
+          "description": "customer rating of the article",
+          "type": "integer"
+        },
+        "recommend": {
+          "description": "customer recommend to the article",
+          "type": "boolean"
+        },
+        "reviewId": {
+          "description": "unique article review id",
+          "type": "string"
+        },
+        "title": {
+          "description": "title in the article review",
+          "type": "string"
+        },
+        "unhelpfulCount": {
+          "description": "customer review unhelpful count of the article",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "reviewId",
+        "articleId",
+        "articleModelId",
+        "language",
+        "title",
+        "description",
+        "created",
+        "rating",
+        "helpfulCount",
+        "unhelpfulCount"
+      ],
+      "type": "object",
+      "title": "Article-Review"
+    },
+    "Article-Reviews": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "content": {
+              "items": {
+                "$ref": "#/definitions/Article-Review"
+              },
+              "minItems": 0,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "Zalando API Paged Article Reviews Schema",
+      "type": "object",
+      "title": "Article-Reviews"
+    },
+    "Article-Reviews-Summaries": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "content": {
+              "items": {
+                "$ref": "#/definitions/Article-Reviews-Summary"
+              },
+              "minItems": 0,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "Zalando API Paged Article Reviews Summaries Schema",
+      "type": "object",
+      "title": "Article-Reviews-Summaries"
+    },
+    "Article-Reviews-Summary": {
+      "description": "Zalando API Article Reviews Summary Schema",
+      "properties": {
+        "articleModelId": {
+          "type": "string"
+        },
+        "articleSizeRatings": {
+          "description": "size rating of the article",
+          "properties": {
+            "BOOTLEG_WIDTH": {
+              "type": "number"
+            },
+            "CHEST": {
+              "type": "number"
+            },
+            "CHEST_GIRTH": {
+              "type": "number"
+            },
+            "COLLAR_SIZE": {
+              "type": "number"
+            },
+            "CUP_SIZE": {
+              "type": "number"
+            },
+            "HIPS_OR_REAR": {
+              "type": "number"
+            },
+            "LEG_FIT": {
+              "type": "number"
+            },
+            "LENGTH": {
+              "type": "number"
+            },
+            "OVERALL": {
+              "type": "number"
+            },
+            "SHOE_WIDTH": {
+              "type": "number"
+            },
+            "SHOULDERS": {
+              "type": "number"
+            },
+            "SLEEVES": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "averageStarRating": {
+          "description": "average star rating of the article",
+          "type": "number"
+        },
+        "numberOfUserPositiveRecommendations": {
+          "description": "number of positive recommendations to the article",
+          "type": "integer"
+        },
+        "numberOfUserRecommendations": {
+          "description": "number of users recommended to the article",
+          "type": "integer"
+        },
+        "numberOfUserReviews": {
+          "description": "number of user reviews of the article",
+          "type": "integer"
+        },
+        "starRatingDistribution": {
+          "description": "start rating distribution of the article",
+          "properties": {
+            "1": {
+              "type": "integer"
+            },
+            "2": {
+              "type": "integer"
+            },
+            "3": {
+              "type": "integer"
+            },
+            "4": {
+              "type": "integer"
+            },
+            "5": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "articleModelId",
+        "averageStarRating",
+        "numberOfUserReviews",
+        "numberOfUserRecommendations",
+        "numberOfUserPositiveRecommendations",
+        "starRatingDistribution"
+      ],
+      "type": "object",
+      "title": "Article-Reviews-Summary"
+    },
+    "Article-Unit": {
+      "description": "Zalando API Article Unit Schema",
+      "properties": {
+        "available": {
+          "description": "availability of the article",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "article id (sku)",
+          "type": "string"
+        },
+        "originalPrice": {
+          "$ref": "#/definitions/Article-Price"
+        },
+        "partnerId": {
+          "description": "partner id (vendor id) of the article",
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/Article-Price"
+        },
+        "size": {
+          "description": "article size",
+          "type": "string"
+        },
+        "stock": {
+          "description": "stock of the article",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "size",
+        "price",
+        "originalPrice",
+        "available",
+        "stock"
+      ],
+      "type": "object",
+      "title": "Article-Unit"
+    },
+    "Article-Units": {
+      "description": "Zalando API Article Units Schema",
+      "items": {
+        "$ref": "#/definitions/Article-Unit"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "Article-Units"
+    },
+    "Articles": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "content": {
+              "items": {
+                "$ref": "#/definitions/Article"
+              },
+              "minItems": 0,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "A simple container object that carries paging information as well as a list of articles on the `content` property.",
+      "type": "object",
+      "title": "Articles"
+    },
+    "Brand": {
+      "description": "Zalando API Brand Schema",
+      "properties": {
+        "brandFamily": {
+          "$ref": "#/definitions/BrandFamily"
+        },
+        "key": {
+          "description": "The unique key for a brand",
+          "type": "string"
+        },
+        "logoLargeUrl": {
+          "description": "The url of the large brand logo within the Zalando web shop",
+          "format": "uri",
+          "type": "string"
+        },
+        "logoUrl": {
+          "description": "The url of the brand logo within the Zalando web shop",
+          "format": "uri",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the brand",
+          "type": "string"
+        },
+        "shopUrl": {
+          "description": "The url of the brand within the Zalando web shop",
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "shopUrl"
+      ],
+      "type": "object",
+      "title": "Brand"
+    },
+    "BrandFamily": {
+      "description": "Zalando API BrandFamily Schema",
+      "properties": {
+        "key": {
+          "description": "The unique key for a brandFamily",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the brandFamily",
+          "type": "string"
+        },
+        "shopUrl": {
+          "description": "The url of the brandFamily within the Zalando web shop",
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "shopUrl"
+      ],
+      "type": "object",
+      "title": "BrandFamily"
+    },
+    "Brands": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "content": {
+              "items": {
+                "$ref": "#/definitions/Brand"
+              },
+              "minItems": 0,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "Zalando API Paged Brands Schema",
+      "type": "object",
+      "title": "Brands"
+    },
+    "Categories": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Page"
+        },
+        {
+          "properties": {
+            "content": {
+              "items": {
+                "$ref": "#/definitions/Category"
+              },
+              "minItems": 0,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "description": "Zalando API Paged Categories Schema",
+      "type": "object",
+      "title": "Categories"
+    },
+    "Category": {
+      "description": "Zalando API Category Schema",
+      "properties": {
+        "childKeys": {
+          "description": "The list of keys of the child categories",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "cid": {
+          "description": "The numeric ID for a category.",
+          "type": "integer"
+        },
+        "hidden": {
+          "description": "The category is hidden and not shown on the Zalando web shop",
+          "type": "boolean"
+        },
+        "key": {
+          "description": "The unique key for a category",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the category",
+          "type": "string"
+        },
+        "outlet": {
+          "description": "Containing articles are from last seasons",
+          "type": "boolean"
+        },
+        "parentKey": {
+          "description": "The key of the parent category",
+          "type": "string"
+        },
+        "suggestedFilters": {
+          "description": "list of filter names that are reasonable to use within this category",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "targetGroup": {
+          "description": "The target group of the articles from this category",
+          "enum": [
+            "ALL",
+            "WOMEN",
+            "MEN",
+            "KIDS"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the category.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "childKeys",
+        "targetGroup",
+        "suggestedFilters"
+      ],
+      "type": "object",
+      "title": "Category"
+    },
+    "Domain": {
+      "description": "Zalando API Domain Schema",
+      "properties": {
+        "countryCode": {
+          "description": "domain country code",
+          "type": "string"
+        },
+        "currencyCode": {
+          "description": "domain currency code",
+          "type": "string"
+        },
+        "languageCode": {
+          "description": "domain language",
+          "type": "string"
+        },
+        "rootCategoryKey": {
+          "description": "domain root category",
+          "type": "string"
+        },
+        "shopUrl": {
+          "description": "domain specific url",
+          "type": "string"
+        },
+        "taxRate": {
+          "description": "domain tax rate",
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "languageCode",
+        "countryCode",
+        "currencyCode",
+        "taxRate",
+        "rootCategoryKey",
+        "shopUrl"
+      ],
+      "type": "object",
+      "title": "Domain"
+    },
+    "ErrorDetail": {
+      "properties": {
+        "invalidName": {
+          "type": "boolean"
+        },
+        "invalidValues": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ErrorDetail"
+    },
+    "ErrorMessage": {
+      "properties": {
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/ErrorDetail"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status",
+        "message"
+      ],
+      "type": "object",
+      "title": "ErrorMessage"
+    },
+    "Facet": {
+      "description": "Zalando API Facet Schema",
+      "properties": {
+        "facets": {
+          "description": "list of the calculated article counts for each filter value",
+          "items": {
+            "$ref": "#/definitions/Facet-Value"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "filter": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "filter",
+        "facets"
+      ],
+      "type": "object",
+      "title": "Facet"
+    },
+    "Facet-Value": {
+      "description": "Zalando API FacetValue Schema",
+      "properties": {
+        "count": {
+          "description": "number of articles matching this filter value",
+          "type": "integer"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "displayName",
+        "count"
+      ],
+      "type": "object",
+      "title": "Facet-Value"
+    },
+    "Facets": {
+      "description": "Zalando API Facets Schema",
+      "items": {
+        "$ref": "#/definitions/Facet"
+      },
+      "minItems": 0,
+      "type": "array",
+      "title": "Facets"
+    },
+    "Filter": {
+      "description": "Zalando API Filter Schema",
+      "properties": {
+        "multiValue": {
+          "description": "can this filter be used multiple times with different values in one search request",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The unique name for a filter",
+          "type": "string"
+        },
+        "type": {
+          "description": "filter enum types",
+          "enum": [
+            "SKU",
+            "KEY",
+            "ENUM",
+            "STRING",
+            "RANGE"
+          ],
+          "type": "string"
+        },
+        "values": {
+          "description": "only if type is 'enum' this list contains all possible filter values",
+          "items": {
+            "$ref": "#/definitions/Filter-Value"
+          },
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "multiValue",
+        "type",
+        "values"
+      ],
+      "type": "object",
+      "title": "Filter"
+    },
+    "Filter-Value": {
+      "description": "Zalando API FilterValue Schema",
+      "properties": {
+        "displayName": {
+          "description": "translated display name",
+          "type": "string"
+        },
+        "key": {
+          "description": "The key for a filterValue. Only unique within one filter",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "displayName"
+      ],
+      "type": "object",
+      "title": "Filter-Value"
+    },
+    "Filters": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "minItems": 0,
+      "type": "array",
+      "title": "Filters"
+    },
+    "Page": {
+      "description": "wrapper object for paged responses",
+      "discriminator": "content",
+      "properties": {
+        "content": {
+          "description": "page content",
+          "items": {},
+          "minItems": 0,
+          "type": "array"
+        },
+        "page": {
+          "description": "page number",
+          "type": "integer"
+        },
+        "size": {
+          "description": "total number of elements in a page",
+          "type": "integer"
+        },
+        "totalElements": {
+          "description": "total elements in the response",
+          "type": "integer"
+        },
+        "totalPages": {
+          "description": "total number of pages in the response",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "totalElements",
+        "totalPages",
+        "page",
+        "size",
+        "content"
+      ],
+      "type": "object",
+      "title": "Page"
+    },
+    "Recommendations": {
+      "description": "Zalando API Recommendations Schema",
+      "items": {
+        "$ref": "#/definitions/Recommendations-Article"
+      },
+      "minItems": 0,
+      "type": "array",
+      "title": "Recommendations"
+    },
+    "Recommendations-Article": {
+      "description": "Zalando API Recommendation Article Schema",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "media": {
+          "$ref": "#/definitions/Article-Media"
+        },
+        "modelId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shopUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "modelId",
+        "name",
+        "shopUrl",
+        "media"
+      ],
+      "type": "object",
+      "title": "Recommendations-Article"
+    }
+  },
+  "actions": [
+    {
+      "id": "article_reviews.get",
+      "title": "article_reviews.get",
+      "description": "Zalando API Article Reviews Schema",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "articleId": {
+            "type": "array",
+            "description": "Article IDs. A list of config SKUs for which the article reviews will be returned.\nRequired if articleModelId is empty.\n"
+          },
+          "articleModelId": {
+            "type": "array",
+            "description": "Article model IDs. A list of model SKUs for which the article reviews will be returned.\nRequired if articleId is empty.\n"
+          },
+          "minStarRating": {
+            "type": "string",
+            "description": "To get reviews with minimum star rating."
+          },
+          "maxStarRating": {
+            "type": "string",
+            "description": "To get reviews with maximum star rating."
+          },
+          "sort": {
+            "type": "string",
+            "description": "articles are sorted on reviews provided by customers (eg: best)",
+            "enum": [
+              "newest",
+              "best",
+              "worst",
+              "most_helpful"
+            ]
+          },
+          "page": {
+            "type": "string",
+            "description": "to request with required page number or pagination"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "to request with required page size in a page"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Reviews"
+      }
+    },
+    {
+      "id": "article_reviews_summaries.get",
+      "title": "article_reviews_summaries.get",
+      "description": "Zalando API Article Reviews Summaries Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleModelId": {
+            "type": "array",
+            "description": "Article model IDs. A list of model SKUs for which the article review summaries will be returned."
+          },
+          "page": {
+            "type": "string",
+            "description": "to request with required page number or pagination"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "to request with required page size in a page"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleModelId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Reviews-Summaries"
+      }
+    },
+    {
+      "id": "article_reviews_summaries.articleModelId.get",
+      "title": "article_reviews_summaries.articleModelId.get",
+      "description": "Zalando API ArticleReviewsSummaries Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleModelId": {
+            "type": "string",
+            "description": "To get unique reviews summary from article model Id."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleModelId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Reviews-Summary"
+      }
+    },
+    {
+      "id": "article_reviews.reviewId.get",
+      "title": "article_reviews.reviewId.get",
+      "description": "Zalando API ArticleReviews Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "reviewId": {
+            "type": "string",
+            "description": "To get unique review by review Id."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "reviewId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Review"
+      }
+    },
+    {
+      "id": "articles.get",
+      "title": "articles.get",
+      "description": "Search for articles based on various different possible filter like e.g. the `brandFamily`, the `catagory` or a\nspecific `color`. See [Filters](https://todo) for a list of all available filter options.\n\nThe default `pageSize` for responses is set to `20`. You can add a `pageSize` request parameter to adjust that.\nPlease keep in mind that the maximum `pageSize` for this resource is `200`.\n\nThe endpoint also supports reducing the fields returned for each article via the `fields` parameter. Please\nrefer to [fields parameter](https://todo) for more details.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "articleId": {
+            "type": "array",
+            "description": "The `articleIds` to use use for filtering.\n\nOne or more `articleIds` might be used as a filter criteria. Submit multiple `articleId` request parameters for\nmore than one to be used. They will be treated as `OR` criteria."
+          },
+          "articleModelId": {
+            "type": "array",
+            "description": "filters by article ModelId"
+          },
+          "articleUnitId": {
+            "type": "array",
+            "description": "filters by article's unit id"
+          },
+          "activationDate": {
+            "type": "array",
+            "description": "period or time the articles are activated for selling in the shop"
+          },
+          "ageGroup": {
+            "type": "array",
+            "description": "filters by age group (eg: kids)"
+          },
+          "assortmentArea": {
+            "type": "array",
+            "description": "filters by classification of articles (eg: maternity) "
+          },
+          "brand": {
+            "type": "array",
+            "description": "filters by brand key given by user (eg: SA5)"
+          },
+          "brandfamily": {
+            "type": "array",
+            "description": "filters by brand family key (eg: nike) "
+          },
+          "category": {
+            "type": "array",
+            "description": "filters by category (eg: Socks, Rain Coats)"
+          },
+          "color": {
+            "type": "array",
+            "description": "filters by color (eg: red, blue)"
+          },
+          "den": {
+            "type": "array",
+            "description": "filters by den "
+          },
+          "filling": {
+            "type": "array",
+            "description": "filters by different kinds of garment filling materials (eg: satin, wolle)"
+          },
+          "fullText": {
+            "type": "string",
+            "description": "filters by text (eg: search by 'as' gives result with articles of brand Sass)"
+          },
+          "gender": {
+            "type": "array",
+            "description": "filters by gender"
+          },
+          "heelForm": {
+            "type": "array",
+            "description": "filters by heel form (eg: flat)"
+          },
+          "heelHeight": {
+            "type": "array",
+            "description": "filters by height of the heel size or length (eg: xs)"
+          },
+          "length": {
+            "type": "string",
+            "description": "filters by garments length (eg: 3/4 length, knee-length)"
+          },
+          "occasion": {
+            "type": "array",
+            "description": "filters by type of occasion (eg: party, business)"
+          },
+          "pattern": {
+            "type": "array",
+            "description": "filters by pattern on the garments (eg: animal print, plain)"
+          },
+          "price": {
+            "type": "string",
+            "description": "filters all articles in price range (eg: 9-90)"
+          },
+          "sale": {
+            "type": "array",
+            "description": "filters discounted articles marked as sale"
+          },
+          "season": {
+            "type": "array",
+            "description": "filters by season (Autumn/Winter or Spring/Summer)"
+          },
+          "shaftHeight": {
+            "type": "array",
+            "description": "filters by shaft height (eg: s, xs)"
+          },
+          "shaftWidth": {
+            "type": "array",
+            "description": "filters by shaft width (eg: s, l)"
+          },
+          "shirtCollar": {
+            "type": "array",
+            "description": "filters by shirt collar styles (eg: low V neck, lined collar)"
+          },
+          "shoeFastener": {
+            "type": "array",
+            "description": "filters by shoe fastener types (eg: buckle, lacing)"
+          },
+          "shoeToecap": {
+            "type": "array",
+            "description": "filters by shoe toe cap variants (eg: pointed, square)"
+          },
+          "shopArea": {
+            "type": "array",
+            "description": "filters by classification of articles"
+          },
+          "size": {
+            "type": "string",
+            "description": "filters by size"
+          },
+          "sports": {
+            "type": "array",
+            "description": "filters by different sport activities (eg: football)"
+          },
+          "technology": {
+            "type": "array",
+            "description": "filters by technology used to produce the articles"
+          },
+          "trouserRise": {
+            "type": "array",
+            "description": "filters by trouser rise"
+          },
+          "upperMaterial": {
+            "type": "array",
+            "description": "filters by different type of upper material used on garments (eg: lace)"
+          },
+          "volume": {
+            "type": "array",
+            "description": "filters by volume"
+          },
+          "page": {
+            "type": "string",
+            "description": "to request with required page number or pagination"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "to request with required page size in a page"
+          },
+          "sort": {
+            "type": "string",
+            "description": "sorting order (eg: popularity)",
+            "enum": [
+              "popularity",
+              "activationdate",
+              "pricedesc",
+              "priceasc",
+              "sale"
+            ]
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Articles"
+      }
+    },
+    {
+      "id": "articles.articleId.get",
+      "title": "articles.articleId.get",
+      "description": "Zalando API Article Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string",
+            "description": "To get unique article for article Id."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article"
+      }
+    },
+    {
+      "id": "articles.articleId.media.get",
+      "title": "articles.articleId.media.get",
+      "description": "Zalando API Article Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string",
+            "description": "To get unique article for article Id media."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Media"
+      }
+    },
+    {
+      "id": "articles.articleId.reviews.get",
+      "title": "articles.articleId.reviews.get",
+      "description": "Zalando API Article Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string",
+            "description": "To get unique article for article Id reviews."
+          },
+          "minStarRating": {
+            "type": "string",
+            "description": "To get reviews with minimum star rating."
+          },
+          "maxStarRating": {
+            "type": "string",
+            "description": "To get reviews with maximum star rating."
+          },
+          "sort": {
+            "type": "string",
+            "description": "articles are sorted on reviews provided by customers (eg: best)",
+            "enum": [
+              "newest",
+              "best",
+              "worst",
+              "most_helpful"
+            ]
+          },
+          "page": {
+            "type": "string",
+            "description": "to request with required page number or pagination"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "to request with required page size in a page"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Reviews"
+      }
+    },
+    {
+      "id": "articles.articleId.reviews_summary.get",
+      "title": "articles.articleId.reviews_summary.get",
+      "description": "Zalando API Article Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string",
+            "description": "To get unique article for article Id reviews summary."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Reviews-Summary"
+      }
+    },
+    {
+      "id": "articles.articleId.units.get",
+      "title": "articles.articleId.units.get",
+      "description": "Zalando API Article Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string",
+            "description": "To get unique article for article Id units."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Units"
+      }
+    },
+    {
+      "id": "articles.articleId.units.unitId.get",
+      "title": "articles.articleId.units.unitId.get",
+      "description": "Zalando API Article Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleId": {
+            "type": "string",
+            "description": "To get unique article for article Id."
+          },
+          "unitId": {
+            "type": "string",
+            "description": "To get unique article for article Id unit."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleId",
+          "unitId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Article-Unit"
+      }
+    },
+    {
+      "id": "brands.get",
+      "title": "brands.get",
+      "description": "Zalando API Brands Schema",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "key": {
+            "type": "array",
+            "description": "Request Brand by key"
+          },
+          "name": {
+            "type": "array",
+            "description": "Request Brand by name"
+          },
+          "brandFamilyName": {
+            "type": "array",
+            "description": "Request Brand by brandFamilyName"
+          },
+          "brandFamilyKey": {
+            "type": "array",
+            "description": "Request Brand by brandFamilyKey"
+          },
+          "page": {
+            "type": "string",
+            "description": "to request with required page number or pagination"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "to request with required page size in a page"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Brands"
+      }
+    },
+    {
+      "id": "brands.key.get",
+      "title": "brands.key.get",
+      "description": "Zalando API Brand Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "To get unique Brand by key."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Brand"
+      }
+    },
+    {
+      "id": "categories.get",
+      "title": "categories.get",
+      "description": "Zalando API Categories Schema",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "array",
+            "description": "Request Categories by names"
+          },
+          "type": {
+            "type": "string",
+            "description": "Request Categories by type"
+          },
+          "outlet": {
+            "type": "string",
+            "description": "Request Categories by outlet"
+          },
+          "hidden": {
+            "type": "string",
+            "description": "Request Categories by hidden"
+          },
+          "targetGroup": {
+            "type": "string",
+            "description": "Request Categories by target group"
+          },
+          "key": {
+            "type": "array",
+            "description": "Request Categories by keys"
+          },
+          "parentKey": {
+            "type": "array",
+            "description": "Request Categories by parent keys"
+          },
+          "childKey": {
+            "type": "array",
+            "description": "Request Categories by child keys"
+          },
+          "suggestedFilter": {
+            "type": "array",
+            "description": "Request Categories by suggested filters"
+          },
+          "page": {
+            "type": "string",
+            "description": "to request with required page number or pagination"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "to request with required page size in a page"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Categories"
+      }
+    },
+    {
+      "id": "categories.key.get",
+      "title": "categories.key.get",
+      "description": "Zalando API Category Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "array",
+            "description": "To get unique Category by key."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Category"
+      }
+    },
+    {
+      "id": "domains.get",
+      "title": "domains.get",
+      "description": "Zalando API Domains Schema",
+      "inputSchema": {},
+      "outputSchema": {
+        "description": "Zalando API Domains Schema",
+        "items": {
+          "$ref": "#/definitions/Domain"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "facets.get",
+      "title": "facets.get",
+      "description": "Zalando API Facets Schema",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ageGroup": {
+            "type": "array",
+            "description": "filters by age group (eg: kids)"
+          },
+          "articleId": {
+            "type": "array",
+            "description": "The `articleIds` to use use for filtering.\n\nOne or more `articleIds` might be used as a filter criteria. Submit multiple `articleId` request parameters for\nmore than one to be used. They will be treated as `OR` criteria."
+          },
+          "activationDate": {
+            "type": "array",
+            "description": "period or time the articles are activated for selling in the shop"
+          },
+          "articleModelId": {
+            "type": "array",
+            "description": "filters by article ModelId"
+          },
+          "assortmentArea": {
+            "type": "array",
+            "description": "filters by classification of articles (eg: maternity) "
+          },
+          "brand": {
+            "type": "array",
+            "description": "filters by brand key given by user (eg: SA5)"
+          },
+          "brandfamily": {
+            "type": "array",
+            "description": "filters by brand family key (eg: nike) "
+          },
+          "category": {
+            "type": "array",
+            "description": "filters by category (eg: Socks, Rain Coats)"
+          },
+          "color": {
+            "type": "array",
+            "description": "filters by color (eg: red, blue)"
+          },
+          "den": {
+            "type": "array",
+            "description": "filters by den "
+          },
+          "filling": {
+            "type": "array",
+            "description": "filters by different kinds of garment filling materials (eg: satin, wolle)"
+          },
+          "gender": {
+            "type": "array",
+            "description": "filters by gender"
+          },
+          "heelForm": {
+            "type": "array",
+            "description": "filters by heel form (eg: flat)"
+          },
+          "heelHeight": {
+            "type": "array",
+            "description": "filters by height of the heel size or length (eg: xs)"
+          },
+          "length": {
+            "type": "string",
+            "description": "filters by garments length (eg: 3/4 length, knee-length)"
+          },
+          "occasion": {
+            "type": "array",
+            "description": "filters by type of occasion (eg: party, business)"
+          },
+          "pattern": {
+            "type": "array",
+            "description": "filters by pattern on the garments (eg: animal print, plain)"
+          },
+          "price": {
+            "type": "string",
+            "description": "filters all articles in price range (eg: 9-90)"
+          },
+          "sale": {
+            "type": "array",
+            "description": "filters discounted articles marked as sale"
+          },
+          "season": {
+            "type": "array",
+            "description": "filters by season (Autumn/Winter or Spring/Summer)"
+          },
+          "shaftHeight": {
+            "type": "array",
+            "description": "filters by shaft height (eg: s, xs)"
+          },
+          "shaftWidth": {
+            "type": "array",
+            "description": "filters by shaft width (eg: s, l)"
+          },
+          "shirtCollar": {
+            "type": "array",
+            "description": "filters by shirt collar styles (eg: low V neck, lined collar)"
+          },
+          "shoeFastener": {
+            "type": "array",
+            "description": "filters by shoe fastener types (eg: buckle, lacing)"
+          },
+          "shoeToecap": {
+            "type": "array",
+            "description": "filters by shoe toe cap variants (eg: pointed, square)"
+          },
+          "shopArea": {
+            "type": "array",
+            "description": "filters by classification of articles"
+          },
+          "size": {
+            "type": "string",
+            "description": "filters by size"
+          },
+          "sports": {
+            "type": "array",
+            "description": "filters by different sport activities (eg: football)"
+          },
+          "technology": {
+            "type": "array",
+            "description": "filters by technology used to produce the articles"
+          },
+          "trouserRise": {
+            "type": "array",
+            "description": "filters by trouser rise"
+          },
+          "upperMaterial": {
+            "type": "array",
+            "description": "filters by different type of upper material used on garments (eg: lace)"
+          },
+          "volume": {
+            "type": "array",
+            "description": "filters by volume"
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Facets"
+      }
+    },
+    {
+      "id": "filters.get",
+      "title": "filters.get",
+      "description": "Zalando API Filters Schema",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Filters"
+      }
+    },
+    {
+      "id": "filters.filterName.get",
+      "title": "filters.filterName.get",
+      "description": "Zalando API Filters Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filterName": {
+            "type": "string",
+            "description": "To get Filter by filterName."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "filterName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Filter"
+      }
+    },
+    {
+      "id": "recommendations.articleIds.get",
+      "title": "recommendations.articleIds.get",
+      "description": "Zalando API Recommendations Schema",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "articleIds": {
+            "type": "array",
+            "description": "To get Recommendations by articleIds."
+          },
+          "maxResults": {
+            "type": "string",
+            "description": "To get maximum results of Recommendations by articleId."
+          },
+          "Accept-Language": {
+            "type": "string",
+            "description": "Specify which Shop to use.\n\nA standard `Accept-Language` header which specifies the shop that should be used. E.g. `de-DE` will use the German\nshop (as does [https://www.zalando.de](https://www/zalando.de) and `de-AT` will use the Austrian one.\n\nThe shop choosen will e.g. define the currency used for prices as well as the language for product names and\ndescriptions. Furthermore it will impact which articles are available as they might differ between countries.",
+            "enum": [
+              "da-DK",
+              "de-AT",
+              "de-CH",
+              "de-DE",
+              "en-GB",
+              "es-ES",
+              "fi-FI",
+              "fr-BE",
+              "fr-CH",
+              "fr-FR",
+              "it-IT",
+              "nl-BE",
+              "nl-NL",
+              "no-NO",
+              "pl-PL",
+              "sv-SE"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "description": "Comma separated list of fields that should be returned. Fields of subobjects are specified with dots as separator. Fields of objects within lists are specified in the same way.\n\nExample: id,name,brand.key,brand.name, units.id,units.size,units.price.formatted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "articleIds"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Recommendations"
+      }
+    }
+  ],
+  "tags": [
+    "ecommerce"
+  ]
+}
