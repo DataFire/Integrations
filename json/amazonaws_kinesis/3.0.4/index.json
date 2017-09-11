@@ -1,0 +1,1537 @@
+{
+  "id": "amazonaws_kinesis",
+  "title": "Amazon Kinesis",
+  "description": "Amazon Kinesis Streams Service API Reference\n\nAmazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.",
+  "security": {
+    "amazonaws_kinesis": {
+      "integration": "amazonaws_kinesis",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesis.svg"
+  },
+  "actionCount": 19,
+  "definitions": {
+    "AddTagsToStreamInput": {
+      "description": "Represents the input for <code>AddTagsToStream</code>.",
+      "properties": {
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagMap",
+          "description": "The set of key-value pairs to use to create the tags."
+        }
+      },
+      "required": [
+        "StreamName",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "AddTagsToStreamInput"
+    },
+    "BooleanObject": {
+      "type": "boolean",
+      "title": "BooleanObject"
+    },
+    "CreateStreamInput": {
+      "description": "Represents the input for <code>CreateStream</code>.",
+      "properties": {
+        "ShardCount": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "<p>The number of shards that the stream will use. The throughput of the stream is a function of the number of shards; more shards are required for greater provisioned throughput.</p> <p>DefaultShardLimit;</p>"
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "A name to identify the stream. The stream name is scoped to the AWS account used by the application that creates the stream. It is also scoped by region. That is, two streams in two different AWS accounts can have the same name, and two streams in the same AWS account but in two different regions can have the same name."
+        }
+      },
+      "required": [
+        "StreamName",
+        "ShardCount"
+      ],
+      "type": "object",
+      "title": "CreateStreamInput"
+    },
+    "Data": {
+      "maxLength": 1048576,
+      "minLength": 0,
+      "type": "string",
+      "title": "Data"
+    },
+    "DecreaseStreamRetentionPeriodInput": {
+      "description": "Represents the input for <a>DecreaseStreamRetentionPeriod</a>.",
+      "properties": {
+        "RetentionPeriodHours": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The new retention period of the stream, in hours. Must be less than the current retention period."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream to modify."
+        }
+      },
+      "required": [
+        "StreamName",
+        "RetentionPeriodHours"
+      ],
+      "type": "object",
+      "title": "DecreaseStreamRetentionPeriodInput"
+    },
+    "DeleteStreamInput": {
+      "description": "Represents the input for <a>DeleteStream</a>.",
+      "properties": {
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream to delete."
+        }
+      },
+      "required": [
+        "StreamName"
+      ],
+      "type": "object",
+      "title": "DeleteStreamInput"
+    },
+    "DescribeLimitsInput": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeLimitsInput"
+    },
+    "DescribeLimitsOutput": {
+      "properties": {
+        "OpenShardCount": {
+          "$ref": "#/definitions/ShardCountObject",
+          "description": "The number of open shards."
+        },
+        "ShardLimit": {
+          "$ref": "#/definitions/ShardCountObject",
+          "description": "The maximum number of shards."
+        }
+      },
+      "required": [
+        "ShardLimit",
+        "OpenShardCount"
+      ],
+      "type": "object",
+      "title": "DescribeLimitsOutput"
+    },
+    "DescribeStreamInput": {
+      "description": "Represents the input for <code>DescribeStream</code>.",
+      "properties": {
+        "ExclusiveStartShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the shard to start with."
+        },
+        "Limit": {
+          "$ref": "#/definitions/DescribeStreamInputLimit",
+          "description": "The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream to describe."
+        }
+      },
+      "required": [
+        "StreamName"
+      ],
+      "type": "object",
+      "title": "DescribeStreamInput"
+    },
+    "DescribeStreamInputLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "DescribeStreamInputLimit"
+    },
+    "DescribeStreamOutput": {
+      "description": "Represents the output for <code>DescribeStream</code>.",
+      "properties": {
+        "StreamDescription": {
+          "$ref": "#/definitions/StreamDescription",
+          "description": "The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and whether there are more shards available."
+        }
+      },
+      "required": [
+        "StreamDescription"
+      ],
+      "type": "object",
+      "title": "DescribeStreamOutput"
+    },
+    "DisableEnhancedMonitoringInput": {
+      "description": "Represents the input for <a>DisableEnhancedMonitoring</a>.",
+      "properties": {
+        "ShardLevelMetrics": {
+          "$ref": "#/definitions/MetricsNameList",
+          "description": "<p>List of shard-level metrics to disable.</p> <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" disables every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>"
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the Amazon Kinesis stream for which to disable enhanced monitoring."
+        }
+      },
+      "required": [
+        "StreamName",
+        "ShardLevelMetrics"
+      ],
+      "type": "object",
+      "title": "DisableEnhancedMonitoringInput"
+    },
+    "EnableEnhancedMonitoringInput": {
+      "description": "Represents the input for <a>EnableEnhancedMonitoring</a>.",
+      "properties": {
+        "ShardLevelMetrics": {
+          "$ref": "#/definitions/MetricsNameList",
+          "description": "<p>List of shard-level metrics to enable.</p> <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" enables every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>"
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream for which to enable enhanced monitoring."
+        }
+      },
+      "required": [
+        "StreamName",
+        "ShardLevelMetrics"
+      ],
+      "type": "object",
+      "title": "EnableEnhancedMonitoringInput"
+    },
+    "EnhancedMetrics": {
+      "description": "Represents enhanced metrics types.",
+      "properties": {
+        "ShardLevelMetrics": {
+          "$ref": "#/definitions/MetricsNameList",
+          "description": "<p>List of shard-level metrics.</p> <p>The following are the valid shard-level metrics. The value \"<code>ALL</code>\" enhances every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html\">Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.</p>"
+        }
+      },
+      "type": "object",
+      "title": "EnhancedMetrics"
+    },
+    "EnhancedMonitoringList": {
+      "items": {
+        "$ref": "#/definitions/EnhancedMetrics"
+      },
+      "type": "array",
+      "title": "EnhancedMonitoringList"
+    },
+    "EnhancedMonitoringOutput": {
+      "description": "Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>.",
+      "properties": {
+        "CurrentShardLevelMetrics": {
+          "$ref": "#/definitions/MetricsNameList",
+          "description": "Represents the current state of the metrics that are in the enhanced state before the operation."
+        },
+        "DesiredShardLevelMetrics": {
+          "$ref": "#/definitions/MetricsNameList",
+          "description": "Represents the list of all the metrics that would be in the enhanced state after the operation."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the Amazon Kinesis stream."
+        }
+      },
+      "type": "object",
+      "title": "EnhancedMonitoringOutput"
+    },
+    "ErrorCode": {
+      "type": "string",
+      "title": "ErrorCode"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "ExpiredIteratorException": {
+      "description": "The provided iterator exceeds the maximum age allowed.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ExpiredIteratorException"
+    },
+    "GetRecordsInput": {
+      "description": "Represents the input for <a>GetRecords</a>.",
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/GetRecordsInputLimit",
+          "description": "The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>."
+        },
+        "ShardIterator": {
+          "$ref": "#/definitions/ShardIterator",
+          "description": "The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard."
+        }
+      },
+      "required": [
+        "ShardIterator"
+      ],
+      "type": "object",
+      "title": "GetRecordsInput"
+    },
+    "GetRecordsInputLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "GetRecordsInputLimit"
+    },
+    "GetRecordsOutput": {
+      "description": "Represents the output for <a>GetRecords</a>.",
+      "properties": {
+        "MillisBehindLatest": {
+          "$ref": "#/definitions/MillisBehindLatest",
+          "description": "The number of milliseconds the <a>GetRecords</a> response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates record processing is caught up, and there are no new records to process at this moment."
+        },
+        "NextShardIterator": {
+          "$ref": "#/definitions/ShardIterator",
+          "description": "The next position in the shard from which to start sequentially reading data records. If set to <code>null</code>, the shard has been closed and the requested iterator will not return any more data. "
+        },
+        "Records": {
+          "$ref": "#/definitions/RecordList",
+          "description": "The data records retrieved from the shard."
+        }
+      },
+      "required": [
+        "Records"
+      ],
+      "type": "object",
+      "title": "GetRecordsOutput"
+    },
+    "GetShardIteratorInput": {
+      "description": "Represents the input for <code>GetShardIterator</code>.",
+      "properties": {
+        "ShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the Amazon Kinesis shard to get the iterator for."
+        },
+        "ShardIteratorType": {
+          "$ref": "#/definitions/ShardIteratorType",
+          "description": "<p>Determines how the shard iterator is used to start reading data records from the shard.</p> <p>The following are the valid Amazon Kinesis shard iterator types:</p> <ul> <li> <p>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific sequence number, provided in the value <code>StartingSequenceNumber</code>.</p> </li> <li> <p>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value <code>StartingSequenceNumber</code>.</p> </li> <li> <p>AT_TIMESTAMP - Start reading from the position denoted by a specific timestamp, provided in the value <code>Timestamp</code>.</p> </li> <li> <p>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.</p> </li> <li> <p>LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.</p> </li> </ul>"
+        },
+        "StartingSequenceNumber": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the Amazon Kinesis stream."
+        },
+        "Timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A timestamp is the Unix epoch date with precision in milliseconds. For example, <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON)."
+        }
+      },
+      "required": [
+        "StreamName",
+        "ShardId",
+        "ShardIteratorType"
+      ],
+      "type": "object",
+      "title": "GetShardIteratorInput"
+    },
+    "GetShardIteratorOutput": {
+      "description": "Represents the output for <code>GetShardIterator</code>.",
+      "properties": {
+        "ShardIterator": {
+          "$ref": "#/definitions/ShardIterator",
+          "description": "The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard."
+        }
+      },
+      "type": "object",
+      "title": "GetShardIteratorOutput"
+    },
+    "HashKey": {
+      "pattern": "0|([1-9]\\d{0,38})",
+      "type": "string",
+      "title": "HashKey"
+    },
+    "HashKeyRange": {
+      "description": "The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.",
+      "properties": {
+        "EndingHashKey": {
+          "$ref": "#/definitions/HashKey",
+          "description": "The ending hash key of the hash key range."
+        },
+        "StartingHashKey": {
+          "$ref": "#/definitions/HashKey",
+          "description": "The starting hash key of the hash key range."
+        }
+      },
+      "required": [
+        "StartingHashKey",
+        "EndingHashKey"
+      ],
+      "type": "object",
+      "title": "HashKeyRange"
+    },
+    "IncreaseStreamRetentionPeriodInput": {
+      "description": "Represents the input for <a>IncreaseStreamRetentionPeriod</a>.",
+      "properties": {
+        "RetentionPeriodHours": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The new retention period of the stream, in hours. Must be more than the current retention period."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream to modify."
+        }
+      },
+      "required": [
+        "StreamName",
+        "RetentionPeriodHours"
+      ],
+      "type": "object",
+      "title": "IncreaseStreamRetentionPeriodInput"
+    },
+    "InvalidArgumentException": {
+      "description": "A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "InvalidArgumentException"
+    },
+    "LimitExceededException": {
+      "description": "The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed (5).",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListStreamsInput": {
+      "description": "Represents the input for <code>ListStreams</code>.",
+      "properties": {
+        "ExclusiveStartStreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream to start the list with."
+        },
+        "Limit": {
+          "$ref": "#/definitions/ListStreamsInputLimit",
+          "description": "The maximum number of streams to list."
+        }
+      },
+      "type": "object",
+      "title": "ListStreamsInput"
+    },
+    "ListStreamsInputLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ListStreamsInputLimit"
+    },
+    "ListStreamsOutput": {
+      "description": "Represents the output for <code>ListStreams</code>.",
+      "properties": {
+        "HasMoreStreams": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "If set to <code>true</code>, there are more streams available to list."
+        },
+        "StreamNames": {
+          "$ref": "#/definitions/StreamNameList",
+          "description": "The names of the streams that are associated with the AWS account making the <code>ListStreams</code> request."
+        }
+      },
+      "required": [
+        "StreamNames",
+        "HasMoreStreams"
+      ],
+      "type": "object",
+      "title": "ListStreamsOutput"
+    },
+    "ListTagsForStreamInput": {
+      "description": "Represents the input for <code>ListTagsForStream</code>.",
+      "properties": {
+        "ExclusiveStartTagKey": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key to use as the starting point for the list of tags. If this parameter is set, <code>ListTagsForStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>. "
+        },
+        "Limit": {
+          "$ref": "#/definitions/ListTagsForStreamInputLimit",
+          "description": "The number of tags to return. If this number is less than the total number of tags associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        }
+      },
+      "required": [
+        "StreamName"
+      ],
+      "type": "object",
+      "title": "ListTagsForStreamInput"
+    },
+    "ListTagsForStreamInputLimit": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ListTagsForStreamInputLimit"
+    },
+    "ListTagsForStreamOutput": {
+      "description": "Represents the output for <code>ListTagsForStream</code>.",
+      "properties": {
+        "HasMoreTags": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "If set to <code>true</code>, more tags are available. To request additional tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. "
+        }
+      },
+      "required": [
+        "Tags",
+        "HasMoreTags"
+      ],
+      "type": "object",
+      "title": "ListTagsForStreamOutput"
+    },
+    "MergeShardsInput": {
+      "description": "Represents the input for <code>MergeShards</code>.",
+      "properties": {
+        "AdjacentShardToMerge": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the adjacent shard for the merge."
+        },
+        "ShardToMerge": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the shard to combine with the adjacent shard for the merge."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream for the merge."
+        }
+      },
+      "required": [
+        "StreamName",
+        "ShardToMerge",
+        "AdjacentShardToMerge"
+      ],
+      "type": "object",
+      "title": "MergeShardsInput"
+    },
+    "MetricsName": {
+      "enum": [
+        "IncomingBytes",
+        "IncomingRecords",
+        "OutgoingBytes",
+        "OutgoingRecords",
+        "WriteProvisionedThroughputExceeded",
+        "ReadProvisionedThroughputExceeded",
+        "IteratorAgeMilliseconds",
+        "ALL"
+      ],
+      "type": "string",
+      "title": "MetricsName"
+    },
+    "MetricsNameList": {
+      "items": {
+        "$ref": "#/definitions/MetricsName"
+      },
+      "maxItems": 7,
+      "minItems": 1,
+      "type": "array",
+      "title": "MetricsNameList"
+    },
+    "MillisBehindLatest": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "MillisBehindLatest"
+    },
+    "PartitionKey": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "PartitionKey"
+    },
+    "PositiveIntegerObject": {
+      "maximum": 100000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "PositiveIntegerObject"
+    },
+    "ProvisionedThroughputExceededException": {
+      "description": "The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <a href=\"http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html\">Streams Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>, and <a href=\"http://docs.aws.amazon.com/general/latest/gr/api-retries.html\">Error Retries and Exponential Backoff in AWS</a> in the <i>AWS General Reference</i>.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ProvisionedThroughputExceededException"
+    },
+    "PutRecordInput": {
+      "description": "Represents the input for <code>PutRecord</code>.",
+      "properties": {
+        "Data": {
+          "$ref": "#/definitions/Data",
+          "description": "The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB)."
+        },
+        "ExplicitHashKey": {
+          "$ref": "#/definitions/HashKey",
+          "description": "The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash."
+        },
+        "PartitionKey": {
+          "$ref": "#/definitions/PartitionKey",
+          "description": "Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream."
+        },
+        "SequenceNumberForOrdering": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the <code>SequenceNumberForOrdering</code> of record <i>n</i> to the sequence number of record <i>n-1</i> (as returned in the result when putting record <i>n-1</i>). If this parameter is not set, records will be coarsely ordered based on arrival time."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream to put the data record into."
+        }
+      },
+      "required": [
+        "StreamName",
+        "Data",
+        "PartitionKey"
+      ],
+      "type": "object",
+      "title": "PutRecordInput"
+    },
+    "PutRecordOutput": {
+      "description": "Represents the output for <code>PutRecord</code>.",
+      "properties": {
+        "SequenceNumber": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream."
+        },
+        "ShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the shard where the data record was placed."
+        }
+      },
+      "required": [
+        "ShardId",
+        "SequenceNumber"
+      ],
+      "type": "object",
+      "title": "PutRecordOutput"
+    },
+    "PutRecordsInput": {
+      "description": "A <code>PutRecords</code> request.",
+      "properties": {
+        "Records": {
+          "$ref": "#/definitions/PutRecordsRequestEntryList",
+          "description": "The records associated with the request."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The stream name associated with the request."
+        }
+      },
+      "required": [
+        "Records",
+        "StreamName"
+      ],
+      "type": "object",
+      "title": "PutRecordsInput"
+    },
+    "PutRecordsOutput": {
+      "description": " <code>PutRecords</code> results.",
+      "properties": {
+        "FailedRecordCount": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The number of unsuccessfully processed records in a <code>PutRecords</code> request."
+        },
+        "Records": {
+          "$ref": "#/definitions/PutRecordsResultEntryList",
+          "description": "An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to a stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result."
+        }
+      },
+      "required": [
+        "Records"
+      ],
+      "type": "object",
+      "title": "PutRecordsOutput"
+    },
+    "PutRecordsRequestEntry": {
+      "description": "Represents the output for <code>PutRecords</code>.",
+      "properties": {
+        "Data": {
+          "$ref": "#/definitions/Data",
+          "description": "The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB)."
+        },
+        "ExplicitHashKey": {
+          "$ref": "#/definitions/HashKey",
+          "description": "The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash."
+        },
+        "PartitionKey": {
+          "$ref": "#/definitions/PartitionKey",
+          "description": "Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream."
+        }
+      },
+      "required": [
+        "Data",
+        "PartitionKey"
+      ],
+      "type": "object",
+      "title": "PutRecordsRequestEntry"
+    },
+    "PutRecordsRequestEntryList": {
+      "items": {
+        "$ref": "#/definitions/PutRecordsRequestEntry"
+      },
+      "maxItems": 500,
+      "minItems": 1,
+      "type": "array",
+      "title": "PutRecordsRequestEntryList"
+    },
+    "PutRecordsResultEntry": {
+      "description": "Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code for an individual record result. <code>ErrorCodes</code> can be either <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message for an individual record result. An <code>ErrorCode</code> value of <code>ProvisionedThroughputExceededException</code> has an error message that includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of <code>InternalFailure</code> has the error message <code>\"Internal Service Failure\"</code>."
+        },
+        "SequenceNumber": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "The sequence number for an individual record result."
+        },
+        "ShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID for an individual record result."
+        }
+      },
+      "type": "object",
+      "title": "PutRecordsResultEntry"
+    },
+    "PutRecordsResultEntryList": {
+      "items": {
+        "$ref": "#/definitions/PutRecordsResultEntry"
+      },
+      "maxItems": 500,
+      "minItems": 1,
+      "type": "array",
+      "title": "PutRecordsResultEntryList"
+    },
+    "Record": {
+      "description": "The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob.",
+      "properties": {
+        "ApproximateArrivalTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The approximate time that the record was inserted into the stream."
+        },
+        "Data": {
+          "$ref": "#/definitions/Data",
+          "description": "The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB)."
+        },
+        "PartitionKey": {
+          "$ref": "#/definitions/PartitionKey",
+          "description": "Identifies which shard in the stream the data record is assigned to."
+        },
+        "SequenceNumber": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "The unique identifier of the record in the stream."
+        }
+      },
+      "required": [
+        "SequenceNumber",
+        "Data",
+        "PartitionKey"
+      ],
+      "type": "object",
+      "title": "Record"
+    },
+    "RecordList": {
+      "items": {
+        "$ref": "#/definitions/Record"
+      },
+      "type": "array",
+      "title": "RecordList"
+    },
+    "RemoveTagsFromStreamInput": {
+      "description": "Represents the input for <code>RemoveTagsFromStream</code>.",
+      "properties": {
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "A list of tag keys. Each corresponding tag is removed from the stream."
+        }
+      },
+      "required": [
+        "StreamName",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "RemoveTagsFromStreamInput"
+    },
+    "ResourceInUseException": {
+      "description": "The resource is not available for this operation. For successful operation, the resource needs to be in the <code>ACTIVE</code> state.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "ResourceNotFoundException": {
+      "description": "The requested resource could not be found. The stream might not be specified correctly.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ScalingType": {
+      "enum": [
+        "UNIFORM_SCALING"
+      ],
+      "type": "string",
+      "title": "ScalingType"
+    },
+    "SequenceNumber": {
+      "pattern": "0|([1-9]\\d{0,128})",
+      "type": "string",
+      "title": "SequenceNumber"
+    },
+    "SequenceNumberRange": {
+      "description": "The range of possible sequence numbers for the shard.",
+      "properties": {
+        "EndingSequenceNumber": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>."
+        },
+        "StartingSequenceNumber": {
+          "$ref": "#/definitions/SequenceNumber",
+          "description": "The starting sequence number for the range."
+        }
+      },
+      "required": [
+        "StartingSequenceNumber"
+      ],
+      "type": "object",
+      "title": "SequenceNumberRange"
+    },
+    "Shard": {
+      "description": "A uniquely identified group of data records in an Amazon Kinesis stream.",
+      "properties": {
+        "AdjacentParentShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the shard adjacent to the shard's parent."
+        },
+        "HashKeyRange": {
+          "$ref": "#/definitions/HashKeyRange",
+          "description": "The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers."
+        },
+        "ParentShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the shard's parent."
+        },
+        "SequenceNumberRange": {
+          "$ref": "#/definitions/SequenceNumberRange",
+          "description": "The range of possible sequence numbers for the shard."
+        },
+        "ShardId": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The unique identifier of the shard within the stream."
+        }
+      },
+      "required": [
+        "ShardId",
+        "HashKeyRange",
+        "SequenceNumberRange"
+      ],
+      "type": "object",
+      "title": "Shard"
+    },
+    "ShardCountObject": {
+      "maximum": 1000000,
+      "minimum": 0,
+      "type": "integer",
+      "title": "ShardCountObject"
+    },
+    "ShardId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.-]+",
+      "type": "string",
+      "title": "ShardId"
+    },
+    "ShardIterator": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "ShardIterator"
+    },
+    "ShardIteratorType": {
+      "enum": [
+        "AT_SEQUENCE_NUMBER",
+        "AFTER_SEQUENCE_NUMBER",
+        "TRIM_HORIZON",
+        "LATEST",
+        "AT_TIMESTAMP"
+      ],
+      "type": "string",
+      "title": "ShardIteratorType"
+    },
+    "ShardList": {
+      "items": {
+        "$ref": "#/definitions/Shard"
+      },
+      "type": "array",
+      "title": "ShardList"
+    },
+    "SplitShardInput": {
+      "description": "Represents the input for <code>SplitShard</code>.",
+      "properties": {
+        "NewStartingHashKey": {
+          "$ref": "#/definitions/HashKey",
+          "description": "A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for <code>NewStartingHashKey</code> must be in the range of hash keys being mapped into the shard. The <code>NewStartingHashKey</code> hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard."
+        },
+        "ShardToSplit": {
+          "$ref": "#/definitions/ShardId",
+          "description": "The shard ID of the shard to split."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream for the shard split."
+        }
+      },
+      "required": [
+        "StreamName",
+        "ShardToSplit",
+        "NewStartingHashKey"
+      ],
+      "type": "object",
+      "title": "SplitShardInput"
+    },
+    "StreamARN": {
+      "type": "string",
+      "title": "StreamARN"
+    },
+    "StreamDescription": {
+      "description": "Represents the output for <a>DescribeStream</a>.",
+      "properties": {
+        "EnhancedMonitoring": {
+          "$ref": "#/definitions/EnhancedMonitoringList",
+          "description": "Represents the current enhanced monitoring settings of the stream."
+        },
+        "HasMoreShards": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "If set to <code>true</code>, more shards in the stream are available to describe."
+        },
+        "RetentionPeriodHours": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The current retention period, in hours."
+        },
+        "Shards": {
+          "$ref": "#/definitions/ShardList",
+          "description": "The shards that comprise the stream."
+        },
+        "StreamARN": {
+          "$ref": "#/definitions/StreamARN",
+          "description": "The Amazon Resource Name (ARN) for the stream being described."
+        },
+        "StreamCreationTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The approximate time that the stream was created."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream being described."
+        },
+        "StreamStatus": {
+          "$ref": "#/definitions/StreamStatus",
+          "description": "<p>The current status of the stream being described. The stream status is one of the following states:</p> <ul> <li> <p> <code>CREATING</code> - The stream is being created. Amazon Kinesis immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</p> </li> <li> <p> <code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Amazon Kinesis completes the deletion.</p> </li> <li> <p> <code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</p> </li> <li> <p> <code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "StreamName",
+        "StreamARN",
+        "StreamStatus",
+        "Shards",
+        "HasMoreShards",
+        "RetentionPeriodHours",
+        "StreamCreationTimestamp",
+        "EnhancedMonitoring"
+      ],
+      "type": "object",
+      "title": "StreamDescription"
+    },
+    "StreamName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.-]+",
+      "type": "string",
+      "title": "StreamName"
+    },
+    "StreamNameList": {
+      "items": {
+        "$ref": "#/definitions/StreamName"
+      },
+      "type": "array",
+      "title": "StreamNameList"
+    },
+    "StreamStatus": {
+      "enum": [
+        "CREATING",
+        "DELETING",
+        "ACTIVE",
+        "UPDATING"
+      ],
+      "type": "string",
+      "title": "StreamStatus"
+    },
+    "Tag": {
+      "description": "Metadata assigned to the stream, consisting of a key-value pair.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @"
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @"
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "minItems": 0,
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagMap"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UpdateShardCountInput": {
+      "properties": {
+        "ScalingType": {
+          "$ref": "#/definitions/ScalingType",
+          "description": "The scaling type. Uniform scaling creates shards of equal size."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        },
+        "TargetShardCount": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The new number of shards."
+        }
+      },
+      "required": [
+        "StreamName",
+        "TargetShardCount",
+        "ScalingType"
+      ],
+      "type": "object",
+      "title": "UpdateShardCountInput"
+    },
+    "UpdateShardCountOutput": {
+      "properties": {
+        "CurrentShardCount": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The current number of shards."
+        },
+        "StreamName": {
+          "$ref": "#/definitions/StreamName",
+          "description": "The name of the stream."
+        },
+        "TargetShardCount": {
+          "$ref": "#/definitions/PositiveIntegerObject",
+          "description": "The updated number of shards."
+        }
+      },
+      "type": "object",
+      "title": "UpdateShardCountOutput"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddTagsToStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AddTagsToStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "CreateStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "DecreaseStreamRetentionPeriod",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DecreaseStreamRetentionPeriodInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "DeleteStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "DescribeLimits",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeLimitsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeLimitsOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "DescribeStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "ExclusiveStartShardId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "DisableEnhancedMonitoring",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisableEnhancedMonitoringInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnhancedMonitoringOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "EnableEnhancedMonitoring",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/EnableEnhancedMonitoringInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EnhancedMonitoringOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "GetRecords",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetRecordsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetRecordsOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "GetShardIterator",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetShardIteratorInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetShardIteratorOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "IncreaseStreamRetentionPeriod",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/IncreaseStreamRetentionPeriodInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "ListStreams",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Limit": {
+            "type": "string"
+          },
+          "ExclusiveStartStreamName": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListStreamsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListStreamsOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForStreamOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "MergeShards",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/MergeShardsInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "PutRecord",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRecordInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRecordOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "PutRecords",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRecordsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRecordsOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "RemoveTagsFromStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemoveTagsFromStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "SplitShard",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SplitShardInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    },
+    {
+      "id": "UpdateShardCount",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateShardCountInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateShardCountOutput"
+      },
+      "security": {
+        "amazonaws_kinesis": {
+          "integration": "amazonaws_kinesis"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

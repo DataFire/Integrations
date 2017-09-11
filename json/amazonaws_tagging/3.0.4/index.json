@@ -1,0 +1,557 @@
+{
+  "id": "amazonaws_tagging",
+  "title": "AWS Resource Groups Tagging API",
+  "description": "Resource Groups Tagging API\n\nThis guide describes the API operations for the resource groups tagging.\n\nA tag is a label that you assign to an AWS resource. A tag consists of a key and a value, both of which you define. For example, if you have two Amazon EC2 instances, you might assign both a tag key of \"Stack.\" But the value of \"Stack\" might be \"Testing\" for one and \"Production\" for the other.\n\nTagging can help you organize your resources and enables you to simplify resource management, access management and cost allocation. For more information about tagging, see [Working with Tag Editor](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) and [Working with Resource Groups](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/resource-groups.html). For more information about permissions you need to use the resource groups tagging APIs, see [Obtaining Permissions for Resource Groups](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-resource-groups.html) and [Obtaining Permissions for Tagging](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html) .\n\nYou can use the resource groups tagging APIs to complete the following tasks:\n\n*   Tag and untag supported resources located in the specified region for the AWS account\n\n*   Use tag-based filters to search for resources located in the specified region for the AWS account\n\n*   List all existing tag keys in the specified region for the AWS account\n\n*   List all existing values for the specified key in the specified region for the AWS account\n\nNot all resources can have tags. For a lists of resources that you can tag, see [Supported Resources](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/supported-resources.html) in the _AWS Resource Groups and Tag Editor User Guide_.\n\nTo make full use of the resource groups tagging APIs, you might need additional IAM permissions, including permission to access the resources of individual services as well as permission to view and apply tags to those resources. For more information, see [Obtaining Permissions for Tagging](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/obtaining-permissions-for-tagging.html) in the _AWS Resource Groups and Tag Editor User Guide_.",
+  "security": {
+    "amazonaws_tagging": {
+      "integration": "amazonaws_tagging",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_tagging.jpg"
+  },
+  "actionCount": 5,
+  "definitions": {
+    "AmazonResourceType": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "AmazonResourceType"
+    },
+    "ErrorCode": {
+      "enum": [
+        "InternalServiceException",
+        "InvalidParameterException"
+      ],
+      "type": "string",
+      "title": "ErrorCode"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "ExceptionMessage": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "type": "string",
+      "title": "ExceptionMessage"
+    },
+    "FailedResourcesMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ResourceARN"
+          },
+          "value": {
+            "$ref": "#/definitions/FailureInfo"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "FailedResourcesMap"
+    },
+    "FailureInfo": {
+      "description": "Details of the common errors that all actions return.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The code of the common error. Valid values include <code>InternalServiceException</code>, <code>InvalidParameterException</code>, and any valid error code returned by the AWS service that hosts the resource that you want to tag."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The message of the common error."
+        },
+        "StatusCode": {
+          "$ref": "#/definitions/StatusCode",
+          "description": "The HTTP status code of the common error."
+        }
+      },
+      "type": "object",
+      "title": "FailureInfo"
+    },
+    "GetResourcesInput": {
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a <code>PaginationToken</code>, use that string for this value to request an additional page of data."
+        },
+        "ResourceTypeFilters": {
+          "$ref": "#/definitions/ResourceTypeFilterList",
+          "description": "<p>The constraints on the resources that you want returned. The format of each resource type is <code>service[:resourceType]</code>. For example, specifying a resource type of <code>ec2</code> returns all tagged Amazon EC2 resources (which includes tagged EC2 instances). Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p> <p>The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the <i>AWS General Reference</i> for the following:</p> <ul> <li> <p>For a list of service name strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces\">AWS Service Namespaces</a>.</p> </li> <li> <p>For resource type strings, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax\">Example ARNs</a>.</p> </li> <li> <p>For more information about ARNs, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p> </li> </ul>"
+        },
+        "TagFilters": {
+          "$ref": "#/definitions/TagFilterList",
+          "description": "<p>A list of tags (keys and values). A request can include up to 50 keys, and each key can include up to 20 values.</p> <p>If you specify multiple filters connected by an AND operator in a single request, the response returns only those resources that are associated with every specified filter.</p> <p>If you specify multiple filters connected by an OR operator in a single request, the response returns all resources that are associated with at least one or possibly more of the specified filters.</p>"
+        },
+        "TagsPerPage": {
+          "$ref": "#/definitions/TagsPerPage",
+          "description": "<p>A limit that restricts the number of tags (key and value pairs) returned by GetResources in paginated output. A resource with no tags is counted as having one tag (one key and value pair).</p> <p> <code>GetResources</code> does not split a resource and its associated tags across pages. If the specified <code>TagsPerPage</code> would cause such a break, a <code>PaginationToken</code> is returned in place of the affected resource and its tags. Use that token in another request to get the remaining data. For example, if you specify a <code>TagsPerPage</code> of <code>100</code> and the account has 22 resources with 10 tags each (meaning that each resource has 10 key and value pairs), the output will consist of 3 pages, with the first page displaying the first 10 resources, each with its 10 tags, the second page displaying the next 10 resources each with its 10 tags, and the third page displaying the remaining 2 resources, each with its 10 tags.</p> <p/> <p>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of 500 items.</p>"
+        }
+      },
+      "required": [
+        "TagsPerPage"
+      ],
+      "type": "object",
+      "title": "GetResourcesInput"
+    },
+    "GetResourcesOutput": {
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the <code>PaginationToken</code> value in a subsequent request."
+        },
+        "ResourceTagMappingList": {
+          "$ref": "#/definitions/ResourceTagMappingList",
+          "description": "A list of resource ARNs and the tags (keys and values) associated with each."
+        }
+      },
+      "type": "object",
+      "title": "GetResourcesOutput"
+    },
+    "GetTagKeysInput": {
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data."
+        }
+      },
+      "type": "object",
+      "title": "GetTagKeysInput"
+    },
+    "GetTagKeysOutput": {
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the <code>PaginationToken</code> value in a subsequent request."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "A list of all tag keys in the AWS account."
+        }
+      },
+      "type": "object",
+      "title": "GetTagKeysOutput"
+    },
+    "GetTagValuesInput": {
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key for which you want to list all existing values in the specified region for the AWS account."
+        },
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a PaginationToken, use that string for this value to request an additional page of data."
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object",
+      "title": "GetTagValuesInput"
+    },
+    "GetTagValuesOutput": {
+      "properties": {
+        "PaginationToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the <code>PaginationToken</code> value in a subsequent request."
+        },
+        "TagValues": {
+          "$ref": "#/definitions/TagValuesOutputList",
+          "description": "A list of all tag values for the specified key in the AWS account."
+        }
+      },
+      "type": "object",
+      "title": "GetTagValuesOutput"
+    },
+    "InternalServiceException": {
+      "description": "The request processing failed because of an unknown error, exception, or failure. You can retry the request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalServiceException"
+    },
+    "InvalidParameterException": {
+      "description": "A parameter is missing or a malformed string or invalid or out-of-range value was supplied for the request parameter.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "PaginationToken": {
+      "maxLength": 2048,
+      "minLength": 0,
+      "type": "string",
+      "title": "PaginationToken"
+    },
+    "PaginationTokenExpiredException": {
+      "description": "A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was denied because the specified <code>PaginationToken</code> has expired.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "PaginationTokenExpiredException"
+    },
+    "ResourceARN": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string",
+      "title": "ResourceARN"
+    },
+    "ResourceARNList": {
+      "items": {
+        "$ref": "#/definitions/ResourceARN"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "type": "array",
+      "title": "ResourceARNList"
+    },
+    "ResourceTagMapping": {
+      "description": "A list of resource ARNs and the tags (keys and values) that are associated with each.",
+      "properties": {
+        "ResourceARN": {
+          "$ref": "#/definitions/ResourceARN",
+          "description": "An array of resource ARN(s)."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags that have been applied to one or more AWS resources."
+        }
+      },
+      "type": "object",
+      "title": "ResourceTagMapping"
+    },
+    "ResourceTagMappingList": {
+      "items": {
+        "$ref": "#/definitions/ResourceTagMapping"
+      },
+      "type": "array",
+      "title": "ResourceTagMappingList"
+    },
+    "ResourceTypeFilterList": {
+      "items": {
+        "$ref": "#/definitions/AmazonResourceType"
+      },
+      "type": "array",
+      "title": "ResourceTypeFilterList"
+    },
+    "StatusCode": {
+      "type": "integer",
+      "title": "StatusCode"
+    },
+    "Tag": {
+      "description": "The metadata that you apply to AWS resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. For more information, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-basics\">Tag Basics</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key)."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagFilter": {
+      "description": "A list of tags (keys and values) that are used to specify the associated resources.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values."
+        },
+        "Values": {
+          "$ref": "#/definitions/TagValueList",
+          "description": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key)."
+        }
+      },
+      "type": "object",
+      "title": "TagFilter"
+    },
+    "TagFilterList": {
+      "items": {
+        "$ref": "#/definitions/TagFilter"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array",
+      "title": "TagFilterList"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagKeyListForUntag": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagKeyListForUntag"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagMap"
+    },
+    "TagResourcesInput": {
+      "properties": {
+        "ResourceARNList": {
+          "$ref": "#/definitions/ResourceARNList",
+          "description": "A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to tag. An ARN can be set to a maximum of 1600 characters. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagMap",
+          "description": "The tags that you want to add to the specified resources. A tag consists of a key and a value that you define."
+        }
+      },
+      "required": [
+        "ResourceARNList",
+        "Tags"
+      ],
+      "type": "object",
+      "title": "TagResourcesInput"
+    },
+    "TagResourcesOutput": {
+      "properties": {
+        "FailedResourcesMap": {
+          "$ref": "#/definitions/FailedResourcesMap",
+          "description": "Details of resources that could not be tagged. An error code, status code, and error message are returned for each failed item."
+        }
+      },
+      "type": "object",
+      "title": "TagResourcesOutput"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "TagValueList": {
+      "items": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array",
+      "title": "TagValueList"
+    },
+    "TagValuesOutputList": {
+      "items": {
+        "$ref": "#/definitions/TagValue"
+      },
+      "type": "array",
+      "title": "TagValuesOutputList"
+    },
+    "TagsPerPage": {
+      "maximum": 500,
+      "minimum": 100,
+      "type": "integer",
+      "title": "TagsPerPage"
+    },
+    "ThrottledException": {
+      "description": "The request was denied to limit the frequency of submitted requests.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object",
+      "title": "ThrottledException"
+    },
+    "UntagResourcesInput": {
+      "properties": {
+        "ResourceARNList": {
+          "$ref": "#/definitions/ResourceARNList",
+          "description": "A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to untag. An ARN can be set to a maximum of 1600 characters. For more information, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyListForUntag",
+          "description": "A list of the tag keys that you want to remove from the specified resources."
+        }
+      },
+      "required": [
+        "ResourceARNList",
+        "TagKeys"
+      ],
+      "type": "object",
+      "title": "UntagResourcesInput"
+    },
+    "UntagResourcesOutput": {
+      "properties": {
+        "FailedResourcesMap": {
+          "$ref": "#/definitions/FailedResourcesMap",
+          "description": "Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item."
+        }
+      },
+      "type": "object",
+      "title": "UntagResourcesOutput"
+    }
+  },
+  "actions": [
+    {
+      "id": "GetResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetResourcesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetResourcesOutput"
+      },
+      "security": {
+        "amazonaws_tagging": {
+          "integration": "amazonaws_tagging"
+        }
+      }
+    },
+    {
+      "id": "GetTagKeys",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetTagKeysInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTagKeysOutput"
+      },
+      "security": {
+        "amazonaws_tagging": {
+          "integration": "amazonaws_tagging"
+        }
+      }
+    },
+    {
+      "id": "GetTagValues",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetTagValuesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTagValuesOutput"
+      },
+      "security": {
+        "amazonaws_tagging": {
+          "integration": "amazonaws_tagging"
+        }
+      }
+    },
+    {
+      "id": "TagResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagResourcesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagResourcesOutput"
+      },
+      "security": {
+        "amazonaws_tagging": {
+          "integration": "amazonaws_tagging"
+        }
+      }
+    },
+    {
+      "id": "UntagResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagResourcesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagResourcesOutput"
+      },
+      "security": {
+        "amazonaws_tagging": {
+          "integration": "amazonaws_tagging"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

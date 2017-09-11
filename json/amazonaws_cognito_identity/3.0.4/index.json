@@ -1,0 +1,1595 @@
+{
+  "id": "amazonaws_cognito_identity",
+  "title": "Amazon Cognito Identity",
+  "description": "Amazon Cognito\n\nAmazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. Amazon Cognito uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.\n\nUsing Amazon Cognito, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon), and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.\n\nTo provide end-user credentials, first make an unsigned call to GetId. If the end user is authenticated with one of the supported identity providers, set the `Logins` map with the identity provider token. `GetId` returns a unique identifier for the user.\n\nNext, make an unsigned call to GetCredentialsForIdentity. This call expects the same `Logins` map as the `GetId` call, as well as the `IdentityID` originally returned by `GetId`. Assuming your identity pool has been configured via the SetIdentityPoolRoles operation, `GetCredentialsForIdentity` will return AWS credentials for your use. If your pool has not been configured with `SetIdentityPoolRoles`, or if you want to follow legacy flow, make an unsigned call to GetOpenIdToken, which returns the OpenID token necessary to call STS and retrieve AWS credentials. This call expects the same `Logins` map as the `GetId` call, as well as the `IdentityID` originally returned by `GetId`. The token returned by `GetOpenIdToken` can be passed to the STS operation [AssumeRoleWithWebIdentity](http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) to retrieve AWS credentials.\n\nIf you want to use Amazon Cognito in an Android, iOS, or Unity application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the [AWS Mobile SDK Developer Guide](http://docs.aws.amazon.com/mobile/index.html).",
+  "security": {
+    "amazonaws_cognito_identity": {
+      "integration": "amazonaws_cognito_identity",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_identity.jpg"
+  },
+  "actionCount": 18,
+  "definitions": {
+    "ARNString": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "type": "string",
+      "title": "ARNString"
+    },
+    "AccessKeyString": {
+      "type": "string",
+      "title": "AccessKeyString"
+    },
+    "AccountId": {
+      "maxLength": 15,
+      "minLength": 1,
+      "pattern": "\\d+",
+      "type": "string",
+      "title": "AccountId"
+    },
+    "AmbiguousRoleResolutionType": {
+      "enum": [
+        "AuthenticatedRole",
+        "Deny"
+      ],
+      "type": "string",
+      "title": "AmbiguousRoleResolutionType"
+    },
+    "ClaimName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "ClaimName"
+    },
+    "ClaimValue": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "ClaimValue"
+    },
+    "CognitoIdentityProvider": {
+      "description": "A provider representing an Amazon Cognito Identity User Pool and its client ID.",
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/CognitoIdentityProviderClientId",
+          "description": "The client ID for the Amazon Cognito Identity User Pool."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/CognitoIdentityProviderName",
+          "description": "The provider name for an Amazon Cognito Identity User Pool. For example, <code>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</code>."
+        },
+        "ServerSideTokenCheck": {
+          "$ref": "#/definitions/CognitoIdentityProviderTokenCheck",
+          "description": "TRUE if server-side token validation is enabled for the identity provider’s token."
+        }
+      },
+      "type": "object",
+      "title": "CognitoIdentityProvider"
+    },
+    "CognitoIdentityProviderClientId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w_]+",
+      "type": "string",
+      "title": "CognitoIdentityProviderClientId"
+    },
+    "CognitoIdentityProviderList": {
+      "items": {
+        "$ref": "#/definitions/CognitoIdentityProvider"
+      },
+      "type": "array",
+      "title": "CognitoIdentityProviderList"
+    },
+    "CognitoIdentityProviderName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w._:/-]+",
+      "type": "string",
+      "title": "CognitoIdentityProviderName"
+    },
+    "CognitoIdentityProviderTokenCheck": {
+      "type": "boolean",
+      "title": "CognitoIdentityProviderTokenCheck"
+    },
+    "ConcurrentModificationException": {
+      "description": "Thrown if there are parallel requests to modify a resource.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by a ConcurrentModificationException."
+        }
+      },
+      "type": "object",
+      "title": "ConcurrentModificationException"
+    },
+    "CreateIdentityPoolInput": {
+      "description": "Input to the CreateIdentityPool action.",
+      "properties": {
+        "AllowUnauthenticatedIdentities": {
+          "$ref": "#/definitions/IdentityPoolUnauthenticated",
+          "description": "TRUE if the identity pool supports unauthenticated logins."
+        },
+        "CognitoIdentityProviders": {
+          "$ref": "#/definitions/CognitoIdentityProviderList",
+          "description": "An array of Amazon Cognito Identity user pools and their client IDs."
+        },
+        "DeveloperProviderName": {
+          "$ref": "#/definitions/DeveloperProviderName",
+          "description": "<p>The \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the <code>DeveloperProviderName</code>, you can use letters as well as period (<code>.</code>), underscore (<code>_</code>), and dash (<code>-</code>).</p> <p>Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.</p>"
+        },
+        "IdentityPoolName": {
+          "$ref": "#/definitions/IdentityPoolName",
+          "description": "A string that you provide."
+        },
+        "OpenIdConnectProviderARNs": {
+          "$ref": "#/definitions/OIDCProviderList",
+          "description": "A list of OpendID Connect provider ARNs."
+        },
+        "SamlProviderARNs": {
+          "$ref": "#/definitions/SAMLProviderList",
+          "description": "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool."
+        },
+        "SupportedLoginProviders": {
+          "$ref": "#/definitions/IdentityProviders",
+          "description": "Optional key:value pairs mapping provider names to provider app IDs."
+        }
+      },
+      "required": [
+        "IdentityPoolName",
+        "AllowUnauthenticatedIdentities"
+      ],
+      "type": "object",
+      "title": "CreateIdentityPoolInput"
+    },
+    "Credentials": {
+      "description": "Credentials for the provided identity ID.",
+      "properties": {
+        "AccessKeyId": {
+          "$ref": "#/definitions/AccessKeyString",
+          "description": "The Access Key portion of the credentials."
+        },
+        "Expiration": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date at which these credentials will expire."
+        },
+        "SecretKey": {
+          "$ref": "#/definitions/SecretKeyString",
+          "description": "The Secret Access Key portion of the credentials"
+        },
+        "SessionToken": {
+          "$ref": "#/definitions/SessionTokenString",
+          "description": "The Session Token portion of the credentials"
+        }
+      },
+      "type": "object",
+      "title": "Credentials"
+    },
+    "DateType": {
+      "format": "date-time",
+      "type": "string",
+      "title": "DateType"
+    },
+    "DeleteIdentitiesInput": {
+      "description": "Input to the <code>DeleteIdentities</code> action.",
+      "properties": {
+        "IdentityIdsToDelete": {
+          "$ref": "#/definitions/IdentityIdList",
+          "description": "A list of 1-60 identities that you want to delete."
+        }
+      },
+      "required": [
+        "IdentityIdsToDelete"
+      ],
+      "type": "object",
+      "title": "DeleteIdentitiesInput"
+    },
+    "DeleteIdentitiesResponse": {
+      "description": "Returned in response to a successful <code>DeleteIdentities</code> operation.",
+      "properties": {
+        "UnprocessedIdentityIds": {
+          "$ref": "#/definitions/UnprocessedIdentityIdList",
+          "description": "An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId."
+        }
+      },
+      "type": "object",
+      "title": "DeleteIdentitiesResponse"
+    },
+    "DeleteIdentityPoolInput": {
+      "description": "Input to the DeleteIdentityPool action.",
+      "properties": {
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        }
+      },
+      "required": [
+        "IdentityPoolId"
+      ],
+      "type": "object",
+      "title": "DeleteIdentityPoolInput"
+    },
+    "DescribeIdentityInput": {
+      "description": "Input to the <code>DescribeIdentity</code> action.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        }
+      },
+      "required": [
+        "IdentityId"
+      ],
+      "type": "object",
+      "title": "DescribeIdentityInput"
+    },
+    "DescribeIdentityPoolInput": {
+      "description": "Input to the DescribeIdentityPool action.",
+      "properties": {
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        }
+      },
+      "required": [
+        "IdentityPoolId"
+      ],
+      "type": "object",
+      "title": "DescribeIdentityPoolInput"
+    },
+    "DeveloperProviderName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w._-]+",
+      "type": "string",
+      "title": "DeveloperProviderName"
+    },
+    "DeveloperUserAlreadyRegisteredException": {
+      "description": "The provided developer user identifier is already registered with Cognito under a different identity ID.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "This developer user identifier is already registered with Cognito."
+        }
+      },
+      "type": "object",
+      "title": "DeveloperUserAlreadyRegisteredException"
+    },
+    "DeveloperUserIdentifier": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "DeveloperUserIdentifier"
+    },
+    "DeveloperUserIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/DeveloperUserIdentifier"
+      },
+      "type": "array",
+      "title": "DeveloperUserIdentifierList"
+    },
+    "ErrorCode": {
+      "enum": [
+        "AccessDenied",
+        "InternalServerError"
+      ],
+      "type": "string",
+      "title": "ErrorCode"
+    },
+    "ExternalServiceException": {
+      "description": "An exception thrown when a dependent service such as Facebook or Twitter is not responding",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by an ExternalServiceException"
+        }
+      },
+      "type": "object",
+      "title": "ExternalServiceException"
+    },
+    "GetCredentialsForIdentityInput": {
+      "description": "Input to the <code>GetCredentialsForIdentity</code> action.",
+      "properties": {
+        "CustomRoleArn": {
+          "$ref": "#/definitions/ARNString",
+          "description": "The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "Logins": {
+          "$ref": "#/definitions/LoginsMap",
+          "description": "A set of optional name-value pairs that map provider names to provider tokens."
+        }
+      },
+      "required": [
+        "IdentityId"
+      ],
+      "type": "object",
+      "title": "GetCredentialsForIdentityInput"
+    },
+    "GetCredentialsForIdentityResponse": {
+      "description": "Returned in response to a successful <code>GetCredentialsForIdentity</code> operation.",
+      "properties": {
+        "Credentials": {
+          "$ref": "#/definitions/Credentials",
+          "description": "Credentials for the provided identity ID."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        }
+      },
+      "type": "object",
+      "title": "GetCredentialsForIdentityResponse"
+    },
+    "GetIdInput": {
+      "description": "Input to the GetId action.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "A standard AWS account ID (9+ digits)."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "Logins": {
+          "$ref": "#/definitions/LoginsMap",
+          "description": "<p>A set of optional name-value pairs that map provider names to provider tokens. The available provider names for <code>Logins</code> are as follows:</p> <ul> <li> <p>Facebook: <code>graph.facebook.com</code> </p> </li> <li> <p>Amazon Cognito Identity Provider: <code>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</code> </p> </li> <li> <p>Google: <code>accounts.google.com</code> </p> </li> <li> <p>Amazon: <code>www.amazon.com</code> </p> </li> <li> <p>Twitter: <code>api.twitter.com</code> </p> </li> <li> <p>Digits: <code>www.digits.com</code> </p> </li> </ul>"
+        }
+      },
+      "required": [
+        "IdentityPoolId"
+      ],
+      "type": "object",
+      "title": "GetIdInput"
+    },
+    "GetIdResponse": {
+      "description": "Returned in response to a GetId request.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        }
+      },
+      "type": "object",
+      "title": "GetIdResponse"
+    },
+    "GetIdentityPoolRolesInput": {
+      "description": "Input to the <code>GetIdentityPoolRoles</code> action.",
+      "properties": {
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        }
+      },
+      "required": [
+        "IdentityPoolId"
+      ],
+      "type": "object",
+      "title": "GetIdentityPoolRolesInput"
+    },
+    "GetIdentityPoolRolesResponse": {
+      "description": "Returned in response to a successful <code>GetIdentityPoolRoles</code> operation.",
+      "properties": {
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "RoleMappings": {
+          "$ref": "#/definitions/RoleMappingMap",
+          "description": "How users for a specific identity provider are to mapped to roles. This is a String-to-<a>RoleMapping</a> object map. The string identifies the identity provider, for example, \"graph.facebook.com\" or \"cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id\"."
+        },
+        "Roles": {
+          "$ref": "#/definitions/RolesMap",
+          "description": "The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported."
+        }
+      },
+      "type": "object",
+      "title": "GetIdentityPoolRolesResponse"
+    },
+    "GetOpenIdTokenForDeveloperIdentityInput": {
+      "description": "Input to the <code>GetOpenIdTokenForDeveloperIdentity</code> action.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "Logins": {
+          "$ref": "#/definitions/LoginsMap",
+          "description": "A set of optional name-value pairs that map provider names to provider tokens. Each name-value pair represents a user from a public provider or developer provider. If the user is from a developer provider, the name-value pair will follow the syntax <code>\"developer_provider_name\": \"developer_user_identifier\"</code>. The developer provider is the \"domain\" by which Cognito will refer to your users; you provided this domain while creating/updating the identity pool. The developer user identifier is an identifier from your backend that uniquely identifies a user. When you create an identity pool, you can specify the supported logins."
+        },
+        "TokenDuration": {
+          "$ref": "#/definitions/TokenDuration",
+          "description": "The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration."
+        }
+      },
+      "required": [
+        "IdentityPoolId",
+        "Logins"
+      ],
+      "type": "object",
+      "title": "GetOpenIdTokenForDeveloperIdentityInput"
+    },
+    "GetOpenIdTokenForDeveloperIdentityResponse": {
+      "description": "Returned in response to a successful <code>GetOpenIdTokenForDeveloperIdentity</code> request.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "Token": {
+          "$ref": "#/definitions/OIDCToken",
+          "description": "An OpenID token."
+        }
+      },
+      "type": "object",
+      "title": "GetOpenIdTokenForDeveloperIdentityResponse"
+    },
+    "GetOpenIdTokenInput": {
+      "description": "Input to the GetOpenIdToken action.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "Logins": {
+          "$ref": "#/definitions/LoginsMap",
+          "description": "A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the <code>id_token</code>."
+        }
+      },
+      "required": [
+        "IdentityId"
+      ],
+      "type": "object",
+      "title": "GetOpenIdTokenInput"
+    },
+    "GetOpenIdTokenResponse": {
+      "description": "Returned in response to a successful GetOpenIdToken request.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input."
+        },
+        "Token": {
+          "$ref": "#/definitions/OIDCToken",
+          "description": "An OpenID token, valid for 15 minutes."
+        }
+      },
+      "type": "object",
+      "title": "GetOpenIdTokenResponse"
+    },
+    "HideDisabled": {
+      "type": "boolean",
+      "title": "HideDisabled"
+    },
+    "IdentitiesList": {
+      "items": {
+        "$ref": "#/definitions/IdentityDescription"
+      },
+      "type": "array",
+      "title": "IdentitiesList"
+    },
+    "IdentityDescription": {
+      "description": "A description of the identity.",
+      "properties": {
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "Date on which the identity was created."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "Date on which the identity was last modified."
+        },
+        "Logins": {
+          "$ref": "#/definitions/LoginsList",
+          "description": "A set of optional name-value pairs that map provider names to provider tokens."
+        }
+      },
+      "type": "object",
+      "title": "IdentityDescription"
+    },
+    "IdentityId": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "[\\w-]+:[0-9a-f-]+",
+      "type": "string",
+      "title": "IdentityId"
+    },
+    "IdentityIdList": {
+      "items": {
+        "$ref": "#/definitions/IdentityId"
+      },
+      "maxItems": 60,
+      "minItems": 1,
+      "type": "array",
+      "title": "IdentityIdList"
+    },
+    "IdentityPool": {
+      "description": "An object representing an Amazon Cognito identity pool.",
+      "properties": {
+        "AllowUnauthenticatedIdentities": {
+          "$ref": "#/definitions/IdentityPoolUnauthenticated",
+          "description": "TRUE if the identity pool supports unauthenticated logins."
+        },
+        "CognitoIdentityProviders": {
+          "$ref": "#/definitions/CognitoIdentityProviderList",
+          "description": "A list representing an Amazon Cognito Identity User Pool and its client ID."
+        },
+        "DeveloperProviderName": {
+          "$ref": "#/definitions/DeveloperProviderName",
+          "description": "The \"domain\" by which Cognito will refer to your users."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "IdentityPoolName": {
+          "$ref": "#/definitions/IdentityPoolName",
+          "description": "A string that you provide."
+        },
+        "OpenIdConnectProviderARNs": {
+          "$ref": "#/definitions/OIDCProviderList",
+          "description": "A list of OpendID Connect provider ARNs."
+        },
+        "SamlProviderARNs": {
+          "$ref": "#/definitions/SAMLProviderList",
+          "description": "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool."
+        },
+        "SupportedLoginProviders": {
+          "$ref": "#/definitions/IdentityProviders",
+          "description": "Optional key:value pairs mapping provider names to provider app IDs."
+        }
+      },
+      "required": [
+        "IdentityPoolId",
+        "IdentityPoolName",
+        "AllowUnauthenticatedIdentities"
+      ],
+      "type": "object",
+      "title": "IdentityPool"
+    },
+    "IdentityPoolId": {
+      "maxLength": 55,
+      "minLength": 1,
+      "pattern": "[\\w-]+:[0-9a-f-]+",
+      "type": "string",
+      "title": "IdentityPoolId"
+    },
+    "IdentityPoolName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w ]+",
+      "type": "string",
+      "title": "IdentityPoolName"
+    },
+    "IdentityPoolShortDescription": {
+      "description": "A description of the identity pool.",
+      "properties": {
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "IdentityPoolName": {
+          "$ref": "#/definitions/IdentityPoolName",
+          "description": "A string that you provide."
+        }
+      },
+      "type": "object",
+      "title": "IdentityPoolShortDescription"
+    },
+    "IdentityPoolUnauthenticated": {
+      "type": "boolean",
+      "title": "IdentityPoolUnauthenticated"
+    },
+    "IdentityPoolsList": {
+      "items": {
+        "$ref": "#/definitions/IdentityPoolShortDescription"
+      },
+      "type": "array",
+      "title": "IdentityPoolsList"
+    },
+    "IdentityProviderId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w.;_/-]+",
+      "type": "string",
+      "title": "IdentityProviderId"
+    },
+    "IdentityProviderName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "IdentityProviderName"
+    },
+    "IdentityProviderToken": {
+      "maxLength": 50000,
+      "minLength": 1,
+      "type": "string",
+      "title": "IdentityProviderToken"
+    },
+    "IdentityProviders": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/IdentityProviderName"
+          },
+          "value": {
+            "$ref": "#/definitions/IdentityProviderId"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 10,
+      "type": "array",
+      "title": "IdentityProviders"
+    },
+    "InternalErrorException": {
+      "description": "Thrown when the service encounters an error during processing the request.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by an InternalErrorException."
+        }
+      },
+      "type": "object",
+      "title": "InternalErrorException"
+    },
+    "InvalidIdentityPoolConfigurationException": {
+      "description": "Thrown if the identity pool has no role associated for the given auth type (auth/unauth) or if the AssumeRole fails.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned for an <code>InvalidIdentityPoolConfigurationException</code> "
+        }
+      },
+      "type": "object",
+      "title": "InvalidIdentityPoolConfigurationException"
+    },
+    "InvalidParameterException": {
+      "description": "Thrown for missing or bad input parameter(s).",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by an InvalidParameterException."
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "LimitExceededException": {
+      "description": "Thrown when the total number of user pools has exceeded a preset limit.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by a LimitExceededException."
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListIdentitiesInput": {
+      "description": "Input to the ListIdentities action.",
+      "properties": {
+        "HideDisabled": {
+          "$ref": "#/definitions/HideDisabled",
+          "description": "An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/QueryLimit",
+          "description": "The maximum number of identities to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token."
+        }
+      },
+      "required": [
+        "IdentityPoolId",
+        "MaxResults"
+      ],
+      "type": "object",
+      "title": "ListIdentitiesInput"
+    },
+    "ListIdentitiesResponse": {
+      "description": "The response to a ListIdentities request.",
+      "properties": {
+        "Identities": {
+          "$ref": "#/definitions/IdentitiesList",
+          "description": "An object containing a set of identities and associated mappings."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListIdentitiesResponse"
+    },
+    "ListIdentityPoolsInput": {
+      "description": "Input to the ListIdentityPools action.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/QueryLimit",
+          "description": "The maximum number of identities to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token."
+        }
+      },
+      "required": [
+        "MaxResults"
+      ],
+      "type": "object",
+      "title": "ListIdentityPoolsInput"
+    },
+    "ListIdentityPoolsResponse": {
+      "description": "The result of a successful ListIdentityPools action.",
+      "properties": {
+        "IdentityPools": {
+          "$ref": "#/definitions/IdentityPoolsList",
+          "description": "The identity pools returned by the ListIdentityPools action."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListIdentityPoolsResponse"
+    },
+    "LoginsList": {
+      "items": {
+        "$ref": "#/definitions/IdentityProviderName"
+      },
+      "type": "array",
+      "title": "LoginsList"
+    },
+    "LoginsMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/IdentityProviderName"
+          },
+          "value": {
+            "$ref": "#/definitions/IdentityProviderToken"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 10,
+      "type": "array",
+      "title": "LoginsMap"
+    },
+    "LookupDeveloperIdentityInput": {
+      "description": "Input to the <code>LookupDeveloperIdentityInput</code> action.",
+      "properties": {
+        "DeveloperUserIdentifier": {
+          "$ref": "#/definitions/DeveloperUserIdentifier",
+          "description": "A unique ID used by your backend authentication process to identify a user. Typically, a developer identity provider would issue many developer user identifiers, in keeping with the number of users."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/QueryLimit",
+          "description": "The maximum number of identities to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token. The first call you make will have <code>NextToken</code> set to null. After that the service will return <code>NextToken</code> values as needed. For example, let's say you make a request with <code>MaxResults</code> set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match."
+        }
+      },
+      "required": [
+        "IdentityPoolId"
+      ],
+      "type": "object",
+      "title": "LookupDeveloperIdentityInput"
+    },
+    "LookupDeveloperIdentityResponse": {
+      "description": "Returned in response to a successful <code>LookupDeveloperIdentity</code> action.",
+      "properties": {
+        "DeveloperUserIdentifierList": {
+          "$ref": "#/definitions/DeveloperUserIdentifierList",
+          "description": "This is the list of developer user identifiers associated with an identity ID. Cognito supports the association of multiple developer user identifiers with an identity ID."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKey",
+          "description": "A pagination token. The first call you make will have <code>NextToken</code> set to null. After that the service will return <code>NextToken</code> values as needed. For example, let's say you make a request with <code>MaxResults</code> set to 10, and there are 20 matches in the database. The service will return a pagination token as a part of the response. This token can be used to call the API again and get results starting from the 11th match."
+        }
+      },
+      "type": "object",
+      "title": "LookupDeveloperIdentityResponse"
+    },
+    "MappingRule": {
+      "description": "A rule that maps a claim name, a claim value, and a match type to a role ARN.",
+      "properties": {
+        "Claim": {
+          "$ref": "#/definitions/ClaimName",
+          "description": "The claim name that must be present in the token, for example, \"isAdmin\" or \"paid\"."
+        },
+        "MatchType": {
+          "$ref": "#/definitions/MappingRuleMatchType",
+          "description": "The match condition that specifies how closely the claim value in the IdP token must match <code>Value</code>."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/ARNString",
+          "description": "The role ARN."
+        },
+        "Value": {
+          "$ref": "#/definitions/ClaimValue",
+          "description": "A brief string that the claim must match, for example, \"paid\" or \"yes\"."
+        }
+      },
+      "required": [
+        "Claim",
+        "MatchType",
+        "Value",
+        "RoleARN"
+      ],
+      "type": "object",
+      "title": "MappingRule"
+    },
+    "MappingRuleMatchType": {
+      "enum": [
+        "Equals",
+        "Contains",
+        "StartsWith",
+        "NotEqual"
+      ],
+      "type": "string",
+      "title": "MappingRuleMatchType"
+    },
+    "MappingRulesList": {
+      "items": {
+        "$ref": "#/definitions/MappingRule"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array",
+      "title": "MappingRulesList"
+    },
+    "MergeDeveloperIdentitiesInput": {
+      "description": "Input to the <code>MergeDeveloperIdentities</code> action.",
+      "properties": {
+        "DestinationUserIdentifier": {
+          "$ref": "#/definitions/DeveloperUserIdentifier",
+          "description": "User identifier for the destination user. The value should be a <code>DeveloperUserIdentifier</code>."
+        },
+        "DeveloperProviderName": {
+          "$ref": "#/definitions/DeveloperProviderName",
+          "description": "The \"domain\" by which Cognito will refer to your users. This is a (pseudo) domain name that you provide while creating an identity pool. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the <code>DeveloperProviderName</code>, you can use letters as well as period (.), underscore (_), and dash (-)."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "SourceUserIdentifier": {
+          "$ref": "#/definitions/DeveloperUserIdentifier",
+          "description": "User identifier for the source user. The value should be a <code>DeveloperUserIdentifier</code>."
+        }
+      },
+      "required": [
+        "SourceUserIdentifier",
+        "DestinationUserIdentifier",
+        "DeveloperProviderName",
+        "IdentityPoolId"
+      ],
+      "type": "object",
+      "title": "MergeDeveloperIdentitiesInput"
+    },
+    "MergeDeveloperIdentitiesResponse": {
+      "description": "Returned in response to a successful <code>MergeDeveloperIdentities</code> action.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        }
+      },
+      "type": "object",
+      "title": "MergeDeveloperIdentitiesResponse"
+    },
+    "NotAuthorizedException": {
+      "description": "Thrown when a user is not authorized to access the requested resource.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by a NotAuthorizedException"
+        }
+      },
+      "type": "object",
+      "title": "NotAuthorizedException"
+    },
+    "OIDCProviderList": {
+      "items": {
+        "$ref": "#/definitions/ARNString"
+      },
+      "type": "array",
+      "title": "OIDCProviderList"
+    },
+    "OIDCToken": {
+      "type": "string",
+      "title": "OIDCToken"
+    },
+    "PaginationKey": {
+      "minLength": 1,
+      "pattern": "[\\S]+",
+      "type": "string",
+      "title": "PaginationKey"
+    },
+    "QueryLimit": {
+      "maximum": 60,
+      "minimum": 1,
+      "type": "integer",
+      "title": "QueryLimit"
+    },
+    "ResourceConflictException": {
+      "description": "Thrown when a user tries to use a login which is already linked to another account.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by a ResourceConflictException."
+        }
+      },
+      "type": "object",
+      "title": "ResourceConflictException"
+    },
+    "ResourceNotFoundException": {
+      "description": "Thrown when the requested resource (for example, a dataset or record) does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "The message returned by a ResourceNotFoundException."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "RoleMapping": {
+      "description": "A role mapping.",
+      "properties": {
+        "AmbiguousRoleResolution": {
+          "$ref": "#/definitions/AmbiguousRoleResolutionType",
+          "description": "<p>If you specify Token or Rules as the <code>Type</code>, <code>AmbiguousRoleResolution</code> is required.</p> <p>Specifies the action to be taken if either no rules match the claim value for the <code>Rules</code> type, or there is no <code>cognito:preferred_role</code> claim and there are multiple <code>cognito:roles</code> matches for the <code>Token</code> type.</p>"
+        },
+        "RulesConfiguration": {
+          "$ref": "#/definitions/RulesConfigurationType",
+          "description": "<p>The rules to be used for mapping users to roles.</p> <p>If you specify Rules as the role mapping type, <code>RulesConfiguration</code> is required.</p>"
+        },
+        "Type": {
+          "$ref": "#/definitions/RoleMappingType",
+          "description": "The role mapping type. Token will use <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role."
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object",
+      "title": "RoleMapping"
+    },
+    "RoleMappingMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/IdentityProviderName"
+          },
+          "value": {
+            "$ref": "#/definitions/RoleMapping"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 10,
+      "type": "array",
+      "title": "RoleMappingMap"
+    },
+    "RoleMappingType": {
+      "enum": [
+        "Token",
+        "Rules"
+      ],
+      "type": "string",
+      "title": "RoleMappingType"
+    },
+    "RoleType": {
+      "pattern": "(un)?authenticated",
+      "type": "string",
+      "title": "RoleType"
+    },
+    "RolesMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/RoleType"
+          },
+          "value": {
+            "$ref": "#/definitions/ARNString"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 2,
+      "type": "array",
+      "title": "RolesMap"
+    },
+    "RulesConfigurationType": {
+      "description": "A container for rules.",
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/MappingRulesList",
+          "description": "<p>An array of rules. You can specify up to 25 rules per identity provider.</p> <p>Rules are evaluated in order. The first one to match specifies the role.</p>"
+        }
+      },
+      "required": [
+        "Rules"
+      ],
+      "type": "object",
+      "title": "RulesConfigurationType"
+    },
+    "SAMLProviderList": {
+      "items": {
+        "$ref": "#/definitions/ARNString"
+      },
+      "type": "array",
+      "title": "SAMLProviderList"
+    },
+    "SecretKeyString": {
+      "type": "string",
+      "title": "SecretKeyString"
+    },
+    "SessionTokenString": {
+      "type": "string",
+      "title": "SessionTokenString"
+    },
+    "SetIdentityPoolRolesInput": {
+      "description": "Input to the <code>SetIdentityPoolRoles</code> action.",
+      "properties": {
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        },
+        "RoleMappings": {
+          "$ref": "#/definitions/RoleMappingMap",
+          "description": "<p>How users for a specific identity provider are to mapped to roles. This is a string to <a>RoleMapping</a> object map. The string identifies the identity provider, for example, \"graph.facebook.com\" or \"cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id\".</p> <p>Up to 25 rules can be specified per identity provider.</p>"
+        },
+        "Roles": {
+          "$ref": "#/definitions/RolesMap",
+          "description": "The map of roles associated with this pool. For a given role, the key will be either \"authenticated\" or \"unauthenticated\" and the value will be the Role ARN."
+        }
+      },
+      "required": [
+        "IdentityPoolId",
+        "Roles"
+      ],
+      "type": "object",
+      "title": "SetIdentityPoolRolesInput"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "TokenDuration": {
+      "maximum": 86400,
+      "minimum": 1,
+      "type": "integer",
+      "title": "TokenDuration"
+    },
+    "TooManyRequestsException": {
+      "description": "Thrown when a request is throttled.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "Message returned by a TooManyRequestsException"
+        }
+      },
+      "type": "object",
+      "title": "TooManyRequestsException"
+    },
+    "UnlinkDeveloperIdentityInput": {
+      "description": "Input to the <code>UnlinkDeveloperIdentity</code> action.",
+      "properties": {
+        "DeveloperProviderName": {
+          "$ref": "#/definitions/DeveloperProviderName",
+          "description": "The \"domain\" by which Cognito will refer to your users."
+        },
+        "DeveloperUserIdentifier": {
+          "$ref": "#/definitions/DeveloperUserIdentifier",
+          "description": "A unique ID used by your backend authentication process to identify a user."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "IdentityPoolId": {
+          "$ref": "#/definitions/IdentityPoolId",
+          "description": "An identity pool ID in the format REGION:GUID."
+        }
+      },
+      "required": [
+        "IdentityId",
+        "IdentityPoolId",
+        "DeveloperProviderName",
+        "DeveloperUserIdentifier"
+      ],
+      "type": "object",
+      "title": "UnlinkDeveloperIdentityInput"
+    },
+    "UnlinkIdentityInput": {
+      "description": "Input to the UnlinkIdentity action.",
+      "properties": {
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        },
+        "Logins": {
+          "$ref": "#/definitions/LoginsMap",
+          "description": "A set of optional name-value pairs that map provider names to provider tokens."
+        },
+        "LoginsToRemove": {
+          "$ref": "#/definitions/LoginsList",
+          "description": "Provider names to unlink from this identity."
+        }
+      },
+      "required": [
+        "IdentityId",
+        "Logins",
+        "LoginsToRemove"
+      ],
+      "type": "object",
+      "title": "UnlinkIdentityInput"
+    },
+    "UnprocessedIdentityId": {
+      "description": "An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code indicating the type of error that occurred."
+        },
+        "IdentityId": {
+          "$ref": "#/definitions/IdentityId",
+          "description": "A unique identifier in the format REGION:GUID."
+        }
+      },
+      "type": "object",
+      "title": "UnprocessedIdentityId"
+    },
+    "UnprocessedIdentityIdList": {
+      "items": {
+        "$ref": "#/definitions/UnprocessedIdentityId"
+      },
+      "maxItems": 60,
+      "type": "array",
+      "title": "UnprocessedIdentityIdList"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateIdentityPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateIdentityPoolInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IdentityPool"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "DeleteIdentities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteIdentitiesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteIdentitiesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "DeleteIdentityPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteIdentityPoolInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "DescribeIdentity",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeIdentityInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IdentityDescription"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "DescribeIdentityPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeIdentityPoolInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IdentityPool"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "GetCredentialsForIdentity",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCredentialsForIdentityInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCredentialsForIdentityResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "GetId",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIdInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIdResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "GetIdentityPoolRoles",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIdentityPoolRolesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIdentityPoolRolesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "GetOpenIdToken",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetOpenIdTokenInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetOpenIdTokenResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "GetOpenIdTokenForDeveloperIdentity",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetOpenIdTokenForDeveloperIdentityInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetOpenIdTokenForDeveloperIdentityResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "ListIdentities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListIdentitiesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListIdentitiesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "ListIdentityPools",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListIdentityPoolsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListIdentityPoolsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "LookupDeveloperIdentity",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/LookupDeveloperIdentityInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LookupDeveloperIdentityResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "MergeDeveloperIdentities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/MergeDeveloperIdentitiesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MergeDeveloperIdentitiesResponse"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "SetIdentityPoolRoles",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetIdentityPoolRolesInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "UnlinkDeveloperIdentity",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UnlinkDeveloperIdentityInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "UnlinkIdentity",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UnlinkIdentityInput"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    },
+    {
+      "id": "UpdateIdentityPool",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/IdentityPool"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IdentityPool"
+      },
+      "security": {
+        "amazonaws_cognito_identity": {
+          "integration": "amazonaws_cognito_identity"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

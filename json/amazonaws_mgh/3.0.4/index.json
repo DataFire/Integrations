@@ -1,0 +1,1291 @@
+{
+  "id": "amazonaws_mgh",
+  "title": "AWS Migration Hub",
+  "description": "<p/>",
+  "security": {
+    "amazonaws_mgh": {
+      "integration": "amazonaws_mgh",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mgh.jpg"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "AccessDeniedException": {
+      "description": "Exception raised when the account making the call is not whitelisted or there are other authentication errors.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "AccessDeniedException"
+    },
+    "ApplicationId": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string",
+      "title": "ApplicationId"
+    },
+    "ApplicationStatus": {
+      "enum": [
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "COMPLETED"
+      ],
+      "type": "string",
+      "title": "ApplicationStatus"
+    },
+    "AssociateCreatedArtifactRequest": {
+      "properties": {
+        "CreatedArtifact": {
+          "$ref": "#/definitions/CreatedArtifact",
+          "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) "
+        },
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName",
+        "CreatedArtifact"
+      ],
+      "type": "object",
+      "title": "AssociateCreatedArtifactRequest"
+    },
+    "AssociateCreatedArtifactResult": {
+      "properties": {},
+      "type": "object",
+      "title": "AssociateCreatedArtifactResult"
+    },
+    "AssociateDiscoveredResourceRequest": {
+      "properties": {
+        "DiscoveredResource": {
+          "$ref": "#/definitions/DiscoveredResource",
+          "description": "Object representing a Resource."
+        },
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "The identifier given to the MigrationTask."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream."
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName",
+        "DiscoveredResource"
+      ],
+      "type": "object",
+      "title": "AssociateDiscoveredResourceRequest"
+    },
+    "AssociateDiscoveredResourceResult": {
+      "properties": {},
+      "type": "object",
+      "title": "AssociateDiscoveredResourceResult"
+    },
+    "ConfigurationId": {
+      "minLength": 1,
+      "type": "string",
+      "title": "ConfigurationId"
+    },
+    "CreateProgressUpdateStreamRequest": {
+      "properties": {
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "ProgressUpdateStreamName": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStreamName"
+      ],
+      "type": "object",
+      "title": "CreateProgressUpdateStreamRequest"
+    },
+    "CreateProgressUpdateStreamResult": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateProgressUpdateStreamResult"
+    },
+    "CreatedArtifact": {
+      "description": "An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2 instance, RDS instance, etc.).",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/CreatedArtifactDescription",
+          "description": "A description that can be free-form text to record additional detail about the artifact for clarity or for later reference."
+        },
+        "Name": {
+          "$ref": "#/definitions/CreatedArtifactName",
+          "description": "An ARN that uniquely identifies the result of a migration task."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "CreatedArtifact"
+    },
+    "CreatedArtifactDescription": {
+      "maxLength": 500,
+      "minLength": 0,
+      "type": "string",
+      "title": "CreatedArtifactDescription"
+    },
+    "CreatedArtifactList": {
+      "items": {
+        "$ref": "#/definitions/CreatedArtifact"
+      },
+      "type": "array",
+      "title": "CreatedArtifactList"
+    },
+    "CreatedArtifactName": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "pattern": "arn:[a-z-]+:[a-z0-9-]+:(?:[a-z0-9-]+|):(?:[0-9]{12}|):.*",
+      "type": "string",
+      "title": "CreatedArtifactName"
+    },
+    "DeleteProgressUpdateStreamRequest": {
+      "properties": {
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "ProgressUpdateStreamName": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStreamName"
+      ],
+      "type": "object",
+      "title": "DeleteProgressUpdateStreamRequest"
+    },
+    "DeleteProgressUpdateStreamResult": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteProgressUpdateStreamResult"
+    },
+    "DescribeApplicationStateRequest": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "The configurationId in ADS that uniquely identifies the grouped application."
+        }
+      },
+      "required": [
+        "ApplicationId"
+      ],
+      "type": "object",
+      "title": "DescribeApplicationStateRequest"
+    },
+    "DescribeApplicationStateResult": {
+      "properties": {
+        "ApplicationStatus": {
+          "$ref": "#/definitions/ApplicationStatus",
+          "description": "Status of the application - Not Started, In-Progress, Complete."
+        },
+        "LastUpdatedTime": {
+          "$ref": "#/definitions/UpdateDateTime",
+          "description": "The timestamp when the application status was last updated."
+        }
+      },
+      "type": "object",
+      "title": "DescribeApplicationStateResult"
+    },
+    "DescribeMigrationTaskRequest": {
+      "properties": {
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "The identifier given to the MigrationTask."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName"
+      ],
+      "type": "object",
+      "title": "DescribeMigrationTaskRequest"
+    },
+    "DescribeMigrationTaskResult": {
+      "properties": {
+        "MigrationTask": {
+          "$ref": "#/definitions/MigrationTask",
+          "description": "Object encapsulating information about the migration task."
+        }
+      },
+      "type": "object",
+      "title": "DescribeMigrationTaskResult"
+    },
+    "DisassociateCreatedArtifactRequest": {
+      "properties": {
+        "CreatedArtifactName": {
+          "$ref": "#/definitions/CreatedArtifactName",
+          "description": "An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)"
+        },
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task to be disassociated with the artifact."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName",
+        "CreatedArtifactName"
+      ],
+      "type": "object",
+      "title": "DisassociateCreatedArtifactRequest"
+    },
+    "DisassociateCreatedArtifactResult": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateCreatedArtifactResult"
+    },
+    "DisassociateDiscoveredResourceRequest": {
+      "properties": {
+        "ConfigurationId": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "ConfigurationId of the ADS resource to be disassociated."
+        },
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "The identifier given to the MigrationTask."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream."
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName",
+        "ConfigurationId"
+      ],
+      "type": "object",
+      "title": "DisassociateDiscoveredResourceRequest"
+    },
+    "DisassociateDiscoveredResourceResult": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateDiscoveredResourceResult"
+    },
+    "DiscoveredResource": {
+      "description": "Object representing the on-premises resource being migrated.",
+      "properties": {
+        "ConfigurationId": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The configurationId in ADS that uniquely identifies the on-premise resource."
+        },
+        "Description": {
+          "$ref": "#/definitions/DiscoveredResourceDescription",
+          "description": "A description that can be free-form text to record additional detail about the discovered resource for clarity or later reference."
+        }
+      },
+      "required": [
+        "ConfigurationId"
+      ],
+      "type": "object",
+      "title": "DiscoveredResource"
+    },
+    "DiscoveredResourceDescription": {
+      "maxLength": 500,
+      "minLength": 0,
+      "type": "string",
+      "title": "DiscoveredResourceDescription"
+    },
+    "DiscoveredResourceList": {
+      "items": {
+        "$ref": "#/definitions/DiscoveredResource"
+      },
+      "type": "array",
+      "title": "DiscoveredResourceList"
+    },
+    "DryRun": {
+      "type": "boolean",
+      "title": "DryRun"
+    },
+    "DryRunOperation": {
+      "description": "Exception raised to indicate a successfully authorized action when the <code>DryRun</code> flag is set to \"true\".",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "DryRunOperation"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "ImportMigrationTaskRequest": {
+      "properties": {
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName"
+      ],
+      "type": "object",
+      "title": "ImportMigrationTaskRequest"
+    },
+    "ImportMigrationTaskResult": {
+      "properties": {},
+      "type": "object",
+      "title": "ImportMigrationTaskResult"
+    },
+    "InternalServerError": {
+      "description": "Exception raised when there is an internal, configuration, or dependency error encountered.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InternalServerError"
+    },
+    "InvalidInputException": {
+      "description": "Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "InvalidInputException"
+    },
+    "LatestResourceAttributeList": {
+      "items": {
+        "$ref": "#/definitions/ResourceAttribute"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array",
+      "title": "LatestResourceAttributeList"
+    },
+    "ListCreatedArtifactsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResultsCreatedArtifacts",
+          "description": "Maximum number of results to be returned per page."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName"
+      ],
+      "type": "object",
+      "title": "ListCreatedArtifactsRequest"
+    },
+    "ListCreatedArtifactsResult": {
+      "properties": {
+        "CreatedArtifactList": {
+          "$ref": "#/definitions/CreatedArtifactList",
+          "description": "List of created artifacts up to the maximum number of results specified in the request."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+        }
+      },
+      "type": "object",
+      "title": "ListCreatedArtifactsResult"
+    },
+    "ListDiscoveredResourcesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResultsResources",
+          "description": "The maximum number of results returned per page."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "The name of the MigrationTask."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream."
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName"
+      ],
+      "type": "object",
+      "title": "ListDiscoveredResourcesRequest"
+    },
+    "ListDiscoveredResourcesResult": {
+      "properties": {
+        "DiscoveredResourceList": {
+          "$ref": "#/definitions/DiscoveredResourceList",
+          "description": "Returned list of discovered resources associated with the given MigrationTask."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+        }
+      },
+      "type": "object",
+      "title": "ListDiscoveredResourcesResult"
+    },
+    "ListMigrationTasksRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Value to specify how many results are returned per page."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+        },
+        "ResourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "Filter migration tasks by discovered resource name."
+        }
+      },
+      "type": "object",
+      "title": "ListMigrationTasksRequest"
+    },
+    "ListMigrationTasksResult": {
+      "properties": {
+        "MigrationTaskSummaryList": {
+          "$ref": "#/definitions/MigrationTaskSummaryList",
+          "description": "Lists the migration task's summary which includes: <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and the <code>UpdateDateTime</code> for each task."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+        }
+      },
+      "type": "object",
+      "title": "ListMigrationTasksResult"
+    },
+    "ListProgressUpdateStreamsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Filter to limit the maximum number of results to list per page."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>."
+        }
+      },
+      "type": "object",
+      "title": "ListProgressUpdateStreamsRequest"
+    },
+    "ListProgressUpdateStreamsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from."
+        },
+        "ProgressUpdateStreamSummaryList": {
+          "$ref": "#/definitions/ProgressUpdateStreamSummaryList",
+          "description": "List of progress update streams up to the max number of results passed in the input."
+        }
+      },
+      "type": "object",
+      "title": "ListProgressUpdateStreamsResult"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResults"
+    },
+    "MaxResultsCreatedArtifacts": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResultsCreatedArtifacts"
+    },
+    "MaxResultsResources": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxResultsResources"
+    },
+    "MigrationTask": {
+      "description": "Represents a migration task in a migration tool.",
+      "properties": {
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "A name that identifies the vendor of the migration tool being used."
+        },
+        "ResourceAttributeList": {
+          "$ref": "#/definitions/LatestResourceAttributeList",
+          "description": "<p/>"
+        },
+        "Task": {
+          "$ref": "#/definitions/Task",
+          "description": "Task object encapsulating task information."
+        },
+        "UpdateDateTime": {
+          "$ref": "#/definitions/UpdateDateTime",
+          "description": "The timestamp when the task was gathered."
+        }
+      },
+      "type": "object",
+      "title": "MigrationTask"
+    },
+    "MigrationTaskName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[^:|]+",
+      "type": "string",
+      "title": "MigrationTaskName"
+    },
+    "MigrationTaskSummary": {
+      "description": "MigrationTaskSummary includes <code>MigrationTaskName</code>, <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>, and <code>UpdateDateTime</code> for each task.",
+      "properties": {
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "ProgressPercent": {
+          "$ref": "#/definitions/ProgressPercent",
+          "description": "<p/>"
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "Status of the task."
+        },
+        "StatusDetail": {
+          "$ref": "#/definitions/StatusDetail",
+          "description": "Detail information of what is being done within the overall status state."
+        },
+        "UpdateDateTime": {
+          "$ref": "#/definitions/UpdateDateTime",
+          "description": "The timestamp when the task was gathered."
+        }
+      },
+      "type": "object",
+      "title": "MigrationTaskSummary"
+    },
+    "MigrationTaskSummaryList": {
+      "items": {
+        "$ref": "#/definitions/MigrationTaskSummary"
+      },
+      "type": "array",
+      "title": "MigrationTaskSummaryList"
+    },
+    "NextUpdateSeconds": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "NextUpdateSeconds"
+    },
+    "NotifyApplicationStateRequest": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "The configurationId in ADS that uniquely identifies the grouped application."
+        },
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "Status": {
+          "$ref": "#/definitions/ApplicationStatus",
+          "description": "Status of the application - Not Started, In-Progress, Complete."
+        }
+      },
+      "required": [
+        "ApplicationId",
+        "Status"
+      ],
+      "type": "object",
+      "title": "NotifyApplicationStateRequest"
+    },
+    "NotifyApplicationStateResult": {
+      "properties": {},
+      "type": "object",
+      "title": "NotifyApplicationStateResult"
+    },
+    "NotifyMigrationTaskStateRequest": {
+      "properties": {
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "NextUpdateSeconds": {
+          "$ref": "#/definitions/NextUpdateSeconds",
+          "description": "Number of seconds after the UpdateDateTime within which the Migration Hub can expect an update. If Migration Hub does not receive an update within the specified interval, then the migration task will be considered stale."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        },
+        "Task": {
+          "$ref": "#/definitions/Task",
+          "description": "Information about the task's progress and status."
+        },
+        "UpdateDateTime": {
+          "$ref": "#/definitions/UpdateDateTime",
+          "description": "The timestamp when the task was gathered."
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName",
+        "Task",
+        "UpdateDateTime",
+        "NextUpdateSeconds"
+      ],
+      "type": "object",
+      "title": "NotifyMigrationTaskStateRequest"
+    },
+    "NotifyMigrationTaskStateResult": {
+      "properties": {},
+      "type": "object",
+      "title": "NotifyMigrationTaskStateResult"
+    },
+    "PolicyErrorException": {
+      "description": "Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the <code>ADSCaller</code> role is missing or not configured correctly.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "PolicyErrorException"
+    },
+    "ProgressPercent": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "title": "ProgressPercent"
+    },
+    "ProgressUpdateStream": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "[^/:|\\000-\\037]+",
+      "type": "string",
+      "title": "ProgressUpdateStream"
+    },
+    "ProgressUpdateStreamSummary": {
+      "description": "Summary of the AWS resource used for access control that is implicitly linked to your AWS account.",
+      "properties": {
+        "ProgressUpdateStreamName": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        }
+      },
+      "type": "object",
+      "title": "ProgressUpdateStreamSummary"
+    },
+    "ProgressUpdateStreamSummaryList": {
+      "items": {
+        "$ref": "#/definitions/ProgressUpdateStreamSummary"
+      },
+      "type": "array",
+      "title": "ProgressUpdateStreamSummaryList"
+    },
+    "PutResourceAttributesRequest": {
+      "properties": {
+        "DryRun": {
+          "$ref": "#/definitions/DryRun",
+          "description": "Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call."
+        },
+        "MigrationTaskName": {
+          "$ref": "#/definitions/MigrationTaskName",
+          "description": "Unique identifier that references the migration task."
+        },
+        "ProgressUpdateStream": {
+          "$ref": "#/definitions/ProgressUpdateStream",
+          "description": "The name of the ProgressUpdateStream. "
+        },
+        "ResourceAttributeList": {
+          "$ref": "#/definitions/ResourceAttributeList",
+          "description": "Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service (ADS)'s repository."
+        }
+      },
+      "required": [
+        "ProgressUpdateStream",
+        "MigrationTaskName",
+        "ResourceAttributeList"
+      ],
+      "type": "object",
+      "title": "PutResourceAttributesRequest"
+    },
+    "PutResourceAttributesResult": {
+      "properties": {},
+      "type": "object",
+      "title": "PutResourceAttributesResult"
+    },
+    "ResourceAttribute": {
+      "description": "Attribute associated with a resource.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/ResourceAttributeType",
+          "description": "Type of resource."
+        },
+        "Value": {
+          "$ref": "#/definitions/ResourceAttributeValue",
+          "description": "Value of the resource type."
+        }
+      },
+      "required": [
+        "Type",
+        "Value"
+      ],
+      "type": "object",
+      "title": "ResourceAttribute"
+    },
+    "ResourceAttributeList": {
+      "items": {
+        "$ref": "#/definitions/ResourceAttribute"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array",
+      "title": "ResourceAttributeList"
+    },
+    "ResourceAttributeType": {
+      "enum": [
+        "IPV4_ADDRESS",
+        "IPV6_ADDRESS",
+        "MAC_ADDRESS",
+        "FQDN",
+        "VM_MANAGER_ID",
+        "VM_MANAGED_OBJECT_REFERENCE",
+        "VM_NAME",
+        "VM_PATH",
+        "BIOS_ID",
+        "MOTHERBOARD_SERIAL_NUMBER",
+        "LABEL"
+      ],
+      "type": "string",
+      "title": "ResourceAttributeType"
+    },
+    "ResourceAttributeValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "ResourceAttributeValue"
+    },
+    "ResourceName": {
+      "maxLength": 1600,
+      "minLength": 1,
+      "type": "string",
+      "title": "ResourceName"
+    },
+    "ResourceNotFoundException": {
+      "description": "Exception raised when the request references a resource (ADS configuration, update stream, migration task, etc.) that does not exist in ADS (Application Discovery Service) or in Migration Hub's repository.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ServiceUnavailableException": {
+      "description": "Exception raised when the service encounters throttled communication with upstream dependencies or is overloaded with requests.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "Status": {
+      "enum": [
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "FAILED",
+        "COMPLETED"
+      ],
+      "type": "string",
+      "title": "Status"
+    },
+    "StatusDetail": {
+      "maxLength": 500,
+      "minLength": 0,
+      "type": "string",
+      "title": "StatusDetail"
+    },
+    "Task": {
+      "description": "Task object encapsulating task information.",
+      "properties": {
+        "ProgressPercent": {
+          "$ref": "#/definitions/ProgressPercent",
+          "description": "Indication of the percentage completion of the task."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "Status of the task - Not Started, In-Progress, Complete."
+        },
+        "StatusDetail": {
+          "$ref": "#/definitions/StatusDetail",
+          "description": "Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "Task"
+    },
+    "Token": {
+      "type": "string",
+      "title": "Token"
+    },
+    "UnauthorizedOperation": {
+      "description": "Exception raised to indicate a request was not authorized when the <code>DryRun</code> flag is set to \"true\".",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object",
+      "title": "UnauthorizedOperation"
+    },
+    "UpdateDateTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "UpdateDateTime"
+    }
+  },
+  "actions": [
+    {
+      "id": "AssociateCreatedArtifact",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateCreatedArtifactRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateCreatedArtifactResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "AssociateDiscoveredResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateDiscoveredResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateDiscoveredResourceResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "CreateProgressUpdateStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateProgressUpdateStreamRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateProgressUpdateStreamResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "DeleteProgressUpdateStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteProgressUpdateStreamRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteProgressUpdateStreamResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "DescribeApplicationState",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeApplicationStateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeApplicationStateResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "DescribeMigrationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeMigrationTaskRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeMigrationTaskResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "DisassociateCreatedArtifact",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateCreatedArtifactRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateCreatedArtifactResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "DisassociateDiscoveredResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateDiscoveredResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateDiscoveredResourceResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "ImportMigrationTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ImportMigrationTaskRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ImportMigrationTaskResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "ListCreatedArtifacts",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListCreatedArtifactsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCreatedArtifactsResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "ListDiscoveredResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDiscoveredResourcesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDiscoveredResourcesResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "ListMigrationTasks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListMigrationTasksRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListMigrationTasksResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "ListProgressUpdateStreams",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListProgressUpdateStreamsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListProgressUpdateStreamsResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "NotifyApplicationState",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/NotifyApplicationStateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NotifyApplicationStateResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "NotifyMigrationTaskState",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/NotifyMigrationTaskStateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NotifyMigrationTaskStateResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    },
+    {
+      "id": "PutResourceAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutResourceAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutResourceAttributesResult"
+      },
+      "security": {
+        "amazonaws_mgh": {
+          "integration": "amazonaws_mgh"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

@@ -1,0 +1,2053 @@
+{
+  "id": "amazonaws_batch",
+  "title": "AWS Batch",
+  "description": "AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar to users of traditional batch computing software. This service can efficiently provision resources in response to jobs submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results quickly.\n\nAs a fully managed service, AWS Batch enables developers, scientists, and engineers to run batch computing workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch computing software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces operational complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and engineers to run their batch jobs in the AWS Cloud.",
+  "security": {
+    "amazonaws_batch": {
+      "integration": "amazonaws_batch",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_batch.svg"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "AttemptContainerDetail": {
+      "description": "An object representing the details of a container that is part of a job attempt.",
+      "properties": {
+        "containerInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt."
+        },
+        "exitCode": {
+          "$ref": "#/definitions/Integer",
+          "description": "The exit code for the job attempt. A non-zero exit code is considered a failure."
+        },
+        "reason": {
+          "$ref": "#/definitions/String",
+          "description": "A short (255 max characters) human-readable string to provide additional details about a running or stopped container."
+        },
+        "taskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt."
+        }
+      },
+      "type": "object",
+      "title": "AttemptContainerDetail"
+    },
+    "AttemptDetail": {
+      "description": "An object representing a job attempt.",
+      "properties": {
+        "container": {
+          "$ref": "#/definitions/AttemptContainerDetail",
+          "description": "Details about the container in this job attempt."
+        },
+        "startedAt": {
+          "$ref": "#/definitions/Long",
+          "description": "The Unix timestamp for when the attempt was started (when the task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state)."
+        },
+        "statusReason": {
+          "$ref": "#/definitions/String",
+          "description": "A short, human-readable string to provide additional details about the current status of the job attempt."
+        },
+        "stoppedAt": {
+          "$ref": "#/definitions/Long",
+          "description": "The Unix timestamp for when the attempt was stopped (when the task transitioned from the <code>RUNNING</code> state to the <code>STOPPED</code> state)."
+        }
+      },
+      "type": "object",
+      "title": "AttemptDetail"
+    },
+    "AttemptDetails": {
+      "items": {
+        "$ref": "#/definitions/AttemptDetail"
+      },
+      "type": "array",
+      "title": "AttemptDetails"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "CEState": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string",
+      "title": "CEState"
+    },
+    "CEStatus": {
+      "enum": [
+        "CREATING",
+        "UPDATING",
+        "DELETING",
+        "DELETED",
+        "VALID",
+        "INVALID"
+      ],
+      "type": "string",
+      "title": "CEStatus"
+    },
+    "CEType": {
+      "enum": [
+        "MANAGED",
+        "UNMANAGED"
+      ],
+      "type": "string",
+      "title": "CEType"
+    },
+    "CRType": {
+      "enum": [
+        "EC2",
+        "SPOT"
+      ],
+      "type": "string",
+      "title": "CRType"
+    },
+    "CancelJobRequest": {
+      "example": {
+        "jobId": "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
+        "reason": "Cancelling job."
+      },
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/String",
+          "description": "A list of up to 100 job IDs to cancel."
+        },
+        "reason": {
+          "$ref": "#/definitions/String",
+          "description": "A message to attach to the job that explains the reason for cancelling it. This message is returned by future <a>DescribeJobs</a> operations on the job. This message is also recorded in the AWS Batch activity logs. "
+        }
+      },
+      "required": [
+        "jobId",
+        "reason"
+      ],
+      "type": "object",
+      "title": "CancelJobRequest"
+    },
+    "CancelJobResponse": {
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "CancelJobResponse"
+    },
+    "ClientException": {
+      "description": "These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ClientException"
+    },
+    "ComputeEnvironmentDetail": {
+      "description": "An object representing an AWS Batch compute environment.",
+      "properties": {
+        "computeEnvironmentArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the compute environment. "
+        },
+        "computeEnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the compute environment. "
+        },
+        "computeResources": {
+          "$ref": "#/definitions/ComputeResource",
+          "description": "The compute resources defined for the compute environment. "
+        },
+        "ecsClusterArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment. "
+        },
+        "serviceRole": {
+          "$ref": "#/definitions/String",
+          "description": "The service role associated with the compute environment that allows AWS Batch to make calls to AWS API operations on your behalf."
+        },
+        "state": {
+          "$ref": "#/definitions/CEState",
+          "description": "The state of the compute environment. The valid values are <code>ENABLED</code> or <code>DISABLED</code>. An <code>ENABLED</code> state indicates that you can register instances with the compute environment and that the associated instances can accept jobs. "
+        },
+        "status": {
+          "$ref": "#/definitions/CEStatus",
+          "description": "The current status of the compute environment (for example, <code>CREATING</code> or <code>VALID</code>)."
+        },
+        "statusReason": {
+          "$ref": "#/definitions/String",
+          "description": "A short, human-readable string to provide additional details about the current status of the compute environment."
+        },
+        "type": {
+          "$ref": "#/definitions/CEType",
+          "description": "The type of the compute environment."
+        }
+      },
+      "required": [
+        "computeEnvironmentName",
+        "computeEnvironmentArn",
+        "ecsClusterArn"
+      ],
+      "type": "object",
+      "title": "ComputeEnvironmentDetail"
+    },
+    "ComputeEnvironmentDetailList": {
+      "items": {
+        "$ref": "#/definitions/ComputeEnvironmentDetail"
+      },
+      "type": "array",
+      "title": "ComputeEnvironmentDetailList"
+    },
+    "ComputeEnvironmentOrder": {
+      "description": "The order in which compute environments are tried for job placement within a queue. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.",
+      "properties": {
+        "computeEnvironment": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the compute environment."
+        },
+        "order": {
+          "$ref": "#/definitions/Integer",
+          "description": "The order of the compute environment."
+        }
+      },
+      "required": [
+        "order",
+        "computeEnvironment"
+      ],
+      "type": "object",
+      "title": "ComputeEnvironmentOrder"
+    },
+    "ComputeEnvironmentOrders": {
+      "items": {
+        "$ref": "#/definitions/ComputeEnvironmentOrder"
+      },
+      "type": "array",
+      "title": "ComputeEnvironmentOrders"
+    },
+    "ComputeResource": {
+      "description": "An object representing an AWS Batch compute resource.",
+      "properties": {
+        "bidPercentage": {
+          "$ref": "#/definitions/Integer",
+          "description": "The minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%, then the Spot price must be below 20% of the current On-Demand price for that EC2 instance."
+        },
+        "desiredvCpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The desired number of EC2 vCPUS in the compute environment. "
+        },
+        "ec2KeyPair": {
+          "$ref": "#/definitions/String",
+          "description": "The EC2 key pair that is used for instances launched in the compute environment."
+        },
+        "imageId": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Machine Image (AMI) ID used for instances launched in the compute environment."
+        },
+        "instanceRole": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment."
+        },
+        "instanceTypes": {
+          "$ref": "#/definitions/StringList",
+          "description": "The instances types that may launched."
+        },
+        "maxvCpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of EC2 vCPUs that an environment can reach. "
+        },
+        "minvCpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The minimum number of EC2 vCPUs that an environment should maintain. "
+        },
+        "securityGroupIds": {
+          "$ref": "#/definitions/StringList",
+          "description": "The EC2 security group that is associated with instances launched in the compute environment. "
+        },
+        "spotIamFleetRole": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a <code>SPOT</code> compute environment."
+        },
+        "subnets": {
+          "$ref": "#/definitions/StringList",
+          "description": "The VPC subnets into which the compute resources are launched. "
+        },
+        "tags": {
+          "$ref": "#/definitions/TagsMap",
+          "description": "Key-value pair tags to be applied to resources that are launched in the compute environment. "
+        },
+        "type": {
+          "$ref": "#/definitions/CRType",
+          "description": "The type of compute environment."
+        }
+      },
+      "required": [
+        "type",
+        "minvCpus",
+        "maxvCpus",
+        "instanceTypes",
+        "subnets",
+        "securityGroupIds",
+        "instanceRole"
+      ],
+      "type": "object",
+      "title": "ComputeResource"
+    },
+    "ComputeResourceUpdate": {
+      "description": "An object representing the attributes of a compute environment that can be updated.",
+      "properties": {
+        "desiredvCpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The desired number of EC2 vCPUS in the compute environment."
+        },
+        "maxvCpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of EC2 vCPUs that an environment can reach."
+        },
+        "minvCpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The minimum number of EC2 vCPUs that an environment should maintain."
+        }
+      },
+      "type": "object",
+      "title": "ComputeResourceUpdate"
+    },
+    "ContainerDetail": {
+      "description": "An object representing the details of a container that is part of a job.",
+      "properties": {
+        "command": {
+          "$ref": "#/definitions/StringList",
+          "description": "The command that is passed to the container. "
+        },
+        "containerInstanceArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the container instance on which the container is running."
+        },
+        "environment": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "The environment variables to pass to a container."
+        },
+        "exitCode": {
+          "$ref": "#/definitions/Integer",
+          "description": "The exit code to return upon completion."
+        },
+        "image": {
+          "$ref": "#/definitions/String",
+          "description": "The image used to start the container."
+        },
+        "jobRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) associated with the job upon execution. "
+        },
+        "memory": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of MiB of memory reserved for the job."
+        },
+        "mountPoints": {
+          "$ref": "#/definitions/MountPoints",
+          "description": "The mount points for data volumes in your container."
+        },
+        "privileged": {
+          "$ref": "#/definitions/Boolean",
+          "description": "When this parameter is true, the container is given elevated privileges on the host container instance (similar to the <code>root</code> user)."
+        },
+        "readonlyRootFilesystem": {
+          "$ref": "#/definitions/Boolean",
+          "description": "When this parameter is true, the container is given read-only access to its root file system."
+        },
+        "reason": {
+          "$ref": "#/definitions/String",
+          "description": "A short (255 max characters) human-readable string to provide additional details about a running or stopped container."
+        },
+        "taskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job."
+        },
+        "ulimits": {
+          "$ref": "#/definitions/Ulimits",
+          "description": "A list of <code>ulimit</code> values to set in the container."
+        },
+        "user": {
+          "$ref": "#/definitions/String",
+          "description": "The user name to use inside the container."
+        },
+        "vcpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of VCPUs allocated for the job. "
+        },
+        "volumes": {
+          "$ref": "#/definitions/Volumes",
+          "description": "A list of volumes associated with the job."
+        }
+      },
+      "type": "object",
+      "title": "ContainerDetail"
+    },
+    "ContainerOverrides": {
+      "description": "The overrides that should be sent to a container.",
+      "properties": {
+        "command": {
+          "$ref": "#/definitions/StringList",
+          "description": "The command to send to the container that overrides the default command from the Docker image or the job definition."
+        },
+        "environment": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the job definition."
+        },
+        "memory": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of MiB of memory reserved for the job. This value overrides the value set in the job definition."
+        },
+        "vcpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of vCPUs to reserve for the container. This value overrides the value set in the job definition."
+        }
+      },
+      "type": "object",
+      "title": "ContainerOverrides"
+    },
+    "ContainerProperties": {
+      "description": "Container properties are used in job definitions to describe the container that is launched as part of a job.",
+      "properties": {
+        "command": {
+          "$ref": "#/definitions/StringList",
+          "description": "The command that is passed to the container. This parameter maps to <code>Cmd</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>COMMAND</code> parameter to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. For more information, see <a href=\"https://docs.docker.com/engine/reference/builder/#cmd\">https://docs.docker.com/engine/reference/builder/#cmd</a>."
+        },
+        "environment": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": "<p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--env</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p> <important> <p>We do not recommend using plain text environment variables for sensitive information, such as credential data.</p> </important>"
+        },
+        "image": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with <code> <i>repository-url</i>/<i>image</i>:<i>tag</i> </code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>IMAGE</code> parameter of <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p> <ul> <li> <p>Images in Amazon ECR repositories use the full registry and repository URI (for example, <code>012345678910.dkr.ecr.&lt;region-name&gt;.amazonaws.com/&lt;repository-name&gt;</code>). </p> </li> <li> <p>Images in official repositories on Docker Hub use a single name (for example, <code>ubuntu</code> or <code>mongo</code>).</p> </li> <li> <p>Images in other repositories on Docker Hub are qualified with an organization name (for example, <code>amazon/amazon-ecs-agent</code>).</p> </li> <li> <p>Images in other online repositories are qualified further by a domain name (for example, <code>quay.io/assemblyline/ubuntu</code>).</p> </li> </ul>"
+        },
+        "jobRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions."
+        },
+        "memory": {
+          "$ref": "#/definitions/Integer",
+          "description": "The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to <code>Memory</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--memory</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
+        },
+        "mountPoints": {
+          "$ref": "#/definitions/MountPoints",
+          "description": "The mount points for data volumes in your container. This parameter maps to <code>Volumes</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--volume</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
+        },
+        "privileged": {
+          "$ref": "#/definitions/Boolean",
+          "description": "When this parameter is true, the container is given elevated privileges on the host container instance (similar to the <code>root</code> user). This parameter maps to <code>Privileged</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--privileged</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
+        },
+        "readonlyRootFilesystem": {
+          "$ref": "#/definitions/Boolean",
+          "description": "When this parameter is true, the container is given read-only access to its root file system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--read-only</code> option to <code>docker run</code>."
+        },
+        "ulimits": {
+          "$ref": "#/definitions/Ulimits",
+          "description": "A list of <code>ulimits</code> to set in the container. This parameter maps to <code>Ulimits</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--ulimit</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
+        },
+        "user": {
+          "$ref": "#/definitions/String",
+          "description": "The user name to use inside the container. This parameter maps to <code>User</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--user</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
+        },
+        "vcpus": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of vCPUs reserved for the container. This parameter maps to <code>CpuShares</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--cpu-shares</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares."
+        },
+        "volumes": {
+          "$ref": "#/definitions/Volumes",
+          "description": "A list of data volumes used in a job."
+        }
+      },
+      "required": [
+        "image",
+        "vcpus",
+        "memory"
+      ],
+      "type": "object",
+      "title": "ContainerProperties"
+    },
+    "CreateComputeEnvironmentRequest": {
+      "example": {
+        "computeEnvironmentName": "M4Spot",
+        "computeResources": {
+          "bidPercentage": 20,
+          "desiredvCpus": 4,
+          "ec2KeyPair": "id_rsa",
+          "instanceRole": "ecsInstanceRole",
+          "instanceTypes": [
+            "m4"
+          ],
+          "maxvCpus": 128,
+          "minvCpus": 0,
+          "securityGroupIds": [
+            "sg-cf5093b2"
+          ],
+          "spotIamFleetRole": "arn:aws:iam::012345678910:role/aws-ec2-spot-fleet-role",
+          "subnets": [
+            "subnet-220c0e0a",
+            "subnet-1a95556d",
+            "subnet-978f6dce"
+          ],
+          "tags": {
+            "Name": "Batch Instance - M4Spot"
+          },
+          "type": "SPOT"
+        },
+        "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+        "state": "ENABLED",
+        "type": "MANAGED"
+      },
+      "properties": {
+        "computeEnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed."
+        },
+        "computeResources": {
+          "$ref": "#/definitions/ComputeResource",
+          "description": "Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments."
+        },
+        "serviceRole": {
+          "$ref": "#/definitions/String",
+          "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. "
+        },
+        "state": {
+          "$ref": "#/definitions/CEState",
+          "description": "The state of the compute environment. If the state is <code>ENABLED</code>, then the compute environment accepts jobs from a queue and can scale out automatically based on queues."
+        },
+        "type": {
+          "$ref": "#/definitions/CEType",
+          "description": "The type of the compute environment. "
+        }
+      },
+      "required": [
+        "computeEnvironmentName",
+        "type",
+        "serviceRole"
+      ],
+      "type": "object",
+      "title": "CreateComputeEnvironmentRequest"
+    },
+    "CreateComputeEnvironmentResponse": {
+      "example": {
+        "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/M4Spot",
+        "computeEnvironmentName": "M4Spot"
+      },
+      "properties": {
+        "computeEnvironmentArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the compute environment. "
+        },
+        "computeEnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the compute environment."
+        }
+      },
+      "type": "object",
+      "title": "CreateComputeEnvironmentResponse"
+    },
+    "CreateJobQueueRequest": {
+      "example": {
+        "computeEnvironmentOrder": [
+          {
+            "computeEnvironment": "C4OnDemand",
+            "order": 1
+          },
+          {
+            "computeEnvironment": "M4Spot",
+            "order": 2
+          }
+        ],
+        "jobQueueName": "HighPriority",
+        "priority": 1,
+        "state": "ENABLED"
+      },
+      "properties": {
+        "computeEnvironmentOrder": {
+          "$ref": "#/definitions/ComputeEnvironmentOrders",
+          "description": "The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the <code>VALID</code> state before you can associate them with a job queue. You can associate up to 3 compute environments with a job queue."
+        },
+        "jobQueueName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job queue."
+        },
+        "priority": {
+          "$ref": "#/definitions/Integer",
+          "description": "The priority of the job queue. Job queues with a higher priority (or a lower integer value for the <code>priority</code> parameter) are evaluated first when associated with same compute environment. Priority is determined in ascending order, for example, a job queue with a priority value of <code>1</code> is given scheduling preference over a job queue with a priority value of <code>10</code>."
+        },
+        "state": {
+          "$ref": "#/definitions/JQState",
+          "description": "The state of the job queue. If the job queue state is <code>ENABLED</code>, it is able to accept jobs."
+        }
+      },
+      "required": [
+        "jobQueueName",
+        "priority",
+        "computeEnvironmentOrder"
+      ],
+      "type": "object",
+      "title": "CreateJobQueueRequest"
+    },
+    "CreateJobQueueResponse": {
+      "example": {
+        "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+        "jobQueueName": "HighPriority"
+      },
+      "properties": {
+        "jobQueueArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the job queue."
+        },
+        "jobQueueName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job queue."
+        }
+      },
+      "required": [
+        "jobQueueName",
+        "jobQueueArn"
+      ],
+      "type": "object",
+      "title": "CreateJobQueueResponse"
+    },
+    "DeleteComputeEnvironmentRequest": {
+      "example": {
+        "computeEnvironment": "P2OnDemand"
+      },
+      "properties": {
+        "computeEnvironment": {
+          "$ref": "#/definitions/String",
+          "description": "The name or Amazon Resource Name (ARN) of the compute environment to delete. "
+        }
+      },
+      "required": [
+        "computeEnvironment"
+      ],
+      "type": "object",
+      "title": "DeleteComputeEnvironmentRequest"
+    },
+    "DeleteComputeEnvironmentResponse": {
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "DeleteComputeEnvironmentResponse"
+    },
+    "DeleteJobQueueRequest": {
+      "example": {
+        "jobQueue": "GPGPU"
+      },
+      "properties": {
+        "jobQueue": {
+          "$ref": "#/definitions/String",
+          "description": "The short name or full Amazon Resource Name (ARN) of the queue to delete. "
+        }
+      },
+      "required": [
+        "jobQueue"
+      ],
+      "type": "object",
+      "title": "DeleteJobQueueRequest"
+    },
+    "DeleteJobQueueResponse": {
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "DeleteJobQueueResponse"
+    },
+    "DeregisterJobDefinitionRequest": {
+      "example": {
+        "jobDefinition": "sleep10"
+      },
+      "properties": {
+        "jobDefinition": {
+          "$ref": "#/definitions/String",
+          "description": "The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister. "
+        }
+      },
+      "required": [
+        "jobDefinition"
+      ],
+      "type": "object",
+      "title": "DeregisterJobDefinitionRequest"
+    },
+    "DeregisterJobDefinitionResponse": {
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "DeregisterJobDefinitionResponse"
+    },
+    "DescribeComputeEnvironmentsRequest": {
+      "example": {
+        "computeEnvironments": [
+          "P2OnDemand"
+        ]
+      },
+      "properties": {
+        "computeEnvironments": {
+          "$ref": "#/definitions/StringList",
+          "description": "A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries. "
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of cluster results returned by <code>DescribeComputeEnvironments</code> in paginated output. When this parameter is used, <code>DescribeComputeEnvironments</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeComputeEnvironments</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>DescribeComputeEnvironments</code> returns up to 100 results and a <code>nextToken</code> value if applicable."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeComputeEnvironments</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeComputeEnvironmentsRequest"
+    },
+    "DescribeComputeEnvironmentsResponse": {
+      "example": {
+        "computeEnvironments": [
+          {
+            "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
+            "computeEnvironmentName": "P2OnDemand",
+            "computeResources": {
+              "desiredvCpus": 48,
+              "ec2KeyPair": "id_rsa",
+              "instanceRole": "ecsInstanceRole",
+              "instanceTypes": [
+                "p2"
+              ],
+              "maxvCpus": 128,
+              "minvCpus": 0,
+              "securityGroupIds": [
+                "sg-cf5093b2"
+              ],
+              "subnets": [
+                "subnet-220c0e0a",
+                "subnet-1a95556d",
+                "subnet-978f6dce"
+              ],
+              "tags": {
+                "Name": "Batch Instance - P2OnDemand"
+              },
+              "type": "EC2"
+            },
+            "ecsClusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/P2OnDemand_Batch_2c06f29d-d1fe-3a49-879d-42394c86effc",
+            "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole",
+            "state": "ENABLED",
+            "status": "VALID",
+            "statusReason": "ComputeEnvironment Healthy",
+            "type": "MANAGED"
+          }
+        ]
+      },
+      "properties": {
+        "computeEnvironments": {
+          "$ref": "#/definitions/ComputeEnvironmentDetailList",
+          "description": "The list of compute environments."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>DescribeComputeEnvironments</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+        }
+      },
+      "type": "object",
+      "title": "DescribeComputeEnvironmentsResponse"
+    },
+    "DescribeJobDefinitionsRequest": {
+      "example": {
+        "status": "ACTIVE"
+      },
+      "properties": {
+        "jobDefinitionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job definition to describe."
+        },
+        "jobDefinitions": {
+          "$ref": "#/definitions/StringList",
+          "description": "A space-separated list of up to 100 job definition names or full Amazon Resource Name (ARN) entries."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of results returned by <code>DescribeJobDefinitions</code> in paginated output. When this parameter is used, <code>DescribeJobDefinitions</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeJobDefinitions</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>DescribeJobDefinitions</code> returns up to 100 results and a <code>nextToken</code> value if applicable."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobDefinitions</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        },
+        "status": {
+          "$ref": "#/definitions/String",
+          "description": "The status with which to filter job definitions."
+        }
+      },
+      "type": "object",
+      "title": "DescribeJobDefinitionsRequest"
+    },
+    "DescribeJobDefinitionsResponse": {
+      "example": {
+        "jobDefinitions": [
+          {
+            "containerProperties": {
+              "command": [
+                "sleep",
+                "60"
+              ],
+              "environment": [],
+              "image": "busybox",
+              "memory": 128,
+              "mountPoints": [],
+              "ulimits": [],
+              "vcpus": 1,
+              "volumes": []
+            },
+            "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep60:1",
+            "jobDefinitionName": "sleep60",
+            "revision": 1,
+            "status": "ACTIVE",
+            "type": "container"
+          }
+        ]
+      },
+      "properties": {
+        "jobDefinitions": {
+          "$ref": "#/definitions/JobDefinitionList",
+          "description": "The list of job definitions. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>DescribeJobDefinitions</code> request. When the results of a <code>DescribeJobDefinitions</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+        }
+      },
+      "type": "object",
+      "title": "DescribeJobDefinitionsResponse"
+    },
+    "DescribeJobQueuesRequest": {
+      "example": {
+        "jobQueues": [
+          "HighPriority"
+        ]
+      },
+      "properties": {
+        "jobQueues": {
+          "$ref": "#/definitions/StringList",
+          "description": "A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of results returned by <code>DescribeJobQueues</code> in paginated output. When this parameter is used, <code>DescribeJobQueues</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>DescribeJobQueues</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>DescribeJobQueues</code> returns up to 100 results and a <code>nextToken</code> value if applicable."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>DescribeJobQueues</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "DescribeJobQueuesRequest"
+    },
+    "DescribeJobQueuesResponse": {
+      "example": {
+        "jobQueues": [
+          {
+            "computeEnvironmentOrder": [
+              {
+                "computeEnvironment": "arn:aws:batch:us-east-1:012345678910:compute-environment/C4OnDemand",
+                "order": 1
+              }
+            ],
+            "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+            "jobQueueName": "HighPriority",
+            "priority": 1,
+            "state": "ENABLED",
+            "status": "VALID",
+            "statusReason": "JobQueue Healthy"
+          }
+        ]
+      },
+      "properties": {
+        "jobQueues": {
+          "$ref": "#/definitions/JobQueueDetailList",
+          "description": "The list of job queues. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>DescribeJobQueues</code> request. When the results of a <code>DescribeJobQueues</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+        }
+      },
+      "type": "object",
+      "title": "DescribeJobQueuesResponse"
+    },
+    "DescribeJobsRequest": {
+      "example": {
+        "jobs": [
+          "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"
+        ]
+      },
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/StringList",
+          "description": "A space-separated list of up to 100 job IDs."
+        }
+      },
+      "required": [
+        "jobs"
+      ],
+      "type": "object",
+      "title": "DescribeJobsRequest"
+    },
+    "DescribeJobsResponse": {
+      "example": {
+        "jobs": [
+          {
+            "container": {
+              "command": [
+                "sleep",
+                "60"
+              ],
+              "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/5406d7cd-58bd-4b8f-9936-48d7c6b1526c",
+              "environment": [],
+              "exitCode": 0,
+              "image": "busybox",
+              "memory": 128,
+              "mountPoints": [],
+              "ulimits": [],
+              "vcpus": 1,
+              "volumes": []
+            },
+            "createdAt": 1480460782010,
+            "dependsOn": [],
+            "jobDefinition": "sleep60",
+            "jobId": "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9",
+            "jobName": "example",
+            "jobQueue": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+            "parameters": {},
+            "startedAt": 1480460816500,
+            "status": "SUCCEEDED",
+            "stoppedAt": 1480460880699
+          }
+        ]
+      },
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/JobDetailList",
+          "description": "The list of jobs. "
+        }
+      },
+      "type": "object",
+      "title": "DescribeJobsResponse"
+    },
+    "EnvironmentVariables": {
+      "items": {
+        "$ref": "#/definitions/KeyValuePair"
+      },
+      "type": "array",
+      "title": "EnvironmentVariables"
+    },
+    "Host": {
+      "description": "The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running.",
+      "properties": {
+        "sourcePath": {
+          "$ref": "#/definitions/String",
+          "description": "The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the <code>host</code> parameter contains a <code>sourcePath</code> file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the <code>sourcePath</code> value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported."
+        }
+      },
+      "type": "object",
+      "title": "Host"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "JQState": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string",
+      "title": "JQState"
+    },
+    "JQStatus": {
+      "enum": [
+        "CREATING",
+        "UPDATING",
+        "DELETING",
+        "DELETED",
+        "VALID",
+        "INVALID"
+      ],
+      "type": "string",
+      "title": "JQStatus"
+    },
+    "JobDefinition": {
+      "description": "An object representing an AWS Batch job definition.",
+      "properties": {
+        "containerProperties": {
+          "$ref": "#/definitions/ContainerProperties",
+          "description": "An object with various properties specific to container-based jobs. "
+        },
+        "jobDefinitionArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) for the job definition. "
+        },
+        "jobDefinitionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job definition. "
+        },
+        "parameters": {
+          "$ref": "#/definitions/ParametersMap",
+          "description": "Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults from the job definition."
+        },
+        "retryStrategy": {
+          "$ref": "#/definitions/RetryStrategy",
+          "description": "The retry strategy to use for failed jobs that are submitted with this job definition."
+        },
+        "revision": {
+          "$ref": "#/definitions/Integer",
+          "description": "The revision of the job definition."
+        },
+        "status": {
+          "$ref": "#/definitions/String",
+          "description": "The status of the job definition."
+        },
+        "type": {
+          "$ref": "#/definitions/String",
+          "description": "The type of job definition."
+        }
+      },
+      "required": [
+        "jobDefinitionName",
+        "jobDefinitionArn",
+        "revision",
+        "type"
+      ],
+      "type": "object",
+      "title": "JobDefinition"
+    },
+    "JobDefinitionList": {
+      "items": {
+        "$ref": "#/definitions/JobDefinition"
+      },
+      "type": "array",
+      "title": "JobDefinitionList"
+    },
+    "JobDefinitionType": {
+      "enum": [
+        "container"
+      ],
+      "type": "string",
+      "title": "JobDefinitionType"
+    },
+    "JobDependency": {
+      "description": "An object representing an AWS Batch job dependency.",
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/String",
+          "description": "The job ID of the AWS Batch job associated with this dependency."
+        }
+      },
+      "type": "object",
+      "title": "JobDependency"
+    },
+    "JobDependencyList": {
+      "items": {
+        "$ref": "#/definitions/JobDependency"
+      },
+      "type": "array",
+      "title": "JobDependencyList"
+    },
+    "JobDetail": {
+      "description": "An object representing an AWS Batch job.",
+      "properties": {
+        "attempts": {
+          "$ref": "#/definitions/AttemptDetails",
+          "description": "A list of job attempts associated with this job."
+        },
+        "container": {
+          "$ref": "#/definitions/ContainerDetail",
+          "description": "An object representing the details of the container that is associated with the job."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Long",
+          "description": "The Unix timestamp for when the job was created (when the task entered the <code>PENDING</code> state). "
+        },
+        "dependsOn": {
+          "$ref": "#/definitions/JobDependencyList",
+          "description": "A list of job names or IDs on which this job depends."
+        },
+        "jobDefinition": {
+          "$ref": "#/definitions/String",
+          "description": "The job definition that is used by this job."
+        },
+        "jobId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID for the job."
+        },
+        "jobName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job."
+        },
+        "jobQueue": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the job queue with which the job is associated."
+        },
+        "parameters": {
+          "$ref": "#/definitions/ParametersMap",
+          "description": "Additional parameters passed to the job that replace parameter substitution placeholders or override any corresponding parameter defaults from the job definition. "
+        },
+        "retryStrategy": {
+          "$ref": "#/definitions/RetryStrategy",
+          "description": "The retry strategy to use for this job if an attempt fails."
+        },
+        "startedAt": {
+          "$ref": "#/definitions/Long",
+          "description": "The Unix timestamp for when the job was started (when the task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state). "
+        },
+        "status": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The current status for the job."
+        },
+        "statusReason": {
+          "$ref": "#/definitions/String",
+          "description": "A short, human-readable string to provide additional details about the current status of the job. "
+        },
+        "stoppedAt": {
+          "$ref": "#/definitions/Long",
+          "description": "The Unix timestamp for when the job was stopped (when the task transitioned from the <code>RUNNING</code> state to the <code>STOPPED</code> state)."
+        }
+      },
+      "required": [
+        "jobName",
+        "jobId",
+        "jobQueue",
+        "status",
+        "startedAt",
+        "jobDefinition"
+      ],
+      "type": "object",
+      "title": "JobDetail"
+    },
+    "JobDetailList": {
+      "items": {
+        "$ref": "#/definitions/JobDetail"
+      },
+      "type": "array",
+      "title": "JobDetailList"
+    },
+    "JobQueueDetail": {
+      "description": "An object representing the details of an AWS Batch job queue.",
+      "properties": {
+        "computeEnvironmentOrder": {
+          "$ref": "#/definitions/ComputeEnvironmentOrders",
+          "description": "The compute environments that are attached to the job queue and the order in which job placement is preferred. Compute environments are selected for job placement in ascending order."
+        },
+        "jobQueueArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the job queue."
+        },
+        "jobQueueName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job queue."
+        },
+        "priority": {
+          "$ref": "#/definitions/Integer",
+          "description": "The priority of the job queue. "
+        },
+        "state": {
+          "$ref": "#/definitions/JQState",
+          "description": "Describes the ability of the queue to accept new jobs."
+        },
+        "status": {
+          "$ref": "#/definitions/JQStatus",
+          "description": "The status of the job queue (for example, <code>CREATING</code> or <code>VALID</code>)."
+        },
+        "statusReason": {
+          "$ref": "#/definitions/String",
+          "description": "A short, human-readable string to provide additional details about the current status of the job queue."
+        }
+      },
+      "required": [
+        "jobQueueName",
+        "jobQueueArn",
+        "state",
+        "priority",
+        "computeEnvironmentOrder"
+      ],
+      "type": "object",
+      "title": "JobQueueDetail"
+    },
+    "JobQueueDetailList": {
+      "items": {
+        "$ref": "#/definitions/JobQueueDetail"
+      },
+      "type": "array",
+      "title": "JobQueueDetailList"
+    },
+    "JobStatus": {
+      "enum": [
+        "SUBMITTED",
+        "PENDING",
+        "RUNNABLE",
+        "STARTING",
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "type": "string",
+      "title": "JobStatus"
+    },
+    "JobSummary": {
+      "description": "An object representing summary details of a job.",
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the job."
+        },
+        "jobName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job."
+        }
+      },
+      "required": [
+        "jobId",
+        "jobName"
+      ],
+      "type": "object",
+      "title": "JobSummary"
+    },
+    "JobSummaryList": {
+      "items": {
+        "$ref": "#/definitions/JobSummary"
+      },
+      "type": "array",
+      "title": "JobSummaryList"
+    },
+    "KeyValuePair": {
+      "description": "A key-value pair object.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the key value pair. For environment variables, this is the name of the environment variable."
+        },
+        "value": {
+          "$ref": "#/definitions/String",
+          "description": "The value of the key value pair. For environment variables, this is the value of the environment variable."
+        }
+      },
+      "type": "object",
+      "title": "KeyValuePair"
+    },
+    "ListJobsRequest": {
+      "example": {
+        "jobQueue": "HighPriority",
+        "jobStatus": "SUBMITTED"
+      },
+      "properties": {
+        "jobQueue": {
+          "$ref": "#/definitions/String",
+          "description": "The name or full Amazon Resource Name (ARN) of the job queue with which to list jobs."
+        },
+        "jobStatus": {
+          "$ref": "#/definitions/JobStatus",
+          "description": "The job status with which to filter jobs in the specified queue."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of results returned by <code>ListJobs</code> in paginated output. When this parameter is used, <code>ListJobs</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListJobs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListJobs</code> returns up to 100 results and a <code>nextToken</code> value if applicable."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListJobs</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is <code>null</code> when there are no more results to return.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "required": [
+        "jobQueue"
+      ],
+      "type": "object",
+      "title": "ListJobsRequest"
+    },
+    "ListJobsResponse": {
+      "example": {
+        "jobSummaryList": [
+          {
+            "jobId": "68f0c163-fbd4-44e6-9fd1-25b14a434786",
+            "jobName": "example"
+          }
+        ]
+      },
+      "properties": {
+        "jobSummaryList": {
+          "$ref": "#/definitions/JobSummaryList",
+          "description": "A list of job summaries that match the request."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+        }
+      },
+      "required": [
+        "jobSummaryList"
+      ],
+      "type": "object",
+      "title": "ListJobsResponse"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "MountPoint": {
+      "description": "Details on a Docker volume mount point that is used in a job's container properties.",
+      "properties": {
+        "containerPath": {
+          "$ref": "#/definitions/String",
+          "description": "The path on the container at which to mount the host volume."
+        },
+        "readOnly": {
+          "$ref": "#/definitions/Boolean",
+          "description": "If this value is <code>true</code>, the container has read-only access to the volume; otherwise, the container can write to the volume. The default value is <code>false</code>."
+        },
+        "sourceVolume": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the volume to mount."
+        }
+      },
+      "type": "object",
+      "title": "MountPoint"
+    },
+    "MountPoints": {
+      "items": {
+        "$ref": "#/definitions/MountPoint"
+      },
+      "type": "array",
+      "title": "MountPoints"
+    },
+    "ParametersMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ParametersMap"
+    },
+    "RegisterJobDefinitionRequest": {
+      "example": {
+        "containerProperties": {
+          "command": [
+            "sleep",
+            "10"
+          ],
+          "image": "busybox",
+          "memory": 128,
+          "vcpus": 1
+        },
+        "jobDefinitionName": "sleep10",
+        "type": "container"
+      },
+      "properties": {
+        "containerProperties": {
+          "$ref": "#/definitions/ContainerProperties",
+          "description": "An object with various properties specific for container-based jobs. This parameter is required if the <code>type</code> parameter is <code>container</code>."
+        },
+        "jobDefinitionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job definition to register. "
+        },
+        "parameters": {
+          "$ref": "#/definitions/ParametersMap",
+          "description": "Default parameter substitution placeholders to set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults from the job definition."
+        },
+        "retryStrategy": {
+          "$ref": "#/definitions/RetryStrategy",
+          "description": "The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that is specified during a <a>SubmitJob</a> operation overrides the retry strategy defined here."
+        },
+        "type": {
+          "$ref": "#/definitions/JobDefinitionType",
+          "description": "The type of job definition."
+        }
+      },
+      "required": [
+        "jobDefinitionName",
+        "type"
+      ],
+      "type": "object",
+      "title": "RegisterJobDefinitionRequest"
+    },
+    "RegisterJobDefinitionResponse": {
+      "example": {
+        "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep10:1",
+        "jobDefinitionName": "sleep10",
+        "revision": 1
+      },
+      "properties": {
+        "jobDefinitionArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the job definition. "
+        },
+        "jobDefinitionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job definition. "
+        },
+        "revision": {
+          "$ref": "#/definitions/Integer",
+          "description": "The revision of the job definition."
+        }
+      },
+      "required": [
+        "jobDefinitionName",
+        "jobDefinitionArn",
+        "revision"
+      ],
+      "type": "object",
+      "title": "RegisterJobDefinitionResponse"
+    },
+    "RetryStrategy": {
+      "description": "The retry strategy associated with a job.",
+      "properties": {
+        "attempts": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of times to move a job to the <code>RUNNABLE</code> status. You may specify between 1 and 10 attempts. If <code>attempts</code> is greater than one, the job is retried if it fails until it has moved to <code>RUNNABLE</code> that many times."
+        }
+      },
+      "type": "object",
+      "title": "RetryStrategy"
+    },
+    "ServerException": {
+      "description": "These errors are usually caused by a server issue.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String"
+        }
+      },
+      "type": "object",
+      "title": "ServerException"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "StringList"
+    },
+    "SubmitJobRequest": {
+      "example": {
+        "jobDefinition": "sleep60",
+        "jobName": "example",
+        "jobQueue": "HighPriority"
+      },
+      "properties": {
+        "containerOverrides": {
+          "$ref": "#/definitions/ContainerOverrides",
+          "description": "A list of container overrides in JSON format that specify the name of a container in the specified job definition and the overrides it should receive. You can override the default command for a container (that is specified in the job definition or the Docker image) with a <code>command</code> override. You can also override existing environment variables (that are specified in the job definition or Docker image) on a container or add new environment variables to it with an <code>environment</code> override."
+        },
+        "dependsOn": {
+          "$ref": "#/definitions/JobDependencyList",
+          "description": "A list of job IDs on which this job depends. A job can depend upon a maximum of 100 jobs. "
+        },
+        "jobDefinition": {
+          "$ref": "#/definitions/String",
+          "description": "The job definition used by this job. This value can be either a <code>name:revision</code> or the Amazon Resource Name (ARN) for the job definition."
+        },
+        "jobName": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The name of the job. A name must be 1 to 128 characters in length.</p> <p>Pattern: ^[a-zA-Z0-9_]+$</p>"
+        },
+        "jobQueue": {
+          "$ref": "#/definitions/String",
+          "description": "The job queue into which the job will be submitted. You can specify either the name or the Amazon Resource Name (ARN) of the queue. "
+        },
+        "parameters": {
+          "$ref": "#/definitions/ParametersMap",
+          "description": "Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults from the job definition."
+        },
+        "retryStrategy": {
+          "$ref": "#/definitions/RetryStrategy",
+          "description": "The retry strategy to use for failed jobs from this <a>SubmitJob</a> operation. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition."
+        }
+      },
+      "required": [
+        "jobName",
+        "jobQueue",
+        "jobDefinition"
+      ],
+      "type": "object",
+      "title": "SubmitJobRequest"
+    },
+    "SubmitJobResponse": {
+      "example": {
+        "jobId": "876da822-4198-45f2-a252-6cea32512ea8",
+        "jobName": "example"
+      },
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier for the job."
+        },
+        "jobName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job. "
+        }
+      },
+      "required": [
+        "jobName",
+        "jobId"
+      ],
+      "type": "object",
+      "title": "SubmitJobResponse"
+    },
+    "TagsMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "TagsMap"
+    },
+    "TerminateJobRequest": {
+      "example": {
+        "jobId": "61e743ed-35e4-48da-b2de-5c8333821c84",
+        "reason": "Terminating job."
+      },
+      "properties": {
+        "jobId": {
+          "$ref": "#/definitions/String",
+          "description": "Job IDs to be terminated. Up to 100 jobs can be specified."
+        },
+        "reason": {
+          "$ref": "#/definitions/String",
+          "description": "A message to attach to the job that explains the reason for cancelling it. This message is returned by future <a>DescribeJobs</a> operations on the job. This message is also recorded in the AWS Batch activity logs. "
+        }
+      },
+      "required": [
+        "jobId",
+        "reason"
+      ],
+      "type": "object",
+      "title": "TerminateJobRequest"
+    },
+    "TerminateJobResponse": {
+      "example": {},
+      "properties": {},
+      "type": "object",
+      "title": "TerminateJobResponse"
+    },
+    "Ulimit": {
+      "description": "The <code>ulimit</code> settings to pass to the container.",
+      "properties": {
+        "hardLimit": {
+          "$ref": "#/definitions/Integer",
+          "description": "The hard limit for the <code>ulimit</code> type."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>type</code> of the <code>ulimit</code>."
+        },
+        "softLimit": {
+          "$ref": "#/definitions/Integer",
+          "description": "The soft limit for the <code>ulimit</code> type."
+        }
+      },
+      "required": [
+        "hardLimit",
+        "name",
+        "softLimit"
+      ],
+      "type": "object",
+      "title": "Ulimit"
+    },
+    "Ulimits": {
+      "items": {
+        "$ref": "#/definitions/Ulimit"
+      },
+      "type": "array",
+      "title": "Ulimits"
+    },
+    "UpdateComputeEnvironmentRequest": {
+      "example": {
+        "computeEnvironment": "P2OnDemand",
+        "state": "DISABLED"
+      },
+      "properties": {
+        "computeEnvironment": {
+          "$ref": "#/definitions/String",
+          "description": "The name or full Amazon Resource Name (ARN) of the compute environment to update."
+        },
+        "computeResources": {
+          "$ref": "#/definitions/ComputeResourceUpdate",
+          "description": "Details of the compute resources managed by the compute environment. Required for a managed compute environment."
+        },
+        "serviceRole": {
+          "$ref": "#/definitions/String",
+          "description": "The name or full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to ECS, Auto Scaling, and EC2 on your behalf."
+        },
+        "state": {
+          "$ref": "#/definitions/CEState",
+          "description": "The state of the compute environment. Compute environments in the <code>ENABLED</code> state can accept jobs from a queue and scale in or out automatically based on the workload demand of its associated queues."
+        }
+      },
+      "required": [
+        "computeEnvironment"
+      ],
+      "type": "object",
+      "title": "UpdateComputeEnvironmentRequest"
+    },
+    "UpdateComputeEnvironmentResponse": {
+      "example": {
+        "computeEnvironmentArn": "arn:aws:batch:us-east-1:012345678910:compute-environment/P2OnDemand",
+        "computeEnvironmentName": "P2OnDemand"
+      },
+      "properties": {
+        "computeEnvironmentArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the compute environment. "
+        },
+        "computeEnvironmentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of compute environment."
+        }
+      },
+      "type": "object",
+      "title": "UpdateComputeEnvironmentResponse"
+    },
+    "UpdateJobQueueRequest": {
+      "example": {
+        "jobQueue": "GPGPU",
+        "state": "DISABLED"
+      },
+      "properties": {
+        "computeEnvironmentOrder": {
+          "$ref": "#/definitions/ComputeEnvironmentOrders",
+          "description": "Details the set of compute environments mapped to a job queue and their order relative to each other. This is one of the parameters used by the job scheduler to determine which compute environment should execute a given job. "
+        },
+        "jobQueue": {
+          "$ref": "#/definitions/String",
+          "description": "The name or the Amazon Resource Name (ARN) of the job queue."
+        },
+        "priority": {
+          "$ref": "#/definitions/Integer",
+          "description": "The priority of the job queue. Job queues with a higher priority (or a lower integer value for the <code>priority</code> parameter) are evaluated first when associated with same compute environment. Priority is determined in ascending order, for example, a job queue with a priority value of <code>1</code> is given scheduling preference over a job queue with a priority value of <code>10</code>."
+        },
+        "state": {
+          "$ref": "#/definitions/JQState",
+          "description": "Describes the queue's ability to accept new jobs."
+        }
+      },
+      "required": [
+        "jobQueue"
+      ],
+      "type": "object",
+      "title": "UpdateJobQueueRequest"
+    },
+    "UpdateJobQueueResponse": {
+      "example": {
+        "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/GPGPU",
+        "jobQueueName": "GPGPU"
+      },
+      "properties": {
+        "jobQueueArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the job queue."
+        },
+        "jobQueueName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the job queue."
+        }
+      },
+      "type": "object",
+      "title": "UpdateJobQueueResponse"
+    },
+    "Volume": {
+      "description": "A data volume used in a job's container properties.",
+      "properties": {
+        "host": {
+          "$ref": "#/definitions/Host",
+          "description": "The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it is stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data is not guaranteed to persist after the containers associated with it stop running."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>."
+        }
+      },
+      "type": "object",
+      "title": "Volume"
+    },
+    "Volumes": {
+      "items": {
+        "$ref": "#/definitions/Volume"
+      },
+      "type": "array",
+      "title": "Volumes"
+    }
+  },
+  "actions": [
+    {
+      "id": "CancelJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CancelJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CancelJobResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "CreateComputeEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateComputeEnvironmentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateComputeEnvironmentResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "CreateJobQueue",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateJobQueueRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateJobQueueResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DeleteComputeEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteComputeEnvironmentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteComputeEnvironmentResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DeleteJobQueue",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteJobQueueRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteJobQueueResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DeregisterJobDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeregisterJobDefinitionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeregisterJobDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DescribeComputeEnvironments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeComputeEnvironmentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeComputeEnvironmentsResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DescribeJobDefinitions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeJobDefinitionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeJobDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DescribeJobQueues",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeJobQueuesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeJobQueuesResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "DescribeJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeJobsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeJobsResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "ListJobs",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListJobsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListJobsResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "RegisterJobDefinition",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RegisterJobDefinitionRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RegisterJobDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "SubmitJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SubmitJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SubmitJobResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "TerminateJob",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TerminateJobRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TerminateJobResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "UpdateComputeEnvironment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateComputeEnvironmentRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateComputeEnvironmentResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    },
+    {
+      "id": "UpdateJobQueue",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateJobQueueRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateJobQueueResponse"
+      },
+      "security": {
+        "amazonaws_batch": {
+          "integration": "amazonaws_batch"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

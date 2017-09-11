@@ -1,0 +1,1648 @@
+{
+  "id": "amazonaws_discovery",
+  "title": "AWS Application Discovery Service",
+  "description": "AWS Application Discovery Service\n\nAWS Application Discovery Service helps you plan application migration projects by automatically identifying servers, virtual machines (VMs), software, and software dependencies running in your on-premises data centers. Application Discovery Service also collects application performance data, which can help you assess the outcome of your migration. The data collected by Application Discovery Service is securely retained in an Amazon-hosted and managed database in the cloud. You can export the data as a CSV or XML file into your preferred visualization tool or cloud-migration solution to plan your migration. For more information, see the Application Discovery Service [FAQ](http://aws.amazon.com/application-discovery/faqs/).\n\nApplication Discovery Service offers two modes of operation.\n\n*   **Agentless discovery** mode is recommended for environments that use VMware vCenter Server. This mode doesn't require you to install an agent on each host. Agentless discovery gathers server information regardless of the operating systems, which minimizes the time required for initial on-premises infrastructure assessment. Agentless discovery doesn't collect information about software and software dependencies. It also doesn't work in non-VMware environments. We recommend that you use agent-based discovery for non-VMware environments and if you want to collect information about software and software dependencies. You can also run agent-based and agentless discovery simultaneously. Use agentless discovery to quickly complete the initial infrastructure assessment and then install agents on select hosts to gather information about software and software dependencies.\n\n*   **Agent-based discovery** mode collects a richer set of data than agentless discovery by using Amazon software, the AWS Application Discovery Agent, which you install on one or more hosts in your data center. The agent captures infrastructure and application information, including an inventory of installed software applications, system and process performance, resource utilization, and network dependencies between workloads. The information collected by agents is secured at rest and in transit to the Application Discovery Service database in the cloud.\n\nApplication Discovery Service integrates with application discovery solutions from AWS Partner Network (APN) partners. Third-party application discovery tools can query Application Discovery Service and write to the Application Discovery Service database using a public API. You can then import the data into either a visualization tool or cloud-migration solution.\n\n Application Discovery Service doesn't gather sensitive information. All data is handled according to the [AWS Privacy Policy](http://aws.amazon.com/privacy/). You can operate Application Discovery Service using offline mode to inspect collected data before it is shared with the service. \n\nYour AWS account must be granted access to Application Discovery Service, a process called _whitelisting_. This is true for AWS partners and customers alike. To request access, sign up for AWS Application Discovery Service [here](http://aws.amazon.com/application-discovery/preview/). We send you information about how to get started.\n\nThis API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs).\n\nThis guide is intended for use with the [_AWS Application Discovery Service User Guide_](http://docs.aws.amazon.com/application-discovery/latest/userguide/) .",
+  "security": {
+    "amazonaws_discovery": {
+      "integration": "amazonaws_discovery",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_discovery.jpg"
+  },
+  "actionCount": 19,
+  "definitions": {
+    "AgentConfigurationStatus": {
+      "description": "Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.",
+      "properties": {
+        "agentId": {
+          "$ref": "#/definitions/String",
+          "description": "The agent/connector ID."
+        },
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the operation performed."
+        },
+        "operationSucceeded": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Information about the status of the <code>StartDataCollection</code> and <code>StopDataCollection</code> operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command. "
+        }
+      },
+      "type": "object",
+      "title": "AgentConfigurationStatus"
+    },
+    "AgentConfigurationStatusList": {
+      "items": {
+        "$ref": "#/definitions/AgentConfigurationStatus"
+      },
+      "type": "array",
+      "title": "AgentConfigurationStatusList"
+    },
+    "AgentId": {
+      "type": "string",
+      "title": "AgentId"
+    },
+    "AgentIds": {
+      "items": {
+        "$ref": "#/definitions/AgentId"
+      },
+      "type": "array",
+      "title": "AgentIds"
+    },
+    "AgentInfo": {
+      "description": "Information about agents or connectors associated with the user’s AWS account. Information includes agent or connector IDs, IP addresses, media access control (MAC) addresses, agent or connector health, hostname where the agent or connector resides, and agent version for each agent.",
+      "properties": {
+        "agentId": {
+          "$ref": "#/definitions/AgentId",
+          "description": "The agent or connector ID."
+        },
+        "agentNetworkInfoList": {
+          "$ref": "#/definitions/AgentNetworkInfoList",
+          "description": "Network details about the host where the agent or connector resides."
+        },
+        "agentType": {
+          "$ref": "#/definitions/String",
+          "description": "Type of agent."
+        },
+        "collectionStatus": {
+          "$ref": "#/definitions/String",
+          "description": "Status of the collection process for an agent or connector."
+        },
+        "connectorId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the connector."
+        },
+        "health": {
+          "$ref": "#/definitions/AgentStatus",
+          "description": "The health of the agent or connector."
+        },
+        "hostName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the host where the agent or connector resides. The host can be a server or virtual machine."
+        },
+        "lastHealthPingTime": {
+          "$ref": "#/definitions/String",
+          "description": "Time since agent or connector health was reported."
+        },
+        "registeredTime": {
+          "$ref": "#/definitions/String",
+          "description": "Agent's first registration timestamp in UTC."
+        },
+        "version": {
+          "$ref": "#/definitions/String",
+          "description": "The agent or connector version."
+        }
+      },
+      "type": "object",
+      "title": "AgentInfo"
+    },
+    "AgentNetworkInfo": {
+      "description": "Network details about the host where the agent/connector resides.",
+      "properties": {
+        "ipAddress": {
+          "$ref": "#/definitions/String",
+          "description": "The IP address for the host where the agent/connector resides."
+        },
+        "macAddress": {
+          "$ref": "#/definitions/String",
+          "description": "The MAC address for the host where the agent/connector resides."
+        }
+      },
+      "type": "object",
+      "title": "AgentNetworkInfo"
+    },
+    "AgentNetworkInfoList": {
+      "items": {
+        "$ref": "#/definitions/AgentNetworkInfo"
+      },
+      "type": "array",
+      "title": "AgentNetworkInfoList"
+    },
+    "AgentStatus": {
+      "enum": [
+        "HEALTHY",
+        "UNHEALTHY",
+        "RUNNING",
+        "UNKNOWN",
+        "BLACKLISTED",
+        "SHUTDOWN"
+      ],
+      "type": "string",
+      "title": "AgentStatus"
+    },
+    "AgentsInfo": {
+      "items": {
+        "$ref": "#/definitions/AgentInfo"
+      },
+      "type": "array",
+      "title": "AgentsInfo"
+    },
+    "ApplicationId": {
+      "type": "string",
+      "title": "ApplicationId"
+    },
+    "ApplicationIdsList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationId"
+      },
+      "type": "array",
+      "title": "ApplicationIdsList"
+    },
+    "AssociateConfigurationItemsToApplicationRequest": {
+      "properties": {
+        "applicationConfigurationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "The configuration ID of an application with which items are to be associated."
+        },
+        "configurationIds": {
+          "$ref": "#/definitions/ConfigurationIdList",
+          "description": "The ID of each configuration item to be associated with an application."
+        }
+      },
+      "required": [
+        "applicationConfigurationId",
+        "configurationIds"
+      ],
+      "type": "object",
+      "title": "AssociateConfigurationItemsToApplicationRequest"
+    },
+    "AssociateConfigurationItemsToApplicationResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AssociateConfigurationItemsToApplicationResponse"
+    },
+    "AuthorizationErrorException": {
+      "description": "The AWS user account does not have permission to perform the action. Check the IAM policy associated with this account.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "AuthorizationErrorException"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "BoxedInteger": {
+      "type": "integer",
+      "title": "BoxedInteger"
+    },
+    "Condition": {
+      "type": "string",
+      "title": "Condition"
+    },
+    "Configuration": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Configuration"
+    },
+    "ConfigurationId": {
+      "type": "string",
+      "title": "ConfigurationId"
+    },
+    "ConfigurationIdList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationId"
+      },
+      "type": "array",
+      "title": "ConfigurationIdList"
+    },
+    "ConfigurationItemType": {
+      "enum": [
+        "SERVER",
+        "PROCESS",
+        "CONNECTION",
+        "APPLICATION"
+      ],
+      "type": "string",
+      "title": "ConfigurationItemType"
+    },
+    "ConfigurationTag": {
+      "description": "Tags for a configuration item. Tags are metadata that help you categorize IT assets.",
+      "properties": {
+        "configurationId": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The configuration ID for the item to tag. You can specify a list of keys and values."
+        },
+        "configurationType": {
+          "$ref": "#/definitions/ConfigurationItemType",
+          "description": "A type of IT asset to tag."
+        },
+        "key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "A type of tag on which to filter. For example, <i>serverType</i>."
+        },
+        "timeOfCreation": {
+          "$ref": "#/definitions/TimeStamp",
+          "description": "The time the configuration tag was created in Coordinated Universal Time (UTC)."
+        },
+        "value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "A value on which to filter. For example <i>key = serverType</i> and <i>value = web server</i>."
+        }
+      },
+      "type": "object",
+      "title": "ConfigurationTag"
+    },
+    "ConfigurationTagSet": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationTag"
+      },
+      "type": "array",
+      "title": "ConfigurationTagSet"
+    },
+    "Configurations": {
+      "items": {
+        "$ref": "#/definitions/Configuration"
+      },
+      "type": "array",
+      "title": "Configurations"
+    },
+    "ConfigurationsDownloadUrl": {
+      "type": "string",
+      "title": "ConfigurationsDownloadUrl"
+    },
+    "ConfigurationsExportId": {
+      "type": "string",
+      "title": "ConfigurationsExportId"
+    },
+    "CreateApplicationRequest": {
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "Description of the application to be created."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "Name of the application to be created."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "CreateApplicationRequest"
+    },
+    "CreateApplicationResponse": {
+      "properties": {
+        "configurationId": {
+          "$ref": "#/definitions/String",
+          "description": "Configuration ID of an application to be created."
+        }
+      },
+      "type": "object",
+      "title": "CreateApplicationResponse"
+    },
+    "CreateTagsRequest": {
+      "properties": {
+        "configurationIds": {
+          "$ref": "#/definitions/ConfigurationIdList",
+          "description": "A list of configuration items that you want to tag."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagSet",
+          "description": "<p>Tags that you want to associate with one or more configuration items. Specify the tags that you want to create in a <i>key</i>-<i>value</i> format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"
+        }
+      },
+      "required": [
+        "configurationIds",
+        "tags"
+      ],
+      "type": "object",
+      "title": "CreateTagsRequest"
+    },
+    "CreateTagsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateTagsResponse"
+    },
+    "CustomerAgentInfo": {
+      "description": "Inventory data for installed discovery agents.",
+      "properties": {
+        "activeAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of active discovery agents."
+        },
+        "blackListedAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of blacklisted discovery agents."
+        },
+        "healthyAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of healthy discovery agents"
+        },
+        "shutdownAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of discovery agents with status SHUTDOWN."
+        },
+        "totalAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Total number of discovery agents."
+        },
+        "unhealthyAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of unhealthy discovery agents."
+        },
+        "unknownAgents": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of unknown discovery agents."
+        }
+      },
+      "required": [
+        "activeAgents",
+        "healthyAgents",
+        "blackListedAgents",
+        "shutdownAgents",
+        "unhealthyAgents",
+        "totalAgents",
+        "unknownAgents"
+      ],
+      "type": "object",
+      "title": "CustomerAgentInfo"
+    },
+    "CustomerConnectorInfo": {
+      "description": "Inventory data for installed discovery connectors.",
+      "properties": {
+        "activeConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of active discovery connectors."
+        },
+        "blackListedConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of blacklisted discovery connectors."
+        },
+        "healthyConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of healthy discovery connectors."
+        },
+        "shutdownConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of discovery connectors with status SHUTDOWN,"
+        },
+        "totalConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Total number of discovery connectors."
+        },
+        "unhealthyConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of unhealthy discovery connectors."
+        },
+        "unknownConnectors": {
+          "$ref": "#/definitions/Integer",
+          "description": "Number of unknown discovery connectors."
+        }
+      },
+      "required": [
+        "activeConnectors",
+        "healthyConnectors",
+        "blackListedConnectors",
+        "shutdownConnectors",
+        "unhealthyConnectors",
+        "totalConnectors",
+        "unknownConnectors"
+      ],
+      "type": "object",
+      "title": "CustomerConnectorInfo"
+    },
+    "DeleteApplicationsRequest": {
+      "properties": {
+        "configurationIds": {
+          "$ref": "#/definitions/ApplicationIdsList",
+          "description": "Configuration ID of an application to be deleted."
+        }
+      },
+      "required": [
+        "configurationIds"
+      ],
+      "type": "object",
+      "title": "DeleteApplicationsRequest"
+    },
+    "DeleteApplicationsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteApplicationsResponse"
+    },
+    "DeleteTagsRequest": {
+      "properties": {
+        "configurationIds": {
+          "$ref": "#/definitions/ConfigurationIdList",
+          "description": "A list of configuration items with tags that you want to delete."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagSet",
+          "description": "<p>Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a <i>key</i>-<i>value</i> format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"
+        }
+      },
+      "required": [
+        "configurationIds"
+      ],
+      "type": "object",
+      "title": "DeleteTagsRequest"
+    },
+    "DeleteTagsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTagsResponse"
+    },
+    "DescribeAgentsRequest": {
+      "properties": {
+        "agentIds": {
+          "$ref": "#/definitions/AgentIds",
+          "description": "The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account."
+        },
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "<p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}</code> </p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The total number of agents/Connectors to return in a single page of output. The maximum value is 100."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Token to retrieve the next set of results. For example, if you previously specified 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10."
+        }
+      },
+      "type": "object",
+      "title": "DescribeAgentsRequest"
+    },
+    "DescribeAgentsResponse": {
+      "properties": {
+        "agentsInfo": {
+          "$ref": "#/definitions/AgentsInfo",
+          "description": "Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Token to retrieve the next set of results. For example, if you specified 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10."
+        }
+      },
+      "type": "object",
+      "title": "DescribeAgentsResponse"
+    },
+    "DescribeConfigurationsAttribute": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "DescribeConfigurationsAttribute"
+    },
+    "DescribeConfigurationsAttributes": {
+      "items": {
+        "$ref": "#/definitions/DescribeConfigurationsAttribute"
+      },
+      "type": "array",
+      "title": "DescribeConfigurationsAttributes"
+    },
+    "DescribeConfigurationsRequest": {
+      "properties": {
+        "configurationIds": {
+          "$ref": "#/definitions/ConfigurationIdList",
+          "description": "One or more configuration IDs."
+        }
+      },
+      "required": [
+        "configurationIds"
+      ],
+      "type": "object",
+      "title": "DescribeConfigurationsRequest"
+    },
+    "DescribeConfigurationsResponse": {
+      "properties": {
+        "configurations": {
+          "$ref": "#/definitions/DescribeConfigurationsAttributes",
+          "description": "A key in the response map. The value is an array of data."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigurationsResponse"
+    },
+    "DescribeExportConfigurationsRequest": {
+      "properties": {
+        "exportIds": {
+          "$ref": "#/definitions/ExportIds",
+          "description": "A unique identifier that you can use to query the export status."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of results that you want to display as a part of the query."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A token to get the next set of results. For example, if you specify 100 IDs for <code>DescribeExportConfigurationsRequest$exportIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token in the query to get the next set of 10."
+        }
+      },
+      "type": "object",
+      "title": "DescribeExportConfigurationsRequest"
+    },
+    "DescribeExportConfigurationsResponse": {
+      "properties": {
+        "exportsInfo": {
+          "$ref": "#/definitions/ExportsInfo",
+          "description": "Returns export details. When the status is complete, the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A token to get the next set of results. For example, if you specify 100 IDs for <code>DescribeExportConfigurationsRequest$exportIds</code> but set <code>DescribeExportConfigurationsRequest$maxResults</code> to 10, you get results in a set of 10. Use the token in the query to get the next set of 10."
+        }
+      },
+      "type": "object",
+      "title": "DescribeExportConfigurationsResponse"
+    },
+    "DescribeExportTasksRequest": {
+      "properties": {
+        "exportIds": {
+          "$ref": "#/definitions/ExportIds",
+          "description": "One or more unique identifiers used to query the status of an export request."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum number of volume results returned by <code>DescribeExportTasks</code> in paginated output. When this parameter is used, <code>DescribeExportTasks</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> value returned from a previous paginated <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. This value is null when there are no more results to return."
+        }
+      },
+      "type": "object",
+      "title": "DescribeExportTasksRequest"
+    },
+    "DescribeExportTasksResponse": {
+      "properties": {
+        "exportsInfo": {
+          "$ref": "#/definitions/ExportsInfo",
+          "description": "Contains one or more sets of export request details. When the status of a request is <code>SUCCEEDED</code>, the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>DescribeExportTasks</code> request. When the results of a <code>DescribeExportTasks</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is null when there are no more results to return."
+        }
+      },
+      "type": "object",
+      "title": "DescribeExportTasksResponse"
+    },
+    "DescribeTagsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/TagFilters",
+          "description": "You can filter the list using a <i>key</i>-<i>value</i> format. You can separate these items by using logical operators. Allowed filters include <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. "
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The total number of items to return in a single page of output. The maximum value is 100."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "A token to start the list. Use this token to get the next set of results."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTagsRequest"
+    },
+    "DescribeTagsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The call returns a token. Use this token to get the next set of results."
+        },
+        "tags": {
+          "$ref": "#/definitions/ConfigurationTagSet",
+          "description": "Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item."
+        }
+      },
+      "type": "object",
+      "title": "DescribeTagsResponse"
+    },
+    "DisassociateConfigurationItemsFromApplicationRequest": {
+      "properties": {
+        "applicationConfigurationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "Configuration ID of an application from which each item is disassociated."
+        },
+        "configurationIds": {
+          "$ref": "#/definitions/ConfigurationIdList",
+          "description": "Configuration ID of each item to be disassociated from an application."
+        }
+      },
+      "required": [
+        "applicationConfigurationId",
+        "configurationIds"
+      ],
+      "type": "object",
+      "title": "DisassociateConfigurationItemsFromApplicationRequest"
+    },
+    "DisassociateConfigurationItemsFromApplicationResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DisassociateConfigurationItemsFromApplicationResponse"
+    },
+    "ExportConfigurationsResponse": {
+      "properties": {
+        "exportId": {
+          "$ref": "#/definitions/ConfigurationsExportId",
+          "description": "A unique identifier that you can use to query the export status."
+        }
+      },
+      "type": "object",
+      "title": "ExportConfigurationsResponse"
+    },
+    "ExportDataFormat": {
+      "enum": [
+        "CSV",
+        "GRAPHML"
+      ],
+      "type": "string",
+      "title": "ExportDataFormat"
+    },
+    "ExportDataFormats": {
+      "items": {
+        "$ref": "#/definitions/ExportDataFormat"
+      },
+      "type": "array",
+      "title": "ExportDataFormats"
+    },
+    "ExportIds": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationsExportId"
+      },
+      "type": "array",
+      "title": "ExportIds"
+    },
+    "ExportInfo": {
+      "description": "Information regarding the export status of the discovered data. The value is an array of objects.",
+      "properties": {
+        "configurationsDownloadUrl": {
+          "$ref": "#/definitions/ConfigurationsDownloadUrl",
+          "description": "A URL for an Amazon S3 bucket where you can review the configuration data. The URL is displayed only if the export succeeded."
+        },
+        "exportId": {
+          "$ref": "#/definitions/ConfigurationsExportId",
+          "description": "A unique identifier that you can use to query the export."
+        },
+        "exportRequestTime": {
+          "$ref": "#/definitions/ExportRequestTime",
+          "description": "The time that the configuration data export was initiated."
+        },
+        "exportStatus": {
+          "$ref": "#/definitions/ExportStatus",
+          "description": "The status of the configuration data export. The status can succeed, fail, or be in-progress."
+        },
+        "statusMessage": {
+          "$ref": "#/definitions/ExportStatusMessage",
+          "description": "Helpful status messages for API callers. For example: Too many exports in the last 6 hours. Export in progress. Export was successful."
+        }
+      },
+      "required": [
+        "exportId",
+        "exportStatus",
+        "statusMessage",
+        "exportRequestTime"
+      ],
+      "type": "object",
+      "title": "ExportInfo"
+    },
+    "ExportRequestTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "ExportRequestTime"
+    },
+    "ExportStatus": {
+      "enum": [
+        "FAILED",
+        "SUCCEEDED",
+        "IN_PROGRESS"
+      ],
+      "type": "string",
+      "title": "ExportStatus"
+    },
+    "ExportStatusMessage": {
+      "type": "string",
+      "title": "ExportStatusMessage"
+    },
+    "ExportsInfo": {
+      "items": {
+        "$ref": "#/definitions/ExportInfo"
+      },
+      "type": "array",
+      "title": "ExportsInfo"
+    },
+    "Filter": {
+      "description": "<p>A filter that can use conditional operators.</p> <p>For more information about filters, see <a href=\"http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html\">Querying Discovered Configuration Items</a>. </p>",
+      "properties": {
+        "condition": {
+          "$ref": "#/definitions/Condition",
+          "description": "A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS, CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as though concatenated by <i>AND</i>. If you specify multiple values for a particular filter, the system differentiates the values using <i>OR</i>. Calling either <i>DescribeConfigurations</i> or <i>ListConfigurations</i> returns attributes of matching configuration items."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the filter."
+        },
+        "values": {
+          "$ref": "#/definitions/FilterValues",
+          "description": "A string value on which to filter. For example, if you choose the <code>destinationServer.osVersion</code> filter name, you could specify <code>Ubuntu</code> for the value."
+        }
+      },
+      "required": [
+        "name",
+        "values",
+        "condition"
+      ],
+      "type": "object",
+      "title": "Filter"
+    },
+    "FilterName": {
+      "type": "string",
+      "title": "FilterName"
+    },
+    "FilterValue": {
+      "type": "string",
+      "title": "FilterValue"
+    },
+    "FilterValues": {
+      "items": {
+        "$ref": "#/definitions/FilterValue"
+      },
+      "type": "array",
+      "title": "FilterValues"
+    },
+    "Filters": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "type": "array",
+      "title": "Filters"
+    },
+    "GetDiscoverySummaryRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetDiscoverySummaryRequest"
+    },
+    "GetDiscoverySummaryResponse": {
+      "properties": {
+        "agentSummary": {
+          "$ref": "#/definitions/CustomerAgentInfo",
+          "description": "Details about discovered agents, including agent status and health."
+        },
+        "applications": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of applications discovered."
+        },
+        "connectorSummary": {
+          "$ref": "#/definitions/CustomerConnectorInfo",
+          "description": "Details about discovered connectors, including connector status and health."
+        },
+        "servers": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of servers discovered."
+        },
+        "serversMappedToApplications": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of servers mapped to applications."
+        },
+        "serversMappedtoTags": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of servers mapped to tags."
+        }
+      },
+      "type": "object",
+      "title": "GetDiscoverySummaryResponse"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InvalidParameterException": {
+      "description": "One or more parameters are not valid. Verify the parameters and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterException"
+    },
+    "InvalidParameterValueException": {
+      "description": "The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "InvalidParameterValueException"
+    },
+    "ListConfigurationsRequest": {
+      "properties": {
+        "configurationType": {
+          "$ref": "#/definitions/ConfigurationItemType",
+          "description": "A valid configuration identified by Application Discovery Service. "
+        },
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "<p>You can filter the request using various logical operators and a <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p> <p>For a complete list of filter options and guidance about using them with this action, see <a href=\"http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations\">Querying Discovered Configuration Items</a>. </p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The total number of items to return. The maximum value is 100."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10."
+        },
+        "orderBy": {
+          "$ref": "#/definitions/OrderByList",
+          "description": "Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <a href=\"http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations\">Using the ListConfigurations Action</a>."
+        }
+      },
+      "required": [
+        "configurationType"
+      ],
+      "type": "object",
+      "title": "ListConfigurationsRequest"
+    },
+    "ListConfigurationsResponse": {
+      "properties": {
+        "configurations": {
+          "$ref": "#/definitions/Configurations",
+          "description": "Returns configuration details, including the configuration ID, attribute names, and attribute values."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10."
+        }
+      },
+      "type": "object",
+      "title": "ListConfigurationsResponse"
+    },
+    "ListServerNeighborsRequest": {
+      "properties": {
+        "configurationId": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "Configuration ID of the server for which neighbors are being listed."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "Maximum number of results to return in a single page of output."
+        },
+        "neighborConfigurationIds": {
+          "$ref": "#/definitions/ConfigurationIdList",
+          "description": "List of configuration IDs to test for one-hop-away."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Token to retrieve the next set of results. For example, if you previously specified 100 IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10."
+        },
+        "portInformationNeeded": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Flag to indicate if port and protocol information is needed as part of the response."
+        }
+      },
+      "required": [
+        "configurationId"
+      ],
+      "type": "object",
+      "title": "ListServerNeighborsRequest"
+    },
+    "ListServerNeighborsResponse": {
+      "properties": {
+        "knownDependencyCount": {
+          "$ref": "#/definitions/Long",
+          "description": "Count of distinct servers that are one hop away from the given server."
+        },
+        "neighbors": {
+          "$ref": "#/definitions/NeighborDetailsList",
+          "description": "List of distinct servers that are one hop away from the given server."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Token to retrieve the next set of results. For example, if you specified 100 IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10."
+        }
+      },
+      "required": [
+        "neighbors"
+      ],
+      "type": "object",
+      "title": "ListServerNeighborsResponse"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
+    },
+    "Message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "NeighborConnectionDetail": {
+      "description": "Details about neighboring servers.",
+      "properties": {
+        "connectionsCount": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of open network connections with the neighboring server."
+        },
+        "destinationPort": {
+          "$ref": "#/definitions/BoxedInteger",
+          "description": "The destination network port for the connection."
+        },
+        "destinationServerId": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The ID of the server that accepted the network connection."
+        },
+        "sourceServerId": {
+          "$ref": "#/definitions/ConfigurationId",
+          "description": "The ID of the server that opened the network connection."
+        },
+        "transportProtocol": {
+          "$ref": "#/definitions/String",
+          "description": "The network protocol used for the connection."
+        }
+      },
+      "required": [
+        "sourceServerId",
+        "destinationServerId",
+        "connectionsCount"
+      ],
+      "type": "object",
+      "title": "NeighborConnectionDetail"
+    },
+    "NeighborDetailsList": {
+      "items": {
+        "$ref": "#/definitions/NeighborConnectionDetail"
+      },
+      "type": "array",
+      "title": "NeighborDetailsList"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "OperationNotPermittedException": {
+      "description": "This operation is not permitted.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "OperationNotPermittedException"
+    },
+    "OrderByElement": {
+      "description": "A field and direction for ordered output.",
+      "properties": {
+        "fieldName": {
+          "$ref": "#/definitions/String",
+          "description": "The field on which to order."
+        },
+        "sortOrder": {
+          "$ref": "#/definitions/orderString",
+          "description": "Ordering direction."
+        }
+      },
+      "required": [
+        "fieldName"
+      ],
+      "type": "object",
+      "title": "OrderByElement"
+    },
+    "OrderByList": {
+      "items": {
+        "$ref": "#/definitions/OrderByElement"
+      },
+      "type": "array",
+      "title": "OrderByList"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified configuration ID was not located. Verify the configuration ID and try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "ServerInternalErrorException": {
+      "description": "The server experienced an internal error. Try again.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "type": "object",
+      "title": "ServerInternalErrorException"
+    },
+    "StartDataCollectionByAgentIdsRequest": {
+      "properties": {
+        "agentIds": {
+          "$ref": "#/definitions/AgentIds",
+          "description": "The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the <i>Description</i> field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows <code>Failed</code> in the <i>Description</i> field."
+        }
+      },
+      "required": [
+        "agentIds"
+      ],
+      "type": "object",
+      "title": "StartDataCollectionByAgentIdsRequest"
+    },
+    "StartDataCollectionByAgentIdsResponse": {
+      "properties": {
+        "agentsConfigurationStatus": {
+          "$ref": "#/definitions/AgentConfigurationStatusList",
+          "description": "Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated."
+        }
+      },
+      "type": "object",
+      "title": "StartDataCollectionByAgentIdsResponse"
+    },
+    "StartExportTaskRequest": {
+      "properties": {
+        "exportDataFormat": {
+          "$ref": "#/definitions/ExportDataFormats",
+          "description": "The file format for the returned export data. Default value is <code>CSV</code>."
+        }
+      },
+      "type": "object",
+      "title": "StartExportTaskRequest"
+    },
+    "StartExportTaskResponse": {
+      "properties": {
+        "exportId": {
+          "$ref": "#/definitions/ConfigurationsExportId",
+          "description": " A unique identifier used to query the status of an export request."
+        }
+      },
+      "type": "object",
+      "title": "StartExportTaskResponse"
+    },
+    "StopDataCollectionByAgentIdsRequest": {
+      "properties": {
+        "agentIds": {
+          "$ref": "#/definitions/AgentIds",
+          "description": "The IDs of the agents or connectors from which to stop collecting data."
+        }
+      },
+      "required": [
+        "agentIds"
+      ],
+      "type": "object",
+      "title": "StopDataCollectionByAgentIdsRequest"
+    },
+    "StopDataCollectionByAgentIdsResponse": {
+      "properties": {
+        "agentsConfigurationStatus": {
+          "$ref": "#/definitions/AgentConfigurationStatusList",
+          "description": "Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated."
+        }
+      },
+      "type": "object",
+      "title": "StopDataCollectionByAgentIdsResponse"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "Tag": {
+      "description": "Metadata that help you categorize IT assets.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The type of tag on which to filter."
+        },
+        "value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "A value for a tag key on which to filter."
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagFilter": {
+      "description": "The tag filter. Valid names are: <code>tagKey</code>, <code>tagValue</code>, <code>configurationId</code>.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/FilterName",
+          "description": "A name of the tag filter."
+        },
+        "values": {
+          "$ref": "#/definitions/FilterValues",
+          "description": "Values for the tag filter."
+        }
+      },
+      "required": [
+        "name",
+        "values"
+      ],
+      "type": "object",
+      "title": "TagFilter"
+    },
+    "TagFilters": {
+      "items": {
+        "$ref": "#/definitions/TagFilter"
+      },
+      "type": "array",
+      "title": "TagFilters"
+    },
+    "TagKey": {
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagSet": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagSet"
+    },
+    "TagValue": {
+      "type": "string",
+      "title": "TagValue"
+    },
+    "TimeStamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "TimeStamp"
+    },
+    "UpdateApplicationRequest": {
+      "properties": {
+        "configurationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "Configuration ID of the application to be updated."
+        },
+        "description": {
+          "$ref": "#/definitions/String",
+          "description": "New description of the application to be updated."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "New name of the application to be updated."
+        }
+      },
+      "required": [
+        "configurationId"
+      ],
+      "type": "object",
+      "title": "UpdateApplicationRequest"
+    },
+    "UpdateApplicationResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateApplicationResponse"
+    },
+    "orderString": {
+      "enum": [
+        "ASC",
+        "DESC"
+      ],
+      "type": "string",
+      "title": "orderString"
+    }
+  },
+  "actions": [
+    {
+      "id": "AssociateConfigurationItemsToApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AssociateConfigurationItemsToApplicationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AssociateConfigurationItemsToApplicationResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "CreateApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateApplicationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateApplicationResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "CreateTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateTagsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DeleteApplications",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteApplicationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteApplicationsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DeleteTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteTagsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DescribeAgents",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeAgentsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAgentsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigurationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConfigurationsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DescribeExportConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeExportConfigurationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeExportConfigurationsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DescribeExportTasks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeExportTasksRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeExportTasksResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DescribeTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeTagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeTagsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "DisassociateConfigurationItemsFromApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DisassociateConfigurationItemsFromApplicationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DisassociateConfigurationItemsFromApplicationResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "ExportConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExportConfigurationsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "GetDiscoverySummary",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDiscoverySummaryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDiscoverySummaryResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "ListConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListConfigurationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListConfigurationsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "ListServerNeighbors",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListServerNeighborsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListServerNeighborsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "StartDataCollectionByAgentIds",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartDataCollectionByAgentIdsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartDataCollectionByAgentIdsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "StartExportTask",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartExportTaskRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartExportTaskResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "StopDataCollectionByAgentIds",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopDataCollectionByAgentIdsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopDataCollectionByAgentIdsResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateApplicationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateApplicationResponse"
+      },
+      "security": {
+        "amazonaws_discovery": {
+          "integration": "amazonaws_discovery"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

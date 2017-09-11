@@ -5,7 +5,7 @@ let openapi = require('./openapi.json');
 
 let aws = require('aws-sdk');
 const INTEGRATION_ID = 'amazonaws_elasticloadbalancing';
-const SDK_ID = 'ELB';
+const SDK_ID = 'ELBv2';
 
 let integ = module.exports = new datafire.Integration({
   id: INTEGRATION_ID,
@@ -26,12 +26,17 @@ function maybeCamelCase(str) {
   return str.replace(/_(\w)/g, (match, char) => char.toUpperCase())
 }
 
+// We use this instance to make sure each action is available in the SDK at startup.
+let dummyInstance = new aws[SDK_ID]({version: openapi.version, endpoint: 'foo'});
+
 for (let path in openapi.paths) {
   for (let method in openapi.paths[path]) {
     if (method === 'parameters') continue;
     let op = openapi.paths[path][method];
     let actionID = op.operationId;
     let functionID = actionID.charAt(0).toLowerCase() + actionID.substring(1);
+    if (!dummyInstance[functionID]) throw new Error("AWS SDK " + SDK_ID + ": Function " + functionID + " not found");
+
     let inputParam = (op.parameters || []).filter(p => p.in === 'body')[0] || {};
     let response = (op.responses || {})[200] || {};
     let inputSchema = {
@@ -57,10 +62,10 @@ for (let path in openapi.paths) {
       inputSchema: getSchema(inputSchema),
       outputSchema: getSchema(response.schema),
       handler: (input, context) => {
-        let ec2 = new aws[SDK_ID](Object.assign({
+        let lib = new aws[SDK_ID](Object.assign({
           version: openapi.info.version,
         }, context.accounts[INTEGRATION_ID]));
-        return ec2[functionID](input).promise()
+        return lib[functionID](input).promise()
           .then(data => {
             return JSON.parse(JSON.stringify(data));
           })

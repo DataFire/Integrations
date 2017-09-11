@@ -1,0 +1,1672 @@
+{
+  "id": "amazonaws_firehose",
+  "title": "Amazon Kinesis Firehose",
+  "description": "Amazon Kinesis Firehose API Reference\n\nAmazon Kinesis Firehose is a fully-managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.",
+  "security": {
+    "amazonaws_firehose": {
+      "integration": "amazonaws_firehose",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.svg"
+  },
+  "actionCount": 7,
+  "definitions": {
+    "AWSKMSKeyARN": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string",
+      "title": "AWSKMSKeyARN"
+    },
+    "BooleanObject": {
+      "type": "boolean",
+      "title": "BooleanObject"
+    },
+    "BucketARN": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string",
+      "title": "BucketARN"
+    },
+    "BufferingHints": {
+      "description": "Describes hints for the buffering to perform before delivering data to the destination. Please note that these options are treated as hints, and therefore Firehose may choose to use different values when it is optimal.",
+      "properties": {
+        "IntervalInSeconds": {
+          "$ref": "#/definitions/IntervalInSeconds",
+          "description": "Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300."
+        },
+        "SizeInMBs": {
+          "$ref": "#/definitions/SizeInMBs",
+          "description": "<p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.</p> <p>We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>"
+        }
+      },
+      "type": "object",
+      "title": "BufferingHints"
+    },
+    "CloudWatchLoggingOptions": {
+      "description": "Describes the CloudWatch logging options for your delivery stream.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enables or disables CloudWatch logging."
+        },
+        "LogGroupName": {
+          "$ref": "#/definitions/LogGroupName",
+          "description": "The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled."
+        },
+        "LogStreamName": {
+          "$ref": "#/definitions/LogStreamName",
+          "description": "The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled."
+        }
+      },
+      "type": "object",
+      "title": "CloudWatchLoggingOptions"
+    },
+    "ClusterJDBCURL": {
+      "minLength": 1,
+      "pattern": "jdbc:\\(redshift\\|postgresql\\)://\\(\\(\\?!-\\)[A-Za-z0-9-]\\{1,63\\}\\(\\?<!-\\)\\.\\)\\+redshift\\.amazonaws\\.com:\\d\\{1,5\\}/[a-zA-Z0-9_$]\\+",
+      "type": "string",
+      "title": "ClusterJDBCURL"
+    },
+    "CompressionFormat": {
+      "enum": [
+        "UNCOMPRESSED",
+        "GZIP",
+        "ZIP",
+        "Snappy"
+      ],
+      "type": "string",
+      "title": "CompressionFormat"
+    },
+    "ConcurrentModificationException": {
+      "description": "Another modification has already happened. Fetch <b>VersionId</b> again and use it to update the destination.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ConcurrentModificationException"
+    },
+    "CopyCommand": {
+      "description": "Describes a <code>COPY</code> command for Amazon Redshift.",
+      "properties": {
+        "CopyOptions": {
+          "$ref": "#/definitions/CopyOptions",
+          "description": "<p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For more information, see the \"Optional Parameters\" section of <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html\">Amazon Redshift COPY command</a>. Some possible examples that would apply to Firehose are as follows:</p> <p> <code>delimiter '\\t' lzop;</code> - fields are delimited with \"\\t\" (TAB character) and compressed using lzop.</p> <p> <code>delimiter '|</code> - fields are delimited with \"|\" (this is the default delimiter).</p> <p> <code>delimiter '|' escape</code> - the delimiter should be escaped.</p> <p> <code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> - fields are fixed width in the source, with each width specified after every column in the table.</p> <p> <code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path specified is the format of the data.</p> <p>For more examples, see <a href=\"http://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html\">Amazon Redshift COPY command examples</a>.</p>"
+        },
+        "DataTableColumns": {
+          "$ref": "#/definitions/DataTableColumns",
+          "description": "A comma-separated list of column names."
+        },
+        "DataTableName": {
+          "$ref": "#/definitions/DataTableName",
+          "description": "The name of the target table. The table must already exist in the database."
+        }
+      },
+      "required": [
+        "DataTableName"
+      ],
+      "type": "object",
+      "title": "CopyCommand"
+    },
+    "CopyOptions": {
+      "type": "string",
+      "title": "CopyOptions"
+    },
+    "CreateDeliveryStreamInput": {
+      "properties": {
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream. This name must be unique per AWS account in the same region. You can have multiple delivery streams with the same name if they are in different accounts or different regions."
+        },
+        "ElasticsearchDestinationConfiguration": {
+          "$ref": "#/definitions/ElasticsearchDestinationConfiguration",
+          "description": "The destination in Amazon ES. You can specify only one destination."
+        },
+        "ExtendedS3DestinationConfiguration": {
+          "$ref": "#/definitions/ExtendedS3DestinationConfiguration",
+          "description": "The destination in Amazon S3. You can specify only one destination."
+        },
+        "RedshiftDestinationConfiguration": {
+          "$ref": "#/definitions/RedshiftDestinationConfiguration",
+          "description": "The destination in Amazon Redshift. You can specify only one destination."
+        },
+        "S3DestinationConfiguration": {
+          "$ref": "#/definitions/S3DestinationConfiguration",
+          "description": "[Deprecated] The destination in Amazon S3. You can specify only one destination."
+        }
+      },
+      "required": [
+        "DeliveryStreamName"
+      ],
+      "type": "object",
+      "title": "CreateDeliveryStreamInput"
+    },
+    "CreateDeliveryStreamOutput": {
+      "properties": {
+        "DeliveryStreamARN": {
+          "$ref": "#/definitions/DeliveryStreamARN",
+          "description": "The ARN of the delivery stream."
+        }
+      },
+      "type": "object",
+      "title": "CreateDeliveryStreamOutput"
+    },
+    "Data": {
+      "maxLength": 1024000,
+      "minLength": 0,
+      "type": "string",
+      "title": "Data"
+    },
+    "DataTableColumns": {
+      "type": "string",
+      "title": "DataTableColumns"
+    },
+    "DataTableName": {
+      "minLength": 1,
+      "type": "string",
+      "title": "DataTableName"
+    },
+    "DeleteDeliveryStreamInput": {
+      "properties": {
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream."
+        }
+      },
+      "required": [
+        "DeliveryStreamName"
+      ],
+      "type": "object",
+      "title": "DeleteDeliveryStreamInput"
+    },
+    "DeleteDeliveryStreamOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteDeliveryStreamOutput"
+    },
+    "DeliveryStreamARN": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string",
+      "title": "DeliveryStreamARN"
+    },
+    "DeliveryStreamDescription": {
+      "description": "Contains information about a delivery stream.",
+      "properties": {
+        "CreateTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the delivery stream was created."
+        },
+        "DeliveryStreamARN": {
+          "$ref": "#/definitions/DeliveryStreamARN",
+          "description": "The Amazon Resource Name (ARN) of the delivery stream."
+        },
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream."
+        },
+        "DeliveryStreamStatus": {
+          "$ref": "#/definitions/DeliveryStreamStatus",
+          "description": "The status of the delivery stream."
+        },
+        "Destinations": {
+          "$ref": "#/definitions/DestinationDescriptionList",
+          "description": "The destinations."
+        },
+        "HasMoreDestinations": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Indicates whether there are more destinations available to list."
+        },
+        "LastUpdateTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the delivery stream was last updated."
+        },
+        "VersionId": {
+          "$ref": "#/definitions/DeliveryStreamVersionId",
+          "description": "Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream."
+        }
+      },
+      "required": [
+        "DeliveryStreamName",
+        "DeliveryStreamARN",
+        "DeliveryStreamStatus",
+        "VersionId",
+        "Destinations",
+        "HasMoreDestinations"
+      ],
+      "type": "object",
+      "title": "DeliveryStreamDescription"
+    },
+    "DeliveryStreamName": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.-]+",
+      "type": "string",
+      "title": "DeliveryStreamName"
+    },
+    "DeliveryStreamNameList": {
+      "items": {
+        "$ref": "#/definitions/DeliveryStreamName"
+      },
+      "type": "array",
+      "title": "DeliveryStreamNameList"
+    },
+    "DeliveryStreamStatus": {
+      "enum": [
+        "CREATING",
+        "DELETING",
+        "ACTIVE"
+      ],
+      "type": "string",
+      "title": "DeliveryStreamStatus"
+    },
+    "DeliveryStreamVersionId": {
+      "maxLength": 50,
+      "minLength": 1,
+      "pattern": "[0-9]+",
+      "type": "string",
+      "title": "DeliveryStreamVersionId"
+    },
+    "DescribeDeliveryStreamInput": {
+      "properties": {
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream."
+        },
+        "ExclusiveStartDestinationId": {
+          "$ref": "#/definitions/DestinationId",
+          "description": "The ID of the destination to start returning the destination information. Currently Firehose supports one destination per delivery stream."
+        },
+        "Limit": {
+          "$ref": "#/definitions/DescribeDeliveryStreamInputLimit",
+          "description": "The limit on the number of destinations to return. Currently, you can have one destination per delivery stream."
+        }
+      },
+      "required": [
+        "DeliveryStreamName"
+      ],
+      "type": "object",
+      "title": "DescribeDeliveryStreamInput"
+    },
+    "DescribeDeliveryStreamInputLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "DescribeDeliveryStreamInputLimit"
+    },
+    "DescribeDeliveryStreamOutput": {
+      "properties": {
+        "DeliveryStreamDescription": {
+          "$ref": "#/definitions/DeliveryStreamDescription",
+          "description": "Information about the delivery stream."
+        }
+      },
+      "required": [
+        "DeliveryStreamDescription"
+      ],
+      "type": "object",
+      "title": "DescribeDeliveryStreamOutput"
+    },
+    "DestinationDescription": {
+      "description": "Describes the destination for a delivery stream.",
+      "properties": {
+        "DestinationId": {
+          "$ref": "#/definitions/DestinationId",
+          "description": "The ID of the destination."
+        },
+        "ElasticsearchDestinationDescription": {
+          "$ref": "#/definitions/ElasticsearchDestinationDescription",
+          "description": "The destination in Amazon ES."
+        },
+        "ExtendedS3DestinationDescription": {
+          "$ref": "#/definitions/ExtendedS3DestinationDescription",
+          "description": "The destination in Amazon S3."
+        },
+        "RedshiftDestinationDescription": {
+          "$ref": "#/definitions/RedshiftDestinationDescription",
+          "description": "The destination in Amazon Redshift."
+        },
+        "S3DestinationDescription": {
+          "$ref": "#/definitions/S3DestinationDescription",
+          "description": "[Deprecated] The destination in Amazon S3."
+        }
+      },
+      "required": [
+        "DestinationId"
+      ],
+      "type": "object",
+      "title": "DestinationDescription"
+    },
+    "DestinationDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/DestinationDescription"
+      },
+      "type": "array",
+      "title": "DestinationDescriptionList"
+    },
+    "DestinationId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "DestinationId"
+    },
+    "ElasticsearchBufferingHints": {
+      "description": "Describes the buffering to perform before delivering data to the Amazon ES destination.",
+      "properties": {
+        "IntervalInSeconds": {
+          "$ref": "#/definitions/ElasticsearchBufferingIntervalInSeconds",
+          "description": "Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes)."
+        },
+        "SizeInMBs": {
+          "$ref": "#/definitions/ElasticsearchBufferingSizeInMBs",
+          "description": "<p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.</p> <p>We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>"
+        }
+      },
+      "type": "object",
+      "title": "ElasticsearchBufferingHints"
+    },
+    "ElasticsearchBufferingIntervalInSeconds": {
+      "maximum": 900,
+      "minimum": 60,
+      "type": "integer",
+      "title": "ElasticsearchBufferingIntervalInSeconds"
+    },
+    "ElasticsearchBufferingSizeInMBs": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ElasticsearchBufferingSizeInMBs"
+    },
+    "ElasticsearchDestinationConfiguration": {
+      "description": "Describes the configuration of a destination in Amazon ES.",
+      "properties": {
+        "BufferingHints": {
+          "$ref": "#/definitions/ElasticsearchBufferingHints",
+          "description": "The buffering options. If no value is specified, the default values for <b>ElasticsearchBufferingHints</b> are used."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "DomainARN": {
+          "$ref": "#/definitions/ElasticsearchDomainARN",
+          "description": "The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after assuming the role specified in <b>RoleARN</b>."
+        },
+        "IndexName": {
+          "$ref": "#/definitions/ElasticsearchIndexName",
+          "description": "The Elasticsearch index name."
+        },
+        "IndexRotationPeriod": {
+          "$ref": "#/definitions/ElasticsearchIndexRotationPeriod",
+          "description": "The Elasticsearch index rotation period. Index rotation appends a timestamp to the IndexName to facilitate expiration of old data. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation\">Index Rotation for Amazon Elasticsearch Service Destination</a>. The default value is <code>OneDay</code>."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RetryOptions": {
+          "$ref": "#/definitions/ElasticsearchRetryOptions",
+          "description": "The retry behavior in the event that Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes)."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3\">Amazon S3 Bucket Access</a>."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/ElasticsearchS3BackupMode",
+          "description": "Defines how documents should be delivered to Amazon S3. When set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with elasticsearch-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with elasticsearch-failed/ appended to the prefix. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup\">Amazon S3 Backup for Amazon Elasticsearch Service Destination</a>. Default value is FailedDocumentsOnly."
+        },
+        "S3Configuration": {
+          "$ref": "#/definitions/S3DestinationConfiguration",
+          "description": "The configuration for the intermediate Amazon S3 location from which Amazon ES obtains data."
+        },
+        "TypeName": {
+          "$ref": "#/definitions/ElasticsearchTypeName",
+          "description": "The Elasticsearch type name."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "DomainARN",
+        "IndexName",
+        "TypeName",
+        "S3Configuration"
+      ],
+      "type": "object",
+      "title": "ElasticsearchDestinationConfiguration"
+    },
+    "ElasticsearchDestinationDescription": {
+      "description": "The destination description in Amazon ES.",
+      "properties": {
+        "BufferingHints": {
+          "$ref": "#/definitions/ElasticsearchBufferingHints",
+          "description": "The buffering options."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options."
+        },
+        "DomainARN": {
+          "$ref": "#/definitions/ElasticsearchDomainARN",
+          "description": "The ARN of the Amazon ES domain."
+        },
+        "IndexName": {
+          "$ref": "#/definitions/ElasticsearchIndexName",
+          "description": "The Elasticsearch index name."
+        },
+        "IndexRotationPeriod": {
+          "$ref": "#/definitions/ElasticsearchIndexRotationPeriod",
+          "description": "The Elasticsearch index rotation period"
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RetryOptions": {
+          "$ref": "#/definitions/ElasticsearchRetryOptions",
+          "description": "The Amazon ES retry options."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/ElasticsearchS3BackupMode",
+          "description": "The Amazon S3 backup mode."
+        },
+        "S3DestinationDescription": {
+          "$ref": "#/definitions/S3DestinationDescription",
+          "description": "The Amazon S3 destination."
+        },
+        "TypeName": {
+          "$ref": "#/definitions/ElasticsearchTypeName",
+          "description": "The Elasticsearch type name."
+        }
+      },
+      "type": "object",
+      "title": "ElasticsearchDestinationDescription"
+    },
+    "ElasticsearchDestinationUpdate": {
+      "description": "Describes an update for a destination in Amazon ES.",
+      "properties": {
+        "BufferingHints": {
+          "$ref": "#/definitions/ElasticsearchBufferingHints",
+          "description": "The buffering options. If no value is specified, <b>ElasticsearchBufferingHints</b> object default values are used. "
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "DomainARN": {
+          "$ref": "#/definitions/ElasticsearchDomainARN",
+          "description": "The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after assuming the IAM role specified in <b>RoleARN</b>."
+        },
+        "IndexName": {
+          "$ref": "#/definitions/ElasticsearchIndexName",
+          "description": "The Elasticsearch index name."
+        },
+        "IndexRotationPeriod": {
+          "$ref": "#/definitions/ElasticsearchIndexRotationPeriod",
+          "description": "The Elasticsearch index rotation period. Index rotation appends a timestamp to IndexName to facilitate the expiration of old data. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation\">Index Rotation for Amazon Elasticsearch Service Destination</a>. Default value is <code>OneDay</code>."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RetryOptions": {
+          "$ref": "#/definitions/ElasticsearchRetryOptions",
+          "description": "The retry behavior in the event that Firehose is unable to deliver documents to Amazon ES. Default value is 300 (5 minutes)."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3\">Amazon S3 Bucket Access</a>."
+        },
+        "S3Update": {
+          "$ref": "#/definitions/S3DestinationUpdate",
+          "description": "The Amazon S3 destination."
+        },
+        "TypeName": {
+          "$ref": "#/definitions/ElasticsearchTypeName",
+          "description": "The Elasticsearch type name."
+        }
+      },
+      "type": "object",
+      "title": "ElasticsearchDestinationUpdate"
+    },
+    "ElasticsearchDomainARN": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string",
+      "title": "ElasticsearchDomainARN"
+    },
+    "ElasticsearchIndexName": {
+      "maxLength": 80,
+      "minLength": 1,
+      "type": "string",
+      "title": "ElasticsearchIndexName"
+    },
+    "ElasticsearchIndexRotationPeriod": {
+      "enum": [
+        "NoRotation",
+        "OneHour",
+        "OneDay",
+        "OneWeek",
+        "OneMonth"
+      ],
+      "type": "string",
+      "title": "ElasticsearchIndexRotationPeriod"
+    },
+    "ElasticsearchRetryDurationInSeconds": {
+      "maximum": 7200,
+      "minimum": 0,
+      "type": "integer",
+      "title": "ElasticsearchRetryDurationInSeconds"
+    },
+    "ElasticsearchRetryOptions": {
+      "description": "Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon ES.",
+      "properties": {
+        "DurationInSeconds": {
+          "$ref": "#/definitions/ElasticsearchRetryDurationInSeconds",
+          "description": "After an initial failure to deliver to Amazon ES, the total amount of time during which Firehose re-attempts delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries."
+        }
+      },
+      "type": "object",
+      "title": "ElasticsearchRetryOptions"
+    },
+    "ElasticsearchS3BackupMode": {
+      "enum": [
+        "FailedDocumentsOnly",
+        "AllDocuments"
+      ],
+      "type": "string",
+      "title": "ElasticsearchS3BackupMode"
+    },
+    "ElasticsearchTypeName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "ElasticsearchTypeName"
+    },
+    "EncryptionConfiguration": {
+      "description": "Describes the encryption for a destination in Amazon S3.",
+      "properties": {
+        "KMSEncryptionConfig": {
+          "$ref": "#/definitions/KMSEncryptionConfig",
+          "description": "The encryption key."
+        },
+        "NoEncryptionConfig": {
+          "$ref": "#/definitions/NoEncryptionConfig",
+          "description": "Specifically override existing encryption information to ensure no encryption is used."
+        }
+      },
+      "type": "object",
+      "title": "EncryptionConfiguration"
+    },
+    "ErrorCode": {
+      "type": "string",
+      "title": "ErrorCode"
+    },
+    "ErrorMessage": {
+      "type": "string",
+      "title": "ErrorMessage"
+    },
+    "ExtendedS3DestinationConfiguration": {
+      "description": "Describes the configuration of a destination in Amazon S3.",
+      "properties": {
+        "BucketARN": {
+          "$ref": "#/definitions/BucketARN",
+          "description": "The ARN of the S3 bucket."
+        },
+        "BufferingHints": {
+          "$ref": "#/definitions/BufferingHints",
+          "description": "The buffering option."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "CompressionFormat": {
+          "$ref": "#/definitions/CompressionFormat",
+          "description": "The compression format. If no value is specified, the default is UNCOMPRESSED."
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html\">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupConfiguration": {
+          "$ref": "#/definitions/S3DestinationConfiguration",
+          "description": "The configuration for backup in Amazon S3."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/S3BackupMode",
+          "description": "The Amazon S3 backup mode."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "BucketARN"
+      ],
+      "type": "object",
+      "title": "ExtendedS3DestinationConfiguration"
+    },
+    "ExtendedS3DestinationDescription": {
+      "description": "Describes a destination in Amazon S3.",
+      "properties": {
+        "BucketARN": {
+          "$ref": "#/definitions/BucketARN",
+          "description": "The ARN of the S3 bucket."
+        },
+        "BufferingHints": {
+          "$ref": "#/definitions/BufferingHints",
+          "description": "The buffering option."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "CompressionFormat": {
+          "$ref": "#/definitions/CompressionFormat",
+          "description": "The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>."
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html\">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupDescription": {
+          "$ref": "#/definitions/S3DestinationDescription",
+          "description": "The configuration for backup in Amazon S3."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/S3BackupMode",
+          "description": "The Amazon S3 backup mode."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "BucketARN",
+        "BufferingHints",
+        "CompressionFormat",
+        "EncryptionConfiguration"
+      ],
+      "type": "object",
+      "title": "ExtendedS3DestinationDescription"
+    },
+    "ExtendedS3DestinationUpdate": {
+      "description": "Describes an update for a destination in Amazon S3.",
+      "properties": {
+        "BucketARN": {
+          "$ref": "#/definitions/BucketARN",
+          "description": "The ARN of the S3 bucket."
+        },
+        "BufferingHints": {
+          "$ref": "#/definitions/BufferingHints",
+          "description": "The buffering option."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "CompressionFormat": {
+          "$ref": "#/definitions/CompressionFormat",
+          "description": "The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>. "
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html\">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/S3BackupMode",
+          "description": "Enables or disables Amazon S3 backup mode."
+        },
+        "S3BackupUpdate": {
+          "$ref": "#/definitions/S3DestinationUpdate",
+          "description": "The Amazon S3 destination for backup."
+        }
+      },
+      "type": "object",
+      "title": "ExtendedS3DestinationUpdate"
+    },
+    "IntervalInSeconds": {
+      "maximum": 900,
+      "minimum": 60,
+      "type": "integer",
+      "title": "IntervalInSeconds"
+    },
+    "InvalidArgumentException": {
+      "description": "The specified input parameter has an value that is not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "InvalidArgumentException"
+    },
+    "KMSEncryptionConfig": {
+      "description": "Describes an encryption key for a destination in Amazon S3.",
+      "properties": {
+        "AWSKMSKeyARN": {
+          "$ref": "#/definitions/AWSKMSKeyARN",
+          "description": "The ARN of the encryption key. Must belong to the same region as the destination Amazon S3 bucket."
+        }
+      },
+      "required": [
+        "AWSKMSKeyARN"
+      ],
+      "type": "object",
+      "title": "KMSEncryptionConfig"
+    },
+    "LimitExceededException": {
+      "description": "You have already reached the limit for a requested resource.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListDeliveryStreamsInput": {
+      "properties": {
+        "ExclusiveStartDeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream to start the list with."
+        },
+        "Limit": {
+          "$ref": "#/definitions/ListDeliveryStreamsInputLimit",
+          "description": "The maximum number of delivery streams to list."
+        }
+      },
+      "type": "object",
+      "title": "ListDeliveryStreamsInput"
+    },
+    "ListDeliveryStreamsInputLimit": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ListDeliveryStreamsInputLimit"
+    },
+    "ListDeliveryStreamsOutput": {
+      "properties": {
+        "DeliveryStreamNames": {
+          "$ref": "#/definitions/DeliveryStreamNameList",
+          "description": "The names of the delivery streams."
+        },
+        "HasMoreDeliveryStreams": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Indicates whether there are more delivery streams available to list."
+        }
+      },
+      "required": [
+        "DeliveryStreamNames",
+        "HasMoreDeliveryStreams"
+      ],
+      "type": "object",
+      "title": "ListDeliveryStreamsOutput"
+    },
+    "LogGroupName": {
+      "type": "string",
+      "title": "LogGroupName"
+    },
+    "LogStreamName": {
+      "type": "string",
+      "title": "LogStreamName"
+    },
+    "NoEncryptionConfig": {
+      "enum": [
+        "NoEncryption"
+      ],
+      "type": "string",
+      "title": "NoEncryptionConfig"
+    },
+    "NonNegativeIntegerObject": {
+      "minimum": 0,
+      "type": "integer",
+      "title": "NonNegativeIntegerObject"
+    },
+    "Password": {
+      "format": "password",
+      "minLength": 6,
+      "type": "string",
+      "title": "Password"
+    },
+    "Prefix": {
+      "type": "string",
+      "title": "Prefix"
+    },
+    "ProcessingConfiguration": {
+      "description": "Describes a data processing configuration.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enables or disables data processing."
+        },
+        "Processors": {
+          "$ref": "#/definitions/ProcessorList",
+          "description": "The data processors."
+        }
+      },
+      "type": "object",
+      "title": "ProcessingConfiguration"
+    },
+    "Processor": {
+      "description": "Describes a data processor.",
+      "properties": {
+        "Parameters": {
+          "$ref": "#/definitions/ProcessorParameterList",
+          "description": "The processor parameters."
+        },
+        "Type": {
+          "$ref": "#/definitions/ProcessorType",
+          "description": "The type of processor."
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object",
+      "title": "Processor"
+    },
+    "ProcessorList": {
+      "items": {
+        "$ref": "#/definitions/Processor"
+      },
+      "type": "array",
+      "title": "ProcessorList"
+    },
+    "ProcessorParameter": {
+      "description": "Describes the processor parameter.",
+      "properties": {
+        "ParameterName": {
+          "$ref": "#/definitions/ProcessorParameterName",
+          "description": "The name of the parameter."
+        },
+        "ParameterValue": {
+          "$ref": "#/definitions/ProcessorParameterValue",
+          "description": "The parameter value."
+        }
+      },
+      "required": [
+        "ParameterName",
+        "ParameterValue"
+      ],
+      "type": "object",
+      "title": "ProcessorParameter"
+    },
+    "ProcessorParameterList": {
+      "items": {
+        "$ref": "#/definitions/ProcessorParameter"
+      },
+      "type": "array",
+      "title": "ProcessorParameterList"
+    },
+    "ProcessorParameterName": {
+      "enum": [
+        "LambdaArn",
+        "NumberOfRetries"
+      ],
+      "type": "string",
+      "title": "ProcessorParameterName"
+    },
+    "ProcessorParameterValue": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string",
+      "title": "ProcessorParameterValue"
+    },
+    "ProcessorType": {
+      "enum": [
+        "Lambda"
+      ],
+      "type": "string",
+      "title": "ProcessorType"
+    },
+    "PutRecordBatchInput": {
+      "properties": {
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream."
+        },
+        "Records": {
+          "$ref": "#/definitions/PutRecordBatchRequestEntryList",
+          "description": "One or more records."
+        }
+      },
+      "required": [
+        "DeliveryStreamName",
+        "Records"
+      ],
+      "type": "object",
+      "title": "PutRecordBatchInput"
+    },
+    "PutRecordBatchOutput": {
+      "properties": {
+        "FailedPutCount": {
+          "$ref": "#/definitions/NonNegativeIntegerObject",
+          "description": "The number of records that might have failed processing."
+        },
+        "RequestResponses": {
+          "$ref": "#/definitions/PutRecordBatchResponseEntryList",
+          "description": "The results array. For each record, the index of the response element is the same as the index used in the request array."
+        }
+      },
+      "required": [
+        "FailedPutCount",
+        "RequestResponses"
+      ],
+      "type": "object",
+      "title": "PutRecordBatchOutput"
+    },
+    "PutRecordBatchRequestEntryList": {
+      "items": {
+        "$ref": "#/definitions/Record"
+      },
+      "maxItems": 500,
+      "minItems": 1,
+      "type": "array",
+      "title": "PutRecordBatchRequestEntryList"
+    },
+    "PutRecordBatchResponseEntry": {
+      "description": "Contains the result for an individual record from a <a>PutRecordBatch</a> request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "The error code for an individual record result."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "The error message for an individual record result."
+        },
+        "RecordId": {
+          "$ref": "#/definitions/PutResponseRecordId",
+          "description": "The ID of the record."
+        }
+      },
+      "type": "object",
+      "title": "PutRecordBatchResponseEntry"
+    },
+    "PutRecordBatchResponseEntryList": {
+      "items": {
+        "$ref": "#/definitions/PutRecordBatchResponseEntry"
+      },
+      "maxItems": 500,
+      "minItems": 1,
+      "type": "array",
+      "title": "PutRecordBatchResponseEntryList"
+    },
+    "PutRecordInput": {
+      "properties": {
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream."
+        },
+        "Record": {
+          "$ref": "#/definitions/Record",
+          "description": "The record."
+        }
+      },
+      "required": [
+        "DeliveryStreamName",
+        "Record"
+      ],
+      "type": "object",
+      "title": "PutRecordInput"
+    },
+    "PutRecordOutput": {
+      "properties": {
+        "RecordId": {
+          "$ref": "#/definitions/PutResponseRecordId",
+          "description": "The ID of the record."
+        }
+      },
+      "required": [
+        "RecordId"
+      ],
+      "type": "object",
+      "title": "PutRecordOutput"
+    },
+    "PutResponseRecordId": {
+      "minLength": 1,
+      "type": "string",
+      "title": "PutResponseRecordId"
+    },
+    "Record": {
+      "description": "The unit of data in a delivery stream.",
+      "properties": {
+        "Data": {
+          "$ref": "#/definitions/Data",
+          "description": "The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB."
+        }
+      },
+      "required": [
+        "Data"
+      ],
+      "type": "object",
+      "title": "Record"
+    },
+    "RedshiftDestinationConfiguration": {
+      "description": "Describes the configuration of a destination in Amazon Redshift.",
+      "properties": {
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "ClusterJDBCURL": {
+          "$ref": "#/definitions/ClusterJDBCURL",
+          "description": "The database connection string."
+        },
+        "CopyCommand": {
+          "$ref": "#/definitions/CopyCommand",
+          "description": "The <code>COPY</code> command."
+        },
+        "Password": {
+          "$ref": "#/definitions/Password",
+          "description": "The user password."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RetryOptions": {
+          "$ref": "#/definitions/RedshiftRetryOptions",
+          "description": "The retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes)."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupConfiguration": {
+          "$ref": "#/definitions/S3DestinationConfiguration",
+          "description": "The configuration for backup in Amazon S3."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/RedshiftS3BackupMode",
+          "description": "The Amazon S3 backup mode."
+        },
+        "S3Configuration": {
+          "$ref": "#/definitions/S3DestinationConfiguration",
+          "description": "<p>The configuration for the intermediate Amazon S3 location from which Amazon Redshift obtains data. Restrictions are described in the topic for <a>CreateDeliveryStream</a>.</p> <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <b>RedshiftDestinationConfiguration.S3Configuration</b> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>"
+        },
+        "Username": {
+          "$ref": "#/definitions/Username",
+          "description": "The name of the user."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "ClusterJDBCURL",
+        "CopyCommand",
+        "Username",
+        "Password",
+        "S3Configuration"
+      ],
+      "type": "object",
+      "title": "RedshiftDestinationConfiguration"
+    },
+    "RedshiftDestinationDescription": {
+      "description": "Describes a destination in Amazon Redshift.",
+      "properties": {
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "ClusterJDBCURL": {
+          "$ref": "#/definitions/ClusterJDBCURL",
+          "description": "The database connection string."
+        },
+        "CopyCommand": {
+          "$ref": "#/definitions/CopyCommand",
+          "description": "The <code>COPY</code> command."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RetryOptions": {
+          "$ref": "#/definitions/RedshiftRetryOptions",
+          "description": "The retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes)."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupDescription": {
+          "$ref": "#/definitions/S3DestinationDescription",
+          "description": "The configuration for backup in Amazon S3."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/RedshiftS3BackupMode",
+          "description": "The Amazon S3 backup mode."
+        },
+        "S3DestinationDescription": {
+          "$ref": "#/definitions/S3DestinationDescription",
+          "description": "The Amazon S3 destination."
+        },
+        "Username": {
+          "$ref": "#/definitions/Username",
+          "description": "The name of the user."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "ClusterJDBCURL",
+        "CopyCommand",
+        "Username",
+        "S3DestinationDescription"
+      ],
+      "type": "object",
+      "title": "RedshiftDestinationDescription"
+    },
+    "RedshiftDestinationUpdate": {
+      "description": "Describes an update for a destination in Amazon Redshift.",
+      "properties": {
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "ClusterJDBCURL": {
+          "$ref": "#/definitions/ClusterJDBCURL",
+          "description": "The database connection string."
+        },
+        "CopyCommand": {
+          "$ref": "#/definitions/CopyCommand",
+          "description": "The <code>COPY</code> command."
+        },
+        "Password": {
+          "$ref": "#/definitions/Password",
+          "description": "The user password."
+        },
+        "ProcessingConfiguration": {
+          "$ref": "#/definitions/ProcessingConfiguration",
+          "description": "The data processing configuration."
+        },
+        "RetryOptions": {
+          "$ref": "#/definitions/RedshiftRetryOptions",
+          "description": "The retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes)."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        },
+        "S3BackupMode": {
+          "$ref": "#/definitions/RedshiftS3BackupMode",
+          "description": "The Amazon S3 backup mode."
+        },
+        "S3BackupUpdate": {
+          "$ref": "#/definitions/S3DestinationUpdate",
+          "description": "The Amazon S3 destination for backup."
+        },
+        "S3Update": {
+          "$ref": "#/definitions/S3DestinationUpdate",
+          "description": "<p>The Amazon S3 destination.</p> <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <b>RedshiftDestinationUpdate.S3Update</b> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>"
+        },
+        "Username": {
+          "$ref": "#/definitions/Username",
+          "description": "The name of the user."
+        }
+      },
+      "type": "object",
+      "title": "RedshiftDestinationUpdate"
+    },
+    "RedshiftRetryDurationInSeconds": {
+      "maximum": 7200,
+      "minimum": 0,
+      "type": "integer",
+      "title": "RedshiftRetryDurationInSeconds"
+    },
+    "RedshiftRetryOptions": {
+      "description": "Configures retry behavior in the event that Firehose is unable to deliver documents to Amazon Redshift.",
+      "properties": {
+        "DurationInSeconds": {
+          "$ref": "#/definitions/RedshiftRetryDurationInSeconds",
+          "description": "The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of <code>DurationInSeconds</code> is 0 (zero) or if the first delivery attempt takes longer than the current value."
+        }
+      },
+      "type": "object",
+      "title": "RedshiftRetryOptions"
+    },
+    "RedshiftS3BackupMode": {
+      "enum": [
+        "Disabled",
+        "Enabled"
+      ],
+      "type": "string",
+      "title": "RedshiftS3BackupMode"
+    },
+    "ResourceInUseException": {
+      "description": "The resource is already in use and not available for this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "ResourceNotFoundException": {
+      "description": "The specified resource could not be found.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ResourceNotFoundException"
+    },
+    "RoleARN": {
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string",
+      "title": "RoleARN"
+    },
+    "S3BackupMode": {
+      "enum": [
+        "Disabled",
+        "Enabled"
+      ],
+      "type": "string",
+      "title": "S3BackupMode"
+    },
+    "S3DestinationConfiguration": {
+      "description": "Describes the configuration of a destination in Amazon S3.",
+      "properties": {
+        "BucketARN": {
+          "$ref": "#/definitions/BucketARN",
+          "description": "The ARN of the S3 bucket."
+        },
+        "BufferingHints": {
+          "$ref": "#/definitions/BufferingHints",
+          "description": "The buffering option. If no value is specified, <b>BufferingHints</b> object default values are used."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "CompressionFormat": {
+          "$ref": "#/definitions/CompressionFormat",
+          "description": "<p>The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>.</p> <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket.</p>"
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html\">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "BucketARN"
+      ],
+      "type": "object",
+      "title": "S3DestinationConfiguration"
+    },
+    "S3DestinationDescription": {
+      "description": "Describes a destination in Amazon S3.",
+      "properties": {
+        "BucketARN": {
+          "$ref": "#/definitions/BucketARN",
+          "description": "The ARN of the S3 bucket."
+        },
+        "BufferingHints": {
+          "$ref": "#/definitions/BufferingHints",
+          "description": "The buffering option. If no value is specified, <b>BufferingHints</b> object default values are used."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "CompressionFormat": {
+          "$ref": "#/definitions/CompressionFormat",
+          "description": "The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>."
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html\">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        }
+      },
+      "required": [
+        "RoleARN",
+        "BucketARN",
+        "BufferingHints",
+        "CompressionFormat",
+        "EncryptionConfiguration"
+      ],
+      "type": "object",
+      "title": "S3DestinationDescription"
+    },
+    "S3DestinationUpdate": {
+      "description": "Describes an update for a destination in Amazon S3.",
+      "properties": {
+        "BucketARN": {
+          "$ref": "#/definitions/BucketARN",
+          "description": "The ARN of the S3 bucket."
+        },
+        "BufferingHints": {
+          "$ref": "#/definitions/BufferingHints",
+          "description": "The buffering option. If no value is specified, <b>BufferingHints</b> object default values are used."
+        },
+        "CloudWatchLoggingOptions": {
+          "$ref": "#/definitions/CloudWatchLoggingOptions",
+          "description": "The CloudWatch logging options for your delivery stream."
+        },
+        "CompressionFormat": {
+          "$ref": "#/definitions/CompressionFormat",
+          "description": "<p>The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>.</p> <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket.</p>"
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html\">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>."
+        },
+        "RoleARN": {
+          "$ref": "#/definitions/RoleARN",
+          "description": "The ARN of the AWS credentials."
+        }
+      },
+      "type": "object",
+      "title": "S3DestinationUpdate"
+    },
+    "ServiceUnavailableException": {
+      "description": "The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <a href=\"http://docs.aws.amazon.com/firehose/latest/dev/limits.html\">Amazon Kinesis Firehose Limits</a>.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "A message that provides information about the error."
+        }
+      },
+      "type": "object",
+      "title": "ServiceUnavailableException"
+    },
+    "SizeInMBs": {
+      "maximum": 128,
+      "minimum": 1,
+      "type": "integer",
+      "title": "SizeInMBs"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UpdateDestinationInput": {
+      "properties": {
+        "CurrentDeliveryStreamVersionId": {
+          "$ref": "#/definitions/DeliveryStreamVersionId",
+          "description": "Obtain this value from the <b>VersionId</b> result of <a>DeliveryStreamDescription</a>. This value is required, and helps the service to perform conditional operations. For example, if there is a interleaving update and this value is null, then the update destination fails. After the update is successful, the <b>VersionId</b> value is updated. The service then performs a merge of the old configuration with the new configuration."
+        },
+        "DeliveryStreamName": {
+          "$ref": "#/definitions/DeliveryStreamName",
+          "description": "The name of the delivery stream."
+        },
+        "DestinationId": {
+          "$ref": "#/definitions/DestinationId",
+          "description": "The ID of the destination."
+        },
+        "ElasticsearchDestinationUpdate": {
+          "$ref": "#/definitions/ElasticsearchDestinationUpdate",
+          "description": "Describes an update for a destination in Amazon ES."
+        },
+        "ExtendedS3DestinationUpdate": {
+          "$ref": "#/definitions/ExtendedS3DestinationUpdate",
+          "description": "Describes an update for a destination in Amazon S3."
+        },
+        "RedshiftDestinationUpdate": {
+          "$ref": "#/definitions/RedshiftDestinationUpdate",
+          "description": "Describes an update for a destination in Amazon Redshift."
+        },
+        "S3DestinationUpdate": {
+          "$ref": "#/definitions/S3DestinationUpdate",
+          "description": "[Deprecated] Describes an update for a destination in Amazon S3."
+        }
+      },
+      "required": [
+        "DeliveryStreamName",
+        "CurrentDeliveryStreamVersionId",
+        "DestinationId"
+      ],
+      "type": "object",
+      "title": "UpdateDestinationInput"
+    },
+    "UpdateDestinationOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateDestinationOutput"
+    },
+    "Username": {
+      "format": "password",
+      "minLength": 1,
+      "type": "string",
+      "title": "Username"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateDeliveryStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateDeliveryStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDeliveryStreamOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    },
+    {
+      "id": "DeleteDeliveryStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDeliveryStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteDeliveryStreamOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    },
+    {
+      "id": "DescribeDeliveryStream",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeDeliveryStreamInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDeliveryStreamOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    },
+    {
+      "id": "ListDeliveryStreams",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDeliveryStreamsInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeliveryStreamsOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    },
+    {
+      "id": "PutRecord",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRecordInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRecordOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    },
+    {
+      "id": "PutRecordBatch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutRecordBatchInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutRecordBatchOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    },
+    {
+      "id": "UpdateDestination",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateDestinationInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDestinationOutput"
+      },
+      "security": {
+        "amazonaws_firehose": {
+          "integration": "amazonaws_firehose"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

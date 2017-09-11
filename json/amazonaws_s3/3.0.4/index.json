@@ -1,0 +1,5840 @@
+{
+  "id": "amazonaws_s3",
+  "title": "Amazon Simple Storage Service",
+  "security": {
+    "amazonaws_s3": {
+      "integration": "amazonaws_s3",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.svg"
+  },
+  "actionCount": 66,
+  "definitions": {
+    "AbortDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "AbortDate"
+    },
+    "AbortIncompleteMultipartUpload": {
+      "description": "Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.",
+      "properties": {
+        "DaysAfterInitiation": {
+          "$ref": "#/definitions/DaysAfterInitiation",
+          "description": "Indicates the number of days that must pass since initiation for Lifecycle to abort an Incomplete Multipart Upload."
+        }
+      },
+      "type": "object",
+      "title": "AbortIncompleteMultipartUpload"
+    },
+    "AbortMultipartUploadOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "AbortMultipartUploadOutput"
+    },
+    "AbortMultipartUploadRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "AbortMultipartUploadRequest"
+    },
+    "AbortRuleId": {
+      "type": "string",
+      "title": "AbortRuleId"
+    },
+    "AccelerateConfiguration": {
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/BucketAccelerateStatus",
+          "description": "The accelerate configuration of the bucket."
+        }
+      },
+      "type": "object",
+      "title": "AccelerateConfiguration"
+    },
+    "AcceptRanges": {
+      "type": "string",
+      "title": "AcceptRanges"
+    },
+    "AccessControlPolicy": {
+      "properties": {
+        "Grants": {
+          "$ref": "#/definitions/Grants",
+          "description": "A list of grants."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        }
+      },
+      "type": "object",
+      "title": "AccessControlPolicy"
+    },
+    "AccountId": {
+      "type": "string",
+      "title": "AccountId"
+    },
+    "AllowedHeader": {
+      "type": "string",
+      "title": "AllowedHeader"
+    },
+    "AllowedHeaders": {
+      "items": {
+        "$ref": "#/definitions/AllowedHeader"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AllowedHeaders"
+    },
+    "AllowedMethod": {
+      "type": "string",
+      "title": "AllowedMethod"
+    },
+    "AllowedMethods": {
+      "items": {
+        "$ref": "#/definitions/AllowedMethod"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AllowedMethods"
+    },
+    "AllowedOrigin": {
+      "type": "string",
+      "title": "AllowedOrigin"
+    },
+    "AllowedOrigins": {
+      "items": {
+        "$ref": "#/definitions/AllowedOrigin"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AllowedOrigins"
+    },
+    "AnalyticsAndOperator": {
+      "properties": {
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix to use when evaluating an AND predicate."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagSet",
+          "description": "The list of tags to use when evaluating an AND predicate."
+        }
+      },
+      "type": "object",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AnalyticsAndOperator"
+    },
+    "AnalyticsConfiguration": {
+      "properties": {
+        "Filter": {
+          "$ref": "#/definitions/AnalyticsFilter",
+          "description": "The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis."
+        },
+        "Id": {
+          "$ref": "#/definitions/AnalyticsId",
+          "description": "The identifier used to represent an analytics configuration."
+        },
+        "StorageClassAnalysis": {
+          "$ref": "#/definitions/StorageClassAnalysis",
+          "description": "If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes."
+        }
+      },
+      "required": [
+        "Id",
+        "StorageClassAnalysis"
+      ],
+      "type": "object",
+      "title": "AnalyticsConfiguration"
+    },
+    "AnalyticsConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/AnalyticsConfiguration"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "AnalyticsConfigurationList"
+    },
+    "AnalyticsExportDestination": {
+      "properties": {
+        "S3BucketDestination": {
+          "$ref": "#/definitions/AnalyticsS3BucketDestination",
+          "description": "A destination signifying output to an S3 bucket."
+        }
+      },
+      "required": [
+        "S3BucketDestination"
+      ],
+      "type": "object",
+      "title": "AnalyticsExportDestination"
+    },
+    "AnalyticsFilter": {
+      "properties": {
+        "And": {
+          "$ref": "#/definitions/AnalyticsAndOperator",
+          "description": "A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix to use when evaluating an analytics filter."
+        },
+        "Tag": {
+          "$ref": "#/definitions/Tag",
+          "description": "The tag to use when evaluating an analytics filter."
+        }
+      },
+      "type": "object",
+      "title": "AnalyticsFilter"
+    },
+    "AnalyticsId": {
+      "type": "string",
+      "title": "AnalyticsId"
+    },
+    "AnalyticsS3BucketDestination": {
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/BucketName",
+          "description": "The Amazon resource name (ARN) of the bucket to which data is exported."
+        },
+        "BucketAccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data."
+        },
+        "Format": {
+          "$ref": "#/definitions/AnalyticsS3ExportFileFormat",
+          "description": "The file format used when exporting data to Amazon S3."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix to use when exporting data. The exported data begins with this prefix."
+        }
+      },
+      "required": [
+        "Format",
+        "Bucket"
+      ],
+      "type": "object",
+      "title": "AnalyticsS3BucketDestination"
+    },
+    "AnalyticsS3ExportFileFormat": {
+      "enum": [
+        "CSV"
+      ],
+      "type": "string",
+      "title": "AnalyticsS3ExportFileFormat"
+    },
+    "Body": {
+      "type": "string",
+      "title": "Body"
+    },
+    "Bucket": {
+      "properties": {
+        "CreationDate": {
+          "$ref": "#/definitions/CreationDate",
+          "description": "Date the bucket was created."
+        },
+        "Name": {
+          "$ref": "#/definitions/BucketName",
+          "description": "The name of the bucket."
+        }
+      },
+      "type": "object",
+      "title": "Bucket"
+    },
+    "BucketAccelerateStatus": {
+      "enum": [
+        "Enabled",
+        "Suspended"
+      ],
+      "type": "string",
+      "title": "BucketAccelerateStatus"
+    },
+    "BucketAlreadyExists": {
+      "description": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.",
+      "properties": {},
+      "type": "object",
+      "title": "BucketAlreadyExists"
+    },
+    "BucketAlreadyOwnedByYou": {
+      "properties": {},
+      "type": "object",
+      "title": "BucketAlreadyOwnedByYou"
+    },
+    "BucketCannedACL": {
+      "enum": [
+        "private",
+        "public-read",
+        "public-read-write",
+        "authenticated-read"
+      ],
+      "type": "string",
+      "title": "BucketCannedACL"
+    },
+    "BucketLifecycleConfiguration": {
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/LifecycleRules"
+        }
+      },
+      "required": [
+        "Rules"
+      ],
+      "type": "object",
+      "title": "BucketLifecycleConfiguration"
+    },
+    "BucketLocationConstraint": {
+      "enum": [
+        "EU",
+        "eu-west-1",
+        "us-west-1",
+        "us-west-2",
+        "ap-south-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-northeast-1",
+        "sa-east-1",
+        "cn-north-1",
+        "eu-central-1"
+      ],
+      "type": "string",
+      "title": "BucketLocationConstraint"
+    },
+    "BucketLoggingStatus": {
+      "properties": {
+        "LoggingEnabled": {
+          "$ref": "#/definitions/LoggingEnabled"
+        }
+      },
+      "type": "object",
+      "title": "BucketLoggingStatus"
+    },
+    "BucketLogsPermission": {
+      "enum": [
+        "FULL_CONTROL",
+        "READ",
+        "WRITE"
+      ],
+      "type": "string",
+      "title": "BucketLogsPermission"
+    },
+    "BucketName": {
+      "type": "string",
+      "title": "BucketName"
+    },
+    "BucketVersioningStatus": {
+      "enum": [
+        "Enabled",
+        "Suspended"
+      ],
+      "type": "string",
+      "title": "BucketVersioningStatus"
+    },
+    "Buckets": {
+      "items": {
+        "$ref": "#/definitions/Bucket"
+      },
+      "type": "array",
+      "title": "Buckets"
+    },
+    "CORSConfiguration": {
+      "properties": {
+        "CORSRules": {
+          "$ref": "#/definitions/CORSRules"
+        }
+      },
+      "required": [
+        "CORSRules"
+      ],
+      "type": "object",
+      "title": "CORSConfiguration"
+    },
+    "CORSRule": {
+      "properties": {
+        "AllowedHeaders": {
+          "$ref": "#/definitions/AllowedHeaders",
+          "description": "Specifies which headers are allowed in a pre-flight OPTIONS request."
+        },
+        "AllowedMethods": {
+          "$ref": "#/definitions/AllowedMethods",
+          "description": "Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute."
+        },
+        "AllowedOrigins": {
+          "$ref": "#/definitions/AllowedOrigins",
+          "description": "One or more origins you want customers to be able to access the bucket from."
+        },
+        "ExposeHeaders": {
+          "$ref": "#/definitions/ExposeHeaders",
+          "description": "One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object)."
+        },
+        "MaxAgeSeconds": {
+          "$ref": "#/definitions/MaxAgeSeconds",
+          "description": "The time in seconds that your browser is to cache the preflight response for the specified resource."
+        }
+      },
+      "required": [
+        "AllowedMethods",
+        "AllowedOrigins"
+      ],
+      "type": "object",
+      "title": "CORSRule"
+    },
+    "CORSRules": {
+      "items": {
+        "$ref": "#/definitions/CORSRule"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "CORSRules"
+    },
+    "CacheControl": {
+      "type": "string",
+      "title": "CacheControl"
+    },
+    "CloudFunction": {
+      "type": "string",
+      "title": "CloudFunction"
+    },
+    "CloudFunctionConfiguration": {
+      "properties": {
+        "CloudFunction": {
+          "$ref": "#/definitions/CloudFunction"
+        },
+        "Event": {
+          "$ref": "#/definitions/Event"
+        },
+        "Events": {
+          "$ref": "#/definitions/EventList"
+        },
+        "Id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "InvocationRole": {
+          "$ref": "#/definitions/CloudFunctionInvocationRole"
+        }
+      },
+      "type": "object",
+      "title": "CloudFunctionConfiguration"
+    },
+    "CloudFunctionInvocationRole": {
+      "type": "string",
+      "title": "CloudFunctionInvocationRole"
+    },
+    "Code": {
+      "type": "string",
+      "title": "Code"
+    },
+    "CommonPrefix": {
+      "properties": {
+        "Prefix": {
+          "$ref": "#/definitions/Prefix"
+        }
+      },
+      "type": "object",
+      "title": "CommonPrefix"
+    },
+    "CommonPrefixList": {
+      "items": {
+        "$ref": "#/definitions/CommonPrefix"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "CommonPrefixList"
+    },
+    "CompleteMultipartUploadOutput": {
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/BucketName"
+        },
+        "ETag": {
+          "$ref": "#/definitions/ETag",
+          "description": "Entity tag of the object."
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey"
+        },
+        "Location": {
+          "$ref": "#/definitions/Location"
+        }
+      },
+      "type": "object",
+      "title": "CompleteMultipartUploadOutput"
+    },
+    "CompleteMultipartUploadRequest": {
+      "properties": {
+        "MultipartUpload": {
+          "$ref": "#/definitions/CompletedMultipartUpload"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "CompleteMultipartUploadRequest"
+    },
+    "CompletedMultipartUpload": {
+      "properties": {
+        "Parts": {
+          "$ref": "#/definitions/CompletedPartList"
+        }
+      },
+      "type": "object",
+      "title": "CompletedMultipartUpload"
+    },
+    "CompletedPart": {
+      "properties": {
+        "ETag": {
+          "$ref": "#/definitions/ETag",
+          "description": "Entity tag returned when the part was uploaded."
+        },
+        "PartNumber": {
+          "$ref": "#/definitions/PartNumber",
+          "description": "Part number that identifies the part. This is a positive integer between 1 and 10,000."
+        }
+      },
+      "type": "object",
+      "title": "CompletedPart"
+    },
+    "CompletedPartList": {
+      "items": {
+        "$ref": "#/definitions/CompletedPart"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "CompletedPartList"
+    },
+    "Condition": {
+      "properties": {
+        "HttpErrorCodeReturnedEquals": {
+          "$ref": "#/definitions/HttpErrorCodeReturnedEquals",
+          "description": "The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied."
+        },
+        "KeyPrefixEquals": {
+          "$ref": "#/definitions/KeyPrefixEquals",
+          "description": "The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied."
+        }
+      },
+      "type": "object",
+      "title": "Condition"
+    },
+    "ContentDisposition": {
+      "type": "string",
+      "title": "ContentDisposition"
+    },
+    "ContentEncoding": {
+      "type": "string",
+      "title": "ContentEncoding"
+    },
+    "ContentLanguage": {
+      "type": "string",
+      "title": "ContentLanguage"
+    },
+    "ContentLength": {
+      "type": "integer",
+      "title": "ContentLength"
+    },
+    "ContentMD5": {
+      "type": "string",
+      "title": "ContentMD5"
+    },
+    "ContentRange": {
+      "type": "string",
+      "title": "ContentRange"
+    },
+    "ContentType": {
+      "type": "string",
+      "title": "ContentType"
+    },
+    "CopyObjectOutput": {
+      "properties": {
+        "CopyObjectResult": {
+          "$ref": "#/definitions/CopyObjectResult"
+        }
+      },
+      "type": "object",
+      "title": "CopyObjectOutput"
+    },
+    "CopyObjectRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "CopyObjectRequest"
+    },
+    "CopyObjectResult": {
+      "properties": {
+        "ETag": {
+          "$ref": "#/definitions/ETag"
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified"
+        }
+      },
+      "type": "object",
+      "title": "CopyObjectResult"
+    },
+    "CopyPartResult": {
+      "properties": {
+        "ETag": {
+          "$ref": "#/definitions/ETag",
+          "description": "Entity tag of the object."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified",
+          "description": "Date and time at which the object was uploaded."
+        }
+      },
+      "type": "object",
+      "title": "CopyPartResult"
+    },
+    "CopySource": {
+      "pattern": "\\/.+\\/.+",
+      "type": "string",
+      "title": "CopySource"
+    },
+    "CopySourceIfMatch": {
+      "type": "string",
+      "title": "CopySourceIfMatch"
+    },
+    "CopySourceIfModifiedSince": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CopySourceIfModifiedSince"
+    },
+    "CopySourceIfNoneMatch": {
+      "type": "string",
+      "title": "CopySourceIfNoneMatch"
+    },
+    "CopySourceIfUnmodifiedSince": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CopySourceIfUnmodifiedSince"
+    },
+    "CopySourceRange": {
+      "type": "string",
+      "title": "CopySourceRange"
+    },
+    "CopySourceSSECustomerAlgorithm": {
+      "type": "string",
+      "title": "CopySourceSSECustomerAlgorithm"
+    },
+    "CopySourceSSECustomerKey": {
+      "format": "password",
+      "type": "string",
+      "title": "CopySourceSSECustomerKey"
+    },
+    "CopySourceSSECustomerKeyMD5": {
+      "type": "string",
+      "title": "CopySourceSSECustomerKeyMD5"
+    },
+    "CopySourceVersionId": {
+      "type": "string",
+      "title": "CopySourceVersionId"
+    },
+    "CreateBucketConfiguration": {
+      "properties": {
+        "LocationConstraint": {
+          "$ref": "#/definitions/BucketLocationConstraint",
+          "description": "Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard."
+        }
+      },
+      "type": "object",
+      "title": "CreateBucketConfiguration"
+    },
+    "CreateBucketOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateBucketOutput"
+    },
+    "CreateBucketRequest": {
+      "properties": {
+        "CreateBucketConfiguration": {
+          "$ref": "#/definitions/CreateBucketConfiguration"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "CreateBucketRequest"
+    },
+    "CreateMultipartUploadOutput": {
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the bucket to which the multipart upload was initiated."
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "Object key for which the multipart upload was initiated."
+        },
+        "UploadId": {
+          "$ref": "#/definitions/MultipartUploadId",
+          "description": "ID for the initiated multipart upload."
+        }
+      },
+      "type": "object",
+      "title": "CreateMultipartUploadOutput"
+    },
+    "CreateMultipartUploadRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateMultipartUploadRequest"
+    },
+    "CreationDate": {
+      "format": "date-time",
+      "type": "string",
+      "title": "CreationDate"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Date"
+    },
+    "Days": {
+      "type": "integer",
+      "title": "Days"
+    },
+    "DaysAfterInitiation": {
+      "type": "integer",
+      "title": "DaysAfterInitiation"
+    },
+    "Delete": {
+      "properties": {
+        "Objects": {
+          "$ref": "#/definitions/ObjectIdentifierList"
+        },
+        "Quiet": {
+          "$ref": "#/definitions/Quiet",
+          "description": "Element to enable quiet mode for the request. When you add this element, you must set its value to true."
+        }
+      },
+      "required": [
+        "Objects"
+      ],
+      "type": "object",
+      "title": "Delete"
+    },
+    "DeleteBucketAnalyticsConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketAnalyticsConfigurationRequest"
+    },
+    "DeleteBucketCorsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketCorsRequest"
+    },
+    "DeleteBucketInventoryConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketInventoryConfigurationRequest"
+    },
+    "DeleteBucketLifecycleRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketLifecycleRequest"
+    },
+    "DeleteBucketMetricsConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketMetricsConfigurationRequest"
+    },
+    "DeleteBucketPolicyRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketPolicyRequest"
+    },
+    "DeleteBucketReplicationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketReplicationRequest"
+    },
+    "DeleteBucketRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketRequest"
+    },
+    "DeleteBucketTaggingRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketTaggingRequest"
+    },
+    "DeleteBucketWebsiteRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteBucketWebsiteRequest"
+    },
+    "DeleteMarker": {
+      "type": "boolean",
+      "title": "DeleteMarker"
+    },
+    "DeleteMarkerEntry": {
+      "properties": {
+        "IsLatest": {
+          "$ref": "#/definitions/IsLatest",
+          "description": "Specifies whether the object is (true) or is not (false) the latest version of an object."
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "The object key."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified",
+          "description": "Date and time the object was last modified."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "VersionId": {
+          "$ref": "#/definitions/ObjectVersionId",
+          "description": "Version ID of an object."
+        }
+      },
+      "type": "object",
+      "title": "DeleteMarkerEntry"
+    },
+    "DeleteMarkerVersionId": {
+      "type": "string",
+      "title": "DeleteMarkerVersionId"
+    },
+    "DeleteMarkers": {
+      "items": {
+        "$ref": "#/definitions/DeleteMarkerEntry"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "DeleteMarkers"
+    },
+    "DeleteObjectOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteObjectOutput"
+    },
+    "DeleteObjectRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteObjectRequest"
+    },
+    "DeleteObjectTaggingOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteObjectTaggingOutput"
+    },
+    "DeleteObjectTaggingRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteObjectTaggingRequest"
+    },
+    "DeleteObjectsOutput": {
+      "properties": {
+        "Deleted": {
+          "$ref": "#/definitions/DeletedObjects"
+        },
+        "Errors": {
+          "$ref": "#/definitions/Errors"
+        }
+      },
+      "type": "object",
+      "title": "DeleteObjectsOutput"
+    },
+    "DeleteObjectsRequest": {
+      "properties": {
+        "Delete": {
+          "$ref": "#/definitions/Delete"
+        }
+      },
+      "required": [
+        "Delete"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "DeleteObjectsRequest"
+    },
+    "DeletedObject": {
+      "properties": {
+        "DeleteMarker": {
+          "$ref": "#/definitions/DeleteMarker"
+        },
+        "DeleteMarkerVersionId": {
+          "$ref": "#/definitions/DeleteMarkerVersionId"
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey"
+        },
+        "VersionId": {
+          "$ref": "#/definitions/ObjectVersionId"
+        }
+      },
+      "type": "object",
+      "title": "DeletedObject"
+    },
+    "DeletedObjects": {
+      "items": {
+        "$ref": "#/definitions/DeletedObject"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "DeletedObjects"
+    },
+    "Delimiter": {
+      "type": "string",
+      "title": "Delimiter"
+    },
+    "Destination": {
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The class of storage used to store the object."
+        }
+      },
+      "required": [
+        "Bucket"
+      ],
+      "type": "object",
+      "title": "Destination"
+    },
+    "DisplayName": {
+      "type": "string",
+      "title": "DisplayName"
+    },
+    "ETag": {
+      "type": "string",
+      "title": "ETag"
+    },
+    "EmailAddress": {
+      "type": "string",
+      "title": "EmailAddress"
+    },
+    "EncodingType": {
+      "description": "Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.",
+      "enum": [
+        "url"
+      ],
+      "type": "string",
+      "title": "EncodingType"
+    },
+    "Error": {
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/Code"
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey"
+        },
+        "Message": {
+          "$ref": "#/definitions/Message"
+        },
+        "VersionId": {
+          "$ref": "#/definitions/ObjectVersionId"
+        }
+      },
+      "type": "object",
+      "title": "Error"
+    },
+    "ErrorDocument": {
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "The object key name to use when a 4XX class error occurs."
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object",
+      "title": "ErrorDocument"
+    },
+    "Errors": {
+      "items": {
+        "$ref": "#/definitions/Error"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "Errors"
+    },
+    "Event": {
+      "description": "Bucket event for which to send notifications.",
+      "enum": [
+        "s3:ReducedRedundancyLostObject",
+        "s3:ObjectCreated:*",
+        "s3:ObjectCreated:Put",
+        "s3:ObjectCreated:Post",
+        "s3:ObjectCreated:Copy",
+        "s3:ObjectCreated:CompleteMultipartUpload",
+        "s3:ObjectRemoved:*",
+        "s3:ObjectRemoved:Delete",
+        "s3:ObjectRemoved:DeleteMarkerCreated"
+      ],
+      "type": "string",
+      "title": "Event"
+    },
+    "EventList": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "EventList"
+    },
+    "Expiration": {
+      "type": "string",
+      "title": "Expiration"
+    },
+    "ExpirationStatus": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "title": "ExpirationStatus"
+    },
+    "ExpiredObjectDeleteMarker": {
+      "type": "boolean",
+      "title": "ExpiredObjectDeleteMarker"
+    },
+    "Expires": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Expires"
+    },
+    "ExposeHeader": {
+      "type": "string",
+      "title": "ExposeHeader"
+    },
+    "ExposeHeaders": {
+      "items": {
+        "$ref": "#/definitions/ExposeHeader"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ExposeHeaders"
+    },
+    "FetchOwner": {
+      "type": "boolean",
+      "title": "FetchOwner"
+    },
+    "FilterRule": {
+      "description": "Container for key value pair that defines the criteria for the filter rule.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/FilterRuleName",
+          "description": "Object key name prefix or suffix identifying one or more objects to which the filtering rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, go to <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide."
+        },
+        "Value": {
+          "$ref": "#/definitions/FilterRuleValue"
+        }
+      },
+      "type": "object",
+      "title": "FilterRule"
+    },
+    "FilterRuleList": {
+      "description": "A list of containers for key value pair that defines the criteria for the filter rule.",
+      "items": {
+        "$ref": "#/definitions/FilterRule"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "FilterRuleList"
+    },
+    "FilterRuleName": {
+      "enum": [
+        "prefix",
+        "suffix"
+      ],
+      "type": "string",
+      "title": "FilterRuleName"
+    },
+    "FilterRuleValue": {
+      "type": "string",
+      "title": "FilterRuleValue"
+    },
+    "GetBucketAccelerateConfigurationOutput": {
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/BucketAccelerateStatus",
+          "description": "The accelerate configuration of the bucket."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketAccelerateConfigurationOutput"
+    },
+    "GetBucketAccelerateConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketAccelerateConfigurationRequest"
+    },
+    "GetBucketAclOutput": {
+      "properties": {
+        "Grants": {
+          "$ref": "#/definitions/Grants",
+          "description": "A list of grants."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketAclOutput"
+    },
+    "GetBucketAclRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketAclRequest"
+    },
+    "GetBucketAnalyticsConfigurationOutput": {
+      "properties": {
+        "AnalyticsConfiguration": {
+          "$ref": "#/definitions/AnalyticsConfiguration",
+          "description": "The configuration and any analyses for the analytics filter."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketAnalyticsConfigurationOutput"
+    },
+    "GetBucketAnalyticsConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketAnalyticsConfigurationRequest"
+    },
+    "GetBucketCorsOutput": {
+      "properties": {
+        "CORSRules": {
+          "$ref": "#/definitions/CORSRules"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketCorsOutput"
+    },
+    "GetBucketCorsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketCorsRequest"
+    },
+    "GetBucketInventoryConfigurationOutput": {
+      "properties": {
+        "InventoryConfiguration": {
+          "$ref": "#/definitions/InventoryConfiguration",
+          "description": "Specifies the inventory configuration."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketInventoryConfigurationOutput"
+    },
+    "GetBucketInventoryConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketInventoryConfigurationRequest"
+    },
+    "GetBucketLifecycleConfigurationOutput": {
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/LifecycleRules"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketLifecycleConfigurationOutput"
+    },
+    "GetBucketLifecycleConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketLifecycleConfigurationRequest"
+    },
+    "GetBucketLifecycleOutput": {
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/Rules"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketLifecycleOutput"
+    },
+    "GetBucketLifecycleRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketLifecycleRequest"
+    },
+    "GetBucketLocationOutput": {
+      "properties": {
+        "LocationConstraint": {
+          "$ref": "#/definitions/BucketLocationConstraint"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketLocationOutput"
+    },
+    "GetBucketLocationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketLocationRequest"
+    },
+    "GetBucketLoggingOutput": {
+      "properties": {
+        "LoggingEnabled": {
+          "$ref": "#/definitions/LoggingEnabled"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketLoggingOutput"
+    },
+    "GetBucketLoggingRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketLoggingRequest"
+    },
+    "GetBucketMetricsConfigurationOutput": {
+      "properties": {
+        "MetricsConfiguration": {
+          "$ref": "#/definitions/MetricsConfiguration",
+          "description": "Specifies the metrics configuration."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketMetricsConfigurationOutput"
+    },
+    "GetBucketMetricsConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketMetricsConfigurationRequest"
+    },
+    "GetBucketNotificationConfigurationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketNotificationConfigurationRequest"
+    },
+    "GetBucketPolicyOutput": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/Policy",
+          "description": "The bucket policy as a JSON document."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketPolicyOutput"
+    },
+    "GetBucketPolicyRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketPolicyRequest"
+    },
+    "GetBucketReplicationOutput": {
+      "properties": {
+        "ReplicationConfiguration": {
+          "$ref": "#/definitions/ReplicationConfiguration"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketReplicationOutput"
+    },
+    "GetBucketReplicationRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketReplicationRequest"
+    },
+    "GetBucketRequestPaymentOutput": {
+      "properties": {
+        "Payer": {
+          "$ref": "#/definitions/Payer",
+          "description": "Specifies who pays for the download and request fees."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketRequestPaymentOutput"
+    },
+    "GetBucketRequestPaymentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketRequestPaymentRequest"
+    },
+    "GetBucketTaggingOutput": {
+      "properties": {
+        "TagSet": {
+          "$ref": "#/definitions/TagSet"
+        }
+      },
+      "required": [
+        "TagSet"
+      ],
+      "type": "object",
+      "title": "GetBucketTaggingOutput"
+    },
+    "GetBucketTaggingRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketTaggingRequest"
+    },
+    "GetBucketVersioningOutput": {
+      "properties": {
+        "MFADelete": {
+          "$ref": "#/definitions/MFADeleteStatus",
+          "description": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned."
+        },
+        "Status": {
+          "$ref": "#/definitions/BucketVersioningStatus",
+          "description": "The versioning state of the bucket."
+        }
+      },
+      "type": "object",
+      "title": "GetBucketVersioningOutput"
+    },
+    "GetBucketVersioningRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketVersioningRequest"
+    },
+    "GetBucketWebsiteOutput": {
+      "properties": {
+        "ErrorDocument": {
+          "$ref": "#/definitions/ErrorDocument"
+        },
+        "IndexDocument": {
+          "$ref": "#/definitions/IndexDocument"
+        },
+        "RedirectAllRequestsTo": {
+          "$ref": "#/definitions/RedirectAllRequestsTo"
+        },
+        "RoutingRules": {
+          "$ref": "#/definitions/RoutingRules"
+        }
+      },
+      "type": "object",
+      "title": "GetBucketWebsiteOutput"
+    },
+    "GetBucketWebsiteRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetBucketWebsiteRequest"
+    },
+    "GetObjectAclOutput": {
+      "properties": {
+        "Grants": {
+          "$ref": "#/definitions/Grants",
+          "description": "A list of grants."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        }
+      },
+      "type": "object",
+      "title": "GetObjectAclOutput"
+    },
+    "GetObjectAclRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetObjectAclRequest"
+    },
+    "GetObjectOutput": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/Body",
+          "description": "Object data."
+        }
+      },
+      "type": "object",
+      "title": "GetObjectOutput"
+    },
+    "GetObjectRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetObjectRequest"
+    },
+    "GetObjectTaggingOutput": {
+      "properties": {
+        "TagSet": {
+          "$ref": "#/definitions/TagSet"
+        }
+      },
+      "required": [
+        "TagSet"
+      ],
+      "type": "object",
+      "title": "GetObjectTaggingOutput"
+    },
+    "GetObjectTaggingRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetObjectTaggingRequest"
+    },
+    "GetObjectTorrentOutput": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/Body"
+        }
+      },
+      "type": "object",
+      "title": "GetObjectTorrentOutput"
+    },
+    "GetObjectTorrentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetObjectTorrentRequest"
+    },
+    "GlacierJobParameters": {
+      "properties": {
+        "Tier": {
+          "$ref": "#/definitions/Tier",
+          "description": "Glacier retrieval tier at which the restore will be processed."
+        }
+      },
+      "required": [
+        "Tier"
+      ],
+      "type": "object",
+      "title": "GlacierJobParameters"
+    },
+    "Grant": {
+      "properties": {
+        "Grantee": {
+          "$ref": "#/definitions/Grantee"
+        },
+        "Permission": {
+          "$ref": "#/definitions/Permission",
+          "description": "Specifies the permission given to the grantee."
+        }
+      },
+      "type": "object",
+      "title": "Grant"
+    },
+    "GrantFullControl": {
+      "type": "string",
+      "title": "GrantFullControl"
+    },
+    "GrantRead": {
+      "type": "string",
+      "title": "GrantRead"
+    },
+    "GrantReadACP": {
+      "type": "string",
+      "title": "GrantReadACP"
+    },
+    "GrantWrite": {
+      "type": "string",
+      "title": "GrantWrite"
+    },
+    "GrantWriteACP": {
+      "type": "string",
+      "title": "GrantWriteACP"
+    },
+    "Grantee": {
+      "properties": {
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "Screen name of the grantee."
+        },
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddress",
+          "description": "Email address of the grantee."
+        },
+        "ID": {
+          "$ref": "#/definitions/ID",
+          "description": "The canonical user ID of the grantee."
+        },
+        "Type": {
+          "$ref": "#/definitions/Type",
+          "description": "Type of grantee"
+        },
+        "URI": {
+          "$ref": "#/definitions/URI",
+          "description": "URI of the grantee group."
+        }
+      },
+      "required": [
+        "Type"
+      ],
+      "type": "object",
+      "xml": {
+        "attribute": true,
+        "namespace": "http://www.w3.org/2001/XMLSchema-instance"
+      },
+      "title": "Grantee"
+    },
+    "Grants": {
+      "items": {
+        "$ref": "#/definitions/Grant"
+      },
+      "type": "array",
+      "title": "Grants"
+    },
+    "HeadBucketRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "HeadBucketRequest"
+    },
+    "HeadObjectOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "HeadObjectOutput"
+    },
+    "HeadObjectRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "HeadObjectRequest"
+    },
+    "HostName": {
+      "type": "string",
+      "title": "HostName"
+    },
+    "HttpErrorCodeReturnedEquals": {
+      "type": "string",
+      "title": "HttpErrorCodeReturnedEquals"
+    },
+    "HttpRedirectCode": {
+      "type": "string",
+      "title": "HttpRedirectCode"
+    },
+    "ID": {
+      "type": "string",
+      "title": "ID"
+    },
+    "IfMatch": {
+      "type": "string",
+      "title": "IfMatch"
+    },
+    "IfModifiedSince": {
+      "format": "date-time",
+      "type": "string",
+      "title": "IfModifiedSince"
+    },
+    "IfNoneMatch": {
+      "type": "string",
+      "title": "IfNoneMatch"
+    },
+    "IfUnmodifiedSince": {
+      "format": "date-time",
+      "type": "string",
+      "title": "IfUnmodifiedSince"
+    },
+    "IndexDocument": {
+      "properties": {
+        "Suffix": {
+          "$ref": "#/definitions/Suffix",
+          "description": "A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character."
+        }
+      },
+      "required": [
+        "Suffix"
+      ],
+      "type": "object",
+      "title": "IndexDocument"
+    },
+    "Initiated": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Initiated"
+    },
+    "Initiator": {
+      "properties": {
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "Name of the Principal."
+        },
+        "ID": {
+          "$ref": "#/definitions/ID",
+          "description": "If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value."
+        }
+      },
+      "type": "object",
+      "title": "Initiator"
+    },
+    "InventoryConfiguration": {
+      "properties": {
+        "Destination": {
+          "$ref": "#/definitions/InventoryDestination",
+          "description": "Contains information about where to publish the inventory results."
+        },
+        "Filter": {
+          "$ref": "#/definitions/InventoryFilter",
+          "description": "Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria."
+        },
+        "Id": {
+          "$ref": "#/definitions/InventoryId",
+          "description": "The ID used to identify the inventory configuration."
+        },
+        "IncludedObjectVersions": {
+          "$ref": "#/definitions/InventoryIncludedObjectVersions",
+          "description": "Specifies which object version(s) to included in the inventory results."
+        },
+        "IsEnabled": {
+          "$ref": "#/definitions/IsEnabled",
+          "description": "Specifies whether the inventory is enabled or disabled."
+        },
+        "OptionalFields": {
+          "$ref": "#/definitions/InventoryOptionalFields",
+          "description": "Contains the optional fields that are included in the inventory results."
+        },
+        "Schedule": {
+          "$ref": "#/definitions/InventorySchedule",
+          "description": "Specifies the schedule for generating inventory results."
+        }
+      },
+      "required": [
+        "Destination",
+        "IsEnabled",
+        "Id",
+        "IncludedObjectVersions",
+        "Schedule"
+      ],
+      "type": "object",
+      "title": "InventoryConfiguration"
+    },
+    "InventoryConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/InventoryConfiguration"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "InventoryConfigurationList"
+    },
+    "InventoryDestination": {
+      "properties": {
+        "S3BucketDestination": {
+          "$ref": "#/definitions/InventoryS3BucketDestination",
+          "description": "Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published."
+        }
+      },
+      "required": [
+        "S3BucketDestination"
+      ],
+      "type": "object",
+      "title": "InventoryDestination"
+    },
+    "InventoryFilter": {
+      "properties": {
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix that an object must have to be included in the inventory results."
+        }
+      },
+      "required": [
+        "Prefix"
+      ],
+      "type": "object",
+      "title": "InventoryFilter"
+    },
+    "InventoryFormat": {
+      "enum": [
+        "CSV"
+      ],
+      "type": "string",
+      "title": "InventoryFormat"
+    },
+    "InventoryFrequency": {
+      "enum": [
+        "Daily",
+        "Weekly"
+      ],
+      "type": "string",
+      "title": "InventoryFrequency"
+    },
+    "InventoryId": {
+      "type": "string",
+      "title": "InventoryId"
+    },
+    "InventoryIncludedObjectVersions": {
+      "enum": [
+        "All",
+        "Current"
+      ],
+      "type": "string",
+      "title": "InventoryIncludedObjectVersions"
+    },
+    "InventoryOptionalField": {
+      "enum": [
+        "Size",
+        "LastModifiedDate",
+        "StorageClass",
+        "ETag",
+        "IsMultipartUploaded",
+        "ReplicationStatus"
+      ],
+      "type": "string",
+      "title": "InventoryOptionalField"
+    },
+    "InventoryOptionalFields": {
+      "items": {
+        "$ref": "#/definitions/InventoryOptionalField"
+      },
+      "type": "array",
+      "title": "InventoryOptionalFields"
+    },
+    "InventoryS3BucketDestination": {
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The ID of the account that owns the destination bucket."
+        },
+        "Bucket": {
+          "$ref": "#/definitions/BucketName",
+          "description": "The Amazon resource name (ARN) of the bucket where inventory results will be published."
+        },
+        "Format": {
+          "$ref": "#/definitions/InventoryFormat",
+          "description": "Specifies the output format of the inventory results."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix that is prepended to all inventory results."
+        }
+      },
+      "required": [
+        "Bucket",
+        "Format"
+      ],
+      "type": "object",
+      "title": "InventoryS3BucketDestination"
+    },
+    "InventorySchedule": {
+      "properties": {
+        "Frequency": {
+          "$ref": "#/definitions/InventoryFrequency",
+          "description": "Specifies how frequently inventory results are produced."
+        }
+      },
+      "required": [
+        "Frequency"
+      ],
+      "type": "object",
+      "title": "InventorySchedule"
+    },
+    "IsEnabled": {
+      "type": "boolean",
+      "title": "IsEnabled"
+    },
+    "IsLatest": {
+      "type": "boolean",
+      "title": "IsLatest"
+    },
+    "IsTruncated": {
+      "type": "boolean",
+      "title": "IsTruncated"
+    },
+    "KeyCount": {
+      "type": "integer",
+      "title": "KeyCount"
+    },
+    "KeyMarker": {
+      "type": "string",
+      "title": "KeyMarker"
+    },
+    "KeyPrefixEquals": {
+      "type": "string",
+      "title": "KeyPrefixEquals"
+    },
+    "LambdaFunctionArn": {
+      "type": "string",
+      "title": "LambdaFunctionArn"
+    },
+    "LambdaFunctionConfiguration": {
+      "description": "Container for specifying the AWS Lambda notification configuration.",
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/EventList"
+        },
+        "Filter": {
+          "$ref": "#/definitions/NotificationConfigurationFilter"
+        },
+        "Id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "LambdaFunctionArn": {
+          "$ref": "#/definitions/LambdaFunctionArn",
+          "description": "Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type."
+        }
+      },
+      "required": [
+        "LambdaFunctionArn",
+        "Events"
+      ],
+      "type": "object",
+      "title": "LambdaFunctionConfiguration"
+    },
+    "LambdaFunctionConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/LambdaFunctionConfiguration"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "LambdaFunctionConfigurationList"
+    },
+    "LastModified": {
+      "format": "date-time",
+      "type": "string",
+      "title": "LastModified"
+    },
+    "LifecycleConfiguration": {
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/Rules"
+        }
+      },
+      "required": [
+        "Rules"
+      ],
+      "type": "object",
+      "title": "LifecycleConfiguration"
+    },
+    "LifecycleExpiration": {
+      "properties": {
+        "Date": {
+          "$ref": "#/definitions/Date",
+          "description": "Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format."
+        },
+        "Days": {
+          "$ref": "#/definitions/Days",
+          "description": "Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer."
+        },
+        "ExpiredObjectDeleteMarker": {
+          "$ref": "#/definitions/ExpiredObjectDeleteMarker",
+          "description": "Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy."
+        }
+      },
+      "type": "object",
+      "title": "LifecycleExpiration"
+    },
+    "LifecycleRule": {
+      "properties": {
+        "AbortIncompleteMultipartUpload": {
+          "$ref": "#/definitions/AbortIncompleteMultipartUpload"
+        },
+        "Expiration": {
+          "$ref": "#/definitions/LifecycleExpiration"
+        },
+        "Filter": {
+          "$ref": "#/definitions/LifecycleRuleFilter"
+        },
+        "ID": {
+          "$ref": "#/definitions/ID",
+          "description": "Unique identifier for the rule. The value cannot be longer than 255 characters."
+        },
+        "NoncurrentVersionExpiration": {
+          "$ref": "#/definitions/NoncurrentVersionExpiration"
+        },
+        "NoncurrentVersionTransitions": {
+          "$ref": "#/definitions/NoncurrentVersionTransitionList"
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead."
+        },
+        "Status": {
+          "$ref": "#/definitions/ExpirationStatus",
+          "description": "If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied."
+        },
+        "Transitions": {
+          "$ref": "#/definitions/TransitionList"
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "LifecycleRule"
+    },
+    "LifecycleRuleAndOperator": {
+      "description": "This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.",
+      "properties": {
+        "Prefix": {
+          "$ref": "#/definitions/Prefix"
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagSet",
+          "description": "All of these tags must exist in the object's tag set in order for the rule to apply."
+        }
+      },
+      "type": "object",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "LifecycleRuleAndOperator"
+    },
+    "LifecycleRuleFilter": {
+      "description": "The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.",
+      "properties": {
+        "And": {
+          "$ref": "#/definitions/LifecycleRuleAndOperator"
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "Prefix identifying one or more objects to which the rule applies."
+        },
+        "Tag": {
+          "$ref": "#/definitions/Tag",
+          "description": "This tag must exist in the object's tag set in order for the rule to apply."
+        }
+      },
+      "type": "object",
+      "title": "LifecycleRuleFilter"
+    },
+    "LifecycleRules": {
+      "items": {
+        "$ref": "#/definitions/LifecycleRule"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "LifecycleRules"
+    },
+    "ListBucketAnalyticsConfigurationsOutput": {
+      "properties": {
+        "AnalyticsConfigurationList": {
+          "$ref": "#/definitions/AnalyticsConfigurationList",
+          "description": "The list of analytics configurations for a bucket."
+        },
+        "ContinuationToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The ContinuationToken that represents where this request began."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request."
+        },
+        "NextContinuationToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value."
+        }
+      },
+      "type": "object",
+      "title": "ListBucketAnalyticsConfigurationsOutput"
+    },
+    "ListBucketAnalyticsConfigurationsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListBucketAnalyticsConfigurationsRequest"
+    },
+    "ListBucketInventoryConfigurationsOutput": {
+      "properties": {
+        "ContinuationToken": {
+          "$ref": "#/definitions/Token",
+          "description": "If sent in the request, the marker that is used as a starting point for this inventory configuration list response."
+        },
+        "InventoryConfigurationList": {
+          "$ref": "#/definitions/InventoryConfigurationList",
+          "description": "The list of inventory configurations for a bucket."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated."
+        },
+        "NextContinuationToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands."
+        }
+      },
+      "type": "object",
+      "title": "ListBucketInventoryConfigurationsOutput"
+    },
+    "ListBucketInventoryConfigurationsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListBucketInventoryConfigurationsRequest"
+    },
+    "ListBucketMetricsConfigurationsOutput": {
+      "properties": {
+        "ContinuationToken": {
+          "$ref": "#/definitions/Token",
+          "description": "The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request."
+        },
+        "MetricsConfigurationList": {
+          "$ref": "#/definitions/MetricsConfigurationList",
+          "description": "The list of metrics configurations for a bucket."
+        },
+        "NextContinuationToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands."
+        }
+      },
+      "type": "object",
+      "title": "ListBucketMetricsConfigurationsOutput"
+    },
+    "ListBucketMetricsConfigurationsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListBucketMetricsConfigurationsRequest"
+    },
+    "ListBucketsOutput": {
+      "properties": {
+        "Buckets": {
+          "$ref": "#/definitions/Buckets"
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        }
+      },
+      "type": "object",
+      "title": "ListBucketsOutput"
+    },
+    "ListMultipartUploadsOutput": {
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the bucket to which the multipart upload was initiated."
+        },
+        "CommonPrefixes": {
+          "$ref": "#/definitions/CommonPrefixList"
+        },
+        "Delimiter": {
+          "$ref": "#/definitions/Delimiter"
+        },
+        "EncodingType": {
+          "$ref": "#/definitions/EncodingType",
+          "description": "Encoding type used by Amazon S3 to encode object keys in the response."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads."
+        },
+        "KeyMarker": {
+          "$ref": "#/definitions/KeyMarker",
+          "description": "The key at or after which the listing began."
+        },
+        "MaxUploads": {
+          "$ref": "#/definitions/MaxUploads",
+          "description": "Maximum number of multipart uploads that could have been included in the response."
+        },
+        "NextKeyMarker": {
+          "$ref": "#/definitions/NextKeyMarker",
+          "description": "When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request."
+        },
+        "NextUploadIdMarker": {
+          "$ref": "#/definitions/NextUploadIdMarker",
+          "description": "When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix."
+        },
+        "UploadIdMarker": {
+          "$ref": "#/definitions/UploadIdMarker",
+          "description": "Upload ID after which listing began."
+        },
+        "Uploads": {
+          "$ref": "#/definitions/MultipartUploadList"
+        }
+      },
+      "type": "object",
+      "title": "ListMultipartUploadsOutput"
+    },
+    "ListMultipartUploadsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListMultipartUploadsRequest"
+    },
+    "ListObjectVersionsOutput": {
+      "properties": {
+        "CommonPrefixes": {
+          "$ref": "#/definitions/CommonPrefixList"
+        },
+        "DeleteMarkers": {
+          "$ref": "#/definitions/DeleteMarkers"
+        },
+        "Delimiter": {
+          "$ref": "#/definitions/Delimiter"
+        },
+        "EncodingType": {
+          "$ref": "#/definitions/EncodingType",
+          "description": "Encoding type used by Amazon S3 to encode object keys in the response."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results."
+        },
+        "KeyMarker": {
+          "$ref": "#/definitions/KeyMarker",
+          "description": "Marks the last Key returned in a truncated response."
+        },
+        "MaxKeys": {
+          "$ref": "#/definitions/MaxKeys"
+        },
+        "Name": {
+          "$ref": "#/definitions/BucketName"
+        },
+        "NextKeyMarker": {
+          "$ref": "#/definitions/NextKeyMarker",
+          "description": "Use this value for the key marker request parameter in a subsequent request."
+        },
+        "NextVersionIdMarker": {
+          "$ref": "#/definitions/NextVersionIdMarker",
+          "description": "Use this value for the next version id marker parameter in a subsequent request."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix"
+        },
+        "VersionIdMarker": {
+          "$ref": "#/definitions/VersionIdMarker"
+        },
+        "Versions": {
+          "$ref": "#/definitions/ObjectVersionList"
+        }
+      },
+      "type": "object",
+      "title": "ListObjectVersionsOutput"
+    },
+    "ListObjectVersionsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListObjectVersionsRequest"
+    },
+    "ListObjectsOutput": {
+      "properties": {
+        "CommonPrefixes": {
+          "$ref": "#/definitions/CommonPrefixList"
+        },
+        "Contents": {
+          "$ref": "#/definitions/ObjectList"
+        },
+        "Delimiter": {
+          "$ref": "#/definitions/Delimiter"
+        },
+        "EncodingType": {
+          "$ref": "#/definitions/EncodingType",
+          "description": "Encoding type used by Amazon S3 to encode object keys in the response."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria."
+        },
+        "Marker": {
+          "$ref": "#/definitions/Marker"
+        },
+        "MaxKeys": {
+          "$ref": "#/definitions/MaxKeys"
+        },
+        "Name": {
+          "$ref": "#/definitions/BucketName"
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix"
+        }
+      },
+      "type": "object",
+      "title": "ListObjectsOutput"
+    },
+    "ListObjectsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListObjectsRequest"
+    },
+    "ListObjectsV2Output": {
+      "properties": {
+        "CommonPrefixes": {
+          "$ref": "#/definitions/CommonPrefixList",
+          "description": "CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter"
+        },
+        "Contents": {
+          "$ref": "#/definitions/ObjectList",
+          "description": "Metadata about each object returned."
+        },
+        "ContinuationToken": {
+          "$ref": "#/definitions/Token",
+          "description": "ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key"
+        },
+        "Delimiter": {
+          "$ref": "#/definitions/Delimiter",
+          "description": "A delimiter is a character you use to group keys."
+        },
+        "EncodingType": {
+          "$ref": "#/definitions/EncodingType",
+          "description": "Encoding type used by Amazon S3 to encode object keys in the response."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria."
+        },
+        "KeyCount": {
+          "$ref": "#/definitions/KeyCount",
+          "description": "KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys"
+        },
+        "MaxKeys": {
+          "$ref": "#/definitions/MaxKeys",
+          "description": "Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more."
+        },
+        "Name": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the bucket to list."
+        },
+        "NextContinuationToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "NextContinuationToken is sent when isTruncated is true which means there are more keys in the bucket that can be listed. The next list requests to Amazon S3 can be continued with this NextContinuationToken. NextContinuationToken is obfuscated and is not a real key"
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "Limits the response to keys that begin with the specified prefix."
+        },
+        "StartAfter": {
+          "$ref": "#/definitions/StartAfter",
+          "description": "StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket"
+        }
+      },
+      "type": "object",
+      "title": "ListObjectsV2Output"
+    },
+    "ListObjectsV2Request": {
+      "properties": {},
+      "type": "object",
+      "title": "ListObjectsV2Request"
+    },
+    "ListPartsOutput": {
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/BucketName",
+          "description": "Name of the bucket to which the multipart upload was initiated."
+        },
+        "Initiator": {
+          "$ref": "#/definitions/Initiator",
+          "description": "Identifies who initiated the multipart upload."
+        },
+        "IsTruncated": {
+          "$ref": "#/definitions/IsTruncated",
+          "description": "Indicates whether the returned list of parts is truncated."
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "Object key for which the multipart upload was initiated."
+        },
+        "MaxParts": {
+          "$ref": "#/definitions/MaxParts",
+          "description": "Maximum number of parts that were allowed in the response."
+        },
+        "NextPartNumberMarker": {
+          "$ref": "#/definitions/NextPartNumberMarker",
+          "description": "When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "PartNumberMarker": {
+          "$ref": "#/definitions/PartNumberMarker",
+          "description": "Part number after which listing begins."
+        },
+        "Parts": {
+          "$ref": "#/definitions/Parts"
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The class of storage used to store the object."
+        },
+        "UploadId": {
+          "$ref": "#/definitions/MultipartUploadId",
+          "description": "Upload ID identifying the multipart upload whose parts are being listed."
+        }
+      },
+      "type": "object",
+      "title": "ListPartsOutput"
+    },
+    "ListPartsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "ListPartsRequest"
+    },
+    "Location": {
+      "type": "string",
+      "title": "Location"
+    },
+    "LoggingEnabled": {
+      "properties": {
+        "TargetBucket": {
+          "$ref": "#/definitions/TargetBucket",
+          "description": "Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key."
+        },
+        "TargetGrants": {
+          "$ref": "#/definitions/TargetGrants"
+        },
+        "TargetPrefix": {
+          "$ref": "#/definitions/TargetPrefix",
+          "description": "This element lets you specify a prefix for the keys that the log files will be stored under."
+        }
+      },
+      "type": "object",
+      "title": "LoggingEnabled"
+    },
+    "MFA": {
+      "type": "string",
+      "title": "MFA"
+    },
+    "MFADelete": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "title": "MFADelete"
+    },
+    "MFADeleteStatus": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "title": "MFADeleteStatus"
+    },
+    "Marker": {
+      "type": "string",
+      "title": "Marker"
+    },
+    "MaxAgeSeconds": {
+      "type": "integer",
+      "title": "MaxAgeSeconds"
+    },
+    "MaxKeys": {
+      "type": "integer",
+      "title": "MaxKeys"
+    },
+    "MaxParts": {
+      "type": "integer",
+      "title": "MaxParts"
+    },
+    "MaxUploads": {
+      "type": "integer",
+      "title": "MaxUploads"
+    },
+    "Message": {
+      "type": "string",
+      "title": "Message"
+    },
+    "Metadata": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/MetadataKey"
+          },
+          "value": {
+            "$ref": "#/definitions/MetadataValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Metadata"
+    },
+    "MetadataDirective": {
+      "enum": [
+        "COPY",
+        "REPLACE"
+      ],
+      "type": "string",
+      "title": "MetadataDirective"
+    },
+    "MetadataKey": {
+      "type": "string",
+      "title": "MetadataKey"
+    },
+    "MetadataValue": {
+      "type": "string",
+      "title": "MetadataValue"
+    },
+    "MetricsAndOperator": {
+      "properties": {
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix used when evaluating an AND predicate."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagSet",
+          "description": "The list of tags used when evaluating an AND predicate."
+        }
+      },
+      "type": "object",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "MetricsAndOperator"
+    },
+    "MetricsConfiguration": {
+      "properties": {
+        "Filter": {
+          "$ref": "#/definitions/MetricsFilter",
+          "description": "Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator)."
+        },
+        "Id": {
+          "$ref": "#/definitions/MetricsId",
+          "description": "The ID used to identify the metrics configuration."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object",
+      "title": "MetricsConfiguration"
+    },
+    "MetricsConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/MetricsConfiguration"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "MetricsConfigurationList"
+    },
+    "MetricsFilter": {
+      "properties": {
+        "And": {
+          "$ref": "#/definitions/MetricsAndOperator",
+          "description": "A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "The prefix used when evaluating a metrics filter."
+        },
+        "Tag": {
+          "$ref": "#/definitions/Tag",
+          "description": "The tag used when evaluating a metrics filter."
+        }
+      },
+      "type": "object",
+      "title": "MetricsFilter"
+    },
+    "MetricsId": {
+      "type": "string",
+      "title": "MetricsId"
+    },
+    "MissingMeta": {
+      "type": "integer",
+      "title": "MissingMeta"
+    },
+    "MultipartUpload": {
+      "properties": {
+        "Initiated": {
+          "$ref": "#/definitions/Initiated",
+          "description": "Date and time at which the multipart upload was initiated."
+        },
+        "Initiator": {
+          "$ref": "#/definitions/Initiator",
+          "description": "Identifies who initiated the multipart upload."
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "Key of the object for which the multipart upload was initiated."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/StorageClass",
+          "description": "The class of storage used to store the object."
+        },
+        "UploadId": {
+          "$ref": "#/definitions/MultipartUploadId",
+          "description": "Upload ID that identifies the multipart upload."
+        }
+      },
+      "type": "object",
+      "title": "MultipartUpload"
+    },
+    "MultipartUploadId": {
+      "type": "string",
+      "title": "MultipartUploadId"
+    },
+    "MultipartUploadList": {
+      "items": {
+        "$ref": "#/definitions/MultipartUpload"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "MultipartUploadList"
+    },
+    "NextKeyMarker": {
+      "type": "string",
+      "title": "NextKeyMarker"
+    },
+    "NextMarker": {
+      "type": "string",
+      "title": "NextMarker"
+    },
+    "NextPartNumberMarker": {
+      "type": "integer",
+      "title": "NextPartNumberMarker"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NextUploadIdMarker": {
+      "type": "string",
+      "title": "NextUploadIdMarker"
+    },
+    "NextVersionIdMarker": {
+      "type": "string",
+      "title": "NextVersionIdMarker"
+    },
+    "NoSuchBucket": {
+      "description": "The specified bucket does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchBucket"
+    },
+    "NoSuchKey": {
+      "description": "The specified key does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchKey"
+    },
+    "NoSuchUpload": {
+      "description": "The specified multipart upload does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchUpload"
+    },
+    "NoncurrentVersionExpiration": {
+      "description": "Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.",
+      "properties": {
+        "NoncurrentDays": {
+          "$ref": "#/definitions/Days",
+          "description": "Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide."
+        }
+      },
+      "type": "object",
+      "title": "NoncurrentVersionExpiration"
+    },
+    "NoncurrentVersionTransition": {
+      "description": "Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.",
+      "properties": {
+        "NoncurrentDays": {
+          "$ref": "#/definitions/Days",
+          "description": "Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/TransitionStorageClass",
+          "description": "The class of storage used to store the object."
+        }
+      },
+      "type": "object",
+      "title": "NoncurrentVersionTransition"
+    },
+    "NoncurrentVersionTransitionList": {
+      "items": {
+        "$ref": "#/definitions/NoncurrentVersionTransition"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "NoncurrentVersionTransitionList"
+    },
+    "NotificationConfiguration": {
+      "description": "Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.",
+      "properties": {
+        "LambdaFunctionConfigurations": {
+          "$ref": "#/definitions/LambdaFunctionConfigurationList"
+        },
+        "QueueConfigurations": {
+          "$ref": "#/definitions/QueueConfigurationList"
+        },
+        "TopicConfigurations": {
+          "$ref": "#/definitions/TopicConfigurationList"
+        }
+      },
+      "type": "object",
+      "title": "NotificationConfiguration"
+    },
+    "NotificationConfigurationDeprecated": {
+      "properties": {
+        "CloudFunctionConfiguration": {
+          "$ref": "#/definitions/CloudFunctionConfiguration"
+        },
+        "QueueConfiguration": {
+          "$ref": "#/definitions/QueueConfigurationDeprecated"
+        },
+        "TopicConfiguration": {
+          "$ref": "#/definitions/TopicConfigurationDeprecated"
+        }
+      },
+      "type": "object",
+      "title": "NotificationConfigurationDeprecated"
+    },
+    "NotificationConfigurationFilter": {
+      "description": "Container for object key name filtering rules. For information about key name filtering, go to <a href=\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/S3KeyFilter"
+        }
+      },
+      "type": "object",
+      "title": "NotificationConfigurationFilter"
+    },
+    "NotificationId": {
+      "description": "Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.",
+      "type": "string",
+      "title": "NotificationId"
+    },
+    "Object": {
+      "properties": {
+        "ETag": {
+          "$ref": "#/definitions/ETag"
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey"
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified"
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "Size": {
+          "$ref": "#/definitions/Size"
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/ObjectStorageClass",
+          "description": "The class of storage used to store the object."
+        }
+      },
+      "type": "object",
+      "title": "Object"
+    },
+    "ObjectAlreadyInActiveTierError": {
+      "description": "This operation is not allowed against this storage tier",
+      "properties": {},
+      "type": "object",
+      "title": "ObjectAlreadyInActiveTierError"
+    },
+    "ObjectCannedACL": {
+      "enum": [
+        "private",
+        "public-read",
+        "public-read-write",
+        "authenticated-read",
+        "aws-exec-read",
+        "bucket-owner-read",
+        "bucket-owner-full-control"
+      ],
+      "type": "string",
+      "title": "ObjectCannedACL"
+    },
+    "ObjectIdentifier": {
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "Key name of the object to delete."
+        },
+        "VersionId": {
+          "$ref": "#/definitions/ObjectVersionId",
+          "description": "VersionId for the specific version of the object to delete."
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object",
+      "title": "ObjectIdentifier"
+    },
+    "ObjectIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/ObjectIdentifier"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ObjectIdentifierList"
+    },
+    "ObjectKey": {
+      "minLength": 1,
+      "type": "string",
+      "title": "ObjectKey"
+    },
+    "ObjectList": {
+      "items": {
+        "$ref": "#/definitions/Object"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ObjectList"
+    },
+    "ObjectNotInActiveTierError": {
+      "description": "The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.",
+      "properties": {},
+      "type": "object",
+      "title": "ObjectNotInActiveTierError"
+    },
+    "ObjectStorageClass": {
+      "enum": [
+        "STANDARD",
+        "REDUCED_REDUNDANCY",
+        "GLACIER"
+      ],
+      "type": "string",
+      "title": "ObjectStorageClass"
+    },
+    "ObjectVersion": {
+      "properties": {
+        "ETag": {
+          "$ref": "#/definitions/ETag"
+        },
+        "IsLatest": {
+          "$ref": "#/definitions/IsLatest",
+          "description": "Specifies whether the object is (true) or is not (false) the latest version of an object."
+        },
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "The object key."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified",
+          "description": "Date and time the object was last modified."
+        },
+        "Owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "Size": {
+          "$ref": "#/definitions/Size",
+          "description": "Size in bytes of the object."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/ObjectVersionStorageClass",
+          "description": "The class of storage used to store the object."
+        },
+        "VersionId": {
+          "$ref": "#/definitions/ObjectVersionId",
+          "description": "Version ID of an object."
+        }
+      },
+      "type": "object",
+      "title": "ObjectVersion"
+    },
+    "ObjectVersionId": {
+      "type": "string",
+      "title": "ObjectVersionId"
+    },
+    "ObjectVersionList": {
+      "items": {
+        "$ref": "#/definitions/ObjectVersion"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ObjectVersionList"
+    },
+    "ObjectVersionStorageClass": {
+      "enum": [
+        "STANDARD"
+      ],
+      "type": "string",
+      "title": "ObjectVersionStorageClass"
+    },
+    "Owner": {
+      "properties": {
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName"
+        },
+        "ID": {
+          "$ref": "#/definitions/ID"
+        }
+      },
+      "type": "object",
+      "title": "Owner"
+    },
+    "Part": {
+      "properties": {
+        "ETag": {
+          "$ref": "#/definitions/ETag",
+          "description": "Entity tag returned when the part was uploaded."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified",
+          "description": "Date and time at which the part was uploaded."
+        },
+        "PartNumber": {
+          "$ref": "#/definitions/PartNumber",
+          "description": "Part number identifying the part. This is a positive integer between 1 and 10,000."
+        },
+        "Size": {
+          "$ref": "#/definitions/Size",
+          "description": "Size of the uploaded part data."
+        }
+      },
+      "type": "object",
+      "title": "Part"
+    },
+    "PartNumber": {
+      "type": "integer",
+      "title": "PartNumber"
+    },
+    "PartNumberMarker": {
+      "type": "integer",
+      "title": "PartNumberMarker"
+    },
+    "Parts": {
+      "items": {
+        "$ref": "#/definitions/Part"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "Parts"
+    },
+    "PartsCount": {
+      "type": "integer",
+      "title": "PartsCount"
+    },
+    "Payer": {
+      "enum": [
+        "Requester",
+        "BucketOwner"
+      ],
+      "type": "string",
+      "title": "Payer"
+    },
+    "Permission": {
+      "enum": [
+        "FULL_CONTROL",
+        "WRITE",
+        "WRITE_ACP",
+        "READ",
+        "READ_ACP"
+      ],
+      "type": "string",
+      "title": "Permission"
+    },
+    "Policy": {
+      "type": "string",
+      "title": "Policy"
+    },
+    "Prefix": {
+      "type": "string",
+      "title": "Prefix"
+    },
+    "Protocol": {
+      "enum": [
+        "http",
+        "https"
+      ],
+      "type": "string",
+      "title": "Protocol"
+    },
+    "PutBucketAccelerateConfigurationRequest": {
+      "properties": {
+        "AccelerateConfiguration": {
+          "$ref": "#/definitions/AccelerateConfiguration",
+          "description": "Specifies the Accelerate Configuration you want to set for the bucket."
+        }
+      },
+      "required": [
+        "AccelerateConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketAccelerateConfigurationRequest"
+    },
+    "PutBucketAclRequest": {
+      "properties": {
+        "AccessControlPolicy": {
+          "$ref": "#/definitions/AccessControlPolicy"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketAclRequest"
+    },
+    "PutBucketAnalyticsConfigurationRequest": {
+      "properties": {
+        "AnalyticsConfiguration": {
+          "$ref": "#/definitions/AnalyticsConfiguration",
+          "description": "The configuration and any analyses for the analytics filter."
+        }
+      },
+      "required": [
+        "AnalyticsConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketAnalyticsConfigurationRequest"
+    },
+    "PutBucketCorsRequest": {
+      "properties": {
+        "CORSConfiguration": {
+          "$ref": "#/definitions/CORSConfiguration"
+        }
+      },
+      "required": [
+        "CORSConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketCorsRequest"
+    },
+    "PutBucketInventoryConfigurationRequest": {
+      "properties": {
+        "InventoryConfiguration": {
+          "$ref": "#/definitions/InventoryConfiguration",
+          "description": "Specifies the inventory configuration."
+        }
+      },
+      "required": [
+        "InventoryConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketInventoryConfigurationRequest"
+    },
+    "PutBucketLifecycleConfigurationRequest": {
+      "properties": {
+        "LifecycleConfiguration": {
+          "$ref": "#/definitions/BucketLifecycleConfiguration"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketLifecycleConfigurationRequest"
+    },
+    "PutBucketLifecycleRequest": {
+      "properties": {
+        "LifecycleConfiguration": {
+          "$ref": "#/definitions/LifecycleConfiguration"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketLifecycleRequest"
+    },
+    "PutBucketLoggingRequest": {
+      "properties": {
+        "BucketLoggingStatus": {
+          "$ref": "#/definitions/BucketLoggingStatus"
+        }
+      },
+      "required": [
+        "BucketLoggingStatus"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketLoggingRequest"
+    },
+    "PutBucketMetricsConfigurationRequest": {
+      "properties": {
+        "MetricsConfiguration": {
+          "$ref": "#/definitions/MetricsConfiguration",
+          "description": "Specifies the metrics configuration."
+        }
+      },
+      "required": [
+        "MetricsConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketMetricsConfigurationRequest"
+    },
+    "PutBucketNotificationConfigurationRequest": {
+      "properties": {
+        "NotificationConfiguration": {
+          "$ref": "#/definitions/NotificationConfiguration"
+        }
+      },
+      "required": [
+        "NotificationConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketNotificationConfigurationRequest"
+    },
+    "PutBucketNotificationRequest": {
+      "properties": {
+        "NotificationConfiguration": {
+          "$ref": "#/definitions/NotificationConfigurationDeprecated"
+        }
+      },
+      "required": [
+        "NotificationConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketNotificationRequest"
+    },
+    "PutBucketPolicyRequest": {
+      "properties": {
+        "Policy": {
+          "$ref": "#/definitions/Policy",
+          "description": "The bucket policy as a JSON document."
+        }
+      },
+      "required": [
+        "Policy"
+      ],
+      "type": "object",
+      "title": "PutBucketPolicyRequest"
+    },
+    "PutBucketReplicationRequest": {
+      "properties": {
+        "ReplicationConfiguration": {
+          "$ref": "#/definitions/ReplicationConfiguration"
+        }
+      },
+      "required": [
+        "ReplicationConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketReplicationRequest"
+    },
+    "PutBucketRequestPaymentRequest": {
+      "properties": {
+        "RequestPaymentConfiguration": {
+          "$ref": "#/definitions/RequestPaymentConfiguration"
+        }
+      },
+      "required": [
+        "RequestPaymentConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketRequestPaymentRequest"
+    },
+    "PutBucketTaggingRequest": {
+      "properties": {
+        "Tagging": {
+          "$ref": "#/definitions/Tagging"
+        }
+      },
+      "required": [
+        "Tagging"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketTaggingRequest"
+    },
+    "PutBucketVersioningRequest": {
+      "properties": {
+        "VersioningConfiguration": {
+          "$ref": "#/definitions/VersioningConfiguration"
+        }
+      },
+      "required": [
+        "VersioningConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketVersioningRequest"
+    },
+    "PutBucketWebsiteRequest": {
+      "properties": {
+        "WebsiteConfiguration": {
+          "$ref": "#/definitions/WebsiteConfiguration"
+        }
+      },
+      "required": [
+        "WebsiteConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutBucketWebsiteRequest"
+    },
+    "PutObjectAclOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "PutObjectAclOutput"
+    },
+    "PutObjectAclRequest": {
+      "properties": {
+        "AccessControlPolicy": {
+          "$ref": "#/definitions/AccessControlPolicy"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutObjectAclRequest"
+    },
+    "PutObjectOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "PutObjectOutput"
+    },
+    "PutObjectRequest": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/Body",
+          "description": "Object data."
+        }
+      },
+      "type": "object",
+      "title": "PutObjectRequest"
+    },
+    "PutObjectTaggingOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "PutObjectTaggingOutput"
+    },
+    "PutObjectTaggingRequest": {
+      "properties": {
+        "Tagging": {
+          "$ref": "#/definitions/Tagging"
+        }
+      },
+      "required": [
+        "Tagging"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "PutObjectTaggingRequest"
+    },
+    "QueueArn": {
+      "type": "string",
+      "title": "QueueArn"
+    },
+    "QueueConfiguration": {
+      "description": "Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.",
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/EventList"
+        },
+        "Filter": {
+          "$ref": "#/definitions/NotificationConfigurationFilter"
+        },
+        "Id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "QueueArn": {
+          "$ref": "#/definitions/QueueArn",
+          "description": "Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type."
+        }
+      },
+      "required": [
+        "QueueArn",
+        "Events"
+      ],
+      "type": "object",
+      "title": "QueueConfiguration"
+    },
+    "QueueConfigurationDeprecated": {
+      "properties": {
+        "Event": {
+          "$ref": "#/definitions/Event"
+        },
+        "Events": {
+          "$ref": "#/definitions/EventList"
+        },
+        "Id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "Queue": {
+          "$ref": "#/definitions/QueueArn"
+        }
+      },
+      "type": "object",
+      "title": "QueueConfigurationDeprecated"
+    },
+    "QueueConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/QueueConfiguration"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "QueueConfigurationList"
+    },
+    "Quiet": {
+      "type": "boolean",
+      "title": "Quiet"
+    },
+    "Range": {
+      "type": "string",
+      "title": "Range"
+    },
+    "Redirect": {
+      "properties": {
+        "HostName": {
+          "$ref": "#/definitions/HostName",
+          "description": "The host name to use in the redirect request."
+        },
+        "HttpRedirectCode": {
+          "$ref": "#/definitions/HttpRedirectCode",
+          "description": "The HTTP redirect code to use on the response. Not required if one of the siblings is present."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request."
+        },
+        "ReplaceKeyPrefixWith": {
+          "$ref": "#/definitions/ReplaceKeyPrefixWith",
+          "description": "The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided."
+        },
+        "ReplaceKeyWith": {
+          "$ref": "#/definitions/ReplaceKeyWith",
+          "description": "The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided."
+        }
+      },
+      "type": "object",
+      "title": "Redirect"
+    },
+    "RedirectAllRequestsTo": {
+      "properties": {
+        "HostName": {
+          "$ref": "#/definitions/HostName",
+          "description": "Name of the host where requests will be redirected."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request."
+        }
+      },
+      "required": [
+        "HostName"
+      ],
+      "type": "object",
+      "title": "RedirectAllRequestsTo"
+    },
+    "ReplaceKeyPrefixWith": {
+      "type": "string",
+      "title": "ReplaceKeyPrefixWith"
+    },
+    "ReplaceKeyWith": {
+      "type": "string",
+      "title": "ReplaceKeyWith"
+    },
+    "ReplicationConfiguration": {
+      "description": "Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.",
+      "properties": {
+        "Role": {
+          "$ref": "#/definitions/Role",
+          "description": "Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects."
+        },
+        "Rules": {
+          "$ref": "#/definitions/ReplicationRules",
+          "description": "Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules."
+        }
+      },
+      "required": [
+        "Role",
+        "Rules"
+      ],
+      "type": "object",
+      "title": "ReplicationConfiguration"
+    },
+    "ReplicationRule": {
+      "properties": {
+        "Destination": {
+          "$ref": "#/definitions/Destination"
+        },
+        "ID": {
+          "$ref": "#/definitions/ID",
+          "description": "Unique identifier for the rule. The value cannot be longer than 255 characters."
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported."
+        },
+        "Status": {
+          "$ref": "#/definitions/ReplicationRuleStatus",
+          "description": "The rule is ignored if status is not Enabled."
+        }
+      },
+      "required": [
+        "Prefix",
+        "Status",
+        "Destination"
+      ],
+      "type": "object",
+      "title": "ReplicationRule"
+    },
+    "ReplicationRuleStatus": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string",
+      "title": "ReplicationRuleStatus"
+    },
+    "ReplicationRules": {
+      "items": {
+        "$ref": "#/definitions/ReplicationRule"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "ReplicationRules"
+    },
+    "ReplicationStatus": {
+      "enum": [
+        "COMPLETE",
+        "PENDING",
+        "FAILED",
+        "REPLICA"
+      ],
+      "type": "string",
+      "title": "ReplicationStatus"
+    },
+    "RequestCharged": {
+      "description": "If present, indicates that the requester was successfully charged for the request.",
+      "enum": [
+        "requester"
+      ],
+      "type": "string",
+      "title": "RequestCharged"
+    },
+    "RequestPayer": {
+      "description": "Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html",
+      "enum": [
+        "requester"
+      ],
+      "type": "string",
+      "title": "RequestPayer"
+    },
+    "RequestPaymentConfiguration": {
+      "properties": {
+        "Payer": {
+          "$ref": "#/definitions/Payer",
+          "description": "Specifies who pays for the download and request fees."
+        }
+      },
+      "required": [
+        "Payer"
+      ],
+      "type": "object",
+      "title": "RequestPaymentConfiguration"
+    },
+    "ResponseCacheControl": {
+      "type": "string",
+      "title": "ResponseCacheControl"
+    },
+    "ResponseContentDisposition": {
+      "type": "string",
+      "title": "ResponseContentDisposition"
+    },
+    "ResponseContentEncoding": {
+      "type": "string",
+      "title": "ResponseContentEncoding"
+    },
+    "ResponseContentLanguage": {
+      "type": "string",
+      "title": "ResponseContentLanguage"
+    },
+    "ResponseContentType": {
+      "type": "string",
+      "title": "ResponseContentType"
+    },
+    "ResponseExpires": {
+      "format": "date-time",
+      "type": "string",
+      "title": "ResponseExpires"
+    },
+    "Restore": {
+      "type": "string",
+      "title": "Restore"
+    },
+    "RestoreObjectOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "RestoreObjectOutput"
+    },
+    "RestoreObjectRequest": {
+      "properties": {
+        "RestoreRequest": {
+          "$ref": "#/definitions/RestoreRequest"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      },
+      "title": "RestoreObjectRequest"
+    },
+    "RestoreRequest": {
+      "properties": {
+        "Days": {
+          "$ref": "#/definitions/Days",
+          "description": "Lifetime of the active copy in days"
+        },
+        "GlacierJobParameters": {
+          "$ref": "#/definitions/GlacierJobParameters",
+          "description": "Glacier related prameters pertaining to this job."
+        }
+      },
+      "required": [
+        "Days"
+      ],
+      "type": "object",
+      "title": "RestoreRequest"
+    },
+    "Role": {
+      "type": "string",
+      "title": "Role"
+    },
+    "RoutingRule": {
+      "properties": {
+        "Condition": {
+          "$ref": "#/definitions/Condition",
+          "description": "A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error."
+        },
+        "Redirect": {
+          "$ref": "#/definitions/Redirect",
+          "description": "Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return."
+        }
+      },
+      "required": [
+        "Redirect"
+      ],
+      "type": "object",
+      "title": "RoutingRule"
+    },
+    "RoutingRules": {
+      "items": {
+        "$ref": "#/definitions/RoutingRule"
+      },
+      "type": "array",
+      "title": "RoutingRules"
+    },
+    "Rule": {
+      "properties": {
+        "AbortIncompleteMultipartUpload": {
+          "$ref": "#/definitions/AbortIncompleteMultipartUpload"
+        },
+        "Expiration": {
+          "$ref": "#/definitions/LifecycleExpiration"
+        },
+        "ID": {
+          "$ref": "#/definitions/ID",
+          "description": "Unique identifier for the rule. The value cannot be longer than 255 characters."
+        },
+        "NoncurrentVersionExpiration": {
+          "$ref": "#/definitions/NoncurrentVersionExpiration"
+        },
+        "NoncurrentVersionTransition": {
+          "$ref": "#/definitions/NoncurrentVersionTransition"
+        },
+        "Prefix": {
+          "$ref": "#/definitions/Prefix",
+          "description": "Prefix identifying one or more objects to which the rule applies."
+        },
+        "Status": {
+          "$ref": "#/definitions/ExpirationStatus",
+          "description": "If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied."
+        },
+        "Transition": {
+          "$ref": "#/definitions/Transition"
+        }
+      },
+      "required": [
+        "Prefix",
+        "Status"
+      ],
+      "type": "object",
+      "title": "Rule"
+    },
+    "Rules": {
+      "items": {
+        "$ref": "#/definitions/Rule"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "Rules"
+    },
+    "S3KeyFilter": {
+      "description": "Container for object key name prefix and suffix filtering rules.",
+      "properties": {
+        "FilterRules": {
+          "$ref": "#/definitions/FilterRuleList"
+        }
+      },
+      "type": "object",
+      "title": "S3KeyFilter"
+    },
+    "SSECustomerAlgorithm": {
+      "type": "string",
+      "title": "SSECustomerAlgorithm"
+    },
+    "SSECustomerKey": {
+      "format": "password",
+      "type": "string",
+      "title": "SSECustomerKey"
+    },
+    "SSECustomerKeyMD5": {
+      "type": "string",
+      "title": "SSECustomerKeyMD5"
+    },
+    "SSEKMSKeyId": {
+      "format": "password",
+      "type": "string",
+      "title": "SSEKMSKeyId"
+    },
+    "ServerSideEncryption": {
+      "enum": [
+        "AES256",
+        "aws:kms"
+      ],
+      "type": "string",
+      "title": "ServerSideEncryption"
+    },
+    "Size": {
+      "type": "integer",
+      "title": "Size"
+    },
+    "StartAfter": {
+      "type": "string",
+      "title": "StartAfter"
+    },
+    "StorageClass": {
+      "enum": [
+        "STANDARD",
+        "REDUCED_REDUNDANCY",
+        "STANDARD_IA"
+      ],
+      "type": "string",
+      "title": "StorageClass"
+    },
+    "StorageClassAnalysis": {
+      "properties": {
+        "DataExport": {
+          "$ref": "#/definitions/StorageClassAnalysisDataExport",
+          "description": "A container used to describe how data related to the storage class analysis should be exported."
+        }
+      },
+      "type": "object",
+      "title": "StorageClassAnalysis"
+    },
+    "StorageClassAnalysisDataExport": {
+      "properties": {
+        "Destination": {
+          "$ref": "#/definitions/AnalyticsExportDestination",
+          "description": "The place to store the data for an analysis."
+        },
+        "OutputSchemaVersion": {
+          "$ref": "#/definitions/StorageClassAnalysisSchemaVersion",
+          "description": "The version of the output schema to use when exporting data. Must be V_1."
+        }
+      },
+      "required": [
+        "OutputSchemaVersion",
+        "Destination"
+      ],
+      "type": "object",
+      "title": "StorageClassAnalysisDataExport"
+    },
+    "StorageClassAnalysisSchemaVersion": {
+      "enum": [
+        "V_1"
+      ],
+      "type": "string",
+      "title": "StorageClassAnalysisSchemaVersion"
+    },
+    "Suffix": {
+      "type": "string",
+      "title": "Suffix"
+    },
+    "Tag": {
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/ObjectKey",
+          "description": "Name of the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/Value",
+          "description": "Value of the tag."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagCount": {
+      "type": "integer",
+      "title": "TagCount"
+    },
+    "TagSet": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "title": "TagSet"
+    },
+    "Tagging": {
+      "properties": {
+        "TagSet": {
+          "$ref": "#/definitions/TagSet"
+        }
+      },
+      "required": [
+        "TagSet"
+      ],
+      "type": "object",
+      "title": "Tagging"
+    },
+    "TaggingDirective": {
+      "enum": [
+        "COPY",
+        "REPLACE"
+      ],
+      "type": "string",
+      "title": "TaggingDirective"
+    },
+    "TaggingHeader": {
+      "type": "string",
+      "title": "TaggingHeader"
+    },
+    "TargetBucket": {
+      "type": "string",
+      "title": "TargetBucket"
+    },
+    "TargetGrant": {
+      "properties": {
+        "Grantee": {
+          "$ref": "#/definitions/Grantee"
+        },
+        "Permission": {
+          "$ref": "#/definitions/BucketLogsPermission",
+          "description": "Logging permissions assigned to the Grantee for the bucket."
+        }
+      },
+      "type": "object",
+      "title": "TargetGrant"
+    },
+    "TargetGrants": {
+      "items": {
+        "$ref": "#/definitions/TargetGrant"
+      },
+      "type": "array",
+      "title": "TargetGrants"
+    },
+    "TargetPrefix": {
+      "type": "string",
+      "title": "TargetPrefix"
+    },
+    "Tier": {
+      "enum": [
+        "Standard",
+        "Bulk",
+        "Expedited"
+      ],
+      "type": "string",
+      "title": "Tier"
+    },
+    "Token": {
+      "type": "string",
+      "title": "Token"
+    },
+    "TopicArn": {
+      "type": "string",
+      "title": "TopicArn"
+    },
+    "TopicConfiguration": {
+      "description": "Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.",
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/EventList"
+        },
+        "Filter": {
+          "$ref": "#/definitions/NotificationConfigurationFilter"
+        },
+        "Id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "TopicArn": {
+          "$ref": "#/definitions/TopicArn",
+          "description": "Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type."
+        }
+      },
+      "required": [
+        "TopicArn",
+        "Events"
+      ],
+      "type": "object",
+      "title": "TopicConfiguration"
+    },
+    "TopicConfigurationDeprecated": {
+      "properties": {
+        "Event": {
+          "$ref": "#/definitions/Event",
+          "description": "Bucket event for which to send notifications."
+        },
+        "Events": {
+          "$ref": "#/definitions/EventList"
+        },
+        "Id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "Topic": {
+          "$ref": "#/definitions/TopicArn",
+          "description": "Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket."
+        }
+      },
+      "type": "object",
+      "title": "TopicConfigurationDeprecated"
+    },
+    "TopicConfigurationList": {
+      "items": {
+        "$ref": "#/definitions/TopicConfiguration"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "TopicConfigurationList"
+    },
+    "Transition": {
+      "properties": {
+        "Date": {
+          "$ref": "#/definitions/Date",
+          "description": "Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format."
+        },
+        "Days": {
+          "$ref": "#/definitions/Days",
+          "description": "Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer."
+        },
+        "StorageClass": {
+          "$ref": "#/definitions/TransitionStorageClass",
+          "description": "The class of storage used to store the object."
+        }
+      },
+      "type": "object",
+      "title": "Transition"
+    },
+    "TransitionList": {
+      "items": {
+        "$ref": "#/definitions/Transition"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      },
+      "title": "TransitionList"
+    },
+    "TransitionStorageClass": {
+      "enum": [
+        "GLACIER",
+        "STANDARD_IA"
+      ],
+      "type": "string",
+      "title": "TransitionStorageClass"
+    },
+    "Type": {
+      "enum": [
+        "CanonicalUser",
+        "AmazonCustomerByEmail",
+        "Group"
+      ],
+      "type": "string",
+      "title": "Type"
+    },
+    "URI": {
+      "type": "string",
+      "title": "URI"
+    },
+    "UploadIdMarker": {
+      "type": "string",
+      "title": "UploadIdMarker"
+    },
+    "UploadPartCopyOutput": {
+      "properties": {
+        "CopyPartResult": {
+          "$ref": "#/definitions/CopyPartResult"
+        }
+      },
+      "type": "object",
+      "title": "UploadPartCopyOutput"
+    },
+    "UploadPartCopyRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "UploadPartCopyRequest"
+    },
+    "UploadPartOutput": {
+      "properties": {},
+      "type": "object",
+      "title": "UploadPartOutput"
+    },
+    "UploadPartRequest": {
+      "properties": {
+        "Body": {
+          "$ref": "#/definitions/Body",
+          "description": "Object data."
+        }
+      },
+      "type": "object",
+      "title": "UploadPartRequest"
+    },
+    "Value": {
+      "type": "string",
+      "title": "Value"
+    },
+    "VersionIdMarker": {
+      "type": "string",
+      "title": "VersionIdMarker"
+    },
+    "VersioningConfiguration": {
+      "properties": {
+        "MFADelete": {
+          "$ref": "#/definitions/MFADelete",
+          "description": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned."
+        },
+        "Status": {
+          "$ref": "#/definitions/BucketVersioningStatus",
+          "description": "The versioning state of the bucket."
+        }
+      },
+      "type": "object",
+      "title": "VersioningConfiguration"
+    },
+    "WebsiteConfiguration": {
+      "properties": {
+        "ErrorDocument": {
+          "$ref": "#/definitions/ErrorDocument"
+        },
+        "IndexDocument": {
+          "$ref": "#/definitions/IndexDocument"
+        },
+        "RedirectAllRequestsTo": {
+          "$ref": "#/definitions/RedirectAllRequestsTo"
+        },
+        "RoutingRules": {
+          "$ref": "#/definitions/RoutingRules"
+        }
+      },
+      "type": "object",
+      "title": "WebsiteConfiguration"
+    },
+    "WebsiteRedirectLocation": {
+      "type": "string",
+      "title": "WebsiteRedirectLocation"
+    }
+  },
+  "actions": [
+    {
+      "id": "ListBuckets",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListBucketsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteBucket",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBucketRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "HeadBucket",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/HeadBucketRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListObjects",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxKeys": {
+            "type": "string"
+          },
+          "Marker": {
+            "type": "string"
+          },
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "array"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteObjectRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteObjectOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetObjectRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "HeadObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/HeadObjectRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HeadObjectOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListParts",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxParts": {
+            "type": "string"
+          },
+          "PartNumberMarker": {
+            "type": "string"
+          },
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListPartsRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListPartsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutObjectRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutObjectOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "UploadPart",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UploadPartRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UploadPartOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "UploadPartCopy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/UploadPartCopyRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UploadPartCopyOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetObjectAcl",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetObjectAclRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectAclOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutObjectAcl",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutObjectAclRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutObjectAclOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "RestoreObject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/RestoreObjectRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RestoreObjectOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteObjectTagging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "array"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteObjectTaggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteObjectTaggingOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetObjectTagging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetObjectTaggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectTaggingOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutObjectTagging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutObjectTaggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutObjectTaggingOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetObjectTorrent",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetObjectTorrentRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectTorrentOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "CreateMultipartUpload",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "array"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateMultipartUploadRequest"
+          }
+        ],
+        "required": [
+          "Bucket",
+          "Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateMultipartUploadOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketAccelerateConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketAccelerateConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketAccelerateConfigurationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketAccelerateConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketAccelerateConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketAcl",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketAclRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketAclOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketAcl",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketAclRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketAnalyticsConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketAnalyticsConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketAnalyticsConfigurationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListBucketAnalyticsConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListBucketAnalyticsConfigurationsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListBucketAnalyticsConfigurationsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketAnalyticsConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketAnalyticsConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketCors",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketCorsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketCorsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketCors",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketCorsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteObjects",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteObjectsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteObjectsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketInventoryConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketInventoryConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketInventoryConfigurationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListBucketInventoryConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListBucketInventoryConfigurationsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListBucketInventoryConfigurationsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketInventoryConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketInventoryConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketLifecycle",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketLifecycleRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketLifecycleOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketLifecycleConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketLifecycleConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketLifecycleConfigurationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketLifecycle",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketLifecycleRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketLifecycleConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketLifecycleConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListObjectsV2",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxKeys": {
+            "type": "string"
+          },
+          "ContinuationToken": {
+            "type": "string"
+          },
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectsV2Request"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectsV2Output"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketLocation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketLocationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketLocationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketLogging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketLoggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketLoggingOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketLogging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketLoggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteBucketMetricsConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBucketMetricsConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketMetricsConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketMetricsConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketMetricsConfigurationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListBucketMetricsConfigurations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListBucketMetricsConfigurationsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListBucketMetricsConfigurationsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketMetricsConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketMetricsConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketNotification",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketNotificationConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NotificationConfigurationDeprecated"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketNotificationConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketNotificationConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NotificationConfiguration"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketNotification",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketNotificationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketNotificationConfiguration",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketNotificationConfigurationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteBucketPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBucketPolicyRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketPolicyRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketPolicyOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketPolicy",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketPolicyRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteBucketReplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBucketReplicationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketReplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketReplicationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketReplicationOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketReplication",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketReplicationRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketRequestPayment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketRequestPaymentRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketRequestPaymentOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketRequestPayment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketRequestPaymentRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteBucketTagging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBucketTaggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketTagging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketTaggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketTaggingOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketTagging",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketTaggingRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListMultipartUploads",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxUploads": {
+            "type": "string"
+          },
+          "KeyMarker": {
+            "type": "string"
+          },
+          "UploadIdMarker": {
+            "type": "string"
+          },
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListMultipartUploadsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListMultipartUploadsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketVersioning",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketVersioningRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketVersioningOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketVersioning",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketVersioningRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "ListObjectVersions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxKeys": {
+            "type": "string"
+          },
+          "KeyMarker": {
+            "type": "string"
+          },
+          "VersionIdMarker": {
+            "type": "string"
+          },
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListObjectVersionsRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListObjectVersionsOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "DeleteBucketWebsite",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteBucketWebsiteRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "GetBucketWebsite",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetBucketWebsiteRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetBucketWebsiteOutput"
+      },
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    },
+    {
+      "id": "PutBucketWebsite",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Bucket": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutBucketWebsiteRequest"
+          }
+        ],
+        "required": [
+          "Bucket"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_s3": {
+          "integration": "amazonaws_s3"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

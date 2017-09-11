@@ -1,0 +1,2609 @@
+{
+  "id": "amazonaws_config",
+  "title": "AWS Config",
+  "description": "AWS Config\n\nAWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an Elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see [Supported AWS Resources](http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources).\n\nYou can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config\n\nThis reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config.\n\nThe AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see [Signature Version 4 Signing Process](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).\n\nFor detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see [What Is AWS Config?](http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) in the _AWS Config Developer Guide_.",
+  "security": {
+    "amazonaws_config": {
+      "integration": "amazonaws_config",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.svg"
+  },
+  "actionCount": 26,
+  "definitions": {
+    "ARN": {
+      "type": "string",
+      "title": "ARN"
+    },
+    "AccountId": {
+      "type": "string",
+      "title": "AccountId"
+    },
+    "AllSupported": {
+      "type": "boolean",
+      "title": "AllSupported"
+    },
+    "AvailabilityZone": {
+      "type": "string",
+      "title": "AvailabilityZone"
+    },
+    "AwsRegion": {
+      "type": "string",
+      "title": "AwsRegion"
+    },
+    "Boolean": {
+      "type": "boolean",
+      "title": "Boolean"
+    },
+    "ChannelName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "ChannelName"
+    },
+    "ChronologicalOrder": {
+      "enum": [
+        "Reverse",
+        "Forward"
+      ],
+      "type": "string",
+      "title": "ChronologicalOrder"
+    },
+    "Compliance": {
+      "description": "Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.",
+      "properties": {
+        "ComplianceContributorCount": {
+          "$ref": "#/definitions/ComplianceContributorCount",
+          "description": "The number of AWS resources or AWS Config rules that cause a result of <code>NON_COMPLIANT</code>, up to a maximum number."
+        },
+        "ComplianceType": {
+          "$ref": "#/definitions/ComplianceType",
+          "description": "<p>Indicates whether an AWS resource or AWS Config rule is compliant.</p> <p>A resource is compliant if it complies with all of the AWS Config rules that evaluate it, and it is noncompliant if it does not comply with one or more of these rules.</p> <p>A rule is compliant if all of the resources that the rule evaluates comply with it, and it is noncompliant if any of these resources do not comply.</p> <p>AWS Config returns the <code>INSUFFICIENT_DATA</code> value when no evaluation results are available for the AWS resource or Config rule.</p> <p>For the <code>Compliance</code> data type, AWS Config supports only <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code> values. AWS Config does not support the <code>NOT_APPLICABLE</code> value for the <code>Compliance</code> data type.</p>"
+        }
+      },
+      "type": "object",
+      "title": "Compliance"
+    },
+    "ComplianceByConfigRule": {
+      "description": "Indicates whether an AWS Config rule is compliant. A rule is compliant if all of the resources that the rule evaluated comply with it, and it is noncompliant if any of these resources do not comply.",
+      "properties": {
+        "Compliance": {
+          "$ref": "#/definitions/Compliance",
+          "description": "Indicates whether the AWS Config rule is compliant."
+        },
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name of the AWS Config rule."
+        }
+      },
+      "type": "object",
+      "title": "ComplianceByConfigRule"
+    },
+    "ComplianceByConfigRules": {
+      "items": {
+        "$ref": "#/definitions/ComplianceByConfigRule"
+      },
+      "type": "array",
+      "title": "ComplianceByConfigRules"
+    },
+    "ComplianceByResource": {
+      "description": "Indicates whether an AWS resource that is evaluated according to one or more AWS Config rules is compliant. A resource is compliant if it complies with all of the rules that evaluate it, and it is noncompliant if it does not comply with one or more of these rules.",
+      "properties": {
+        "Compliance": {
+          "$ref": "#/definitions/Compliance",
+          "description": "Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The ID of the AWS resource that was evaluated."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The type of the AWS resource that was evaluated."
+        }
+      },
+      "type": "object",
+      "title": "ComplianceByResource"
+    },
+    "ComplianceByResources": {
+      "items": {
+        "$ref": "#/definitions/ComplianceByResource"
+      },
+      "type": "array",
+      "title": "ComplianceByResources"
+    },
+    "ComplianceContributorCount": {
+      "description": "The number of AWS resources or AWS Config rules responsible for the current compliance of the item, up to a maximum number.",
+      "properties": {
+        "CapExceeded": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the maximum count is reached."
+        },
+        "CappedCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of AWS resources or AWS Config rules responsible for the current compliance of the item."
+        }
+      },
+      "type": "object",
+      "title": "ComplianceContributorCount"
+    },
+    "ComplianceResourceTypes": {
+      "items": {
+        "$ref": "#/definitions/StringWithCharLimit256"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array",
+      "title": "ComplianceResourceTypes"
+    },
+    "ComplianceSummariesByResourceType": {
+      "items": {
+        "$ref": "#/definitions/ComplianceSummaryByResourceType"
+      },
+      "type": "array",
+      "title": "ComplianceSummariesByResourceType"
+    },
+    "ComplianceSummary": {
+      "description": "The number of AWS Config rules or AWS resources that are compliant and noncompliant.",
+      "properties": {
+        "ComplianceSummaryTimestamp": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that AWS Config created the compliance summary."
+        },
+        "CompliantResourceCount": {
+          "$ref": "#/definitions/ComplianceContributorCount",
+          "description": "The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources."
+        },
+        "NonCompliantResourceCount": {
+          "$ref": "#/definitions/ComplianceContributorCount",
+          "description": "The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources."
+        }
+      },
+      "type": "object",
+      "title": "ComplianceSummary"
+    },
+    "ComplianceSummaryByResourceType": {
+      "description": "The number of AWS resources of a specific type that are compliant or noncompliant, up to a maximum of 100 for each compliance.",
+      "properties": {
+        "ComplianceSummary": {
+          "$ref": "#/definitions/ComplianceSummary",
+          "description": "The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each compliance."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The type of AWS resource."
+        }
+      },
+      "type": "object",
+      "title": "ComplianceSummaryByResourceType"
+    },
+    "ComplianceType": {
+      "enum": [
+        "COMPLIANT",
+        "NON_COMPLIANT",
+        "NOT_APPLICABLE",
+        "INSUFFICIENT_DATA"
+      ],
+      "type": "string",
+      "title": "ComplianceType"
+    },
+    "ComplianceTypes": {
+      "items": {
+        "$ref": "#/definitions/ComplianceType"
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "type": "array",
+      "title": "ComplianceTypes"
+    },
+    "ConfigExportDeliveryInfo": {
+      "description": "A list that contains the status of the delivery of either the snapshot or the configuration history to the specified Amazon S3 bucket.",
+      "properties": {
+        "lastAttemptTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time of the last attempted delivery."
+        },
+        "lastErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The error code from the last attempted delivery."
+        },
+        "lastErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message from the last attempted delivery."
+        },
+        "lastStatus": {
+          "$ref": "#/definitions/DeliveryStatus",
+          "description": "Status of the last attempted delivery."
+        },
+        "lastSuccessfulTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time of the last successful delivery."
+        },
+        "nextDeliveryTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that the next delivery occurs."
+        }
+      },
+      "type": "object",
+      "title": "ConfigExportDeliveryInfo"
+    },
+    "ConfigRule": {
+      "description": "<p>An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).</p> <note> <p>You can use the AWS CLI and AWS SDKs if you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> </note> <p>For more information about developing and using AWS Config rules, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html\">Evaluating AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.</p>",
+      "properties": {
+        "ConfigRuleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the AWS Config rule."
+        },
+        "ConfigRuleId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the AWS Config rule."
+        },
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name that you assign to the AWS Config rule. The name is required if you are adding a new rule."
+        },
+        "ConfigRuleState": {
+          "$ref": "#/definitions/ConfigRuleState",
+          "description": "<p>Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the Config rule.</p> <p>AWS Config sets the state of the rule to <code>EVALUATING</code> temporarily after you use the <code>StartConfigRulesEvaluation</code> request to evaluate your resources against the Config rule.</p> <p>AWS Config sets the state of the rule to <code>DELETING_RESULTS</code> temporarily after you use the <code>DeleteEvaluationResults</code> request to delete the current evaluation results for the Config rule.</p> <p>AWS Config sets the state of a rule to <code>DELETING</code> temporarily after you use the <code>DeleteConfigRule</code> request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.</p>"
+        },
+        "Description": {
+          "$ref": "#/definitions/EmptiableStringWithCharLimit256",
+          "description": "The description that you provide for the AWS Config rule."
+        },
+        "InputParameters": {
+          "$ref": "#/definitions/StringWithCharLimit1024",
+          "description": "A string in JSON format that is passed to the AWS Config rule Lambda function."
+        },
+        "MaximumExecutionFrequency": {
+          "$ref": "#/definitions/MaximumExecutionFrequency",
+          "description": "<p>The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for <code>MaximumExecutionFrequency</code> when:</p> <ul> <li> <p>You are using an AWS managed rule that is triggered at a periodic frequency.</p> </li> <li> <p>Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p> </li> </ul> <note> <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p> </note>"
+        },
+        "Scope": {
+          "$ref": "#/definitions/Scope",
+          "description": "Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes."
+        },
+        "Source": {
+          "$ref": "#/definitions/Source",
+          "description": "Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources."
+        }
+      },
+      "required": [
+        "Source"
+      ],
+      "type": "object",
+      "title": "ConfigRule"
+    },
+    "ConfigRuleEvaluationStatus": {
+      "description": "<p>Status information for your AWS managed Config rules. The status includes information such as the last time the rule ran, the last time it failed, and the related error for the last failure.</p> <p>This action does not return status information about custom Config rules.</p>",
+      "properties": {
+        "ConfigRuleArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the AWS Config rule."
+        },
+        "ConfigRuleId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the AWS Config rule."
+        },
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name of the AWS Config rule."
+        },
+        "FirstActivatedTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that you first activated the AWS Config rule."
+        },
+        "FirstEvaluationStarted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>Indicates whether AWS Config has evaluated your resources against the rule at least once.</p> <ul> <li> <p> <code>true</code> - AWS Config has evaluated your AWS resources against the rule at least once.</p> </li> <li> <p> <code>false</code> - AWS Config has not once finished evaluating your AWS resources against the rule.</p> </li> </ul>"
+        },
+        "LastErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The error code that AWS Config returned when the rule last failed."
+        },
+        "LastErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message that AWS Config returned when the rule last failed."
+        },
+        "LastFailedEvaluationTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that AWS Config last failed to evaluate your AWS resources against the rule."
+        },
+        "LastFailedInvocationTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources."
+        },
+        "LastSuccessfulEvaluationTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that AWS Config last successfully evaluated your AWS resources against the rule."
+        },
+        "LastSuccessfulInvocationTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources."
+        }
+      },
+      "type": "object",
+      "title": "ConfigRuleEvaluationStatus"
+    },
+    "ConfigRuleEvaluationStatusList": {
+      "items": {
+        "$ref": "#/definitions/ConfigRuleEvaluationStatus"
+      },
+      "type": "array",
+      "title": "ConfigRuleEvaluationStatusList"
+    },
+    "ConfigRuleNames": {
+      "items": {
+        "$ref": "#/definitions/StringWithCharLimit64"
+      },
+      "maxItems": 25,
+      "minItems": 0,
+      "type": "array",
+      "title": "ConfigRuleNames"
+    },
+    "ConfigRuleState": {
+      "enum": [
+        "ACTIVE",
+        "DELETING",
+        "DELETING_RESULTS",
+        "EVALUATING"
+      ],
+      "type": "string",
+      "title": "ConfigRuleState"
+    },
+    "ConfigRules": {
+      "items": {
+        "$ref": "#/definitions/ConfigRule"
+      },
+      "type": "array",
+      "title": "ConfigRules"
+    },
+    "ConfigSnapshotDeliveryProperties": {
+      "description": "<p>Provides options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.</p> <note> <p>If you want to create a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot, see the following:</p> </note> <p>The frequency for a rule that triggers evaluations for your resources when AWS Config delivers the configuration snapshot is set by one of two values, depending on which is less frequent:</p> <ul> <li> <p>The value for the <code>deliveryFrequency</code> parameter within the delivery channel configuration, which sets how often AWS Config delivers configuration snapshots. This value also sets how often AWS Config invokes evaluations for Config rules.</p> </li> <li> <p>The value for the <code>MaximumExecutionFrequency</code> parameter, which sets the maximum frequency with which AWS Config invokes evaluations for the rule. For more information, see <a>ConfigRule</a>.</p> </li> </ul> <p>If the <code>deliveryFrequency</code> value is less frequent than the <code>MaximumExecutionFrequency</code> value for a rule, AWS Config invokes the rule only as often as the <code>deliveryFrequency</code> value.</p> <ol> <li> <p>For example, you want your rule to run evaluations when AWS Config delivers the configuration snapshot.</p> </li> <li> <p>You specify the <code>MaximumExecutionFrequency</code> value for <code>Six_Hours</code>. </p> </li> <li> <p>You then specify the delivery channel <code>deliveryFrequency</code> value for <code>TwentyFour_Hours</code>.</p> </li> <li> <p>Because the value for <code>deliveryFrequency</code> is less frequent than <code>MaximumExecutionFrequency</code>, AWS Config invokes evaluations for the rule every 24 hours. </p> </li> </ol> <p>You should set the <code>MaximumExecutionFrequency</code> value to be at least as frequent as the <code>deliveryFrequency</code> value. You can view the <code>deliveryFrequency</code> value by using the <code>DescribeDeliveryChannnels</code> action.</p> <p>To update the <code>deliveryFrequency</code> with which AWS Config delivers your configuration snapshots, use the <code>PutDeliveryChannel</code> action.</p>",
+      "properties": {
+        "deliveryFrequency": {
+          "$ref": "#/definitions/MaximumExecutionFrequency",
+          "description": "The frequency with which AWS Config delivers configuration snapshots."
+        }
+      },
+      "type": "object",
+      "title": "ConfigSnapshotDeliveryProperties"
+    },
+    "ConfigStreamDeliveryInfo": {
+      "description": "A list that contains the status of the delivery of the configuration stream notification to the Amazon SNS topic.",
+      "properties": {
+        "lastErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The error code from the last attempted delivery."
+        },
+        "lastErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message from the last attempted delivery."
+        },
+        "lastStatus": {
+          "$ref": "#/definitions/DeliveryStatus",
+          "description": "<p>Status of the last attempted delivery.</p> <p> <b>Note</b> Providing an SNS topic on a <a href=\"http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html\">DeliveryChannel</a> for AWS Config is optional. If the SNS delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>"
+        },
+        "lastStatusChangeTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time from the last status change."
+        }
+      },
+      "type": "object",
+      "title": "ConfigStreamDeliveryInfo"
+    },
+    "Configuration": {
+      "type": "string",
+      "title": "Configuration"
+    },
+    "ConfigurationItem": {
+      "description": "A list that contains detailed configurations of a specified resource.",
+      "properties": {
+        "accountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The 12 digit AWS account ID associated with the resource."
+        },
+        "arn": {
+          "$ref": "#/definitions/ARN",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "availabilityZone": {
+          "$ref": "#/definitions/AvailabilityZone",
+          "description": "The Availability Zone associated with the resource."
+        },
+        "awsRegion": {
+          "$ref": "#/definitions/AwsRegion",
+          "description": "The region where the resource resides."
+        },
+        "configuration": {
+          "$ref": "#/definitions/Configuration",
+          "description": "The description of the resource configuration."
+        },
+        "configurationItemCaptureTime": {
+          "$ref": "#/definitions/ConfigurationItemCaptureTime",
+          "description": "The time when the configuration recording was initiated."
+        },
+        "configurationItemMD5Hash": {
+          "$ref": "#/definitions/ConfigurationItemMD5Hash",
+          "description": "<p>Unique MD5 hash that represents the configuration item's state.</p> <p>You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.</p>"
+        },
+        "configurationItemStatus": {
+          "$ref": "#/definitions/ConfigurationItemStatus",
+          "description": "The configuration item status."
+        },
+        "configurationStateId": {
+          "$ref": "#/definitions/ConfigurationStateId",
+          "description": "An identifier that indicates the ordering of the configuration items of a resource."
+        },
+        "relatedEvents": {
+          "$ref": "#/definitions/RelatedEventList",
+          "description": "<p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <a href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html\">What is AWS CloudTrail?</a>.</p> <p>An empty field indicates that the current configuration was not initiated by any event.</p>"
+        },
+        "relationships": {
+          "$ref": "#/definitions/RelationshipList",
+          "description": "A list of related AWS resources."
+        },
+        "resourceCreationTime": {
+          "$ref": "#/definitions/ResourceCreationTime",
+          "description": "The time stamp when the resource was created."
+        },
+        "resourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The ID of the resource (for example., <code>sg-xxxxxx</code>)."
+        },
+        "resourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The custom name of the resource, if available."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of AWS resource."
+        },
+        "supplementaryConfiguration": {
+          "$ref": "#/definitions/SupplementaryConfiguration",
+          "description": "Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the <code>configuration</code> parameter."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "A mapping of key value tags associated with the resource."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version number of the resource configuration."
+        }
+      },
+      "type": "object",
+      "title": "ConfigurationItem"
+    },
+    "ConfigurationItemCaptureTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "ConfigurationItemCaptureTime"
+    },
+    "ConfigurationItemList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationItem"
+      },
+      "type": "array",
+      "title": "ConfigurationItemList"
+    },
+    "ConfigurationItemMD5Hash": {
+      "type": "string",
+      "title": "ConfigurationItemMD5Hash"
+    },
+    "ConfigurationItemStatus": {
+      "enum": [
+        "Ok",
+        "Failed",
+        "Discovered",
+        "Deleted"
+      ],
+      "type": "string",
+      "title": "ConfigurationItemStatus"
+    },
+    "ConfigurationRecorder": {
+      "description": "An object that represents the recording of configuration changes of an AWS resource.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/RecorderName",
+          "description": "The name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name."
+        },
+        "recordingGroup": {
+          "$ref": "#/definitions/RecordingGroup",
+          "description": "Specifies the types of AWS resource for which AWS Config records configuration changes."
+        },
+        "roleARN": {
+          "$ref": "#/definitions/String",
+          "description": "Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated with the account."
+        }
+      },
+      "type": "object",
+      "title": "ConfigurationRecorder"
+    },
+    "ConfigurationRecorderList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationRecorder"
+      },
+      "type": "array",
+      "title": "ConfigurationRecorderList"
+    },
+    "ConfigurationRecorderNameList": {
+      "items": {
+        "$ref": "#/definitions/RecorderName"
+      },
+      "type": "array",
+      "title": "ConfigurationRecorderNameList"
+    },
+    "ConfigurationRecorderStatus": {
+      "description": "The current status of the configuration recorder.",
+      "properties": {
+        "lastErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The error code indicating that the recording failed."
+        },
+        "lastErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The message indicating that the recording failed due to an error."
+        },
+        "lastStartTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time the recorder was last started."
+        },
+        "lastStatus": {
+          "$ref": "#/definitions/RecorderStatus",
+          "description": "The last (previous) status of the recorder."
+        },
+        "lastStatusChangeTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time when the status was last changed."
+        },
+        "lastStopTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time the recorder was last stopped."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the configuration recorder."
+        },
+        "recording": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Specifies whether the recorder is currently recording or not."
+        }
+      },
+      "type": "object",
+      "title": "ConfigurationRecorderStatus"
+    },
+    "ConfigurationRecorderStatusList": {
+      "items": {
+        "$ref": "#/definitions/ConfigurationRecorderStatus"
+      },
+      "type": "array",
+      "title": "ConfigurationRecorderStatusList"
+    },
+    "ConfigurationStateId": {
+      "type": "string",
+      "title": "ConfigurationStateId"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Date"
+    },
+    "DeleteConfigRuleRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name of the AWS Config rule that you want to delete."
+        }
+      },
+      "required": [
+        "ConfigRuleName"
+      ],
+      "type": "object",
+      "title": "DeleteConfigRuleRequest"
+    },
+    "DeleteConfigurationRecorderRequest": {
+      "description": "The request object for the <code>DeleteConfigurationRecorder</code> action.",
+      "properties": {
+        "ConfigurationRecorderName": {
+          "$ref": "#/definitions/RecorderName",
+          "description": "The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the <code>DescribeConfigurationRecorders</code> action."
+        }
+      },
+      "required": [
+        "ConfigurationRecorderName"
+      ],
+      "type": "object",
+      "title": "DeleteConfigurationRecorderRequest"
+    },
+    "DeleteDeliveryChannelRequest": {
+      "description": "The input for the <a>DeleteDeliveryChannel</a> action. The action accepts the following data in JSON format. ",
+      "properties": {
+        "DeliveryChannelName": {
+          "$ref": "#/definitions/ChannelName",
+          "description": "The name of the delivery channel to delete."
+        }
+      },
+      "required": [
+        "DeliveryChannelName"
+      ],
+      "type": "object",
+      "title": "DeleteDeliveryChannelRequest"
+    },
+    "DeleteEvaluationResultsRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name of the Config rule for which you want to delete the evaluation results."
+        }
+      },
+      "required": [
+        "ConfigRuleName"
+      ],
+      "type": "object",
+      "title": "DeleteEvaluationResultsRequest"
+    },
+    "DeleteEvaluationResultsResponse": {
+      "description": "The output when you delete the evaluation results for the specified Config rule.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteEvaluationResultsResponse"
+    },
+    "DeliverConfigSnapshotRequest": {
+      "description": "The input for the <a>DeliverConfigSnapshot</a> action.",
+      "properties": {
+        "deliveryChannelName": {
+          "$ref": "#/definitions/ChannelName",
+          "description": "The name of the delivery channel through which the snapshot is delivered."
+        }
+      },
+      "required": [
+        "deliveryChannelName"
+      ],
+      "type": "object",
+      "title": "DeliverConfigSnapshotRequest"
+    },
+    "DeliverConfigSnapshotResponse": {
+      "description": "The output for the <a>DeliverConfigSnapshot</a> action in JSON format.",
+      "properties": {
+        "configSnapshotId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the snapshot that is being created."
+        }
+      },
+      "type": "object",
+      "title": "DeliverConfigSnapshotResponse"
+    },
+    "DeliveryChannel": {
+      "description": "The channel through which AWS Config delivers notifications and updated configuration states.",
+      "properties": {
+        "configSnapshotDeliveryProperties": {
+          "$ref": "#/definitions/ConfigSnapshotDeliveryProperties",
+          "description": "The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket."
+        },
+        "name": {
+          "$ref": "#/definitions/ChannelName",
+          "description": "The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name."
+        },
+        "s3BucketName": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.</p> <p>If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html\">Permissions for the Amazon S3 Bucket</a> in the AWS Config Developer Guide.</p>"
+        },
+        "s3KeyPrefix": {
+          "$ref": "#/definitions/String",
+          "description": "The prefix for the specified Amazon S3 bucket."
+        },
+        "snsTopicARN": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.</p> <p>If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html\">Permissions for the Amazon SNS Topic</a> in the AWS Config Developer Guide.</p>"
+        }
+      },
+      "type": "object",
+      "title": "DeliveryChannel"
+    },
+    "DeliveryChannelList": {
+      "items": {
+        "$ref": "#/definitions/DeliveryChannel"
+      },
+      "type": "array",
+      "title": "DeliveryChannelList"
+    },
+    "DeliveryChannelNameList": {
+      "items": {
+        "$ref": "#/definitions/ChannelName"
+      },
+      "type": "array",
+      "title": "DeliveryChannelNameList"
+    },
+    "DeliveryChannelStatus": {
+      "description": "<p>The status of a specified delivery channel.</p> <p>Valid values: <code>Success</code> | <code>Failure</code> </p>",
+      "properties": {
+        "configHistoryDeliveryInfo": {
+          "$ref": "#/definitions/ConfigExportDeliveryInfo",
+          "description": "A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket."
+        },
+        "configSnapshotDeliveryInfo": {
+          "$ref": "#/definitions/ConfigExportDeliveryInfo",
+          "description": "A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket."
+        },
+        "configStreamDeliveryInfo": {
+          "$ref": "#/definitions/ConfigStreamDeliveryInfo",
+          "description": "A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic."
+        },
+        "name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the delivery channel."
+        }
+      },
+      "type": "object",
+      "title": "DeliveryChannelStatus"
+    },
+    "DeliveryChannelStatusList": {
+      "items": {
+        "$ref": "#/definitions/DeliveryChannelStatus"
+      },
+      "type": "array",
+      "title": "DeliveryChannelStatusList"
+    },
+    "DeliveryStatus": {
+      "enum": [
+        "Success",
+        "Failure",
+        "Not_Applicable"
+      ],
+      "type": "string",
+      "title": "DeliveryStatus"
+    },
+    "DescribeComplianceByConfigRuleRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceTypes": {
+          "$ref": "#/definitions/ComplianceTypes",
+          "description": "<p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>"
+        },
+        "ConfigRuleNames": {
+          "$ref": "#/definitions/ConfigRuleNames",
+          "description": "Specify one or more AWS Config rule names to filter the results by rule."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeComplianceByConfigRuleRequest"
+    },
+    "DescribeComplianceByConfigRuleResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceByConfigRules": {
+          "$ref": "#/definitions/ComplianceByConfigRules",
+          "description": "Indicates whether each of the specified AWS Config rules is compliant."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeComplianceByConfigRuleResponse"
+    },
+    "DescribeComplianceByResourceRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceTypes": {
+          "$ref": "#/definitions/ComplianceTypes",
+          "description": "<p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>"
+        },
+        "Limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for <code>ResourceType</code>."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The types of AWS resources for which you want compliance information; for example, <code>AWS::EC2::Instance</code>. For this action, you can specify that the resource type is an AWS account by specifying <code>AWS::::Account</code>."
+        }
+      },
+      "type": "object",
+      "title": "DescribeComplianceByResourceRequest"
+    },
+    "DescribeComplianceByResourceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceByResources": {
+          "$ref": "#/definitions/ComplianceByResources",
+          "description": "Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeComplianceByResourceResponse"
+    },
+    "DescribeConfigRuleEvaluationStatusRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRuleNames": {
+          "$ref": "#/definitions/ConfigRuleNames",
+          "description": "The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use."
+        },
+        "Limit": {
+          "$ref": "#/definitions/RuleLimit",
+          "description": "<p>The number of rule evaluation results that you want returned.</p> <p>This parameter is required if the rule limit for your account is more than the default of 50 rules.</p> <p>For more information about requesting a rule limit increase, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config\">AWS Config Limits</a> in the <i>AWS General Reference Guide</i>.</p>"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigRuleEvaluationStatusRequest"
+    },
+    "DescribeConfigRuleEvaluationStatusResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRulesEvaluationStatus": {
+          "$ref": "#/definitions/ConfigRuleEvaluationStatusList",
+          "description": "Status information about your AWS managed Config rules."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigRuleEvaluationStatusResponse"
+    },
+    "DescribeConfigRulesRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRuleNames": {
+          "$ref": "#/definitions/ConfigRuleNames",
+          "description": "The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigRulesRequest"
+    },
+    "DescribeConfigRulesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRules": {
+          "$ref": "#/definitions/ConfigRules",
+          "description": "The details about your AWS Config rules."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigRulesResponse"
+    },
+    "DescribeConfigurationRecorderStatusRequest": {
+      "description": "The input for the <a>DescribeConfigurationRecorderStatus</a> action.",
+      "properties": {
+        "ConfigurationRecorderNames": {
+          "$ref": "#/definitions/ConfigurationRecorderNameList",
+          "description": "The name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigurationRecorderStatusRequest"
+    },
+    "DescribeConfigurationRecorderStatusResponse": {
+      "description": "The output for the <a>DescribeConfigurationRecorderStatus</a> action in JSON format.",
+      "properties": {
+        "ConfigurationRecordersStatus": {
+          "$ref": "#/definitions/ConfigurationRecorderStatusList",
+          "description": "A list that contains status of the specified recorders."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigurationRecorderStatusResponse"
+    },
+    "DescribeConfigurationRecordersRequest": {
+      "description": "The input for the <a>DescribeConfigurationRecorders</a> action.",
+      "properties": {
+        "ConfigurationRecorderNames": {
+          "$ref": "#/definitions/ConfigurationRecorderNameList",
+          "description": "A list of configuration recorder names."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigurationRecordersRequest"
+    },
+    "DescribeConfigurationRecordersResponse": {
+      "description": "The output for the <a>DescribeConfigurationRecorders</a> action.",
+      "properties": {
+        "ConfigurationRecorders": {
+          "$ref": "#/definitions/ConfigurationRecorderList",
+          "description": "A list that contains the descriptions of the specified configuration recorders."
+        }
+      },
+      "type": "object",
+      "title": "DescribeConfigurationRecordersResponse"
+    },
+    "DescribeDeliveryChannelStatusRequest": {
+      "description": "The input for the <a>DeliveryChannelStatus</a> action.",
+      "properties": {
+        "DeliveryChannelNames": {
+          "$ref": "#/definitions/DeliveryChannelNameList",
+          "description": "A list of delivery channel names."
+        }
+      },
+      "type": "object",
+      "title": "DescribeDeliveryChannelStatusRequest"
+    },
+    "DescribeDeliveryChannelStatusResponse": {
+      "description": "The output for the <a>DescribeDeliveryChannelStatus</a> action.",
+      "properties": {
+        "DeliveryChannelsStatus": {
+          "$ref": "#/definitions/DeliveryChannelStatusList",
+          "description": "A list that contains the status of a specified delivery channel."
+        }
+      },
+      "type": "object",
+      "title": "DescribeDeliveryChannelStatusResponse"
+    },
+    "DescribeDeliveryChannelsRequest": {
+      "description": "The input for the <a>DescribeDeliveryChannels</a> action.",
+      "properties": {
+        "DeliveryChannelNames": {
+          "$ref": "#/definitions/DeliveryChannelNameList",
+          "description": "A list of delivery channel names."
+        }
+      },
+      "type": "object",
+      "title": "DescribeDeliveryChannelsRequest"
+    },
+    "DescribeDeliveryChannelsResponse": {
+      "description": "The output for the <a>DescribeDeliveryChannels</a> action.",
+      "properties": {
+        "DeliveryChannels": {
+          "$ref": "#/definitions/DeliveryChannelList",
+          "description": "A list that contains the descriptions of the specified delivery channel."
+        }
+      },
+      "type": "object",
+      "title": "DescribeDeliveryChannelsResponse"
+    },
+    "EarlierTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "EarlierTime"
+    },
+    "EmptiableStringWithCharLimit256": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "EmptiableStringWithCharLimit256"
+    },
+    "Evaluation": {
+      "description": "Identifies an AWS resource and indicates whether it complies with the AWS Config rule that it was evaluated against.",
+      "properties": {
+        "Annotation": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "Supplementary information about how the evaluation determined the compliance."
+        },
+        "ComplianceResourceId": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The ID of the AWS resource that was evaluated."
+        },
+        "ComplianceResourceType": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The type of AWS resource that was evaluated."
+        },
+        "ComplianceType": {
+          "$ref": "#/definitions/ComplianceType",
+          "description": "<p>Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against.</p> <p>For the <code>Evaluation</code> data type, AWS Config supports only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values. AWS Config does not support the <code>INSUFFICIENT_DATA</code> value for this data type.</p> <p>Similarly, AWS Config does not accept <code>INSUFFICIENT_DATA</code> as the value for <code>ComplianceType</code> from a <code>PutEvaluations</code> request. For example, an AWS Lambda function for a custom Config rule cannot pass an <code>INSUFFICIENT_DATA</code> value to AWS Config.</p>"
+        },
+        "OrderingTimestamp": {
+          "$ref": "#/definitions/OrderingTimestamp",
+          "description": "The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours)."
+        }
+      },
+      "required": [
+        "ComplianceResourceType",
+        "ComplianceResourceId",
+        "ComplianceType",
+        "OrderingTimestamp"
+      ],
+      "type": "object",
+      "title": "Evaluation"
+    },
+    "EvaluationResult": {
+      "description": "The details of an AWS Config evaluation. Provides the AWS resource that was evaluated, the compliance of the resource, related timestamps, and supplementary information.",
+      "properties": {
+        "Annotation": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "Supplementary information about how the evaluation determined the compliance."
+        },
+        "ComplianceType": {
+          "$ref": "#/definitions/ComplianceType",
+          "description": "<p>Indicates whether the AWS resource complies with the AWS Config rule that evaluated it.</p> <p>For the <code>EvaluationResult</code> data type, AWS Config supports only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values. AWS Config does not support the <code>INSUFFICIENT_DATA</code> value for the <code>EvaluationResult</code> data type.</p>"
+        },
+        "ConfigRuleInvokedTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time when the AWS Config rule evaluated the AWS resource."
+        },
+        "EvaluationResultIdentifier": {
+          "$ref": "#/definitions/EvaluationResultIdentifier",
+          "description": "Uniquely identifies the evaluation result."
+        },
+        "ResultRecordedTime": {
+          "$ref": "#/definitions/Date",
+          "description": "The time when AWS Config recorded the evaluation result."
+        },
+        "ResultToken": {
+          "$ref": "#/definitions/String",
+          "description": "An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation."
+        }
+      },
+      "type": "object",
+      "title": "EvaluationResult"
+    },
+    "EvaluationResultIdentifier": {
+      "description": "Uniquely identifies an evaluation result.",
+      "properties": {
+        "EvaluationResultQualifier": {
+          "$ref": "#/definitions/EvaluationResultQualifier",
+          "description": "Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource."
+        },
+        "OrderingTimestamp": {
+          "$ref": "#/definitions/Date",
+          "description": "The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation."
+        }
+      },
+      "type": "object",
+      "title": "EvaluationResultIdentifier"
+    },
+    "EvaluationResultQualifier": {
+      "description": "Identifies an AWS Config rule that evaluated an AWS resource, and provides the type and ID of the resource that the rule evaluated.",
+      "properties": {
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name of the AWS Config rule that was used in the evaluation."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The ID of the evaluated AWS resource."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The type of AWS resource that was evaluated."
+        }
+      },
+      "type": "object",
+      "title": "EvaluationResultQualifier"
+    },
+    "EvaluationResults": {
+      "items": {
+        "$ref": "#/definitions/EvaluationResult"
+      },
+      "type": "array",
+      "title": "EvaluationResults"
+    },
+    "Evaluations": {
+      "items": {
+        "$ref": "#/definitions/Evaluation"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array",
+      "title": "Evaluations"
+    },
+    "EventSource": {
+      "enum": [
+        "aws.config"
+      ],
+      "type": "string",
+      "title": "EventSource"
+    },
+    "GetComplianceDetailsByConfigRuleRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceTypes": {
+          "$ref": "#/definitions/ComplianceTypes",
+          "description": "<p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code>.</p>"
+        },
+        "ConfigRuleName": {
+          "$ref": "#/definitions/StringWithCharLimit64",
+          "description": "The name of the AWS Config rule for which you want compliance information."
+        },
+        "Limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        }
+      },
+      "required": [
+        "ConfigRuleName"
+      ],
+      "type": "object",
+      "title": "GetComplianceDetailsByConfigRuleRequest"
+    },
+    "GetComplianceDetailsByConfigRuleResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EvaluationResults": {
+          "$ref": "#/definitions/EvaluationResults",
+          "description": "Indicates whether the AWS resource complies with the specified AWS Config rule."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "GetComplianceDetailsByConfigRuleResponse"
+    },
+    "GetComplianceDetailsByResourceRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceTypes": {
+          "$ref": "#/definitions/ComplianceTypes",
+          "description": "<p>Filters the results by compliance.</p> <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code>.</p>"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The ID of the AWS resource for which you want compliance information."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The type of the AWS resource for which you want compliance information."
+        }
+      },
+      "required": [
+        "ResourceType",
+        "ResourceId"
+      ],
+      "type": "object",
+      "title": "GetComplianceDetailsByResourceRequest"
+    },
+    "GetComplianceDetailsByResourceResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EvaluationResults": {
+          "$ref": "#/definitions/EvaluationResults",
+          "description": "Indicates whether the specified AWS resource complies each AWS Config rule."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "GetComplianceDetailsByResourceResponse"
+    },
+    "GetComplianceSummaryByConfigRuleResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceSummary": {
+          "$ref": "#/definitions/ComplianceSummary",
+          "description": "The number of AWS Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each."
+        }
+      },
+      "type": "object",
+      "title": "GetComplianceSummaryByConfigRuleResponse"
+    },
+    "GetComplianceSummaryByResourceTypeRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ResourceTypes": {
+          "$ref": "#/definitions/ResourceTypes",
+          "description": "<p>Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.</p> <p>For this request, you can specify an AWS resource type such as <code>AWS::EC2::Instance</code>, and you can specify that the resource type is an AWS account by specifying <code>AWS::::Account</code>.</p>"
+        }
+      },
+      "type": "object",
+      "title": "GetComplianceSummaryByResourceTypeRequest"
+    },
+    "GetComplianceSummaryByResourceTypeResponse": {
+      "description": "<p/>",
+      "properties": {
+        "ComplianceSummariesByResourceType": {
+          "$ref": "#/definitions/ComplianceSummariesByResourceType",
+          "description": "The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100."
+        }
+      },
+      "type": "object",
+      "title": "GetComplianceSummaryByResourceTypeResponse"
+    },
+    "GetResourceConfigHistoryRequest": {
+      "description": "The input for the <a>GetResourceConfigHistory</a> action.",
+      "properties": {
+        "chronologicalOrder": {
+          "$ref": "#/definitions/ChronologicalOrder",
+          "description": "The chronological order for configuration items listed. By default the results are listed in reverse chronological order."
+        },
+        "earlierTime": {
+          "$ref": "#/definitions/EarlierTime",
+          "description": "The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start from when the first configuration item was recorded."
+        },
+        "laterTime": {
+          "$ref": "#/definitions/LaterTime",
+          "description": "The time stamp that indicates a later time. If not specified, current time is taken."
+        },
+        "limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of configuration items returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        },
+        "resourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The ID of the resource (for example., <code>sg-xxxxxx</code>)."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type."
+        }
+      },
+      "required": [
+        "resourceType",
+        "resourceId"
+      ],
+      "type": "object",
+      "title": "GetResourceConfigHistoryRequest"
+    },
+    "GetResourceConfigHistoryResponse": {
+      "description": "The output for the <a>GetResourceConfigHistory</a> action.",
+      "properties": {
+        "configurationItems": {
+          "$ref": "#/definitions/ConfigurationItemList",
+          "description": "A list that contains the configuration history of one or more resources."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        }
+      },
+      "type": "object",
+      "title": "GetResourceConfigHistoryResponse"
+    },
+    "IncludeGlobalResourceTypes": {
+      "type": "boolean",
+      "title": "IncludeGlobalResourceTypes"
+    },
+    "InsufficientDeliveryPolicyException": {
+      "description": "Your Amazon S3 bucket policy does not permit AWS Config to write to it.",
+      "properties": {},
+      "type": "object",
+      "title": "InsufficientDeliveryPolicyException"
+    },
+    "InsufficientPermissionsException": {
+      "description": "<p>Indicates one of the following errors:</p> <ul> <li> <p>The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.</p> </li> <li> <p>The AWS Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p> </li> </ul>",
+      "properties": {},
+      "type": "object",
+      "title": "InsufficientPermissionsException"
+    },
+    "Integer": {
+      "type": "integer",
+      "title": "Integer"
+    },
+    "InvalidConfigurationRecorderNameException": {
+      "description": "You have provided a configuration recorder name that is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidConfigurationRecorderNameException"
+    },
+    "InvalidDeliveryChannelNameException": {
+      "description": "The specified delivery channel name is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidDeliveryChannelNameException"
+    },
+    "InvalidLimitException": {
+      "description": "The specified limit is outside the allowable range.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidLimitException"
+    },
+    "InvalidNextTokenException": {
+      "description": "The specified next token is invalid. Specify the <code>NextToken</code> string that was returned in the previous response to get the next page of results.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidNextTokenException"
+    },
+    "InvalidParameterValueException": {
+      "description": "One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidParameterValueException"
+    },
+    "InvalidRecordingGroupException": {
+      "description": "AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values could also be incorrectly formatted.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidRecordingGroupException"
+    },
+    "InvalidResultTokenException": {
+      "description": "The specified <code>ResultToken</code> is invalid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidResultTokenException"
+    },
+    "InvalidRoleException": {
+      "description": "You have provided a null or empty role ARN.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidRoleException"
+    },
+    "InvalidS3KeyPrefixException": {
+      "description": "The specified Amazon S3 key prefix is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidS3KeyPrefixException"
+    },
+    "InvalidSNSTopicARNException": {
+      "description": "The specified Amazon SNS topic does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidSNSTopicARNException"
+    },
+    "InvalidTimeRangeException": {
+      "description": "The specified time range is not valid. The earlier time is not chronologically before the later time.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidTimeRangeException"
+    },
+    "LastDeliveryChannelDeleteFailedException": {
+      "description": "You cannot delete the delivery channel you specified because the configuration recorder is running.",
+      "properties": {},
+      "type": "object",
+      "title": "LastDeliveryChannelDeleteFailedException"
+    },
+    "LaterTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "LaterTime"
+    },
+    "Limit": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer",
+      "title": "Limit"
+    },
+    "LimitExceededException": {
+      "description": "This exception is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per minute.",
+      "properties": {},
+      "type": "object",
+      "title": "LimitExceededException"
+    },
+    "ListDiscoveredResourcesRequest": {
+      "description": "<p/>",
+      "properties": {
+        "includeDeletedResources": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Specifies whether AWS Config includes deleted resources in the results. By default, deleted resources are not included."
+        },
+        "limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        },
+        "resourceIds": {
+          "$ref": "#/definitions/ResourceIdList",
+          "description": "The IDs of only those resources that you want AWS Config to list in the response. If you do not specify this parameter, AWS Config lists all resources of the specified type that it has discovered."
+        },
+        "resourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The custom name of only those resources that you want AWS Config to list in the response. If you do not specify this parameter, AWS Config lists all resources of the specified type that it has discovered."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resources that you want AWS Config to list in the response."
+        }
+      },
+      "required": [
+        "resourceType"
+      ],
+      "type": "object",
+      "title": "ListDiscoveredResourcesRequest"
+    },
+    "ListDiscoveredResourcesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        },
+        "resourceIdentifiers": {
+          "$ref": "#/definitions/ResourceIdentifierList",
+          "description": "The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name."
+        }
+      },
+      "type": "object",
+      "title": "ListDiscoveredResourcesResponse"
+    },
+    "MaxNumberOfConfigRulesExceededException": {
+      "description": "Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before adding new rules.",
+      "properties": {},
+      "type": "object",
+      "title": "MaxNumberOfConfigRulesExceededException"
+    },
+    "MaxNumberOfConfigurationRecordersExceededException": {
+      "description": "You have reached the limit on the number of recorders you can create.",
+      "properties": {},
+      "type": "object",
+      "title": "MaxNumberOfConfigurationRecordersExceededException"
+    },
+    "MaxNumberOfDeliveryChannelsExceededException": {
+      "description": "You have reached the limit on the number of delivery channels you can create.",
+      "properties": {},
+      "type": "object",
+      "title": "MaxNumberOfDeliveryChannelsExceededException"
+    },
+    "MaximumExecutionFrequency": {
+      "enum": [
+        "One_Hour",
+        "Three_Hours",
+        "Six_Hours",
+        "Twelve_Hours",
+        "TwentyFour_Hours"
+      ],
+      "type": "string",
+      "title": "MaximumExecutionFrequency"
+    },
+    "MessageType": {
+      "enum": [
+        "ConfigurationItemChangeNotification",
+        "ConfigurationSnapshotDeliveryCompleted",
+        "ScheduledNotification",
+        "OversizedConfigurationItemChangeNotification"
+      ],
+      "type": "string",
+      "title": "MessageType"
+    },
+    "Name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "NextToken": {
+      "type": "string",
+      "title": "NextToken"
+    },
+    "NoAvailableConfigurationRecorderException": {
+      "description": "There are no configuration recorders available to provide the role needed to describe your resources. Create a configuration recorder.",
+      "properties": {},
+      "type": "object",
+      "title": "NoAvailableConfigurationRecorderException"
+    },
+    "NoAvailableDeliveryChannelException": {
+      "description": "There is no delivery channel available to record configurations.",
+      "properties": {},
+      "type": "object",
+      "title": "NoAvailableDeliveryChannelException"
+    },
+    "NoRunningConfigurationRecorderException": {
+      "description": "There is no configuration recorder running.",
+      "properties": {},
+      "type": "object",
+      "title": "NoRunningConfigurationRecorderException"
+    },
+    "NoSuchBucketException": {
+      "description": "The specified Amazon S3 bucket does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchBucketException"
+    },
+    "NoSuchConfigRuleException": {
+      "description": "One or more AWS Config rules in the request are invalid. Verify that the rule names are correct and try again.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchConfigRuleException"
+    },
+    "NoSuchConfigurationRecorderException": {
+      "description": "You have specified a configuration recorder that does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchConfigurationRecorderException"
+    },
+    "NoSuchDeliveryChannelException": {
+      "description": "You have specified a delivery channel that does not exist.",
+      "properties": {},
+      "type": "object",
+      "title": "NoSuchDeliveryChannelException"
+    },
+    "OrderingTimestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "OrderingTimestamp"
+    },
+    "Owner": {
+      "enum": [
+        "CUSTOM_LAMBDA",
+        "AWS"
+      ],
+      "type": "string",
+      "title": "Owner"
+    },
+    "PutConfigRuleRequest": {
+      "properties": {
+        "ConfigRule": {
+          "$ref": "#/definitions/ConfigRule",
+          "description": "The rule that you want to add to your account."
+        }
+      },
+      "required": [
+        "ConfigRule"
+      ],
+      "type": "object",
+      "title": "PutConfigRuleRequest"
+    },
+    "PutConfigurationRecorderRequest": {
+      "description": "The input for the <a>PutConfigurationRecorder</a> action.",
+      "properties": {
+        "ConfigurationRecorder": {
+          "$ref": "#/definitions/ConfigurationRecorder",
+          "description": "The configuration recorder object that records each configuration change made to the resources."
+        }
+      },
+      "required": [
+        "ConfigurationRecorder"
+      ],
+      "type": "object",
+      "title": "PutConfigurationRecorderRequest"
+    },
+    "PutDeliveryChannelRequest": {
+      "description": "The input for the <a>PutDeliveryChannel</a> action.",
+      "properties": {
+        "DeliveryChannel": {
+          "$ref": "#/definitions/DeliveryChannel",
+          "description": "The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic."
+        }
+      },
+      "required": [
+        "DeliveryChannel"
+      ],
+      "type": "object",
+      "title": "PutDeliveryChannelRequest"
+    },
+    "PutEvaluationsRequest": {
+      "description": "<p/>",
+      "properties": {
+        "Evaluations": {
+          "$ref": "#/definitions/Evaluations",
+          "description": "The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function."
+        },
+        "ResultToken": {
+          "$ref": "#/definitions/String",
+          "description": "An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation"
+        },
+        "TestMode": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>Use this parameter to specify a test run for <code>PutEvaluations</code>. You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.</p> <note> <p>When <code>TestMode</code> is <code>true</code>, <code>PutEvaluations</code> doesn't require a valid value for the <code>ResultToken</code> parameter, but the value cannot be null.</p> </note>"
+        }
+      },
+      "required": [
+        "ResultToken"
+      ],
+      "type": "object",
+      "title": "PutEvaluationsRequest"
+    },
+    "PutEvaluationsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "FailedEvaluations": {
+          "$ref": "#/definitions/Evaluations",
+          "description": "Requests that failed because of a client or server error."
+        }
+      },
+      "type": "object",
+      "title": "PutEvaluationsResponse"
+    },
+    "RecorderName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "RecorderName"
+    },
+    "RecorderStatus": {
+      "enum": [
+        "Pending",
+        "Success",
+        "Failure"
+      ],
+      "type": "string",
+      "title": "RecorderStatus"
+    },
+    "RecordingGroup": {
+      "description": "<p>Specifies the types of AWS resource for which AWS Config records configuration changes.</p> <p>In the recording group, you specify whether all supported types or specific types of resources are recorded.</p> <p>By default, AWS Config records configuration changes for all supported types of regional resources that AWS Config discovers in the region in which it is running. Regional resources are tied to a region and can be used only in that region. Examples of regional resources are EC2 instances and EBS volumes.</p> <p>You can also have AWS Config record configuration changes for supported types of global resources (for example, IAM resources). Global resources are not tied to an individual region and can be used in all regions.</p> <important> <p>The configuration details for any global resource are the same in all regions. If you customize AWS Config in multiple regions to record global resources, it will create multiple configuration items each time a global resource changes: one configuration item for each region. These configuration items will contain identical data. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources, unless you want the configuration items to be available in multiple regions.</p> </important> <p>If you don't want AWS Config to record all resources, you can specify which types of resources it will record with the <code>resourceTypes</code> parameter.</p> <p>For a list of supported resource types, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources\">Supported resource types</a>.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html\">Selecting Which Resources AWS Config Records</a>.</p>",
+      "properties": {
+        "allSupported": {
+          "$ref": "#/definitions/AllSupported",
+          "description": "<p>Specifies whether AWS Config records configuration changes for every supported type of regional resource.</p> <p>If you set this option to <code>true</code>, when AWS Config adds support for a new type of regional resource, it automatically starts recording resources of that type.</p> <p>If you set this option to <code>true</code>, you cannot enumerate a list of <code>resourceTypes</code>.</p>"
+        },
+        "includeGlobalResourceTypes": {
+          "$ref": "#/definitions/IncludeGlobalResourceTypes",
+          "description": "<p>Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records.</p> <p>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code> option to <code>true</code>.</p> <p>If you set this option to <code>true</code>, when AWS Config adds support for a new type of global resource, it automatically starts recording resources of that type.</p> <p>The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.</p>"
+        },
+        "resourceTypes": {
+          "$ref": "#/definitions/ResourceTypeList",
+          "description": "<p>A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, <code>AWS::EC2::Instance</code> or <code>AWS::CloudTrail::Trail</code>).</p> <p>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code> option to <code>false</code>.</p> <p>If you set this option to <code>true</code>, when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.</p> <p>For a list of valid <code>resourceTypes</code> values, see the <b>resourceType Value</b> column in <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources\">Supported AWS Resource Types</a>.</p>"
+        }
+      },
+      "type": "object",
+      "title": "RecordingGroup"
+    },
+    "ReevaluateConfigRuleNames": {
+      "items": {
+        "$ref": "#/definitions/StringWithCharLimit64"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array",
+      "title": "ReevaluateConfigRuleNames"
+    },
+    "RelatedEvent": {
+      "type": "string",
+      "title": "RelatedEvent"
+    },
+    "RelatedEventList": {
+      "items": {
+        "$ref": "#/definitions/RelatedEvent"
+      },
+      "type": "array",
+      "title": "RelatedEventList"
+    },
+    "Relationship": {
+      "description": "The relationship of the related resource to the main resource.",
+      "properties": {
+        "relationshipName": {
+          "$ref": "#/definitions/RelationshipName",
+          "description": "The type of relationship with the related resource."
+        },
+        "resourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The ID of the related resource (for example, <code>sg-xxxxxx</code>)."
+        },
+        "resourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The custom name of the related resource, if available."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type of the related resource."
+        }
+      },
+      "type": "object",
+      "title": "Relationship"
+    },
+    "RelationshipList": {
+      "items": {
+        "$ref": "#/definitions/Relationship"
+      },
+      "type": "array",
+      "title": "RelationshipList"
+    },
+    "RelationshipName": {
+      "type": "string",
+      "title": "RelationshipName"
+    },
+    "ResourceCreationTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "ResourceCreationTime"
+    },
+    "ResourceDeletionTime": {
+      "format": "date-time",
+      "type": "string",
+      "title": "ResourceDeletionTime"
+    },
+    "ResourceId": {
+      "type": "string",
+      "title": "ResourceId"
+    },
+    "ResourceIdList": {
+      "items": {
+        "$ref": "#/definitions/ResourceId"
+      },
+      "type": "array",
+      "title": "ResourceIdList"
+    },
+    "ResourceIdentifier": {
+      "description": "The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.",
+      "properties": {
+        "resourceDeletionTime": {
+          "$ref": "#/definitions/ResourceDeletionTime",
+          "description": "The time that the resource was deleted."
+        },
+        "resourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The ID of the resource (for example., <code>sg-xxxxxx</code>)."
+        },
+        "resourceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The custom name of the resource (if available)."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource."
+        }
+      },
+      "type": "object",
+      "title": "ResourceIdentifier"
+    },
+    "ResourceIdentifierList": {
+      "items": {
+        "$ref": "#/definitions/ResourceIdentifier"
+      },
+      "type": "array",
+      "title": "ResourceIdentifierList"
+    },
+    "ResourceInUseException": {
+      "description": "The rule is currently being deleted or the rule is deleting your evaluation results. Try your request again later.",
+      "properties": {},
+      "type": "object",
+      "title": "ResourceInUseException"
+    },
+    "ResourceName": {
+      "type": "string",
+      "title": "ResourceName"
+    },
+    "ResourceNotDiscoveredException": {
+      "description": "You have specified a resource that is either unknown or has not been discovered.",
+      "properties": {},
+      "type": "object",
+      "title": "ResourceNotDiscoveredException"
+    },
+    "ResourceType": {
+      "enum": [
+        "AWS::EC2::CustomerGateway",
+        "AWS::EC2::EIP",
+        "AWS::EC2::Host",
+        "AWS::EC2::Instance",
+        "AWS::EC2::InternetGateway",
+        "AWS::EC2::NetworkAcl",
+        "AWS::EC2::NetworkInterface",
+        "AWS::EC2::RouteTable",
+        "AWS::EC2::SecurityGroup",
+        "AWS::EC2::Subnet",
+        "AWS::CloudTrail::Trail",
+        "AWS::EC2::Volume",
+        "AWS::EC2::VPC",
+        "AWS::EC2::VPNConnection",
+        "AWS::EC2::VPNGateway",
+        "AWS::IAM::Group",
+        "AWS::IAM::Policy",
+        "AWS::IAM::Role",
+        "AWS::IAM::User",
+        "AWS::ACM::Certificate",
+        "AWS::RDS::DBInstance",
+        "AWS::RDS::DBSubnetGroup",
+        "AWS::RDS::DBSecurityGroup",
+        "AWS::RDS::DBSnapshot",
+        "AWS::RDS::EventSubscription",
+        "AWS::ElasticLoadBalancingV2::LoadBalancer",
+        "AWS::S3::Bucket",
+        "AWS::SSM::ManagedInstanceInventory",
+        "AWS::Redshift::Cluster",
+        "AWS::Redshift::ClusterSnapshot",
+        "AWS::Redshift::ClusterParameterGroup",
+        "AWS::Redshift::ClusterSecurityGroup",
+        "AWS::Redshift::ClusterSubnetGroup",
+        "AWS::Redshift::EventSubscription"
+      ],
+      "type": "string",
+      "title": "ResourceType"
+    },
+    "ResourceTypeList": {
+      "items": {
+        "$ref": "#/definitions/ResourceType"
+      },
+      "type": "array",
+      "title": "ResourceTypeList"
+    },
+    "ResourceTypes": {
+      "items": {
+        "$ref": "#/definitions/StringWithCharLimit256"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array",
+      "title": "ResourceTypes"
+    },
+    "RuleLimit": {
+      "maximum": 50,
+      "minimum": 0,
+      "type": "integer",
+      "title": "RuleLimit"
+    },
+    "Scope": {
+      "description": "Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.",
+      "properties": {
+        "ComplianceResourceId": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>."
+        },
+        "ComplianceResourceTypes": {
+          "$ref": "#/definitions/ComplianceResourceTypes",
+          "description": "The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for <code>ComplianceResourceId</code>."
+        },
+        "TagKey": {
+          "$ref": "#/definitions/StringWithCharLimit128",
+          "description": "The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule."
+        },
+        "TagValue": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for <code>TagValue</code>, you must also specify a value for <code>TagKey</code>."
+        }
+      },
+      "type": "object",
+      "title": "Scope"
+    },
+    "Source": {
+      "description": "Provides the AWS Config rule owner (AWS or customer), the rule identifier, and the events that trigger the evaluation of your AWS resources.",
+      "properties": {
+        "Owner": {
+          "$ref": "#/definitions/Owner",
+          "description": "Indicates whether AWS or the customer owns and manages the AWS Config rule."
+        },
+        "SourceDetails": {
+          "$ref": "#/definitions/SourceDetails",
+          "description": "Provides the source and type of the event that causes AWS Config to evaluate your AWS resources."
+        },
+        "SourceIdentifier": {
+          "$ref": "#/definitions/StringWithCharLimit256",
+          "description": "<p>For AWS Config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">Using AWS Managed Config Rules</a>.</p> <p>For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as <code>arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name</code>.</p>"
+        }
+      },
+      "required": [
+        "Owner",
+        "SourceIdentifier"
+      ],
+      "type": "object",
+      "title": "Source"
+    },
+    "SourceDetail": {
+      "description": "Provides the source and the message types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for <code>SourceDetail</code> only for custom rules. ",
+      "properties": {
+        "EventSource": {
+          "$ref": "#/definitions/EventSource",
+          "description": "The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources."
+        },
+        "MaximumExecutionFrequency": {
+          "$ref": "#/definitions/MaximumExecutionFrequency",
+          "description": "<p>The frequency that you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for <code>MaximumExecutionFrequency</code>, then <code>MessageType</code> must use the <code>ScheduledNotification</code> value.</p> <note> <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</p> </note>"
+        },
+        "MessageType": {
+          "$ref": "#/definitions/MessageType",
+          "description": "<p>The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:</p> <ul> <li> <p> <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.</p> </li> <li> <p> <code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p> </li> <li> <p> <code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency specified for <code>MaximumExecutionFrequency</code>.</p> </li> <li> <p> <code>ConfigurationSnapshotDeliveryCompleted</code> - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.</p> </li> </ul> <p>If you want your custom rule to be triggered by configuration changes, specify both <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>. </p>"
+        }
+      },
+      "type": "object",
+      "title": "SourceDetail"
+    },
+    "SourceDetails": {
+      "items": {
+        "$ref": "#/definitions/SourceDetail"
+      },
+      "maxItems": 25,
+      "minItems": 0,
+      "type": "array",
+      "title": "SourceDetails"
+    },
+    "StartConfigRulesEvaluationRequest": {
+      "description": "<p/>",
+      "properties": {
+        "ConfigRuleNames": {
+          "$ref": "#/definitions/ReevaluateConfigRuleNames",
+          "description": "The list of names of Config rules that you want to run evaluations for."
+        }
+      },
+      "type": "object",
+      "title": "StartConfigRulesEvaluationRequest"
+    },
+    "StartConfigRulesEvaluationResponse": {
+      "description": "The output when you start the evaluation for the specified Config rule.",
+      "properties": {},
+      "type": "object",
+      "title": "StartConfigRulesEvaluationResponse"
+    },
+    "StartConfigurationRecorderRequest": {
+      "description": "The input for the <a>StartConfigurationRecorder</a> action.",
+      "properties": {
+        "ConfigurationRecorderName": {
+          "$ref": "#/definitions/RecorderName",
+          "description": "The name of the recorder object that records each configuration change made to the resources."
+        }
+      },
+      "required": [
+        "ConfigurationRecorderName"
+      ],
+      "type": "object",
+      "title": "StartConfigurationRecorderRequest"
+    },
+    "StopConfigurationRecorderRequest": {
+      "description": "The input for the <a>StopConfigurationRecorder</a> action.",
+      "properties": {
+        "ConfigurationRecorderName": {
+          "$ref": "#/definitions/RecorderName",
+          "description": "The name of the recorder object that records each configuration change made to the resources."
+        }
+      },
+      "required": [
+        "ConfigurationRecorderName"
+      ],
+      "type": "object",
+      "title": "StopConfigurationRecorderRequest"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "StringWithCharLimit1024": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string",
+      "title": "StringWithCharLimit1024"
+    },
+    "StringWithCharLimit128": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string",
+      "title": "StringWithCharLimit128"
+    },
+    "StringWithCharLimit256": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "StringWithCharLimit256"
+    },
+    "StringWithCharLimit64": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string",
+      "title": "StringWithCharLimit64"
+    },
+    "SupplementaryConfiguration": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/SupplementaryConfigurationName"
+          },
+          "value": {
+            "$ref": "#/definitions/SupplementaryConfigurationValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "SupplementaryConfiguration"
+    },
+    "SupplementaryConfigurationName": {
+      "type": "string",
+      "title": "SupplementaryConfigurationName"
+    },
+    "SupplementaryConfigurationValue": {
+      "type": "string",
+      "title": "SupplementaryConfigurationValue"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/Name"
+          },
+          "value": {
+            "$ref": "#/definitions/Value"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
+    "ValidationException": {
+      "description": "The requested action is not valid.",
+      "properties": {},
+      "type": "object",
+      "title": "ValidationException"
+    },
+    "Value": {
+      "type": "string",
+      "title": "Value"
+    },
+    "Version": {
+      "type": "string",
+      "title": "Version"
+    }
+  },
+  "actions": [
+    {
+      "id": "DeleteConfigRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteConfigRuleRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DeleteConfigurationRecorder",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteConfigurationRecorderRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DeleteDeliveryChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteDeliveryChannelRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DeleteEvaluationResults",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteEvaluationResultsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteEvaluationResultsResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DeliverConfigSnapshot",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeliverConfigSnapshotRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeliverConfigSnapshotResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeComplianceByConfigRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeComplianceByConfigRuleRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeComplianceByConfigRuleResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeComplianceByResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeComplianceByResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeComplianceByResourceResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigRuleEvaluationStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigRuleEvaluationStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConfigRuleEvaluationStatusResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigRules",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigRulesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConfigRulesResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigurationRecorderStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigurationRecorderStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConfigurationRecorderStatusResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeConfigurationRecorders",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeConfigurationRecordersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeConfigurationRecordersResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeDeliveryChannelStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeDeliveryChannelStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDeliveryChannelStatusResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "DescribeDeliveryChannels",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeDeliveryChannelsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDeliveryChannelsResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "GetComplianceDetailsByConfigRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetComplianceDetailsByConfigRuleRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetComplianceDetailsByConfigRuleResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "GetComplianceDetailsByResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetComplianceDetailsByResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetComplianceDetailsByResourceResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "GetComplianceSummaryByConfigRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetComplianceSummaryByConfigRuleResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "GetComplianceSummaryByResourceType",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetComplianceSummaryByResourceTypeRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetComplianceSummaryByResourceTypeResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "GetResourceConfigHistory",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "string"
+          },
+          "nextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetResourceConfigHistoryRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetResourceConfigHistoryResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "ListDiscoveredResources",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListDiscoveredResourcesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDiscoveredResourcesResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "PutConfigRule",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutConfigRuleRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "PutConfigurationRecorder",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutConfigurationRecorderRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "PutDeliveryChannel",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutDeliveryChannelRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "PutEvaluations",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutEvaluationsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutEvaluationsResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "StartConfigRulesEvaluation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartConfigRulesEvaluationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartConfigRulesEvaluationResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "StartConfigurationRecorder",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StartConfigurationRecorderRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "StopConfigurationRecorder",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/StopConfigurationRecorderRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

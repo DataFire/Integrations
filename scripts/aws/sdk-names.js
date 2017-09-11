@@ -5,16 +5,19 @@ const list = fs.readdirSync(__dirname + '/../../integrations/generated')
   .map(name => name.substring('amazonaws_'.length));
 
 const sdkMap = module.exports = {
-  'appstream2': 'AppStream',
-  'cloudhsmv2': 'CloudHSMV2',
-  cognito_idp: 'CognitoIdentity',
+  appstream2: 'AppStream',
+  autoscaling: 'ApplicationAutoScaling',
+  cloudhsmv2: 'CloudHSMV2',
+  cognito_idp: 'CognitoIdentityServiceProvider',
+  config: 'ConfigService',
   data_iot: 'IotData',
   ds: 'DirectoryService',
   elasticfilesystem: 'EFS',
-  elasticloadbalancing: 'ELB',
+  elasticloadbalancing: 'ELBv2',
   elasticmapreduce: 'EMR',
   email: 'SES',
   entitlement_marketplace: 'MarketplaceEntitlementService',
+  events: 'CloudWatchEvents',
   metering_marketplace: 'MarketplaceMetering',
   mgh: 'MigrationHub',
   models_lex: 'LexModelBuildingService',
@@ -25,7 +28,6 @@ const sdkMap = module.exports = {
   states: 'StepFunctions',
   streams_dynamodb: 'DynamoDBStreams',
   tagging: 'ResourceGroupsTaggingAPI',
-  config: 'Config',
 }
 
 list.forEach(name => {

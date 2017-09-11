@@ -1,0 +1,1037 @@
+{
+  "id": "amazonaws_cloudhsmv2",
+  "title": "AWS CloudHSM V2",
+  "description": "For more information about AWS CloudHSM, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/) and the [AWS CloudHSM User Guide](http://docs.aws.amazon.com/cloudhsm/latest/userguide/).",
+  "security": {
+    "amazonaws_cloudhsmv2": {
+      "integration": "amazonaws_cloudhsmv2",
+      "fields": {
+        "accessKeyId": "",
+        "secretAccessKey": "",
+        "region": "AWS region (if applicable)"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsmv2.jpg"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "Backup": {
+      "description": "Contains information about a backup of an AWS CloudHSM cluster.",
+      "properties": {
+        "BackupId": {
+          "$ref": "#/definitions/BackupId",
+          "description": "The identifier (ID) of the backup."
+        },
+        "BackupState": {
+          "$ref": "#/definitions/BackupState",
+          "description": "The state of the backup."
+        },
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The identifier (ID) of the cluster that was backed up."
+        },
+        "CreateTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time when the backup was created."
+        }
+      },
+      "required": [
+        "BackupId"
+      ],
+      "type": "object",
+      "title": "Backup"
+    },
+    "BackupId": {
+      "pattern": "backup-[2-7a-zA-Z]{11,16}",
+      "type": "string",
+      "title": "BackupId"
+    },
+    "BackupPolicy": {
+      "enum": [
+        "DEFAULT"
+      ],
+      "type": "string",
+      "title": "BackupPolicy"
+    },
+    "BackupState": {
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "READY",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "BackupState"
+    },
+    "Backups": {
+      "items": {
+        "$ref": "#/definitions/Backup"
+      },
+      "type": "array",
+      "title": "Backups"
+    },
+    "Cert": {
+      "maxLength": 5000,
+      "pattern": "[a-zA-Z0-9+-/=\\s]*",
+      "type": "string",
+      "title": "Cert"
+    },
+    "Certificates": {
+      "description": "Contains one or more certificates or a certificate signing request (CSR).",
+      "properties": {
+        "AwsHardwareCertificate": {
+          "$ref": "#/definitions/Cert",
+          "description": "The HSM hardware certificate issued (signed) by AWS CloudHSM."
+        },
+        "ClusterCertificate": {
+          "$ref": "#/definitions/Cert",
+          "description": "The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner."
+        },
+        "ClusterCsr": {
+          "$ref": "#/definitions/Cert",
+          "description": "The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is <code>UNINITIALIZED</code>."
+        },
+        "HsmCertificate": {
+          "$ref": "#/definitions/Cert",
+          "description": "The HSM certificate issued (signed) by the HSM hardware."
+        },
+        "ManufacturerHardwareCertificate": {
+          "$ref": "#/definitions/Cert",
+          "description": "The HSM hardware certificate issued (signed) by the hardware manufacturer."
+        }
+      },
+      "type": "object",
+      "title": "Certificates"
+    },
+    "CloudHsmAccessDeniedException": {
+      "description": "The request was rejected because the requester does not have permission to perform the requested operation.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "CloudHsmAccessDeniedException"
+    },
+    "CloudHsmInternalFailureException": {
+      "description": "The request was rejected because of an AWS CloudHSM internal failure. The request can be retried.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "CloudHsmInternalFailureException"
+    },
+    "CloudHsmInvalidRequestException": {
+      "description": "The request was rejected because it is not a valid request.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "CloudHsmInvalidRequestException"
+    },
+    "CloudHsmResourceNotFoundException": {
+      "description": "The request was rejected because it refers to a resource that cannot be found.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "CloudHsmResourceNotFoundException"
+    },
+    "CloudHsmServiceException": {
+      "description": "The request was rejected because an error occurred.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object",
+      "title": "CloudHsmServiceException"
+    },
+    "Cluster": {
+      "description": "Contains information about an AWS CloudHSM cluster.",
+      "properties": {
+        "BackupPolicy": {
+          "$ref": "#/definitions/BackupPolicy",
+          "description": "The cluster's backup policy."
+        },
+        "Certificates": {
+          "$ref": "#/definitions/Certificates",
+          "description": "Contains one or more certificates or a certificate signing request (CSR)."
+        },
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The cluster's identifier (ID)."
+        },
+        "CreateTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time when the cluster was created."
+        },
+        "HsmType": {
+          "$ref": "#/definitions/HsmType",
+          "description": "The type of HSM that the cluster contains."
+        },
+        "Hsms": {
+          "$ref": "#/definitions/Hsms",
+          "description": "Contains information about the HSMs in the cluster."
+        },
+        "PreCoPassword": {
+          "$ref": "#/definitions/PreCoPassword",
+          "description": "The default password for the cluster's Pre-Crypto Officer (PRECO) user."
+        },
+        "SecurityGroup": {
+          "$ref": "#/definitions/SecurityGroup",
+          "description": "The identifier (ID) of the cluster's security group."
+        },
+        "SourceBackupId": {
+          "$ref": "#/definitions/BackupId",
+          "description": "The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup."
+        },
+        "State": {
+          "$ref": "#/definitions/ClusterState",
+          "description": "The cluster's state."
+        },
+        "StateMessage": {
+          "$ref": "#/definitions/StateMessage",
+          "description": "A description of the cluster's state."
+        },
+        "SubnetMapping": {
+          "$ref": "#/definitions/ExternalSubnetMapping",
+          "description": "A map of the cluster's subnets and their corresponding Availability Zones."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The identifier (ID) of the virtual private cloud (VPC) that contains the cluster."
+        }
+      },
+      "type": "object",
+      "title": "Cluster"
+    },
+    "ClusterId": {
+      "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+      "type": "string",
+      "title": "ClusterId"
+    },
+    "ClusterState": {
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "UNINITIALIZED",
+        "INITIALIZE_IN_PROGRESS",
+        "INITIALIZED",
+        "ACTIVE",
+        "UPDATE_IN_PROGRESS",
+        "DELETE_IN_PROGRESS",
+        "DELETED",
+        "DEGRADED"
+      ],
+      "type": "string",
+      "title": "ClusterState"
+    },
+    "Clusters": {
+      "items": {
+        "$ref": "#/definitions/Cluster"
+      },
+      "type": "array",
+      "title": "Clusters"
+    },
+    "CreateClusterRequest": {
+      "properties": {
+        "HsmType": {
+          "$ref": "#/definitions/HsmType",
+          "description": "The type of HSM to use in the cluster. Currently the only allowed value is <code>hsm1.medium</code>."
+        },
+        "SourceBackupId": {
+          "$ref": "#/definitions/BackupId",
+          "description": "The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIds",
+          "description": "<p>The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:</p> <ul> <li> <p>All subnets must be in the same virtual private cloud (VPC).</p> </li> <li> <p>You can specify only one subnet per Availability Zone.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "SubnetIds",
+        "HsmType"
+      ],
+      "type": "object",
+      "title": "CreateClusterRequest"
+    },
+    "CreateClusterResponse": {
+      "properties": {
+        "Cluster": {
+          "$ref": "#/definitions/Cluster",
+          "description": "Information about the cluster that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateClusterResponse"
+    },
+    "CreateHsmRequest": {
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/ExternalAz",
+          "description": "The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use <a>DescribeClusters</a>."
+        },
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>."
+        },
+        "IpAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet."
+        }
+      },
+      "required": [
+        "ClusterId",
+        "AvailabilityZone"
+      ],
+      "type": "object",
+      "title": "CreateHsmRequest"
+    },
+    "CreateHsmResponse": {
+      "properties": {
+        "Hsm": {
+          "$ref": "#/definitions/Hsm",
+          "description": "Information about the HSM that was created."
+        }
+      },
+      "type": "object",
+      "title": "CreateHsmResponse"
+    },
+    "DeleteClusterRequest": {
+      "properties": {
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The identifier (ID) of the cluster that you are deleting. To find the cluster ID, use <a>DescribeClusters</a>."
+        }
+      },
+      "required": [
+        "ClusterId"
+      ],
+      "type": "object",
+      "title": "DeleteClusterRequest"
+    },
+    "DeleteClusterResponse": {
+      "properties": {
+        "Cluster": {
+          "$ref": "#/definitions/Cluster",
+          "description": "Information about the cluster that was deleted."
+        }
+      },
+      "type": "object",
+      "title": "DeleteClusterResponse"
+    },
+    "DeleteHsmRequest": {
+      "properties": {
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The identifier (ID) of the cluster that contains the HSM that you are deleting."
+        },
+        "EniId": {
+          "$ref": "#/definitions/EniId",
+          "description": "The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting."
+        },
+        "EniIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The IP address of the elastic network interface (ENI) of the HSM that you are deleting."
+        },
+        "HsmId": {
+          "$ref": "#/definitions/HsmId",
+          "description": "The identifier (ID) of the HSM that you are deleting."
+        }
+      },
+      "required": [
+        "ClusterId"
+      ],
+      "type": "object",
+      "title": "DeleteHsmRequest"
+    },
+    "DeleteHsmResponse": {
+      "properties": {
+        "HsmId": {
+          "$ref": "#/definitions/HsmId",
+          "description": "The identifier (ID) of the HSM that was deleted."
+        }
+      },
+      "type": "object",
+      "title": "DeleteHsmResponse"
+    },
+    "DescribeBackupsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify backups by their backup identifier (ID).</p> <p>Use the <code>clusterIds</code> filter to return only the backups for the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>states</code> filter to return only backups that match the specified state.</p>"
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxSize",
+          "description": "The maximum number of backups to return in the response. When there are more backups than the number you specify, the response contains a <code>NextToken</code> value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more backups."
+        }
+      },
+      "type": "object",
+      "title": "DescribeBackupsRequest"
+    },
+    "DescribeBackupsResponse": {
+      "properties": {
+        "Backups": {
+          "$ref": "#/definitions/Backups",
+          "description": "A list of backups."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An opaque string that indicates that the response contains only a subset of backups. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups."
+        }
+      },
+      "type": "object",
+      "title": "DescribeBackupsResponse"
+    },
+    "DescribeClustersRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</p> <p>Use the <code>states</code> filter to return only clusters that match the specified state.</p>"
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxSize",
+          "description": "The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a <code>NextToken</code> value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more clusters."
+        }
+      },
+      "type": "object",
+      "title": "DescribeClustersRequest"
+    },
+    "DescribeClustersResponse": {
+      "properties": {
+        "Clusters": {
+          "$ref": "#/definitions/Clusters",
+          "description": "A list of clusters."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An opaque string that indicates that the response contains only a subset of clusters. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters."
+        }
+      },
+      "type": "object",
+      "title": "DescribeClustersResponse"
+    },
+    "EniId": {
+      "pattern": "eni-[0-9a-fA-F]{8}",
+      "type": "string",
+      "title": "EniId"
+    },
+    "ExternalAz": {
+      "pattern": "[a-z]{2}(-(gov|isob|iso))?-(east|west|north|south|central){1,2}-\\d[a-z]",
+      "type": "string",
+      "title": "ExternalAz"
+    },
+    "ExternalSubnetMapping": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ExternalAz"
+          },
+          "value": {
+            "$ref": "#/definitions/SubnetId"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ExternalSubnetMapping"
+    },
+    "Field": {
+      "pattern": "[a-zA-Z0-9_-]+",
+      "type": "string",
+      "title": "Field"
+    },
+    "Filters": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/Field"
+          },
+          "value": {
+            "$ref": "#/definitions/Strings"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Filters"
+    },
+    "Hsm": {
+      "description": "Contains information about a hardware security module (HSM) in an AWS CloudHSM cluster.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/ExternalAz",
+          "description": "The Availability Zone that contains the HSM."
+        },
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The identifier (ID) of the cluster that contains the HSM."
+        },
+        "EniId": {
+          "$ref": "#/definitions/EniId",
+          "description": "The identifier (ID) of the HSM's elastic network interface (ENI)."
+        },
+        "EniIp": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The IP address of the HSM's elastic network interface (ENI)."
+        },
+        "HsmId": {
+          "$ref": "#/definitions/HsmId",
+          "description": "The HSM's identifier (ID)."
+        },
+        "State": {
+          "$ref": "#/definitions/HsmState",
+          "description": "The HSM's state."
+        },
+        "StateMessage": {
+          "$ref": "#/definitions/String",
+          "description": "A description of the HSM's state."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The subnet that contains the HSM's elastic network interface (ENI)."
+        }
+      },
+      "required": [
+        "HsmId"
+      ],
+      "type": "object",
+      "title": "Hsm"
+    },
+    "HsmId": {
+      "pattern": "hsm-[2-7a-zA-Z]{11,16}",
+      "type": "string",
+      "title": "HsmId"
+    },
+    "HsmState": {
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "ACTIVE",
+        "DEGRADED",
+        "DELETE_IN_PROGRESS",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "HsmState"
+    },
+    "HsmType": {
+      "pattern": "(hsm1\\.medium)",
+      "type": "string",
+      "title": "HsmType"
+    },
+    "Hsms": {
+      "items": {
+        "$ref": "#/definitions/Hsm"
+      },
+      "type": "array",
+      "title": "Hsms"
+    },
+    "InitializeClusterRequest": {
+      "properties": {
+        "ClusterId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>."
+        },
+        "SignedCert": {
+          "$ref": "#/definitions/Cert",
+          "description": "The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format."
+        },
+        "TrustAnchor": {
+          "$ref": "#/definitions/Cert",
+          "description": "The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format."
+        }
+      },
+      "required": [
+        "ClusterId",
+        "SignedCert",
+        "TrustAnchor"
+      ],
+      "type": "object",
+      "title": "InitializeClusterRequest"
+    },
+    "InitializeClusterResponse": {
+      "properties": {
+        "State": {
+          "$ref": "#/definitions/ClusterState",
+          "description": "The cluster's state."
+        },
+        "StateMessage": {
+          "$ref": "#/definitions/StateMessage",
+          "description": "A description of the cluster's state."
+        }
+      },
+      "type": "object",
+      "title": "InitializeClusterResponse"
+    },
+    "IpAddress": {
+      "pattern": "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}",
+      "type": "string",
+      "title": "IpAddress"
+    },
+    "ListTagsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxSize",
+          "description": "The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a <code>NextToken</code> value."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>NextToken</code> value that you received in the previous response. Use this value to get more tags."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use <a>DescribeClusters</a>."
+        }
+      },
+      "required": [
+        "ResourceId"
+      ],
+      "type": "object",
+      "title": "ListTagsRequest"
+    },
+    "ListTagsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent <code>ListTags</code> request to get more tags."
+        },
+        "TagList": {
+          "$ref": "#/definitions/TagList",
+          "description": "A list of tags."
+        }
+      },
+      "required": [
+        "TagList"
+      ],
+      "type": "object",
+      "title": "ListTagsResponse"
+    },
+    "MaxSize": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer",
+      "title": "MaxSize"
+    },
+    "NextToken": {
+      "maxLength": 256,
+      "pattern": ".*",
+      "type": "string",
+      "title": "NextToken"
+    },
+    "PreCoPassword": {
+      "maxLength": 32,
+      "minLength": 7,
+      "type": "string",
+      "title": "PreCoPassword"
+    },
+    "SecurityGroup": {
+      "pattern": "sg-[0-9a-fA-F]",
+      "type": "string",
+      "title": "SecurityGroup"
+    },
+    "StateMessage": {
+      "maxLength": 300,
+      "pattern": ".*",
+      "type": "string",
+      "title": "StateMessage"
+    },
+    "String": {
+      "type": "string",
+      "title": "String"
+    },
+    "Strings": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array",
+      "title": "Strings"
+    },
+    "SubnetId": {
+      "pattern": "subnet-[0-9a-fA-F]{8}",
+      "type": "string",
+      "title": "SubnetId"
+    },
+    "SubnetIds": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array",
+      "title": "SubnetIds"
+    },
+    "Tag": {
+      "description": "Contains a tag. A tag is a key-value pair.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of the tag."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object",
+      "title": "Tag"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagKeyList"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array",
+      "title": "TagList"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use <a>DescribeClusters</a>."
+        },
+        "TagList": {
+          "$ref": "#/definitions/TagList",
+          "description": "A list of one or more tags."
+        }
+      },
+      "required": [
+        "ResourceId",
+        "TagList"
+      ],
+      "type": "object",
+      "title": "TagResourceRequest"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "TagResourceResponse"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string",
+      "title": "Timestamp"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/ClusterId",
+          "description": "The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use <a>DescribeClusters</a>."
+        },
+        "TagKeyList": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "A list of one or more tag keys for the tags that you are removing. Specify only the tag keys, not the tag values."
+        }
+      },
+      "required": [
+        "ResourceId",
+        "TagKeyList"
+      ],
+      "type": "object",
+      "title": "UntagResourceRequest"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UntagResourceResponse"
+    },
+    "VpcId": {
+      "pattern": "vpc-[0-9a-fA-F]",
+      "type": "string",
+      "title": "VpcId"
+    },
+    "errorMessage": {
+      "type": "string",
+      "title": "errorMessage"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateCluster",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateClusterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateClusterResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "CreateHsm",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateHsmRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateHsmResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "DeleteCluster",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteClusterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteClusterResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "DeleteHsm",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteHsmRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteHsmResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "DescribeBackups",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeBackupsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeBackupsResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "DescribeClusters",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeClustersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeClustersResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "InitializeCluster",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/InitializeClusterRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InitializeClusterResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "ListTags",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "TagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagResourceResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    },
+    {
+      "id": "UntagResource",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagResourceRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagResourceResponse"
+      },
+      "security": {
+        "amazonaws_cloudhsmv2": {
+          "integration": "amazonaws_cloudhsmv2"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "aws"
+  ]
+}

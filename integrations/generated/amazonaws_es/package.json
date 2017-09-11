@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_es",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "main": "index.js",
   "description": "DataFire integration for Amazon Elasticsearch Service",
   "repository": {
@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "datafire": "^2.0.0",
-    "aws-sdk": "^2.105.0"
+    "aws-sdk": "^2.112.0"
   }
 }

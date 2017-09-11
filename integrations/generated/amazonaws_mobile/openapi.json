@@ -1,0 +1,1296 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "mobile.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi"
+    },
+    "description": " AWS Mobile Service provides mobile app and website developers with capabilities required to configure AWS resources and bootstrap their developer desktop projects with the necessary SDKs, constants, tools and samples to make use of those resources. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Mobile",
+    "version": "2017-07-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mobile-2017-07-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mobile",
+    "x-datafire": {
+      "name": "amazonaws_mobile",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/mobile/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/bundles": {
+      "get": {
+        "description": " List all available bundles. ",
+        "operationId": "ListBundles",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListBundlesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListBundlesResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/bundles/{bundleId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources. ",
+        "operationId": "ExportBundle",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportBundleRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "bundleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExportBundleResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/exports/{projectId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Exports project configuration to a snapshot which can be downloaded and shared. Note that mobile app push credentials are encrypted in exported projects, so they can only be shared successfully within the same AWS account. ",
+        "operationId": "ExportProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportProjectRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExportProjectResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/project": {
+      "get": {
+        "description": " Gets details about a project in AWS Mobile Hub. ",
+        "operationId": "DescribeProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeProjectResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/projects": {
+      "get": {
+        "description": " Lists projects in AWS Mobile Hub. ",
+        "operationId": "ListProjects",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListProjectsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListProjectsResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/projects/{projectId}": {
+      "delete": {
+        "description": " Delets a project in AWS Mobile Hub. ",
+        "operationId": "DeleteProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteProjectRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteProjectResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/update": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Update an existing project. ",
+        "operationId": "UpdateProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateProjectResult"
+            }
+          },
+          "480": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "481": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "484": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "AccountActionRequiredException",
+            "schema": {
+              "$ref": "#/definitions/AccountActionRequiredException"
+            }
+          },
+          "487": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AccountActionRequiredException": {
+      "description": " Account Action is required in order to continue the request. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "AttributeKey": {
+      "description": " Key part of key-value attribute pairs. ",
+      "type": "string"
+    },
+    "AttributeValue": {
+      "description": " Value part of key-value attribute pairs. ",
+      "type": "string"
+    },
+    "Attributes": {
+      "description": " Key-value attribute pairs. ",
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/AttributeKey"
+          },
+          "value": {
+            "$ref": "#/definitions/AttributeValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "BadRequestException": {
+      "description": " The request cannot be processed because some parameter is not valid or the project state prevents the operation from being performed. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BundleDescription": {
+      "description": " Description of the download bundle. ",
+      "type": "string"
+    },
+    "BundleDetails": {
+      "description": " The details of the bundle. ",
+      "properties": {
+        "availablePlatforms": {
+          "$ref": "#/definitions/Platforms"
+        },
+        "bundleId": {
+          "$ref": "#/definitions/BundleId"
+        },
+        "description": {
+          "$ref": "#/definitions/BundleDescription"
+        },
+        "iconUrl": {
+          "$ref": "#/definitions/IconUrl"
+        },
+        "title": {
+          "$ref": "#/definitions/BundleTitle"
+        },
+        "version": {
+          "$ref": "#/definitions/BundleVersion"
+        }
+      },
+      "type": "object"
+    },
+    "BundleId": {
+      "description": " Unique bundle identifier. ",
+      "type": "string"
+    },
+    "BundleList": {
+      "description": " A list of bundles. ",
+      "items": {
+        "$ref": "#/definitions/BundleDetails"
+      },
+      "type": "array"
+    },
+    "BundleTitle": {
+      "description": " Title of the download bundle. ",
+      "type": "string"
+    },
+    "BundleVersion": {
+      "description": " Version of the download bundle. ",
+      "type": "string"
+    },
+    "ConsoleUrl": {
+      "type": "string"
+    },
+    "Contents": {
+      "description": " Binary file data. ",
+      "type": "string"
+    },
+    "CreateProjectRequest": {
+      "description": " Request structure used to request a project be created. ",
+      "properties": {
+        "contents": {
+          "$ref": "#/definitions/Contents",
+          "description": " ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation. "
+        }
+      },
+      "type": "object"
+    },
+    "CreateProjectResult": {
+      "description": " Result structure used in response to a request to create a project. ",
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/ProjectDetails",
+          "description": " Detailed information about the created AWS Mobile Hub project. "
+        }
+      },
+      "type": "object"
+    },
+    "Date": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteProjectRequest": {
+      "description": " Request structure used to request a project be deleted. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteProjectResult": {
+      "description": " Result structure used in response to request to delete a project. ",
+      "properties": {
+        "deletedResources": {
+          "$ref": "#/definitions/Resources",
+          "description": " Resources which were deleted. "
+        },
+        "orphanedResources": {
+          "$ref": "#/definitions/Resources",
+          "description": " Resources which were not deleted, due to a risk of losing potentially important data or files. "
+        }
+      },
+      "type": "object"
+    },
+    "DescribeBundleRequest": {
+      "description": " Request structure to request the details of a specific bundle. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeBundleResult": {
+      "description": " Result structure contains the details of the bundle. ",
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/BundleDetails",
+          "description": " The details of the bundle. "
+        }
+      },
+      "type": "object"
+    },
+    "DescribeProjectRequest": {
+      "description": " Request structure used to request details about a project. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeProjectResult": {
+      "description": " Result structure used for requests of project details. ",
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/ProjectDetails"
+        }
+      },
+      "type": "object"
+    },
+    "DownloadUrl": {
+      "description": " The download Url. ",
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "description": " The Exception Error Message. ",
+      "type": "string"
+    },
+    "ExportBundleRequest": {
+      "description": " Request structure used to request generation of custom SDK and tool packages required to integrate mobile web or app clients with backed AWS resources. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ExportBundleResult": {
+      "description": " Result structure which contains link to download custom-generated SDK and tool packages used to integrate mobile web or app clients with backed AWS resources. ",
+      "properties": {
+        "downloadUrl": {
+          "$ref": "#/definitions/DownloadUrl",
+          "description": " URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project. "
+        }
+      },
+      "type": "object"
+    },
+    "ExportProjectRequest": {
+      "description": " Request structure used in requests to export project configuration details. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ExportProjectResult": {
+      "description": " Result structure used for requests to export project configuration details. ",
+      "properties": {
+        "downloadUrl": {
+          "$ref": "#/definitions/DownloadUrl",
+          "description": " URL which can be used to download the exported project configuation file(s). "
+        },
+        "shareUrl": {
+          "$ref": "#/definitions/ShareUrl",
+          "description": " URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again. "
+        },
+        "snapshotId": {
+          "$ref": "#/definitions/SnapshotId",
+          "description": " Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL. "
+        }
+      },
+      "type": "object"
+    },
+    "Feature": {
+      "description": " Identifies which feature in AWS Mobile Hub is associated with this AWS resource. ",
+      "type": "string"
+    },
+    "IconUrl": {
+      "description": " Icon for the download bundle. ",
+      "type": "string"
+    },
+    "InternalFailureException": {
+      "description": " The service has encountered an unexpected error condition which prevents it from servicing the request. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": " There are too many AWS Mobile Hub projects in the account or the account has exceeded the maximum number of resources in some AWS service. You should create another sub-account using AWS Organizations or remove some resources and retry your request. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ListBundlesRequest": {
+      "description": " Request structure to request all available bundles. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ListBundlesResult": {
+      "description": " Result structure contains a list of all available bundles with details. ",
+      "properties": {
+        "bundleList": {
+          "$ref": "#/definitions/BundleList",
+          "description": " A list of bundles. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": " Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. "
+        }
+      },
+      "type": "object"
+    },
+    "ListProjectsRequest": {
+      "description": " Request structure used to request projects list in AWS Mobile Hub. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ListProjectsResult": {
+      "description": " Result structure used for requests to list projects in AWS Mobile Hub. ",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken"
+        },
+        "projects": {
+          "$ref": "#/definitions/ProjectSummaries"
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "description": " Maximum number of records to list in a single response. ",
+      "type": "integer"
+    },
+    "NextToken": {
+      "description": " Pagination token. Set to null to start listing records from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more entries. ",
+      "type": "string"
+    },
+    "NotFoundException": {
+      "description": " No entity can be found with the specified identifier. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Platform": {
+      "description": " Developer desktop or target mobile app or website platform. ",
+      "enum": [
+        "OSX",
+        "WINDOWS",
+        "LINUX",
+        "OBJC",
+        "SWIFT",
+        "ANDROID",
+        "JAVASCRIPT"
+      ],
+      "type": "string"
+    },
+    "Platforms": {
+      "description": " Developer desktop or mobile app or website platforms. ",
+      "items": {
+        "$ref": "#/definitions/Platform"
+      },
+      "type": "array"
+    },
+    "ProjectDetails": {
+      "description": " Detailed information about an AWS Mobile Hub project. ",
+      "properties": {
+        "consoleUrl": {
+          "$ref": "#/definitions/ConsoleUrl",
+          "description": " Website URL for this project in the AWS Mobile Hub console. "
+        },
+        "createdDate": {
+          "$ref": "#/definitions/Date",
+          "description": " Date the project was created. "
+        },
+        "lastUpdatedDate": {
+          "$ref": "#/definitions/Date",
+          "description": " Date of the last modification of the project. "
+        },
+        "name": {
+          "$ref": "#/definitions/ProjectName"
+        },
+        "projectId": {
+          "$ref": "#/definitions/ProjectId"
+        },
+        "region": {
+          "$ref": "#/definitions/ProjectRegion"
+        },
+        "resources": {
+          "$ref": "#/definitions/Resources"
+        },
+        "state": {
+          "$ref": "#/definitions/ProjectState"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectId": {
+      "description": " Unique project identifier. ",
+      "type": "string"
+    },
+    "ProjectName": {
+      "description": " Name of the project. ",
+      "type": "string"
+    },
+    "ProjectRegion": {
+      "description": " Default region to use for AWS resource creation in the AWS Mobile Hub project. ",
+      "type": "string"
+    },
+    "ProjectState": {
+      "description": " Synchronization state for a project. ",
+      "enum": [
+        "NORMAL",
+        "SYNCING",
+        "IMPORTING"
+      ],
+      "type": "string"
+    },
+    "ProjectSummaries": {
+      "description": " List of projects. ",
+      "items": {
+        "$ref": "#/definitions/ProjectSummary"
+      },
+      "type": "array"
+    },
+    "ProjectSummary": {
+      "description": " Summary information about an AWS Mobile Hub project. ",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ProjectName",
+          "description": " Name of the project. "
+        },
+        "projectId": {
+          "$ref": "#/definitions/ProjectId",
+          "description": " Unique project identifier. "
+        }
+      },
+      "type": "object"
+    },
+    "Resource": {
+      "description": " Information about an instance of an AWS resource associated with a project. ",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/ResourceArn"
+        },
+        "attributes": {
+          "$ref": "#/definitions/Attributes"
+        },
+        "feature": {
+          "$ref": "#/definitions/Feature"
+        },
+        "name": {
+          "$ref": "#/definitions/ResourceName"
+        },
+        "type": {
+          "$ref": "#/definitions/ResourceType"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceArn": {
+      "description": " AWS resource name which uniquely identifies the resource in AWS systems. ",
+      "type": "string"
+    },
+    "ResourceName": {
+      "description": " Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket). ",
+      "type": "string"
+    },
+    "ResourceType": {
+      "description": " Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket). ",
+      "type": "string"
+    },
+    "Resources": {
+      "description": " List of AWS resources associated with a project. ",
+      "items": {
+        "$ref": "#/definitions/Resource"
+      },
+      "type": "array"
+    },
+    "ServiceUnavailableException": {
+      "description": " The service is temporarily unavailable. The request should be retried after some time delay. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ShareUrl": {
+      "description": " URL which can be shared to allow other AWS users to create their own project in AWS Mobile Hub with the same configuration as the specified project. This URL pertains to a snapshot in time of the project configuration that is created when this API is called. If you want to share additional changes to your project configuration, then you will need to create and share a new snapshot by calling this method again. ",
+      "type": "string"
+    },
+    "SnapshotId": {
+      "description": " Unique identifier for the exported snapshot of the project configuration. This snapshot identifier is included in the share URL. ",
+      "type": "string"
+    },
+    "TooManyRequestsException": {
+      "description": " Too many requests have been received for this AWS account in too short a time. The request should be retried after some time delay. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "UnauthorizedException": {
+      "description": " Credentials of the caller are insufficient to authorize the request. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProjectRequest": {
+      "description": " Request structure used for requests to update project configuration. ",
+      "properties": {
+        "contents": {
+          "$ref": "#/definitions/Contents",
+          "description": " ZIP or YAML file which contains project configuration to be updated. This should be the contents of the file downloaded from the URL provided in an export project operation. "
+        }
+      },
+      "type": "object"
+    },
+    "UpdateProjectResult": {
+      "description": " Result structure used for requests to updated project configuration. ",
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/ProjectDetails",
+          "description": " Detailed information about the updated AWS Mobile Hub project. "
+        }
+      },
+      "type": "object"
+    }
+  }
+}
