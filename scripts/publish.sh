@@ -6,7 +6,7 @@ do
   cd $baseDir/$dir
   PACKAGE_NAME=`grep -e '"name":' package.json | sed 's/.*: "\(.*\)",/\1/'`
   echo $PACKAGE_NAME
-  CUR_VERSION=`npm show $PACKAGE_NAME version`
+  CUR_VERSION=`npm show $PACKAGE_NAME version || true`
   NEXT_VERSION=`grep -e '"version":' package.json | sed 's/.*: "\(.*\)",/\1/'`
   if [ "$CUR_VERSION" == "$NEXT_VERSION" ]
   then
