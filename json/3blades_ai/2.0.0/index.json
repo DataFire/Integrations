@@ -1,0 +1,6737 @@
+{
+  "id": "3blades_ai",
+  "title": "3blades",
+  "security": {
+    "3blades_ai": {
+      "integration": "3blades_ai",
+      "fields": {
+        "jwt": "A valid JSON Web Token (JWT) must be passed for all operations except for those in the `/auth` route. A JWT can be retrieved from the `/auth/jwt-token-auth` endpoint.\n\nThe following syntax is required:\n\n  Authorization: Bearer <token>\n"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/3blades_ai.png"
+  },
+  "actionCount": 102,
+  "definitions": {
+    "Action": {
+      "properties": {
+        "action": {
+          "description": "Action name.",
+          "type": "string"
+        },
+        "action_name": {
+          "description": "Action name.",
+          "type": "string"
+        },
+        "can_be_cancelled": {
+          "description": "Can action be cancelled, or not.",
+          "type": "boolean"
+        },
+        "can_be_retried": {
+          "description": "May action be retried, or not.",
+          "type": "boolean"
+        },
+        "end_date": {
+          "description": "Action needs to end before a certain date and time.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Action unique identifier, expressed as UUID.",
+          "type": "string"
+        },
+        "ip": {
+          "description": "IP address that action is related to.",
+          "type": "string"
+        },
+        "is_user_action": {
+          "description": "Is the action related to a user, or not.",
+          "type": "boolean"
+        },
+        "method": {
+          "description": "Action method.",
+          "type": "string"
+        },
+        "object": {
+          "description": "Action object.",
+          "type": "string"
+        },
+        "path": {
+          "description": "Action path.",
+          "type": "string"
+        },
+        "payload": {
+          "description": "Object action payload.",
+          "type": "object"
+        },
+        "resource_uri": {
+          "description": "Resource URI.",
+          "type": "string"
+        },
+        "start_date": {
+          "description": "Action date and time start.",
+          "type": "string"
+        },
+        "state": {
+          "description": "Action state.",
+          "type": "string"
+        },
+        "user": {
+          "description": "User that action is assigned to.",
+          "type": "string"
+        },
+        "user_agent": {
+          "description": "User agent that action is related to.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "method",
+        "user_agent",
+        "state"
+      ],
+      "type": "object",
+      "title": "Action"
+    },
+    "AuthToken": {
+      "properties": {
+        "token": {
+          "description": "Unique JWT authorization token.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AuthToken"
+    },
+    "AuthTokenData": {
+      "properties": {
+        "password": {
+          "description": "User's password.",
+          "type": "string"
+        },
+        "username": {
+          "description": "User's username.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ],
+      "type": "object",
+      "title": "AuthTokenData"
+    },
+    "AuthTokenError": {
+      "properties": {
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "password": {
+          "description": "Password field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "description": "Token field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "username": {
+          "description": "Username field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "AuthTokenError"
+    },
+    "Card": {
+      "properties": {
+        "address_city": {
+          "description": "Address city.",
+          "type": "string"
+        },
+        "address_country": {
+          "description": "Address country.",
+          "type": "string"
+        },
+        "address_line1": {
+          "description": "Address line 1.",
+          "type": "string"
+        },
+        "address_line1_check": {
+          "description": "Address line 1 check, when processing card.",
+          "type": "string"
+        },
+        "address_line2": {
+          "description": "Address line 2.",
+          "type": "string"
+        },
+        "address_state": {
+          "description": "Address state.",
+          "type": "string"
+        },
+        "address_zip": {
+          "description": "Address zip code.",
+          "type": "string"
+        },
+        "address_zip_check": {
+          "description": "Address check, when processing card.",
+          "type": "string"
+        },
+        "brand": {
+          "description": "Credit or debit card brand.",
+          "type": "string"
+        },
+        "created": {
+          "description": "Card date and time creation.",
+          "type": "string"
+        },
+        "customer": {
+          "description": "Card customer.",
+          "type": "string"
+        },
+        "cvc_check": {
+          "description": "Security code check.",
+          "type": "string"
+        },
+        "exp_month": {
+          "description": "Card expiration month.",
+          "type": "integer"
+        },
+        "exp_year": {
+          "description": "Card expiration year.",
+          "type": "integer"
+        },
+        "fingerprint": {
+          "description": "Card fingerprint.",
+          "type": "string"
+        },
+        "funding": {
+          "description": "Funding.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Card unique identifier, expressed as UUID.",
+          "type": "string"
+        },
+        "last4": {
+          "description": "Last four digits of credit or debit card.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Card name.",
+          "type": "string"
+        },
+        "stripe_id": {
+          "description": "Unique stripe identifier.",
+          "type": "string"
+        },
+        "token": {
+          "description": "Card unique token.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Card"
+    },
+    "CardDataPost": {
+      "properties": {
+        "address_city": {
+          "description": "Address city.",
+          "type": "string"
+        },
+        "address_country": {
+          "description": "Address country.",
+          "type": "string"
+        },
+        "address_line1": {
+          "description": "Address line 1.",
+          "type": "string"
+        },
+        "address_line2": {
+          "description": "Address line 2.",
+          "type": "string"
+        },
+        "address_state": {
+          "description": "Address state.",
+          "type": "string"
+        },
+        "address_zip": {
+          "description": "Address zip code.",
+          "type": "string"
+        },
+        "exp_month": {
+          "description": "Card expiration month.",
+          "type": "integer"
+        },
+        "exp_year": {
+          "description": "Card expiration year.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Card name.",
+          "type": "string"
+        },
+        "token": {
+          "description": "Card unique token.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CardDataPost"
+    },
+    "CardDataPutandPatch": {
+      "properties": {
+        "address_city": {
+          "description": "Address city.",
+          "type": "string"
+        },
+        "address_country": {
+          "description": "Address country.",
+          "type": "string"
+        },
+        "address_line1": {
+          "description": "Address line 1.",
+          "type": "string"
+        },
+        "address_line2": {
+          "description": "Address line 2.",
+          "type": "string"
+        },
+        "address_state": {
+          "description": "Address state.",
+          "type": "string"
+        },
+        "address_zip": {
+          "description": "Address zip code.",
+          "type": "string"
+        },
+        "exp_month": {
+          "description": "Card expiration month.",
+          "type": "integer"
+        },
+        "exp_year": {
+          "description": "Card expiration year.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Card name.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CardDataPutandPatch"
+    },
+    "CardError": {
+      "properties": {
+        "address_city": {
+          "description": "address_city field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_country": {
+          "description": "address_country field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_line1": {
+          "description": "address_line1 field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_line1_check": {
+          "description": "address_line1_check field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_line2": {
+          "description": "address_line2 field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_state": {
+          "description": "address_state field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_zip": {
+          "description": "address_zip field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_zip_check": {
+          "description": "address_zip_check field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "brand": {
+          "description": "brand field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created": {
+          "description": "created field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "customer": {
+          "description": "customer field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cvc_check": {
+          "description": "cvc_check field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exp_month": {
+          "description": "exp_month field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exp_year": {
+          "description": "exp_year field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fingerprint": {
+          "description": "fingerprint field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "funding": {
+          "description": "funding field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "last4": {
+          "description": "last4 field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "name field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stripe_id": {
+          "description": "stripe_id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "description": "token field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CardError"
+    },
+    "CardUpdateError": {
+      "properties": {
+        "address_city": {
+          "description": "address_city field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_country": {
+          "description": "address_country field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_line1": {
+          "description": "address_line1 field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_line1_check": {
+          "description": "address_line1_check field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_line2": {
+          "description": "address_line2 field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_state": {
+          "description": "address_state field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_zip": {
+          "description": "address_zip field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "address_zip_check": {
+          "description": "address_zip_check field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "brand": {
+          "description": "brand field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created": {
+          "description": "created field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "customer": {
+          "description": "customer field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cvc_check": {
+          "description": "cvc_check field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exp_month": {
+          "description": "exp_month field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exp_year": {
+          "description": "exp_year field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fingerprint": {
+          "description": "fingerprint field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "funding": {
+          "description": "funding field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "last4": {
+          "description": "last4 field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "name field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stripe_id": {
+          "description": "stripe_id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "description": "token field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CardUpdateError"
+    },
+    "Collaborator": {
+      "properties": {
+        "email": {
+          "description": "Collaborator's valid email address.",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "Collaborator's first name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Collaborator unique identifier in UUID format.",
+          "type": "string"
+        },
+        "joined": {
+          "description": "Date time of when collaborator joined.",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Collaborator's last name.",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Boolean that states whether collaborator is project owner, or not.\n",
+          "type": "boolean"
+        },
+        "permissions": {
+          "description": "Collaborator permissions. Project creators are assigned owner\npriviledges by default. Permissions are write and read.\n",
+          "items": {
+            "enum": [
+              "write_project",
+              "read_project"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "username": {
+          "description": "Collaborator's user name. This must be a valid user name within the\nsystem.\n",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Collaborator"
+    },
+    "CollaboratorData": {
+      "properties": {
+        "member": {
+          "description": "Project member username.",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Project owner. Defaults to false.",
+          "type": "boolean"
+        },
+        "permissions": {
+          "description": "Permissions assigned to collaborator.",
+          "enum": [
+            "read_project",
+            "write_project"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "member",
+        "permissions"
+      ],
+      "type": "object",
+      "title": "CollaboratorData"
+    },
+    "CollaboratorError": {
+      "properties": {
+        "email": {
+          "description": "Email field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "first_name": {
+          "description": "First name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Id field errors this",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "joined": {
+          "description": "Joined field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "last_name": {
+          "description": "Last name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "member": {
+          "description": "Member field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "owner": {
+          "description": "Owner field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "permissions": {
+          "description": "Permissions field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "username": {
+          "description": "Username field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "member",
+        "permissions"
+      ],
+      "type": "object",
+      "title": "CollaboratorError"
+    },
+    "Customer": {
+      "properties": {
+        "account_balance": {
+          "description": "Customer account balance.",
+          "type": "integer"
+        },
+        "created": {
+          "description": "Date and time for customer creation.",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency used by customer.",
+          "type": "string"
+        },
+        "default_source": {
+          "description": "Customer default source.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Customer unique identifier expressed as UUID.",
+          "type": "string"
+        },
+        "last_invoice_sync": {
+          "description": "Date and time for last invoice sync.",
+          "type": "string"
+        },
+        "livemode": {
+          "description": "Customer live mode.",
+          "type": "boolean"
+        },
+        "metadata": {
+          "description": "Optional customer meta data object.",
+          "type": "object"
+        },
+        "stripe_id": {
+          "description": "Stripe identifier.",
+          "type": "string"
+        },
+        "user": {
+          "description": "Customer primary user.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "user"
+      ],
+      "type": "object",
+      "title": "Customer"
+    },
+    "CustomerData": {
+      "properties": {
+        "account_balance": {
+          "description": "Account balance.",
+          "type": "integer"
+        },
+        "currency": {
+          "description": "Customer preferred currency.",
+          "type": "string"
+        },
+        "default_source": {
+          "description": "Default source.",
+          "type": "string"
+        },
+        "last_invoice_sync": {
+          "description": "List date and time invoice was synced.",
+          "type": "string"
+        },
+        "metadata": {
+          "description": "Customer meta data.",
+          "type": "object"
+        },
+        "user": {
+          "description": "User corresponding to customer.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "user"
+      ],
+      "type": "object",
+      "title": "CustomerData"
+    },
+    "CustomerError": {
+      "properties": {
+        "account_balance": {
+          "description": "account_balance field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created": {
+          "description": "created field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "currency": {
+          "description": "currency field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "default_source": {
+          "description": "default_source field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "last_invoice_sync": {
+          "description": "last_invoice_sync field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "livemode": {
+          "description": "livemode field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "description": "metadata field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stripe_id": {
+          "description": "stripe_id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "user": {
+          "description": "user field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CustomerError"
+    },
+    "DockerHost": {
+      "properties": {
+        "id": {
+          "description": "Unique identifier for docker host as UUID.",
+          "type": "string"
+        },
+        "ip": {
+          "description": "Docker host IPv4 address",
+          "type": "string"
+        },
+        "name": {
+          "description": "Docker host name.",
+          "type": "string"
+        },
+        "port": {
+          "description": "Docker host port.",
+          "type": "integer"
+        },
+        "status": {
+          "description": "Docker host status.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "ip"
+      ],
+      "type": "object",
+      "title": "DockerHost"
+    },
+    "DockerHostData": {
+      "properties": {
+        "ip": {
+          "description": "DockerHost IPv4 address.",
+          "type": "string"
+        },
+        "name": {
+          "description": "DockerHost name.",
+          "type": "string"
+        },
+        "port": {
+          "description": "DockerHost port.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "name",
+        "ip"
+      ],
+      "type": "object",
+      "title": "DockerHostData"
+    },
+    "DockerHostError": {
+      "properties": {
+        "id": {
+          "description": "Id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ip": {
+          "description": "Ip field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "port": {
+          "description": "Port field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Status field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "DockerHostError"
+    },
+    "Email": {
+      "properties": {
+        "address": {
+          "description": "Email address.",
+          "type": "string"
+        },
+        "public": {
+          "description": "Boolean to determine if email is public or private.",
+          "type": "boolean"
+        },
+        "unsubscribed": {
+          "description": "Boolean to determine whether user is suscribed or unsubscribed to out going email campaigns.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "type": "object",
+      "title": "Email"
+    },
+    "EmailData": {
+      "properties": {
+        "address": {
+          "description": "Email address.",
+          "type": "string"
+        },
+        "public": {
+          "description": "Public or private email address.",
+          "type": "boolean"
+        },
+        "unsubscribed": {
+          "description": "Unsubscribed or suscribed.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "address"
+      ],
+      "type": "object",
+      "title": "EmailData"
+    },
+    "EmailError": {
+      "properties": {
+        "address": {
+          "description": "Address field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "public": {
+          "description": "Public field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "unsubscribed": {
+          "description": "Unsubscribed field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "EmailError"
+    },
+    "Invoice": {
+      "properties": {
+        "amount_due": {
+          "description": "Amount due set in invoice.",
+          "type": "integer"
+        },
+        "application_fee": {
+          "description": "Application fee set in invoice.",
+          "type": "integer"
+        },
+        "attempt_count": {
+          "description": "Number of attempts to deliver invoice.",
+          "type": "integer"
+        },
+        "attempted": {
+          "description": "Boolean to determine whether delivery attempt executed, or not.",
+          "type": "boolean"
+        },
+        "closed": {
+          "description": "Invoice closed, or pending.",
+          "type": "boolean"
+        },
+        "created": {
+          "description": "Date and time when invoice was created.",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency used in invoice.",
+          "type": "string"
+        },
+        "customer": {
+          "description": "Customer name.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Invoice description.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Invoice unique identifier expressed as UUID.",
+          "type": "string"
+        },
+        "invoice_date": {
+          "description": "Invoice issue date.",
+          "type": "string"
+        },
+        "livemode": {
+          "description": "Boolean that determines whether invoice is live, or not.",
+          "type": "boolean"
+        },
+        "metadata": {
+          "description": "Optional metadata object of invoice.",
+          "type": "object"
+        },
+        "next_payment_attempt": {
+          "description": "Next payment attempt.",
+          "type": "string"
+        },
+        "paid": {
+          "description": "Determines whether invoice has been paid, or not.",
+          "type": "boolean"
+        },
+        "period_end": {
+          "description": "Invoice end period.",
+          "type": "string"
+        },
+        "period_start": {
+          "description": "Invoice start period.",
+          "type": "string"
+        },
+        "reciept_number": {
+          "description": "Invoice receipt number.",
+          "type": "string"
+        },
+        "starting_balance": {
+          "description": "Invoice starting balance.",
+          "type": "integer"
+        },
+        "statement_descriptor": {
+          "description": "Invoice statement descriptor.",
+          "type": "string"
+        },
+        "stripe_id": {
+          "description": "Stripe account identifier.",
+          "type": "string"
+        },
+        "subscription": {
+          "description": "Suscription name.",
+          "type": "string"
+        },
+        "subtotal": {
+          "description": "Invoice sub total.",
+          "type": "integer"
+        },
+        "tax": {
+          "description": "Tax, if applicable.",
+          "type": "integer"
+        },
+        "total": {
+          "description": "Invoice total.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "stripe_id",
+        "created",
+        "amount_due",
+        "currency",
+        "invoice_date",
+        "period_start",
+        "period_end",
+        "reciept_number",
+        "starting_balance",
+        "subtotal",
+        "total",
+        "customer"
+      ],
+      "type": "object",
+      "title": "Invoice"
+    },
+    "InvoiceItem": {
+      "properties": {
+        "amount": {
+          "description": "Amount the the invoice item will be billed for.",
+          "type": "integer"
+        },
+        "created": {
+          "description": "Date and time when invoice was created.",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency used in invoice.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Item description.",
+          "type": "string"
+        },
+        "id": {
+          "description": "InvoiceItem unique identifier expressed as UUID.",
+          "type": "string"
+        },
+        "invoice": {
+          "description": "Invoice unique identifier expressed as UUID.",
+          "type": "string"
+        },
+        "invoice_date": {
+          "description": "Date the item was added to the invoice.",
+          "type": "string"
+        },
+        "livemode": {
+          "description": "Boolean that determines whether invoice is live, or not.",
+          "type": "boolean"
+        },
+        "metadata": {
+          "description": "Optional metadata object of invoice.",
+          "type": "object"
+        },
+        "proration": {
+          "description": "Whether or not the items cost will be prorated for the billing period.",
+          "type": "boolean"
+        },
+        "quantity": {
+          "description": "Number of units for this item.",
+          "type": "integer"
+        },
+        "stripe_id": {
+          "description": "Stripe account identifier.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stripe_id",
+        "created",
+        "amount",
+        "currency",
+        "invoice",
+        "invoice_date",
+        "quantity"
+      ],
+      "type": "object",
+      "title": "InvoiceItem"
+    },
+    "JWT": {
+      "properties": {
+        "token": {
+          "description": "Unique JSON Web Token (JWT).",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "JWT"
+    },
+    "JWTData": {
+      "properties": {
+        "password": {
+          "description": "User password.",
+          "type": "string"
+        },
+        "username": {
+          "description": "User name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ],
+      "type": "object",
+      "title": "JWTData"
+    },
+    "JWTError": {
+      "properties": {
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "password": {
+          "description": "password field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "description": "token field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "username": {
+          "description": "username field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "JWTError"
+    },
+    "NotFound": {
+      "properties": {
+        "detail": {
+          "description": "Requested item not found.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "NotFound"
+    },
+    "Plan": {
+      "properties": {
+        "amount": {
+          "description": "Amount (cost/price) of plan.",
+          "type": "integer"
+        },
+        "created": {
+          "description": "Date and time when plan was created.",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency used to specify amount.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Plan unique identifier as UUID.",
+          "type": "string"
+        },
+        "interval": {
+          "description": "Interval for plan, such as montly or yearly.",
+          "type": "string"
+        },
+        "interval_count": {
+          "description": "",
+          "type": "integer"
+        },
+        "livemode": {
+          "description": "Boolean to determine whether plan is live, or not.",
+          "type": "boolean"
+        },
+        "metadata": {
+          "description": "Optional meta data object.",
+          "type": "object"
+        },
+        "name": {
+          "description": "Plan name.",
+          "type": "string"
+        },
+        "statement_descriptor": {
+          "description": "Statement that describes plan to users.",
+          "type": "string"
+        },
+        "stripe_id": {
+          "description": "Stripe identifier to identify entity charging for plans.",
+          "type": "string"
+        },
+        "trial_period_days": {
+          "description": "Number of days for plan trial, used for try and buy campaigns.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "amount",
+        "interval",
+        "interval_count",
+        "name"
+      ],
+      "type": "object",
+      "title": "Plan"
+    },
+    "PlanData": {
+      "properties": {
+        "amount": {
+          "description": "Plan amount in currency.",
+          "type": "integer"
+        },
+        "currency": {
+          "description": "Currency for plan.",
+          "type": "string"
+        },
+        "interval": {
+          "description": "Plan interval.",
+          "items": {
+            "enum": [
+              "day",
+              "week",
+              "month",
+              "year"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "interval_count": {
+          "description": "Number of intervals.",
+          "type": "integer"
+        },
+        "livemode": {
+          "description": "Is plan live, or not.",
+          "type": "boolean"
+        },
+        "metadata": {
+          "description": "Plan meta data.",
+          "type": "object"
+        },
+        "name": {
+          "description": "Plan name.",
+          "type": "string"
+        },
+        "statement_descriptor": {
+          "description": "Plan description.",
+          "type": "string"
+        },
+        "trial_period_days": {
+          "description": "Trial days for try and buy campaigns.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "amount",
+        "interval",
+        "interval_count",
+        "name"
+      ],
+      "type": "object",
+      "title": "PlanData"
+    },
+    "PlanError": {
+      "properties": {
+        "amount": {
+          "description": "amount field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created": {
+          "description": "created field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "currency": {
+          "description": "currency field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "interval": {
+          "description": "interval field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "interval_count": {
+          "description": "interval_count field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "livemode": {
+          "description": "livemode field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "description": "metadata field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "name field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "statement_descriptor": {
+          "description": "statement_descriptor field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stripe_id": {
+          "description": "stripe_id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "trial_period_days": {
+          "description": "trial period days field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "PlanError"
+    },
+    "Project": {
+      "properties": {
+        "collaborators": {
+          "description": "Array of project collaborators.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Project description.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier for project as UUID.",
+          "type": "string"
+        },
+        "last_updated": {
+          "description": "Date and time when project was last updated.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Project name.",
+          "type": "string"
+        },
+        "owner": {
+          "description": "Username of project owner.",
+          "type": "string"
+        },
+        "private": {
+          "description": "Value that states whether project is private or public.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "Project"
+    },
+    "ProjectData": {
+      "properties": {
+        "description": {
+          "description": "Project description.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Project name.",
+          "type": "string"
+        },
+        "private": {
+          "description": "Private project true, otherwise public.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "ProjectData"
+    },
+    "ProjectError": {
+      "properties": {
+        "collaborators": {
+          "description": "Collaborators field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "Description field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "last_updated": {
+          "description": "Last_updated field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "owner": {
+          "description": "Owner field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "private": {
+          "description": "Private field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ProjectError"
+    },
+    "ProjectFile": {
+      "properties": {
+        "content": {
+          "description": "Data sent as string, in base64 format.",
+          "type": "string"
+        },
+        "id": {
+          "description": "File unique identifier in UUID format.",
+          "type": "string"
+        },
+        "name": {
+          "description": "File name and extension.",
+          "type": "string"
+        },
+        "path": {
+          "description": "File path. Defaults to root (/).",
+          "type": "string"
+        },
+        "project": {
+          "description": "Project name where file is located.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "project"
+      ],
+      "type": "object",
+      "title": "ProjectFile"
+    },
+    "ProjectFileError": {
+      "properties": {
+        "content": {
+          "description": "base64_data field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "file": {
+          "description": "file field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "name field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "path": {
+          "description": "path field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "project": {
+          "description": "project field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ProjectFileError"
+    },
+    "RefreshJSONWebToken": {
+      "properties": {
+        "token": {
+          "description": "Refresh JWT token.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "type": "object",
+      "title": "RefreshJSONWebToken"
+    },
+    "RefreshJSONWebTokenData": {
+      "properties": {
+        "token": {
+          "description": "Refreshed token.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "type": "object",
+      "title": "RefreshJSONWebTokenData"
+    },
+    "RefreshJSONWebTokenError": {
+      "properties": {
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "description": "Token field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "RefreshJSONWebTokenError"
+    },
+    "Search": {
+      "properties": {},
+      "type": "object",
+      "title": "Search"
+    },
+    "Server": {
+      "properties": {
+        "config": {
+          "description": "Server configuration option. Values are jupyter, restful and cron.",
+          "type": "object"
+        },
+        "connected": {
+          "description": "Array that represents what other servers the server is connected to.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created_at": {
+          "description": "Date and time when server was created.",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Server endpoint path.",
+          "type": "string"
+        },
+        "host": {
+          "description": "Value that represents user defined host, otherwise known as BYON (Bring Your Own Node).\n",
+          "type": "string"
+        },
+        "id": {
+          "description": "Server unique identifier in UUID format.",
+          "type": "string"
+        },
+        "image_name": {
+          "description": "Server image source, such as 3blades/tensorflow-notebook.\n",
+          "type": "string"
+        },
+        "logs_url": {
+          "description": "A WebSocket URL for streaming stdout and stderr logs from the server.\n",
+          "type": "string"
+        },
+        "name": {
+          "description": "Server name.",
+          "type": "string"
+        },
+        "server_size": {
+          "description": "Server size unique identifier.",
+          "type": "string"
+        },
+        "startup_script": {
+          "description": "Optional startup script to use when launching server.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Server status, such as Running or Error.",
+          "enum": [
+            "Stopped",
+            "Running",
+            "Error"
+          ],
+          "type": "string"
+        },
+        "status_url": {
+          "description": "A WebSocket URL for listening to server status changes.\n",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "Server"
+    },
+    "ServerAction": {
+      "properties": {
+        "id": {
+          "description": "Server trigger unique identifier.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name for server action.",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Manage server state. Starting a server changes state from Pending to Running. Terminating a server changes state from Running to Terminated. If the action results in Error, status will change to Error.\n",
+          "enum": [
+            "start",
+            "stop",
+            "terminate"
+          ],
+          "type": "string"
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        }
+      },
+      "type": "object",
+      "title": "ServerAction"
+    },
+    "ServerActionData": {
+      "properties": {
+        "name": {
+          "description": "Name of server action.",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Manage server state. Starting a server changes state from Pending to Running. Terminating a server changes state from Running to Terminated. Stopping a server changes state from Running to Stopped. If the action results in Error, status will change to Error.\n",
+          "enum": [
+            "start",
+            "stop",
+            "terminate"
+          ],
+          "type": "string"
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        }
+      },
+      "type": "object",
+      "title": "ServerActionData"
+    },
+    "ServerActionError": {
+      "properties": {
+        "id": {
+          "description": "Id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "operation": {
+          "description": "Operation field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerActionError"
+    },
+    "ServerConfig": {
+      "properties": {
+        "command": {
+          "description": "Command to run",
+          "type": "string"
+        },
+        "function": {
+          "description": "Server function.",
+          "type": "string"
+        },
+        "script": {
+          "description": "Server script file.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Server type.",
+          "enum": [
+            "jupyter",
+            "restful",
+            "cron"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ServerConfig"
+    },
+    "ServerData": {
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/ServerConfig",
+          "description": "Server configuration option. Values are jupyter, restful and cron.",
+          "type": "object"
+        },
+        "connected": {
+          "description": "Array of other servers the server is connected to.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "host": {
+          "description": "External host IPv4 address or hostname.",
+          "type": "string"
+        },
+        "image_name": {
+          "description": "Image name.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Server name.",
+          "type": "string"
+        },
+        "server_size": {
+          "description": "Server size unique identifier.",
+          "type": "string"
+        },
+        "startup_script": {
+          "description": "Startup script to run when launching server.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "ServerData"
+    },
+    "ServerError": {
+      "properties": {
+        "config": {
+          "description": "config field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "connected": {
+          "description": "connected field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created_at": {
+          "description": "created_at field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "endpoint": {
+          "description": "endpoint field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "host": {
+          "description": "host field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "image_name": {
+          "description": "image_name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "logs_url": {
+          "description": "logs_url field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "server_size": {
+          "description": "server_size field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "startup_script": {
+          "description": "startup_script field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "status field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status_url": {
+          "description": "status_url field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerError"
+    },
+    "ServerRunStatistics": {
+      "properties": {
+        "exit_code": {
+          "description": "Exit code, such as Exit 0 or Exit 1.",
+          "type": "integer"
+        },
+        "id": {
+          "description": "Server run statistics object unique identifier in UUID format.",
+          "type": "string"
+        },
+        "size": {
+          "description": "Size of server.",
+          "type": "integer"
+        },
+        "stacktrace": {
+          "description": "Stacktrace, if there was one.",
+          "type": "string"
+        },
+        "start": {
+          "description": "Date and time that represents when server started.",
+          "type": "string"
+        },
+        "stop": {
+          "description": "Date and time that represents when server stopped.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ServerRunStatistics"
+    },
+    "ServerRunStatisticsData": {
+      "properties": {
+        "exit_code": {
+          "description": "Server exit code.",
+          "type": "integer"
+        },
+        "size": {
+          "description": "Server size.",
+          "type": "integer"
+        },
+        "stacktrace": {
+          "description": "Server stacktrace.",
+          "type": "string"
+        },
+        "start": {
+          "description": "Server start.",
+          "type": "string"
+        },
+        "stop": {
+          "description": "Server stop.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ServerRunStatisticsData"
+    },
+    "ServerRunStatisticsError": {
+      "properties": {
+        "exit_code": {
+          "description": "exit_code field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "size": {
+          "description": "size field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stacktrace": {
+          "description": "stacktrace field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "start": {
+          "description": "start field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stop": {
+          "description": "stop field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerRunStatisticsError"
+    },
+    "ServerSize": {
+      "properties": {
+        "active": {
+          "description": "States whether the Server size is active, or not.",
+          "type": "boolean"
+        },
+        "cpu": {
+          "description": "CPU availability, equivalent to --cpus=<value>. For example if a host has\n2 CPU's, then a value of 1.5 would be limit the container to using all of the\nfirst CPU and half of the second CPU.\n",
+          "type": "integer"
+        },
+        "id": {
+          "description": "Server size unique identifier.",
+          "type": "string"
+        },
+        "memory": {
+          "description": "Memory restriction for container.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Server size name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "cpu",
+        "memory"
+      ],
+      "type": "object",
+      "title": "ServerSize"
+    },
+    "ServerSizeData": {
+      "properties": {
+        "active": {
+          "description": "Active or not active.",
+          "type": "boolean"
+        },
+        "cpu": {
+          "description": "CPU set for server size.",
+          "type": "integer"
+        },
+        "memory": {
+          "description": "Memory set for server size.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Server size name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "cpu",
+        "memory",
+        "active"
+      ],
+      "type": "object",
+      "title": "ServerSizeData"
+    },
+    "ServerSizeError": {
+      "properties": {
+        "active": {
+          "description": "Active field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cpu": {
+          "description": "CPU field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "memory": {
+          "description": "Memory field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerSizeError"
+    },
+    "ServerStatistics": {
+      "properties": {
+        "id": {
+          "description": "Server statistics unique identifier in UUID format.",
+          "type": "string"
+        },
+        "size": {
+          "description": "Size of statistics.",
+          "type": "integer"
+        },
+        "start": {
+          "description": "Start statistics, such as start time and date.",
+          "type": "string"
+        },
+        "stop": {
+          "description": "Stop statistics, such as stop time and date.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ServerStatistics"
+    },
+    "ServerStatisticsData": {
+      "properties": {
+        "id": {
+          "description": "id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "size": {
+          "description": "size field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "start": {
+          "description": "start field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stop": {
+          "description": "stop field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerStatisticsData"
+    },
+    "ServerStatisticsError": {
+      "properties": {
+        "id": {
+          "description": "Id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "size": {
+          "description": "Size field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "start": {
+          "description": "Start field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stop": {
+          "description": "Stop field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerStatisticsError"
+    },
+    "SshTunnel": {
+      "properties": {
+        "endpoint": {
+          "description": "SSH tunnel destination endpoint.",
+          "type": "string"
+        },
+        "host": {
+          "description": "Host, usually IPv4, for SSH tunnel.",
+          "type": "string"
+        },
+        "id": {
+          "description": "SSH tunnel unique identifier in UUID format.",
+          "type": "string"
+        },
+        "local_port": {
+          "description": "Local source port for SSH tunnel.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "SSH tunnel name.",
+          "type": "string"
+        },
+        "remote_port": {
+          "description": "Remote port to establish SSH tunnel.",
+          "type": "integer"
+        },
+        "username": {
+          "description": "SSH tunnel user name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "host",
+        "local_port",
+        "remote_port",
+        "endpoint",
+        "username"
+      ],
+      "type": "object",
+      "title": "SshTunnel"
+    },
+    "SshTunnelData": {
+      "properties": {
+        "endpoint": {
+          "description": "SSH tunnel endpoint.",
+          "type": "string"
+        },
+        "host": {
+          "description": "SSH tunnel host.",
+          "type": "string"
+        },
+        "local_port": {
+          "description": "SSH tunnel local port.",
+          "type": "integer"
+        },
+        "name": {
+          "description": "SSH tunnel name.",
+          "type": "string"
+        },
+        "remote_port": {
+          "description": "SSH tunnel remote port.",
+          "type": "integer"
+        },
+        "username": {
+          "description": "User name to establish SSH tunnel.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "host",
+        "local_port",
+        "remote_port",
+        "endpoint",
+        "username"
+      ],
+      "type": "object",
+      "title": "SshTunnelData"
+    },
+    "SshTunnelError": {
+      "properties": {
+        "endpoint": {
+          "description": "endpoint field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "host": {
+          "description": "host field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "local_port": {
+          "description": "local_port field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "remote_port": {
+          "description": "remote_port field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "username": {
+          "description": "username field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "SshTunnelError"
+    },
+    "Subscription": {
+      "properties": {
+        "application_fee_percent": {
+          "description": "Application fee percent.",
+          "type": "number"
+        },
+        "cancel_at_period_end": {
+          "description": "Boolean value to determine whether plan cancels at the end of the period, or not.",
+          "type": "boolean"
+        },
+        "canceled_at": {
+          "description": "Date and time when plan was cancelled.",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date and time suscription was created.",
+          "type": "string"
+        },
+        "current_period_end": {
+          "description": "Current suscription plan end date.",
+          "type": "string"
+        },
+        "current_period_start": {
+          "description": "Current suscription plan start date.",
+          "type": "string"
+        },
+        "ended_at": {
+          "description": "Date and time for when plan ended.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier for suscription as UUID.",
+          "type": "string"
+        },
+        "livemode": {
+          "description": "Suscription live, or not.",
+          "type": "boolean"
+        },
+        "plan": {
+          "description": "Plan name.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity purchased as integer.",
+          "type": "integer"
+        },
+        "start": {
+          "description": "Date and time for when plan started.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Suscription status.",
+          "type": "string"
+        },
+        "stripe_id": {
+          "description": "Stripe (payment processor) identifier.",
+          "type": "string"
+        },
+        "trial_end": {
+          "description": "Date and time for trial end.",
+          "type": "string"
+        },
+        "trial_start": {
+          "description": "Date and time for trial start.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan"
+      ],
+      "type": "object",
+      "title": "Subscription"
+    },
+    "SubscriptionData": {
+      "properties": {
+        "plan": {
+          "description": "Plan unique identifier.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan"
+      ],
+      "type": "object",
+      "title": "SubscriptionData"
+    },
+    "SubscriptionError": {
+      "properties": {
+        "application_fee_percent": {
+          "description": "application_fee_percent field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cancel_at_period_end": {
+          "description": "cancel_at_period_end field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "canceled_at": {
+          "description": "canceled_at field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created": {
+          "description": "created field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "current_period_end": {
+          "description": "current_period_end field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "current_period_start": {
+          "description": "current_period_start field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ended_at": {
+          "description": "ended_at field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "livemode": {
+          "description": "livemode field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "plan": {
+          "description": "plan field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "quantity": {
+          "description": "quantity field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "start": {
+          "description": "start field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "status field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "stripe_id": {
+          "description": "stripe_id field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "trial_end": {
+          "description": "trial_end field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "trial_start": {
+          "description": "trial_start field errors",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "SubscriptionError"
+    },
+    "User": {
+      "properties": {
+        "email": {
+          "description": "User email address.",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "User first name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "User unique identifier, expressed as UUID.",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "User last name.",
+          "type": "string"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfile",
+          "description": "User profile information.",
+          "type": "object"
+        },
+        "username": {
+          "description": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+          "maxLength": 64,
+          "minLength": 6,
+          "pattern": "[a-z0-9]{6,64}",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "profile"
+      ],
+      "type": "object",
+      "title": "User"
+    },
+    "UserData": {
+      "properties": {
+        "email": {
+          "description": "User email.",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "User first name.",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "User last name.",
+          "type": "string"
+        },
+        "password": {
+          "description": "User password.",
+          "type": "string"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfile",
+          "description": "User profile information is required, although attribute values may be empty.",
+          "type": "object"
+        },
+        "username": {
+          "description": "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password",
+        "profile"
+      ],
+      "type": "object",
+      "title": "UserData"
+    },
+    "UserError": {
+      "properties": {
+        "email": {
+          "description": "Email field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "first_name": {
+          "description": "First name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "id field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "last_name": {
+          "description": "Last name field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "password": {
+          "description": "Password field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "profile": {
+          "$ref": "#/definitions/UserProfileError"
+        },
+        "username": {
+          "description": "Username field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "UserError"
+    },
+    "UserProfile": {
+      "properties": {
+        "avatar": {
+          "description": "Avatar image",
+          "format": "byte",
+          "type": "string"
+        },
+        "bio": {
+          "description": "Description of user's biography.",
+          "type": "string"
+        },
+        "company": {
+          "description": "User's company.",
+          "type": "string"
+        },
+        "location": {
+          "description": "User location.",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "User's time zone.",
+          "type": "string"
+        },
+        "url": {
+          "description": "Users's personal website.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "UserProfile"
+    },
+    "UserProfileError": {
+      "properties": {
+        "bio": {
+          "description": "Bio field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "company": {
+          "description": "Company field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "location": {
+          "description": "Location field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timezone": {
+          "description": "Timezone field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "url": {
+          "description": "URL field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "UserProfileError"
+    },
+    "VerifyJSONWebToken": {
+      "properties": {
+        "token": {
+          "description": "Varify JWT token.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "type": "object",
+      "title": "VerifyJSONWebToken"
+    },
+    "VerifyJSONWebTokenData": {
+      "properties": {
+        "token": {
+          "description": "JSON Web Token (JWT).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "type": "object",
+      "title": "VerifyJSONWebTokenData"
+    },
+    "VerifyJSONWebTokenError": {
+      "properties": {
+        "non_field_errors": {
+          "description": "Errors not connected to any field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token": {
+          "description": "Token field errors.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "VerifyJSONWebTokenError"
+    },
+    "Webhook": {
+      "properties": {
+        "payload": {
+          "description": "JSON with payload and webhook configurations.",
+          "type": "object"
+        },
+        "url": {
+          "description": "URL for webhook.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object",
+      "title": "Webhook"
+    }
+  },
+  "actions": [
+    {
+      "id": "auth.jwt_token_auth.post",
+      "title": "auth.jwt_token_auth.post",
+      "description": "Create JSON Web Token (JWT)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "jwt_data": {
+            "$ref": "#/definitions/JWTData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JWT"
+      }
+    },
+    {
+      "id": "auth.jwt_token_refresh.post",
+      "title": "auth.jwt_token_refresh.post",
+      "description": "Obtains a new JSON Web Token using existing user credentials.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "refreshjwt_data": {
+            "$ref": "#/definitions/RefreshJSONWebTokenData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RefreshJSONWebToken"
+      }
+    },
+    {
+      "id": "auth.jwt_token_verify.post",
+      "title": "auth.jwt_token_verify.post",
+      "description": "Checks veraciy of token.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "verifyjwt_data": {
+            "$ref": "#/definitions/VerifyJSONWebTokenData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VerifyJSONWebToken"
+      }
+    },
+    {
+      "id": "oauth_login",
+      "title": "oauth_login",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "OAuth2 provider",
+            "enum": [
+              "github",
+              "google",
+              "slack"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "provider"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "auth_register",
+      "title": "auth_register",
+      "description": "User registration requires confirming email address to activate user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user_data": {
+            "$ref": "#/definitions/UserData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "me",
+      "title": "me",
+      "description": "A convenience endpoint that is equivalent to GET /v1/users/profiles/<my user id>/",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "servers_options_sizes_list",
+      "title": "servers_options_sizes_list",
+      "description": "Retrieve available server sizes",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "string",
+            "description": "Set limit when retrieving items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when retrieving items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Set order when retrieving items."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ServerSize"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "servers_options_server_size_create",
+      "title": "servers_options_server_size_create",
+      "description": "Only super users with on-premises version have acceess to this endpoint.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "serversize_data": {
+            "$ref": "#/definitions/ServerSizeData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerSize"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "servers_options_server_size_delete",
+      "title": "servers_options_server_size_delete",
+      "description": "Only super users with on-premises version have acceess to this endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "string",
+            "description": "Server size unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "size"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "servers_options_resources_read",
+      "title": "servers_options_resources_read",
+      "description": "Get a server size by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "string",
+            "description": "Server size unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "size"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerSize"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "servers_options_server_size_update",
+      "title": "servers_options_server_size_update",
+      "description": "Only super users with on-premises version have acceess to this endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "string",
+            "description": "Server size unique identifier expressed as UUID or name."
+          },
+          "serversize_data": {
+            "$ref": "#/definitions/ServerSizeData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "size"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerSize"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "servers_options_server_size_replace",
+      "title": "servers_options_server_size_replace",
+      "description": "Only super users with on-premises version have acceess to this endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "string",
+            "description": "Server size unique identifier expressed as UUID or name."
+          },
+          "serversize_data": {
+            "$ref": "#/definitions/ServerSizeData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "size"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerSize"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_list",
+      "title": "users_list",
+      "description": "Get user list",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "string",
+            "description": "Limit user list."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting users."
+          },
+          "username": {
+            "type": "string",
+            "description": "User username."
+          },
+          "email": {
+            "type": "string",
+            "description": "User email."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting users."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/User"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_create",
+      "title": "users_create",
+      "description": "Only admin users can create new users. New users have active status by default.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user_data": {
+            "$ref": "#/definitions/UserData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_delete",
+      "title": "users_delete",
+      "description": "Delete a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_read",
+      "title": "users_read",
+      "description": "Retrieve a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_update",
+      "title": "users_update",
+      "description": "Update a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          },
+          "user_data": {
+            "$ref": "#/definitions/UserData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.users.user.api_key.get",
+      "title": "v1.users.user.api_key.get",
+      "description": "Retrieve account's API key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.users.user.api_key.reset.post",
+      "title": "v1.users.user.api_key.reset.post",
+      "description": "Reset a user's API key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "user_avatar_delete",
+      "title": "user_avatar_delete",
+      "description": "Delete avatar",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "user_avatar_get",
+      "title": "user_avatar_get",
+      "description": "Retrieve user's avatar",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUIDor username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "user_avatar_update",
+      "title": "user_avatar_update",
+      "description": "Update a project file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "user_avatar_set",
+      "title": "user_avatar_set",
+      "description": "Add user avatar",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_emails_list",
+      "title": "users_emails_list",
+      "description": "Retrieve account email addresses",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier as expressed as UUID or username."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limite when getting email list."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting email list."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting email list."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Email"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_emails_create",
+      "title": "users_emails_create",
+      "description": "Create an email address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          },
+          "email_data": {
+            "$ref": "#/definitions/EmailData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_emails_delete",
+      "title": "users_emails_delete",
+      "description": "Delete an email address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Email unique identifier expressed as UUID."
+          },
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email_id",
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_emails_read",
+      "title": "users_emails_read",
+      "description": "Retrieve a user's email addresses",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Email unique identifier expressed as UUID."
+          },
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email_id",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_emails_update",
+      "title": "users_emails_update",
+      "description": "Update an email address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Email unique identifier expressed as UUID."
+          },
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          },
+          "email_data": {
+            "$ref": "#/definitions/EmailData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email_id",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "users_emails_replace",
+      "title": "users_emails_replace",
+      "description": "Replace an email address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email_id": {
+            "type": "string",
+            "description": "Email unique identifier expressed as UUID."
+          },
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          },
+          "email_data": {
+            "$ref": "#/definitions/EmailData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email_id",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.users.user.ssh_key.get",
+      "title": "v1.users.user.ssh_key.get",
+      "description": "Retrieve an SSH key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.users.user.ssh_key.reset.post",
+      "title": "v1.users.user.ssh_key.reset.post",
+      "description": "Recreate an SSH key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID or username."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_cards_list",
+      "title": "billing_cards_list",
+      "description": "Get credit cards",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Set limit when retrieving credit or debit cards."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Set offset when retriving cards."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Order when retrieving cards."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Card"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_cards_create",
+      "title": "billing_cards_create",
+      "description": "Create new credit card",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "card_data": {
+            "$ref": "#/definitions/CardDataPost"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Card"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_cards_delete",
+      "title": "billing_cards_delete",
+      "description": "Delete a credit card",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Card unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_cards_read",
+      "title": "billing_cards_read",
+      "description": "Get credit card by id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "User unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Card"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_cards_update",
+      "title": "billing_cards_update",
+      "description": "Update a credit card",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Card unique identifier."
+          },
+          "card_data": {
+            "$ref": "#/definitions/CardDataPutandPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Card"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_cards_replace",
+      "title": "billing_cards_replace",
+      "description": "Replace a credit card",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": ""
+          },
+          "card_data": {
+            "$ref": "#/definitions/CardDataPutandPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Card"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_invoices_list",
+      "title": "billing_invoices_list",
+      "description": "Get invoices",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Invoice"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_invoices_read",
+      "title": "billing_invoices_read",
+      "description": "Get an invoice",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Invoice unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_invoice_items_list",
+      "title": "billing_invoice_items_list",
+      "description": "Get invoice items for a given invoice.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "invoice_id": {
+            "type": "string",
+            "description": "Invoice id, expressed as UUID."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "invoice_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/InvoiceItem"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_invoice_items_read",
+      "title": "billing_invoice_items_read",
+      "description": "Get a specific InvoiceItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "invoice_id": {
+            "type": "string",
+            "description": "Invoice id, expressed as UUID."
+          },
+          "id": {
+            "type": "string",
+            "description": "InvoiceItem id, expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "invoice_id",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InvoiceItem"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_plans_list",
+      "title": "billing_plans_list",
+      "description": "Get billing plans",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Plan"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_plans_read",
+      "title": "billing_plans_read",
+      "description": "Get a billing plan",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Plan unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Plan"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_subscriptions_list",
+      "title": "billing_subscriptions_list",
+      "description": "Get active subscriptons",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Subscription"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_subscriptions_create",
+      "title": "billing_subscriptions_create",
+      "description": "Create a new subscription",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "subscription_data": {
+            "$ref": "#/definitions/SubscriptionData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_subscriptions_delete",
+      "title": "billing_subscriptions_delete",
+      "description": "Delete a subscription",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Subscription unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "billing_subscriptions_read",
+      "title": "billing_subscriptions_read",
+      "description": "Get a subscriptions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "hosts_list",
+      "title": "hosts_list",
+      "description": "Get available hosts",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team data."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limite when getting items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting items."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name, when getting items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/DockerHost"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "hosts_create",
+      "title": "hosts_create",
+      "description": "Create a new host",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "dockerhost_data": {
+            "$ref": "#/definitions/DockerHostData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DockerHost"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "hosts_delete",
+      "title": "hosts_delete",
+      "description": "Delete a host",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "host": {
+            "type": "string",
+            "description": "DockerHost unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "host"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "hosts_read",
+      "title": "hosts_read",
+      "description": "Get a host",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "host": {
+            "type": "string",
+            "description": "Unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "host"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DockerHost"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "hosts_update",
+      "title": "hosts_update",
+      "description": "Update a host",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "host": {
+            "type": "string",
+            "description": ""
+          },
+          "dockerhost_data": {
+            "$ref": "#/definitions/DockerHostData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "host"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DockerHost"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "hosts_replace",
+      "title": "hosts_replace",
+      "description": "Replace a host",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "host": {
+            "type": "string",
+            "description": ""
+          },
+          "dockerhost_data": {
+            "$ref": "#/definitions/DockerHostData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "host"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DockerHost"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_list",
+      "title": "projects_list",
+      "description": "Get available projects",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting data."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting data."
+          },
+          "private": {
+            "type": "string",
+            "description": "Private project or public project."
+          },
+          "name": {
+            "type": "string",
+            "description": "Project name."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting projects."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Project"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_create",
+      "title": "projects_create",
+      "description": "Create a new project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "project_data": {
+            "$ref": "#/definitions/ProjectData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_delete",
+      "title": "projects_delete",
+      "description": "Delete a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "project"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_read",
+      "title": "projects_read",
+      "description": "Get a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_update",
+      "title": "projects_update",
+      "description": "Update a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "project_data": {
+            "$ref": "#/definitions/ProjectData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_replace",
+      "title": "projects_replace",
+      "description": "Replace a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team namespace."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "project_data": {
+            "$ref": "#/definitions/ProjectData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_collaborators_list",
+      "title": "projects_collaborators_list",
+      "description": "Get project collaborators",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when retrieving items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when retrieving items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when retrieving items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Collaborator"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_collaborators_create",
+      "title": "projects_collaborators_create",
+      "description": "Create project collaborators",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "collaborator_data": {
+            "$ref": "#/definitions/CollaboratorData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collaborator"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_collaborators_delete",
+      "title": "projects_collaborators_delete",
+      "description": "Delete a project collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "collaborator": {
+            "type": "string",
+            "description": "Collaborator unique identifier."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "collaborator"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_collaborators_read",
+      "title": "projects_collaborators_read",
+      "description": "Get a project collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "collaborator": {
+            "type": "string",
+            "description": "Collaborator unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "collaborator"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collaborator"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_collaborators_update",
+      "title": "projects_collaborators_update",
+      "description": "Update project collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": ""
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "collaborator": {
+            "type": "string",
+            "description": ""
+          },
+          "collaborator_data": {
+            "$ref": "#/definitions/CollaboratorData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "collaborator"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collaborator"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_project_files_list",
+      "title": "projects_project_files_list",
+      "description": "Get project files",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Unique identifier for project file expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting project file list."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting project file list."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering of list values when getting project file list."
+          },
+          "filename": {
+            "type": "string",
+            "description": "Exact file name, relative to the project root. If no such file is found, an empty list will be returned."
+          },
+          "content": {
+            "type": "string",
+            "description": "Determines whether or not content is returned as base64. Defaults to false."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProjectFile"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_project_files_create",
+      "title": "projects_project_files_create",
+      "description": "Create project files",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "file": {
+            "type": "string",
+            "description": "File to send, to create new file. This parameter is only used with form data and may include multiple files."
+          },
+          "base64_data": {
+            "type": "string",
+            "description": "Fila data, represented as base64."
+          },
+          "name": {
+            "type": "string",
+            "description": "File name. May include path when creating file with base64 field."
+          },
+          "path": {
+            "type": "string",
+            "description": "File path. Defaults to (/)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectFile"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_project_files_delete",
+      "title": "projects_project_files_delete",
+      "description": "Delete a project file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifer."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "File unique identifier."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_project_files_read",
+      "title": "projects_project_files_read",
+      "description": "Get a project file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifer."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "File unique identifier."
+          },
+          "content": {
+            "type": "string",
+            "description": "Determines whether or not content is returned as base64. Defaults to false."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectFile"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_project_files_update",
+      "title": "projects_project_files_update",
+      "description": "Update a project file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifer."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "File unique identifier."
+          },
+          "file": {
+            "type": "string",
+            "description": "File to send, to create new file. This parameter is only used with form data and may include multiple files."
+          },
+          "base64_data": {
+            "type": "string",
+            "description": "Fila data, represented as base64."
+          },
+          "name": {
+            "type": "string",
+            "description": "File name. May include path when creating file with base64 field."
+          },
+          "path": {
+            "type": "string",
+            "description": "File path. Defaults to (/)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectFile"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_project_files_replace",
+      "title": "projects_project_files_replace",
+      "description": "Replace a project file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifer."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "File unique identifier."
+          },
+          "file": {
+            "type": "string",
+            "description": "File to send, to create new file. This parameter is only used with form data and may include multiple files."
+          },
+          "base64_data": {
+            "type": "string",
+            "description": "Fila data, represented as base64."
+          },
+          "name": {
+            "type": "string",
+            "description": "File name. May include path when creating file with base64 field."
+          },
+          "path": {
+            "type": "string",
+            "description": "File path. Defaults to (/)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectFile"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_list",
+      "title": "projects_servers_list",
+      "description": "Retrieve servers",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit results when getting server list."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset results when getting server list."
+          },
+          "name": {
+            "type": "string",
+            "description": "Server name."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering option when getting server list."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Server"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_create",
+      "title": "projects_servers_create",
+      "description": "Create a new server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifer expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server_data": {
+            "$ref": "#/definitions/ServerData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Server"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_delete",
+      "title": "projects_servers_delete",
+      "description": "Delete a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "User unique identifier."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_read",
+      "title": "projects_servers_read",
+      "description": "Retrieve a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Server"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_update",
+      "title": "projects_servers_update",
+      "description": "Update a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "server_data": {
+            "$ref": "#/definitions/ServerData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Server"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_replace",
+      "title": "projects_servers_replace",
+      "description": "Replace a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "server_data": {
+            "$ref": "#/definitions/ServerData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Server"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.api_key.get",
+      "title": "v1.namespace.projects.project.servers.server.api_key.get",
+      "description": "Get server API key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JWT"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_auth",
+      "title": "projects_servers_auth",
+      "description": "Server api key validation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.run_stats.post",
+      "title": "v1.namespace.projects.project.servers.server.run_stats.post",
+      "description": "Create a new server's run statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "serverrunstats_data": {
+            "$ref": "#/definitions/ServerRunStatisticsData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerRunStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.run_stats.id.delete",
+      "title": "v1.namespace.projects.project.servers.server.run_stats.id.delete",
+      "description": "Delete a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Server run statistics unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.run_stats.id.get",
+      "title": "v1.namespace.projects.project.servers.server.run_stats.id.get",
+      "description": "Retrieve statistics for a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Run statistics unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerRunStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.run_stats.id.patch",
+      "title": "v1.namespace.projects.project.servers.server.run_stats.id.patch",
+      "description": "Update a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Server run statistics unique identifier expressed as UUID."
+          },
+          "serverrunstats_data": {
+            "$ref": "#/definitions/ServerRunStatisticsData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerRunStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.run_stats.id.put",
+      "title": "v1.namespace.projects.project.servers.server.run_stats.id.put",
+      "description": "Replace a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Server run statistics expressed as UUID."
+          },
+          "serverrunstats_data": {
+            "$ref": "#/definitions/ServerRunStatisticsData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerRunStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.ssh_tunnels.get",
+      "title": "v1.namespace.projects.project.servers.server.ssh_tunnels.get",
+      "description": "Get SSH Tunnels associated to a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit retrieved items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset retrieved items."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Order retrieved items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/SshTunnel"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.ssh_tunnels.post",
+      "title": "v1.namespace.projects.project.servers.server.ssh_tunnels.post",
+      "description": "Create SSH Tunnel associated to a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "sshtunnel_data": {
+            "$ref": "#/definitions/SshTunnelData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SshTunnel"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.delete",
+      "title": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.delete",
+      "description": "Delete an SSH Tunnel associated to a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "tunnel": {
+            "type": "string",
+            "description": "SSH tunnel unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "tunnel"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.get",
+      "title": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.get",
+      "description": "Get an SSH Tunnel associated to a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "tunnel": {
+            "type": "string",
+            "description": "SSH tunnel unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "tunnel"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SshTunnel"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.patch",
+      "title": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.patch",
+      "description": "Update an SSH Tunnel associated to a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": ""
+          },
+          "project": {
+            "type": "string",
+            "description": ""
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "tunnel": {
+            "type": "string",
+            "description": ""
+          },
+          "sshtunnel_data": {
+            "$ref": "#/definitions/SshTunnelData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "tunnel"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SshTunnel"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.put",
+      "title": "v1.namespace.projects.project.servers.server.ssh_tunnels.tunnel.put",
+      "description": "Replace SSH Tunnel associated to a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "tunnel": {
+            "type": "string",
+            "description": "SSH tunnel unique identifier expressed as UUID or name."
+          },
+          "sshtunnel_data": {
+            "$ref": "#/definitions/SshTunnelData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "tunnel"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SshTunnel"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_start",
+      "title": "projects_servers_start",
+      "description": "Start a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_stats_delete",
+      "title": "projects_servers_stats_delete",
+      "description": "Delete a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Stats unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_stats_read",
+      "title": "projects_servers_stats_read",
+      "description": "Retrieve a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Server statistics unique identifier expressed as UUID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_stats_update",
+      "title": "projects_servers_stats_update",
+      "description": "Update a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Server statistics unique identifier expressed as UUID."
+          },
+          "serverstats_data": {
+            "$ref": "#/definitions/ServerStatisticsData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_stats_replace",
+      "title": "projects_servers_stats_replace",
+      "description": "Replace a server's statistics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "id": {
+            "type": "string",
+            "description": "Server statistics unique identifier expressed as UUID."
+          },
+          "serverstats_data": {
+            "$ref": "#/definitions/ServerStatisticsData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerStatistics"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "projects_servers_stop",
+      "title": "projects_servers_stop",
+      "description": "Stop a server",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "namespace",
+          "server"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "service_trigger_list",
+      "title": "service_trigger_list",
+      "description": "Retrieve server triggers",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "name": {
+            "type": "string",
+            "description": "Trigger name."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit when getting triggers."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset when getting triggers."
+          },
+          "ordering": {
+            "type": "string",
+            "description": "Ordering when getting triggers."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ServerAction"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "service_trigger_create",
+      "title": "service_trigger_create",
+      "description": "Create a new server trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "server_action": {
+            "$ref": "#/definitions/ServerActionData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerAction"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "service_trigger_delete",
+      "title": "service_trigger_delete",
+      "description": "Delete a server trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "trigger": {
+            "type": "string",
+            "description": "Trigger identifier expressed as UUID or name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "trigger"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "service_trigger_read",
+      "title": "service_trigger_read",
+      "description": "Get a server trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "trigger": {
+            "type": "string",
+            "description": "Trigger unique identifier."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "trigger"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerAction"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "service_trigger_update",
+      "title": "service_trigger_update",
+      "description": "Update a server trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "trigger": {
+            "type": "string",
+            "description": "Trigger identifier expressed as UUID or name."
+          },
+          "server_action": {
+            "$ref": "#/definitions/ServerActionData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "trigger"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerAction"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "service_trigger_replace",
+      "title": "service_trigger_replace",
+      "description": "Replace a server trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "server": {
+            "type": "string",
+            "description": "Server unique identifier expressed as UUID or name."
+          },
+          "project": {
+            "type": "string",
+            "description": "Project unique identifier expressed as UUID or name."
+          },
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "trigger": {
+            "type": "string",
+            "description": "Trigger unique identifier."
+          },
+          "server_action": {
+            "$ref": "#/definitions/ServerActionData"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "server",
+          "project",
+          "namespace",
+          "trigger"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServerAction"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    },
+    {
+      "id": "search",
+      "title": "search",
+      "description": "Get a search results",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "namespace": {
+            "type": "string",
+            "description": "User or team name."
+          },
+          "q": {
+            "type": "string",
+            "description": "Search string."
+          },
+          "type": {
+            "type": "string",
+            "description": "Limit results to specific types.",
+            "enum": [
+              "users",
+              "projects",
+              "servers"
+            ]
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit data when getting items."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset data when getting items."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "q"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Search"
+        },
+        "type": "array"
+      },
+      "security": {
+        "3blades_ai": {
+          "integration": "3blades_ai"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

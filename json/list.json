@@ -14,6 +14,27 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "3blades_ai": {
+    "id": "3blades_ai",
+    "title": "3blades",
+    "security": {
+      "3blades_ai": {
+        "integration": "3blades_ai",
+        "fields": {
+          "jwt": "A valid JSON Web Token (JWT) must be passed for all operations except for those in the `/auth` route. A JWT can be retrieved from the `/auth/jwt-token-auth` endpoint.\n\nThe following syntax is required:\n\n  Authorization: Bearer <token>\n"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/3blades_ai.png"
+    },
+    "actionCount": 102,
+    "tags": [
+      "open data"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "6_dot_authentiqio_appspot": {
     "id": "6_dot_authentiqio_appspot",
     "title": "Authentiq",
@@ -25,6 +46,50 @@
     "actionCount": 14,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "afterbanks": {
+    "id": "afterbanks",
+    "title": "Afterbanks",
+    "description": "La estandarización de la conexión con cualquier banco en tiempo real.",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/afterbanks.jpg"
+    },
+    "actionCount": 3,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "airport_web_appspot": {
+    "id": "airport_web_appspot",
+    "title": "airportsapi",
+    "description": "Get name and website-URL for airports by ICAO code. Covered airports are mostly in Germany.",
+    "security": {
+      "airport_web_appspot": {
+        "integration": "airport_web_appspot",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "",
+          "flow": "implicit",
+          "type": "oauth2",
+          "x-google-issuer": "accounts.google.com",
+          "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs"
+        }
+      }
+    },
+    "actionCount": 1,
+    "tags": [
+      "transport"
+    ],
+    "latestVersion": "2.0.0"
   },
   "amadeus": {
     "id": "amadeus",
@@ -2635,6 +2700,18 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "apitore_cosinesimilarity": {
+    "id": "apitore_cosinesimilarity",
+    "title": "Cosine Similarity",
+    "description": "Cosine Similarity.[Endpoint] https://api.apitore.com/api/49",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_cosinesimilarity.jpg"
+    },
+    "actionCount": 2,
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
   "apitore_designfeedsapis": {
     "id": "apitore_designfeedsapis",
     "title": "Design feeds APIs",
@@ -2670,6 +2747,30 @@
     "actionCount": 1,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "apitore_japanesewordnetapis": {
+    "id": "apitore_japanesewordnetapis",
+    "title": "Japanese WordNet APIs",
+    "description": "Return all WordNet words.[Endpoint] https://api.apitore.com/api/40",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_japanesewordnetapis.jpg"
+    },
+    "actionCount": 1,
+    "tags": [],
+    "latestVersion": "2.0.0"
+  },
+  "apitore_kmeansclusteringbyword2vec": {
+    "id": "apitore_kmeansclusteringbyword2vec",
+    "title": "Kmeans clustering by word2vec",
+    "description": "Kmeans clustering by word2vec.[Endpoint] https://api.apitore.com/api/48",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_kmeansclusteringbyword2vec.jpg"
+    },
+    "actionCount": 1,
+    "tags": [],
+    "latestVersion": "2.0.0"
   },
   "apitore_kuromojiapis": {
     "id": "apitore_kuromojiapis",
@@ -2731,6 +2832,20 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "apitore_sentencepieceapis_tweet_": {
+    "id": "apitore_sentencepieceapis_tweet_",
+    "title": "SentencePiece APIs (tweet)",
+    "description": "SentencePiece tokenizer (tweet).[Endpoint] https://api.apitore.com/api/38",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_tweet_.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "apitore_sentencepieceapis_wikipedia_": {
     "id": "apitore_sentencepieceapis_wikipedia_",
     "title": "SentencePiece APIs (wikipedia)",
@@ -2754,6 +2869,20 @@
     "actionCount": 1,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "apitore_sentencesimilarity": {
+    "id": "apitore_sentencesimilarity",
+    "title": "Sentence Similarity",
+    "description": "Sentence Similarity.[Endpoint] https://api.apitore.com/api/53",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencesimilarity.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
   },
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
@@ -2853,6 +2982,20 @@
     "tags": [],
     "latestVersion": "2.0.3"
   },
+  "apitore_twitterapiswithsentimentbyapitoresentimentapi": {
+    "id": "apitore_twitterapiswithsentimentbyapitoresentimentapi",
+    "title": "Twitter APIs with sentiment by Apitore sentiment",
+    "description": "Call Twitter APIs with sentiment by Apitore sentiment API.[Endpoint] https://api.apitore.com/api/25",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithsentimentbyapitoresentimentapi.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "apitore_twitterapiswithword2vecqueryexpansion": {
     "id": "apitore_twitterapiswithword2vecqueryexpansion",
     "title": "Twitter APIs with Word2Vec query expansion",
@@ -2864,6 +3007,20 @@
     "actionCount": 1,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi": {
+    "id": "apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi",
+    "title": "Twitter APIs with Word2Vec query expansion, and add sentiment by Apitore sentiment",
+    "description": "Call Twitter APIs with word2vec query expansion and sentiment analysis.[Endpoint] https://api.apitore.com/api/26",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
   },
   "apitore_url2hrefapis": {
     "id": "apitore_url2hrefapis",
@@ -2948,6 +3105,90 @@
     "actionCount": 5,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "apitore_wordnetapis": {
+    "id": "apitore_wordnetapis",
+    "title": "WordNet APIs",
+    "description": "You can access ALL WordNet DB.[Endpoint] https://api.apitore.com/api/46",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetapis.jpg"
+    },
+    "actionCount": 8,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "apitore_wordnethypernymapis": {
+    "id": "apitore_wordnethypernymapis",
+    "title": "WordNet hypernym APIs",
+    "description": "Return hypernym words.[Endpoint] https://api.apitore.com/api/42",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnethypernymapis.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "apitore_wordnethyponymapis": {
+    "id": "apitore_wordnethyponymapis",
+    "title": "WordNet hyponym APIs",
+    "description": "Return hyponym words.[Endpoint] https://api.apitore.com/api/43",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnethyponymapis.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "apitore_wordnetsimilarityapis": {
+    "id": "apitore_wordnetsimilarityapis",
+    "title": "WordNet Similarity APIs",
+    "description": "Calculate word similarity.[Endpoint] https://api.apitore.com/api/47",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetsimilarityapis.jpg"
+    },
+    "actionCount": 8,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "apitore_wordnetsynonymapis": {
+    "id": "apitore_wordnetsynonymapis",
+    "title": "WordNet synonym APIs",
+    "description": "Return synonym words.[Endpoint] https://api.apitore.com/api/41",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetsynonymapis.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "apitore_wordnettranslationapis": {
+    "id": "apitore_wordnettranslationapis",
+    "title": "WordNet translation APIs",
+    "description": "Return translation words.[Endpoint] https://api.apitore.com/api/45",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnettranslationapis.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
   },
   "apitore_wordstovectorsapis": {
     "id": "apitore_wordstovectorsapis",
@@ -3427,6 +3668,41 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "azure_arm_compute_runcommands": {
+    "id": "azure_arm_compute_runcommands",
+    "title": "RunCommandsClient",
+    "description": "The Run Commands Client.",
+    "security": {
+      "azure_arm_compute_runcommands": {
+        "integration": "azure_arm_compute_runcommands",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_runcommands.png"
+    },
+    "actionCount": 3,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "azure_arm_consumption": {
     "id": "azure_arm_consumption",
     "title": "ConsumptionManagementClient",
@@ -3475,6 +3751,76 @@
       "azure"
     ],
     "latestVersion": "2.0.3"
+  },
+  "azure_arm_cosmos_db": {
+    "id": "azure_arm_cosmos_db",
+    "title": "Cosmos DB",
+    "description": "Azure Cosmos DB Database Service Resource Provider REST API",
+    "security": {
+      "azure_arm_cosmos_db": {
+        "integration": "azure_arm_cosmos_db",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "Impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cosmos_db.png"
+    },
+    "actionCount": 12,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
+  },
+  "azure_arm_customer_insights": {
+    "id": "azure_arm_customer_insights",
+    "title": "CustomerInsightsManagementClient",
+    "description": "The Azure Customer Insights management API provides a RESTful set of web services that interact with Azure Customer Insi...",
+    "security": {
+      "azure_arm_customer_insights": {
+        "integration": "azure_arm_customer_insights",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow.",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_customer_insights.png"
+    },
+    "actionCount": 58,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
   },
   "azure_arm_devtestlabs": {
     "id": "azure_arm_devtestlabs",
@@ -3835,6 +4181,41 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "azure_arm_mysql": {
+    "id": "azure_arm_mysql",
+    "title": "MySQLManagementClient",
+    "description": "The Microsoft Azure management API provides create, read, update, and delete functionality for Azure MySQL resources inc...",
+    "security": {
+      "azure_arm_mysql": {
+        "integration": "azure_arm_mysql",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mysql.png"
+    },
+    "actionCount": 19,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "azure_arm_network": {
     "id": "azure_arm_network",
     "title": "NetworkManagementClient",
@@ -3940,6 +4321,41 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "azure_arm_postgresql": {
+    "id": "azure_arm_postgresql",
+    "title": "PostgreSQLManagementClient",
+    "description": "The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resource...",
+    "security": {
+      "azure_arm_postgresql": {
+        "integration": "azure_arm_postgresql",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_postgresql.png"
+    },
+    "actionCount": 19,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "azure_arm_powerbiembedded": {
     "id": "azure_arm_powerbiembedded",
     "title": "Power BI Embedded Management Client",
@@ -3954,6 +4370,40 @@
       "azure"
     ],
     "latestVersion": "2.0.3"
+  },
+  "azure_arm_recoveryservices": {
+    "id": "azure_arm_recoveryservices",
+    "title": "RecoveryServicesBackupClient",
+    "security": {
+      "azure_arm_recoveryservices": {
+        "integration": "azure_arm_recoveryservices",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account."
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservices.png"
+    },
+    "actionCount": 4,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
   },
   "azure_arm_recoveryservicesbackup": {
     "id": "azure_arm_recoveryservicesbackup",
@@ -3988,6 +4438,40 @@
       "azure"
     ],
     "latestVersion": "2.0.3"
+  },
+  "azure_arm_recoveryservicessiterecovery": {
+    "id": "azure_arm_recoveryservicessiterecovery",
+    "title": "SiteRecoveryManagementClient",
+    "security": {
+      "azure_arm_recoveryservicessiterecovery": {
+        "integration": "azure_arm_recoveryservicessiterecovery",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account."
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservicessiterecovery.png"
+    },
+    "actionCount": 101,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
   },
   "azure_arm_redis": {
     "id": "azure_arm_redis",
@@ -4381,6 +4865,40 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "azure_arm_streamanalytics": {
+    "id": "azure_arm_streamanalytics",
+    "title": "StreamAnalyticsManagementClient",
+    "security": {
+      "azure_arm_streamanalytics": {
+        "integration": "azure_arm_streamanalytics",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_streamanalytics.png"
+    },
+    "actionCount": 7,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "azure_arm_trafficmanager": {
     "id": "azure_arm_trafficmanager",
     "title": "TrafficManagerManagementClient",
@@ -4394,6 +4912,41 @@
       "azure"
     ],
     "latestVersion": "2.0.3"
+  },
+  "azure_arm_visualstudio": {
+    "id": "azure_arm_visualstudio",
+    "title": "Visual Studio Resource Provider Client",
+    "description": "Use these APIs to manage Visual Studio Team Services resources through the Azure Resource Manager. All task operations c...",
+    "security": {
+      "azure_arm_visualstudio": {
+        "integration": "azure_arm_visualstudio",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_visualstudio.png"
+    },
+    "actionCount": 11,
+    "tags": [
+      "cloud",
+      "azure"
+    ],
+    "latestVersion": "2.0.0"
   },
   "azure_arm_web": {
     "id": "azure_arm_web",
@@ -5569,6 +6122,41 @@
     ],
     "latestVersion": "2.0.0"
   },
+  "domainsdb_info": {
+    "id": "domainsdb_info",
+    "title": "domainsdb.info",
+    "description": "Registered domains search checks the lists of registered domains for names containing particular words/phrases/numbers o...",
+    "security": {
+      "domainsdb_info": {
+        "integration": "domainsdb_info",
+        "fields": {
+          "api_key": "API key",
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+          "flow": "implicit",
+          "scopes": {
+            "read:pets": "read your pets",
+            "write:pets": "modify pets in your account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/domainsdb_info.jpg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "hosting"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "dropx": {
     "id": "dropx",
     "title": "DropX",
@@ -5830,6 +6418,45 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "etmdb": {
+    "id": "etmdb",
+    "title": "REST API v1 Core Resources",
+    "description": "The Ethiopian Movie Database",
+    "security": {
+      "etmdb": {
+        "integration": "etmdb",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://etmdb.com/api/oauth/authorize/",
+          "description": "OAuth2.0 Authorization for the EtMDB API",
+          "flow": "accessCode",
+          "scopes": {
+            "admin": "Grants read and write access to administrative information",
+            "groups": "Grants access to groups",
+            "read": "Grants read access",
+            "write": "Grants write access"
+          },
+          "tokenUrl": "https://etmdb.com/api/oauth/token/",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etmdb.webp"
+    },
+    "actionCount": 29,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "etsy": {
     "id": "etsy",
     "title": "Etsy",
@@ -6070,6 +6697,21 @@
       "collaboration"
     ],
     "latestVersion": "2.0.3"
+  },
+  "freesound": {
+    "id": "freesound",
+    "title": "Freesound",
+    "description": "With the Freesound APIv2 you can browse, search, and retrieve information about Freesound users, packs, and the sounds t...",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/freesound.png"
+    },
+    "actionCount": 2,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
   },
   "furkot": {
     "id": "furkot",
@@ -6713,6 +7355,41 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "google_androidmanagement": {
+    "id": "google_androidmanagement",
+    "title": "Android Management",
+    "description": "The Android Management API provides remote enterprise management of Android devices and apps.",
+    "security": {
+      "google_androidmanagement": {
+        "integration": "google_androidmanagement",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/androidmanagement": "Manage Android devices and apps for your customers"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidmanagement.png"
+    },
+    "actionCount": 13,
+    "tags": [
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_androidpublisher": {
     "id": "google_androidpublisher",
     "title": "Google Play Developer",
@@ -7283,6 +7960,42 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "google_cloudiot": {
+    "id": "google_cloudiot",
+    "title": "Google Cloud IoT",
+    "description": "Registers and manages IoT (Internet of Things) devices that connect to the Google Cloud Platform.",
+    "security": {
+      "google_cloudiot": {
+        "integration": "google_cloudiot",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/cloudiot": "Register and manage devices in the Google Cloud IoT service"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudiot.png"
+    },
+    "actionCount": 15,
+    "tags": [
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_cloudkms": {
     "id": "google_cloudkms",
     "title": "Google Cloud Key Management Service (KMS)",
@@ -7390,6 +8103,41 @@
       "google"
     ],
     "latestVersion": "2.0.3"
+  },
+  "google_cloudtasks": {
+    "id": "google_cloudtasks",
+    "title": "Cloud Tasks",
+    "description": "Manages the execution of large numbers of distributed requests. Cloud Tasks is in Alpha.",
+    "security": {
+      "google_cloudtasks": {
+        "integration": "google_cloudtasks",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudtasks.png"
+    },
+    "actionCount": 21,
+    "tags": [
+      "google"
+    ],
+    "latestVersion": "2.0.0"
   },
   "google_cloudtrace": {
     "id": "google_cloudtrace",
@@ -8027,6 +8775,21 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "google_firebaseremoteconfig": {
+    "id": "google_firebaseremoteconfig",
+    "title": "Firebase Remote Config",
+    "description": "Firebase Remote Config API allows the 3P clients to manage Remote Config conditions and parameters for Firebase applicat...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebaseremoteconfig.png"
+    },
+    "actionCount": 2,
+    "tags": [
+      "backend",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_firebaserules": {
     "id": "google_firebaserules",
     "title": "Firebase Rules",
@@ -8063,6 +8826,42 @@
       "google"
     ],
     "latestVersion": "2.0.3"
+  },
+  "google_firestore": {
+    "id": "google_firestore",
+    "title": "Google Cloud Firestore",
+    "security": {
+      "google_firestore": {
+        "integration": "google_firestore",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firestore.png"
+    },
+    "actionCount": 17,
+    "tags": [
+      "backend",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
   },
   "google_fitness": {
     "id": "google_fitness",
@@ -8793,6 +9592,45 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "google_oslogin": {
+    "id": "google_oslogin",
+    "title": "Google Cloud OS Login",
+    "description": "Manages OS login configuration for Directory API users.",
+    "security": {
+      "google_oslogin": {
+        "integration": "google_oslogin",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+            "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_oslogin.png"
+    },
+    "actionCount": 7,
+    "tags": [
+      "backend",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_pagespeedonline": {
     "id": "google_pagespeedonline",
     "title": "PageSpeed Insights",
@@ -8864,6 +9702,42 @@
       "google"
     ],
     "latestVersion": "2.0.3"
+  },
+  "google_playcustomapp": {
+    "id": "google_playcustomapp",
+    "title": "Google Play Custom App Publishing",
+    "description": "An API to publish custom Android apps.",
+    "security": {
+      "google_playcustomapp": {
+        "integration": "google_playcustomapp",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_playcustomapp.png"
+    },
+    "actionCount": 3,
+    "tags": [
+      "developer tools",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
   },
   "google_playmoviespartner": {
     "id": "google_playmoviespartner",
@@ -9829,6 +10703,42 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "google_streetviewpublish": {
+    "id": "google_streetviewpublish",
+    "title": "Street View Publish",
+    "description": "Publishes 360 photos to Google Maps, along with position, orientation, and connectivity metadata. Apps can offer an inte...",
+    "security": {
+      "google_streetviewpublish": {
+        "integration": "google_streetviewpublish",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/streetviewpublish": "Publish and manage your 360 photos on Google Street View"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_streetviewpublish.png"
+    },
+    "actionCount": 11,
+    "tags": [
+      "location",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_supportcases": {
     "id": "google_supportcases",
     "title": "Google Support Cases Private",
@@ -10017,6 +10927,43 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "google_testing": {
+    "id": "google_testing",
+    "title": "Google Cloud Testing",
+    "description": "Allows developers to run automated tests for their mobile applications on Google infrastructure.",
+    "security": {
+      "google_testing": {
+        "integration": "google_testing",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_testing.png"
+    },
+    "actionCount": 6,
+    "tags": [
+      "developer tools",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "google_toolresults": {
     "id": "google_toolresults",
     "title": "Cloud Tool Results",
@@ -10139,6 +11086,43 @@
       "google"
     ],
     "latestVersion": "2.0.3"
+  },
+  "google_vault": {
+    "id": "google_vault",
+    "title": "Google Vault",
+    "description": "Archiving and eDiscovery for G Suite.",
+    "security": {
+      "google_vault": {
+        "integration": "google_vault",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/ediscovery": "Manage your eDiscovery data",
+            "https://www.googleapis.com/auth/ediscovery.readonly": "View your eDiscovery data"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_vault.png"
+    },
+    "actionCount": 20,
+    "tags": [
+      "storage",
+      "google"
+    ],
+    "latestVersion": "2.0.0"
   },
   "google_videointelligence": {
     "id": "google_videointelligence",
@@ -10660,6 +11644,20 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "icons8": {
+    "id": "icons8",
+    "title": "Icons8",
+    "description": "Icons8 API allows us to search and obtain [our icons](https://icons8.com/web-app).",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/icons8.jpg"
+    },
+    "actionCount": 7,
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "idtbeyond": {
     "id": "idtbeyond",
     "title": "Active Documentation for /v1",
@@ -10908,6 +11906,27 @@
     "actionCount": 746,
     "tags": [],
     "latestVersion": "2.0.3"
+  },
+  "launchdarkly": {
+    "id": "launchdarkly",
+    "title": "LaunchDarkly",
+    "description": "Build custom integrations with the LaunchDarkly REST API",
+    "security": {
+      "launchdarkly": {
+        "integration": "launchdarkly",
+        "fields": {
+          "Token": "https://app.launchdarkly.com/settings#/tokens"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/launchdarkly.jpg"
+    },
+    "actionCount": 31,
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "2.0.0"
   },
   "learnifier": {
     "id": "learnifier",
@@ -11872,6 +12891,20 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "openfintech": {
+    "id": "openfintech",
+    "title": "OpenFinTech.io",
+    "description": "# Introduction [OpenFinTech.io](https://openfintech.io) is an open database that comprises of standardized primary data ...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openfintech.jpg"
+    },
+    "actionCount": 16,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "orghunter": {
     "id": "orghunter",
     "title": "OrgHunter",
@@ -12598,6 +13631,20 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "shipstation": {
+    "id": "shipstation",
+    "title": "ShipStation Developer Portal",
+    "description": "# Integrating with ShipStation",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shipstation.jpg"
+    },
+    "actionCount": 51,
+    "tags": [
+      "ecommerce"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "shopping_com": {
     "id": "shopping_com",
     "title": "Shopping.com",
@@ -12938,6 +13985,21 @@
     ],
     "latestVersion": "2.0.3"
   },
+  "staging_ecotaco": {
+    "id": "staging_ecotaco",
+    "title": "api.ecota.co v2",
+    "description": "The API ecotaco allows you to connect, create an account,",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/staging_ecotaco.png"
+    },
+    "actionCount": 27,
+    "tags": [
+      "location"
+    ],
+    "latestVersion": "2.0.0"
+  },
   "statsocial": {
     "id": "statsocial",
     "title": "StatSocial Platform",
@@ -13242,6 +14304,41 @@
       "messaging"
     ],
     "latestVersion": "2.0.3"
+  },
+  "twinehealth": {
+    "id": "twinehealth",
+    "title": "Twine",
+    "description": "# Overview",
+    "security": {
+      "twinehealth": {
+        "integration": "twinehealth",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://api.twinehealth.com/pub/oauth/dialog",
+          "description": "Get access to data while protecting your account credentials.\nOAuth2 is also a safer and more secure way to give you access.\n",
+          "flow": "implicit",
+          "scopes": {
+            "group": "access patients and data within a group",
+            "organization": "access patients and data within an organization"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twinehealth.png"
+    },
+    "actionCount": 44,
+    "tags": [
+      "support"
+    ],
+    "latestVersion": "2.0.0"
   },
   "uebermaps": {
     "id": "uebermaps",
@@ -13747,6 +14844,20 @@
       "marketing"
     ],
     "latestVersion": "2.0.3"
+  },
+  "zuora": {
+    "id": "zuora",
+    "title": "Zuora API Reference",
+    "description": "# Introduction Welcome to the reference for the Zuora REST API! [REST](http://en.wikipedia.org/wiki/REST_API) is a web-s...",
+    "security": {},
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zuora.jpg"
+    },
+    "actionCount": 297,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
   },
   "fileserver": {
     "id": "fileserver",

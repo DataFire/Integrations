@@ -1,0 +1,581 @@
+{
+  "id": "apitore_wordnetapis",
+  "title": "WordNet APIs",
+  "description": "You can access ALL WordNet DB.<BR />[Endpoint] https://api.apitore.com/api/46",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetapis.jpg"
+  },
+  "actionCount": 8,
+  "definitions": {
+    "SenseEntity": {
+      "properties": {
+        "freq": {
+          "description": "Freq",
+          "format": "int32",
+          "type": "integer"
+        },
+        "lang": {
+          "description": "Language",
+          "type": "string"
+        },
+        "lexid": {
+          "description": "Lexicon ID",
+          "format": "int32",
+          "type": "integer"
+        },
+        "rank": {
+          "description": "Rank",
+          "format": "int32",
+          "type": "integer"
+        },
+        "src": {
+          "description": "Src",
+          "type": "string"
+        },
+        "synset": {
+          "description": "Synset",
+          "type": "string"
+        },
+        "wordid": {
+          "description": "Word ID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "freq",
+        "lang",
+        "lexid",
+        "rank",
+        "src",
+        "synset",
+        "wordid"
+      ],
+      "type": "object",
+      "title": "SenseEntity"
+    },
+    "SenseResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/SenseEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "log",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "SenseResponseEntity"
+    },
+    "SynlinkEntity": {
+      "properties": {
+        "link": {
+          "description": "Link",
+          "type": "string"
+        },
+        "src": {
+          "description": "Src",
+          "type": "string"
+        },
+        "synset1": {
+          "description": "Synset1",
+          "type": "string"
+        },
+        "synset2": {
+          "description": "Synset2",
+          "type": "string"
+        }
+      },
+      "required": [
+        "link",
+        "src",
+        "synset1",
+        "synset2"
+      ],
+      "type": "object",
+      "title": "SynlinkEntity"
+    },
+    "SynlinkResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/SynlinkEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "log",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "SynlinkResponseEntity"
+    },
+    "SynsetDefResponseEntity": {
+      "properties": {
+        "def": {
+          "description": "Definition",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "lang": {
+          "description": "Language",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "sid": {
+          "description": "sid",
+          "format": "int32",
+          "type": "integer"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "synset": {
+          "description": "Synset",
+          "type": "string"
+        }
+      },
+      "required": [
+        "def",
+        "endTime",
+        "lang",
+        "log",
+        "processTime",
+        "sid",
+        "startTime",
+        "synset"
+      ],
+      "type": "object",
+      "title": "SynsetDefResponseEntity"
+    },
+    "SynsetEntity": {
+      "properties": {
+        "name": {
+          "description": "Name",
+          "type": "string"
+        },
+        "pos": {
+          "description": "Part-of-speech",
+          "type": "string"
+        },
+        "src": {
+          "description": "Src",
+          "type": "string"
+        },
+        "synset": {
+          "description": "Synset",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "pos",
+        "src",
+        "synset"
+      ],
+      "type": "object",
+      "title": "SynsetEntity"
+    },
+    "SynsetResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/SynsetEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "log",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "SynsetResponseEntity"
+    },
+    "WordEntity": {
+      "properties": {
+        "lang": {
+          "description": "Language",
+          "type": "string"
+        },
+        "lemma": {
+          "description": "Lemma",
+          "type": "string"
+        },
+        "pos": {
+          "description": "Part-of-speech",
+          "type": "string"
+        },
+        "pron": {
+          "description": "Pron",
+          "type": "string"
+        },
+        "wordid": {
+          "description": "Word ID",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "lang",
+        "lemma",
+        "pos",
+        "wordid"
+      ],
+      "type": "object",
+      "title": "WordEntity"
+    },
+    "WordResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/WordEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "log",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "WordResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "sensebysynsetUsingGET",
+      "title": "sensebysynsetUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "synset": {
+            "type": "string",
+            "description": "Synset"
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language. [jpn:japanese,eng:english]",
+            "default": "jpn"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "synset"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SenseResponseEntity"
+      }
+    },
+    {
+      "id": "sensebywordidUsingGET",
+      "title": "sensebywordidUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "wordid": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Word ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "wordid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SenseResponseEntity"
+      }
+    },
+    {
+      "id": "synlinkbySynsetUsingGET",
+      "title": "synlinkbySynsetUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "synset": {
+            "type": "string",
+            "description": "Synset"
+          },
+          "link": {
+            "type": "string",
+            "description": "Link. You can specify several link by csv format. [also, syns, hype, inst, hypo, hasi, mero, mmem, msub, mprt, holo, hmem, hsub, hprt, attr, sim, enta, caus, dmnc, dmnu, dmnr, dmtc, dmtu, dmtr, ants]",
+            "default": "syns"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "synset"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SynlinkResponseEntity"
+      }
+    },
+    {
+      "id": "synsetbyNameUsingGET",
+      "title": "synsetbyNameUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name"
+          },
+          "pos": {
+            "type": "string",
+            "description": "Part-of-speech. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "name",
+          "pos"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SynsetResponseEntity"
+      }
+    },
+    {
+      "id": "synsetbysynsetUsingGET",
+      "title": "synsetbysynsetUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "synset": {
+            "type": "string",
+            "description": "Synset"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "synset"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SynsetResponseEntity"
+      }
+    },
+    {
+      "id": "synsetdefbysynsetUsingGET",
+      "title": "synsetdefbysynsetUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "synset": {
+            "type": "string",
+            "description": "Synset"
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language. [jpn:japanese,eng:english]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "synset",
+          "lang"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SynsetDefResponseEntity"
+      }
+    },
+    {
+      "id": "wordbylemmaUsingGET",
+      "title": "wordbylemmaUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "lemma": {
+            "type": "string",
+            "description": "Lemma"
+          },
+          "pos": {
+            "type": "string",
+            "description": "Part-of-speech. You can specify several pos by csv format. [n:noun,v:verb,a:adjective,r:adverb]",
+            "default": "n,v,a,r"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "lemma"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordResponseEntity"
+      }
+    },
+    {
+      "id": "wordbyidUsingGET",
+      "title": "wordbyidUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "wordid": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Word ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "wordid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordResponseEntity"
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

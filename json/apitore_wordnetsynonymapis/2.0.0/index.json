@@ -1,0 +1,120 @@
+{
+  "id": "apitore_wordnetsynonymapis",
+  "title": "WordNet synonym APIs",
+  "description": "Return synonym words.<BR />[Endpoint] https://api.apitore.com/api/41",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetsynonymapis.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "LinkWordsEntity": {
+      "properties": {
+        "labelen": {
+          "description": "Link label En",
+          "type": "string"
+        },
+        "labelja": {
+          "description": "Link label Ja",
+          "type": "string"
+        },
+        "pos": {
+          "description": "Input part-of-speech",
+          "type": "string"
+        },
+        "words": {
+          "description": "Link words",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "labelen",
+        "labelja",
+        "pos",
+        "words"
+      ],
+      "type": "object",
+      "title": "LinkWordsEntity"
+    },
+    "LinksResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/LinkWordsEntity"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "word": {
+          "description": "Input word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "log",
+        "processTime",
+        "startTime",
+        "word"
+      ],
+      "type": "object",
+      "title": "LinksResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "simpleSynonymUsingGET",
+      "title": "simpleSynonymUsingGET",
+      "description": "Japanese WordNet.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)  \n  Class: com.apitore.banana.response.de.sciss.ws4j.LinksResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word": {
+            "type": "string",
+            "description": "Word"
+          },
+          "pos": {
+            "type": "string",
+            "description": "Part-of-speech. You can specify several pos by csv format. [n:noun,v:verb,a:adjective,r:adverb]",
+            "default": "n,v,a,r"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LinksResponseEntity"
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

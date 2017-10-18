@@ -1,0 +1,95 @@
+{
+  "id": "domainsdb_info",
+  "title": "domainsdb.info",
+  "description": "Registered domains search checks the lists of registered domains for names containing particular words/phrases/numbers or symbols. Technically it's just a GUI interface for domains-index.com database containing more than 260M of registered domains and 1000+ TLDS including newGTLDs. It's free to use and could be helpful domains/marketing research tool. Search results are limited to 50 results. You can have up to 100 results via API (link in footer) and full list by",
+  "security": {
+    "domainsdb_info": {
+      "integration": "domainsdb_info",
+      "fields": {
+        "api_key": "API key",
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+        "flow": "implicit",
+        "scopes": {
+          "read:pets": "read your pets",
+          "write:pets": "modify pets in your account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/domainsdb_info.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "domains": {
+      "description": "Domains data array",
+      "properties": {
+        "domains": {
+          "description": "Search results array",
+          "items": {
+            "properties": {
+              "name": {
+                "description": "Domains name",
+                "example": "google.com, facebook--de.com",
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        },
+        "time": {
+          "description": "Request time",
+          "example": "5",
+          "format": "int32",
+          "type": "integer"
+        },
+        "total": {
+          "description": "Total records found",
+          "example": "1235",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "domains"
+    }
+  },
+  "actions": [
+    {
+      "id": "addPet",
+      "title": "addPet",
+      "description": "Search for registered domains",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query for registered domains for ex. facebook"
+          },
+          "tld": {
+            "type": "string",
+            "description": "Search area (cctld|gtld|all)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/domains"
+      }
+    }
+  ],
+  "tags": [
+    "hosting"
+  ]
+}

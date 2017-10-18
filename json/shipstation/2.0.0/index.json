@@ -1,0 +1,1280 @@
+{
+  "id": "shipstation",
+  "title": "ShipStation Developer Portal",
+  "description": "# Integrating with ShipStation\n\nShipStation strives to streamline shipping for online sellers, no matter where they sell their products online. We are continuously adding new marketplaces, shopping carts, and integration tools, because we know the e-commerce space is growing. \nAs a result, we’ve worked hard to provide developer resources to build custom integrations with ShipStation.  If you’re interested in becoming a partner of ours, drop us a line by [filling out this form](http://www.shipstation.com/partners/shipstation-api-custom-store/) and we’ll get in touch.\n\nThere are two methods to integrate with ShipStation:\n\n* Custom Store Integration\n\n* ShipStation API\n\n## Custom Store Integration\n\nLooking for a more 1-to-1 relationship between ShipStation and your chosen selling platform? The Custom Store Integration is the ticket. Our custom store integration is just like any of our other selling channel integration, and could be eligible (based on internal review) as a branded option within the ShipStation admin. It also allows the user to sync orders within ShipStation in a single click, in addition to ShipStation automatically sending shipment status and tracking information \nupdates back to your cart or marketplace once a label is created. It’s the best way to sync up orders with ShipStation and have the most seamless experience.\n\nThe Custom Store allows you to perform two major functions:\n\n* Provide order information to ShipStation, including recipient address, products, customers, etc.\n\n* Receive tracking information when an order is shipped, including shipping method, shipping status, tracking number, and more\n\nTo integrate with the Custom Store, you must expose a web page that renders XML that adheres to the specification defined in the Custom Store Integration Guide. \nWe refer to this page as your “XML Endpoint”. If you can provide us an XML Endpoint, we can *pull* data from your endpoint just like we do with other marketplaces like eBay and Amazon.\n\n**To find out more about our Custom Store Integration, click here: [Custom Store Integration Guide](https://help.shipstation.com/hc/en-us/articles/205928478)**\n\n## ShipStation API\n\nOur API is available for any plan, and allows for read access to almost all data in your account, and write access to create specific objects, like Orders, Customers, and Products. \nThe API is a great way to get data directly to and from ShipStation, like creating products, customers, and querying order & shipping data. Please note that an API integration will not allow you to use your own MarketplaceID that could eventually be branded with your company's logo (see the Custom Store Integration above for that functionality).\n\n**This API allows developers to build applications that interface with the ShipStation platform. The API can be used to automate many tasks including:**\n\n+ Managing Orders\n\n+ Managing Shipments\n\n+ Creating Shipping Labels\n\n+ Retrieving Shipping Rates\n\n+ and more!!!\n\n**To learn more about our API, please review our API documentation below.**\n\n## Which one should I pick?\n\nThe method that's right for your integration very much depends on the type of integration you're planning on implementing. A Custom Store allows ShipStation to *pull* order information from your platform the very same way we *pull* data from marketplaces such as eBay, Amazon, and Shopify. Once an order has been shipped in ShipStation, ShipStation automatically *pushes* tracking information back to your custom store. Though the functionality afforded by this approach is limited to these 2 main functions, much of the *heavy lifting* is performed by ShipStation. Importing orders \nand sending tracking information is performed automatically by ShipStation, as long as your XML endpoint is available to receive our data.\n\nAn API integration, on the other hand, exposes much more functionality, but requires that the developer do much of the heavy lifting. Orders must be *pushed* to ShipStation by using our \"/orders/CreateOrder\" endpoint.  The API allows developers to perform functions such as tagging an order, \nshipping an order, creating a shipping label (without an order), retrieving shipping rates, adding funds to a carrier account, creating a warehouse, listing products, and much more.  The functionality the API affords are typical actions that a user would perform if using the web app.\n\n### Considerations\n\n* **Will your integration be the main order management tool for the online seller?**  If so, the API's broader range of functionality may be the best option.\n\n* **Would you like your store integration to be a branded marketplace within the ShipStation admin?** When you integrate using the Custom Store Integration, you could be eligible to have your company branded within the ShipStation admin. A branded store could have the plugin's logo in the app,\nas well as an easier store setup, order sync, and reporting. Please note, ShipStation makes the final decision, based on integration and partner requirements, on which custom stores are branded within our application.\n\n# ShipStation API Requirements\n\n## End Point\n\nEndpoints are located at the following domain https://ssapi.shipstation.com/ and will need to have a specific reference added to return data. PLEASE NOTE: You cannot access this URL directly and must reference one of the specific endpoints below.\n\n## Authentication\n\nThe ShipStation API uses [Basic HTTP authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). Use your ShipStation ``API Key`` as the username and ``API Secret`` as the password.  You can find your ``API Key`` as the username and ``API Secret`` under Settings at https://ss.shipstation.com/#/settings/api .\n\nThe Authorization header is constructed as follows:\n\n+ Username (``API KEY``) and password (``API Secret``) are combined into a string \"username:password\"\n\n+ The resulting string is then encoded using the RFC2045-MIME variant of Base64, except not limited to 76 char/line\n\n+ The authorization method and a space i.e. \"Basic \" is then put before the encoded string.\n\nFor example, if the ``API KEY`` given is 'ShipStation' and the ``API Secret`` is 'Rocks' then the header is formed as follows:\n\n+ Authorization: Basic U2hpcFN0YXRpb246Um9ja3M=\n\n## API Rate Limits\n\nIn an effort to ensure consistent application performance and increased scalability, we have implemented rate limiting on the ShipStation API.  Your integration will need to be able to handle HTTP rate limiting status messages as defined below:\n\n**Response Headers**\n\nAll responses will include headers with status information about rate limiting.\n\n1. X-Rate-Limit-Limit: the maximum number of requests per minute to the endpoint\n\n2. X-Rate-Limit-Remaining: the available requests remaining in the current window\n\n3. X-Rate-Limit-Reset: the number of seconds remaining until the next window begins\n\n**Hitting the Limit**\n\nIf your application hits the rate limit, an HTTP 429 will be returned with this body:\n\n```\n{\n    \"message\": \"Too Many Requests\"\n}\n```\n\nAnd these headers, assuming it is 40 seconds into the current window:\n\n```\n{\n    \"X-Rate-Limit-Limit\": 60,\n    \"X-Rate-Limit-Remaining\": 0,\n    \"X-Rate-Limit-Reset\": 20\n}\n```\n\nWhen the limit is reached, your application should stop making requests until X-Rate-Limit-Reset seconds have elapsed. The current Rate limit for each set of the API Key and Secret is 40 requests per minute.\n\nIf you have any issues with the API, please email us at <apisupport@shipstation.com>\n\n## Server Responses\n\nStatus Code | Description\n------------|-------------\n``200`` | OK - The request was successful (some API calls may return 201 instead).\n``201`` | Created - The request was successful and a resource was created.\n``204`` | No Content - The request was successful but there is no representation to return (that is, the response is empty).\n``400`` | Bad Request -  The request could not be understood or was missing required parameters.\n``401`` | Unauthorized -  Authentication failed or user does not have permissions for the requested operation.\n``403`` | Forbidden - Access denied.\n``404`` | Not Found -  Resource was not found.\n``405`` | Method Not Allowed -  Requested method is not supported for the specified resource.\n``429`` | Too Many Requests - Exceeded ShipStation API limits. When the limit is reached, your application should stop making requests until X-Rate-Limit-Reset seconds have elapsed.\n``500`` | Internal Server Error - ShipStation has encountered an error.\n\n## DateTime Format and Time Zone\n\nShipStation uses the ISO 8601 combined format for dateTime stamps being submitted to and returned from the API. Please be sure to submit all dateTime values as follows:\n\nyyyy-mm-dd hh:mm:ss (24 hour notation). Example - ``2016-11-29 23:59:59``\n\nThe time zone represented in all API responses is PST/PDT. Similarly, ShipStation asks that you make all time zone convertions and submit any dateTime requests in PST/PDT.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shipstation.jpg"
+  },
+  "actionCount": 51,
+  "definitions": {
+    "Add_Funds": {
+      "title": "Add_Funds"
+    },
+    "Add_FundsModel": {
+      "title": "Add_FundsModel"
+    },
+    "Add_Tag_to_Order": {
+      "title": "Add_Tag_to_Order"
+    },
+    "Assign_User_to_Order": {
+      "title": "Assign_User_to_Order"
+    },
+    "Create/Update_Multiple_Orders": {
+      "title": "Create/Update_Multiple_Orders"
+    },
+    "Create/Update_Order": {
+      "title": "Create/Update_Order"
+    },
+    "Create_Label_for_Order": {
+      "title": "Create_Label_for_Order"
+    },
+    "Create_Shipment_Label": {
+      "title": "Create_Shipment_Label"
+    },
+    "Create_Warehouse": {
+      "title": "Create_Warehouse"
+    },
+    "Customer": {
+      "title": "Customer"
+    },
+    "CustomerModel": {
+      "title": "CustomerModel"
+    },
+    "Deactivate_Store": {
+      "title": "Deactivate_Store"
+    },
+    "Get/Delete_Order": {
+      "title": "Get/Delete_Order"
+    },
+    "Get/Delete_OrderModel": {
+      "title": "Get/Delete_OrderModel"
+    },
+    "Get/Update_Store": {
+      "title": "Get/Update_Store"
+    },
+    "Get/Update_StoreModel": {
+      "title": "Get/Update_StoreModel"
+    },
+    "Get/Update_Warehouse": {
+      "title": "Get/Update_Warehouse"
+    },
+    "Get/Update_WarehouseModel": {
+      "title": "Get/Update_WarehouseModel"
+    },
+    "Get/Update_a_Product": {
+      "title": "Get/Update_a_Product"
+    },
+    "Get/Update_a_ProductModel": {
+      "title": "Get/Update_a_ProductModel"
+    },
+    "Get_Carrier": {
+      "title": "Get_Carrier"
+    },
+    "Get_CarrierModel": {
+      "title": "Get_CarrierModel"
+    },
+    "Get_Delete_Order": {
+      "title": "Get_Delete_Order"
+    },
+    "Get_Delete_OrderModel": {
+      "title": "Get_Delete_OrderModel"
+    },
+    "Get_Rates": {
+      "title": "Get_Rates"
+    },
+    "Get_Store_Refresh_Status": {
+      "title": "Get_Store_Refresh_Status"
+    },
+    "Get_Update_Store": {
+      "title": "Get_Update_Store"
+    },
+    "Get_Update_StoreModel": {
+      "title": "Get_Update_StoreModel"
+    },
+    "Get_Update_Warehouse": {
+      "title": "Get_Update_Warehouse"
+    },
+    "Get_Update_WarehouseModel": {
+      "title": "Get_Update_WarehouseModel"
+    },
+    "Get_Update_a_Product": {
+      "title": "Get_Update_a_Product"
+    },
+    "Get_Update_a_ProductModel": {
+      "title": "Get_Update_a_ProductModel"
+    },
+    "Hold_Order_Until": {
+      "title": "Hold_Order_Until"
+    },
+    "List_Carriers": {
+      "title": "List_Carriers"
+    },
+    "List_CarriersModel": {
+      "title": "List_CarriersModel"
+    },
+    "List_Customers": {
+      "title": "List_Customers"
+    },
+    "List_CustomersModel": {
+      "title": "List_CustomersModel"
+    },
+    "List_Fulfillments": {
+      "title": "List_Fulfillments"
+    },
+    "List_FulfillmentsModel": {
+      "title": "List_FulfillmentsModel"
+    },
+    "List_Marketplaces": {
+      "title": "List_Marketplaces"
+    },
+    "List_Orders": {
+      "title": "List_Orders"
+    },
+    "List_OrdersModel": {
+      "title": "List_OrdersModel"
+    },
+    "List_Orders_by_Tag": {
+      "title": "List_Orders_by_Tag"
+    },
+    "List_Packages": {
+      "title": "List_Packages"
+    },
+    "List_PackagesModel": {
+      "title": "List_PackagesModel"
+    },
+    "List_Products": {
+      "title": "List_Products"
+    },
+    "List_ProductsModel": {
+      "title": "List_ProductsModel"
+    },
+    "List_Services": {
+      "title": "List_Services"
+    },
+    "List_ServicesModel": {
+      "title": "List_ServicesModel"
+    },
+    "List_Shipments": {
+      "title": "List_Shipments"
+    },
+    "List_ShipmentsModel": {
+      "title": "List_ShipmentsModel"
+    },
+    "List_Stores": {
+      "title": "List_Stores"
+    },
+    "List_Tags": {
+      "title": "List_Tags"
+    },
+    "List_TagsModel": {
+      "title": "List_TagsModel"
+    },
+    "List_Users": {
+      "title": "List_Users"
+    },
+    "List_UsersModel": {
+      "title": "List_UsersModel"
+    },
+    "List_Warehouses": {
+      "title": "List_Warehouses"
+    },
+    "List_Webhooks": {
+      "title": "List_Webhooks"
+    },
+    "Mark_an_Order_as_Shipped": {
+      "title": "Mark_an_Order_as_Shipped"
+    },
+    "Reactivate_Store": {
+      "title": "Reactivate_Store"
+    },
+    "Refresh_Store": {
+      "title": "Refresh_Store"
+    },
+    "Register_Account": {
+      "title": "Register_Account"
+    },
+    "Register_AccountModel": {
+      "title": "Register_AccountModel"
+    },
+    "Remove_Tag_from_Order": {
+      "title": "Remove_Tag_from_Order"
+    },
+    "Restore_Order_from_On_Hold": {
+      "title": "Restore_Order_from_On_Hold"
+    },
+    "Subscribe_to_Webhook": {
+      "title": "Subscribe_to_Webhook"
+    },
+    "Subscribe_to_WebhookModel": {
+      "title": "Subscribe_to_WebhookModel"
+    },
+    "Unassign_User_from_Order": {
+      "title": "Unassign_User_from_Order"
+    },
+    "Unsubscribe_to_Webhook": {
+      "title": "Unsubscribe_to_Webhook"
+    },
+    "Void_Label": {
+      "title": "Void_Label"
+    }
+  },
+  "actions": [
+    {
+      "id": "accounts.listtags.get",
+      "title": "accounts.listtags.get",
+      "description": "Lists all tags defined for this account.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "accounts.registeraccount.post",
+      "title": "accounts.registeraccount.post",
+      "description": "Creates a new ShipStation account and generates an apiKey and apiSecret to be used by the newly created account. PLEASE NOTE: This endpoint does not require API key and API Secret credentials.  The Authorization header can be left off. Use of this specific endpoint requires approval, and is meant only for direct partners of ShipStation. This is the only endpoint to require approval. All other endpoints listed in this document can be accessed by submitting proper authorization credentials in the header of the request. To become a direct partner of ShipStation, or to request more information on becoming a direct partner, we recommend reaching out to our Partners and Integrations team here: https://info.shipstation.com/become-a-partner-api-and-custom-store-integrations\n\nThe body of this request has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``firstName``  | string, required | First Name\n``lastName`` | string, required | Last Name\n``email`` | string, required | Email address. This will also be the username of the account.\n``password`` | string, required | Password to set for account access.\n``companyName`` | string, optional | Name of Company.\n``addr1`` | string, optional | Company Address - Street 1\n``addr2`` | string, optional | Company Address - Street 2\n``city`` | string, optional | Company Address - City\n``state`` | string, optional | Company Address - State \n``zip`` | string, optional | Company Address - Zip Code\n``countryCode`` |string, optional | Company Address - Country.  Please use a 2-character country code.\n``phone`` | string, optional | Company Phone number.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "carriers.get",
+      "title": "carriers.get",
+      "description": "Lists all shipping providers connected to this account.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "carriers.addfunds.post",
+      "title": "carriers.addfunds.post",
+      "description": "Adds funds to a carrier account using the payment information on file. The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n ``carrierCode`` | string, required |  The carrier to add funds to.\n ``amount`` | number, required | The dollar amount to add to the account.  The minimum value that can be added is $10.00.  The maximum value is $10,000.00.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "carriers.getcarrier_carrierCode_carrierCode.get",
+      "title": "carriers.getcarrier_carrierCode_carrierCode.get",
+      "description": "Retrieves the shipping carrier account details for the specified carrierCode. Use this method to determine a carrier's account balance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "carrierCode": {
+            "type": "string",
+            "description": "The code for the carrier account to retrieve."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "carrierCode"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "carriers.listpackages_carrierCode_carrierCode.get",
+      "title": "carriers.listpackages_carrierCode_carrierCode.get",
+      "description": "Retrieves a list of packages for the specified carrier",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "carrierCode": {
+            "type": "string",
+            "description": "The carrier's code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "carrierCode"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "carriers.listservices_carrierCode_carrierCode.get",
+      "title": "carriers.listservices_carrierCode_carrierCode.get",
+      "description": "Retrieves the list of available shipping services provided by the specified carrier",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "carrierCode": {
+            "type": "string",
+            "description": "The carrier's code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "carrierCode"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "customers.customerId.get",
+      "title": "customers.customerId.get",
+      "description": "Get Customer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "number",
+            "description": "The system generated identifier for the Customer."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "customers_stateCode_stateCode_countryCode_countryCode_tagId_tagId_marketplaceId_marketplaceId_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "title": "customers_stateCode_stateCode_countryCode_countryCode_tagId_tagId_marketplaceId_marketplaceId_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "description": "Obtains a list of customers that match the specified criteria.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "stateCode": {
+            "type": "string",
+            "description": "Returns customers that reside in the specified stateCode."
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Returns customers that reside in the specified countryCode."
+          },
+          "marketplaceId": {
+            "type": "number",
+            "description": "Returns customers that purchased items from the specified marketplaceId."
+          },
+          "tagId": {
+            "type": "number",
+            "description": "Returns customers that have been tagged with the specified tagId."
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Sorts the order of the response based off the specified value.",
+            "enum": [
+              "Name",
+              "ModifyDate",
+              "CreateDate"
+            ]
+          },
+          "sortDir": {
+            "type": "string",
+            "description": "Sets the direction of the sort order.",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "page": {
+            "type": "number",
+            "description": "Page number.",
+            "default": 1
+          },
+          "pageSize": {
+            "type": "number",
+            "description": "Requested page size. Max value is 500.",
+            "default": 100
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "stateCode",
+          "countryCode",
+          "marketplaceId",
+          "tagId",
+          "sortBy",
+          "sortDir",
+          "page",
+          "pageSize"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "fulfillments.get",
+      "title": "fulfillments.get",
+      "description": "List Fulfillments w/o parameters",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "fulfillments_fulfillmentId_fulfillmentId_orderId_orderId_orderNumber_orderNumber_trackingNumber_trackingNumber_recipientName_recipientName_createDateStart_createDateStart_createDateEnd_createDateEnd_shipDateStart_shipDateStart_shipDateEnd_shipDateEnd_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "title": "fulfillments_fulfillmentId_fulfillmentId_orderId_orderId_orderNumber_orderNumber_trackingNumber_trackingNumber_recipientName_recipientName_createDateStart_createDateStart_createDateEnd_createDateEnd_shipDateStart_shipDateStart_shipDateEnd_shipDateEnd_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "description": "Obtains a list of fulfillments that match the specified criteria.  Please note the following:\n\n- Orders that have been marked as shipped either through the UI or the API will appear in the response as they are considered fulfillments.\n\nAll of the available filters are optional.  They do not need to be included in the URL.  If you do include them, here's what the URL may look like:\n\nUrl format with filters:\n\n```\nfulfillments?fulfillmentId={fulfillmentId}\n&orderId={orderId}\n&orderNumber={orderNumber}\n&trackingNumber={trackingNumber}\n&recipientName={recipientName}\n&createDateStart={createDateStart}\n&createDateEnd={createDateEnd}\n&shipDateStart={shipDateStart}\n&shipDateEnd={shipDateEnd}\n&sortBy={sortBy}\n&sortDir={sortDir}\n&page={page}\n&pageSize={pageSize}\n```",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "fulfillmentId": {
+            "type": "number",
+            "description": "Returns the fulfillment with the specified fulfillment ID."
+          },
+          "orderId": {
+            "type": "number",
+            "description": "Returns fulfillments whose orders have the specified order ID."
+          },
+          "orderNumber": {
+            "type": "string",
+            "description": "Returns fulfillments whose orders have the specified order number."
+          },
+          "trackingNumber": {
+            "type": "string",
+            "description": "Returns fulfillments with the specified tracking number."
+          },
+          "recipientName": {
+            "type": "string",
+            "description": "Returns fulfillments shipped to the specified recipient name."
+          },
+          "createDateStart": {
+            "type": "string",
+            "description": "Returns fulfillments created on or after the specified ``createDate``"
+          },
+          "createDateEnd": {
+            "type": "string",
+            "description": "Returns fulfillments created on or before the specified ``createDate``"
+          },
+          "shipDateStart": {
+            "type": "string",
+            "description": "Returns fulfillments with the ``shipDate`` on or after the specified date"
+          },
+          "shipDateEnd": {
+            "type": "string",
+            "description": "Returns fulfillments with the ``shipDate`` on or before the specified date"
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``createDate``.",
+            "enum": [
+              "ShipDate",
+              "CreateDate"
+            ]
+          },
+          "sortDir": {
+            "type": "string",
+            "description": "Sets the direction of the sort order.",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "page": {
+            "type": "number",
+            "description": "page number.",
+            "default": 1
+          },
+          "pageSize": {
+            "type": "number",
+            "description": "page size.",
+            "default": 100
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "fulfillmentId",
+          "orderId",
+          "orderNumber",
+          "trackingNumber",
+          "recipientName",
+          "createDateStart",
+          "createDateEnd",
+          "shipDateStart",
+          "shipDateEnd",
+          "sortBy",
+          "sortDir",
+          "page",
+          "pageSize"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.get",
+      "title": "orders.get",
+      "description": "List Orders w/o parameters",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.addtag.post",
+      "title": "orders.addtag.post",
+      "description": "Adds a tag to an order.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderId`` | number, required | Identifies the order that will be tagged.\n``tagId`` | number, required | Identifies the tag that will be applied to the order.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.assignuser.post",
+      "title": "orders.assignuser.post",
+      "description": "Assigns a user to an order.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderIds`` | number, required | Identifies set of orders that will be assigned the user.  Please note that if ANY of the orders within the array are not found, no orders will have a user assigned to them.\n``userId`` | number, required | Identifies the user that will be applied to the orders.  It should contain a GUID of the user to be assigned to the array of orders.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.createlabelfororder.post",
+      "title": "orders.createlabelfororder.post",
+      "description": "Creates a shipping label for a given order.  The ``labelData`` field returned in the response is a base64 encoded PDF value. Simply decode and save the output as a PDF file to retrieve a printable label.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderId`` | number, required | Identifies the order that will be shipped.\n``carrierCode`` | string, required | The code for the carrier that is to be used for the label.\n``serviceCode`` | string, required | The code for the shipping service that is to be used for the label.\n``confirmation`` | string, required | The type of delivery confirmation that is to be used once the shipment is created.  Possible values: ``none``, ``delivery``, ``signature``, ``adult_signature``, and ``direct_signature``.  ``direct_signature`` is available for FedEx only.\n``shipDate`` | string, required | The date the order should be shipped.\n``weight`` | Weight, optional | Weight of the order.  Use the [**Weight**](http://www.shipstation.com/developer-api/#/reference/model-weight) model.\n``dimensions`` | Dimensions, optional | Dimensions of the order.  Use [**Dimensions**](http://www.shipstation.com/developer-api/#/reference/model-dimensions) model.\n``insuranceOptions`` | InsuranceOptions, optional | The shipping insurance information associated with this label.  Use the [**InsuranceOptions**](http://www.shipstation.com/developer-api/#/reference/model-insuranceoptions) model.\n``internationalOptions`` | InternationalOptions, optional | Customs information that can be used to generate customs documents for international orders.  Use the [**InternationalOptions**](http://www.shipstation.com/developer-api/#/reference/model-internationaloptions) model.\n``advancedOptions`` | AdvancedOptions, optional | Various advanced options that may be available depending on the shipping carrier that is used to ship the order. Use the Customs information that can be used to generate customs documents for international orders.  Use the [**AdvancedOptions**](http://www.shipstation.com/developer-api/#/reference/model-advancedoptions) model.\n``testLabel`` | boolean, required | Specifies whether a test label should be created.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.createorder.post",
+      "title": "orders.createorder.post",
+      "description": "If the ``orderKey`` is specified, the method becomes idempotent and the existing order with that key will be updated. Note: Only orders in an open status in ShipStation (``awaiting_payment``,``awaiting_shipment``, and ``on_hold``) can be updated through this method. ``cancelled`` and ``shipped`` are locked from modification through the API.  The body of this request should specify an [**Order**](https://www.shipstation.com/developer-api/#/reference/model-order) object:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderNumber`` | string, required | A user-defined order number used to identify an order.\n``orderKey`` | string, optional | A user-provided key that should be unique to each order.  If an orderKey is not provided, ShipStation will create a new order and generate a unique orderKey for that order.  If the orderKey *is* provided, the **createorder** method will either: create a new order if the provided orderKey is not found, or, update the existing order if the orderKey is found.\n``orderDate`` | string, required | The date the order was placed.\n``paymentDate`` | string, optional | The date the order was paid for.\n``shipByDate`` | string, optional | The date the order is to be shipped before or on. This field is a suggested value generated by the order source/platform/cart and passed to ShipStation.\n``orderStatus`` | string, required | The order's status. Possible values: ``awaiting_payment``, ``awaiting_shipment``, ``shipped``, ``on_hold``, ``cancelled``\n``customerUsername`` | string, optional | The customer's username.\n``customerEmail`` | string, optional | The customer's email address.\n``billTo`` | Address, required | The recipients billing address. Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.\n``shipTo`` | Address, required | The recipient's shipping address. Use the [**Address**](http://www.shipstation.com/developer-api/#/reference/model-address) model.\n``items`` | OrderItem, optional | An array of item objects.  Use an array of [**OrderItem**](http://www.shipstation.com/developer-api/#/reference/model-orderitem) models.\n``amountPaid`` | number, optional | The total amount paid for the Order.\n``taxAmount`` | number, optional | The total tax amount for the Order.\n``shippingAmount`` | number, optional | Shipping amount paid by the customer, if any.\n``customerNotes`` | string, optional | Notes left by the customer when placing the order.\n``internalNotes`` | string, optional | Private notes that are only visible to the seller.\n``gift`` | boolean, optional | Specifies whether or not this Order is a gift\n``giftMessage`` | string, optional | Gift message left by the customer when placing the order.\n``paymentMethod`` | string, optional | Identifies the shipping service selected by the customer when placing this order.\n``requestedShippingService`` | string, optional |Identifies the shipping service selected by the customer when placing this order. This value is given to ShipStation by the marketplace/cart and helps identify what shipping service the customer selected upon checkout.\n``carrierCode`` | string, optional | The code for the carrier that is to be used(or was used) when this order is shipped(was shipped).\n``serviceCode`` | string, optional | The code for the shipping service that is to be used(or was used) when this order is shipped(was shipped).\n``packageCode`` | string, optional | The code for the package type that is to be used(or was used) when this order is shipped(was shipped).\n``confirmation`` | string, optional | The type of delivery confirmation that is to be used(or was used) when this order is shipped(was shipped). Possible values: ``none``, ``delivery``, ``signature``, ``adult_signature``, and ``direct_signature``.  ``direct_signature`` is available for FedEx only.  \n``shipDate`` | string, optional | The date the order was shipped.\n``weight`` | Weight, optional | Weight of the order.  Use the [**Weight**](http://www.shipstation.com/developer-api/#/reference/model-weight) model.\n``dimensions`` | Dimensions, optional | Dimensions of the order.  Use the [**Dimensions**](http://www.shipstation.com/developer-api/#/reference/model-dimensions) model.\n``insuranceOptions`` | InsuranceOptions, optional | The shipping insurance information associated with this order.  Use the [**InsuranceOptions**](http://www.shipstation.com/developer-api/#/reference/model-insuranceoptions) model.\n``internationalOptions`` | InternationalOptions, optional | Customs information that can be used to generate customs documents for international orders.  Use the [**InternationalOptions**](http://www.shipstation.com/developer-api/#/reference/model-internationaloptions) model.\n``advancedOptions`` | AdvancedOptions, optional | Various advanced options that may be available depending on the shipping carrier that is used to ship the order. Use the [**AdvancedOptions**](http://www.shipstation.com/developer-api/#/reference/model-advancedoptions) model.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.createorders.post",
+      "title": "orders.createorders.post",
+      "description": "This endpoint can be used to create or update multiple orders in one request. If the ``orderKey`` is specified in an order, the existing order with that key will be updated. Note: Only orders in an open status in ShipStation (``awaiting_payment``,``awaiting_shipment``, and ``on_hold``) can be updated through this method. ``cancelled`` and ``shipped`` are locked from modification through the API.\n\nData Type          |Description\n-------------------|-------------------\nOrder, required | An array of [**Order**](http://www.shipstation.com/developer-api/#/reference/model-order) objects (maximum of 100 per request)",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.holduntil.post",
+      "title": "orders.holduntil.post",
+      "description": "This method will change the status of the given order to On Hold until the date specified, when the status will automatically change to Awaiting Shipment.\n\nThe body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderId`` | number, required | Identifies the order that will be held.\n``holdUntilDate`` | string, required | Date when order is moved from ``on_hold`` status to ``awaiting_shipment``.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.listbytag_orderStatus_orderStatus_tagId_tagId_page_page_pageSize_pageSize.get",
+      "title": "orders.listbytag_orderStatus_orderStatus_tagId_tagId_page_page_pageSize_pageSize.get",
+      "description": "Lists all orders that match the specified status and tag ID.\n\nUrl format with filters:\n\n```\n/listbytag?orderStatus={orderStatus}\n&tagId={tagId}\n&page={page}\n&pageSize={pageSize}\n```",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orderStatus": {
+            "type": "string",
+            "description": "The order's status.",
+            "enum": [
+              "awaiting_payment",
+              "awaiting_shipment",
+              "pending_fulfillment",
+              "shipped",
+              "on_hold",
+              "cancelled"
+            ]
+          },
+          "tagId": {
+            "type": "number",
+            "description": "ID of the tag. Call Accounts/ListTags to obtain a list of tags for this account."
+          },
+          "page": {
+            "type": "string",
+            "description": "Page number",
+            "default": "1"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "Requested page size. Max value is 500.",
+            "default": "100"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "orderStatus",
+          "tagId",
+          "page",
+          "pageSize"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.markasshipped.post",
+      "title": "orders.markasshipped.post",
+      "description": "Marks an order as shipped without creating a label in ShipStation. The body of this request has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n ``orderId`` | number, required | Identifies the order that will be marked as shipped.\n ``carrierCode`` | string, required | Code of the carrier that is marked as having shipped the order.\n ``shipDate`` | string, optional | Date order was shipped.\n ``trackingNumber`` | string, optional | Tracking number of shipment.\n ``notifyCustomer``  | boolean, optional | Specifies whether the customer should be notified of the shipment. Default value: false\n ``notifySalesChannel`` | boolean, optional | Specifies whether the sales channel should be notified of the shipment. Default value: false",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.removetag.post",
+      "title": "orders.removetag.post",
+      "description": "Removes a tag from the specified order.  The body of this request has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderId`` | number, required | Identifies the order whose tag will be removed.\n``tagId`` | number, required | Identifies the tag to remove.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.restorefromhold.post",
+      "title": "orders.restorefromhold.post",
+      "description": "This method will change the status of the given order from On Hold to Awaiting Shipment. This endpoint is used when a holdUntil Date is attached to an order.\n\nThe body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderId`` | number, required | Identifies the order that will be restored to ``awaiting_shipment`` from ``on_hold``.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.unassignuser.post",
+      "title": "orders.unassignuser.post",
+      "description": "Unassigns a user from an order.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``orderIds`` | number, required | Identifies set of orders that will have the user unassigned.  Please note that if ANY of the orders within the array are not found, then no orders will have their users unassigned.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.orderId.delete",
+      "title": "orders.orderId.delete",
+      "description": "Removes order from ShipStation's UI. Note this is a \"soft\" delete action so the order will still exist in the database, but will be set to ``inactive``",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "description": "The system generated identifier for the order."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "orderId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "orders.orderId.get",
+      "title": "orders.orderId.get",
+      "description": "Retrieves a single order from the database.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "description": "The system generated identifier for the order."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "orderId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "orders_customerName_customerName_itemKeyword_itemKeyword_createDateStart_createDateStart_createDateEnd_createDateEnd_modifyDateStart_modifyDateStart_modifyDateEnd_modifyDateEnd_orderDateStart_orderDateStart_orderDateEnd_orderDateEnd_orderNumber_orderNumber_orderStatus_orderStatus_paymentDateStart_paymentDateStart_paymentDateEnd_paymentDateEnd_storeId_storeId_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "title": "orders_customerName_customerName_itemKeyword_itemKeyword_createDateStart_createDateStart_createDateEnd_createDateEnd_modifyDateStart_modifyDateStart_modifyDateEnd_modifyDateEnd_orderDateStart_orderDateStart_orderDateEnd_orderDateEnd_orderNumber_orderNumber_orderStatus_orderStatus_paymentDateStart_paymentDateStart_paymentDateEnd_paymentDateEnd_storeId_storeId_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "description": "Obtains a list of orders that match the specified criteria.  All of the available filters are optional.  They do not need to be included in the URL.  If you do include them, here's what the URL may look like:\n\nUrl format with filters:\n\n```\n/orders?customerName={customerName}\n&itemKeyword={itemKeyword}\n&createDateStart={createDateStart}\n&createDateEnd={createDateEnd}\n&modifyDateStart={modifyDateStart}\n&modifyDateEnd={modifyDateEnd}\n&orderDateStart={orderDateStart}\n&orderDateEnd={orderDateEnd}\n&orderNumber={orderNumber}\n&orderStatus={orderStatus}\n&paymentDateStart={paymentDateStart}\n&paymentDateEnd={paymentDateEnd}\n&storeId={storeId}\n&sortBy={sortBy}\n&sortDir={sortDir}\n&page={page}\n&pageSize={pageSize}\n```",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customerName": {
+            "type": "string",
+            "description": "Returns orders that match the specified name."
+          },
+          "itemKeyword": {
+            "type": "string",
+            "description": "Returns orders that contain items that match the specified keyword. Fields searched are Sku, Description, and Options"
+          },
+          "createDateStart": {
+            "type": "string",
+            "description": "Returns orders that were created in ShipStation after the specified date"
+          },
+          "createDateEnd": {
+            "type": "string",
+            "description": "Returns orders that were created in ShipStation before the specified date"
+          },
+          "modifyDateStart": {
+            "type": "string",
+            "description": "Returns orders that were modified after the specified date"
+          },
+          "modifyDateEnd": {
+            "type": "string",
+            "description": "Returns orders that were modified before the specified date"
+          },
+          "orderDateStart": {
+            "type": "string",
+            "description": "Returns orders greater than the specified date"
+          },
+          "orderDateEnd": {
+            "type": "string",
+            "description": "Returns orders less than or equal to the specified date"
+          },
+          "orderNumber": {
+            "type": "string",
+            "description": "Filter by order number, performs a \"starts with\" search."
+          },
+          "orderStatus": {
+            "type": "string",
+            "description": "Filter by order status.  If left empty, orders of all statuses are returned.",
+            "enum": [
+              "awaiting_payment",
+              "awaiting_shipment",
+              "pending_fulfillment",
+              "shipped",
+              "on_hold",
+              "cancelled"
+            ]
+          },
+          "paymentDateStart": {
+            "type": "string",
+            "description": "Returns orders that were paid after the specified date"
+          },
+          "paymentDateEnd": {
+            "type": "string",
+            "description": "Returns orders that were paid before the specified date"
+          },
+          "storeId": {
+            "type": "number",
+            "description": "Filters orders to a single store. Call List Stores to obtain a list of store Ids."
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``orderId``.",
+            "enum": [
+              "OrderDate",
+              "ModifyDate",
+              "CreateDate"
+            ]
+          },
+          "sortDir": {
+            "type": "string",
+            "description": "Sets the direction of the sort order.",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "page": {
+            "type": "string",
+            "description": "Page number",
+            "default": "1"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "Requested page size. Max value is 500.",
+            "default": "100"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customerName",
+          "itemKeyword",
+          "createDateStart",
+          "createDateEnd",
+          "modifyDateStart",
+          "modifyDateEnd",
+          "orderDateStart",
+          "orderDateEnd",
+          "orderNumber",
+          "orderStatus",
+          "paymentDateStart",
+          "paymentDateEnd",
+          "storeId",
+          "sortBy",
+          "sortDir",
+          "page",
+          "pageSize"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "products.get",
+      "title": "products.get",
+      "description": "List Products w/o parameters",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "products.productId.get",
+      "title": "products.productId.get",
+      "description": "Get Product",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "description": "The system generated identifier for the Product."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "products.productId.put",
+      "title": "products.productId.put",
+      "description": "Updates an existing product. This call does not currently support partial updates. The entire resource must be provided in the body of the request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "number",
+            "description": "The system generated identifier for the Product."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "products_sku_sku_name_name_productCategoryId_productCategoryId_productTypeId_productTypeId_tagId_tagId_startDate_startDate_endDate_endDate_showInactive_showInactive_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "title": "products_sku_sku_name_name_productCategoryId_productCategoryId_productTypeId_productTypeId_tagId_tagId_startDate_startDate_endDate_endDate_showInactive_showInactive_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "description": "Obtains a list of products that match the specified criteria.  All of the available filters are optional.  They do not need to be included in the URL.  If you do include them, here's what the URL may look like:\n\nUrl format with filters:\n\n```\n/products?sku={sku}\n&name={name}\n&productCategoryId={productCategoryId}\n&productTypeId={productTypeId}\n&tagId={tagId}\n&startDate={startDate}\n&endDate={endDate}\n&showInactive={showInactive}\n&sortBy={sortBy}\n&sortDir={sortDir}\n&page={page}\n&pageSize={pageSize}\n```",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string",
+            "description": "Returns products that match the specified SKU."
+          },
+          "name": {
+            "type": "string",
+            "description": "Returns products that match the specified product name."
+          },
+          "productCategoryId": {
+            "type": "string",
+            "description": "Returns products that match the specified productCategoryId."
+          },
+          "productTypeId": {
+            "type": "string",
+            "description": "Returns products that match the specified productTypeId."
+          },
+          "tagId": {
+            "type": "string",
+            "description": "Returns products that match the specified tagId."
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Returns products that were created after the specified date."
+          },
+          "endDate": {
+            "type": "string",
+            "description": "Returns products that were created before the specified date."
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Sorts the order of the response based off the specified value.",
+            "enum": [
+              "SKU",
+              "ModifyDate",
+              "CreateDate"
+            ]
+          },
+          "sortDir": {
+            "type": "string",
+            "description": "Sets the direction of the sort order.",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "page": {
+            "type": "string",
+            "description": "Page number.",
+            "default": "1"
+          },
+          "pageSize": {
+            "type": "string",
+            "description": "Requested page size. Max value is 500.",
+            "default": "100"
+          },
+          "showInactive": {
+            "type": "string",
+            "description": "Specifies whether the list should include inactive products.",
+            "default": "false"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "name",
+          "productCategoryId",
+          "productTypeId",
+          "tagId",
+          "startDate",
+          "endDate",
+          "sortBy",
+          "sortDir",
+          "page",
+          "pageSize",
+          "showInactive"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "shipments.get",
+      "title": "shipments.get",
+      "description": "List Shipments w/o parameters",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "shipments.createlabel.post",
+      "title": "shipments.createlabel.post",
+      "description": "Creates a shipping label.  The ``labelData`` field returned in the response is a base64 encoded PDF value. Simply decode and save the output as a PDF file to retrieve a printable label.  The body of this request has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n ``carrierCode`` | string, required | Identifies the carrier to be used for this label.\n ``serviceCode`` | string, required | Identifies the shipping service to be used for this label.\n ``packageCode`` | string, required | Identifies the packing type that should be used for this label.\n ``confirmation`` | string, optional | Identifies the delivery confirmation type to be used for this label.\n ``shipDate`` | string, required | The date the shipment will be shipped.\n ``weight`` | Weight, required | Shipment's weight.  Use the [**Weight**](https://www.shipstation.com/developer-api/#/reference/model-weight) model.\n ``dimensions`` | Dimensions, optional | Shipment's dimensions.  Use the [**Dimensions**](https://www.shipstation.com/developer-api/#/reference/model-dimensions) model.\n ``shipFrom`` | Address, required | Address indicating shipment's origin.  Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.\n ``shipTo`` | Address, required | Address indicating shipment's destination.  Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.\n ``insuranceOptions`` | InsuranceOptions, optional | The shipping insurance information associated with this order.  \n ``internationalOptions`` | InternationalOptions, optional | Customs information that can be used to generate customs documents for international orders.  Use the [**InternationalOptions**](https://www.shipstation.com/developer-api/#/reference/model-internationaloptions) model.\n ``advancedOptions`` | AdvancedOptions, optional | Various advanced options that may be available depending on the shipping carrier that is used to ship the order.  Use the [**AdvancedOptions**](https://www.shipstation.com/developer-api/#/reference/model-advancedoptions) model. \n ``testLabel`` | boolean, optional | Specifies whether a test label should be created. Default value: false.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "shipments.getrates.post",
+      "title": "shipments.getrates.post",
+      "description": "Retrieves shipping rates for the specified shipping details.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n ``carrierCode`` | string, required | Returns rates for the specified carrier.\n ``serviceCode`` | string, optional | Returns rates for the specified shipping service.\n ``packageCode`` | string, optional | Returns rates for the specified package type.\n ``fromPostalCode`` | string, required | Originating postal code.\n ``toState`` | string, optional | Destination State/Province. Please use two-character state/province abbreviation. Note this field is required for the following carriers: UPS\n ``toCountry`` | string, required | Destination Country.  Please use the two-character ISO country code.\n ``toPostalCode`` | string, required | Destination Postal Code.\n ``toCity`` | string, optional | Destination City.\n ``weight`` | Weight, required | Shipment's weight.  Use ``Weight`` object.\n ``dimensions`` | Dimensions, optional | Shipment's dimensions.  Use ``Dimensions`` object. \n ``confirmation`` | string, optional | Returns rates that account for the specified delivery confirmation type.\n ``residential`` | boolean, optional | Returns rates that account for the specified delivery confirmation type. Default value: false",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "shipments.voidlabel.post",
+      "title": "shipments.voidlabel.post",
+      "description": "Voids the specified label by shipmentId.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n ``shipmentId`` | number, required | ID of the shipment to void.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "shipments_recipientName_recipientName_recipientCountryCode_recipientCountryCode_orderNumber_orderNumber_orderId_orderId_carrierCode_carrierCode_serviceCode_serviceCode_trackingNumber_trackingNumber_createDateStart_createDateStart_createDateEnd_createDateEnd_shipDateStart_shipDateStart_shipDateEnd_shipDateEnd_voidDateStart_voidDateStart_voidDateEnd_voidDateEnd_includeShipmentItems_includeShipmentItems_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "title": "shipments_recipientName_recipientName_recipientCountryCode_recipientCountryCode_orderNumber_orderNumber_orderId_orderId_carrierCode_carrierCode_serviceCode_serviceCode_trackingNumber_trackingNumber_createDateStart_createDateStart_createDateEnd_createDateEnd_shipDateStart_shipDateStart_shipDateEnd_shipDateEnd_voidDateStart_voidDateStart_voidDateEnd_voidDateEnd_includeShipmentItems_includeShipmentItems_sortBy_sortBy_sortDir_sortDir_page_page_pageSize_pageSize.get",
+      "description": "Obtains a list of shipments that match the specified criteria.  Please note the following:\n\n- Only valid shipments with labels generated in ShipStation will be returned in the response. Orders that have been marked as shipped either through the UI or the API will not appear as they are considered external shipments.\n\n- To include every shipment's associated shipmentItems in the response, be sure to set the `includeShipmentItems` parameter to `true`.\n\nAll of the available filters are optional.  They do not need to be included in the URL.  If you do include them, here's what the URL may look like:\n\nUrl format with filters:\n\n```\nshipments?recipientName={recipientName}\n&recipientCountryCode={recipientCountryCode}\n&orderNumber={orderNumber}\n&orderId={orderId}\n&carrierCode={carrierCode}\n&serviceCode={serviceCode}\n&trackingNumber={trackingNumber}\n&createDateStart={createDateStart}\n&createDateEnd={createDateEnd}\n&shipDateStart={shipDateStart}\n&shipDateEnd={shipDateEnd}\n&voidDateStart={voidDateStart}\n&voidDateEnd={voidDateEnd}\n&includeShipmentItems={includeShipmentItems}\n&sortBy={sortBy}\n&sortDir={sortDir}\n&page={page}\n&pageSize={pageSize}\n```",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "recipientName": {
+            "type": "string",
+            "description": "Returns shipments shipped to the specified recipient name."
+          },
+          "recipientCountryCode": {
+            "type": "string",
+            "description": "Returns shipments shipped to the specified country code."
+          },
+          "orderNumber": {
+            "type": "string",
+            "description": "Returns shipments whose orders have the specified order number."
+          },
+          "orderId": {
+            "type": "number",
+            "description": "Returns shipments whose orders have the specified order ID."
+          },
+          "carrierCode": {
+            "type": "string",
+            "description": "Returns shipments shipped with the specified carrier."
+          },
+          "serviceCode": {
+            "type": "string",
+            "description": "Returns shipments shipped with the specified shipping service."
+          },
+          "trackingNumber": {
+            "type": "string",
+            "description": "Returns shipments with the specified tracking number."
+          },
+          "createDateStart": {
+            "type": "string",
+            "description": "Returns shipments created on or after the specified ``createDate``"
+          },
+          "createDateEnd": {
+            "type": "string",
+            "description": "Returns shipments created on or before the specified ``createDate``"
+          },
+          "shipDateStart": {
+            "type": "string",
+            "description": "Returns shipments with the ``shipDate`` on or after the specified date"
+          },
+          "shipDateEnd": {
+            "type": "string",
+            "description": "Returns shipments with the ``shipDate`` on or before the specified date"
+          },
+          "voidDateStart": {
+            "type": "string",
+            "description": "Returns shipments voided on or after the specified date"
+          },
+          "voidDateEnd": {
+            "type": "string",
+            "description": "Returns shipments voided on or before the specified date"
+          },
+          "includeShipmentItems": {
+            "type": "boolean",
+            "description": "Specifies whether to include shipment items with results Default value: false."
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Sort the responses by a set value.  The response will be sorted based off the ascending dates (oldest to most current.)  If left empty, the response will be sorted by ascending ``createDate``.",
+            "enum": [
+              "ShipDate",
+              "CreateDate"
+            ]
+          },
+          "sortDir": {
+            "type": "string",
+            "description": "Sets the direction of the sort order.",
+            "enum": [
+              "ASC",
+              "DESC"
+            ]
+          },
+          "page": {
+            "type": "number",
+            "description": "page number.",
+            "default": 1
+          },
+          "pageSize": {
+            "type": "number",
+            "description": "page size.",
+            "default": 100
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "recipientName",
+          "recipientCountryCode",
+          "orderNumber",
+          "orderId",
+          "carrierCode",
+          "serviceCode",
+          "trackingNumber",
+          "createDateStart",
+          "createDateEnd",
+          "shipDateStart",
+          "shipDateEnd",
+          "voidDateStart",
+          "voidDateEnd",
+          "includeShipmentItems",
+          "sortBy",
+          "sortDir",
+          "page",
+          "pageSize"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.deactivate.post",
+      "title": "stores.deactivate.post",
+      "description": "Deactivates the specified store.\n\nThe body of this request has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``storeId``  | number, required | ID of the store to deactivate.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.getrefreshstatus_storeId_storeId.get",
+      "title": "stores.getrefreshstatus_storeId_storeId.get",
+      "description": "Retrieves the refresh status of a given store.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeId": {
+            "type": "number",
+            "description": "Specifies the store whose status will be retrieved."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "storeId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.marketplaces.get",
+      "title": "stores.marketplaces.get",
+      "description": "Lists the marketplaces that can be integrated with ShipStation.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.reactivate.post",
+      "title": "stores.reactivate.post",
+      "description": "Reactivates the specified store. Note: stores are active by default\n\nThe body of this request has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``storeId``  | number, required | ID of the store to reactivate.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.refreshstore_storeId_storeId_refreshDate_refreshDate.post",
+      "title": "stores.refreshstore_storeId_storeId_refreshDate_refreshDate.post",
+      "description": "Initiates a store refresh.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeId": {
+            "type": "number",
+            "description": "Specifies the store which will get refreshed.  If the storeId is not specified, a store refresh will be initiated for all refreshable stores on that account."
+          },
+          "refreshDate": {
+            "type": "string",
+            "description": "Specifies the starting date for new order imports.  If the refreshDate is not specified, ShipStation will use the last recorded refreshDate for that store."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "storeId",
+          "refreshDate"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.storeId.get",
+      "title": "stores.storeId.get",
+      "description": "Get Store",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeId": {
+            "type": "number",
+            "description": "A unique ID generated by ShipStation and assigned to each store."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "storeId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "stores.storeId.put",
+      "title": "stores.storeId.put",
+      "description": "Updates an existing store. This call does not currently support partial updates. The entire resource must be provided in the body of the request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storeId": {
+            "type": "number",
+            "description": "A unique ID generated by ShipStation and assigned to each store."
+          },
+          "body": {
+            "$ref": "#/definitions/Get_Update_StoreModel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "storeId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "stores_showInactive_showInactive_marketplaceId_marketplaceId.get",
+      "title": "stores_showInactive_showInactive_marketplaceId_marketplaceId.get",
+      "description": "Retrieve the list of installed stores on the account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "showInactive": {
+            "type": "boolean",
+            "description": "Determines whether inactive stores will be returned in the list of stores.",
+            "default": false
+          },
+          "marketplaceId": {
+            "type": "number",
+            "description": "Returns stores of this marketplace type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "showInactive",
+          "marketplaceId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "users_showInactive_showInactive.get",
+      "title": "users_showInactive_showInactive.get",
+      "description": "List Users",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "showInactive": {
+            "type": "boolean",
+            "description": "Determines whether inactive users will be returned in the response.",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "showInactive"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "warehouses.get",
+      "title": "warehouses.get",
+      "description": "Retrieves a list of your Ship From Locations (formerly known as warehouses).",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "warehouses.createwarehouse.post",
+      "title": "warehouses.createwarehouse.post",
+      "description": "Adds a Ship From Location (formerly known as warehouse) to your account.  The body of this request should specify the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n ``warehouseName`` | string, optional | Name of Ship From Location.\n ``originAddress`` | Address, required | The origin address.  Shipping rates will be calculated from this address.  Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.\n ``returnAddress`` | Address, optional | The return address.  If a \"returnAddress\" is not specified, your \"originAddress\" will be used as your \"returnAddress\". Use the [**Address**](https://www.shipstation.com/developer-api/#/reference/model-address) model.\n ``isDefault`` | boolean, optional | Specifies whether or not this will be your default Ship From Location.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "warehouses.warehouseId.get",
+      "title": "warehouses.warehouseId.get",
+      "description": "Returns a list of active Ship From Locations (formerly known as warehouses) on the ShipStation account. Warehouses are now called \"Ship From Locations\" in the UI.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "warehouseId": {
+            "type": "number",
+            "description": "A unique ID generated by ShipStation and assigned to each Ship From Location (formerly known as warehouse)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "warehouseId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "warehouses.warehouseId.put",
+      "title": "warehouses.warehouseId.put",
+      "description": "Updates an existing Ship From Location (formerly known as warehouse). This call does not currently support partial updates. The entire resource must be provided in the body of the request. If a \"returnAddress\" object is not specified, your \"originAddress\" will be used as your \"returnAddress\".",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "warehouseId": {
+            "type": "number",
+            "description": "A unique ID generated by ShipStation and assigned to each Ship From Location (formerly known as warehouse)."
+          },
+          "body": {
+            "$ref": "#/definitions/Get_Update_WarehouseModel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "warehouseId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "webhooks.get",
+      "title": "webhooks.get",
+      "description": "Retrieves a list of registered webhooks for the account",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "webhooks.subscribe.post",
+      "title": "webhooks.subscribe.post",
+      "description": "Subscribes to a specific type of webhook. If a ``store_id`` is passed in, the webhooks will only be triggered for that specific ``store_id``.\nThe ``event`` type that is passed in will determine what type of webhooks will be sent.\n\nNOTE: Webhooks will be sent to the URL specified in the ``target_url``. The HTTP request will be sent via POST and will contain a [**webhook JSON object**](https://www.shipstation.com/developer-api/#/reference/model-webhook) in the body.\n\nThe body of this request to subscribe has the following attributes:\n\nName               |Data Type          |Description\n-------------------|-------------------|-------------------\n``target_url``  | string, required | The URL to send the webhooks to\n``event`` | string, required | The type of webhook to subscribe to. Must contain one of the following values: ORDER_NOTIFY, ITEM_ORDER_NOTIFY, SHIP_NOTIFY, ITEM_SHIP_NOTIFY\n``store_id`` | int, optional | If passed in, the webhooks will only be triggered for this ``store_id``\n``friendly_name`` | string, optional | Display name for the webhook",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "webhooks.webhookId.delete",
+      "title": "webhooks.webhookId.delete",
+      "description": "Unsubscribes from a certain webhook.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "webhookId": {
+            "type": "number",
+            "description": "A unique ID generated by ShipStation and assigned to each webhook."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "webhookId"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "ecommerce"
+  ]
+}

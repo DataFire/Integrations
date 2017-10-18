@@ -1,0 +1,104 @@
+{
+  "id": "apitore_sentencesimilarity",
+  "title": "Sentence Similarity",
+  "description": "Sentence Similarity.<BR />[Endpoint] https://api.apitore.com/api/53",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencesimilarity.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "TextRequestEntity": {
+      "properties": {
+        "text1": {
+          "description": "text1",
+          "type": "string"
+        },
+        "text2": {
+          "description": "text2",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text1",
+        "text2"
+      ],
+      "type": "object",
+      "title": "TextRequestEntity"
+    },
+    "TextSimilarityResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "similarity": {
+          "description": "Similarity",
+          "format": "double",
+          "type": "number"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "text1": {
+          "description": "Text1",
+          "type": "string"
+        },
+        "text2": {
+          "description": "Text2",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "similarity",
+        "startTime",
+        "text1",
+        "text2"
+      ],
+      "type": "object",
+      "title": "TextSimilarityResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "evalUsingPOST",
+      "title": "evalUsingPOST",
+      "description": "Sentence similarity.  \nResponse  \n  Github: [text-similarity-response](https://github.com/keigohtr/apitore-response-parent/tree/master/text-similarity-response)  \n  Class: com.apitore.banana.response.textsimilarity.TextSimilarityResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "req": {
+            "$ref": "#/definitions/TextRequestEntity"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "req"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TextSimilarityResponseEntity"
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

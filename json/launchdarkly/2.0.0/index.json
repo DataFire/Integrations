@@ -1,0 +1,1666 @@
+{
+  "id": "launchdarkly",
+  "title": "LaunchDarkly",
+  "description": "Build custom integrations with the LaunchDarkly REST API",
+  "security": {
+    "launchdarkly": {
+      "integration": "launchdarkly",
+      "fields": {
+        "Token": "https://app.launchdarkly.com/settings#/tokens"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/launchdarkly.jpg"
+  },
+  "actionCount": 31,
+  "definitions": {
+    "AuditLogEntries": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/AuditLogEntry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "AuditLogEntries"
+    },
+    "AuditLogEntry": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "date": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "member": {
+          "$ref": "#/definitions/Member"
+        },
+        "name": {
+          "type": "string"
+        },
+        "target": {
+          "properties": {
+            "_links": {
+              "$ref": "#/definitions/Links"
+            },
+            "name": {
+              "type": "string"
+            },
+            "resources": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "title": {
+          "type": "string"
+        },
+        "titleVerb": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AuditLogEntry"
+    },
+    "Clause": {
+      "properties": {
+        "attribute": {
+          "type": "string"
+        },
+        "negate": {
+          "type": "boolean"
+        },
+        "op": {
+          "type": "string"
+        },
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Clause"
+    },
+    "Environment": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "apiKey": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "defaultTtl": {
+          "type": "number"
+        },
+        "key": {
+          "type": "string"
+        },
+        "mobileKey": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "secureMode": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Environment"
+    },
+    "FeatureFlag": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "_maintainer": {
+          "$ref": "#/definitions/Member"
+        },
+        "creationDate": {
+          "type": "number"
+        },
+        "environments": {
+          "additionalProperties": {
+            "$ref": "#/definitions/FeatureFlagConfig"
+          },
+          "type": "object"
+        },
+        "includeInSnippet": {
+          "type": "boolean"
+        },
+        "key": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "maintainerId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "temporary": {
+          "type": "boolean"
+        },
+        "variations": {
+          "items": {
+            "$ref": "#/definitions/Variation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "FeatureFlag"
+    },
+    "FeatureFlagConfig": {
+      "properties": {
+        "archived": {
+          "type": "boolean"
+        },
+        "fallthrough": {
+          "properties": {
+            "rollout": {
+              "$ref": "#/definitions/Rollout"
+            },
+            "variation": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
+        "lastModified": {
+          "type": "integer"
+        },
+        "on": {
+          "type": "boolean"
+        },
+        "rules": {
+          "items": {
+            "$ref": "#/definitions/Rule"
+          },
+          "type": "array"
+        },
+        "salt": {
+          "type": "string"
+        },
+        "sel": {
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/Target"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "FeatureFlagConfig"
+    },
+    "FeatureFlagStatus": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "lastRequested": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "FeatureFlagStatus"
+    },
+    "FeatureFlagStatuses": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/FeatureFlagStatus"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "FeatureFlagStatuses"
+    },
+    "FeatureFlags": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/FeatureFlag"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "FeatureFlags"
+    },
+    "Link": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Link"
+    },
+    "Links": {
+      "properties": {
+        "self": {
+          "$ref": "#/definitions/Link"
+        }
+      },
+      "type": "object",
+      "title": "Links"
+    },
+    "Member": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "_pendingInvite": {
+          "type": "boolean"
+        },
+        "customRoles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "email": {
+          "type": "string"
+        },
+        "isBeta": {
+          "type": "boolean"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Member"
+    },
+    "Project": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/Environment"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Project"
+    },
+    "Projects": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/Project"
+          },
+          "type": "array"
+        },
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Projects"
+    },
+    "Rollout": {
+      "properties": {
+        "variations": {
+          "items": {
+            "$ref": "#/definitions/WeightedVariation"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Rollout"
+    },
+    "Rule": {
+      "properties": {
+        "clauses": {
+          "items": {
+            "$ref": "#/definitions/Clause"
+          },
+          "type": "array"
+        },
+        "rollout": {
+          "$ref": "#/definitions/Rollout"
+        },
+        "variation": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Rule"
+    },
+    "Target": {
+      "properties": {
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "variation": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Target"
+    },
+    "User": {
+      "properties": {
+        "avatar": {
+          "type": "string"
+        },
+        "environmentId": {
+          "type": "string"
+        },
+        "lastPing": {
+          "type": "string"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "user": {
+          "example": {
+            "custom": {
+              "company": "example.com"
+            },
+            "key": "a00bea",
+            "name": "Bob Loblaw"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "User"
+    },
+    "UserFlagSetting": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "_value": {
+          "type": "boolean"
+        },
+        "setting": {
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "UserFlagSetting"
+    },
+    "UserFlagSettings": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "example": {
+            "alternate.page": {
+              "_links": {
+                "self": {
+                  "href": "/api/v2/users/lacuna/production/Abbie_Braun/flags/alternate.page",
+                  "type": "application/json"
+                }
+              },
+              "_value": "false,"
+            },
+            "sort.order": {
+              "_links": {
+                "_value": true,
+                "self": {
+                  "href": "/api/v2/users/lacuna/production/Abbie_Braun/flags/sort.order",
+                  "type": "application/json"
+                }
+              }
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "UserFlagSettings"
+    },
+    "Users": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/User"
+          },
+          "type": "array"
+        },
+        "totalCount": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "Users"
+    },
+    "Variation": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object",
+      "title": "Variation"
+    },
+    "Webhook": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "on": {
+          "type": "boolean"
+        },
+        "secret": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Webhook"
+    },
+    "Webhooks": {
+      "properties": {
+        "_links": {
+          "$ref": "#/definitions/Links"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/Webhook"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Webhooks"
+    },
+    "WeightedVariation": {
+      "properties": {
+        "variation": {
+          "type": "integer"
+        },
+        "weight": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "WeightedVariation"
+    }
+  },
+  "actions": [
+    {
+      "id": "getRoot",
+      "title": "getRoot",
+      "description": "Get the root resource",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Links"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getAuditLogEntries",
+      "title": "getAuditLogEntries",
+      "description": "Fetch a list of all webhooks",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/AuditLogEntries"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getAuditLogEntry",
+      "title": "getAuditLogEntry",
+      "description": "Get a webhook by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "description": "The resource ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AuditLogEntry"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "postEnvironment",
+      "title": "postEnvironment",
+      "description": "Create an environment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentBody": {
+            "properties": {
+              "color": {
+                "description": "A color swatch (as an RGB hex value with no leading '#', e.g. C8C8C8)",
+                "type": "string"
+              },
+              "defaultTtl": {
+                "type": "number"
+              },
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "key",
+              "color"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentBody"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "deleteEnvironment",
+      "title": "deleteEnvironment",
+      "description": "Delete an environment by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getEnvironment",
+      "title": "getEnvironment",
+      "description": "Get an environment by key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "patchEnvironment",
+      "title": "patchEnvironment",
+      "description": "Modify an environment by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "patchDelta": {
+            "items": {
+              "properties": {
+                "op": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "patchDelta"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getFeatureFlagStatus",
+      "title": "getFeatureFlagStatus",
+      "description": "Get a list of statuses for all feature flags",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeatureFlagStatuses"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getFeatureFlagStatuses",
+      "title": "getFeatureFlagStatuses",
+      "description": "Get a list of statuses for all feature flags",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "featureFlagKey": {
+            "type": "string",
+            "description": "The feature flag's key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "featureFlagKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeatureFlagStatus"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getFeatureFlags",
+      "title": "getFeatureFlags",
+      "description": "Get a list of all features in the given project.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKeyQuery": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "tag": {
+            "type": "string",
+            "description": "Filter by tag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeatureFlags"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "postFeatureFlag",
+      "title": "postFeatureFlag",
+      "description": "Create a feature flag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "featureFlagBody": {
+            "properties": {
+              "includeInSnippet": {
+                "description": "Whether or not this flag should be made available to the client-side JavaScript SDK",
+                "type": "boolean"
+              },
+              "key": {
+                "description": "A unique key that will be used to reference the flag in your code",
+                "type": "string"
+              },
+              "name": {
+                "description": "A human-friendly name for the feature flag. Remember to note if this flag is intended to be temporary or permanent.",
+                "type": "string"
+              },
+              "tags": {
+                "description": "Tags for the feature flag",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "temporary": {
+                "description": "Whether or not the flag is a temporary flag",
+                "type": "boolean"
+              },
+              "variations": {
+                "description": "An array of possible variations for the flag.",
+                "items": {
+                  "$ref": "#/definitions/Variation"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "name",
+              "key",
+              "variations"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "featureFlagBody"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "deleteFeatureFlag",
+      "title": "deleteFeatureFlag",
+      "description": "Delete a feature flag by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "featureFlagKey": {
+            "type": "string",
+            "description": "The feature flag's key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "featureFlagKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getFeatureFlag",
+      "title": "getFeatureFlag",
+      "description": "Get a single feature flag by key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "featureFlagKey": {
+            "type": "string",
+            "description": "The feature flag's key"
+          },
+          "environmentKeyQuery": {
+            "type": "string",
+            "description": "The environment key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "featureFlagKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeatureFlag"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "patchFeatureFlag",
+      "title": "patchFeatureFlag",
+      "description": "Modify a feature flag by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "featureFlagKey": {
+            "type": "string",
+            "description": "The feature flag's key"
+          },
+          "patchDelta": {
+            "items": {
+              "properties": {
+                "op": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "featureFlagKey",
+          "patchDelta"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeatureFlag"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getProjects",
+      "title": "getProjects",
+      "description": "Returns a list of all projects in the account.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Projects"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "postProject",
+      "title": "postProject",
+      "description": "Create a project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectBody": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectBody"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "deleteProject",
+      "title": "deleteProject",
+      "description": "Delete a project by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getProject",
+      "title": "getProject",
+      "description": "Get a project by key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "patchProject",
+      "title": "patchProject",
+      "description": "Modify a project by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "patchDelta": {
+            "items": {
+              "properties": {
+                "op": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "patchDelta"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getSearchUsers",
+      "title": "getSearchUsers",
+      "description": "Search users in LaunchDarkly based on their last active date, or a search query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "q": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Pagination limit"
+          },
+          "offset": {
+            "type": "number",
+            "description": "Specifies the first item to return in the collection"
+          },
+          "after": {
+            "type": "number",
+            "description": "A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Users"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getUsers",
+      "title": "getUsers",
+      "description": "List all users in the environment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Pagination limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Users"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "deleteUser",
+      "title": "deleteUser",
+      "description": "Delete a user by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "userKey": {
+            "type": "string",
+            "description": "The user's key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "userKey"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getUser",
+      "title": "getUser",
+      "description": "Get a user by key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "userKey": {
+            "type": "string",
+            "description": "The user's key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "userKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getUserFlagSettings",
+      "title": "getUserFlagSettings",
+      "description": "Lists the current flag settings for a given user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "userKey": {
+            "type": "string",
+            "description": "The user's key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "userKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserFlagSettings"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getUserFlagSetting",
+      "title": "getUserFlagSetting",
+      "description": "Get a user by key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "userKey": {
+            "type": "string",
+            "description": "The user's key"
+          },
+          "featureFlagKey": {
+            "type": "string",
+            "description": "The feature flag's key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "userKey",
+          "featureFlagKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserFlagSetting"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "putFlagSetting",
+      "title": "putFlagSetting",
+      "description": "Specifically enable or disable a feature flag for a user based on their key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectKey": {
+            "type": "string",
+            "description": "The project key"
+          },
+          "environmentKey": {
+            "type": "string",
+            "description": "The environment key"
+          },
+          "userKey": {
+            "type": "string",
+            "description": "The user's key"
+          },
+          "featureFlagKey": {
+            "type": "string",
+            "description": "The feature flag's key"
+          },
+          "userSettingsBody": {
+            "properties": {
+              "setting": {
+                "description": "The variation value to set for the user. Must match the variation type of the flag.",
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "projectKey",
+          "environmentKey",
+          "userKey",
+          "featureFlagKey",
+          "userSettingsBody"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getWebhooks",
+      "title": "getWebhooks",
+      "description": "Fetch a list of all webhooks",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Webhooks"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "postWebhook",
+      "title": "postWebhook",
+      "description": "Create a webhook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "webhookBody": {
+            "properties": {
+              "on": {
+                "type": "boolean"
+              },
+              "secret": {
+                "type": "string"
+              },
+              "sign": {
+                "type": "boolean"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "sign",
+              "on"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "webhookBody"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "deleteWebhook",
+      "title": "deleteWebhook",
+      "description": "Delete a webhook by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "description": "The resource ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "getWebhook",
+      "title": "getWebhook",
+      "description": "Get a webhook by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "description": "The resource ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Webhook"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    },
+    {
+      "id": "patchWebhook",
+      "title": "patchWebhook",
+      "description": "Modify a webhook by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "description": "The resource ID"
+          },
+          "patchDelta": {
+            "items": {
+              "properties": {
+                "op": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "op",
+                "path",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceId",
+          "patchDelta"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Webhook"
+      },
+      "security": {
+        "launchdarkly": {
+          "integration": "launchdarkly"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "developer tools"
+  ]
+}

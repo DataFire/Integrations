@@ -1,0 +1,2163 @@
+{
+  "id": "google_vault",
+  "title": "Google Vault",
+  "description": "Archiving and eDiscovery for G Suite.",
+  "security": {
+    "google_vault": {
+      "integration": "google_vault",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "type": "oauth2",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/ediscovery": "Manage your eDiscovery data",
+          "https://www.googleapis.com/auth/ediscovery.readonly": "View your eDiscovery data"
+        },
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+        "description": "Allows offline access using a refresh_token"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_vault.png"
+  },
+  "actionCount": 20,
+  "definitions": {
+    "AddMatterPermissionsRequest": {
+      "description": "Add an account with the permission specified. The role cannot be owner.\nIf an account already has a role in the matter, it will be\noverwritten.",
+      "properties": {
+        "ccMe": {
+          "description": "Only relevant if send_emails is true.\nTrue to CC requestor in the email message.\nFalse to not CC requestor.",
+          "type": "boolean"
+        },
+        "matterPermission": {
+          "$ref": "#/definitions/MatterPermission",
+          "description": "The MatterPermission to add."
+        },
+        "sendEmails": {
+          "description": "True to send notification email to the added account.\nFalse to not send notification email.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "AddMatterPermissionsRequest"
+    },
+    "CloseMatterRequest": {
+      "description": "Close a matter by ID.",
+      "properties": {},
+      "type": "object",
+      "title": "CloseMatterRequest"
+    },
+    "CloseMatterResponse": {
+      "description": "Response to a CloseMatterRequest.",
+      "properties": {
+        "matter": {
+          "$ref": "#/definitions/Matter",
+          "description": "The updated matter, with state CLOSED."
+        }
+      },
+      "type": "object",
+      "title": "CloseMatterResponse"
+    },
+    "CorpusQuery": {
+      "description": "Corpus specific queries.",
+      "properties": {
+        "driveQuery": {
+          "$ref": "#/definitions/HeldDriveQuery",
+          "description": "Details pertaining to Drive holds. If set, corpus must be Drive."
+        },
+        "groupsQuery": {
+          "$ref": "#/definitions/HeldGroupsQuery",
+          "description": "Details pertaining to Groups holds. If set, corpus must be Groups."
+        },
+        "mailQuery": {
+          "$ref": "#/definitions/HeldMailQuery",
+          "description": "Details pertaining to mail holds. If set, corpus must be mail."
+        }
+      },
+      "type": "object",
+      "title": "CorpusQuery"
+    },
+    "Empty": {
+      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "properties": {},
+      "type": "object",
+      "title": "Empty"
+    },
+    "HeldAccount": {
+      "description": "An account being held in a particular hold. This structure is immutable.\nThis can be either a single user or a google group, depending on the corpus.",
+      "properties": {
+        "accountId": {
+          "description": "The account's ID as provided by the\n<a href=\"https://developers.google.com/admin-sdk/\">Admin SDK</a>.",
+          "type": "string"
+        },
+        "holdTime": {
+          "description": "When the account was put on hold.",
+          "format": "google-datetime",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "HeldAccount"
+    },
+    "HeldDriveQuery": {
+      "description": "Query options for drive holds.",
+      "properties": {
+        "includeTeamDriveFiles": {
+          "description": "If true, include files in Team Drives in the hold.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "HeldDriveQuery"
+    },
+    "HeldGroupsQuery": {
+      "description": "Query options for group holds.",
+      "properties": {
+        "endTime": {
+          "description": "The end date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "The start date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "terms": {
+          "description": "The search terms for the hold.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "HeldGroupsQuery"
+    },
+    "HeldMailQuery": {
+      "description": "Query options for mail holds.",
+      "properties": {
+        "endTime": {
+          "description": "The end date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "The start date range for the search query. These timestamps are in GMT and\nrounded down to the start of the given date.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "terms": {
+          "description": "The search terms for the hold.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "HeldMailQuery"
+    },
+    "HeldOrgUnit": {
+      "description": "A organizational unit being held in a particular hold.\nThis structure is immutable.",
+      "properties": {
+        "holdTime": {
+          "description": "When the org unit was put on hold. This property is immutable.",
+          "format": "google-datetime",
+          "type": "string"
+        },
+        "orgUnitId": {
+          "description": "The org unit's immutable ID as provided by the admin SDK.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "HeldOrgUnit"
+    },
+    "Hold": {
+      "description": "Represents a hold within Vault. A hold restricts purging of\nartifacts based on the combination of the query and accounts restrictions.\nA hold can be configured to either apply to an explicitly configured set\nof accounts, or can be applied to all members of an organizational unit.",
+      "properties": {
+        "accounts": {
+          "description": "If set, the hold applies to the enumerated accounts and org_unit must be\nempty.",
+          "items": {
+            "$ref": "#/definitions/HeldAccount"
+          },
+          "type": "array"
+        },
+        "corpus": {
+          "description": "The corpus to be searched.",
+          "enum": [
+            "CORPUS_TYPE_UNSPECIFIED",
+            "DRIVE",
+            "MAIL",
+            "GROUPS"
+          ],
+          "type": "string"
+        },
+        "holdId": {
+          "description": "The unique immutable ID of the hold. Assigned during creation.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the hold.",
+          "type": "string"
+        },
+        "orgUnit": {
+          "$ref": "#/definitions/HeldOrgUnit",
+          "description": "If set, the hold applies to all members of the organizational unit and\naccounts must be empty. This property is mutable. For groups holds,\nset the accounts field."
+        },
+        "query": {
+          "$ref": "#/definitions/CorpusQuery",
+          "description": "The corpus-specific query. If set, the corpusQuery must match corpus\ntype."
+        },
+        "updateTime": {
+          "description": "The last time this hold was modified.",
+          "format": "google-datetime",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Hold"
+    },
+    "ListHeldAccountsResponse": {
+      "description": "Returns a list of held accounts for a hold.",
+      "properties": {
+        "accounts": {
+          "description": "The held accounts on a hold.",
+          "items": {
+            "$ref": "#/definitions/HeldAccount"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ListHeldAccountsResponse"
+    },
+    "ListHoldsResponse": {
+      "description": "The holds for a matter.",
+      "properties": {
+        "holds": {
+          "description": "The list of holds.",
+          "items": {
+            "$ref": "#/definitions/Hold"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "Page token to retrieve the next page of results in the list.\nIf this is empty, then there are no more holds to list.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListHoldsResponse"
+    },
+    "ListMattersResponse": {
+      "description": "Provides the list of matters.",
+      "properties": {
+        "matters": {
+          "description": "List of matters.",
+          "items": {
+            "$ref": "#/definitions/Matter"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "Page token to retrieve the next page of results in the list.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ListMattersResponse"
+    },
+    "Matter": {
+      "description": "Represents a matter.",
+      "properties": {
+        "description": {
+          "description": "The description of the matter.",
+          "type": "string"
+        },
+        "matterId": {
+          "description": "The matter ID which is generated by the server.\nShould be blank when creating a new matter.",
+          "type": "string"
+        },
+        "matterPermissions": {
+          "description": "List of users and access to the matter. Currently there is no programmer\ndefined limit on the number of permissions a matter can have.",
+          "items": {
+            "$ref": "#/definitions/MatterPermission"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "The name of the matter.",
+          "type": "string"
+        },
+        "state": {
+          "description": "The state of the matter.",
+          "enum": [
+            "STATE_UNSPECIFIED",
+            "OPEN",
+            "CLOSED",
+            "DELETED"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Matter"
+    },
+    "MatterPermission": {
+      "description": "Currently each matter only has one owner, and all others are collaborators.\nWhen an account is purged, its corresponding MatterPermission resources\ncease to exist.",
+      "properties": {
+        "accountId": {
+          "description": "The account id, as provided by <a href=\"https://developers.google.com/admin-sdk/\">Admin SDK</a>.",
+          "type": "string"
+        },
+        "role": {
+          "description": "The user's role in this matter.",
+          "enum": [
+            "ROLE_UNSPECIFIED",
+            "COLLABORATOR",
+            "OWNER"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MatterPermission"
+    },
+    "RemoveMatterPermissionsRequest": {
+      "description": "Remove an account as a matter collaborator.",
+      "properties": {
+        "accountId": {
+          "description": "The account ID.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RemoveMatterPermissionsRequest"
+    },
+    "ReopenMatterRequest": {
+      "description": "Reopen a matter by ID.",
+      "properties": {},
+      "type": "object",
+      "title": "ReopenMatterRequest"
+    },
+    "ReopenMatterResponse": {
+      "description": "Response to a ReopenMatterRequest.",
+      "properties": {
+        "matter": {
+          "$ref": "#/definitions/Matter",
+          "description": "The updated matter, with state OPEN."
+        }
+      },
+      "type": "object",
+      "title": "ReopenMatterResponse"
+    },
+    "UndeleteMatterRequest": {
+      "description": "Undelete a matter by ID.",
+      "properties": {},
+      "type": "object",
+      "title": "UndeleteMatterRequest"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.list",
+      "title": "matters.list",
+      "description": "Lists matters the user has access to.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "description": "The number of matters to return in the response.\nDefault and maximum are 100."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The pagination token as returned in the response."
+          },
+          "state": {
+            "type": "string",
+            "description": "If set, list only matters with that specific state. The default is listing\nmatters of all states.",
+            "enum": [
+              "STATE_UNSPECIFIED",
+              "OPEN",
+              "CLOSED",
+              "DELETED"
+            ]
+          },
+          "view": {
+            "type": "string",
+            "description": "Specifies which parts of the matter to return in response.",
+            "enum": [
+              "VIEW_UNSPECIFIED",
+              "BASIC",
+              "FULL"
+            ]
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListMattersResponse"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.create",
+      "title": "matters.create",
+      "description": "Creates a new matter with the given name and description. The initial state\nis open, and the owner is the method caller. Returns the created matter\nwith default view.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Matter"
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Matter"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.delete",
+      "title": "matters.delete",
+      "description": "Deletes the specified matter. Returns matter with updated state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID"
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Matter"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.get",
+      "title": "matters.get",
+      "description": "Gets the specified matter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "view": {
+            "type": "string",
+            "description": "Specifies which parts of the Matter to return in the response.",
+            "enum": [
+              "VIEW_UNSPECIFIED",
+              "BASIC",
+              "FULL"
+            ]
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Matter"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.update",
+      "title": "matters.update",
+      "description": "Updates the specified matter.\nThis updates only the name and description of the matter, identified by\nmatter id. Changes to any other fields are ignored.\nReturns the default view of the matter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Matter"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Matter"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.list",
+      "title": "matters.holds.list",
+      "description": "Lists holds within a matter. An empty page token in ListHoldsResponse\ndenotes no more holds to list.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "The number of holds to return in the response, between 0 and 100 inclusive.\nLeaving this empty, or as 0, is the same as page_size = 100."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The pagination token as returned in the response.\nAn empty token means start from the beginning."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListHoldsResponse"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.create",
+      "title": "matters.holds.create",
+      "description": "Creates a hold in the given matter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Hold"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Hold"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.delete",
+      "title": "matters.holds.delete",
+      "description": "Removes a hold by ID. This will release any HeldAccounts on this Hold.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "holdId": {
+            "type": "string",
+            "description": "The hold ID."
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "holdId",
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.get",
+      "title": "matters.holds.get",
+      "description": "Gets a hold by ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "holdId": {
+            "type": "string",
+            "description": "The hold ID."
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "holdId",
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Hold"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.update",
+      "title": "matters.holds.update",
+      "description": "Updates the OU and/or query parameters of a hold. You cannot add accounts\nto a hold that covers an OU, nor can you add OUs to a hold that covers\nindividual accounts. Accounts listed in the hold will be ignored.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Hold"
+          },
+          "holdId": {
+            "type": "string",
+            "description": "The ID of the hold."
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "holdId",
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Hold"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.accounts.list",
+      "title": "matters.holds.accounts.list",
+      "description": "Lists HeldAccounts for a hold. This will only list individually specified held accounts. If the hold is on an OU, then use [Admin SDK](https://developers.google.com/admin-sdk/) to enumerate its members.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "holdId": {
+            "type": "string",
+            "description": "The hold ID."
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "holdId",
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListHeldAccountsResponse"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.accounts.create",
+      "title": "matters.holds.accounts.create",
+      "description": "Adds a HeldAccount to a hold. Accounts can only be added to a hold that\nhas no held_org_unit set. Attempting to add an account to an OU-based\nhold will result in an error.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/HeldAccount"
+          },
+          "holdId": {
+            "type": "string",
+            "description": "The hold ID."
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "holdId",
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/HeldAccount"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.holds.accounts.delete",
+      "title": "matters.holds.accounts.delete",
+      "description": "Removes a HeldAccount from a hold. If this request leaves the hold with\nno held accounts, the hold will not apply to any accounts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The ID of the account to remove from the hold."
+          },
+          "holdId": {
+            "type": "string",
+            "description": "The hold ID."
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "holdId",
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.addPermissions",
+      "title": "matters.addPermissions",
+      "description": "Adds an account as a matter collaborator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AddMatterPermissionsRequest"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MatterPermission"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.close",
+      "title": "matters.close",
+      "description": "Closes the specified matter. Returns matter with updated state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CloseMatterRequest"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CloseMatterResponse"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.removePermissions",
+      "title": "matters.removePermissions",
+      "description": "Removes an account as a matter collaborator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RemoveMatterPermissionsRequest"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.reopen",
+      "title": "matters.reopen",
+      "description": "Reopens the specified matter. Returns matter with updated state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ReopenMatterRequest"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ReopenMatterResponse"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    },
+    {
+      "id": "matters.undelete",
+      "title": "matters.undelete",
+      "description": "Undeletes the specified matter. Returns matter with updated state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UndeleteMatterRequest"
+          },
+          "matterId": {
+            "type": "string",
+            "description": "The matter ID."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "matterId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Matter"
+      },
+      "security": {
+        "google_vault": {
+          "integration": "google_vault"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "storage",
+    "google"
+  ]
+}

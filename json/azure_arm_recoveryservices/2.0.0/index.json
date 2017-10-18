@@ -1,0 +1,375 @@
+{
+  "id": "azure_arm_recoveryservices",
+  "title": "RecoveryServicesBackupClient",
+  "security": {
+    "azure_arm_recoveryservices": {
+      "integration": "azure_arm_recoveryservices",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account."
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservices.png"
+  },
+  "actionCount": 4,
+  "definitions": {
+    "BackupStorageConfig": {
+      "allOf": [
+        {
+          "description": "ARM Resource.",
+          "properties": {
+            "eTag": {
+              "description": "Optional ETag.",
+              "type": "string"
+            },
+            "id": {
+              "description": "Resource Id represents the complete path to the resource.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "name": {
+              "description": "Resource name associated with the resource.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "type": {
+              "description": "Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...",
+              "readOnly": true,
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "x-ms-azure-resource": true
+        }
+      ],
+      "description": "The backup storage config.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/BackupStorageConfigProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "title": "BackupStorageConfig"
+    },
+    "BackupStorageConfigProperties": {
+      "description": "The backup storage config.",
+      "properties": {
+        "storageModelType": {
+          "description": "Storage model type.",
+          "enum": [
+            "Invalid",
+            "GeoRedundant",
+            "LocallyRedundant"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "StorageModelType"
+          }
+        },
+        "storageType": {
+          "description": "Storage type.",
+          "enum": [
+            "Invalid",
+            "GeoRedundant",
+            "LocallyRedundant"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "StorageType"
+          }
+        },
+        "storageTypeState": {
+          "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
+          "enum": [
+            "Invalid",
+            "Locked",
+            "Unlocked"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "StorageTypeState"
+          }
+        }
+      },
+      "type": "object",
+      "title": "BackupStorageConfigProperties"
+    },
+    "BackupVaultConfig": {
+      "allOf": [
+        {
+          "description": "ARM Resource.",
+          "properties": {
+            "eTag": {
+              "description": "Optional ETag.",
+              "type": "string"
+            },
+            "id": {
+              "description": "Resource Id represents the complete path to the resource.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "name": {
+              "description": "Resource name associated with the resource.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "type": {
+              "description": "Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...",
+              "readOnly": true,
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "x-ms-azure-resource": true
+        }
+      ],
+      "description": "Backup vault config details.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/BackupVaultConfigProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "title": "BackupVaultConfig"
+    },
+    "BackupVaultConfigProperties": {
+      "description": "Backup vault config details.",
+      "properties": {
+        "enhancedSecurityState": {
+          "description": "Enabled or Disabled.",
+          "enum": [
+            "Invalid",
+            "Enabled",
+            "Disabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "EnhancedSecurityState"
+          }
+        },
+        "storageType": {
+          "description": "Storage type.",
+          "enum": [
+            "Invalid",
+            "GeoRedundant",
+            "LocallyRedundant"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "StorageType"
+          }
+        },
+        "storageTypeState": {
+          "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
+          "enum": [
+            "Invalid",
+            "Locked",
+            "Unlocked"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "StorageTypeState"
+          }
+        }
+      },
+      "type": "object",
+      "title": "BackupVaultConfigProperties"
+    }
+  },
+  "actions": [
+    {
+      "id": "BackupVaultConfigs_Get",
+      "title": "BackupVaultConfigs_Get",
+      "description": "Fetches vault config.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription Id."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group where the recovery services vault is present."
+          },
+          "vaultName": {
+            "type": "string",
+            "description": "The name of the recovery services vault."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "vaultName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BackupVaultConfig"
+      },
+      "security": {
+        "azure_arm_recoveryservices": {
+          "integration": "azure_arm_recoveryservices"
+        }
+      }
+    },
+    {
+      "id": "BackupVaultConfigs_Update",
+      "title": "BackupVaultConfigs_Update",
+      "description": "Updates vault config model type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription Id."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group where the recovery services vault is present."
+          },
+          "vaultName": {
+            "type": "string",
+            "description": "The name of the recovery services vault."
+          },
+          "backupVaultConfig": {
+            "$ref": "#/definitions/BackupVaultConfig"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "vaultName",
+          "backupVaultConfig"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BackupVaultConfig"
+      },
+      "security": {
+        "azure_arm_recoveryservices": {
+          "integration": "azure_arm_recoveryservices"
+        }
+      }
+    },
+    {
+      "id": "BackupStorageConfigs_Get",
+      "title": "BackupStorageConfigs_Get",
+      "description": "Fetches resource storage config.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription Id."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group where the recovery services vault is present."
+          },
+          "vaultName": {
+            "type": "string",
+            "description": "The name of the recovery services vault."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "vaultName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BackupStorageConfig"
+      },
+      "security": {
+        "azure_arm_recoveryservices": {
+          "integration": "azure_arm_recoveryservices"
+        }
+      }
+    },
+    {
+      "id": "BackupStorageConfigs_Update",
+      "title": "BackupStorageConfigs_Update",
+      "description": "Updates vault storage model type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription Id."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group where the recovery services vault is present."
+          },
+          "vaultName": {
+            "type": "string",
+            "description": "The name of the recovery services vault."
+          },
+          "backupStorageConfig": {
+            "$ref": "#/definitions/BackupStorageConfig"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "vaultName",
+          "backupStorageConfig"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservices": {
+          "integration": "azure_arm_recoveryservices"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "apitore_cosinesimilarity",
+  "title": "Cosine Similarity",
+  "description": "Cosine Similarity.<BR />[Endpoint] https://api.apitore.com/api/49",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_cosinesimilarity.jpg"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "SimilarityResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "score": {
+          "description": "Score",
+          "format": "double",
+          "type": "number"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "score",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "SimilarityResponseEntity"
+    },
+    "VecvecRequestEntity": {
+      "properties": {
+        "vec1": {
+          "description": "Vector1",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "vec2": {
+          "description": "Vector2",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "vec1",
+        "vec2"
+      ],
+      "type": "object",
+      "title": "VecvecRequestEntity"
+    },
+    "VecwordRequestEntity": {
+      "properties": {
+        "vec": {
+          "description": "Vector",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "word": {
+          "description": "Word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vec",
+        "word"
+      ],
+      "type": "object",
+      "title": "VecwordRequestEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "vecVecUsingPOST",
+      "title": "vecVecUsingPOST",
+      "description": "Cosine similarity.  \nResponse  \n  Github: [clustering-response](https://github.com/keigohtr/apitore-response-parent/tree/master/clustering-response)  \n  Class: com.apitore.banana.response.clustering.SimilarityResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "req": {
+            "$ref": "#/definitions/VecvecRequestEntity"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "req"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "vecWordUsingPOST",
+      "title": "vecWordUsingPOST",
+      "description": "Cosine similarity.  \nResponse  \n  Github: [clustering-response](https://github.com/keigohtr/apitore-response-parent/tree/master/clustering-response)  \n  Class: com.apitore.banana.response.clustering.SimilarityResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "req": {
+            "$ref": "#/definitions/VecwordRequestEntity"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "req"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SimilarityResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}
