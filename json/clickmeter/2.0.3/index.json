@@ -2575,7 +2575,8 @@
           "pageSize": {
             "type": "integer",
             "format": "int32",
-            "description": "Limit results to this number"
+            "description": "Limit results to this number",
+            "default": 50
           },
           "filter": {
             "type": "string",
@@ -3385,12 +3386,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "type": {
             "type": "string",
@@ -4223,7 +4226,8 @@
               "go",
               "personal",
               "dedicated"
-            ]
+            ],
+            "default": "system"
           },
           "name": {
             "type": "string",
@@ -4284,7 +4288,8 @@
               "go",
               "personal",
               "dedicated"
-            ]
+            ],
+            "default": "system"
           },
           "name": {
             "type": "string",
@@ -4400,12 +4405,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "status": {
             "type": "string",
@@ -4955,12 +4962,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Offset where to start from"
+            "description": "Offset where to start from",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Limit results to this number"
+            "description": "Limit results to this number",
+            "default": 20
           },
           "textSearch": {
             "type": "string",
@@ -4997,12 +5006,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "type": {
             "type": "string",
@@ -5569,12 +5580,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           }
         },
         "additionalProperties": false
@@ -5727,12 +5740,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "status": {
             "type": "string",
@@ -5861,12 +5876,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "name": {
             "type": "string",
@@ -6067,12 +6084,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "type": {
             "type": "string",
@@ -6249,12 +6268,14 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Where to start when retrieving elements. Default is 0 if not specified."
+            "description": "Where to start when retrieving elements. Default is 0 if not specified.",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "Maximum elements to retrieve. Default to 20 if not specified."
+            "description": "Maximum elements to retrieve. Default to 20 if not specified.",
+            "default": 20
           },
           "status": {
             "type": "string",

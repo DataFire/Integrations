@@ -25,7 +25,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -54,7 +55,8 @@
               "tcga_participant_barcode",
               "cohort",
               "gene"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -78,7 +80,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -108,7 +111,8 @@
               "q",
               "cohort",
               "gene"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -132,7 +136,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -162,7 +167,8 @@
               "q",
               "cohort",
               "gene"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -186,7 +192,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -215,7 +222,8 @@
               "tcga_participant_barcode",
               "cohort",
               "gene"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -239,7 +247,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -268,7 +277,8 @@
               "tcga_participant_barcode",
               "cohort",
               "gene"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -291,7 +301,8 @@
             "enum": [
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "tsv"
           },
           "cohort": {
             "type": "array",
@@ -335,7 +346,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -373,7 +385,8 @@
               "cohort",
               "tool",
               "gene"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -397,7 +410,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -438,7 +452,8 @@
               "tool",
               "gene",
               "rank"
-            ]
+            ],
+            "default": "rank"
           }
         },
         "additionalProperties": false
@@ -462,7 +477,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "date": {
             "type": "array",
@@ -496,7 +512,8 @@
               "cohort",
               "type",
               "name"
-            ]
+            ],
+            "default": "date"
           }
         },
         "additionalProperties": false
@@ -517,7 +534,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "gene": {
             "type": "string",
@@ -564,7 +582,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "date": {
             "type": "array",
@@ -618,7 +637,8 @@
               "tool",
               "platform",
               "date"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -642,7 +662,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "center": {
             "type": "array",
@@ -670,7 +691,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false
@@ -694,7 +716,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false
@@ -718,7 +741,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -746,7 +770,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "date": {
             "type": "array",
@@ -766,14 +791,16 @@
           },
           "totals": {
             "type": "boolean",
-            "description": "Output an entry providing the totals for each data type."
+            "description": "Output an entry providing the totals for each data type.",
+            "default": true
           },
           "sort_by": {
             "type": "string",
             "description": "Which column in the results should be used for sorting paginated results?",
             "enum": [
               "cohort"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -797,7 +824,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false
@@ -821,7 +849,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false
@@ -845,7 +874,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false
@@ -869,7 +899,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -888,7 +919,8 @@
             "description": "Which column in the results should be used for sorting paginated results?",
             "enum": [
               "cohort"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -912,7 +944,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "platform": {
             "type": "array",
@@ -937,7 +970,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "TCGA_Barcode": {
             "type": "string",
@@ -965,7 +999,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "code": {
             "type": "array",
@@ -993,7 +1028,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "short_letter_code": {
             "type": "array",
@@ -1024,7 +1060,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false
@@ -1048,7 +1085,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "tss_code": {
             "type": "array",
@@ -1076,7 +1114,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -1105,7 +1144,8 @@
               "tcga_participant_barcode",
               "cohort",
               "cde_name"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -1129,7 +1169,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "cohort": {
             "type": "array",
@@ -1158,7 +1199,8 @@
               "tcga_participant_barcode",
               "cohort",
               "fh_cde_name"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -1182,7 +1224,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "gene": {
             "type": "array",
@@ -1221,7 +1264,8 @@
               "gene",
               "protocol",
               "sample_type"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false
@@ -1245,7 +1289,8 @@
               "json",
               "tsv",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "mir": {
             "type": "array",
@@ -1284,7 +1329,8 @@
               "tool",
               "mir",
               "sample_type"
-            ]
+            ],
+            "default": "cohort"
           }
         },
         "additionalProperties": false

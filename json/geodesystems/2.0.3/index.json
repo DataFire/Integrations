@@ -25,7 +25,8 @@
         "properties": {
           "output": {
             "type": "string",
-            "description": "Output type  -don't change"
+            "description": "Output type  -don't change",
+            "default": "gps.teqc.qc"
           },
           "entryid": {
             "type": "string",

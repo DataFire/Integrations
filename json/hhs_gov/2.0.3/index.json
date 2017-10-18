@@ -2043,11 +2043,13 @@
           },
           "excludeJquery": {
             "type": "boolean",
-            "description": "Should a reference to the JQuery Library be omitted?"
+            "description": "Should a reference to the JQuery Library be omitted?",
+            "default": false
           },
           "excludeDiv": {
             "type": "boolean",
-            "description": "Should the div to insert content into be omitted?"
+            "description": "Should the div to insert content into be omitted?",
+            "default": false
           },
           "divId": {
             "type": "string",
@@ -2161,27 +2163,33 @@
           },
           "cssClass": {
             "type": "string",
-            "description": "The css class to target for extraction."
+            "description": "The css class to target for extraction.",
+            "default": "syndicate"
           },
           "stripStyles": {
             "type": "boolean",
-            "description": "Remove in-line styles from content."
+            "description": "Remove in-line styles from content.",
+            "default": false
           },
           "stripScripts": {
             "type": "boolean",
-            "description": "Remove script tags from content."
+            "description": "Remove script tags from content.",
+            "default": false
           },
           "stripImages": {
             "type": "boolean",
-            "description": "Remove image tags from content."
+            "description": "Remove image tags from content.",
+            "default": false
           },
           "stripBreaks": {
             "type": "boolean",
-            "description": "Remove break tags from content."
+            "description": "Remove break tags from content.",
+            "default": false
           },
           "stripClasses": {
             "type": "boolean",
-            "description": "Remove class attributes from content (except 'syndicate')."
+            "description": "Remove class attributes from content (except 'syndicate').",
+            "default": false
           },
           "font-size": {
             "type": "integer",
@@ -2198,11 +2206,13 @@
           },
           "autoplay": {
             "type": "boolean",
-            "description": "If content is a video, the embeded video will auto play when loaded."
+            "description": "If content is a video, the embeded video will auto play when loaded.",
+            "default": true
           },
           "rel": {
             "type": "boolean",
-            "description": "If content is a video, related items will be shown at the end of playback."
+            "description": "If content is a video, related items will be shown at the end of playback.",
+            "default": false
           }
         },
         "additionalProperties": false,

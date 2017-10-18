@@ -24,15 +24,18 @@
           },
           "count": {
             "type": "integer",
-            "description": "The number of search results per page desired by the client; OpenSearch 1.1"
+            "description": "The number of search results per page desired by the client; OpenSearch 1.1",
+            "default": 25
           },
           "startIndex": {
             "type": "integer",
-            "description": "First search result desired by the search client; OpenSearch 1.1"
+            "description": "First search result desired by the search client; OpenSearch 1.1",
+            "default": 1
           },
           "spatial": {
             "type": "string",
-            "description": "4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, \"box\" parameter"
+            "description": "4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, \"box\" parameter",
+            "default": "-180.0,-90.0,180.0,90.0"
           },
           "sortKeys": {
             "type": "string",
@@ -44,7 +47,8 @@
               "temporal_duration,,asc",
               "temporal_duration,,desc",
               "updated,,desc"
-            ]
+            ],
+            "default": "score,,desc"
           },
           "startDate": {
             "type": "string",
@@ -66,7 +70,8 @@
             "enum": [
               "NSIDC",
               "ADE"
-            ]
+            ],
+            "default": "NSIDC"
           }
         },
         "additionalProperties": false
@@ -91,15 +96,18 @@
           },
           "count": {
             "type": "integer",
-            "description": "The number of search results per page desired by the client; OpenSearch 1.1"
+            "description": "The number of search results per page desired by the client; OpenSearch 1.1",
+            "default": 25
           },
           "startIndex": {
             "type": "integer",
-            "description": "First search result desired by the search client; OpenSearch 1.1"
+            "description": "First search result desired by the search client; OpenSearch 1.1",
+            "default": 1
           },
           "spatial": {
             "type": "string",
-            "description": "4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, \"box\" parameter"
+            "description": "4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, \"box\" parameter",
+            "default": "-180.0,-90.0,180.0,90.0"
           },
           "sortKeys": {
             "type": "string",
@@ -111,7 +119,8 @@
               "temporal_duration,,asc",
               "temporal_duration,,desc",
               "updated,,desc"
-            ]
+            ],
+            "default": "score,,desc"
           },
           "startDate": {
             "type": "string",
@@ -133,7 +142,8 @@
             "enum": [
               "NSIDC",
               "ADE"
-            ]
+            ],
+            "default": "NSIDC"
           }
         },
         "additionalProperties": false
@@ -168,7 +178,8 @@
             "enum": [
               "NSIDC",
               "ADE"
-            ]
+            ],
+            "default": "NSIDC"
           }
         },
         "additionalProperties": false,

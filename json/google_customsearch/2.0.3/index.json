@@ -563,7 +563,8 @@
           },
           "num": {
             "type": "integer",
-            "description": "Number of search results to return"
+            "description": "Number of search results to return",
+            "default": 10
           },
           "orTerms": {
             "type": "string",
@@ -584,7 +585,8 @@
               "high",
               "medium",
               "off"
-            ]
+            ],
+            "default": "off"
           },
           "searchType": {
             "type": "string",
@@ -619,7 +621,8 @@
             "enum": [
               "atom",
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -635,7 +638,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

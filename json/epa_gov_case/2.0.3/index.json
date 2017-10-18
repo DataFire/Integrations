@@ -2304,7 +2304,8 @@
           },
           "pageno": {
             "type": "number",
-            "description": "Indicates the number of the page to display. It is used only when the results are paginated."
+            "description": "Indicates the number of the page to display. It is used only when the results are paginated.",
+            "default": 1
           },
           "callback": {
             "type": "string",

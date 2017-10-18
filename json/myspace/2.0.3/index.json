@@ -17,11 +17,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "statusId": {
             "type": "string",
@@ -88,7 +90,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "friendId": {
             "type": "string",
@@ -154,7 +157,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "friendId": {
             "type": "string",
@@ -220,7 +224,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -281,11 +286,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -347,7 +354,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -408,11 +416,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "moodId": {
             "type": "integer",
@@ -469,7 +479,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "moodId": {
             "type": "integer",
@@ -525,11 +536,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "count": {
             "type": "string",
@@ -581,7 +594,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "count": {
             "type": "string",
@@ -632,7 +646,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
@@ -690,7 +705,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "categoryId": {
             "type": "string",
@@ -743,7 +759,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "count": {
             "type": "string",
@@ -791,11 +808,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "mediaItemId": {
             "type": "string",
@@ -849,7 +868,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "mediaItemId": {
             "type": "string",
@@ -902,11 +922,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "count": {
             "type": "string",
@@ -955,7 +977,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "count": {
             "type": "string",
@@ -1003,11 +1026,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
@@ -1066,7 +1091,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
@@ -1124,11 +1150,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
@@ -1182,7 +1210,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
@@ -1352,7 +1381,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "subscriptionId": {
             "type": "integer",
@@ -1411,7 +1441,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "format": {
             "type": "string",
@@ -1614,7 +1645,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -1633,7 +1665,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -1700,7 +1733,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -1797,7 +1831,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -1811,7 +1846,8 @@
           },
           "appId": {
             "type": "string",
-            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair."
+            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.",
+            "default": "@app"
           },
           "fields": {
             "type": "string",
@@ -1844,11 +1880,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -1862,7 +1900,8 @@
           },
           "appId": {
             "type": "string",
-            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair."
+            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.",
+            "default": "@app"
           },
           "fields": {
             "type": "string",
@@ -1896,7 +1935,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -1910,7 +1950,8 @@
           },
           "appId": {
             "type": "string",
-            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair."
+            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.",
+            "default": "@app"
           },
           "fields": {
             "type": "string",
@@ -1943,11 +1984,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -1967,7 +2010,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "count": {
             "type": "string",
@@ -2059,15 +2103,18 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
-            "description": "Indicates which single album should be returned."
+            "description": "Indicates which single album should be returned.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -2088,11 +2135,13 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "albumId": {
             "type": "string",
-            "description": "Indicates which single album should be returned."
+            "description": "Indicates which single album should be returned.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -2112,11 +2161,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -2165,7 +2216,8 @@
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -2228,7 +2280,8 @@
         "properties": {
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",
@@ -2241,7 +2294,8 @@
           },
           "appId": {
             "type": "string",
-            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair."
+            "description": "The application's ID associated with the OAuth ConsumerKey/ConsumerSecret pair.",
+            "default": "@app"
           },
           "count": {
             "type": "string",
@@ -2403,11 +2457,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Specifies Content Type."
+            "description": "Specifies Content Type.",
+            "default": "application/json"
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           }
         },
         "additionalProperties": false,
@@ -2451,7 +2507,8 @@
           },
           "personId": {
             "type": "string",
-            "description": "The person's identifier."
+            "description": "The person's identifier.",
+            "default": "@me"
           },
           "selector": {
             "type": "string",

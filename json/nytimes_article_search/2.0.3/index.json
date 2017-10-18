@@ -184,13 +184,15 @@
           },
           "hl": {
             "type": "boolean",
-            "description": "Enables highlighting in search results. When set to true, the query term (q) is highlighted in the headline and lead_paragraph fields.\n\nNote: If highlighting is enabled, snippet will be returned even if it is not specified in your fl list.\"\n"
+            "description": "Enables highlighting in search results. When set to true, the query term (q) is highlighted in the headline and lead_paragraph fields.\n\nNote: If highlighting is enabled, snippet will be returned even if it is not specified in your fl list.\"\n",
+            "default": false
           },
           "page": {
             "type": "integer",
             "description": "\"The value of page corresponds to a set of 10 results (it does not indicate the starting number of the result set). For example, page=0 corresponds to records 0-9. To return records 10-19, set page to 1, not 10.\"\n",
             "maximum": 10,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "facet_field": {
             "type": "string",
@@ -198,7 +200,8 @@
           },
           "facet_filter": {
             "type": "boolean",
-            "description": "When set to true, facet counts will respect any applied filters (fq, date range, etc.) in addition to the main query term. To filter facet counts, specifying at least one facet_field is required. To learn more about using facets, see Using Facets.\n"
+            "description": "When set to true, facet counts will respect any applied filters (fq, date range, etc.) in addition to the main query term. To filter facet counts, specifying at least one facet_field is required. To learn more about using facets, see Using Facets.\n",
+            "default": false
           }
         },
         "additionalProperties": false

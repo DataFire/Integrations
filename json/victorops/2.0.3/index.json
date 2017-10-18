@@ -1526,19 +1526,22 @@
             "type": "number",
             "description": "Days to include in returned schedule (30 max)",
             "maximum": 30,
-            "minimum": 0
+            "minimum": 0,
+            "default": 14
           },
           "daysSkip": {
             "type": "number",
             "description": "Days to skip before computing schedule to return (90 max)",
             "maximum": 90,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "step": {
             "type": "number",
             "description": "Step of escalation policy (3 max)",
             "maximum": 3,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -2333,19 +2336,22 @@
             "type": "number",
             "description": "Days to include in returned schedule (30 max)",
             "maximum": 30,
-            "minimum": 0
+            "minimum": 0,
+            "default": 14
           },
           "daysSkip": {
             "type": "number",
             "description": "Days to skip before computing schedule to return (90 max)",
             "maximum": 90,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "step": {
             "type": "number",
             "description": "Step of escalation policy (3 max)",
             "maximum": 3,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -2379,12 +2385,14 @@
           },
           "offset": {
             "type": "number",
-            "description": "The offset within the set of matching incidents"
+            "description": "The offset within the set of matching incidents",
+            "default": 0
           },
           "limit": {
             "type": "number",
             "description": "The maximum number of matching incidents to return (100 max)",
-            "maximum": 100
+            "maximum": 100,
+            "default": 20
           },
           "entityId": {
             "type": "string",
@@ -2490,12 +2498,14 @@
           },
           "offset": {
             "type": "number",
-            "description": "The offset within the set of matching incidents"
+            "description": "The offset within the set of matching incidents",
+            "default": 0
           },
           "limit": {
             "type": "number",
             "description": "The maximum number of matching incidents to return (100 max)",
-            "maximum": 100
+            "maximum": 100,
+            "default": 20
           },
           "entityId": {
             "type": "string",

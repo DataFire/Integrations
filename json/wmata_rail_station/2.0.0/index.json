@@ -40,14 +40,16 @@
             "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "N06"
-            ]
+            ],
+            "default": "N06"
           },
           "ToStationCode": {
             "type": "string",
             "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "G05"
-            ]
+            ],
+            "default": "G05"
           }
         },
         "additionalProperties": false,
@@ -78,14 +80,16 @@
             "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "E10"
-            ]
+            ],
+            "default": "E10"
           },
           "ToStationCode": {
             "type": "string",
             "description": "Station code for the destination station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "J03"
-            ]
+            ],
+            "default": "J03"
           }
         },
         "additionalProperties": false
@@ -150,7 +154,8 @@
             "description": "Station code.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "A01"
-            ]
+            ],
+            "default": "A01"
           }
         },
         "additionalProperties": false,
@@ -208,7 +213,8 @@
             "description": "Station code.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "E10"
-            ]
+            ],
+            "default": "E10"
           }
         },
         "additionalProperties": false
@@ -276,14 +282,16 @@
             "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "N06"
-            ]
+            ],
+            "default": "N06"
           },
           "ToStationCode": {
             "type": "string",
             "description": "Station code for the destination station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "G05"
-            ]
+            ],
+            "default": "G05"
           }
         },
         "additionalProperties": false,
@@ -314,14 +322,16 @@
             "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "E10"
-            ]
+            ],
+            "default": "E10"
           },
           "ToStationCode": {
             "type": "string",
             "description": "Station code for the destination station.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "J03"
-            ]
+            ],
+            "default": "J03"
           }
         },
         "additionalProperties": false
@@ -386,7 +396,8 @@
             "description": "Station code.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "A01"
-            ]
+            ],
+            "default": "A01"
           }
         },
         "additionalProperties": false,
@@ -444,7 +455,8 @@
             "description": "Station code.  Use the Station List method to return a list of all station codes.",
             "enum": [
               "E10"
-            ]
+            ],
+            "default": "E10"
           }
         },
         "additionalProperties": false

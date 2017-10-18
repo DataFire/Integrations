@@ -33,10 +33,12 @@
         "properties": {
           "consumer_key": {},
           "title": {
-            "type": "string"
+            "type": "string",
+            "default": "A Track Title"
           },
           "asset_data": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -61,10 +63,12 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "type": "string",
+            "default": "A Track Title"
           },
           "asset_data": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -89,7 +93,8 @@
         "properties": {
           "consumer_key": {},
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -113,7 +118,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -136,7 +142,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -160,7 +167,8 @@
         "properties": {
           "consumer_key": {},
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -184,7 +192,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -208,7 +217,8 @@
         "properties": {
           "consumer_key": {},
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -232,7 +242,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -255,7 +266,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -278,7 +290,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -302,7 +315,8 @@
         "properties": {
           "consumer_key": {},
           "q": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -326,7 +340,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -351,7 +366,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -376,7 +392,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -401,7 +418,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -426,10 +444,12 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           },
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -454,10 +474,12 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           },
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -481,10 +503,12 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           },
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -509,7 +533,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -534,10 +559,12 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           },
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -563,7 +590,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -587,10 +615,12 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           },
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -614,10 +644,12 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           },
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -642,7 +674,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -667,7 +700,8 @@
         "properties": {
           "consumer_key": {},
           "user_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -751,7 +785,8 @@
         "type": "object",
         "properties": {
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -774,7 +809,8 @@
         "type": "object",
         "properties": {
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -797,7 +833,8 @@
         "type": "object",
         "properties": {
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -832,7 +869,8 @@
         "type": "object",
         "properties": {
           "contact_id": {
-            "type": "string"
+            "type": "string",
+            "default": "183"
           }
         },
         "additionalProperties": false,
@@ -867,7 +905,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -890,7 +929,8 @@
         "type": "object",
         "properties": {
           "track_id": {
-            "type": "string"
+            "type": "string",
+            "default": "291"
           }
         },
         "additionalProperties": false,
@@ -938,7 +978,8 @@
         "properties": {
           "consumer_key": {},
           "q": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           },
           "filter": {
             "type": "string",
@@ -946,7 +987,8 @@
               "all",
               "public",
               "private"
-            ]
+            ],
+            "default": "all"
           }
         },
         "additionalProperties": false,
@@ -970,7 +1012,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1016,7 +1059,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1041,7 +1085,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1066,7 +1111,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1091,7 +1137,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1116,7 +1163,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1141,7 +1189,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1166,7 +1215,8 @@
         "properties": {
           "consumer_key": {},
           "playlist_id": {
-            "type": "string"
+            "type": "string",
+            "default": "18"
           }
         },
         "additionalProperties": false,
@@ -1191,7 +1241,8 @@
         "properties": {
           "consumer_key": {},
           "url": {
-            "type": "string"
+            "type": "string",
+            "default": "http://soundcloud.com/forss"
           }
         },
         "additionalProperties": false,

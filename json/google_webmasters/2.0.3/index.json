@@ -472,7 +472,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -488,7 +489,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -526,7 +528,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -542,7 +545,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -581,7 +585,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -597,7 +602,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -638,7 +644,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -654,7 +661,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -696,7 +704,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -712,7 +721,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -757,7 +767,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -773,7 +784,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -818,7 +830,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -834,7 +847,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -878,7 +892,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -894,7 +909,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -940,7 +956,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -956,7 +973,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1008,7 +1026,8 @@
           },
           "latestCountsOnly": {
             "type": "boolean",
-            "description": "If true, returns only the latest crawl error counts."
+            "description": "If true, returns only the latest crawl error counts.",
+            "default": true
           },
           "platform": {
             "type": "string",
@@ -1024,7 +1043,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1040,7 +1060,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1105,7 +1126,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1121,7 +1143,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1192,7 +1215,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1208,7 +1232,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1278,7 +1303,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1294,7 +1320,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

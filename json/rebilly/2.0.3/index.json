@@ -12028,7 +12028,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false
@@ -13013,7 +13014,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false
@@ -13068,7 +13070,8 @@
             "enum": [
               "application/json",
               "application/pdf"
-            ]
+            ],
+            "default": "application/json"
           },
           "id": {
             "type": "string",
@@ -14330,7 +14333,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false
@@ -15395,7 +15399,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false
@@ -15794,7 +15799,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false
@@ -16032,7 +16038,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false
@@ -16582,7 +16589,8 @@
             "enum": [
               "application/json",
               "text/csv"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false

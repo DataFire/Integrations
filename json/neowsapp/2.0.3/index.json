@@ -359,12 +359,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page"
+            "description": "page",
+            "default": 0
           },
           "size": {
             "type": "integer",
             "format": "int32",
-            "description": "size"
+            "description": "size",
+            "default": 20
           }
         },
         "additionalProperties": false

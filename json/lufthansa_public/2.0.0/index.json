@@ -439,15 +439,18 @@
           },
           "aircraftCode": {
             "type": "string",
-            "description": "3-character IATA aircraft code"
+            "description": "3-character IATA aircraft code",
+            "default": "33P"
           },
           "limit": {
             "type": "string",
-            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)"
+            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)",
+            "default": "20"
           },
           "offset": {
             "type": "string",
-            "description": "Number of records skipped. Defaults to 0"
+            "description": "Number of records skipped. Defaults to 0",
+            "default": "0"
           }
         },
         "additionalProperties": false,
@@ -478,15 +481,18 @@
           },
           "airlineCode": {
             "type": "string",
-            "description": "2-character IATA airline/carrier code"
+            "description": "2-character IATA airline/carrier code",
+            "default": "LH"
           },
           "limit": {
             "type": "string",
-            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)"
+            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)",
+            "default": "20"
           },
           "offset": {
             "type": "string",
-            "description": "Number of records skipped. Defaults to 0"
+            "description": "Number of records skipped. Defaults to 0",
+            "default": "0"
           }
         },
         "additionalProperties": false,
@@ -559,7 +565,8 @@
           },
           "airportCode": {
             "type": "string",
-            "description": "3-letter IATA airport code"
+            "description": "3-letter IATA airport code",
+            "default": "TXL"
           },
           "lang": {
             "type": "string",
@@ -567,11 +574,13 @@
           },
           "limit": {
             "type": "string",
-            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)"
+            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)",
+            "default": "20"
           },
           "offset": {
             "type": "string",
-            "description": "Number of records skipped. Defaults to 0"
+            "description": "Number of records skipped. Defaults to 0",
+            "default": "0"
           },
           "LHoperated": {
             "type": "boolean",
@@ -606,7 +615,8 @@
           },
           "cityCode": {
             "type": "string",
-            "description": "3-letter IATA city code"
+            "description": "3-letter IATA city code",
+            "default": "BER"
           },
           "lang": {
             "type": "string",
@@ -614,11 +624,13 @@
           },
           "limit": {
             "type": "string",
-            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)"
+            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)",
+            "default": "20"
           },
           "offset": {
             "type": "string",
-            "description": "Number of records skipped. Defaults to 0"
+            "description": "Number of records skipped. Defaults to 0",
+            "default": "0"
           }
         },
         "additionalProperties": false,
@@ -649,7 +661,8 @@
           },
           "countryCode": {
             "type": "string",
-            "description": "2-letter ISO 3166-1 country code"
+            "description": "2-letter ISO 3166-1 country code",
+            "default": "DK"
           },
           "lang": {
             "type": "string",
@@ -657,11 +670,13 @@
           },
           "limit": {
             "type": "string",
-            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)"
+            "description": "Number of records returned per request. Defaults to 20, maximum is 100 (if a value bigger than 100 is given, 100 will be taken)",
+            "default": "20"
           },
           "offset": {
             "type": "string",
-            "description": "Number of records skipped. Defaults to 0"
+            "description": "Number of records skipped. Defaults to 0",
+            "default": "0"
           }
         },
         "additionalProperties": false,

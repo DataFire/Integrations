@@ -45,7 +45,8 @@
           },
           "storePicture": {
             "type": "boolean",
-            "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval"
+            "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval",
+            "default": true
           },
           "pictureURL": {
             "type": "string",
@@ -84,7 +85,8 @@
           "count": {
             "type": "integer",
             "format": "int32",
-            "description": "How many records to retrieve at a time"
+            "description": "How many records to retrieve at a time",
+            "default": 100
           }
         },
         "additionalProperties": false,
@@ -114,7 +116,8 @@
           },
           "storePicture": {
             "type": "boolean",
-            "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval"
+            "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval",
+            "default": true
           },
           "collectionId": {
             "type": "string",
@@ -521,7 +524,8 @@
           "count": {
             "type": "integer",
             "format": "int32",
-            "description": "How many frames to retrieve at a time"
+            "description": "How many frames to retrieve at a time",
+            "default": 10
           }
         },
         "additionalProperties": false,
@@ -658,7 +662,8 @@
               "WEBRTC_PULL",
               "WEBRTC_PUSH",
               "SNAPSHOT_PULL"
-            ]
+            ],
+            "default": "WEBRTC_PULL"
           },
           "username": {
             "type": "string",
@@ -670,11 +675,13 @@
           },
           "storeOriginalFrames": {
             "type": "boolean",
-            "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval"
+            "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval",
+            "default": false
           },
           "isActive": {
             "type": "boolean",
-            "description": "Boolean value indicating whether the stream is currently active or not"
+            "description": "Boolean value indicating whether the stream is currently active or not",
+            "default": false
           }
         },
         "additionalProperties": false,

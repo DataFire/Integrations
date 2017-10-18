@@ -432,11 +432,13 @@
               "json",
               "xml",
               "csv"
-            ]
+            ],
+            "default": "json"
           },
           "limit": {
             "type": "integer",
-            "description": "Limit the number of laws returned"
+            "description": "Limit the number of laws returned",
+            "default": 10
           },
           "jurisdiction": {
             "type": "string",
@@ -460,15 +462,18 @@
           },
           "poc": {
             "type": "boolean",
-            "description": "Include points of contacts in the return value."
+            "description": "Include points of contacts in the return value.",
+            "default": false
           },
           "recent": {
             "type": "boolean",
-            "description": "Return only recently added or updated laws and incentives"
+            "description": "Return only recently added or updated laws and incentives",
+            "default": false
           },
           "expired": {
             "type": "boolean",
-            "description": "Show only expired, repealed or archived laws and incentives."
+            "description": "Show only expired, repealed or archived laws and incentives.",
+            "default": false
           },
           "law_type": {
             "type": "string",
@@ -480,7 +485,8 @@
           },
           "local": {
             "type": "boolean",
-            "description": "Show only local examples of laws and incentives."
+            "description": "Show only local examples of laws and incentives.",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -510,7 +516,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "type": {
             "type": "string",
@@ -550,7 +557,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "jurisdiction": {
             "type": "string",
@@ -585,7 +593,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id": {
             "type": "integer",
@@ -593,7 +602,8 @@
           },
           "poc": {
             "type": "boolean",
-            "description": "Include points of contacts in the return value."
+            "description": "Include points of contacts in the return value.",
+            "default": false
           }
         },
         "additionalProperties": false,

@@ -50,7 +50,8 @@
           },
           "page": {
             "type": "string",
-            "description": "Number of page"
+            "description": "Number of page",
+            "default": "1"
           },
           "only_imported": {
             "type": "boolean",
@@ -100,7 +101,8 @@
           },
           "branch": {
             "type": "string",
-            "description": "the name of the branch"
+            "description": "the name of the branch",
+            "default": "master"
           }
         },
         "additionalProperties": false,
@@ -142,11 +144,13 @@
           },
           "branch": {
             "type": "string",
-            "description": "the name of the branch"
+            "description": "the name of the branch",
+            "default": "master"
           },
           "file": {
             "type": "string",
-            "description": "the project file (default is Gemfile)"
+            "description": "the project file (default is Gemfile)",
+            "default": "Gemfile"
           }
         },
         "additionalProperties": false,

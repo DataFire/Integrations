@@ -1659,7 +1659,8 @@
           },
           "latest": {
             "type": "string",
-            "description": "Timestamp of the oldest recent seen message."
+            "description": "Timestamp of the oldest recent seen message.",
+            "default": "now"
           },
           "oldest": {
             "type": "string",
@@ -1667,7 +1668,8 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of messages to return, between 1 and 1000."
+            "description": "Number of messages to return, between 1 and 1000.",
+            "default": 100
           },
           "has_more": {
             "type": "boolean"
@@ -2071,11 +2073,13 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of items to return per page."
+            "description": "Number of items to return per page.",
+            "default": 100
           },
           "page": {
             "type": "number",
-            "description": "Page number of results to return."
+            "description": "Page number of results to return.",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -2113,7 +2117,8 @@
           },
           "ts_to": {
             "type": "string",
-            "description": "Filter files created before this timestamp (inclusive)."
+            "description": "Filter files created before this timestamp (inclusive).",
+            "default": "now"
           },
           "types": {
             "type": "string",
@@ -2206,7 +2211,8 @@
           },
           "latest": {
             "type": "string",
-            "description": "Timestamp of the oldest recent seen message."
+            "description": "Timestamp of the oldest recent seen message.",
+            "default": "now"
           },
           "oldest": {
             "type": "string",
@@ -2214,7 +2220,8 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of messages to return, between 1 and 1000."
+            "description": "Number of messages to return, between 1 and 1000.",
+            "default": 100
           },
           "has_more": {
             "type": "boolean"
@@ -2369,7 +2376,8 @@
           },
           "latest": {
             "type": "string",
-            "description": "Timestamp of the oldest recent seen message."
+            "description": "Timestamp of the oldest recent seen message.",
+            "default": "now"
           },
           "oldest": {
             "type": "string",
@@ -2377,7 +2385,8 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of messages to return, between 1 and 1000."
+            "description": "Number of messages to return, between 1 and 1000.",
+            "default": 100
           },
           "has_more": {
             "type": "boolean"
@@ -2462,7 +2471,8 @@
             "enum": [
               "timestamp",
               "score"
-            ]
+            ],
+            "default": "score"
           },
           "sort_dir": {
             "type": "string",
@@ -2470,7 +2480,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "highlight": {
             "type": "string",
@@ -2478,11 +2489,13 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of items to return per page."
+            "description": "Number of items to return per page.",
+            "default": 100
           },
           "page": {
             "type": "number",
-            "description": "Page number of results to return."
+            "description": "Page number of results to return.",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -2516,7 +2529,8 @@
             "enum": [
               "timestamp",
               "score"
-            ]
+            ],
+            "default": "score"
           },
           "sort_dir": {
             "type": "string",
@@ -2524,7 +2538,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "highlight": {
             "type": "string",
@@ -2532,11 +2547,13 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of items to return per page."
+            "description": "Number of items to return per page.",
+            "default": 100
           },
           "page": {
             "type": "number",
-            "description": "Page number of results to return."
+            "description": "Page number of results to return.",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -2570,7 +2587,8 @@
             "enum": [
               "timestamp",
               "score"
-            ]
+            ],
+            "default": "score"
           },
           "sort_dir": {
             "type": "string",
@@ -2578,7 +2596,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "highlight": {
             "type": "string",
@@ -2586,11 +2605,13 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of items to return per page."
+            "description": "Number of items to return per page.",
+            "default": 100
           },
           "page": {
             "type": "number",
-            "description": "Page number of results to return."
+            "description": "Page number of results to return.",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -2623,11 +2644,13 @@
           },
           "count": {
             "type": "number",
-            "description": "Number of items to return per page."
+            "description": "Number of items to return per page.",
+            "default": 100
           },
           "page": {
             "type": "number",
-            "description": "Page number of results to return."
+            "description": "Page number of results to return.",
+            "default": 1
           }
         },
         "additionalProperties": false

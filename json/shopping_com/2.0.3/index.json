@@ -32,7 +32,8 @@
           },
           "groupItemsByCategory": {
             "type": "boolean",
-            "description": "Control whether or not items are separated into different categories. By default, searches don't separate items by category. Instead, a single category (with id \"0\") is returned containing items from different categories."
+            "description": "Control whether or not items are separated into different categories. By default, searches don't separate items by category. Instead, a single category (with id \"0\") is returned containing items from different categories.",
+            "default": false
           },
           "postalCode": {
             "type": "string",
@@ -64,7 +65,8 @@
           "numFeatured": {
             "type": "integer",
             "description": "Set the maximum number of featured stores to include in a result containing a list of offers, when using the 'featured-store' offer sort type. By default, up to 3 featured stores will be included.",
-            "minimum": 1
+            "minimum": 1,
+            "default": 3
           },
           "productReviewSortType": {
             "type": "string",
@@ -72,7 +74,8 @@
             "enum": [
               "review-date",
               "product-rating"
-            ]
+            ],
+            "default": "review-date"
           },
           "productReviewsSortOrder": {
             "type": "string",

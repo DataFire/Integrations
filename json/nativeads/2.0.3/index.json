@@ -269,12 +269,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "maximum number of results per page"
+            "description": "maximum number of results per page",
+            "default": 100
           },
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page number"
+            "description": "page number",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -314,12 +316,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "maximum number of results per page"
+            "description": "maximum number of results per page",
+            "default": 100
           },
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page number"
+            "description": "page number",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -359,12 +363,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "maximum number of results per page"
+            "description": "maximum number of results per page",
+            "default": 100
           },
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page number"
+            "description": "page number",
+            "default": 1
           }
         },
         "additionalProperties": false,

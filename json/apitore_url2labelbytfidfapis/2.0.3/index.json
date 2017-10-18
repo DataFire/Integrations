@@ -92,7 +92,8 @@
           "num": {
             "type": "integer",
             "format": "int32",
-            "description": "num [max 10, default 1]"
+            "description": "num [max 10, default 1]",
+            "default": 1
           }
         },
         "additionalProperties": false,

@@ -971,7 +971,8 @@
               "RUBY",
               "PYTHON",
               "YAML"
-            ]
+            ],
+            "default": "XML"
           },
           "callback": {
             "type": "string",
@@ -979,15 +980,18 @@
           },
           "indent": {
             "type": "boolean",
-            "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           },
           "standardize": {
             "type": "boolean",
-            "description": "Whether the address should be standardized after parsing, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "Whether the address should be standardized after parsing, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           },
           "geocode": {
             "type": "boolean",
-            "description": "UNUSED YET. Whether the address should be geocoded after parsing, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "UNUSED YET. Whether the address should be geocoded after parsing, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1017,7 +1021,8 @@
           },
           "allwordsrequired": {
             "type": "boolean",
-            "description": "Whether the fulltext engine should considers all the words specified as required. Defaults to false (since v 4.0). possible values are true|false (or 'on' when used with the rest service)"
+            "description": "Whether the fulltext engine should considers all the words specified as required. Defaults to false (since v 4.0). possible values are true|false (or 'on' when used with the rest service)",
+            "default": false
           },
           "spellchecking": {
             "type": "string",
@@ -1036,11 +1041,13 @@
           "radius": {
             "type": "number",
             "format": "double",
-            "description": "distance from the location point in meters we'd like to search around. The value is a number > 0 if it is not specify or incorrect."
+            "description": "distance from the location point in meters we'd like to search around. The value is a number > 0 if it is not specify or incorrect.",
+            "default": 10000
           },
           "suggest": {
             "type": "boolean",
-            "description": "If this parameter is set then it will search in part of the names of the street, place,.... It allow you to do auto completion auto suggestion. See the Gisgraphy leaflet plugin for more details. The JSON format will be forced if this parameter is true. See auto completion / suggestions engine for more details"
+            "description": "If this parameter is set then it will search in part of the names of the street, place,.... It allow you to do auto completion auto suggestion. See the Gisgraphy leaflet plugin for more details. The JSON format will be forced if this parameter is true. See auto completion / suggestions engine for more details",
+            "default": false
           },
           "style": {
             "type": "string",
@@ -1050,7 +1057,8 @@
               "MEDIUM",
               "LONG",
               "FULL"
-            ]
+            ],
+            "default": "MEDIUM"
           },
           "country": {
             "type": "string",
@@ -1072,17 +1080,20 @@
               "YAML",
               "ATOM",
               "GEORSS"
-            ]
+            ],
+            "default": "XML"
           },
           "from": {
             "type": "integer",
             "format": "int32",
-            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1"
+            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1",
+            "default": 1
           },
           "to": {
             "type": "integer",
             "format": "int32",
-            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)"
+            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)",
+            "default": 10
           },
           "callback": {
             "type": "string",
@@ -1090,7 +1101,8 @@
           },
           "indent": {
             "type": "boolean",
-            "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1137,17 +1149,20 @@
               "RUBY",
               "PYTHON",
               "YAML"
-            ]
+            ],
+            "default": "XML"
           },
           "from": {
             "type": "integer",
             "format": "int32",
-            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1"
+            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1",
+            "default": 1
           },
           "to": {
             "type": "integer",
             "format": "int32",
-            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)"
+            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)",
+            "default": 10
           },
           "callback": {
             "type": "string",
@@ -1155,7 +1170,8 @@
           },
           "indent": {
             "type": "boolean",
-            "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1192,11 +1208,13 @@
           "radius": {
             "type": "number",
             "format": "double",
-            "description": "distance from the location point in meters we'd like to search around. The value is a number > 0 if it is not specify or incorrect."
+            "description": "distance from the location point in meters we'd like to search around. The value is a number > 0 if it is not specify or incorrect.",
+            "default": 10000
           },
           "distance": {
             "type": "boolean",
-            "description": "Whether (or not) we want the distance field to be output. This option is useful to improve the performance if we don't care about the distance (e.g : we search for name). Of course, the results won't be sorted by distance. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'"
+            "description": "Whether (or not) we want the distance field to be output. This option is useful to improve the performance if we don't care about the distance (e.g : we search for name). Of course, the results won't be sorted by distance. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'",
+            "default": true
           },
           "placetype": {
             "type": "string",
@@ -1212,17 +1230,20 @@
               "RUBY",
               "PYTHON",
               "YAML"
-            ]
+            ],
+            "default": "XML"
           },
           "from": {
             "type": "integer",
             "format": "int32",
-            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1"
+            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1",
+            "default": 1
           },
           "to": {
             "type": "integer",
             "format": "int32",
-            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)"
+            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)",
+            "default": 10
           },
           "callback": {
             "type": "string",
@@ -1230,7 +1251,8 @@
           },
           "indent": {
             "type": "boolean",
-            "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "indents the results.Default to false. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1275,17 +1297,20 @@
               "RUBY",
               "PYTHON",
               "YAML"
-            ]
+            ],
+            "default": "XML"
           },
           "from": {
             "type": "integer",
             "format": "int32",
-            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1"
+            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1",
+            "default": 1
           },
           "to": {
             "type": "integer",
             "format": "int32",
-            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)"
+            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)",
+            "default": 10
           },
           "callback": {
             "type": "string",
@@ -1293,7 +1318,8 @@
           },
           "indent": {
             "type": "boolean",
-            "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1331,15 +1357,18 @@
           "radius": {
             "type": "number",
             "format": "double",
-            "description": "distance from the location point in meters we'd like to search around. The value is a number > 0 if it is not specify or incorrect."
+            "description": "distance from the location point in meters we'd like to search around. The value is a number > 0 if it is not specify or incorrect.",
+            "default": 10000
           },
           "oneway": {
             "type": "boolean",
-            "description": "whether the street should be a oneWay street (optional) : limit the search to the street that are one way street. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'"
+            "description": "whether the street should be a oneWay street (optional) : limit the search to the street that are one way street. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'",
+            "default": false
           },
           "distance": {
             "type": "boolean",
-            "description": "Whether (or not) we want the distance field to be output. This option is useful to improve the performance if we don't care about the distance (e.g : we search for name). Of course, the results won't be sorted by distance. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'"
+            "description": "Whether (or not) we want the distance field to be output. This option is useful to improve the performance if we don't care about the distance (e.g : we search for name). Of course, the results won't be sorted by distance. If you use a checkbox in a form to indent the results, the value will be 'on' or 'off', so to simplify the use : the value for the web service can be 'true' or 'on'",
+            "default": true
           },
           "streettype": {
             "type": "string",
@@ -1355,17 +1384,20 @@
               "RUBY",
               "PYTHON",
               "YAML"
-            ]
+            ],
+            "default": "XML"
           },
           "from": {
             "type": "integer",
             "format": "int32",
-            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1"
+            "description": "The first pagination index. Numbered from 1. If the number is < 1 or not specified, it will be set to the default value : 1",
+            "default": 1
           },
           "to": {
             "type": "integer",
             "format": "int32",
-            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)"
+            "description": "The last pagination index. if < 1 or not specified, it will be set to startindex + 10. Max = 10 (can be changed)",
+            "default": 10
           },
           "callback": {
             "type": "string",
@@ -1373,7 +1405,8 @@
           },
           "indent": {
             "type": "boolean",
-            "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'"
+            "description": "indents the results. Possible values are true or false (or on when used with the rest service. If you use a checkbox in a web form, to indent the results, the value will be 'on' or 'off', so for a simple use : the value of indent can be 'true' or 'on'",
+            "default": false
           }
         },
         "additionalProperties": false,

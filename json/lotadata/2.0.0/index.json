@@ -740,7 +740,8 @@
               "detail",
               "context",
               "minicontext"
-            ]
+            ],
+            "default": "context"
           }
         },
         "additionalProperties": false,
@@ -775,7 +776,8 @@
               "detail",
               "context",
               "minicontext"
-            ]
+            ],
+            "default": "summary"
           }
         },
         "additionalProperties": false,
@@ -892,7 +894,8 @@
               "summary",
               "detail",
               "context"
-            ]
+            ],
+            "default": "context"
           }
         },
         "additionalProperties": false,
@@ -927,7 +930,8 @@
               "detail",
               "context",
               "minicontext"
-            ]
+            ],
+            "default": "summary"
           }
         },
         "additionalProperties": false,

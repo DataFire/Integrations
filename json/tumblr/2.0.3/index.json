@@ -143,7 +143,8 @@
               "96",
               "128",
               "512"
-            ]
+            ],
+            "default": "64"
           }
         },
         "additionalProperties": false,
@@ -168,12 +169,14 @@
           "limit": {
             "type": "integer",
             "description": "The number of results to return: 1–20, inclusive",
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "offset": {
             "type": "integer",
             "description": "Result to start at.",
-            "minimum": 1
+            "minimum": 1,
+            "default": 0
           },
           "base-hostname": {
             "type": "string",
@@ -210,20 +213,24 @@
           "limit": {
             "type": "integer",
             "description": "The number of posts to return: 1–20, inclusive",
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "offset": {
             "type": "integer",
             "description": "Post number to start at.",
-            "minimum": 1
+            "minimum": 1,
+            "default": 0
           },
           "reblog_info": {
             "type": "boolean",
-            "description": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields."
+            "description": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields.",
+            "default": false
           },
           "notes_info": {
             "type": "boolean",
-            "description": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata."
+            "description": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata.",
+            "default": false
           },
           "format": {
             "type": "string",
@@ -353,7 +360,8 @@
               "chat",
               "audio",
               "video"
-            ]
+            ],
+            "default": "video"
           },
           "tags": {
             "type": "string",
@@ -369,7 +377,8 @@
           },
           "markdown": {
             "type": "boolean",
-            "description": "Indicates whether the post uses markdown syntax."
+            "description": "Indicates whether the post uses markdown syntax.",
+            "default": false
           },
           "caption": {
             "type": "string",
@@ -435,7 +444,8 @@
           },
           "markdown": {
             "type": "boolean",
-            "description": "Indicates whether the post uses markdown syntax."
+            "description": "Indicates whether the post uses markdown syntax.",
+            "default": false
           },
           "id": {
             "type": "integer",
@@ -494,7 +504,8 @@
           },
           "markdown": {
             "type": "boolean",
-            "description": "Indicates whether the post uses markdown syntax."
+            "description": "Indicates whether the post uses markdown syntax.",
+            "default": false
           },
           "id": {
             "type": "integer",
@@ -569,12 +580,14 @@
           "limit": {
             "type": "integer",
             "description": "The number of results to return: 1–20, inclusive",
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "offset": {
             "type": "integer",
             "description": "Post number to start at.",
-            "minimum": 1
+            "minimum": 1,
+            "default": 0
           },
           "type": {
             "type": "string",
@@ -592,7 +605,8 @@
           },
           "since_id": {
             "type": "integer",
-            "description": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set."
+            "description": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set.",
+            "default": 0
           }
         },
         "additionalProperties": false
@@ -617,12 +631,14 @@
           "limit": {
             "type": "integer",
             "description": "The number of results to return: 1–20, inclusive",
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "offset": {
             "type": "integer",
             "description": "Liked post number to start at.",
-            "minimum": 1
+            "minimum": 1,
+            "default": 0
           }
         },
         "additionalProperties": false
@@ -647,12 +663,14 @@
           "limit": {
             "type": "integer",
             "description": "The number of results to return: 1–20, inclusive",
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "offset": {
             "type": "integer",
             "description": "Result number to start at.",
-            "minimum": 1
+            "minimum": 1,
+            "default": 0
           }
         },
         "additionalProperties": false

@@ -17,7 +17,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "rails"
           },
           "format": {
             "type": "string",
@@ -26,7 +27,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -51,11 +53,13 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           },
           "query": {
             "type": "string",
-            "description": "Query to search for."
+            "description": "Query to search for.",
+            "default": "cucumber"
           }
         },
         "additionalProperties": false,
@@ -80,7 +84,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -106,15 +111,18 @@
         "properties": {
           "gem_name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "bills"
           },
           "version": {
             "type": "string",
-            "description": "Gem version."
+            "description": "Gem version.",
+            "default": "0.0.1"
           },
           "platform": {
             "type": "string",
-            "description": "Gem platform."
+            "description": "Gem platform.",
+            "default": "x86-darwin-10"
           }
         },
         "additionalProperties": false,
@@ -134,15 +142,18 @@
         "properties": {
           "gem_name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "bills"
           },
           "version": {
             "type": "string",
-            "description": "Gem version."
+            "description": "Gem version.",
+            "default": "0.0.1"
           },
           "platform": {
             "type": "string",
-            "description": "Gem platform."
+            "description": "Gem platform.",
+            "default": "x86-darwin-10"
           }
         },
         "additionalProperties": false,
@@ -167,7 +178,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -191,7 +203,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -210,7 +223,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "coulda"
           },
           "format": {
             "type": "string",
@@ -219,7 +233,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -244,7 +259,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -268,7 +284,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -292,7 +309,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -311,11 +329,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "rails_admin"
           },
           "version": {
             "type": "string",
-            "description": "Gem version."
+            "description": "Gem version.",
+            "default": "0.0.0"
           },
           "format": {
             "type": "string",
@@ -324,7 +344,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -345,11 +366,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "coulda"
           },
           "version": {
             "type": "string",
-            "description": "Gem version."
+            "description": "Gem version.",
+            "default": "0.6.3"
           },
           "format": {
             "type": "string",
@@ -357,7 +380,8 @@
             "enum": [
               "json",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -378,11 +402,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "coulda"
           },
           "version": {
             "type": "string",
-            "description": "Gem version."
+            "description": "Gem version.",
+            "default": "0.6.3"
           },
           "format": {
             "type": "string",
@@ -390,15 +416,18 @@
             "enum": [
               "json",
               "yaml"
-            ]
+            ],
+            "default": "json"
           },
           "from": {
             "type": "string",
-            "description": "Start date from where to search for. (YYYY-MM-DD)"
+            "description": "Start date from where to search for. (YYYY-MM-DD)",
+            "default": "2011-11-01"
           },
           "to": {
             "type": "string",
-            "description": "End date to where to search for. (YYYY-MM-DD)"
+            "description": "End date to where to search for. (YYYY-MM-DD)",
+            "default": "2011-11-05"
           }
         },
         "additionalProperties": false,
@@ -421,7 +450,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "gemcutter"
           },
           "format": {
             "type": "string",
@@ -430,7 +460,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -450,11 +481,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "gemcutter"
           },
           "email": {
             "type": "string",
-            "description": "Gem owner email."
+            "description": "Gem owner email.",
+            "default": "nick@gemcutter.org"
           }
         },
         "additionalProperties": false,
@@ -474,11 +507,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Gem name."
+            "description": "Gem name.",
+            "default": "gemcutter"
           },
           "email": {
             "type": "string",
-            "description": "Gem owner email."
+            "description": "Gem owner email.",
+            "default": "nick@gemcutter.org"
           }
         },
         "additionalProperties": false,
@@ -503,7 +538,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -526,7 +562,8 @@
           },
           "url": {
             "type": "string",
-            "description": "WebHook URL."
+            "description": "WebHook URL.",
+            "default": "http://example.com"
           }
         },
         "additionalProperties": false,
@@ -546,11 +583,13 @@
         "properties": {
           "gem_name": {
             "type": "string",
-            "description": "Gem name. Could specify * to apply the hook globally to all gems."
+            "description": "Gem name. Could specify * to apply the hook globally to all gems.",
+            "default": "rails"
           },
           "url": {
             "type": "string",
-            "description": "WebHook URL."
+            "description": "WebHook URL.",
+            "default": "http://example.com"
           }
         },
         "additionalProperties": false,
@@ -570,11 +609,13 @@
         "properties": {
           "gem_name": {
             "type": "string",
-            "description": "Gem name. Could specify * to apply the hook globally to all gems."
+            "description": "Gem name. Could specify * to apply the hook globally to all gems.",
+            "default": "rails"
           },
           "url": {
             "type": "string",
-            "description": "WebHook URL."
+            "description": "WebHook URL.",
+            "default": "http://example.com"
           }
         },
         "additionalProperties": false,
@@ -599,7 +640,8 @@
               "json",
               "xml",
               "yaml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -618,7 +660,8 @@
         "properties": {
           "gems": {
             "type": "string",
-            "description": "Comma delimited Gem names."
+            "description": "Comma delimited Gem names.",
+            "default": "rails,thor"
           }
         },
         "additionalProperties": false,

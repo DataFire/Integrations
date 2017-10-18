@@ -199,11 +199,13 @@
             "enum": [
               "short",
               "full"
-            ]
+            ],
+            "default": "short"
           },
           "tomatoes": {
             "type": "boolean",
-            "description": "Include Rotten Tomatoes ratings."
+            "description": "Include Rotten Tomatoes ratings.",
+            "default": false
           },
           "r": {
             "type": "string",
@@ -211,16 +213,19 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "v": {
             "type": "integer",
-            "description": "API version (reserved for future use)."
+            "description": "API version (reserved for future use).",
+            "default": 1
           },
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "Page number to return."
+            "description": "Page number to return.",
+            "default": 1
           },
           "callback": {
             "type": "string",

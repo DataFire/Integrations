@@ -1117,7 +1117,8 @@
         "type": "object",
         "properties": {
           "api-version": {
-            "type": "string"
+            "type": "string",
+            "default": "2016-08-01"
           }
         },
         "additionalProperties": false,
@@ -1142,7 +1143,8 @@
         "type": "object",
         "properties": {
           "api-version": {
-            "type": "string"
+            "type": "string",
+            "default": "2016-08-01"
           },
           "id": {
             "type": "string"
@@ -1171,7 +1173,8 @@
         "type": "object",
         "properties": {
           "api-version": {
-            "type": "string"
+            "type": "string",
+            "default": "2016-08-01"
           },
           "id": {
             "type": "string"

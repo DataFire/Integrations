@@ -1150,7 +1150,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1162,7 +1163,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1175,7 +1177,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1236,7 +1239,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1248,7 +1252,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1261,7 +1266,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1328,7 +1334,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1340,7 +1347,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1353,7 +1361,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1418,7 +1427,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1430,7 +1440,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1443,7 +1454,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1509,7 +1521,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1521,7 +1534,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1534,7 +1548,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1613,7 +1628,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1625,7 +1641,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1638,7 +1655,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1703,7 +1721,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1715,7 +1734,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1728,7 +1748,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1819,7 +1840,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1831,7 +1853,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1844,7 +1867,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -1915,7 +1939,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -1927,7 +1952,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -1940,7 +1966,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2019,7 +2046,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2031,7 +2059,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2044,7 +2073,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2119,7 +2149,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2131,7 +2162,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2144,7 +2176,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2219,7 +2252,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2231,7 +2265,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2244,7 +2279,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2319,7 +2355,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2331,7 +2368,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2344,7 +2382,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2419,7 +2458,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2431,7 +2471,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2444,7 +2485,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2512,7 +2554,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2524,7 +2567,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2537,7 +2581,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2604,7 +2649,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2616,7 +2662,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2629,7 +2676,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2703,7 +2751,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2715,7 +2764,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2728,7 +2778,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2799,7 +2850,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2811,7 +2863,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2824,7 +2877,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2893,7 +2947,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2905,7 +2960,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -2918,7 +2974,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -2984,7 +3041,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -2996,7 +3054,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3009,7 +3068,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3076,7 +3136,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3088,7 +3149,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3101,7 +3163,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3172,7 +3235,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3184,7 +3248,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3197,7 +3262,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3262,7 +3328,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3274,7 +3341,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3287,7 +3355,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3353,7 +3422,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3365,7 +3435,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3378,7 +3449,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3445,7 +3517,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3457,7 +3530,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3470,7 +3544,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3533,7 +3608,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3545,7 +3621,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3558,7 +3635,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3620,7 +3698,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3632,7 +3711,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3645,7 +3725,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3714,7 +3795,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3726,7 +3808,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3739,7 +3822,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3804,7 +3888,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3816,7 +3901,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3829,7 +3915,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3906,7 +3993,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -3918,7 +4006,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -3931,7 +4020,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -3992,7 +4082,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4004,7 +4095,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4017,7 +4109,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4076,7 +4169,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4088,7 +4182,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4101,7 +4196,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4163,7 +4259,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4175,7 +4272,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4188,7 +4286,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4250,7 +4349,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4262,7 +4362,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4275,7 +4376,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4353,7 +4455,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4365,7 +4468,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4378,7 +4482,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4443,7 +4548,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4455,7 +4561,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4468,7 +4575,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4534,7 +4642,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4546,7 +4655,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4559,7 +4669,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4633,7 +4744,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4645,7 +4757,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4658,7 +4771,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4733,7 +4847,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4745,7 +4860,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4758,7 +4874,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4824,7 +4941,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4836,7 +4954,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4849,7 +4968,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -4916,7 +5036,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -4928,7 +5049,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -4941,7 +5063,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",
@@ -5004,7 +5127,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "key": {
             "type": "string",
@@ -5016,7 +5140,8 @@
           },
           "pp": {
             "type": "boolean",
-            "description": "Pretty-print response."
+            "description": "Pretty-print response.",
+            "default": true
           },
           "fields": {
             "type": "string",
@@ -5029,7 +5154,8 @@
               "json",
               "media",
               "proto"
-            ]
+            ],
+            "default": "json"
           },
           "$.xgafv": {
             "type": "string",

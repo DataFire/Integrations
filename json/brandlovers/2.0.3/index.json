@@ -2075,7 +2075,8 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Number or items to return when executing query. Default 100, max 250. Use this conjuction with `offset` to paginate across the results."
+            "description": "Number or items to return when executing query. Default 100, max 250. Use this conjuction with `offset` to paginate across the results.",
+            "default": 100
           }
         },
         "additionalProperties": false,
@@ -2143,7 +2144,8 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Number or items to return when executing query. Defaults to 100. Max 250. Use this conjuction with `offset` to paginate across the results."
+            "description": "Number or items to return when executing query. Defaults to 100. Max 250. Use this conjuction with `offset` to paginate across the results.",
+            "default": 100
           }
         },
         "additionalProperties": false,
@@ -2177,7 +2179,8 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Number or items to return when executing query. Defaults to 100. Max 250. Use this conjuction with `offset` to paginate across the results."
+            "description": "Number or items to return when executing query. Defaults to 100. Max 250. Use this conjuction with `offset` to paginate across the results.",
+            "default": 100
           }
         },
         "additionalProperties": false,

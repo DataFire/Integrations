@@ -584,14 +584,16 @@
               "BEFORE",
               "AFTER"
             ],
-            "maxLength": 255
+            "maxLength": 255,
+            "default": "BEFORE"
           },
           "results": {
             "type": "number",
             "format": "int32",
             "description": "The maximum number of returned results (default 25). The maximum allowed value is 100.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 25
           }
         },
         "additionalProperties": false
@@ -626,7 +628,8 @@
               "RECENT_ACTIVITY",
               "POPULARITY"
             ],
-            "maxLength": 255
+            "maxLength": 255,
+            "default": "ALPHABETICALLY"
           },
           "order": {
             "type": "string",
@@ -635,25 +638,29 @@
               "ASCENDING",
               "DESCENDING"
             ],
-            "maxLength": 255
+            "maxLength": 255,
+            "default": "ASCENDING"
           },
           "includeOwn": {
             "type": "boolean",
-            "description": "If set to false only conversations are returned where the user is no member of, otherwise all community conversations are returned"
+            "description": "If set to false only conversations are returned where the user is no member of, otherwise all community conversations are returned",
+            "default": false
           },
           "startIndex": {
             "type": "number",
             "format": "int32",
             "description": "The index of the conversation that is the first one that has to be returned. E.g. if a request starts with startIndex 40 and results 20 the conversations 40 to 60 are returned",
             "maximum": 255,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "results": {
             "type": "number",
             "format": "int32",
             "description": "The maximum number of returned results (default 25). The maximum allowed value is 100.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 25
           }
         },
         "additionalProperties": false
@@ -1036,7 +1043,8 @@
           },
           "includeItemIds": {
             "type": "boolean",
-            "description": "not available"
+            "description": "not available",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1181,14 +1189,16 @@
               "BEFORE",
               "AFTER"
             ],
-            "maxLength": 255
+            "maxLength": 255,
+            "default": "BEFORE"
           },
           "results": {
             "type": "number",
             "format": "int32",
             "description": "The maximum number of returned results (default 25). The maximum allowed value is 100.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 25
           }
         },
         "additionalProperties": false,

@@ -16,7 +16,8 @@
         "type": "object",
         "properties": {
           "client": {
-            "type": "string"
+            "type": "string",
+            "default": "apigee"
           },
           "FirstName": {
             "type": "string",
@@ -96,7 +97,8 @@
           },
           "text": {
             "type": "string",
-            "description": "Text Message"
+            "description": "Text Message",
+            "default": ""
           }
         },
         "additionalProperties": false,

@@ -2241,15 +2241,18 @@
         "properties": {
           "term": {
             "type": "string",
-            "description": "Search keyword that should represent the start of a word in a city or airport name."
+            "description": "Search keyword that should represent the start of a word in a city or airport name.",
+            "default": "Ban"
           },
           "country": {
             "type": "string",
-            "description": "Identified a country based of a <a href=\"https://en.wikipedia.org/wiki/ISO_3166-2#Current_codes\">ISO 3166-1 alpha-2 code</a>"
+            "description": "Identified a country based of a <a href=\"https://en.wikipedia.org/wiki/ISO_3166-2#Current_codes\">ISO 3166-1 alpha-2 code</a>",
+            "default": "US"
           },
           "all_airports": {
             "type": "boolean",
-            "description": "Boolean to include or not all airports, no matter their traffic rank. False by default, to only display relevant airports."
+            "description": "Boolean to include or not all airports, no matter their traffic rank. False by default, to only display relevant airports.",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -2278,11 +2281,13 @@
         "properties": {
           "latitude": {
             "type": "string",
-            "description": "Latitude location to be at the center of your search circle."
+            "description": "Latitude location to be at the center of your search circle.",
+            "default": "46.6734"
           },
           "longitude": {
             "type": "string",
-            "description": "Longitude location to be at the center of your search circle."
+            "description": "Longitude location to be at the center of your search circle.",
+            "default": "-71.7412"
           }
         },
         "additionalProperties": false,
@@ -2312,35 +2317,43 @@
         "properties": {
           "location": {
             "type": "string",
-            "description": "The <a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the airport at which the car will be rented."
+            "description": "The <a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the airport at which the car will be rented.",
+            "default": "NCE"
           },
           "pick_up": {
             "type": "string",
-            "description": "Date on which the car rental will be collected from the car rental location. If no time is provided, a default value of 09:00 is used. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date."
+            "description": "Date on which the car rental will be collected from the car rental location. If no time is provided, a default value of 09:00 is used. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date.",
+            "default": "2017-08-07"
           },
           "drop_off": {
             "type": "string",
-            "description": "Date at which the car rental will end and the car will be returned to the rental location. If no time is provided, a default value of 17:00 is used."
+            "description": "Date at which the car rental will end and the car will be returned to the rental location. If no time is provided, a default value of 17:00 is used.",
+            "default": "2017-08-08"
           },
           "lang": {
             "type": "string",
-            "description": "The preferred language of the content related to each car rental. Content will be returned in this language if available."
+            "description": "The preferred language of the content related to each car rental. Content will be returned in this language if available.",
+            "default": "EN"
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> to use when displaying prices and rates related to the car rental."
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> to use when displaying prices and rates related to the car rental.",
+            "default": "USD"
           },
           "provider": {
             "type": "string",
-            "description": "2 character car rental provider code. You may provide this parameter more than once. "
+            "description": "2 character car rental provider code. You may provide this parameter more than once. ",
+            "default": "ZI"
           },
           "rate_class": {
             "type": "string",
-            "description": "Allows to request specific rate types."
+            "description": "Allows to request specific rate types.",
+            "default": "ALL"
           },
           "rate_plan": {
             "type": "string",
-            "description": "Qualifies the rate depending on the pickup date and the rental duration."
+            "description": "Qualifies the rate depending on the pickup date and the rental duration.",
+            "default": "DAILY"
           },
           "rate_filter": {
             "type": "string",
@@ -2349,7 +2362,8 @@
               "AVAILABLE",
               "ESTIMATED",
               "ALL"
-            ]
+            ],
+            "default": "ESTIMATED"
           },
           "vehicle": {
             "type": "array",
@@ -2381,43 +2395,53 @@
         "properties": {
           "latitude": {
             "type": "number",
-            "description": "Latitude of the center of the search."
+            "description": "Latitude of the center of the search.",
+            "default": 35.1504
           },
           "longitude": {
             "type": "number",
-            "description": "Longitude of the center of the search."
+            "description": "Longitude of the center of the search.",
+            "default": -114.57632
           },
           "radius": {
             "type": "integer",
-            "description": "Radius around the center to look for hotels in kilometers (km)."
+            "description": "Radius around the center to look for hotels in kilometers (km).",
+            "default": 42
           },
           "pick_up": {
             "type": "string",
-            "description": "Date on which the car rental will be collected from the car rental location. If no time is provided, a default value of 09:00 is used. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date."
+            "description": "Date on which the car rental will be collected from the car rental location. If no time is provided, a default value of 09:00 is used. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date.",
+            "default": "2017-08-07"
           },
           "drop_off": {
             "type": "string",
-            "description": "Date at which the car rental will end and the car will be returned to the rental location. If no time is provided, a default value of 17:00 is used."
+            "description": "Date at which the car rental will end and the car will be returned to the rental location. If no time is provided, a default value of 17:00 is used.",
+            "default": "2017-08-08"
           },
           "lang": {
             "type": "string",
-            "description": "The preferred language of the content related to each car rental. Content will be returned in this language if available."
+            "description": "The preferred language of the content related to each car rental. Content will be returned in this language if available.",
+            "default": "EN"
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> to use when displaying prices and rates related to the car rental."
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> to use when displaying prices and rates related to the car rental.",
+            "default": "USD"
           },
           "provider": {
             "type": "string",
-            "description": "2 character car rental provider code. You may provide this parameter more than once. "
+            "description": "2 character car rental provider code. You may provide this parameter more than once. ",
+            "default": "ZI"
           },
           "rate_class": {
             "type": "string",
-            "description": "Allows to request specific rate types."
+            "description": "Allows to request specific rate types.",
+            "default": "ALL"
           },
           "rate_plan": {
             "type": "string",
-            "description": "Qualifies the rate depending on the pickup date and the rental duration."
+            "description": "Qualifies the rate depending on the pickup date and the rental duration.",
+            "default": "DAILY"
           },
           "rate_filter": {
             "type": "string",
@@ -2426,7 +2450,8 @@
               "AVAILABLE",
               "ESTIMATED",
               "ALL"
-            ]
+            ],
+            "default": "ESTIMATED"
           },
           "vehicle": {
             "type": "array",
@@ -2460,31 +2485,38 @@
         "properties": {
           "origin": {
             "type": "string",
-            "description": "City code from which the traveler will depart. See the location and airport interfaces for more information."
+            "description": "City code from which the traveler will depart. See the location and airport interfaces for more information.",
+            "default": "LON"
           },
           "destination": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going"
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going",
+            "default": "DUB"
           },
           "departure_date": {
             "type": "string",
-            "description": "The date on which the traveler will depart from the origin to go to the destination. The maximum scope for a date range is 2 days, for a larger scope, use the Extensive Search! "
+            "description": "The date on which the traveler will depart from the origin to go to the destination. The maximum scope for a date range is 2 days, for a larger scope, use the Extensive Search! ",
+            "default": "2017-08-25"
           },
           "return_date": {
             "type": "string",
-            "description": "The date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, the search will find only one-way trips. If this, or the return_by parameter are specified, only return trips are found"
+            "description": "The date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, the search will find only one-way trips. If this, or the return_by parameter are specified, only return trips are found",
+            "default": "2017-08-28"
           },
           "adults": {
             "type": "integer",
-            "description": "The number of adult (age 12 and over) passengers traveling on this flight."
+            "description": "The number of adult (age 12 and over) passengers traveling on this flight.",
+            "default": 1
           },
           "children": {
             "type": "integer",
-            "description": "The number of child (younger than age 12 on date of departure) passengers traveling on this flight who will each have their own separate seat"
+            "description": "The number of child (younger than age 12 on date of departure) passengers traveling on this flight who will each have their own separate seat",
+            "default": 0
           },
           "infants": {
             "type": "integer",
-            "description": "The number of infant (younger than age 2 on date of departure) passengers traveling on this flight. Infants travel in the lap of an adult passenger, and thus the number of infants must not exceed the number of adults."
+            "description": "The number of infant (younger than age 2 on date of departure) passengers traveling on this flight. Infants travel in the lap of an adult passenger, and thus the number of infants must not exceed the number of adults.",
+            "default": 0
           },
           "include_merchants": {
             "type": "array",
@@ -2496,15 +2528,18 @@
           },
           "max_price": {
             "type": "integer",
-            "description": "Maximum price of trips to find in the result set, in USD (US dollars) unless some other currency code is specified. By default, no limit is applied"
+            "description": "Maximum price of trips to find in the result set, in USD (US dollars) unless some other currency code is specified. By default, no limit is applied",
+            "default": 980
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results"
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results",
+            "default": "EUR"
           },
           "mobile": {
             "type": "boolean",
-            "description": "Setting this to true will show mobile web deeplinks "
+            "description": "Setting this to true will show mobile web deeplinks ",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -2532,35 +2567,43 @@
         "properties": {
           "origin": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart. See the location and airport interfaces for more information."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart. See the location and airport interfaces for more information.",
+            "default": "FRA"
           },
           "destination": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going"
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going",
+            "default": "LON"
           },
           "departure_date": {
             "type": "string",
-            "description": "Range of dates between which the traveler could depart. Dates are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-dd date format. Ranges are inclusive and ranges of months will apply from the start to the end of the month. If just a single date is specified, only that date will be searched. By default, the date range starts today and applies up to 361 in the future is applied. Past dates are generally not supported, future dates should be in the next 361 days, although results start to become sparse after about 6 months in the future, as airlines may still be defining their schedules. The default is to search all future dates available. \n"
+            "description": "Range of dates between which the traveler could depart. Dates are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-dd date format. Ranges are inclusive and ranges of months will apply from the start to the end of the month. If just a single date is specified, only that date will be searched. By default, the date range starts today and applies up to 361 in the future is applied. Past dates are generally not supported, future dates should be in the next 361 days, although results start to become sparse after about 6 months in the future, as airlines may still be defining their schedules. The default is to search all future dates available. \n",
+            "default": "2017-08-16--2017-08-26"
           },
           "one-way": {
             "type": "boolean",
-            "description": "When set to true, the query will be for a single trip from the origin to the destination. When this parameter is not provided, or is set to false, the query is for a round trip from the origin to the destination and back again."
+            "description": "When set to true, the query will be for a single trip from the origin to the destination. When this parameter is not provided, or is set to false, the query is for a round trip from the origin to the destination and back again.",
+            "default": false
           },
           "duration": {
             "type": "string",
-            "description": "The allowed duration or range of durations of the trip, in days. This parameter must not be set if the one-way parameter is set to true."
+            "description": "The allowed duration or range of durations of the trip, in days. This parameter must not be set if the one-way parameter is set to true.",
+            "default": "1--15"
           },
           "direct": {
             "type": "boolean",
-            "description": "Limit the search to results that do not require the passenger to change plane?"
+            "description": "Limit the search to results that do not require the passenger to change plane?",
+            "default": false
           },
           "max_price": {
             "type": "string",
-            "description": "Maximum price of trips to find in the result set, in the currency specified for this origin and destination pair in the cache contents spreadsheet. So, for example, if the origin is NYC, and the max price is 400, this means 400 USD. If the origin is PAR, and the max price is 400, this means 400 EUR. By default, no limit is applied"
+            "description": "Maximum price of trips to find in the result set, in the currency specified for this origin and destination pair in the cache contents spreadsheet. So, for example, if the origin is NYC, and the max price is 400, this means 400 USD. If the origin is PAR, and the max price is 400, this means 400 EUR. By default, no limit is applied",
+            "default": "950"
           },
           "aggregation_mode": {
             "type": "string",
-            "description": "Specifies the granularity of results to be found. DAY is the default when one-way is true finds a result for departure date in the date range. STAY is the default otherwise and finds all round trip permutations for this route withim the given date range. DESTINATION finds one result, only the cheapest price for this route over the provided date range. WEEK finds the cheapest result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result."
+            "description": "Specifies the granularity of results to be found. DAY is the default when one-way is true finds a result for departure date in the date range. STAY is the default otherwise and finds all round trip permutations for this route withim the given date range. DESTINATION finds one result, only the cheapest price for this route over the provided date range. WEEK finds the cheapest result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result.",
+            "default": "DAY"
           }
         },
         "additionalProperties": false,
@@ -2587,27 +2630,33 @@
         "properties": {
           "origin": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart. See the location and airport interfaces for more information."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart. See the location and airport interfaces for more information.",
+            "default": "NYC"
           },
           "destination": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going"
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going",
+            "default": "LAX"
           },
           "departure_date": {
             "type": "string",
-            "description": "Range of dates between which the traveler could depart. Dates are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-dd date format. Ranges are inclusive and ranges of months will apply from the start to the end of the month. If just a single date is specified, only that date will be searched. By default, the date range starts today and applies up to 361 in the future is applied. Past dates are generally not supported, future dates should be in the next 361 days, although results start to become sparse after about 6 months in the future, as airlines may still be defining their schedules. The default is to search all future dates available."
+            "description": "Range of dates between which the traveler could depart. Dates are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-dd date format. Ranges are inclusive and ranges of months will apply from the start to the end of the month. If just a single date is specified, only that date will be searched. By default, the date range starts today and applies up to 361 in the future is applied. Past dates are generally not supported, future dates should be in the next 361 days, although results start to become sparse after about 6 months in the future, as airlines may still be defining their schedules. The default is to search all future dates available.",
+            "default": "2017-08-16--2017-08-26"
           },
           "one-way": {
             "type": "boolean",
-            "description": "When set to true, the query will be for a single trip from the origin to the destination. When this parameter is not provided, or is set to false, the query is for a round trip from the origin to the destination and back again."
+            "description": "When set to true, the query will be for a single trip from the origin to the destination. When this parameter is not provided, or is set to false, the query is for a round trip from the origin to the destination and back again.",
+            "default": false
           },
           "duration": {
             "type": "string",
-            "description": "The allowed duration or range of durations of the trip, in days. This parameter must not be set if the one-way parameter is set to true."
+            "description": "The allowed duration or range of durations of the trip, in days. This parameter must not be set if the one-way parameter is set to true.",
+            "default": "1--15"
           },
           "direct": {
             "type": "boolean",
-            "description": "Limit the search to results that do not require the passenger to change plane?"
+            "description": "Limit the search to results that do not require the passenger to change plane?",
+            "default": false
           },
           "max_price": {
             "type": "string",
@@ -2642,40 +2691,49 @@
         "properties": {
           "origin": {
             "type": "string",
-            "description": "City code from which the traveler will depart. See the location and airport interfaces for more information."
+            "description": "City code from which the traveler will depart. See the location and airport interfaces for more information.",
+            "default": "BOS"
           },
           "destination": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going"
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going",
+            "default": "LON"
           },
           "departure_date": {
             "type": "string",
             "format": "string",
-            "description": "The date on which the traveler will depart from the origin to go to the destination. You can specify a date range of up to 2 days. For a larger date range, use the Extensive Search. Dates are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-dd date format and separated by --."
+            "description": "The date on which the traveler will depart from the origin to go to the destination. You can specify a date range of up to 2 days. For a larger date range, use the Extensive Search. Dates are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-dd date format and separated by --.",
+            "default": "2017-08-25"
           },
           "return_date": {
             "type": "string",
-            "description": "The date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, the search will find only one-way trips. If this, or the return_by parameter are specified, only return trips are found. You can specify a date range of up to 2 days."
+            "description": "The date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, the search will find only one-way trips. If this, or the return_by parameter are specified, only return trips are found. You can specify a date range of up to 2 days.",
+            "default": "2017-08-28"
           },
           "arrive_by": {
             "type": "string",
-            "description": "The datetime by which the outbound flight should arrive, based on local time at the destination airport.  Date-times are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-ddTHH:mm date format"
+            "description": "The datetime by which the outbound flight should arrive, based on local time at the destination airport.  Date-times are specified in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> yyyy-MM-ddTHH:mm date format",
+            "default": "2017-08-25T16:00"
           },
           "return_by": {
             "type": "string",
-            "description": "The time by which the inbound flight should arrive, based on local time at the airport specified as the origin parameter"
+            "description": "The time by which the inbound flight should arrive, based on local time at the airport specified as the origin parameter",
+            "default": "2017-08-28T08:00"
           },
           "adults": {
             "type": "integer",
-            "description": "The number of adult (age 12 and over) passengers traveling on this flight."
+            "description": "The number of adult (age 12 and over) passengers traveling on this flight.",
+            "default": 1
           },
           "children": {
             "type": "integer",
-            "description": "The number of child (younger than age 12 on date of departure) passengers traveling on this flight who will each have their own separate seat"
+            "description": "The number of child (younger than age 12 on date of departure) passengers traveling on this flight who will each have their own separate seat",
+            "default": 0
           },
           "infants": {
             "type": "integer",
-            "description": "The number of infant (younger than age 2 on date of departure) passengers traveling on this flight. Infants travel in the lap of an adult passenger, and thus the number of infants must not exceed the number of adults."
+            "description": "The number of infant (younger than age 2 on date of departure) passengers traveling on this flight. Infants travel in the lap of an adult passenger, and thus the number of infants must not exceed the number of adults.",
+            "default": 0
           },
           "include_airlines": {
             "type": "array",
@@ -2687,23 +2745,28 @@
           },
           "nonstop": {
             "type": "boolean",
-            "description": "Setting this to true will find only flights that do not require the passenger to change from one flight to another"
+            "description": "Setting this to true will find only flights that do not require the passenger to change from one flight to another",
+            "default": false
           },
           "max_price": {
             "type": "integer",
-            "description": "Maximum price of trips to find in the result set, in USD (US dollars) unless some other currency code is specified. By default, no limit is applied"
+            "description": "Maximum price of trips to find in the result set, in USD (US dollars) unless some other currency code is specified. By default, no limit is applied",
+            "default": 980
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results"
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results",
+            "default": "USD"
           },
           "travel_class": {
             "type": "string",
-            "description": "Searches for results where the majority of the itinerary flight time should be in a the specified cabin class or higher"
+            "description": "Searches for results where the majority of the itinerary flight time should be in a the specified cabin class or higher",
+            "default": "ECONOMY"
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The number of results to display. This will not be strictly interpreted but used as a guideline to display a useful number of results. By default, the number of results is dynamically determined. A maximum of 250 results will be displayed."
+            "description": "The number of results to display. This will not be strictly interpreted but used as a guideline to display a useful number of results. By default, the number of results is dynamically determined. A maximum of 250 results will be displayed.",
+            "default": 5
           }
         },
         "additionalProperties": false,
@@ -2731,47 +2794,58 @@
         "properties": {
           "location": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA airport code</a> for hotel availability is required requested."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA airport code</a> for hotel availability is required requested.",
+            "default": "BOS"
           },
           "check_in": {
             "type": "string",
-            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date."
+            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date.",
+            "default": "2017-08-15"
           },
           "check_out": {
             "type": "string",
-            "description": "Date on which the guest will end their stay in the hotel."
+            "description": "Date on which the guest will end their stay in the hotel.",
+            "default": "2017-08-16"
           },
           "radius": {
             "type": "integer",
-            "description": "Radius around the center to look for hotels in kilometers (km)."
+            "description": "Radius around the center to look for hotels in kilometers (km).",
+            "default": 42
           },
           "lang": {
             "type": "string",
-            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available."
+            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available.",
+            "default": "EN"
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results"
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results",
+            "default": "USD"
           },
           "chain": {
             "type": "string",
-            "description": "Narrows the hotel search to a given hotel provider. The hotel chain is indicated by the first two characters of the property code."
+            "description": "Narrows the hotel search to a given hotel provider. The hotel chain is indicated by the first two characters of the property code.",
+            "default": "6C"
           },
           "max_rate": {
             "type": "number",
-            "description": "The maximum amount per night that any hotel in the shopping response should cost. This is calculated by dividing the total price of the stay for the given dates by the number of nights specified falling between the check_in and check_out dates."
+            "description": "The maximum amount per night that any hotel in the shopping response should cost. This is calculated by dividing the total price of the stay for the given dates by the number of nights specified falling between the check_in and check_out dates.",
+            "default": 500
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of hotels to return in the results set. Hotels are ordered by total price, so if more than the given maximum number of hotels are available, only the cheapest options are returned."
+            "description": "The maximum number of hotels to return in the results set. Hotels are ordered by total price, so if more than the given maximum number of hotels are available, only the cheapest options are returned.",
+            "default": 20
           },
           "all_rooms": {
             "type": "boolean",
-            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned."
+            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned.",
+            "default": false
           },
           "show_sold_out": {
             "type": "boolean",
-            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)"
+            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)",
+            "default": false
           },
           "amenity": {
             "type": "array",
@@ -2803,47 +2877,58 @@
         "properties": {
           "south_west_corner": {
             "type": "string",
-            "description": "The coordinates of the south-west corner of the search box."
+            "description": "The coordinates of the south-west corner of the search box.",
+            "default": "38.8675,-77.1457"
           },
           "north_east_corner": {
             "type": "string",
-            "description": "The coordinates of the north-east corner of the search box."
+            "description": "The coordinates of the north-east corner of the search box.",
+            "default": "38.9072,-77.0632"
           },
           "check_in": {
             "type": "string",
-            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date."
+            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date.",
+            "default": "2017-08-15"
           },
           "check_out": {
             "type": "string",
-            "description": "Date on which the guest will end their stay in the hotel."
+            "description": "Date on which the guest will end their stay in the hotel.",
+            "default": "2017-08-16"
           },
           "lang": {
             "type": "string",
-            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available."
+            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available.",
+            "default": "EN"
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results"
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results",
+            "default": "USD"
           },
           "chain": {
             "type": "string",
-            "description": "Narrows the hotel search to a given hotel provider. The hotel chain is indicated by the first two characters of the property code."
+            "description": "Narrows the hotel search to a given hotel provider. The hotel chain is indicated by the first two characters of the property code.",
+            "default": "6C"
           },
           "max_rate": {
             "type": "number",
-            "description": "The maximum amount per night that any hotel in the shopping response should cost. This is calculated by dividing the total price of the stay for the given dates by the number of nights specified falling between the check_in and check_out dates."
+            "description": "The maximum amount per night that any hotel in the shopping response should cost. This is calculated by dividing the total price of the stay for the given dates by the number of nights specified falling between the check_in and check_out dates.",
+            "default": 500
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of hotels to return in the results set. Hotels are ordered by total price, so if more than the given maximum number of hotels are available, only the cheapest options are returned."
+            "description": "The maximum number of hotels to return in the results set. Hotels are ordered by total price, so if more than the given maximum number of hotels are available, only the cheapest options are returned.",
+            "default": 20
           },
           "all_rooms": {
             "type": "boolean",
-            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned."
+            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned.",
+            "default": false
           },
           "show_sold_out": {
             "type": "boolean",
-            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)"
+            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)",
+            "default": false
           },
           "amenity": {
             "type": "array",
@@ -2876,51 +2961,63 @@
         "properties": {
           "latitude": {
             "type": "number",
-            "description": "Latitude of the center of the search."
+            "description": "Latitude of the center of the search.",
+            "default": 36.0857
           },
           "longitude": {
             "type": "number",
-            "description": "Longitude of the center of the search."
+            "description": "Longitude of the center of the search.",
+            "default": -115.1541
           },
           "radius": {
             "type": "integer",
-            "description": "Radius around the center to look for hotels in kilometers (km)."
+            "description": "Radius around the center to look for hotels in kilometers (km).",
+            "default": 42
           },
           "check_in": {
             "type": "string",
-            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date."
+            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date.",
+            "default": "2017-08-15"
           },
           "check_out": {
             "type": "string",
-            "description": "Date on which the guest will end their stay in the hotel."
+            "description": "Date on which the guest will end their stay in the hotel.",
+            "default": "2017-08-16"
           },
           "lang": {
             "type": "string",
-            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available."
+            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available.",
+            "default": "EN"
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results"
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results",
+            "default": "USD"
           },
           "chain": {
             "type": "string",
-            "description": "Narrows the hotel search to a given hotel provider. The hotel chain is indicated by the first two characters of the property code."
+            "description": "Narrows the hotel search to a given hotel provider. The hotel chain is indicated by the first two characters of the property code.",
+            "default": "6C"
           },
           "max_rate": {
             "type": "number",
-            "description": "The maximum amount per night that any hotel in the shopping response should cost. This is calculated by dividing the total price of the stay for the given dates by the number of nights specified falling between the check_in and check_out dates."
+            "description": "The maximum amount per night that any hotel in the shopping response should cost. This is calculated by dividing the total price of the stay for the given dates by the number of nights specified falling between the check_in and check_out dates.",
+            "default": 500
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of hotels to return in the results set. Hotels are ordered by total price, so if more than the given maximum number of hotels are available, only the cheapest options are returned."
+            "description": "The maximum number of hotels to return in the results set. Hotels are ordered by total price, so if more than the given maximum number of hotels are available, only the cheapest options are returned.",
+            "default": 20
           },
           "all_rooms": {
             "type": "boolean",
-            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned."
+            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned.",
+            "default": false
           },
           "show_sold_out": {
             "type": "boolean",
-            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)"
+            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)",
+            "default": false
           },
           "amenity": {
             "type": "array",
@@ -2954,31 +3051,38 @@
         "properties": {
           "property_code": {
             "type": "string",
-            "description": "A Hotel property code based on 2 letter chain code + 3 letter <a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city + 3 char property unique id."
+            "description": "A Hotel property code based on 2 letter chain code + 3 letter <a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city + 3 char property unique id.",
+            "default": "BWDCA133"
           },
           "check_in": {
             "type": "string",
-            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date."
+            "description": "Date on which the guest will begin their stay in the hotel. Past availability is not displayed, future availability becomes less useful from about 6 months from the current date.",
+            "default": "2017-08-14"
           },
           "check_out": {
             "type": "string",
-            "description": "Date on which the guest will end their stay in the hotel."
+            "description": "Date on which the guest will end their stay in the hotel.",
+            "default": "2017-08-15"
           },
           "lang": {
             "type": "string",
-            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available."
+            "description": "The preferred language of the content related to each hotel. Content will be returned in this language if available.",
+            "default": "EN"
           },
           "currency": {
             "type": "string",
-            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results"
+            "description": "The preferred <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">currency</a> for the results",
+            "default": "USD"
           },
           "all_rooms": {
             "type": "boolean",
-            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned."
+            "description": "This option if enabled will return all hotel room rates, not just the lowest room rate. Note: This will have an impact on the response time due to the larger messages returned.",
+            "default": true
           },
           "show_sold_out": {
             "type": "boolean",
-            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)"
+            "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -3006,7 +3110,8 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "IATA location code for which further information is required"
+            "description": "IATA location code for which further information is required",
+            "default": "BOS"
           }
         },
         "additionalProperties": false,
@@ -3032,15 +3137,18 @@
         "properties": {
           "latitude": {
             "type": "number",
-            "description": "Latitude of the center of the search, in decimal degrees"
+            "description": "Latitude of the center of the search, in decimal degrees",
+            "default": 35.1504
           },
           "longitude": {
             "type": "number",
-            "description": "Longitude of the center of the search, in decimal degrees"
+            "description": "Longitude of the center of the search, in decimal degrees",
+            "default": -114.57632
           },
           "radius": {
             "type": "integer",
-            "description": "Radius around the center to look for points-of-interest around the given latitude and longitude in kilometers (km)"
+            "description": "Radius around the center to look for points-of-interest around the given latitude and longitude in kilometers (km)",
+            "default": 42
           },
           "lang": {
             "type": "string",
@@ -3058,23 +3166,28 @@
               "PL",
               "RU",
               "ZH"
-            ]
+            ],
+            "default": "EN"
           },
           "category": {
             "type": "string",
-            "description": "Filters the resulting points_of_interest to include only results which have a least one category containing the given provided word. Good examples are <em>museum</em>, <em>landmark</em> or <em>church</em>"
+            "description": "Filters the resulting points_of_interest to include only results which have a least one category containing the given provided word. Good examples are <em>museum</em>, <em>landmark</em> or <em>church</em>",
+            "default": "Museum"
           },
           "geonames": {
             "type": "boolean",
-            "description": "Setting this to true includes only points of interest with a geonames ID"
+            "description": "Setting this to true includes only points of interest with a geonames ID",
+            "default": false
           },
           "vibes": {
             "type": "boolean",
-            "description": "Includes content that doesn't correspond to an active physical place, but which gives the user some background information, or <em>vibe</em> for the place they are visiting. An example of this may be information on an influential demolished building that used to exist at a certain location, or more information on a district of the city"
+            "description": "Includes content that doesn't correspond to an active physical place, but which gives the user some background information, or <em>vibe</em> for the place they are visiting. An example of this may be information on an influential demolished building that used to exist at a certain location, or more information on a district of the city",
+            "default": false
           },
           "social_media": {
             "type": "boolean",
-            "description": "Enabling this includes images from Instagram in the output results. This is disabled by default, since these images are often just pictures of people or food, which often have little relevance to the actual location"
+            "description": "Enabling this includes images from Instagram in the output results. This is disabled by default, since these images are often just pictures of people or food, which often have little relevance to the actual location",
+            "default": false
           },
           "image_size": {
             "type": "string",
@@ -3084,15 +3197,18 @@
               "MEDIUM",
               "LARGE",
               "HD"
-            ]
+            ],
+            "default": "MEDIUM"
           },
           "number_of_images": {
             "type": "integer",
-            "description": "Number of images to display."
+            "description": "Number of images to display.",
+            "default": 4
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of points of interest to return in the results set. This is a range from 1 to 100"
+            "description": "The maximum number of points of interest to return in the results set. This is a range from 1 to 100",
+            "default": 20
           }
         },
         "additionalProperties": false,
@@ -3120,7 +3236,8 @@
         "properties": {
           "city_name": {
             "type": "string",
-            "description": "The name of the <a href=\"http://yapq.io/cities.txt\">supported city</a> for which you are searching, in the selected language."
+            "description": "The name of the <a href=\"http://yapq.io/cities.txt\">supported city</a> for which you are searching, in the selected language.",
+            "default": "Tel Aviv"
           },
           "lang": {
             "type": "string",
@@ -3138,23 +3255,28 @@
               "PL",
               "RU",
               "ZH"
-            ]
+            ],
+            "default": "EN"
           },
           "category": {
             "type": "string",
-            "description": "Filters the resulting points_of_interest to include only results which have a least one category containing the given provided word. Good examples are <em>museum</em>, <em>landmark</em> or <em>church</em>"
+            "description": "Filters the resulting points_of_interest to include only results which have a least one category containing the given provided word. Good examples are <em>museum</em>, <em>landmark</em> or <em>church</em>",
+            "default": "Museum"
           },
           "geonames": {
             "type": "boolean",
-            "description": "Setting this to true includes only points of interest with a geonames ID"
+            "description": "Setting this to true includes only points of interest with a geonames ID",
+            "default": false
           },
           "vibes": {
             "type": "boolean",
-            "description": "Includes content that doesn't correspond to an active physical place, but which gives the user some background information, or <em>vibe</em> for the place they are visiting. An example of this may be information on an influential demolished building that used to exist at a certain location, or more information on a district of the city"
+            "description": "Includes content that doesn't correspond to an active physical place, but which gives the user some background information, or <em>vibe</em> for the place they are visiting. An example of this may be information on an influential demolished building that used to exist at a certain location, or more information on a district of the city",
+            "default": false
           },
           "social_media": {
             "type": "boolean",
-            "description": "Enabling this includes images from Instagram in the output results. This is disabled by default, since these images are often just pictures of people or food, which often have little relevance to the actual location"
+            "description": "Enabling this includes images from Instagram in the output results. This is disabled by default, since these images are often just pictures of people or food, which often have little relevance to the actual location",
+            "default": false
           },
           "image_size": {
             "type": "string",
@@ -3164,15 +3286,18 @@
               "MEDIUM",
               "LARGE",
               "HD"
-            ]
+            ],
+            "default": "MEDIUM"
           },
           "number_of_images": {
             "type": "integer",
-            "description": "Number of images to display"
+            "description": "Number of images to display",
+            "default": 4
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of points of interest to return in the results set. This is a range from 1 to 100"
+            "description": "The maximum number of points of interest to return in the results set. This is a range from 1 to 100",
+            "default": 20
           }
         },
         "additionalProperties": false,
@@ -3198,7 +3323,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Station ID for which further information is required."
+            "description": "Station ID for which further information is required.",
+            "default": "8301700"
           }
         },
         "additionalProperties": false,
@@ -3224,7 +3350,8 @@
         "properties": {
           "term": {
             "type": "string",
-            "description": "Search term that should represent some part of a station name. Not case sensitive, may be blank."
+            "description": "Search term that should represent some part of a station name. Not case sensitive, may be blank.",
+            "default": "Mi"
           }
         },
         "additionalProperties": false,
@@ -3253,15 +3380,18 @@
         "properties": {
           "origin": {
             "type": "string",
-            "description": "Identifier of the rail station from which you would like to depart."
+            "description": "Identifier of the rail station from which you would like to depart.",
+            "default": "7171801"
           },
           "destination": {
             "type": "string",
-            "description": "Identifier of the rail station to which you would like to travel."
+            "description": "Identifier of the rail station to which you would like to travel.",
+            "default": "8768600"
           },
           "departure_date": {
             "type": "string",
-            "description": "The date or range of dates on which you would like to depart from the origin station to go to the destination."
+            "description": "The date or range of dates on which you would like to depart from the origin station to go to the destination.",
+            "default": "2017-04-25"
           }
         },
         "additionalProperties": false,
@@ -3289,12 +3419,14 @@
         "properties": {
           "origin": {
             "type": "string",
-            "description": "Identifier of the rail station where you would like to depart from."
+            "description": "Identifier of the rail station where you would like to depart from.",
+            "default": "7171801"
           },
           "departure_date": {
             "type": "string",
             "format": "date",
-            "description": "The date on which you would like to depart from the origin station to go to the destination."
+            "description": "The date on which you would like to depart from the origin station to go to the destination.",
+            "default": "2017-04-25"
           }
         },
         "additionalProperties": false,
@@ -3321,19 +3453,23 @@
         "properties": {
           "period": {
             "type": "string",
-            "description": "Range of periods for which flight traffic information is required. Ranges are inclusive and ranges of months will apply from the start to the end of the month. If just a single period is specified, only that period will be displayed. Only periods from 2011-01 up to previous month of the current year are valid. Future periods are not supported."
+            "description": "Range of periods for which flight traffic information is required. Ranges are inclusive and ranges of months will apply from the start to the end of the month. If just a single period is specified, only that period will be displayed. Only periods from 2011-01 up to previous month of the current year are valid. Future periods are not supported.",
+            "default": "2014-09--2014-10"
           },
           "origin": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart.",
+            "default": "BOS"
           },
           "destination": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going.",
+            "default": "LAX"
           },
           "number_of_results_per_period": {
             "type": "integer",
-            "description": "The maximum number of destinations to return for each period. Destinations are ordered by dates and number of travelers. The maximum number of destinations per period returned is 50"
+            "description": "The maximum number of destinations to return for each period. Destinations are ordered by dates and number of travelers. The maximum number of destinations per period returned is 50",
+            "default": 5
           }
         },
         "additionalProperties": false,
@@ -3363,15 +3499,18 @@
         "properties": {
           "period": {
             "type": "string",
-            "description": "Period, in month of the year (YYYY-MM), when consumers are traveling. Only periods from 2011-01 up to previous month of the current year are valid. Future dates are not supported."
+            "description": "Period, in month of the year (YYYY-MM), when consumers are traveling. Only periods from 2011-01 up to previous month of the current year are valid. Future dates are not supported.",
+            "default": "2016-09"
           },
           "origin": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart.",
+            "default": "BOS"
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of destinations to return in the results set. Destinations are ordered by number of travelers. The maximum number of destinations returned is 50"
+            "description": "The maximum number of destinations to return in the results set. Destinations are ordered by number of travelers. The maximum number of destinations returned is 50",
+            "default": 10
           }
         },
         "additionalProperties": false,
@@ -3398,23 +3537,28 @@
         "properties": {
           "period": {
             "type": "string",
-            "description": "Period of date (month or year) when consumers are searching to travel. Use YYYY-MM for month or YYYY for year. Only periods from year 2011-01 up to current year, previous month are valid. Future dates are not supported."
+            "description": "Period of date (month or year) when consumers are searching to travel. Use YYYY-MM for month or YYYY for year. Only periods from year 2011-01 up to current year, previous month are valid. Future dates are not supported.",
+            "default": "2016-09"
           },
           "origin": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart."
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city from which the traveler will depart.",
+            "default": "BOS"
           },
           "destination": {
             "type": "string",
-            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going"
+            "description": "<a href=\"https://en.wikipedia.org/wiki/International_Air_Transport_Association_airport_code\">IATA code</a> of the city to which the traveler is going",
+            "default": "LON"
           },
           "country": {
             "type": "string",
-            "description": "2-letter IATA country code of the country where the search queries originates from."
+            "description": "2-letter IATA country code of the country where the search queries originates from.",
+            "default": "US"
           },
           "number_of_results": {
             "type": "integer",
-            "description": "The maximum number of destinations to return in the results set. Destinations are ordered by number of searches. The maximum number of destinations returned is 50"
+            "description": "The maximum number of destinations to return in the results set. Destinations are ordered by number of searches. The maximum number of destinations returned is 50",
+            "default": 10
           }
         },
         "additionalProperties": false,
@@ -3442,15 +3586,18 @@
         "properties": {
           "record_locator": {
             "type": "string",
-            "description": "The Amadeus identifier of the given travel record. Usually printed at the top of an itinerary or boarding pass."
+            "description": "The Amadeus identifier of the given travel record. Usually printed at the top of an itinerary or boarding pass.",
+            "default": "YB8SPK"
           },
           "last_name": {
             "type": "string",
-            "description": "The last name of any traveler in this record, as written on their identification used for travel. This is required to ensure that applications retrieving the record are acting on behalf of the customer."
+            "description": "The last name of any traveler in this record, as written on their identification used for travel. This is required to ensure that applications retrieving the record are acting on behalf of the customer.",
+            "default": "LOPEZ"
           },
           "env": {
             "type": "string",
-            "description": "Indicates the Amadeus system from which this record should be retrieved."
+            "description": "Indicates the Amadeus system from which this record should be retrieved.",
+            "default": "TEST"
           }
         },
         "additionalProperties": false,

@@ -1760,7 +1760,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -1808,7 +1809,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -1861,7 +1863,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -1919,7 +1922,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -1969,7 +1973,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2023,7 +2028,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2071,7 +2077,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2115,7 +2122,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2164,7 +2172,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2214,7 +2223,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2261,7 +2271,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2316,7 +2327,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2361,7 +2373,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2405,7 +2418,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2454,7 +2468,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2510,7 +2525,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2555,7 +2571,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2599,7 +2616,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2648,7 +2666,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2704,7 +2723,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2752,7 +2772,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2812,7 +2833,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2862,7 +2884,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2911,7 +2934,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -2965,7 +2989,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3020,7 +3045,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3077,7 +3103,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3122,7 +3149,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3166,7 +3194,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3215,7 +3244,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3265,7 +3295,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3312,7 +3343,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3365,7 +3397,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3410,7 +3443,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3454,7 +3488,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3503,7 +3538,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3553,7 +3589,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3603,7 +3640,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3648,7 +3686,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3692,7 +3731,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3745,7 +3785,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3790,7 +3831,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3834,7 +3876,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3883,7 +3926,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3933,7 +3977,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -3976,7 +4021,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -4015,7 +4061,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -4059,7 +4106,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -4104,7 +4152,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -4149,7 +4198,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -4192,7 +4242,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,
@@ -4234,7 +4285,8 @@
           },
           "api-version": {
             "type": "string",
-            "description": "Client API version."
+            "description": "Client API version.",
+            "default": "2016-05-15"
           }
         },
         "additionalProperties": false,

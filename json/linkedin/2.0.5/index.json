@@ -111,19 +111,23 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "2414183"
           },
           "update-key": {
             "type": "string",
-            "description": "The unique company update identifier."
+            "description": "The unique company update identifier.",
+            "default": "UPDATE-c2414183-5986959985467285504"
           },
           "Content-Type": {
             "type": "string",
-            "description": "The content type."
+            "description": "The content type.",
+            "default": "application/json"
           },
           "x-li-format": {
             "type": "string",
-            "description": "The content type."
+            "description": "The content type.",
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -153,7 +157,8 @@
         "properties": {
           "Accept-Language": {
             "type": "string",
-            "description": "Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES."
+            "description": "Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES.",
+            "default": "es-ES, en-US, it-IT"
           },
           "format": {
             "type": "string"
@@ -200,11 +205,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "The content type."
+            "description": "The content type.",
+            "default": "application/json"
           },
           "x-li-format": {
             "type": "string",
-            "description": "The content type."
+            "description": "The content type.",
+            "default": "json"
           },
           "format": {
             "type": "string"
@@ -232,7 +239,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "format": {
             "type": "string"
@@ -259,7 +267,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "format": {
             "type": "string"
@@ -291,13 +300,15 @@
             "type": "integer",
             "description": "The offset value for paginating company results by.",
             "maximum": 2147483647,
-            "minimum": -2147483648
+            "minimum": -2147483648,
+            "default": 0
           },
           "count": {
             "type": "integer",
             "description": "Maximum number of companies to return.",
             "maximum": 2147483647,
-            "minimum": -2147483648
+            "minimum": -2147483648,
+            "default": 10
           },
           "format": {
             "type": "string"
@@ -321,7 +332,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "format": {
             "type": "string"
@@ -348,7 +360,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "format": {
             "type": "string"
@@ -375,25 +388,29 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "event-type": {
             "type": "integer",
             "description": "The offset value for paginating update results by.",
             "maximum": 2147483647,
-            "minimum": -2147483648
+            "minimum": -2147483648,
+            "default": 0
           },
           "start": {
             "type": "integer",
             "description": "The offset value for paginating update results by.",
             "maximum": 2147483647,
-            "minimum": -2147483648
+            "minimum": -2147483648,
+            "default": 0
           },
           "count": {
             "type": "integer",
             "description": "Maximum number of updates to return.",
             "maximum": 2147483647,
-            "minimum": -2147483648
+            "minimum": -2147483648,
+            "default": 10
           },
           "format": {
             "type": "string"
@@ -420,11 +437,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "update-key": {
             "type": "string",
-            "description": "The unique company update identifier."
+            "description": "The unique company update identifier.",
+            "default": "UPDATE-c1337-5986518397255454720"
           },
           "format": {
             "type": "string"
@@ -452,11 +471,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "update-key": {
             "type": "string",
-            "description": "The unique company update identifier."
+            "description": "The unique company update identifier.",
+            "default": "UPDATE-c1337-5986518397255454720"
           },
           "format": {
             "type": "string"
@@ -484,11 +505,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "update-key": {
             "type": "string",
-            "description": "The unique company update identifier."
+            "description": "The unique company update identifier.",
+            "default": "UPDATE-c1337-5986518397255454720"
           },
           "format": {
             "type": "string"
@@ -516,15 +539,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "2414183"
           },
           "Content-Type": {
             "type": "string",
-            "description": "The content type."
+            "description": "The content type.",
+            "default": "application/json"
           },
           "x-li-format": {
             "type": "string",
-            "description": "The content type."
+            "description": "The content type.",
+            "default": "json"
           },
           "format": {
             "type": "string"
@@ -553,27 +579,33 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "geos": {
             "type": "string",
-            "description": "Segment by a particular geographic area."
+            "description": "Segment by a particular geographic area.",
+            "default": ""
           },
           "companySizes": {
             "type": "string",
-            "description": "Segment by a particular company size targeting code."
+            "description": "Segment by a particular company size targeting code.",
+            "default": ""
           },
           "jobFunc": {
             "type": "string",
-            "description": "Segment by member job function targeting code."
+            "description": "Segment by member job function targeting code.",
+            "default": ""
           },
           "industries": {
             "type": "string",
-            "description": "Segment by member industry."
+            "description": "Segment by member industry.",
+            "default": ""
           },
           "seniorities": {
             "type": "string",
-            "description": "Segment by member seniority level targeting code."
+            "description": "Segment by member seniority level targeting code.",
+            "default": ""
           },
           "format": {
             "type": "string"
@@ -600,19 +632,23 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "time-granularity": {
             "type": "string",
-            "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month"
+            "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month",
+            "default": ""
           },
           "start-timestamp": {
             "type": "string",
-            "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)"
+            "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)",
+            "default": ""
           },
           "end-timestamp": {
             "type": "string",
-            "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set."
+            "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set.",
+            "default": ""
           },
           "format": {
             "type": "string"
@@ -641,23 +677,28 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "time-granularity": {
             "type": "string",
-            "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month"
+            "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month",
+            "default": ""
           },
           "start-timestamp": {
             "type": "string",
-            "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)"
+            "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)",
+            "default": ""
           },
           "end-timestamp": {
             "type": "string",
-            "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set."
+            "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set.",
+            "default": ""
           },
           "update-key": {
             "type": "string",
-            "description": "Optionally provide an update key value to return statistics for a specific company update."
+            "description": "Optionally provide an update key value to return statistics for a specific company update.",
+            "default": ""
           },
           "format": {
             "type": "string"
@@ -686,7 +727,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique internal numeric company identifier."
+            "description": "The unique internal numeric company identifier.",
+            "default": "1337"
           },
           "format": {
             "type": "string"

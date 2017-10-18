@@ -504,7 +504,8 @@
             "type": "integer",
             "description": "level of information returned",
             "maximum": 3,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           }
         },
         "additionalProperties": false
@@ -539,7 +540,8 @@
             "enum": [
               "screen",
               "page"
-            ]
+            ],
+            "default": "screen"
           },
           "name": {
             "type": "string",
@@ -549,7 +551,8 @@
             "type": "integer",
             "description": "thumbnail width.",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1024
           },
           "height": {
             "type": "integer",
@@ -561,25 +564,29 @@
             "type": "integer",
             "description": "number of seconds to wait after the page has loaded. This is used to let JavaScript run longer before taking the screenshot. Use delay=0 to take screenshots faster.",
             "maximum": 60,
-            "minimum": 0
+            "minimum": 0,
+            "default": 5
           },
           "flash_delay": {
             "type": "integer",
             "description": "number of seconds to wait after the page has loaded if Flash elements are present. Use flash_delay=0 to take screenshots faster.",
             "maximum": 30,
-            "minimum": 0
+            "minimum": 0,
+            "default": 10
           },
           "screen_width": {
             "type": "integer",
             "description": "width of the browser window. For desktop browsers only.",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1024
           },
           "screen_height": {
             "type": "integer",
             "description": "height of the browser window. For desktop browsers only. (Note: full-page screenshots can have a height of up to 15,000px)",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 768
           },
           "priority": {
             "type": "integer",
@@ -607,19 +614,22 @@
             "type": "integer",
             "description": "level of information available with screenshot/info",
             "maximum": 3,
-            "minimum": 1
+            "minimum": 1,
+            "default": 2
           },
           "html": {
             "type": "integer",
             "description": "saves the HTML of the rendered page which can be retrieved by the API call screenshot/html. This feature costs *1 credit* per screenshot.",
             "maximum": 1,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "max_wait": {
             "type": "integer",
             "description": "maximum number of seconds to wait before triggering the PageLoad event. Note that delay will still be used. (default: 0 = disabled)",
             "maximum": 60,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "headers": {
             "type": "string",
@@ -631,7 +641,8 @@
             "enum": [
               "png",
               "jpeg"
-            ]
+            ],
+            "default": "png"
           },
           "hosting": {
             "type": "string",
@@ -655,7 +666,8 @@
           "hosting_scale": {
             "type": "number",
             "format": "float",
-            "description": "scale of the thumbnail to host"
+            "description": "scale of the thumbnail to host",
+            "default": 1
           },
           "hosting_bucket": {
             "type": "string",
@@ -814,35 +826,41 @@
             "enum": [
               "screen",
               "page"
-            ]
+            ],
+            "default": "screen"
           },
           "cache": {
             "type": "integer",
-            "description": "use a previous screenshot (same URL, same instance) if it was done within <cache_value> seconds. The default value is 24hours. Specify cache=0 if you want a new screenshot."
+            "description": "use a previous screenshot (same URL, same instance) if it was done within <cache_value> seconds. The default value is 24hours. Specify cache=0 if you want a new screenshot.",
+            "default": 86400
           },
           "delay": {
             "type": "integer",
             "description": "number of seconds to wait after the page has loaded. This is used to let JavaScript run longer before taking the screenshot. Use delay=0 to take screenshots faster.",
             "maximum": 60,
-            "minimum": 0
+            "minimum": 0,
+            "default": 5
           },
           "flash_delay": {
             "type": "integer",
             "description": "number of seconds to wait after the page has loaded if Flash elements are present. Use flash_delay=0 to take screenshots faster.",
             "maximum": 30,
-            "minimum": 0
+            "minimum": 0,
+            "default": 10
           },
           "screen_width": {
             "type": "integer",
             "description": "width of the browser window. For desktop browsers only.",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1024
           },
           "screen_height": {
             "type": "integer",
             "description": "height of the browser window. For desktop browsers only. (Note: full-page screenshots can have a height of up to 15,000px)",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 768
           },
           "priority": {
             "type": "integer",
@@ -870,19 +888,22 @@
             "type": "integer",
             "description": "level of information available with screenshot/info",
             "maximum": 3,
-            "minimum": 1
+            "minimum": 1,
+            "default": 2
           },
           "html": {
             "type": "integer",
             "description": "saves the HTML of the rendered page which can be retrieved by the API call screenshot/html. This feature costs *1 credit* per screenshot.",
             "maximum": 1,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "max_wait": {
             "type": "integer",
             "description": "maximum number of seconds to wait before triggering the PageLoad event. Note that delay will still be used. (default: 0 = disabled)",
             "maximum": 60,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "headers": {
             "type": "string",
@@ -892,13 +913,15 @@
             "type": "integer",
             "description": "take multiple screenshots of the same page. This costs 1 additional credit for every 2 additional screenshots.",
             "maximum": 10,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "shot_interval": {
             "type": "integer",
             "description": "number of seconds between 2 screenshots",
             "maximum": 10,
-            "minimum": 1
+            "minimum": 1,
+            "default": 5
           },
           "hosting": {
             "type": "string",
@@ -923,7 +946,8 @@
           "hosting_scale": {
             "type": "number",
             "format": "float",
-            "description": "scale of the thumbnail to host"
+            "description": "scale of the thumbnail to host",
+            "default": 1
           },
           "hosting_bucket": {
             "type": "string",
@@ -966,7 +990,8 @@
           },
           "data": {
             "type": "string",
-            "description": "data to remove. You can specify multiple of them (separated by a ,): *image* (image files), *url* (url requested), *metadata* (time added, time finished, post data, cookie and referer used for the screenshot), *all* (all data and files)\n"
+            "description": "data to remove. You can specify multiple of them (separated by a ,): *image* (image files), *url* (url requested), *metadata* (time added, time finished, post data, cookie and referer used for the screenshot), *all* (all data and files)\n",
+            "default": "image"
           }
         },
         "additionalProperties": false,
@@ -1020,7 +1045,8 @@
           "scale": {
             "type": "number",
             "format": "double",
-            "description": "scale of the thumbnail"
+            "description": "scale of the thumbnail",
+            "default": 1
           },
           "bucket": {
             "type": "string",
@@ -1092,7 +1118,8 @@
             "type": "integer",
             "description": "level of details about the screenshot and the page",
             "maximum": 3,
-            "minimum": 0
+            "minimum": 0,
+            "default": 2
           }
         },
         "additionalProperties": false,
@@ -1126,7 +1153,8 @@
             "type": "integer",
             "description": "maximum number of screenshots' information to return",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           },
           "status": {
             "type": "string",
@@ -1173,35 +1201,41 @@
             "enum": [
               "screen",
               "page"
-            ]
+            ],
+            "default": "screen"
           },
           "cache": {
             "type": "integer",
-            "description": "use a previous screenshot (same URL, same instance) if it was done within <cache_value> seconds. The default value is 24hours. Specify cache=0 if you want a new screenshot."
+            "description": "use a previous screenshot (same URL, same instance) if it was done within <cache_value> seconds. The default value is 24hours. Specify cache=0 if you want a new screenshot.",
+            "default": 86400
           },
           "delay": {
             "type": "integer",
             "description": "number of seconds to wait after the page has loaded. This is used to let JavaScript run longer before taking the screenshot. Use delay=0 to take screenshots faster.",
             "maximum": 60,
-            "minimum": 0
+            "minimum": 0,
+            "default": 5
           },
           "flash_delay": {
             "type": "integer",
             "description": "number of seconds to wait after the page has loaded if Flash elements are present. Use flash_delay=0 to take screenshots faster.",
             "maximum": 30,
-            "minimum": 0
+            "minimum": 0,
+            "default": 10
           },
           "screen_width": {
             "type": "integer",
             "description": "width of the browser window. For desktop browsers only.",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1024
           },
           "screen_height": {
             "type": "integer",
             "description": "height of the browser window. For desktop browsers only. (Note: full-page screenshots can have a height of up to 15,000px)",
             "maximum": 2000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 768
           },
           "priority": {
             "type": "integer",
@@ -1229,19 +1263,22 @@
             "type": "integer",
             "description": "level of information available with screenshot/info",
             "maximum": 3,
-            "minimum": 1
+            "minimum": 1,
+            "default": 2
           },
           "html": {
             "type": "integer",
             "description": "saves the HTML of the rendered page which can be retrieved by the API call screenshot/html. This feature costs *1 credit* per screenshot.",
             "maximum": 1,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "max_wait": {
             "type": "integer",
             "description": "maximum number of seconds to wait before triggering the PageLoad event. Note that delay will still be used. (default: 0 = disabled)",
             "maximum": 60,
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "headers": {
             "type": "string",
@@ -1270,7 +1307,8 @@
           "hosting_scale": {
             "type": "number",
             "format": "float",
-            "description": "scale of the thumbnail to host"
+            "description": "scale of the thumbnail to host",
+            "default": 1
           },
           "hosting_bucket": {
             "type": "string",
@@ -1315,7 +1353,8 @@
             "type": "integer",
             "description": "maximum number of screenshots' information to return",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 50
           },
           "status": {
             "type": "string",
@@ -1403,13 +1442,15 @@
           "scale": {
             "type": "number",
             "format": "double",
-            "description": "scale of the thumbnail"
+            "description": "scale of the thumbnail",
+            "default": 1
           },
           "zoom": {
             "type": "integer",
             "description": "zoom 1 to 100 percent",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           },
           "ratio": {
             "type": "string",
@@ -1417,22 +1458,26 @@
             "enum": [
               "fit",
               "fill"
-            ]
+            ],
+            "default": "fit"
           },
           "left": {
             "type": "integer",
             "description": "left edge of the area to be cropped",
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "right": {
             "type": "integer",
             "description": "right edge of the area to be cropped",
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "top": {
             "type": "integer",
             "description": "top edge of the area to be cropped",
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "bottom": {
             "type": "integer",
@@ -1444,19 +1489,22 @@
             "enum": [
               "png",
               "jpeg"
-            ]
+            ],
+            "default": "png"
           },
           "shot": {
             "type": "integer",
             "description": "get the second or third screenshot if multiple screenshots were requested",
             "maximum": 10,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "quality": {
             "type": "integer",
             "description": "JPEG quality factor (for JPEG thumbnails only)",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           }
         },
         "additionalProperties": false,

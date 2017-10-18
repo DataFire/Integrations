@@ -29,7 +29,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "xml"
           },
           "search": {
             "type": "string",
@@ -81,7 +82,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "project_id": {
             "type": "integer",

@@ -122,7 +122,8 @@
               "/foods/",
               "/body/",
               "/sleep/"
-            ]
+            ],
+            "default": "/"
           }
         },
         "additionalProperties": false,
@@ -152,10 +153,12 @@
               "/foods/",
               "/body/",
               "/sleep/"
-            ]
+            ],
+            "default": "/"
           },
           "subscription-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -186,10 +189,12 @@
               "/foods/",
               "/body/",
               "/sleep/"
-            ]
+            ],
+            "default": "/"
           },
           "subscription-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -237,7 +242,8 @@
         "type": "object",
         "properties": {
           "food-id": {
-            "type": "string"
+            "type": "string",
+            "default": "30414"
           }
         },
         "additionalProperties": false,
@@ -260,7 +266,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "default": "90009"
           }
         },
         "additionalProperties": false,
@@ -307,7 +314,8 @@
         "type": "object",
         "properties": {
           "intensity": {
-            "type": "string"
+            "type": "string",
+            "default": "MEDIUM"
           }
         },
         "additionalProperties": false,
@@ -330,7 +338,8 @@
         "type": "object",
         "properties": {
           "intensity": {
-            "type": "string"
+            "type": "string",
+            "default": "MEDIUM"
           }
         },
         "additionalProperties": false,
@@ -365,16 +374,20 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "default": "Icecream,big"
           },
           "defaultFoodMeasurementUnitId": {
-            "type": "string"
+            "type": "string",
+            "default": "147"
           },
           "defaultServingSize": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           },
           "calories": {
-            "type": "string"
+            "type": "string",
+            "default": "500"
           }
         },
         "additionalProperties": false,
@@ -400,7 +413,8 @@
         "type": "object",
         "properties": {
           "water-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -423,10 +437,12 @@
         "type": "object",
         "properties": {
           "amount": {
-            "type": "string"
+            "type": "string",
+            "default": "300"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -450,7 +466,8 @@
         "type": "object",
         "properties": {
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -473,7 +490,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -496,7 +514,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -543,7 +562,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -566,7 +586,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -661,13 +682,16 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "start-date-or-end-date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           },
           "end-date-or-period": {
-            "type": "string"
+            "type": "string",
+            "default": "7d"
           }
         },
         "additionalProperties": false,
@@ -692,13 +716,16 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "start-date-or-end-date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           },
           "end-date-or-period": {
-            "type": "string"
+            "type": "string",
+            "default": "7d"
           }
         },
         "additionalProperties": false,
@@ -723,7 +750,8 @@
         "type": "object",
         "properties": {
           "fat": {
-            "type": "string"
+            "type": "string",
+            "default": "14"
           }
         },
         "additionalProperties": false,
@@ -746,7 +774,8 @@
         "type": "object",
         "properties": {
           "fat": {
-            "type": "string"
+            "type": "string",
+            "default": "14"
           }
         },
         "additionalProperties": false,
@@ -769,13 +798,16 @@
         "type": "object",
         "properties": {
           "weight": {
-            "type": "string"
+            "type": "string",
+            "default": "70"
           },
           "startWeight": {
-            "type": "string"
+            "type": "string",
+            "default": "75"
           },
           "startDate": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -800,13 +832,16 @@
         "type": "object",
         "properties": {
           "weight": {
-            "type": "string"
+            "type": "string",
+            "default": "70"
           },
           "startWeight": {
-            "type": "string"
+            "type": "string",
+            "default": "75"
           },
           "startDate": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -831,7 +866,8 @@
         "type": "object",
         "properties": {
           "body-fat-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -854,7 +890,8 @@
         "type": "object",
         "properties": {
           "body-weight-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -877,13 +914,16 @@
         "type": "object",
         "properties": {
           "fat": {
-            "type": "string"
+            "type": "string",
+            "default": "14.4"
           },
           "time": {
-            "type": "string"
+            "type": "string",
+            "default": "12:20"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -908,13 +948,16 @@
         "type": "object",
         "properties": {
           "weight": {
-            "type": "string"
+            "type": "string",
+            "default": "150"
           },
           "time": {
-            "type": "string"
+            "type": "string",
+            "default": "12:20:00"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -939,13 +982,16 @@
         "type": "object",
         "properties": {
           "weight": {
-            "type": "string"
+            "type": "string",
+            "default": "150"
           },
           "fat": {
-            "type": "string"
+            "type": "string",
+            "default": "14.4"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -968,13 +1014,16 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "start-date-or-end-date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           },
           "end-date-or-period": {
-            "type": "string"
+            "type": "string",
+            "default": "7d"
           }
         },
         "additionalProperties": false,
@@ -999,13 +1048,16 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "start-date-or-end-date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           },
           "end-date-or-period": {
-            "type": "string"
+            "type": "string",
+            "default": "7d"
           }
         },
         "additionalProperties": false,
@@ -1030,7 +1082,8 @@
         "type": "object",
         "properties": {
           "bp-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -1053,7 +1106,8 @@
         "type": "object",
         "properties": {
           "heart-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -1076,7 +1130,8 @@
         "type": "object",
         "properties": {
           "sleep-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -1099,7 +1154,8 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           }
         },
         "additionalProperties": false,
@@ -1122,7 +1178,8 @@
         "type": "object",
         "properties": {
           "activity-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -1145,7 +1202,8 @@
         "type": "object",
         "properties": {
           "food-log-id": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           }
         },
         "additionalProperties": false,
@@ -1168,19 +1226,24 @@
         "type": "object",
         "properties": {
           "hba1c": {
-            "type": "string"
+            "type": "string",
+            "default": "4.5"
           },
           "tracker": {
-            "type": "string"
+            "type": "string",
+            "default": "Afternoon"
           },
           "glucose": {
-            "type": "string"
+            "type": "string",
+            "default": "3"
           },
           "time": {
-            "type": "string"
+            "type": "string",
+            "default": "12:30"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1205,13 +1268,16 @@
         "type": "object",
         "properties": {
           "systolic": {
-            "type": "string"
+            "type": "string",
+            "default": "120"
           },
           "diastolic": {
-            "type": "string"
+            "type": "string",
+            "default": "80"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1236,13 +1302,16 @@
         "type": "object",
         "properties": {
           "tracker": {
-            "type": "string"
+            "type": "string",
+            "default": "Running"
           },
           "heartRate": {
-            "type": "string"
+            "type": "string",
+            "default": "80"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1267,13 +1336,16 @@
         "type": "object",
         "properties": {
           "startTime": {
-            "type": "string"
+            "type": "string",
+            "default": "02:20"
           },
           "duration": {
-            "type": "string"
+            "type": "string",
+            "default": "24000000"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1298,19 +1370,24 @@
         "type": "object",
         "properties": {
           "foodId": {
-            "type": "string"
+            "type": "string",
+            "default": "30414"
           },
           "mealTypeId": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           },
           "unitId": {
-            "type": "string"
+            "type": "string",
+            "default": "147"
           },
           "amount": {
-            "type": "string"
+            "type": "string",
+            "default": "1"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1373,7 +1450,8 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           }
         },
         "additionalProperties": false,
@@ -1396,7 +1474,8 @@
         "type": "object",
         "properties": {
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1419,7 +1498,8 @@
         "type": "object",
         "properties": {
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1442,7 +1522,8 @@
         "type": "object",
         "properties": {
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1465,10 +1546,12 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1492,10 +1575,12 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1519,10 +1604,12 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1546,7 +1633,8 @@
         "type": "object",
         "properties": {
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1569,7 +1657,8 @@
         "type": "object",
         "properties": {
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1592,10 +1681,12 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           },
           "date": {
-            "type": "string"
+            "type": "string",
+            "default": "2015-03-01"
           }
         },
         "additionalProperties": false,
@@ -1622,19 +1713,24 @@
         ],
         "properties": {
           "gender": {
-            "type": "string"
+            "type": "string",
+            "default": "FEMALE"
           },
           "birthday": {
-            "type": "string"
+            "type": "string",
+            "default": "1980-02-01"
           },
           "height": {
-            "type": "string"
+            "type": "string",
+            "default": "176"
           },
           "nickname": {
-            "type": "string"
+            "type": "string",
+            "default": "Me"
           },
           "fullname": {
-            "type": "string"
+            "type": "string",
+            "default": "TestUser"
           }
         },
         "additionalProperties": false
@@ -1654,7 +1750,8 @@
         "type": "object",
         "properties": {
           "user-id": {
-            "type": "string"
+            "type": "string",
+            "default": "-"
           }
         },
         "additionalProperties": false,

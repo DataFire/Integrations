@@ -498,7 +498,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -532,7 +533,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -566,7 +568,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -604,7 +607,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -642,7 +646,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -676,7 +681,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -718,7 +724,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -752,7 +759,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -786,7 +794,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -820,7 +829,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -850,7 +860,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "company_id": {
             "type": "array",
@@ -858,11 +869,13 @@
           },
           "limit": {
             "type": "string",
-            "description": "Number of results to be displayed - 10 (by default, if not specified) to 100"
+            "description": "Number of results to be displayed - 10 (by default, if not specified) to 100",
+            "default": "10"
           },
           "pagination_id": {
             "type": "string",
-            "description": "Pass pagination_id as blank in the first API request. The API response will return the latest feeds along with the next pagination_id which can be passed in the subsequent API request to get the next set of feeds. Repeat this process until needed or till the pagination_id returned is blank"
+            "description": "Pass pagination_id as blank in the first API request. The API response will return the latest feeds along with the next pagination_id which can be passed in the subsequent API request to get the next set of feeds. Repeat this process until needed or till the pagination_id returned is blank",
+            "default": "*"
           },
           "category": {
             "type": "array",

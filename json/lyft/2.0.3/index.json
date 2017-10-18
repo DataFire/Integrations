@@ -1676,7 +1676,8 @@
             "maximum": 50,
             "minimum": 0,
             "exclusiveMaximum": false,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": true,
+            "default": 10
           }
         },
         "additionalProperties": false,

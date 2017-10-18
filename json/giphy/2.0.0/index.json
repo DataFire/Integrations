@@ -559,12 +559,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "The maximum number of records to return."
+            "description": "The maximum number of records to return.",
+            "default": 25
           },
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "An optional results offset."
+            "description": "An optional results offset.",
+            "default": 0
           },
           "rating": {
             "type": "string",
@@ -650,12 +652,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "The maximum number of records to return."
+            "description": "The maximum number of records to return.",
+            "default": 25
           },
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "An optional results offset."
+            "description": "An optional results offset.",
+            "default": 0
           },
           "rating": {
             "type": "string",
@@ -774,12 +778,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "The maximum number of records to return."
+            "description": "The maximum number of records to return.",
+            "default": 25
           },
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "An optional results offset."
+            "description": "An optional results offset.",
+            "default": 0
           },
           "rating": {
             "type": "string",
@@ -865,12 +871,14 @@
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "The maximum number of records to return."
+            "description": "The maximum number of records to return.",
+            "default": 25
           },
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "An optional results offset."
+            "description": "An optional results offset.",
+            "default": 0
           },
           "rating": {
             "type": "string",

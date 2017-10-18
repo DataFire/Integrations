@@ -28,11 +28,13 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "docketId": {
             "type": "string",
-            "description": "Docket ID"
+            "description": "Docket ID",
+            "default": "EPA-HQ-OAR-2011-0028"
           }
         },
         "additionalProperties": false,
@@ -61,11 +63,13 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "documentId": {
             "type": "string",
-            "description": "FDMS Document ID"
+            "description": "FDMS Document ID",
+            "default": "EPA-HQ-OAR-2011-0028-0108"
           },
           "federalRegisterNumber": {
             "type": "string",
@@ -97,7 +101,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "countsOnly": {
             "type": "integer",

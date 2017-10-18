@@ -19,16 +19,20 @@
             "type": "string",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "default": "enter_your_client_id_please"
           },
           "device_id": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           },
           "user_agent": {
-            "type": "string"
+            "type": "string",
+            "default": "iPhone/1.0.4"
           }
         },
         "additionalProperties": false,
@@ -50,13 +54,16 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "default": "enter_your_client_id_please"
           },
           "show": {
-            "type": "string"
+            "type": "string",
+            "default": "all"
           }
         },
         "additionalProperties": false,
@@ -80,16 +87,20 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "default": "enter_your_client_id_please "
           },
           "limit": {
-            "type": "string"
+            "type": "string",
+            "default": "10"
           },
           "random": {
-            "type": "string"
+            "type": "string",
+            "default": "false"
           }
         },
         "additionalProperties": false,
@@ -109,29 +120,36 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "default": "paddy-longs-beer-pub-1"
           },
           "format": {
             "type": "string",
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "default": "enter_your_client_id_please"
           },
           "show": {
-            "type": "string"
+            "type": "string",
+            "default": "all"
           },
           "email_address": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           },
           "area": {
-            "type": "string"
+            "type": "string",
+            "default": "east-bay"
           },
           "referral_id": {
-            "type": "string"
+            "type": "string",
+            "default": "uu1234567"
           }
         },
         "additionalProperties": false,
@@ -156,31 +174,40 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "default": "enter_your_client_id_please "
           },
           "show": {
-            "type": "string"
+            "type": "string",
+            "default": "all"
           },
           "email_address": {
-            "type": "string"
+            "type": "string",
+            "default": ""
           },
           "area": {
-            "type": "string"
+            "type": "string",
+            "default": "east-bay"
           },
           "lat": {
-            "type": "string"
+            "type": "string",
+            "default": "41.896579"
           },
           "lng": {
-            "type": "string"
+            "type": "string",
+            "default": "-87.643583"
           },
           "radius": {
-            "type": "string"
+            "type": "string",
+            "default": "100"
           },
           "division_id": {
-            "type": "string"
+            "type": "string",
+            "default": "chicago"
           },
           "device_token": {
             "type": "string"
@@ -213,13 +240,16 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "default": "enter_your_client_id_please"
           },
           "deal_id": {
-            "type": "string"
+            "type": "string",
+            "default": "troya-restaurant-san-francisco"
           }
         },
         "additionalProperties": false,

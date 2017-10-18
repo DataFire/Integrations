@@ -316,7 +316,8 @@
           },
           "timeout": {
             "type": "string",
-            "description": "How long the uploader widget works for. Anything from '30 minutes' to '2 days'."
+            "description": "How long the uploader widget works for. Anything from '30 minutes' to '2 days'.",
+            "default": "2 hours"
           }
         },
         "additionalProperties": false,

@@ -749,7 +749,8 @@
           "openHouseKey": {
             "type": "integer",
             "format": "int64",
-            "description": "A unique OpenHouse identification key"
+            "description": "A unique OpenHouse identification key",
+            "default": 189018
           },
           "include": {
             "type": "array",
@@ -963,7 +964,8 @@
           "mlsId": {
             "type": "integer",
             "format": "int64",
-            "description": "The `mlsId` field is a unique identifier which is specific\nto the SimplyRETS API only.  This field is different from\nthe `listingId` field (which is the public number given to\na listing by the MLS and is not used here).\n"
+            "description": "The `mlsId` field is a unique identifier which is specific\nto the SimplyRETS API only.  This field is different from\nthe `listingId` field (which is the public number given to\na listing by the MLS and is not used here).\n",
+            "default": 1005252
           },
           "include": {
             "type": "array",

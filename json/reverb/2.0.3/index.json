@@ -922,10 +922,12 @@
             "description": "Minimum number of watchers (used to find popular items)"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -1309,10 +1311,12 @@
             "description": "Minimum number of watchers (used to find popular items)"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -2111,10 +2115,12 @@
             "description": "Show unread conversations only"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -3305,10 +3311,12 @@
         ],
         "properties": {
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -3382,10 +3390,12 @@
         ],
         "properties": {
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -3697,10 +3707,12 @@
             "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -3739,10 +3751,12 @@
             "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -3804,10 +3818,12 @@
             "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           }
         },
         "additionalProperties": false
@@ -3930,10 +3946,12 @@
         ],
         "properties": {
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 24
           },
           "created_start_date": {
             "type": "string",
@@ -4220,7 +4238,8 @@
             "type": "string"
           },
           "condition": {
-            "type": "string"
+            "type": "string",
+            "default": "used"
           }
         },
         "additionalProperties": false,
@@ -4246,10 +4265,12 @@
             "type": "string"
           },
           "number_of_months": {
-            "type": "integer"
+            "type": "integer",
+            "default": 3
           },
           "condition": {
-            "type": "string"
+            "type": "string",
+            "default": "used"
           }
         },
         "additionalProperties": false,

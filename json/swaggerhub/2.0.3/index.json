@@ -938,7 +938,8 @@
             "enum": [
               "ALL",
               "PUBLISHED"
-            ]
+            ],
+            "default": "ALL"
           },
           "tag": {
             "type": "array",
@@ -947,12 +948,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page to return"
+            "description": "page to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "number of results per page"
+            "description": "number of results per page",
+            "default": 10
           },
           "sort": {
             "type": "string",
@@ -960,7 +963,8 @@
             "enum": [
               "NAME",
               "UPDATED"
-            ]
+            ],
+            "default": "NAME"
           },
           "order": {
             "type": "string",
@@ -968,7 +972,8 @@
             "enum": [
               "ASC",
               "DESC"
-            ]
+            ],
+            "default": "ASC"
           }
         },
         "additionalProperties": false
@@ -1010,12 +1015,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page to return"
+            "description": "page to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "number of results per page"
+            "description": "number of results per page",
+            "default": 10
           },
           "sort": {
             "type": "string",
@@ -1023,7 +1030,8 @@
             "enum": [
               "NAME",
               "UPDATED"
-            ]
+            ],
+            "default": "NAME"
           },
           "order": {
             "type": "string",
@@ -1031,7 +1039,8 @@
             "enum": [
               "ASC",
               "DESC"
-            ]
+            ],
+            "default": "ASC"
           }
         },
         "additionalProperties": false,
@@ -1154,7 +1163,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "version": {
             "type": "string",
@@ -1227,7 +1237,8 @@
             "description": "API identifier"
           },
           "expandTeams": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1328,7 +1339,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "template": {
             "type": "string",
@@ -1482,7 +1494,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "newVersion": {
             "type": "string",
@@ -2027,7 +2040,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "newSpec": {
             "$ref": "#/definitions/SpecId"
@@ -2247,7 +2261,8 @@
             "enum": [
               "ALL",
               "PUBLISHED"
-            ]
+            ],
+            "default": "ALL"
           },
           "tag": {
             "type": "array",
@@ -2256,12 +2271,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page to return"
+            "description": "page to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "number of results per page"
+            "description": "number of results per page",
+            "default": 10
           },
           "sort": {
             "type": "string",
@@ -2269,7 +2286,8 @@
             "enum": [
               "NAME",
               "UPDATED"
-            ]
+            ],
+            "default": "NAME"
           },
           "order": {
             "type": "string",
@@ -2277,7 +2295,8 @@
             "enum": [
               "ASC",
               "DESC"
-            ]
+            ],
+            "default": "ASC"
           }
         },
         "additionalProperties": false
@@ -2319,12 +2338,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page to return"
+            "description": "page to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "number of results per page"
+            "description": "number of results per page",
+            "default": 10
           },
           "sort": {
             "type": "string",
@@ -2332,7 +2353,8 @@
             "enum": [
               "NAME",
               "UPDATED"
-            ]
+            ],
+            "default": "NAME"
           },
           "order": {
             "type": "string",
@@ -2340,7 +2362,8 @@
             "enum": [
               "ASC",
               "DESC"
-            ]
+            ],
+            "default": "ASC"
           }
         },
         "additionalProperties": false,
@@ -2464,7 +2487,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "version": {
             "type": "string",
@@ -2667,7 +2691,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "newVersion": {
             "type": "string",
@@ -3211,7 +3236,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "newSpec": {
             "$ref": "#/definitions/SpecId"
@@ -3257,7 +3283,8 @@
           },
           "isPrivate": {
             "type": "boolean",
-            "description": "Defines whether the API has to be private"
+            "description": "Defines whether the API has to be private",
+            "default": false
           },
           "template": {
             "type": "string",
@@ -3407,12 +3434,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page to return"
+            "description": "page to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
             "format": "int32",
-            "description": "number of results per page"
+            "description": "number of results per page",
+            "default": 10
           }
         },
         "additionalProperties": false,
@@ -3444,7 +3473,8 @@
           },
           "trigger": {
             "type": "boolean",
-            "description": "if true, also execute plugin"
+            "description": "if true, also execute plugin",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -3471,7 +3501,8 @@
           },
           "trigger": {
             "type": "boolean",
-            "description": "if true, also execute plugin"
+            "description": "if true, also execute plugin",
+            "default": false
           }
         },
         "additionalProperties": false,

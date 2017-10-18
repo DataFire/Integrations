@@ -52,15 +52,18 @@
         "properties": {
           "page_limit": {
             "type": "string",
-            "description": "The amount of new release dvds to show per page"
+            "description": "The amount of new release dvds to show per page",
+            "default": "16"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of current DVD releases"
+            "description": "The selected page of current DVD releases",
+            "default": "1"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -84,15 +87,18 @@
         "properties": {
           "page_limit": {
             "type": "string",
-            "description": "The amount of new release dvds to show per page"
+            "description": "The amount of new release dvds to show per page",
+            "default": "16"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of new release DVDs"
+            "description": "The selected page of new release DVDs",
+            "default": "1"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -116,11 +122,13 @@
         "properties": {
           "limit": {
             "type": "string",
-            "description": "Limits the number of top rentals returned"
+            "description": "Limits the number of top rentals returned",
+            "default": "10"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -144,15 +152,18 @@
         "properties": {
           "page_limit": {
             "type": "string",
-            "description": "The amount of upcoming dvds to show per page"
+            "description": "The amount of upcoming dvds to show per page",
+            "default": "16"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of upcoming DVDs"
+            "description": "The selected page of upcoming DVDs",
+            "default": "1"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -188,11 +199,13 @@
         "properties": {
           "limit": {
             "type": "string",
-            "description": "Limits the number of movies returned"
+            "description": "Limits the number of movies returned",
+            "default": "16"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -216,15 +229,18 @@
         "properties": {
           "page_limit": {
             "type": "string",
-            "description": "The amount of movies in theaters to show per page"
+            "description": "The amount of movies in theaters to show per page",
+            "default": "16"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of in theaters movies"
+            "description": "The selected page of in theaters movies",
+            "default": "1"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -248,11 +264,13 @@
         "properties": {
           "limit": {
             "type": "string",
-            "description": "Limits the number of opening movies returned"
+            "description": "Limits the number of opening movies returned",
+            "default": "16"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -276,15 +294,18 @@
         "properties": {
           "page_limit": {
             "type": "string",
-            "description": "The amount of upcoming movies to show per page"
+            "description": "The amount of upcoming movies to show per page",
+            "default": "16"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of upcoming movies"
+            "description": "The selected page of upcoming movies",
+            "default": "1"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false
@@ -308,11 +329,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID"
+            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID",
+            "default": "0031381"
           },
           "type": {
             "type": "string",
-            "description": "Only supports imdb lookup at this time"
+            "description": "Only supports imdb lookup at this time",
+            "default": "imdb"
           }
         },
         "additionalProperties": false
@@ -340,11 +363,13 @@
           },
           "page_limit": {
             "type": "string",
-            "description": "The amount of movie search results to show per page"
+            "description": "The amount of movie search results to show per page",
+            "default": "10"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of movie search results"
+            "description": "The selected page of movie search results",
+            "default": "1"
           }
         },
         "additionalProperties": false
@@ -365,7 +390,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID"
+            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID",
+            "default": "770672122"
           }
         },
         "additionalProperties": false,
@@ -389,7 +415,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID"
+            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID",
+            "default": "770672122"
           }
         },
         "additionalProperties": false,
@@ -413,7 +440,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID"
+            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID",
+            "default": "770672122"
           }
         },
         "additionalProperties": false,
@@ -437,23 +465,28 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID"
+            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID",
+            "default": "770672122"
           },
           "review_type": {
             "type": "string",
-            "description": "3 different review types are possible: 'all', 'top_critic' and 'dvd'. 'top_critic' shows all the Rotten Tomatoes designated top critics. 'dvd' pulls the reviews given on the DVD of the movie. 'all' as the name implies retrieves all reviews."
+            "description": "3 different review types are possible: 'all', 'top_critic' and 'dvd'. 'top_critic' shows all the Rotten Tomatoes designated top critics. 'dvd' pulls the reviews given on the DVD of the movie. 'all' as the name implies retrieves all reviews.",
+            "default": "top_critic"
           },
           "page_limit": {
             "type": "string",
-            "description": "The number of reviews to show per page"
+            "description": "The number of reviews to show per page",
+            "default": "20"
           },
           "page": {
             "type": "string",
-            "description": "The selected page of reviews"
+            "description": "The selected page of reviews",
+            "default": "1"
           },
           "country": {
             "type": "string",
-            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data."
+            "description": "Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.",
+            "default": "us"
           }
         },
         "additionalProperties": false,
@@ -477,11 +510,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID"
+            "description": "Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID",
+            "default": "770672122"
           },
           "limit": {
             "type": "string",
-            "description": "Limit the number of similar movies to show"
+            "description": "Limit the number of similar movies to show",
+            "default": "5"
           }
         },
         "additionalProperties": false,

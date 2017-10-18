@@ -402,7 +402,8 @@
             "enum": [
               "Daily",
               "Hourly"
-            ]
+            ],
+            "default": "Daily"
           },
           "continuationToken": {
             "type": "string",

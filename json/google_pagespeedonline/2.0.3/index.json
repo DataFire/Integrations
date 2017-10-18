@@ -377,7 +377,8 @@
           },
           "filter_third_party_resources": {
             "type": "boolean",
-            "description": "Indicates if third party resources should be filtered out before PageSpeed analysis."
+            "description": "Indicates if third party resources should be filtered out before PageSpeed analysis.",
+            "default": false
           },
           "locale": {
             "type": "string",
@@ -389,7 +390,8 @@
           },
           "screenshot": {
             "type": "boolean",
-            "description": "Indicates if binary data containing a screenshot should be included"
+            "description": "Indicates if binary data containing a screenshot should be included",
+            "default": false
           },
           "strategy": {
             "type": "string",
@@ -404,7 +406,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -420,7 +423,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

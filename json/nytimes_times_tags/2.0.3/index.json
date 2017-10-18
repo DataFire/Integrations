@@ -38,7 +38,8 @@
           },
           "max": {
             "type": "integer",
-            "description": "Sets the maximum number of results"
+            "description": "Sets the maximum number of results",
+            "default": 10
           }
         },
         "additionalProperties": false,

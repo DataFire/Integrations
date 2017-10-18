@@ -1099,11 +1099,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1163,11 +1165,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1200,15 +1204,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1244,15 +1251,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1284,15 +1294,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1328,15 +1341,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1372,15 +1388,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1416,15 +1435,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1456,7 +1478,8 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "region": {
             "type": "string",
@@ -1468,11 +1491,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1505,15 +1530,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1545,15 +1573,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1596,7 +1627,8 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "change"
           },
           "target_lang": {
             "type": "string",
@@ -1618,11 +1650,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1659,7 +1693,8 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An Entry identifier. Case-sensitive."
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
           },
           "filters": {
             "type": "array",
@@ -1667,11 +1702,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1697,11 +1734,13 @@
         "properties": {
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1733,11 +1772,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1779,11 +1820,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1818,15 +1861,18 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An inflected wordform. Case-sensitive."
+            "description": "An inflected wordform. Case-sensitive.",
+            "default": "changed"
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1862,7 +1908,8 @@
           },
           "word_id": {
             "type": "string",
-            "description": "An inflected wordform. Case-sensitive."
+            "description": "An inflected wordform. Case-sensitive.",
+            "default": "change"
           },
           "filters": {
             "type": "array",
@@ -1870,11 +1917,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1936,11 +1985,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -1981,11 +2032,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2016,11 +2069,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2062,11 +2117,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2126,11 +2183,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2166,7 +2225,8 @@
           },
           "q": {
             "type": "string",
-            "description": "Search string."
+            "description": "Search string.",
+            "default": "eye"
           },
           "prefix": {
             "type": "boolean",
@@ -2190,11 +2250,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2254,7 +2316,8 @@
           },
           "q": {
             "type": "string",
-            "description": "Search string."
+            "description": "Search string.",
+            "default": "eye"
           },
           "prefix": {
             "type": "boolean",
@@ -2278,11 +2341,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2318,7 +2383,8 @@
           },
           "filters_advanced": {
             "type": "string",
-            "description": "Semicolon separated list of wordlist parameters, presented as value pairs: LexicalCategory, domains, regions, registers. Parameters can take comma separated list of values. E.g., lexicalCategory=noun,adjective;domains=sport. Number of values limited to 5."
+            "description": "Semicolon separated list of wordlist parameters, presented as value pairs: LexicalCategory, domains, regions, registers. Parameters can take comma separated list of values. E.g., lexicalCategory=noun,adjective;domains=sport. Number of values limited to 5.",
+            "default": "lexicalCategory=Noun;domains=sport"
           },
           "exclude": {
             "type": "string",
@@ -2334,11 +2400,13 @@
           },
           "word_length": {
             "type": "string",
-            "description": "Parameter to speficy the minimum (>), exact or maximum (<) length of the words required. E.g., >5 - more than 5 chars; <4 - less than 4 chars; >5<10 - from 5 to 10 chars; 3 - exactly 3 chars."
+            "description": "Parameter to speficy the minimum (>), exact or maximum (<) length of the words required. E.g., >5 - more than 5 chars; <4 - less than 4 chars; >5<10 - from 5 to 10 chars; 3 - exactly 3 chars.",
+            "default": ">5,<10"
           },
           "prefix": {
             "type": "string",
-            "description": "Filter words that start with prefix parameter"
+            "description": "Filter words that start with prefix parameter",
+            "default": "goal"
           },
           "exact": {
             "type": "boolean",
@@ -2358,11 +2426,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,
@@ -2398,7 +2468,8 @@
           },
           "filters_basic": {
             "type": "string",
-            "description": "Semicolon separated list of wordlist parameters, presented as value pairs: LexicalCategory, domains, regions, registers. Parameters can take comma separated list of values. E.g., lexicalCategory=noun,adjective;domains=sport. Number of values limited to 5."
+            "description": "Semicolon separated list of wordlist parameters, presented as value pairs: LexicalCategory, domains, regions, registers. Parameters can take comma separated list of values. E.g., lexicalCategory=noun,adjective;domains=sport. Number of values limited to 5.",
+            "default": "registers=Rare;domains=Art"
           },
           "limit": {
             "type": "string",
@@ -2410,11 +2481,13 @@
           },
           "app_id": {
             "type": "string",
-            "description": "App ID Authentication Parameter"
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
           },
           "app_key": {
             "type": "string",
-            "description": "App Key Authentication Parameter"
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
           }
         },
         "additionalProperties": false,

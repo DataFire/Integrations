@@ -925,10 +925,12 @@
         ],
         "properties": {
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 10
           }
         },
         "additionalProperties": false
@@ -1192,7 +1194,8 @@
           },
           "async": {
             "type": "integer",
-            "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
+            "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -1258,7 +1261,8 @@
           },
           "async": {
             "type": "integer",
-            "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
+            "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -1316,10 +1320,12 @@
             "description": "Project ID"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 10
           }
         },
         "additionalProperties": false,
@@ -1453,10 +1459,12 @@
             "description": "Project ID"
           },
           "page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 1
           },
           "per_page": {
-            "type": "integer"
+            "type": "integer",
+            "default": 10
           }
         },
         "additionalProperties": false,

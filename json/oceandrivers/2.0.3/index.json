@@ -17,7 +17,8 @@
         "properties": {
           "stationName": {
             "type": "string",
-            "description": "Weather station to compare, values: cnareanl|cmsap|boyaenderrocat|areopuertopalma"
+            "description": "Weather station to compare, values: cnareanl|cmsap|boyaenderrocat|areopuertopalma",
+            "default": "cnarenal"
           }
         },
         "additionalProperties": false,
@@ -36,11 +37,13 @@
         "properties": {
           "stationName": {
             "type": "string",
-            "description": "station name currently: aeropuertopalma | caboblanco "
+            "description": "station name currently: aeropuertopalma | caboblanco ",
+            "default": "aeropuertopalma"
           },
           "period": {
             "type": "string",
-            "description": "Period of time to get the data. Options: lastdata lastday"
+            "description": "Period of time to get the data. Options: lastdata lastday",
+            "default": "lastdata"
           }
         },
         "additionalProperties": false,
@@ -60,7 +63,8 @@
         "properties": {
           "yatchclubid": {
             "type": "string",
-            "description": "base URL for the the"
+            "description": "base URL for the the",
+            "default": "cnarenal"
           },
           "language": {
             "type": "string"
@@ -84,12 +88,14 @@
           "latitude": {
             "type": "number",
             "format": "float",
-            "description": "latitude for the forecast"
+            "description": "latitude for the forecast",
+            "default": 39.49
           },
           "longitude": {
             "type": "number",
             "format": "float",
-            "description": "longitude for the forecast"
+            "description": "longitude for the forecast",
+            "default": 2.74
           },
           "inittime": {
             "type": "string",
@@ -141,12 +147,14 @@
           "latitude": {
             "type": "number",
             "format": "float",
-            "description": "latitude for the forecast"
+            "description": "latitude for the forecast",
+            "default": 39.49
           },
           "longitude": {
             "type": "number",
             "format": "float",
-            "description": "longitude for the forecast"
+            "description": "longitude for the forecast",
+            "default": 2.74
           },
           "inittime": {
             "type": "string",
@@ -197,11 +205,13 @@
         "properties": {
           "stationName": {
             "type": "string",
-            "description": "station name currently: boyaenderrocat | playadepalma"
+            "description": "station name currently: boyaenderrocat | playadepalma",
+            "default": "boyaenderrocat"
           },
           "period": {
             "type": "string",
-            "description": "Period of time to get the data. Options: lastdata lasthour lastday"
+            "description": "Period of time to get the data. Options: lastdata lasthour lastday",
+            "default": "lastdata"
           }
         },
         "additionalProperties": false,
@@ -221,11 +231,13 @@
         "properties": {
           "stationName": {
             "type": "string",
-            "description": "currently: 'cnarenal'|'campastilla' | 'cncg'"
+            "description": "currently: 'cnarenal'|'campastilla' | 'cncg'",
+            "default": "cnarenal"
           },
           "period": {
             "type": "string",
-            "description": "Period of time to get the data latestdata|latesthour|latestday|dailylog"
+            "description": "Period of time to get the data latestdata|latesthour|latestday|dailylog",
+            "default": "latestdata"
           }
         },
         "additionalProperties": false,

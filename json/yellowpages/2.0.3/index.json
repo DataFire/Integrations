@@ -21,11 +21,13 @@
           },
           "pixel_width": {
             "type": "integer",
-            "description": "Integer representing the width in pixels of the map (Default = 400). Examples: 400, 200, 123."
+            "description": "Integer representing the width in pixels of the map (Default = 400). Examples: 400, 200, 123.",
+            "default": 400
           },
           "pixel_height": {
             "type": "integer",
-            "description": "Integer representing the height in pixels of the map (Default = 400). Examples: 400, 200, 123."
+            "description": "Integer representing the height in pixels of the map (Default = 400). Examples: 400, 200, 123.",
+            "default": 400
           },
           "image_format": {
             "type": "string",
@@ -34,14 +36,17 @@
               "jpg",
               "png",
               "gif"
-            ]
+            ],
+            "default": "gif"
           },
           "zoom": {
-            "description": "Sets the zoom factor for the map, expressed as a fraction from .1 to 1."
+            "description": "Sets the zoom factor for the map, expressed as a fraction from .1 to 1.",
+            "default": 1
           },
           "pan_vertical": {
             "type": "string",
-            "description": "A positive or negative number reflecting the percentage of the map image to pan south (negative) or north (positive). (Default = 0). Examples: 0.5 (50% north) -0.4 (40% south). Postiive numbers tilt to the north, negative numbers tilt to the south."
+            "description": "A positive or negative number reflecting the percentage of the map image to pan south (negative) or north (positive). (Default = 0). Examples: 0.5 (50% north) -0.4 (40% south). Postiive numbers tilt to the north, negative numbers tilt to the south.",
+            "default": "0"
           },
           "pan_horizontal": {
             "type": "string",
@@ -64,7 +69,8 @@
         "properties": {
           "User-Agent": {
             "type": "string",
-            "description": "User agent."
+            "description": "User agent.",
+            "default": "Chrome"
           },
           "term": {
             "type": "string",
@@ -80,11 +86,13 @@
           },
           "listingcount": {
             "type": "integer",
-            "description": "Total number of listings to return. Defaults to 5."
+            "description": "Total number of listings to return. Defaults to 5.",
+            "default": 5
           },
           "shorturl": {
             "type": "boolean",
-            "description": "Enables short URL formats in the API response. Typically only used for SMS applications. Set to true for short URL format. Defaults to false."
+            "description": "Enables short URL formats in the API response. Typically only used for SMS applications. Set to true for short URL format. Defaults to false.",
+            "default": false
           },
           "format": {
             "type": "string",
@@ -92,11 +100,13 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "xml"
           },
           "pagenum": {
             "type": "integer",
-            "description": "The page index of the block of results to return. Defaults to 1."
+            "description": "The page index of the block of results to return. Defaults to 1.",
+            "default": 1
           },
           "sort": {
             "type": "string",
@@ -129,7 +139,8 @@
         "properties": {
           "User-Agent": {
             "type": "string",
-            "description": "User agent."
+            "description": "User agent.",
+            "default": "Chrome"
           },
           "listingid": {
             "type": "string",
@@ -141,7 +152,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "xml"
           }
         },
         "additionalProperties": false,
@@ -169,7 +181,8 @@
             "enum": [
               "xml",
               "json"
-            ]
+            ],
+            "default": "xml"
           }
         },
         "additionalProperties": false,

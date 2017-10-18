@@ -9347,14 +9347,16 @@
               "mentioned",
               "subscribed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "state": {
             "type": "string",
             "enum": [
               "open",
               "closed"
-            ]
+            ],
+            "default": "open"
           },
           "labels": {
             "type": "string",
@@ -9366,14 +9368,16 @@
               "created",
               "updated",
               "comments"
-            ]
+            ],
+            "default": "created"
           },
           "direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "since": {
             "type": "string",
@@ -9461,7 +9465,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "language": {
             "type": "string",
@@ -9538,7 +9543,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "start_page": {
             "type": "string",
@@ -9946,14 +9952,16 @@
               "mentioned",
               "subscribed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "state": {
             "type": "string",
             "enum": [
               "open",
               "closed"
-            ]
+            ],
+            "default": "open"
           },
           "labels": {
             "type": "string",
@@ -9965,14 +9973,16 @@
               "created",
               "updated",
               "comments"
-            ]
+            ],
+            "default": "created"
           },
           "direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "since": {
             "type": "string",
@@ -10224,7 +10234,8 @@
               "forks",
               "sources",
               "member"
-            ]
+            ],
+            "default": "all"
           },
           "page": {
             "type": "integer"
@@ -11571,7 +11582,8 @@
               "newes",
               "oldes",
               "watchers"
-            ]
+            ],
+            "default": "newes"
           },
           "page": {
             "type": "integer"
@@ -12327,14 +12339,16 @@
               "mentioned",
               "subscribed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "state": {
             "type": "string",
             "enum": [
               "open",
               "closed"
-            ]
+            ],
+            "default": "open"
           },
           "labels": {
             "type": "string",
@@ -12346,14 +12360,16 @@
               "created",
               "updated",
               "comments"
-            ]
+            ],
+            "default": "created"
           },
           "direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "since": {
             "type": "string",
@@ -13442,7 +13458,8 @@
             "enum": [
               "open",
               "closed"
-            ]
+            ],
+            "default": "open"
           },
           "direction": {
             "type": "string",
@@ -13454,7 +13471,8 @@
             "enum": [
               "due_date",
               "completeness"
-            ]
+            ],
+            "default": "due_date"
           },
           "page": {
             "type": "integer"
@@ -13759,7 +13777,8 @@
             "enum": [
               "open",
               "closed"
-            ]
+            ],
+            "default": "open"
           },
           "head": {
             "type": "string",
@@ -15229,7 +15248,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "q": {
             "type": "string",
@@ -15270,7 +15290,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "q": {
             "type": "string",
@@ -15316,7 +15337,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "q": {
             "type": "string",
@@ -15362,7 +15384,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "q": {
             "type": "string",
@@ -16050,14 +16073,16 @@
               "mentioned",
               "subscribed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "state": {
             "type": "string",
             "enum": [
               "open",
               "closed"
-            ]
+            ],
+            "default": "open"
           },
           "labels": {
             "type": "string",
@@ -16069,14 +16094,16 @@
               "created",
               "updated",
               "comments"
-            ]
+            ],
+            "default": "created"
           },
           "direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "since": {
             "type": "string",
@@ -16248,7 +16275,8 @@
               "forks",
               "sources",
               "member"
-            ]
+            ],
+            "default": "all"
           },
           "page": {
             "type": "integer"
@@ -16310,7 +16338,8 @@
             "enum": [
               "created",
               "updated"
-            ]
+            ],
+            "default": "created"
           }
         },
         "additionalProperties": false
@@ -16878,7 +16907,8 @@
               "forks",
               "sources",
               "member"
-            ]
+            ],
+            "default": "all"
           },
           "page": {
             "type": "integer"

@@ -3115,11 +3115,13 @@
           },
           "svg": {
             "type": "boolean",
-            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
+            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`.",
+            "default": false
           },
           "retina": {
             "type": "boolean",
-            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
+            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`.",
+            "default": false
           },
           "passingText": {
             "type": "string",
@@ -3175,11 +3177,13 @@
         "properties": {
           "svg": {
             "type": "boolean",
-            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
+            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`.",
+            "default": false
           },
           "retina": {
             "type": "boolean",
-            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
+            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`.",
+            "default": false
           },
           "passingText": {
             "type": "string",
@@ -3220,11 +3224,13 @@
         "properties": {
           "svg": {
             "type": "boolean",
-            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
+            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`.",
+            "default": false
           },
           "retina": {
             "type": "boolean",
-            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
+            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`.",
+            "default": false
           },
           "passingText": {
             "type": "string",

@@ -39,8 +39,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -111,8 +115,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -189,8 +197,12 @@
           "null"
         ],
         "properties": {
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false
       },
@@ -220,8 +232,12 @@
         "type": "object",
         "properties": {
           "featured_listing_picker_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -238,8 +254,12 @@
         "type": "object",
         "properties": {
           "featured_listing_picker_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -256,8 +276,12 @@
         "type": "object",
         "properties": {
           "featured_listing_picker_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -276,8 +300,12 @@
           "null"
         ],
         "properties": {
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false
       },
@@ -293,8 +321,12 @@
           "null"
         ],
         "properties": {
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false
       },
@@ -489,8 +521,12 @@
         "type": "object",
         "properties": {
           "listing_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -565,8 +601,12 @@
           "null"
         ],
         "properties": {
-          "limit": {},
-          "offset": {},
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          },
           "keywords": {},
           "sort_on": {
             "enum": [
@@ -584,7 +624,9 @@
           "min_price": {},
           "max_price": {},
           "color": {},
-          "color_accuracy": {},
+          "color_accuracy": {
+            "default": 0
+          },
           "tags": {},
           "materials": {},
           "category": {}
@@ -600,8 +642,12 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "limit": {},
-          "offset": {},
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          },
           "shop_id": {},
           "keywords": {},
           "sort_on": {
@@ -620,7 +666,9 @@
           "min_price": {},
           "max_price": {},
           "color": {},
-          "color_accuracy": {},
+          "color_accuracy": {
+            "default": 0
+          },
           "tags": {},
           "materials": {},
           "category": {}
@@ -684,8 +732,12 @@
         "type": "object",
         "properties": {
           "order_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -729,8 +781,12 @@
         "type": "object",
         "properties": {
           "receipt_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -747,7 +803,9 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
+          "limit": {
+            "default": 25
+          },
           "excluded_listing_ids": {}
         },
         "additionalProperties": false,
@@ -1001,8 +1059,12 @@
         "type": "object",
         "properties": {
           "shipping_template_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1085,8 +1147,12 @@
         "type": "object",
         "properties": {
           "shop_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1103,8 +1169,12 @@
         "type": "object",
         "properties": {
           "shop_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1140,8 +1210,12 @@
         ],
         "properties": {
           "shop_name": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false
       },
@@ -1155,8 +1229,12 @@
         "type": "object",
         "properties": {
           "shop_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1173,8 +1251,12 @@
         "type": "object",
         "properties": {
           "shop_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1191,8 +1273,12 @@
         "type": "object",
         "properties": {
           "shop_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1446,7 +1532,9 @@
           "null"
         ],
         "properties": {
-          "limit": {}
+          "limit": {
+            "default": 25
+          }
         },
         "additionalProperties": false
       },
@@ -1460,7 +1548,9 @@
         "type": "object",
         "properties": {
           "tags": {},
-          "limit": {}
+          "limit": {
+            "default": 25
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1536,8 +1626,12 @@
               "medium"
             ]
           },
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false
       },
@@ -1575,8 +1669,12 @@
               "medium"
             ]
           },
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1609,8 +1707,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1627,8 +1729,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1645,8 +1751,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1663,8 +1773,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1681,8 +1795,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1699,8 +1817,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1717,8 +1839,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1735,8 +1861,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1753,8 +1883,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1771,8 +1905,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1789,8 +1927,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -1807,8 +1949,12 @@
         "type": "object",
         "properties": {
           "user_id": {},
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false,
         "required": [
@@ -2063,8 +2209,12 @@
           "null"
         ],
         "properties": {
-          "limit": {},
-          "offset": {}
+          "limit": {
+            "default": 25
+          },
+          "offset": {
+            "default": 0
+          }
         },
         "additionalProperties": false
       },

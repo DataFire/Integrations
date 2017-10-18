@@ -1039,7 +1039,8 @@
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)",
-            "minimum": 0
+            "minimum": 0,
+            "default": 500
           },
           "orderBy": {
             "type": "string",
@@ -1054,7 +1055,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1070,7 +1072,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1118,7 +1121,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1134,7 +1138,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1180,14 +1185,16 @@
             "enum": [
               "ABANDON",
               "DELETE"
-            ]
+            ],
+            "default": "DELETE"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1203,7 +1210,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1249,7 +1257,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1265,7 +1274,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1312,7 +1322,8 @@
             "enum": [
               "ACQUIRE",
               "CREATE_OR_ACQUIRE"
-            ]
+            ],
+            "default": "CREATE_OR_ACQUIRE"
           },
           "deletePolicy": {
             "type": "string",
@@ -1320,11 +1331,13 @@
             "enum": [
               "ABANDON",
               "DELETE"
-            ]
+            ],
+            "default": "DELETE"
           },
           "preview": {
             "type": "boolean",
-            "description": "If set to true, updates the deployment and creates and updates the \"shell\" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it."
+            "description": "If set to true, updates the deployment and creates and updates the \"shell\" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/Deployment"
@@ -1334,7 +1347,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1350,7 +1364,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1397,7 +1412,8 @@
             "enum": [
               "ACQUIRE",
               "CREATE_OR_ACQUIRE"
-            ]
+            ],
+            "default": "CREATE_OR_ACQUIRE"
           },
           "deletePolicy": {
             "type": "string",
@@ -1405,11 +1421,13 @@
             "enum": [
               "ABANDON",
               "DELETE"
-            ]
+            ],
+            "default": "DELETE"
           },
           "preview": {
             "type": "boolean",
-            "description": "If set to true, updates the deployment and creates and updates the \"shell\" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it."
+            "description": "If set to true, updates the deployment and creates and updates the \"shell\" resources but does not actually alter or instantiate these resources. This allows you to preview what your deployment will look like. You can use this intent to preview how an update would affect your deployment. You must provide a target.config with a configuration if this is set to true. After previewing a deployment, you can deploy your resources by making a request with the update() or you can cancelPreview() to remove the preview altogether. Note that the deployment will still exist after you cancel the preview and you must separately delete this deployment if you want to remove it.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/Deployment"
@@ -1419,7 +1437,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1435,7 +1454,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1484,7 +1504,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1500,7 +1521,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1548,7 +1570,8 @@
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)",
-            "minimum": 0
+            "minimum": 0,
+            "default": 500
           },
           "orderBy": {
             "type": "string",
@@ -1563,7 +1586,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1579,7 +1603,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1629,7 +1654,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1645,7 +1671,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1694,7 +1721,8 @@
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)",
-            "minimum": 0
+            "minimum": 0,
+            "default": 500
           },
           "orderBy": {
             "type": "string",
@@ -1709,7 +1737,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1725,7 +1754,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1775,7 +1805,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1791,7 +1822,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1841,7 +1873,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1857,7 +1890,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1903,7 +1937,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1919,7 +1954,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1968,7 +2004,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1984,7 +2021,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2033,7 +2071,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2049,7 +2088,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2093,7 +2133,8 @@
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)",
-            "minimum": 0
+            "minimum": 0,
+            "default": 500
           },
           "orderBy": {
             "type": "string",
@@ -2108,7 +2149,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2124,7 +2166,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2169,7 +2212,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2185,7 +2229,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2229,7 +2274,8 @@
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)",
-            "minimum": 0
+            "minimum": 0,
+            "default": 500
           },
           "orderBy": {
             "type": "string",
@@ -2244,7 +2290,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2260,7 +2307,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

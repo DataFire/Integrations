@@ -1838,12 +1838,14 @@
             "type": "integer",
             "description": "Number of message opens to return per request. Max 500.",
             "maximum": 500,
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "offset": {
             "type": "integer",
             "description": "Number of messages to skip.",
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           }
         },
         "additionalProperties": false,

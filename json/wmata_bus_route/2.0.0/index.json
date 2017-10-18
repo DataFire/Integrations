@@ -31,7 +31,8 @@
             "description": "Bus route, e.g.: B30, 10A.",
             "enum": [
               "B30"
-            ]
+            ],
+            "default": "B30"
           },
           "Lat": {
             "type": "string",
@@ -67,7 +68,8 @@
             "description": "Bus route variant, e.g.: B30, 10A, 10Av1.",
             "enum": [
               "B30"
-            ]
+            ],
+            "default": "B30"
           },
           "Date": {
             "type": "string",
@@ -98,7 +100,8 @@
             "description": "Bus route variant, e.g.: B30, 10A, 10Av1.",
             "enum": [
               "B30"
-            ]
+            ],
+            "default": "B30"
           },
           "Date": {
             "type": "string",
@@ -149,7 +152,8 @@
             "description": "7-digit regional stop ID.",
             "enum": [
               "3002578"
-            ]
+            ],
+            "default": "3002578"
           },
           "Date": {
             "type": "string",
@@ -224,7 +228,8 @@
             "description": "Base bus route, e.g.: B30, 10A.",
             "enum": [
               "B30"
-            ]
+            ],
+            "default": "B30"
           },
           "Lat": {
             "type": "number",
@@ -260,7 +265,8 @@
             "description": "Bus route variant, e.g.: B30, 10A, 10Av1.",
             "enum": [
               "B30"
-            ]
+            ],
+            "default": "B30"
           },
           "Date": {
             "type": "string",
@@ -291,7 +297,8 @@
             "description": "Bus route variant, e.g.: B30, 10A, 10Av1, etc.",
             "enum": [
               "B30"
-            ]
+            ],
+            "default": "B30"
           },
           "Date": {
             "type": "string",
@@ -342,7 +349,8 @@
             "description": "7-digit regional stop ID.",
             "enum": [
               "3002578"
-            ]
+            ],
+            "default": "3002578"
           },
           "Date": {
             "type": "string",

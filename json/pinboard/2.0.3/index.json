@@ -44,15 +44,18 @@
           },
           "replace": {
             "type": "string",
-            "description": "Replace any existing bookmark with this URL. Default is yes. If set to no, will throw an error if bookmark exists."
+            "description": "Replace any existing bookmark with this URL. Default is yes. If set to no, will throw an error if bookmark exists.",
+            "default": "yes"
           },
           "shared": {
             "type": "string",
-            "description": "Make bookmark public. Default is \"yes\" unless user has enabled the \"save all bookmarks as private\" user setting, in which case default is \"no\"."
+            "description": "Make bookmark public. Default is \"yes\" unless user has enabled the \"save all bookmarks as private\" user setting, in which case default is \"no\".",
+            "default": "yes"
           },
           "toread": {
             "type": "string",
-            "description": "Marks the bookmark as unread. Default is \"no\"."
+            "description": "Marks the bookmark as unread. Default is \"no\".",
+            "default": "no"
           }
         },
         "additionalProperties": false,
@@ -106,11 +109,13 @@
           },
           "meta": {
             "type": "string",
-            "description": "Include a change detection signature in a meta attribute (yes/no)."
+            "description": "Include a change detection signature in a meta attribute (yes/no).",
+            "default": "yes"
           },
           "format": {
             "type": "string",
-            "description": "Default is xml."
+            "description": "Default is xml.",
+            "default": "xml"
           }
         },
         "additionalProperties": false
@@ -152,7 +157,8 @@
           },
           "count": {
             "type": "integer",
-            "description": "Number of results to return. Default is 15, max is 100."
+            "description": "Number of results to return. Default is 15, max is 100.",
+            "default": 15
           }
         },
         "additionalProperties": false
@@ -175,7 +181,8 @@
           },
           "start": {
             "type": "integer",
-            "description": "Offset value (default is 0)."
+            "description": "Offset value (default is 0).",
+            "default": 0
           },
           "results": {
             "type": "integer",
@@ -195,7 +202,8 @@
           },
           "format": {
             "type": "string",
-            "description": "Default is xml."
+            "description": "Default is xml.",
+            "default": "xml"
           }
         },
         "additionalProperties": false

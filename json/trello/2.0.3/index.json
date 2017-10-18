@@ -2135,7 +2135,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "member": {
             "type": "string",
@@ -2143,7 +2144,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "memberCreator": {
             "type": "string",
@@ -2151,7 +2153,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -2227,7 +2230,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -2304,7 +2308,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -2449,7 +2454,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -2526,7 +2532,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -2603,7 +2610,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -2680,7 +2688,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -2913,7 +2922,8 @@
           },
           "actions_format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "actions_since": {
             "type": "string",
@@ -2921,11 +2931,13 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "action_member": {
             "type": "string",
@@ -2933,7 +2945,8 @@
           },
           "action_member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "action_memberCreator": {
             "type": "string",
@@ -2941,15 +2954,18 @@
           },
           "action_memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "card_attachments": {
             "type": "string",
@@ -2957,11 +2973,13 @@
           },
           "card_attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "card_checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "card_stickers": {
             "type": "string",
@@ -2969,31 +2987,38 @@
           },
           "boardStars": {
             "type": "string",
-            "description": "One of: mine or none"
+            "description": "One of: mine or none",
+            "default": "none"
           },
           "labels": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "label_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: color, idBoard, name or uses"
+            "description": "all or a comma-separated list of: color, idBoard, name or uses",
+            "default": "all"
           },
           "labels_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "lists": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "none"
           },
           "list_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "memberships": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "none"
           },
           "memberships_member": {
             "type": "string",
@@ -3001,31 +3026,38 @@
           },
           "memberships_member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "members": {
             "type": "string",
-            "description": "One of: admins, all, none, normal or owners"
+            "description": "One of: admins, all, none, normal or owners",
+            "default": "none"
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, initials, fullName, username and confirmed"
           },
           "membersInvited": {
             "type": "string",
-            "description": "One of: admins, all, none, normal or owners"
+            "description": "One of: admins, all, none, normal or owners",
+            "default": "none"
           },
           "membersInvited_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, initials, fullName and username"
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "checklist_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
+            "description": "all or a comma-separated list of: idBoard, idCard, name or pos",
+            "default": "all"
           },
           "organization": {
             "type": "string",
@@ -3033,11 +3065,13 @@
           },
           "organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "name and displayName"
           },
           "organization_memberships": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "none"
           },
           "myPrefs": {
             "type": "string",
@@ -3045,7 +3079,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, desc, descData, closed, idOrganization, pinned, url, shortUrl, prefs and labelNames"
           },
           "key": {
             "type": "string",
@@ -3129,19 +3164,23 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
+            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "since": {
             "type": "string",
@@ -3153,7 +3192,8 @@
           },
           "page": {
             "type": "string",
-            "description": "Page * limit must be less than 1000"
+            "description": "Page * limit must be less than 1000",
+            "default": "0"
           },
           "idModels": {
             "type": "string",
@@ -3165,7 +3205,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "memberCreator": {
             "type": "string",
@@ -3173,7 +3214,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -3211,7 +3253,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: mine or none"
+            "description": "One of: mine or none",
+            "default": "mine"
           },
           "key": {
             "type": "string",
@@ -3291,7 +3334,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "stickers": {
             "type": "string",
@@ -3303,7 +3347,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -3311,7 +3356,8 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "limit": {
             "type": "string",
@@ -3327,11 +3373,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "visible"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -3416,7 +3464,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "actions": {
             "type": "string",
@@ -3432,15 +3481,18 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "action_memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "members": {
             "type": "string",
@@ -3448,7 +3500,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, initials, fullName and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -3456,7 +3509,8 @@
           },
           "checkItemState_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idCheckItem or state"
+            "description": "all or a comma-separated list of: idCheckItem or state",
+            "default": "all"
           },
           "labels": {
             "type": "string",
@@ -3464,15 +3518,18 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "checklist_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
+            "description": "all or a comma-separated list of: idBoard, idCard, name or pos",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -3511,27 +3568,33 @@
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "checkItems": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "checkItem_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: name, nameData, pos, state or type"
+            "description": "all or a comma-separated list of: name, nameData, pos, state or type",
+            "default": "name, nameData, pos and state"
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
+            "description": "all or a comma-separated list of: idBoard, idCard, name or pos",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -4027,11 +4090,13 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: color, idBoard, name or uses"
+            "description": "all or a comma-separated list of: color, idBoard, name or uses",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "key": {
             "type": "string",
@@ -4111,7 +4176,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: color, idBoard, name or uses"
+            "description": "all or a comma-separated list of: color, idBoard, name or uses",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -4150,19 +4216,23 @@
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "open"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -4311,11 +4381,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: admins, all, none, normal or owners"
+            "description": "One of: admins, all, none, normal or owners",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "activity": {
             "type": "string",
@@ -4528,7 +4600,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "members": {
             "type": "string",
@@ -4536,7 +4609,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -4544,7 +4618,8 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "board": {
             "type": "string",
@@ -4552,7 +4627,8 @@
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, desc, closed, idOrganization, pinned, url and prefs"
           },
           "list": {
             "type": "string",
@@ -4560,15 +4636,18 @@
           },
           "list_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "visible"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -4607,7 +4686,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -4684,7 +4764,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "all"
           },
           "member": {
             "type": "string",
@@ -4692,7 +4773,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "key": {
             "type": "string",
@@ -4738,7 +4820,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "key": {
             "type": "string",
@@ -5158,7 +5241,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -5810,15 +5894,18 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "action_memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "attachments": {
             "type": "string",
@@ -5826,7 +5913,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "members": {
             "type": "string",
@@ -5834,7 +5922,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "membersVoted": {
             "type": "string",
@@ -5842,7 +5931,8 @@
           },
           "memberVoted_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -5850,15 +5940,18 @@
           },
           "checkItemState_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idCheckItem or state"
+            "description": "all or a comma-separated list of: idCheckItem or state",
+            "default": "all"
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "checklist_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
+            "description": "all or a comma-separated list of: idBoard, idCard, name or pos",
+            "default": "all"
           },
           "board": {
             "type": "string",
@@ -5866,7 +5959,8 @@
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, desc, descData, closed, idOrganization, pinned, url and prefs"
           },
           "list": {
             "type": "string",
@@ -5874,7 +5968,8 @@
           },
           "list_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "stickers": {
             "type": "string",
@@ -5882,11 +5977,13 @@
           },
           "sticker_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex"
+            "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idBoard, idChecklists, idLabels, idList, idMembers, idShort, idAttachmentCover, manualCoverAttachment, labels, name, pos, shortUrl and url"
           },
           "key": {
             "type": "string",
@@ -5970,19 +6067,23 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
+            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization",
+            "default": "commentCard and updateCard:idList"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "since": {
             "type": "string",
@@ -5994,7 +6095,8 @@
           },
           "page": {
             "type": "string",
-            "description": "Page * limit must be less than 1000"
+            "description": "Page * limit must be less than 1000",
+            "default": "0"
           },
           "idModels": {
             "type": "string",
@@ -6006,7 +6108,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "memberCreator": {
             "type": "string",
@@ -6014,7 +6117,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -6172,7 +6276,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "filter": {
             "type": "string",
@@ -6295,7 +6400,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -6334,7 +6440,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -6411,7 +6518,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idCheckItem or state"
+            "description": "all or a comma-separated list of: idCheckItem or state",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -6772,27 +6880,33 @@
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "checkItems": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "checkItem_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: name, nameData, pos, state or type"
+            "description": "all or a comma-separated list of: name, nameData, pos, state or type",
+            "default": "name, nameData, pos and state"
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
+            "description": "all or a comma-separated list of: idBoard, idCard, name or pos",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -7442,7 +7556,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -7553,7 +7668,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -7591,7 +7707,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -7782,7 +7899,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex"
+            "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -7901,7 +8019,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex"
+            "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -8127,23 +8246,28 @@
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "checkItems": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "checkItem_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: name, nameData, pos, state or type"
+            "description": "all or a comma-separated list of: name, nameData, pos, state or type",
+            "default": "name, nameData, pos and state"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
+            "description": "all or a comma-separated list of: idBoard, idCard, name or pos",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -8219,7 +8343,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -8304,7 +8429,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "stickers": {
             "type": "string",
@@ -8316,7 +8442,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -8324,7 +8451,8 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "limit": {
             "type": "string",
@@ -8340,11 +8468,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "open"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -8421,11 +8551,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: name, nameData, pos, state or type"
+            "description": "all or a comma-separated list of: name, nameData, pos, state or type",
+            "default": "name, nameData, pos and state"
           },
           "key": {
             "type": "string",
@@ -8544,7 +8676,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: name, nameData, pos, state or type"
+            "description": "all or a comma-separated list of: name, nameData, pos, state or type",
+            "default": "name, nameData, pos and state"
           },
           "key": {
             "type": "string",
@@ -8803,7 +8936,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: color, idBoard, name or uses"
+            "description": "all or a comma-separated list of: color, idBoard, name or uses",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -8879,7 +9013,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -9065,11 +9200,13 @@
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "board": {
             "type": "string",
@@ -9077,11 +9214,13 @@
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, desc, descData, closed, idOrganization, pinned, url and prefs"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "name, closed, idBoard and pos"
           },
           "key": {
             "type": "string",
@@ -9165,19 +9304,23 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
+            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "since": {
             "type": "string",
@@ -9189,7 +9332,8 @@
           },
           "page": {
             "type": "string",
-            "description": "Page * limit must be less than 1000"
+            "description": "Page * limit must be less than 1000",
+            "default": "0"
           },
           "idModels": {
             "type": "string",
@@ -9201,7 +9345,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "memberCreator": {
             "type": "string",
@@ -9209,7 +9354,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -9281,7 +9427,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -9366,7 +9513,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "stickers": {
             "type": "string",
@@ -9378,7 +9526,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -9386,7 +9535,8 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "limit": {
             "type": "string",
@@ -9402,11 +9552,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "open"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -9800,11 +9952,13 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "action_since": {
             "type": "string",
@@ -9816,11 +9970,13 @@
           },
           "cards": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "none"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "card_members": {
             "type": "string",
@@ -9828,7 +9984,8 @@
           },
           "card_member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "card_attachments": {
             "type": "string",
@@ -9836,7 +9993,8 @@
           },
           "card_attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "url and previews"
           },
           "card_stickers": {
             "type": "string",
@@ -9848,7 +10006,8 @@
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, closed, idOrganization and pinned"
           },
           "board_actions": {
             "type": "string",
@@ -9864,7 +10023,8 @@
           },
           "board_actions_format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "board_actions_since": {
             "type": "string",
@@ -9872,19 +10032,23 @@
           },
           "board_actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "board_action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "board_lists": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "none"
           },
           "board_memberships": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "none"
           },
           "board_organization": {
             "type": "string",
@@ -9892,7 +10056,8 @@
           },
           "board_organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "name and displayName"
           },
           "boardsInvited": {
             "type": "string",
@@ -9900,7 +10065,8 @@
           },
           "boardsInvited_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, closed, idOrganization and pinned"
           },
           "boardStars": {
             "type": "string",
@@ -9912,11 +10078,13 @@
           },
           "organizations": {
             "type": "string",
-            "description": "One of: all, members, none or public"
+            "description": "One of: all, members, none or public",
+            "default": "none"
           },
           "organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "organization_paid_account": {
             "type": "string",
@@ -9924,11 +10092,13 @@
           },
           "organizationsInvited": {
             "type": "string",
-            "description": "One of: all, members, none or public"
+            "description": "One of: all, members, none or public",
+            "default": "none"
           },
           "organizationsInvited_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "notifications": {
             "type": "string",
@@ -9944,11 +10114,13 @@
           },
           "notifications_limit": {
             "type": "string",
-            "description": "a number from 1 to 1000"
+            "description": "a number from 1 to 1000",
+            "default": "50"
           },
           "notification_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread",
+            "default": "all"
           },
           "notification_memberCreator": {
             "type": "string",
@@ -9956,7 +10128,8 @@
           },
           "notification_memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "notification_before": {
             "type": "string",
@@ -9968,7 +10141,8 @@
           },
           "tokens": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "paid_account": {
             "type": "string",
@@ -9976,23 +10150,28 @@
           },
           "boardBackgrounds": {
             "type": "string",
-            "description": "One of: all, custom, default, none or premium"
+            "description": "One of: all, custom, default, none or premium",
+            "default": "none"
           },
           "customBoardBackgrounds": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "customStickers": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "customEmoji": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -10076,19 +10255,23 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
+            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "since": {
             "type": "string",
@@ -10100,7 +10283,8 @@
           },
           "page": {
             "type": "string",
-            "description": "Page * limit must be less than 1000"
+            "description": "Page * limit must be less than 1000",
+            "default": "0"
           },
           "idModels": {
             "type": "string",
@@ -10112,7 +10296,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "memberCreator": {
             "type": "string",
@@ -10120,7 +10305,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -10272,7 +10458,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, custom, default, none or premium"
+            "description": "One of: all, custom, default, none or premium",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -10391,7 +10578,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile"
+            "description": "all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -10752,11 +10940,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
+            "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "actions": {
             "type": "string",
@@ -10768,11 +10958,13 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "actions_format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "actions_since": {
             "type": "string",
@@ -10780,11 +10972,13 @@
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "memberships": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "none"
           },
           "organization": {
             "type": "string",
@@ -10792,11 +10986,13 @@
           },
           "organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "name and displayName"
           },
           "lists": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "none"
           },
           "key": {
             "type": "string",
@@ -10873,7 +11069,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -10958,7 +11155,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "stickers": {
             "type": "string",
@@ -10970,7 +11168,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -10978,7 +11177,8 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "limit": {
             "type": "string",
@@ -10994,11 +11194,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "visible"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11075,7 +11277,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11194,7 +11397,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile"
+            "description": "all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11276,7 +11480,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11356,7 +11561,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: name or url"
+            "description": "all or a comma-separated list of: name or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11395,7 +11601,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11514,7 +11721,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: scaled or url"
+            "description": "all or a comma-separated list of: scaled or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -11681,23 +11889,28 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: addAdminToBoard, addAdminToOrganization, addedAttachmentToCard, addedMemberToCard, addedToBoard, addedToCard, addedToOrganization, cardDueSoon, changeCard, closeBoard, commentCard, createdCard, declinedInvitationToBoard, declinedInvitationToOrganization, invitedToBoard, invitedToOrganization, makeAdminOfBoard, makeAdminOfOrganization, memberJoinedTrello, mentionedOnCard, removedFromBoard, removedFromCard, removedFromOrganization, removedMemberFromCard, unconfirmedInvitedToBoard, unconfirmedInvitedToOrganization or updateCheckItemStateOnCard"
+            "description": "all or a comma-separated list of: addAdminToBoard, addAdminToOrganization, addedAttachmentToCard, addedMemberToCard, addedToBoard, addedToCard, addedToOrganization, cardDueSoon, changeCard, closeBoard, commentCard, createdCard, declinedInvitationToBoard, declinedInvitationToOrganization, invitedToBoard, invitedToOrganization, makeAdminOfBoard, makeAdminOfOrganization, memberJoinedTrello, mentionedOnCard, removedFromBoard, removedFromCard, removedFromOrganization, removedMemberFromCard, unconfirmedInvitedToBoard, unconfirmedInvitedToOrganization or updateCheckItemStateOnCard",
+            "default": "all"
           },
           "read_filter": {
             "type": "string",
-            "description": "One of: all, read or unread"
+            "description": "One of: all, read or unread",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 1 to 1000"
+            "description": "a number from 1 to 1000",
+            "default": "50"
           },
           "page": {
             "type": "string",
-            "description": "a number from 0 to 100"
+            "description": "a number from 0 to 100",
+            "default": "0"
           },
           "before": {
             "type": "string",
@@ -11713,7 +11926,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -11828,11 +12042,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, members, none or public"
+            "description": "One of: all, members, none or public",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "paid_account": {
             "type": "string",
@@ -11913,7 +12129,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -12426,7 +12643,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -12578,7 +12796,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread",
+            "default": "all"
           },
           "memberCreator": {
             "type": "string",
@@ -12586,7 +12805,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "board": {
             "type": "string",
@@ -12594,7 +12814,8 @@
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name"
           },
           "list": {
             "type": "string",
@@ -12606,7 +12827,8 @@
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "name"
           },
           "organization": {
             "type": "string",
@@ -12614,7 +12836,8 @@
           },
           "organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "displayName"
           },
           "member": {
             "type": "string",
@@ -12622,7 +12845,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -12698,7 +12922,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -12775,7 +13000,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -12920,7 +13146,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -12997,7 +13224,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -13074,7 +13302,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -13151,7 +13380,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -13384,15 +13614,18 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "memberships": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "none"
           },
           "memberships_member": {
             "type": "string",
@@ -13400,15 +13633,18 @@
           },
           "memberships_member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "members": {
             "type": "string",
-            "description": "One of: admins, all, none, normal or owners"
+            "description": "One of: admins, all, none, normal or owners",
+            "default": "none"
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials, username and confirmed"
           },
           "member_activity": {
             "type": "string",
@@ -13416,19 +13652,23 @@
           },
           "membersInvited": {
             "type": "string",
-            "description": "One of: admins, all, none, normal or owners"
+            "description": "One of: admins, all, none, normal or owners",
+            "default": "none"
           },
           "membersInvited_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, initials, fullName and username"
           },
           "boards": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
+            "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned",
+            "default": "none"
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "board_actions": {
             "type": "string",
@@ -13444,7 +13684,8 @@
           },
           "board_actions_format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "board_actions_since": {
             "type": "string",
@@ -13452,15 +13693,18 @@
           },
           "board_actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "board_action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "board_lists": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "none"
           },
           "paid_account": {
             "type": "string",
@@ -13468,7 +13712,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "name, displayName, desc, descData, url, website, logoHash, products and powerUps"
           },
           "key": {
             "type": "string",
@@ -13552,19 +13797,23 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
+            "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "since": {
             "type": "string",
@@ -13576,7 +13825,8 @@
           },
           "page": {
             "type": "string",
-            "description": "Page * limit must be less than 1000"
+            "description": "Page * limit must be less than 1000",
+            "default": "0"
           },
           "idModels": {
             "type": "string",
@@ -13588,7 +13838,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "memberCreator": {
             "type": "string",
@@ -13596,7 +13847,8 @@
           },
           "memberCreator_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "key": {
             "type": "string",
@@ -13634,11 +13886,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
+            "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "all"
           },
           "actions": {
             "type": "string",
@@ -13650,11 +13904,13 @@
           },
           "actions_limit": {
             "type": "string",
-            "description": "a number from 0 to 1000"
+            "description": "a number from 0 to 1000",
+            "default": "50"
           },
           "actions_format": {
             "type": "string",
-            "description": "One of: count, list or minimal"
+            "description": "One of: count, list or minimal",
+            "default": "list"
           },
           "actions_since": {
             "type": "string",
@@ -13662,11 +13918,13 @@
           },
           "action_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
+            "description": "all or a comma-separated list of: data, date, idMemberCreator or type",
+            "default": "all"
           },
           "memberships": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "none"
           },
           "organization": {
             "type": "string",
@@ -13674,11 +13932,13 @@
           },
           "organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "name and displayName"
           },
           "lists": {
             "type": "string",
-            "description": "One of: all, closed, none or open"
+            "description": "One of: all, closed, none or open",
+            "default": "none"
           },
           "key": {
             "type": "string",
@@ -13947,11 +14207,13 @@
           },
           "filter": {
             "type": "string",
-            "description": "One of: admins, all, none, normal or owners"
+            "description": "One of: admins, all, none, normal or owners",
+            "default": "all"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "activity": {
             "type": "string",
@@ -14203,7 +14465,8 @@
           },
           "attachment_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
+            "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url",
+            "default": "all"
           },
           "members": {
             "type": "string",
@@ -14211,7 +14474,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials and username"
           },
           "checkItemStates": {
             "type": "string",
@@ -14219,7 +14483,8 @@
           },
           "checklists": {
             "type": "string",
-            "description": "One of: all or none"
+            "description": "One of: all or none",
+            "default": "none"
           },
           "board": {
             "type": "string",
@@ -14227,7 +14492,8 @@
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name, desc, closed, idOrganization, pinned, url and prefs"
           },
           "list": {
             "type": "string",
@@ -14235,15 +14501,18 @@
           },
           "list_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
+            "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed",
+            "default": "all"
           },
           "filter": {
             "type": "string",
-            "description": "One of: all, closed, none, open or visible"
+            "description": "One of: all, closed, none, open or visible",
+            "default": "visible"
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -14325,7 +14594,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",
@@ -14402,7 +14672,8 @@
           },
           "filter": {
             "type": "string",
-            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
+            "description": "all or a comma-separated list of: active, admin, deactivated, me or normal",
+            "default": "all"
           },
           "member": {
             "type": "string",
@@ -14410,7 +14681,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "key": {
             "type": "string",
@@ -14456,7 +14728,8 @@
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "fullName and username"
           },
           "key": {
             "type": "string",
@@ -15030,7 +15303,8 @@
           },
           "idBoards": {
             "type": "string",
-            "description": "A comma-separated list of objectIds, 24-character hex strings"
+            "description": "A comma-separated list of objectIds, 24-character hex strings",
+            "default": "mine"
           },
           "idOrganizations": {
             "type": "string",
@@ -15042,27 +15316,33 @@
           },
           "modelTypes": {
             "type": "string",
-            "description": "all or a comma-separated list of: actions, boards, cards, members or organizations"
+            "description": "all or a comma-separated list of: actions, boards, cards, members or organizations",
+            "default": "all"
           },
           "board_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
+            "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url",
+            "default": "name and idOrganization"
           },
           "boards_limit": {
             "type": "string",
-            "description": "a number from 1 to 1000"
+            "description": "a number from 1 to 1000",
+            "default": "10"
           },
           "card_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
+            "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url",
+            "default": "all"
           },
           "cards_limit": {
             "type": "string",
-            "description": "a number from 1 to 1000"
+            "description": "a number from 1 to 1000",
+            "default": "10"
           },
           "cards_page": {
             "type": "string",
-            "description": "a number from 0 to 100"
+            "description": "a number from 0 to 100",
+            "default": "0"
           },
           "card_board": {
             "type": "string",
@@ -15086,19 +15366,23 @@
           },
           "organization_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
+            "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website",
+            "default": "name and displayName"
           },
           "organizations_limit": {
             "type": "string",
-            "description": "a number from 1 to 1000"
+            "description": "a number from 1 to 1000",
+            "default": "10"
           },
           "member_fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
+            "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username",
+            "default": "avatarHash, fullName, initials, username and confirmed"
           },
           "members_limit": {
             "type": "string",
-            "description": "a number from 1 to 1000"
+            "description": "a number from 1 to 1000",
+            "default": "10"
           },
           "partial": {
             "type": "string",
@@ -15141,7 +15425,8 @@
           },
           "limit": {
             "type": "string",
-            "description": "a number from 1 to 20"
+            "description": "a number from 1 to 20",
+            "default": "8"
           },
           "idBoard": {
             "type": "string",
@@ -15363,7 +15648,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: dateCreated, dateExpires, idMember, identifier or permissions"
+            "description": "all or a comma-separated list of: dateCreated, dateExpires, idMember, identifier or permissions",
+            "default": "all"
           },
           "webhooks": {
             "type": "string",
@@ -15405,7 +15691,8 @@
           },
           "fields": {
             "type": "string",
-            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
+            "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username",
+            "default": "all"
           },
           "key": {
             "type": "string",

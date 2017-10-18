@@ -21,7 +21,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -44,7 +45,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -67,7 +69,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -90,7 +93,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -113,7 +117,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -136,7 +141,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -159,7 +165,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_thread": {
             "type": "integer",
@@ -191,7 +198,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "filter": {
             "type": "string",
@@ -199,7 +207,8 @@
             "enum": [
               "all",
               "unread"
-            ]
+            ],
+            "default": "all"
           },
           "page": {
             "type": "integer",
@@ -227,7 +236,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -250,7 +260,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -273,7 +284,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -296,7 +308,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "events_category": {
             "type": "string",
@@ -304,7 +317,8 @@
             "enum": [
               "own",
               "friends"
-            ]
+            ],
+            "default": "own"
           }
         },
         "additionalProperties": false,
@@ -328,7 +342,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -351,7 +366,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -374,7 +390,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -397,7 +414,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -420,7 +438,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -451,7 +470,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -482,7 +502,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -505,7 +526,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -536,7 +558,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -559,7 +582,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "property": {
             "type": "string",
@@ -624,7 +648,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -647,7 +672,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -670,7 +696,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -693,7 +720,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -716,7 +744,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_album": {
             "type": "integer",
@@ -749,7 +778,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -785,7 +815,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -808,7 +839,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -831,7 +863,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -854,7 +887,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -885,7 +919,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -908,7 +943,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -931,7 +967,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -947,7 +984,8 @@
             "enum": [
               "html",
               "bbcode"
-            ]
+            ],
+            "default": "html"
           }
         },
         "additionalProperties": false,
@@ -970,7 +1008,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1005,7 +1044,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1028,7 +1068,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1069,7 +1110,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1109,7 +1151,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1132,7 +1175,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1155,7 +1199,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1191,7 +1236,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1214,7 +1260,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1237,7 +1284,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1257,7 +1305,8 @@
             "enum": [
               "html",
               "bbcode"
-            ]
+            ],
+            "default": "html"
           }
         },
         "additionalProperties": false,
@@ -1281,7 +1330,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1304,15 +1354,18 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "page": {
             "type": "integer",
-            "description": "Page number."
+            "description": "Page number.",
+            "default": 1
           },
           "with_secret": {
             "type": "boolean",
-            "description": "Allow authenticated blog owner to show secret posts (false by default)."
+            "description": "Allow authenticated blog owner to show secret posts (false by default).",
+            "default": false
           },
           "output_format": {
             "type": "string",
@@ -1320,7 +1373,8 @@
             "enum": [
               "html",
               "bbcode"
-            ]
+            ],
+            "default": "html"
           }
         },
         "additionalProperties": false,
@@ -1343,7 +1397,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1355,11 +1410,13 @@
           },
           "page": {
             "type": "integer",
-            "description": "Page number."
+            "description": "Page number.",
+            "default": 1
           },
           "with_secret": {
             "type": "boolean",
-            "description": "Allow authenticated blog owner to show secret posts (false by default)."
+            "description": "Allow authenticated blog owner to show secret posts (false by default).",
+            "default": false
           },
           "output_format": {
             "type": "string",
@@ -1367,7 +1424,8 @@
             "enum": [
               "html",
               "bbcode"
-            ]
+            ],
+            "default": "html"
           }
         },
         "additionalProperties": false,
@@ -1390,11 +1448,13 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "multipart/form-data"
           }
         },
         "additionalProperties": false,
@@ -1418,7 +1478,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1441,7 +1502,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1457,7 +1519,8 @@
             "enum": [
               "html",
               "bbcode"
-            ]
+            ],
+            "default": "html"
           }
         },
         "additionalProperties": false,
@@ -1480,7 +1543,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1511,7 +1575,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1534,7 +1599,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1557,7 +1623,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1580,7 +1647,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1603,7 +1671,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user_1": {
             "type": "integer",
@@ -1636,7 +1705,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1659,7 +1729,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1682,7 +1753,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1705,7 +1777,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1728,7 +1801,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1751,7 +1825,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1774,7 +1849,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,
@@ -1797,7 +1873,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1828,7 +1905,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "page": {
             "type": "integer",
@@ -1836,7 +1914,8 @@
           },
           "order": {
             "type": "string",
-            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last."
+            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last.",
+            "default": "DEFAULT"
           }
         },
         "additionalProperties": false,
@@ -1859,7 +1938,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "page": {
             "type": "integer",
@@ -1867,7 +1947,8 @@
           },
           "order": {
             "type": "string",
-            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last."
+            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last.",
+            "default": "DEFAULT"
           }
         },
         "additionalProperties": false,
@@ -1890,7 +1971,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1906,7 +1988,8 @@
           },
           "order": {
             "type": "string",
-            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last."
+            "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last.",
+            "default": "DEFAULT"
           }
         },
         "additionalProperties": false,
@@ -1929,7 +2012,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           },
           "id_user": {
             "type": "integer",
@@ -1960,7 +2044,8 @@
             "enum": [
               "json",
               "xml"
-            ]
+            ],
+            "default": "json"
           }
         },
         "additionalProperties": false,

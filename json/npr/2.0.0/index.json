@@ -2800,7 +2800,8 @@
           "startNum": {
             "type": "integer",
             "format": "int32",
-            "description": "The result to start with. Allows paging through the episodes of a podcast or program, with the default, `startNum=0`, being the most recent episode"
+            "description": "The result to start with. Allows paging through the episodes of a podcast or program, with the default, `startNum=0`, being the most recent episode",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -2831,7 +2832,8 @@
           },
           "exploreOnly": {
             "type": "boolean",
-            "description": "If set to `true`, this call will return only channels that should be shown in the client's `Explore` view"
+            "description": "If set to `true`, this call will return only channels that should be shown in the client's `Explore` view",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -2893,7 +2895,8 @@
               "newscast",
               "story",
               "podcast"
-            ]
+            ],
+            "default": "story"
           },
           "Authorization": {
             "type": "string",
@@ -3002,11 +3005,13 @@
               "ongoing email",
               "newscasts",
               "shows"
-            ]
+            ],
+            "default": "npr"
           },
           "recommend": {
             "type": "boolean",
-            "description": "If set to `false`, this call will return a blank document; otherwise it will return a new recommendation object"
+            "description": "If set to `false`, this call will return a blank document; otherwise it will return a new recommendation object",
+            "default": true
           },
           "body": {
             "items": {
@@ -3058,7 +3063,8 @@
               "ongoing email",
               "newscasts",
               "shows"
-            ]
+            ],
+            "default": "npr"
           },
           "sharedMediaId": {
             "type": "string",

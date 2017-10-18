@@ -21,7 +21,8 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "<p>Page of results to fetch.</p>\n"
+            "description": "<p>Page of results to fetch.</p>\n",
+            "default": 1
           },
           "per_page": {
             "type": "integer",
@@ -57,7 +58,8 @@
           "proximity_square": {
             "type": "integer",
             "format": "int32",
-            "description": "<p>Size of the proximity search</p>\n"
+            "description": "<p>Size of the proximity search</p>\n",
+            "default": 100
           },
           "query": {
             "type": "string",
@@ -127,7 +129,8 @@
           "proximity_square": {
             "type": "integer",
             "format": "int32",
-            "description": "<p>Size of the proximity search</p>\n"
+            "description": "<p>Size of the proximity search</p>\n",
+            "default": 100
           },
           "query": {
             "type": "string",
@@ -186,7 +189,8 @@
           "proximity_square": {
             "type": "integer",
             "format": "int32",
-            "description": "<p>Size of the proximity search</p>\n"
+            "description": "<p>Size of the proximity search</p>\n",
+            "default": 100
           },
           "query": {
             "type": "string",

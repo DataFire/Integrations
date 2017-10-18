@@ -1185,7 +1185,8 @@
           },
           "add-keyword-links": {
             "type": "boolean",
-            "description": "Add links on source code keywords to the relevant language documentation"
+            "description": "Add links on source code keywords to the relevant language documentation",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1265,7 +1266,8 @@
           },
           "fix-typos": {
             "type": "boolean",
-            "description": "Automatically attempt to fix typos in the address"
+            "description": "Automatically attempt to fix typos in the address",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1305,11 +1307,13 @@
           },
           "language-code": {
             "type": "string",
-            "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru"
+            "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru",
+            "default": "en"
           },
           "fuzzy-search": {
             "type": "boolean",
-            "description": "If no matches are found for the given address, start performing a recursive fuzzy search until a geolocation is found. We use a combination of approximate string matching and data cleansing to find possible location matches"
+            "description": "If no matches are found for the given address, start performing a recursive fuzzy search until a geolocation is found. We use a combination of approximate string matching and data cleansing to find possible location matches",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1351,7 +1355,8 @@
           },
           "language-code": {
             "type": "string",
-            "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru"
+            "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru",
+            "default": "en"
           }
         },
         "additionalProperties": false,
@@ -1534,11 +1539,13 @@
           },
           "format": {
             "type": "string",
-            "description": "Which format to output, available options are: PDF, PNG, JPG"
+            "description": "Which format to output, available options are: PDF, PNG, JPG",
+            "default": "PDF"
           },
           "page-size": {
             "type": "string",
-            "description": "Set the document page size, can be one of: A0 - A9, B0 - B10, Comm10E, DLE or Letter"
+            "description": "Set the document page size, can be one of: A0 - A9, B0 - B10, Comm10E, DLE or Letter",
+            "default": "A4"
           },
           "title": {
             "type": "string",
@@ -1547,52 +1554,63 @@
           "margin": {
             "type": "integer",
             "format": "int32",
-            "description": "The document margin (in mm)"
+            "description": "The document margin (in mm)",
+            "default": 0
           },
           "margin-left": {
             "type": "integer",
             "format": "int32",
-            "description": "The document left margin (in mm)"
+            "description": "The document left margin (in mm)",
+            "default": 0
           },
           "margin-right": {
             "type": "integer",
             "format": "int32",
-            "description": "The document right margin (in mm)"
+            "description": "The document right margin (in mm)",
+            "default": 0
           },
           "margin-top": {
             "type": "integer",
             "format": "int32",
-            "description": "The document top margin (in mm)"
+            "description": "The document top margin (in mm)",
+            "default": 0
           },
           "margin-bottom": {
             "type": "integer",
             "format": "int32",
-            "description": "The document bottom margin (in mm)"
+            "description": "The document bottom margin (in mm)",
+            "default": 0
           },
           "landscape": {
             "type": "boolean",
-            "description": "Set the document to lanscape orientation"
+            "description": "Set the document to lanscape orientation",
+            "default": false
           },
           "zoom": {
             "type": "number",
             "format": "double",
-            "description": "Set the zoom factor when rendering the page (2.0 for double size, 0.5 for half size)"
+            "description": "Set the zoom factor when rendering the page (2.0 for double size, 0.5 for half size)",
+            "default": 1
           },
           "grayscale": {
             "type": "boolean",
-            "description": "Render the final document in grayscale"
+            "description": "Render the final document in grayscale",
+            "default": false
           },
           "media-print": {
             "type": "boolean",
-            "description": "Use @media print CSS styles to render the document"
+            "description": "Use @media print CSS styles to render the document",
+            "default": false
           },
           "media-queries": {
             "type": "boolean",
-            "description": "Activate all @media queries before rendering. This can be useful if you wan't to render the mobile version of a responsive website"
+            "description": "Activate all @media queries before rendering. This can be useful if you wan't to render the mobile version of a responsive website",
+            "default": false
           },
           "forms": {
             "type": "boolean",
-            "description": "Generate real (fillable) PDF forms from HTML forms"
+            "description": "Generate real (fillable) PDF forms from HTML forms",
+            "default": false
           },
           "css": {
             "type": "string",
@@ -1601,7 +1619,8 @@
           "image-width": {
             "type": "integer",
             "format": "int32",
-            "description": "If rendering to an image format (PNG or JPG) use this image width (in pixels)"
+            "description": "If rendering to an image format (PNG or JPG) use this image width (in pixels)",
+            "default": 1024
           },
           "image-height": {
             "type": "integer",
@@ -1647,7 +1666,8 @@
           },
           "format": {
             "type": "string",
-            "description": "The output image format, can be either png or jpg"
+            "description": "The output image format, can be either png or jpg",
+            "default": "png"
           }
         },
         "additionalProperties": false,
@@ -1685,15 +1705,18 @@
           "opacity": {
             "type": "integer",
             "format": "int32",
-            "description": "The opacity of the watermark (0 to 100)"
+            "description": "The opacity of the watermark (0 to 100)",
+            "default": 50
           },
           "format": {
             "type": "string",
-            "description": "The output image format, can be either png or jpg"
+            "description": "The output image format, can be either png or jpg",
+            "default": "png"
           },
           "position": {
             "type": "string",
-            "description": "The position of the watermark image, possible values are: center, top-left, top-center, top-right, bottom-left, bottom-center, bottom-right"
+            "description": "The position of the watermark image, possible values are: center, top-left, top-center, top-right, bottom-left, bottom-center, bottom-right",
+            "default": "center"
           },
           "width": {
             "type": "integer",
@@ -1773,7 +1796,8 @@
           },
           "reverse-lookup": {
             "type": "boolean",
-            "description": "Do a reverse DNS (PTR) lookup. This option can add extra delay to the request so only use it if you need it"
+            "description": "Do a reverse DNS (PTR) lookup. This option can add extra delay to the request so only use it if you need it",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1920,7 +1944,8 @@
           "code-length": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of digits to use in the security code (between 4 and 12)"
+            "description": "The number of digits to use in the security code (between 4 and 12)",
+            "default": 6
           },
           "security-code": {
             "type": "integer",
@@ -1930,7 +1955,8 @@
           "playback-delay": {
             "type": "integer",
             "format": "int32",
-            "description": "The delay in milliseconds between the playback of each security code"
+            "description": "The delay in milliseconds between the playback of each security code",
+            "default": 800
           },
           "country-code": {
             "type": "string",
@@ -1938,7 +1964,8 @@
           },
           "language-code": {
             "type": "string",
-            "description": "The language to playback the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian"
+            "description": "The language to playback the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian",
+            "default": "en"
           }
         },
         "additionalProperties": false,
@@ -1969,20 +1996,24 @@
           "width": {
             "type": "integer",
             "format": "int32",
-            "description": "The width of the QR code (in px)"
+            "description": "The width of the QR code (in px)",
+            "default": 250
           },
           "height": {
             "type": "integer",
             "format": "int32",
-            "description": "The height of the QR code (in px)"
+            "description": "The height of the QR code (in px)",
+            "default": 250
           },
           "fg-color": {
             "type": "string",
-            "description": "The QR code foreground color (you should always use a dark color for this)"
+            "description": "The QR code foreground color (you should always use a dark color for this)",
+            "default": "#000000"
           },
           "bg-color": {
             "type": "string",
-            "description": "The QR code background color (you should always use a light color for this)"
+            "description": "The QR code background color (you should always use a light color for this)",
+            "default": "#ffffff"
           }
         },
         "additionalProperties": false,
@@ -2020,7 +2051,8 @@
           "code-length": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of digits to use in the security code (must be between 4 and 12)"
+            "description": "The number of digits to use in the security code (must be between 4 and 12)",
+            "default": 5
           },
           "security-code": {
             "type": "integer",
@@ -2033,7 +2065,8 @@
           },
           "language-code": {
             "type": "string",
-            "description": "The language to send the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian"
+            "description": "The language to send the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian",
+            "default": "en"
           }
         },
         "additionalProperties": false,

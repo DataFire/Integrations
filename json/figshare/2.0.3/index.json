@@ -2579,7 +2579,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -3605,7 +3606,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -3631,14 +3633,16 @@
               "shares",
               "downloads",
               "cites"
-            ]
+            ],
+            "default": "published_date"
           },
           "order_direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           }
         },
         "additionalProperties": false
@@ -4389,7 +4393,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -4415,14 +4420,16 @@
               "shares",
               "downloads",
               "cites"
-            ]
+            ],
+            "default": "published_date"
           },
           "order_direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "published_since": {
             "type": "string",
@@ -4519,7 +4526,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -4545,14 +4553,16 @@
               "shares",
               "downloads",
               "cites"
-            ]
+            ],
+            "default": "published_date"
           },
           "order_direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "storage": {
             "type": "string",
@@ -5065,7 +5075,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -5292,7 +5303,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -5318,14 +5330,16 @@
               "shares",
               "downloads",
               "cites"
-            ]
+            ],
+            "default": "published_date"
           },
           "order_direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "institution": {
             "type": "integer",
@@ -5618,7 +5632,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -5644,14 +5659,16 @@
               "shares",
               "downloads",
               "cites"
-            ]
+            ],
+            "default": "published_date"
           },
           "order_direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "institution": {
             "type": "integer",
@@ -5756,7 +5773,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -5957,7 +5975,8 @@
             "format": "int64",
             "description": "The number of results included on a page. Used for pagination with page",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "limit": {
             "type": "integer",
@@ -5983,14 +6002,16 @@
               "shares",
               "downloads",
               "cites"
-            ]
+            ],
+            "default": "published_date"
           },
           "order_direction": {
             "type": "string",
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "institution": {
             "type": "integer",

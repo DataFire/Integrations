@@ -3954,7 +3954,8 @@
           },
           "p_tribedist": {
             "type": "number",
-            "description": "Proximity to tribal land limiter. Enter an amount of mile between 0 and 25 to filter results.  This parameter is only evaluated if p_tribeid is populated."
+            "description": "Proximity to tribal land limiter. Enter an amount of mile between 0 and 25 to filter results.  This parameter is only evaluated if p_tribeid is populated.",
+            "default": 0
           },
           "p_wbd": {
             "type": "string",
@@ -4425,7 +4426,8 @@
           },
           "p_tribedist": {
             "type": "number",
-            "description": "Proximity to tribal land limiter. Enter an amount of mile between 0 and 25 to filter results.  This parameter is only evaluated if p_tribeid is populated."
+            "description": "Proximity to tribal land limiter. Enter an amount of mile between 0 and 25 to filter results.  This parameter is only evaluated if p_tribeid is populated.",
+            "default": 0
           },
           "p_wbd": {
             "type": "string",
@@ -4680,7 +4682,8 @@
           },
           "pageno": {
             "type": "number",
-            "description": "Indicates the number of the page to display. It is used only when the results are paginated."
+            "description": "Indicates the number of the page to display. It is used only when the results are paginated.",
+            "default": 1
           },
           "callback": {
             "type": "string",

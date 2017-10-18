@@ -1103,15 +1103,18 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "includeSpamTrash": {
             "type": "boolean",
-            "description": "Include drafts from SPAM and TRASH in the results."
+            "description": "Include drafts from SPAM and TRASH in the results.",
+            "default": false
           },
           "maxResults": {
             "type": "integer",
-            "description": "Maximum number of drafts to return."
+            "description": "Maximum number of drafts to return.",
+            "default": 100
           },
           "pageToken": {
             "type": "string",
@@ -1126,7 +1129,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1142,7 +1146,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1176,7 +1181,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/Draft"
@@ -1186,7 +1192,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1202,7 +1209,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1236,7 +1244,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/Draft"
@@ -1246,7 +1255,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1262,7 +1272,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1296,7 +1307,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1307,7 +1319,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1323,7 +1336,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1356,7 +1370,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1370,14 +1385,16 @@
               "metadata",
               "minimal",
               "raw"
-            ]
+            ],
+            "default": "full"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1393,7 +1410,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1428,7 +1446,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1442,7 +1461,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1458,7 +1478,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1493,7 +1514,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "historyTypes": {
             "type": "array",
@@ -1505,7 +1527,8 @@
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of history records to return."
+            "description": "The maximum number of history records to return.",
+            "default": 100
           },
           "pageToken": {
             "type": "string",
@@ -1520,7 +1543,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1536,7 +1560,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1570,14 +1595,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1593,7 +1620,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1627,7 +1655,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/Label"
@@ -1637,7 +1666,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1653,7 +1683,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1687,7 +1718,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1698,7 +1730,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1714,7 +1747,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1747,7 +1781,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1758,7 +1793,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1774,7 +1810,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1809,7 +1846,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1823,7 +1861,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1839,7 +1878,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1874,7 +1914,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -1888,7 +1929,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1904,7 +1946,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1939,11 +1982,13 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "includeSpamTrash": {
             "type": "boolean",
-            "description": "Include messages from SPAM and TRASH in the results."
+            "description": "Include messages from SPAM and TRASH in the results.",
+            "default": false
           },
           "labelIds": {
             "type": "array",
@@ -1951,7 +1996,8 @@
           },
           "maxResults": {
             "type": "integer",
-            "description": "Maximum number of messages to return."
+            "description": "Maximum number of messages to return.",
+            "default": 100
           },
           "pageToken": {
             "type": "string",
@@ -1966,7 +2012,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1982,7 +2029,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2016,11 +2064,13 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "deleted": {
             "type": "boolean",
-            "description": "Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts."
+            "description": "Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts.",
+            "default": false
           },
           "internalDateSource": {
             "type": "string",
@@ -2028,7 +2078,8 @@
             "enum": [
               "dateHeader",
               "receivedTime"
-            ]
+            ],
+            "default": "receivedTime"
           },
           "body": {
             "$ref": "#/definitions/Message"
@@ -2038,7 +2089,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2054,7 +2106,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2088,7 +2141,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/BatchDeleteMessagesRequest"
@@ -2098,7 +2152,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2114,7 +2169,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2146,7 +2202,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/BatchModifyMessagesRequest"
@@ -2156,7 +2213,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2172,7 +2230,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2204,11 +2263,13 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "deleted": {
             "type": "boolean",
-            "description": "Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts."
+            "description": "Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for G Suite accounts.",
+            "default": false
           },
           "internalDateSource": {
             "type": "string",
@@ -2216,15 +2277,18 @@
             "enum": [
               "dateHeader",
               "receivedTime"
-            ]
+            ],
+            "default": "dateHeader"
           },
           "neverMarkSpam": {
             "type": "boolean",
-            "description": "Ignore the Gmail spam classifier decision and never mark this email as SPAM in the mailbox."
+            "description": "Ignore the Gmail spam classifier decision and never mark this email as SPAM in the mailbox.",
+            "default": false
           },
           "processForCalendar": {
             "type": "boolean",
-            "description": "Process calendar invites in the email and add any extracted meetings to the Google Calendar for this user."
+            "description": "Process calendar invites in the email and add any extracted meetings to the Google Calendar for this user.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/Message"
@@ -2234,7 +2298,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2250,7 +2315,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2284,7 +2350,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/Message"
@@ -2294,7 +2361,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2310,7 +2378,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2344,7 +2413,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -2355,7 +2425,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2371,7 +2442,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2404,7 +2476,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -2418,7 +2491,8 @@
               "metadata",
               "minimal",
               "raw"
-            ]
+            ],
+            "default": "full"
           },
           "metadataHeaders": {
             "type": "array",
@@ -2429,7 +2503,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2445,7 +2520,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2480,7 +2556,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -2494,7 +2571,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2510,7 +2588,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2545,7 +2624,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -2556,7 +2636,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2572,7 +2653,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2607,7 +2689,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -2618,7 +2701,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2634,7 +2718,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2669,7 +2754,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "messageId": {
             "type": "string",
@@ -2684,7 +2770,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2700,7 +2787,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2736,14 +2824,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2759,7 +2849,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2793,14 +2884,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2816,7 +2909,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2850,7 +2944,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/AutoForwarding"
@@ -2860,7 +2955,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2876,7 +2972,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2910,14 +3007,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2933,7 +3032,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2967,7 +3067,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/Filter"
@@ -2977,7 +3078,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2993,7 +3095,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3027,7 +3130,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -3038,7 +3142,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3054,7 +3159,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3087,7 +3193,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -3098,7 +3205,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3114,7 +3222,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3149,14 +3258,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3172,7 +3283,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3206,7 +3318,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/ForwardingAddress"
@@ -3216,7 +3329,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3232,7 +3346,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3266,7 +3381,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "forwardingEmail": {
             "type": "string",
@@ -3277,7 +3393,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3293,7 +3410,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3326,7 +3444,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "forwardingEmail": {
             "type": "string",
@@ -3337,7 +3456,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3353,7 +3473,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3388,14 +3509,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3411,7 +3534,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3445,7 +3569,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/ImapSettings"
@@ -3455,7 +3580,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3471,7 +3597,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3505,14 +3632,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3528,7 +3657,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3562,7 +3692,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/PopSettings"
@@ -3572,7 +3703,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3588,7 +3720,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3622,14 +3755,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3645,7 +3780,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3679,7 +3815,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/SendAs"
@@ -3689,7 +3826,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3705,7 +3843,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3739,7 +3878,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -3750,7 +3890,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3766,7 +3907,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3799,7 +3941,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -3810,7 +3953,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3826,7 +3970,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3861,7 +4006,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -3875,7 +4021,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3891,7 +4038,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3926,7 +4074,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -3940,7 +4089,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3956,7 +4106,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3991,7 +4142,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -4002,7 +4154,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4018,7 +4171,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4053,7 +4207,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -4067,7 +4222,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4083,7 +4239,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4118,7 +4275,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -4133,7 +4291,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4149,7 +4308,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4183,7 +4343,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -4198,7 +4359,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4214,7 +4376,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4250,7 +4413,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -4265,7 +4429,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4281,7 +4446,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4315,7 +4481,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "sendAsEmail": {
             "type": "string",
@@ -4326,7 +4493,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4342,7 +4510,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4375,14 +4544,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4398,7 +4569,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4432,7 +4604,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user."
+            "description": "User's email address. The special value \"me\" can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/VacationSettings"
@@ -4442,7 +4615,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4458,7 +4632,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4492,14 +4667,16 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4515,7 +4692,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4547,11 +4725,13 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "includeSpamTrash": {
             "type": "boolean",
-            "description": "Include threads from SPAM and TRASH in the results."
+            "description": "Include threads from SPAM and TRASH in the results.",
+            "default": false
           },
           "labelIds": {
             "type": "array",
@@ -4559,7 +4739,8 @@
           },
           "maxResults": {
             "type": "integer",
-            "description": "Maximum number of threads to return."
+            "description": "Maximum number of threads to return.",
+            "default": 100
           },
           "pageToken": {
             "type": "string",
@@ -4574,7 +4755,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4590,7 +4772,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4624,7 +4807,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -4635,7 +4819,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4651,7 +4836,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4684,7 +4870,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -4697,7 +4884,8 @@
               "full",
               "metadata",
               "minimal"
-            ]
+            ],
+            "default": "full"
           },
           "metadataHeaders": {
             "type": "array",
@@ -4708,7 +4896,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4724,7 +4913,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4759,7 +4949,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -4773,7 +4964,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4789,7 +4981,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4824,7 +5017,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -4835,7 +5029,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4851,7 +5046,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4886,7 +5082,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "id": {
             "type": "string",
@@ -4897,7 +5094,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4913,7 +5111,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -4948,7 +5147,8 @@
         "properties": {
           "userId": {
             "type": "string",
-            "description": "The user's email address. The special value me can be used to indicate the authenticated user."
+            "description": "The user's email address. The special value me can be used to indicate the authenticated user.",
+            "default": "me"
           },
           "body": {
             "$ref": "#/definitions/WatchRequest"
@@ -4958,7 +5158,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -4974,7 +5175,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

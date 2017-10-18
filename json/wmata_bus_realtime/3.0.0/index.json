@@ -28,7 +28,8 @@
             "description": "7-digit regional stop ID.",
             "enum": [
               "1001195"
-            ]
+            ],
+            "default": "1001195"
           }
         },
         "additionalProperties": false,
@@ -55,7 +56,8 @@
             "description": "7-digit regional stop ID.",
             "enum": [
               "1001195"
-            ]
+            ],
+            "default": "1001195"
           }
         },
         "additionalProperties": false,

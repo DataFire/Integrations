@@ -418,11 +418,13 @@
             "enum": [
               "driveUi",
               "none"
-            ]
+            ],
+            "default": "driveUi"
           },
           "pageSize": {
             "type": "integer",
-            "description": "The maximum number of events to return on a page. The response includes a continuation token if there are more events."
+            "description": "The maximum number of events to return on a page. The response includes a continuation token if there are more events.",
+            "default": 50
           },
           "pageToken": {
             "type": "string",
@@ -434,14 +436,16 @@
           },
           "userId": {
             "type": "string",
-            "description": "Indicates the user to return activity for. Use the special value me to indicate the currently authenticated user."
+            "description": "Indicates the user to return activity for. Use the special value me to indicate the currently authenticated user.",
+            "default": "me"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -457,7 +461,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

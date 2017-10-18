@@ -25,7 +25,8 @@
           },
           "sectionId": {
             "type": "string",
-            "description": "Specifies the specific Section"
+            "description": "Specifies the specific Section",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -111,7 +112,8 @@
           },
           "sectionGroupId": {
             "type": "string",
-            "description": "Specifies the section group."
+            "description": "Specifies the section group.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -156,7 +158,8 @@
           },
           "sectionGroupId": {
             "type": "string",
-            "description": "Specifies the section group."
+            "description": "Specifies the section group.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -183,7 +186,8 @@
           },
           "sectionGroupId": {
             "type": "string",
-            "description": "Specifies the specific section group"
+            "description": "Specifies the specific section group",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -269,7 +273,8 @@
           },
           "notebookId": {
             "type": "string",
-            "description": "Specifies the notebook."
+            "description": "Specifies the notebook.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -314,7 +319,8 @@
           },
           "notebookId": {
             "type": "string",
-            "description": "Specifies the notebook."
+            "description": "Specifies the notebook.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -333,11 +339,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Required: indicates type of content being sent"
+            "description": "Required: indicates type of content being sent",
+            "default": "application/json"
           },
           "notebookId": {
             "type": "string",
-            "description": "Specifies the notebook."
+            "description": "Specifies the notebook.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -365,7 +373,8 @@
           },
           "notebookId": {
             "type": "string",
-            "description": "Specifies the specific notebook"
+            "description": "Specifies the specific notebook",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -425,7 +434,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Required: indicates type of content being sent"
+            "description": "Required: indicates type of content being sent",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -444,15 +454,18 @@
         "properties": {
           "Accept": {
             "type": "string",
-            "description": "Required: indicates type of content returned in the response."
+            "description": "Required: indicates type of content returned in the response.",
+            "default": "text/html"
           },
           "includeIDs": {
             "type": "string",
-            "description": "Optional: set to true to get generated IDs to use for PATCH operations."
+            "description": "Optional: set to true to get generated IDs to use for PATCH operations.",
+            "default": "false"
           },
           "pageId": {
             "type": "string",
-            "description": "Specifies the page whose content you want to retrieve."
+            "description": "Specifies the page whose content you want to retrieve.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -472,7 +485,8 @@
         "properties": {
           "pageId": {
             "type": "string",
-            "description": "Specifies the page to delete."
+            "description": "Specifies the page to delete.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -495,7 +509,8 @@
           },
           "pageId": {
             "type": "string",
-            "description": "Specifies the page to delete."
+            "description": "Specifies the page to delete.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -540,7 +555,8 @@
           },
           "sectionId": {
             "type": "string",
-            "description": "Specifies the section that contains the pages."
+            "description": "Specifies the section that contains the pages.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -559,11 +575,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Required: indicates type of content sent"
+            "description": "Required: indicates type of content sent",
+            "default": "multipart/form-data; boundary=NewPart"
           },
           "sectionId": {
             "type": "string",
-            "description": "Specifies the section that contains the pages."
+            "description": "Specifies the section that contains the pages.",
+            "default": ""
           }
         },
         "additionalProperties": false,
@@ -624,7 +642,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Required: indicates type of content sent"
+            "description": "Required: indicates type of content sent",
+            "default": "multipart/form-data; boundary=NewPart"
           },
           "sectionName": {
             "type": "string",

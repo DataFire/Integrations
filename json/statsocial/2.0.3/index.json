@@ -610,7 +610,8 @@
           },
           "sample": {
             "type": "integer",
-            "description": "Sample report indicator"
+            "description": "Sample report indicator",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -649,7 +650,8 @@
           },
           "sample": {
             "type": "integer",
-            "description": "Sample report indicator"
+            "description": "Sample report indicator",
+            "default": 1
           }
         },
         "additionalProperties": false,

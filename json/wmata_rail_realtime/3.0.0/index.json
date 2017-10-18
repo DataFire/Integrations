@@ -29,7 +29,8 @@
             "enum": [
               "B03",
               "All"
-            ]
+            ],
+            "default": "B03"
           }
         },
         "additionalProperties": false,
@@ -57,7 +58,8 @@
             "enum": [
               "B03",
               "All"
-            ]
+            ],
+            "default": "B03"
           }
         },
         "additionalProperties": false,

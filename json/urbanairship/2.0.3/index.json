@@ -74,7 +74,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -112,7 +113,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -131,7 +133,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "alias": {
             "type": "string",
@@ -174,7 +177,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -193,7 +197,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -293,7 +298,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "apid": {
             "type": "string",
@@ -378,7 +384,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "pin": {
             "type": "string",
@@ -440,7 +447,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -459,7 +467,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "user_id": {
             "type": "string",
@@ -521,7 +530,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "user_id": {
             "type": "string",
@@ -545,7 +555,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -564,7 +575,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -629,7 +641,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "user_id": {
             "type": "string",
@@ -749,7 +762,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "user_id": {
             "type": "string",
@@ -780,7 +794,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "product_id": {
             "type": "string",
@@ -804,7 +819,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "product_id": {
             "type": "string",
@@ -828,7 +844,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -885,7 +902,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "user_id": {
             "type": "string",
@@ -933,7 +951,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "user_id": {
             "type": "string",
@@ -962,7 +981,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -1007,7 +1027,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "feed_id": {
             "type": "string",
@@ -1076,7 +1097,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "tag": {
             "type": "string",
@@ -1174,7 +1196,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -1193,7 +1216,8 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/json"
           },
           "app_id": {
             "type": "string",

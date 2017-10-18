@@ -57,7 +57,8 @@
               "ROUND",
               "MITRE",
               "BEVEL"
-            ]
+            ],
+            "default": "ROUND"
           },
           "bufferCap": {
             "type": "string",
@@ -66,15 +67,18 @@
               "ROUND",
               "SQUARE",
               "FLAT"
-            ]
+            ],
+            "default": "ROUND"
           },
           "bufferMitreLimit": {
             "type": "integer",
-            "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0."
+            "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
+            "default": 5
           },
           "bufferSegments": {
             "type": "integer",
-            "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0."
+            "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
+            "default": 8
           }
         },
         "additionalProperties": false,
@@ -120,7 +124,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "resultFormat": {
             "type": "string",
@@ -143,7 +148,8 @@
             "enum": [
               false,
               true
-            ]
+            ],
+            "default": false
           },
           "callback": {
             "type": "string",
@@ -168,7 +174,8 @@
               "ROUND",
               "MITRE",
               "BEVEL"
-            ]
+            ],
+            "default": "ROUND"
           },
           "bufferCap": {
             "type": "string",
@@ -177,15 +184,18 @@
               "ROUND",
               "SQUARE",
               "FLAT"
-            ]
+            ],
+            "default": "ROUND"
           },
           "bufferMitreLimit": {
             "type": "integer",
-            "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0."
+            "description": "If bufferMetres is specified, the maximum ratio of distance from the original geometry to a mitre buffer point and the buffer amount. If the ratio is greater than this a bevel will be used instead. This prevents infinite distances when the angle between the two lines at a join is small. Must be > 0.",
+            "default": 5
           },
           "bufferSegments": {
             "type": "integer",
-            "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0."
+            "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0.",
+            "default": 8
           },
           "body": {
             "type": "string",
@@ -233,7 +243,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           }
         },
         "additionalProperties": false,
@@ -281,7 +292,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           }
         },
         "additionalProperties": false,
@@ -329,7 +341,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           }
         },
         "additionalProperties": false,
@@ -377,7 +390,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           }
         },
         "additionalProperties": false,
@@ -425,7 +439,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           }
         },
         "additionalProperties": false,

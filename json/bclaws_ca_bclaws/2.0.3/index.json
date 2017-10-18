@@ -28,7 +28,8 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           }
         },
         "additionalProperties": false,
@@ -58,11 +59,13 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           },
           "civixDocumentId": {
             "type": "string",
-            "description": "The document identification code for an index or directory"
+            "description": "The document identification code for an index or directory",
+            "default": "statreg"
           }
         },
         "additionalProperties": false,
@@ -93,15 +96,18 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           },
           "civixIndexId": {
             "type": "string",
-            "description": "Index identification code"
+            "description": "Index identification code",
+            "default": "statreg"
           },
           "civixDocumentId": {
             "type": "string",
-            "description": "The document identification code for an index or directory"
+            "description": "The document identification code for an index or directory",
+            "default": "01009_01"
           }
         },
         "additionalProperties": false,
@@ -133,19 +139,23 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           },
           "civixIndexId": {
             "type": "string",
-            "description": "Index identification code"
+            "description": "Index identification code",
+            "default": "statreg"
           },
           "civixDocumentId": {
             "type": "string",
-            "description": "The document identification code for an index or directory"
+            "description": "The document identification code for an index or directory",
+            "default": "01009_01"
           },
           "searchString": {
             "type": "string",
-            "description": "The text to search for within the document"
+            "description": "The text to search for within the document",
+            "default": "water"
           }
         },
         "additionalProperties": false,
@@ -178,15 +188,18 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           },
           "civixIndexId": {
             "type": "string",
-            "description": "Index identification code"
+            "description": "Index identification code",
+            "default": "statreg"
           },
           "civixDocumentId": {
             "type": "string",
-            "description": "The document identification code for an index or directory"
+            "description": "The document identification code for an index or directory",
+            "default": "01009_01"
           }
         },
         "additionalProperties": false,
@@ -218,19 +231,23 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           },
           "civixIndexId": {
             "type": "string",
-            "description": "Index identification code"
+            "description": "Index identification code",
+            "default": "statreg"
           },
           "civixDocumentId": {
             "type": "string",
-            "description": "The document identification code for an index or directory"
+            "description": "The document identification code for an index or directory",
+            "default": "01009_01"
           },
           "searchString": {
             "type": "string",
-            "description": "The text to search for within the document"
+            "description": "The text to search for within the document",
+            "default": "water"
           }
         },
         "additionalProperties": false,
@@ -263,27 +280,33 @@
               "ecb",
               "hscr",
               "arch_oic"
-            ]
+            ],
+            "default": "complete"
           },
           "q": {
             "type": "string",
-            "description": "query term"
+            "description": "query term",
+            "default": "water"
           },
           "s": {
             "type": "string",
-            "description": "first hit (start index)"
+            "description": "first hit (start index)",
+            "default": "0"
           },
           "e": {
             "type": "integer",
-            "description": "last hit (end index)"
+            "description": "last hit (end index)",
+            "default": 20
           },
           "nFrag": {
             "type": "integer",
-            "description": "number of fragment snippets to return (< 10)"
+            "description": "number of fragment snippets to return (< 10)",
+            "default": 5
           },
           "lFrag": {
             "type": "integer",
-            "description": "length of fragment snippets (< 200)"
+            "description": "length of fragment snippets (< 200)",
+            "default": 100
           }
         },
         "additionalProperties": false,

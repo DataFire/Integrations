@@ -2182,7 +2182,8 @@
           },
           "testMode": {
             "type": "boolean",
-            "description": "If true, the operation will be be commited. But the validation will be taken in account."
+            "description": "If true, the operation will be be commited. But the validation will be taken in account.",
+            "default": false
           },
           "request": {
             "$ref": "#/definitions/changeOrderListRequest"
@@ -2296,7 +2297,8 @@
             "description": "The type of the file to export",
             "enum": [
               "csv"
-            ]
+            ],
+            "default": "csv"
           },
           "request": {
             "$ref": "#/definitions/exportOrderListRequest"
@@ -2608,7 +2610,8 @@
           },
           "testMode": {
             "type": "boolean",
-            "description": "If true, the operation will be be commited. But the validation will be taken in account."
+            "description": "If true, the operation will be be commited. But the validation will be taken in account.",
+            "default": false
           },
           "request": {
             "$ref": "#/definitions/changeOrderRequest"

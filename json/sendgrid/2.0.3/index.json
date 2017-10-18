@@ -2889,7 +2889,8 @@
         "properties": {
           "limit": {
             "type": "integer",
-            "description": "Limits the number of IPs to return."
+            "description": "Limits the number of IPs to return.",
+            "default": 20
           }
         },
         "additionalProperties": false
@@ -4480,11 +4481,13 @@
         "properties": {
           "limit": {
             "type": "integer",
-            "description": "The number of results you would like to receive at a time."
+            "description": "The number of results you would like to receive at a time.",
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first campaign to return, where 0 is the first campaign."
+            "description": "The index of the first campaign to return, where 0 is the first campaign.",
+            "default": 0
           }
         },
         "additionalProperties": false
@@ -5060,7 +5063,8 @@
         "properties": {
           "limit": {
             "type": "integer",
-            "description": "The number of categories to display per page."
+            "description": "The number of categories to display per page.",
+            "default": 50
           },
           "category": {
             "type": "string",
@@ -5068,7 +5072,8 @@
           },
           "offset": {
             "type": "integer",
-            "description": "The point in the list that you would like to begin displaying results."
+            "description": "The point in the list that you would like to begin displaying results.",
+            "default": 0
           }
         },
         "additionalProperties": false
@@ -5116,7 +5121,8 @@
           "limit": {
             "type": "integer",
             "description": "The number of results to include.",
-            "maximum": 500
+            "maximum": 500,
+            "default": 500
           },
           "offset": {
             "type": "integer",
@@ -5159,7 +5165,8 @@
         "properties": {
           "sort_by_metric": {
             "type": "string",
-            "description": "The metric that you want to sort by.  Must be a single metric."
+            "description": "The metric that you want to sort by.  Must be a single metric.",
+            "default": "delivered"
           },
           "sort_by_direction": {
             "type": "string",
@@ -5167,7 +5174,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "start_date": {
             "type": "string",
@@ -5179,11 +5187,13 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the number of results returned."
+            "description": "Limits the number of results returned.",
+            "default": 5
           },
           "offset": {
             "type": "integer",
-            "description": "The point in the list to begin retrieving results."
+            "description": "The point in the list to begin retrieving results.",
+            "default": 0
           },
           "aggregated_by": {
             "type": "string",
@@ -6469,7 +6479,8 @@
           },
           "end_date": {
             "type": "string",
-            "description": "The end date of the statistics to retrieve. "
+            "description": "The end date of the statistics to retrieve. ",
+            "default": "The date the request is made."
           },
           "country": {
             "type": "string",
@@ -6521,11 +6532,13 @@
           },
           "limit": {
             "type": "integer",
-            "description": "The number of IPs you want returned at the same time."
+            "description": "The number of IPs you want returned at the same time.",
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The offset for the number of IPs that you are requesting."
+            "description": "The offset for the number of IPs that you are requesting.",
+            "default": 0
           }
         },
         "additionalProperties": false
@@ -9033,7 +9046,8 @@
           },
           "sort_by_metric": {
             "type": "string",
-            "description": "The metric that you want to sort by. Metrics that you can sort by are: `blocks`, `bounces`, `clicks`, `delivered`, `opens`, `requests`, `unique_clicks`, `unique_opens`, and `unsubscribes`.'"
+            "description": "The metric that you want to sort by. Metrics that you can sort by are: `blocks`, `bounces`, `clicks`, `delivered`, `opens`, `requests`, `unique_clicks`, `unique_opens`, and `unsubscribes`.'",
+            "default": "delivered"
           },
           "sort_by_direction": {
             "type": "string",
@@ -9041,15 +9055,18 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "limit": {
             "type": "integer",
-            "description": "Optional field to limit the number of results returned."
+            "description": "Optional field to limit the number of results returned.",
+            "default": 5
           },
           "offset": {
             "type": "integer",
-            "description": "Optional beginning point in the list to retrieve from."
+            "description": "Optional beginning point in the list to retrieve from.",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -9079,7 +9096,8 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "start_date": {
             "type": "string",
@@ -9091,11 +9109,13 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the number of results returned per page."
+            "description": "Limits the number of results returned per page.",
+            "default": 5
           },
           "offset": {
             "type": "integer",
-            "description": "The point in the list to begin retrieving results from."
+            "description": "The point in the list to begin retrieving results from.",
+            "default": 0
           },
           "aggregated_by": {
             "type": "string",
@@ -9103,7 +9123,8 @@
           },
           "sort_by_metric": {
             "type": "string",
-            "description": "The metric that you want to sort by.  Must be a single metric."
+            "description": "The metric that you want to sort by.  Must be a single metric.",
+            "default": "delivered"
           }
         },
         "additionalProperties": false,
@@ -9362,7 +9383,8 @@
           },
           "sort_by_metric": {
             "type": "string",
-            "description": "The metric that you want to sort by. Metrics that you can sort by are: `blocks`, `bounces`, `clicks`, `delivered`, `opens`, `requests`, `unique_clicks`, `unique_opens`, and `unsubscribes`.'"
+            "description": "The metric that you want to sort by. Metrics that you can sort by are: `blocks`, `bounces`, `clicks`, `delivered`, `opens`, `requests`, `unique_clicks`, `unique_opens`, and `unsubscribes`.'",
+            "default": "delivered"
           },
           "sort_by_direction": {
             "type": "string",
@@ -9370,15 +9392,18 @@
             "enum": [
               "desc",
               "asc"
-            ]
+            ],
+            "default": "desc"
           },
           "limit": {
             "type": "integer",
-            "description": "Optional field to limit the number of results returned."
+            "description": "Optional field to limit the number of results returned.",
+            "default": 5
           },
           "offset": {
             "type": "integer",
-            "description": "Optional beginning point in the list to retrieve from."
+            "description": "Optional beginning point in the list to retrieve from.",
+            "default": 0
           },
           "subuser_name": {
             "type": "string"
@@ -9645,7 +9670,8 @@
           },
           "Accept": {
             "type": "string",
-            "description": ""
+            "description": "",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -11712,7 +11738,8 @@
           },
           "end_date": {
             "type": "string",
-            "description": "The end date of the statistics you want to retrieve. Must be in the format YYYY-MM-DD"
+            "description": "The end date of the statistics you want to retrieve. Must be in the format YYYY-MM-DD",
+            "default": "The day the request is made."
           }
         },
         "additionalProperties": false,
@@ -12625,11 +12652,13 @@
         "properties": {
           "limit": {
             "type": "integer",
-            "description": "Number of domains to return."
+            "description": "Number of domains to return.",
+            "default": 50
           },
           "offset": {
             "type": "integer",
-            "description": "Paging offset."
+            "description": "Paging offset.",
+            "default": 0
           },
           "body": {
             "example": {

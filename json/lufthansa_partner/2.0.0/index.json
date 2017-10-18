@@ -158,7 +158,8 @@
           },
           "cabin-class": {
             "type": "string",
-            "description": "Enter the required cabin class (e.g econonmy, business etc.). (Acceptable values are: \"\", \"economy\", \"premium economy\", \"business\", \"first\")"
+            "description": "Enter the required cabin class (e.g econonmy, business etc.). (Acceptable values are: \"\", \"economy\", \"premium economy\", \"business\", \"first\")",
+            "default": "economy"
           },
           "travelers": {
             "type": "string",
@@ -166,7 +167,8 @@
           },
           "fare-family": {
             "type": "string",
-            "description": "Mandatory for 4U. Specifies, which fares to be returned, such as basic, smart, best, smartflex, bestflex . (Acceptable values are: \"\", \"basic\", \"smart\", \"best\", \"smartflex\", \"bestflex\")"
+            "description": "Mandatory for 4U. Specifies, which fares to be returned, such as basic, smart, best, smartflex, bestflex . (Acceptable values are: \"\", \"basic\", \"smart\", \"best\", \"smartflex\", \"bestflex\")",
+            "default": "smart"
           },
           "trackingid": {
             "type": "string",
@@ -174,7 +176,8 @@
           },
           "Accept": {
             "type": "string",
-            "description": "Mandatory http header:  application/xml or application/json"
+            "description": "Mandatory http header:  application/xml or application/json",
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -586,7 +589,8 @@
           },
           "fare-types": {
             "type": "string",
-            "description": "Fares family: basic,smart, best, smartflex, bestflex - Germanwings only (Acceptable values are: \"\", \"basic\", \"smart\", \"best\", \"smartflex\", \"bestflex\")"
+            "description": "Fares family: basic,smart, best, smartflex, bestflex - Germanwings only (Acceptable values are: \"\", \"basic\", \"smart\", \"best\", \"smartflex\", \"bestflex\")",
+            "default": "basic"
           }
         },
         "additionalProperties": false,
@@ -647,7 +651,8 @@
           },
           "fare-family": {
             "type": "string",
-            "description": "Fare family: basic, smart, best, smartflex, bestflex - Germanwings only (Acceptable values are: \"\", \"basic\", \"smart\", \"best\", \"smartflex\", \"bestflex\")"
+            "description": "Fare family: basic, smart, best, smartflex, bestflex - Germanwings only (Acceptable values are: \"\", \"basic\", \"smart\", \"best\", \"smartflex\", \"bestflex\")",
+            "default": "basic"
           },
           "country": {
             "type": "string",
@@ -757,7 +762,8 @@
           },
           "catalogues": {
             "type": "string",
-            "description": "Carrier for which the OND will be retrieved (e.g. 'LH')"
+            "description": "Carrier for which the OND will be retrieved (e.g. 'LH')",
+            "default": "LH"
           },
           "limit": {
             "type": "string",
@@ -797,7 +803,8 @@
           },
           "catalogues": {
             "type": "string",
-            "description": "Carrier for which the OND will be retrieved (e.g. 'LH')"
+            "description": "Carrier for which the OND will be retrieved (e.g. 'LH')",
+            "default": "LH"
           },
           "new-routes": {
             "type": "string",
@@ -835,7 +842,8 @@
           },
           "catalogues": {
             "type": "string",
-            "description": "Carrier for which the OND will be retrieved (e.g. 'LH')"
+            "description": "Carrier for which the OND will be retrieved (e.g. 'LH')",
+            "default": "LH"
           },
           "origin": {
             "type": "string",
@@ -953,7 +961,8 @@
           },
           "service": {
             "type": "string",
-            "description": "Optional parameter."
+            "description": "Optional parameter.",
+            "default": "amadeusBestPrice"
           }
         },
         "additionalProperties": false,
@@ -990,7 +999,8 @@
           },
           "cabinCode": {
             "type": "string",
-            "description": "Cabin class: M, E, C, F (Acceptable values are: \"\", \"M\", \"E\", \"C\", \"F\")"
+            "description": "Cabin class: M, E, C, F (Acceptable values are: \"\", \"M\", \"E\", \"C\", \"F\")",
+            "default": "C"
           },
           "lang": {
             "type": "string",

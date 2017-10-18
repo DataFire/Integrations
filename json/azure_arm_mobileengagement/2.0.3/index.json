@@ -3064,13 +3064,15 @@
           "$skip": {
             "type": "integer",
             "description": "Control paging of export tasks, start results at the given offset, defaults to 0 (1st page of data).",
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "$top": {
             "type": "integer",
             "description": "Control paging of export tasks, number of export tasks to return with each call. By default, it returns all export tasks with a default paging of 20.\nThe response contains a `nextLink` property describing the path to get the next page if there are more results.\nThe maximum paging limit for $top is 40.",
             "maximum": 40,
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "$orderby": {
             "type": "string",
@@ -3676,13 +3678,15 @@
           "$skip": {
             "type": "integer",
             "description": "Control paging of import jobs, start results at the given offset, defaults to 0 (1st page of data).",
-            "minimum": 0
+            "minimum": 0,
+            "default": 0
           },
           "$top": {
             "type": "integer",
             "description": "Control paging of import jobs, number of import jobs to return with each call. By default, it returns all import jobs with a default paging of 20.\nThe response contains a `nextLink` property describing the path to get the next page if there are more results.\nThe maximum paging limit for $top is 40.",
             "maximum": 40,
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "$orderby": {
             "type": "string",

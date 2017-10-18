@@ -1099,7 +1099,8 @@
               "best",
               "worst",
               "most_helpful"
-            ]
+            ],
+            "default": "newest"
           },
           "page": {
             "type": "string",
@@ -1610,7 +1611,8 @@
               "best",
               "worst",
               "most_helpful"
-            ]
+            ],
+            "default": "newest"
           },
           "page": {
             "type": "string",

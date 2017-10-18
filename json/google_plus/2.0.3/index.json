@@ -1186,13 +1186,15 @@
           },
           "language": {
             "type": "string",
-            "description": "Specify the preferred language to search with. See search language codes for available values."
+            "description": "Specify the preferred language to search with. See search language codes for available values.",
+            "default": "en-US"
           },
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.",
             "maximum": 20,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "orderBy": {
             "type": "string",
@@ -1200,7 +1202,8 @@
             "enum": [
               "best",
               "recent"
-            ]
+            ],
+            "default": "recent"
           },
           "pageToken": {
             "type": "string",
@@ -1211,7 +1214,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1227,7 +1231,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1268,7 +1273,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1284,7 +1290,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1324,7 +1331,8 @@
             "type": "integer",
             "description": "The maximum number of comments to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.",
             "maximum": 500,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "pageToken": {
             "type": "string",
@@ -1336,14 +1344,16 @@
             "enum": [
               "ascending",
               "descending"
-            ]
+            ],
+            "default": "ascending"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1359,7 +1369,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1407,7 +1418,8 @@
             "type": "integer",
             "description": "The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "pageToken": {
             "type": "string",
@@ -1418,7 +1430,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1434,7 +1447,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1476,7 +1490,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1492,7 +1507,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1530,13 +1546,15 @@
           },
           "language": {
             "type": "string",
-            "description": "Specify the preferred language to search with. See search language codes for available values."
+            "description": "Specify the preferred language to search with. See search language codes for available values.",
+            "default": "en-US"
           },
           "maxResults": {
             "type": "integer",
             "description": "The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.",
             "maximum": 50,
-            "minimum": 1
+            "minimum": 1,
+            "default": 25
           },
           "pageToken": {
             "type": "string",
@@ -1547,7 +1565,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1563,7 +1582,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1604,7 +1624,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1620,7 +1641,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1667,7 +1689,8 @@
             "type": "integer",
             "description": "The maximum number of activities to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "pageToken": {
             "type": "string",
@@ -1678,7 +1701,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1694,7 +1718,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1743,7 +1768,8 @@
             "type": "integer",
             "description": "The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           },
           "orderBy": {
             "type": "string",
@@ -1762,7 +1788,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1778,7 +1805,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

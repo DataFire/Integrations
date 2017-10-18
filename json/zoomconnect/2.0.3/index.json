@@ -1150,12 +1150,14 @@
           "pageSize": {
             "type": "integer",
             "format": "int32",
-            "description": "number of elements to return at a time"
+            "description": "number of elements to return at a time",
+            "default": 100
           },
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "page number"
+            "description": "page number",
+            "default": 1
           },
           "type": {
             "type": "string",

@@ -133,22 +133,26 @@
           "sinceId": {
             "type": "integer",
             "format": "int64",
-            "description": "Get after this id."
+            "description": "Get after this id.",
+            "default": -1
           },
           "maxId": {
             "type": "integer",
             "format": "int64",
-            "description": "Get before this id."
+            "description": "Get before this id.",
+            "default": -1
           },
           "iter": {
             "type": "integer",
             "format": "int32",
-            "description": "Numof search requests. Return up to 100 x iter tweets."
+            "description": "Numof search requests. Return up to 100 x iter tweets.",
+            "default": 1
           },
           "num": {
             "type": "integer",
             "format": "int32",
-            "description": "Numof summarization tweets."
+            "description": "Numof summarization tweets.",
+            "default": 3
           }
         },
         "additionalProperties": false,

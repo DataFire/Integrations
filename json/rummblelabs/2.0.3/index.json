@@ -253,7 +253,8 @@
         "properties": {
           "consumer_key": {
             "type": "string",
-            "description": "consumer key"
+            "description": "consumer key",
+            "default": "uggyecofcz"
           },
           "user": {
             "type": "string",
@@ -296,7 +297,8 @@
         "properties": {
           "consumer_key": {
             "type": "string",
-            "description": "consumer key"
+            "description": "consumer key",
+            "default": "uggyecofcz"
           },
           "user": {
             "type": "string",

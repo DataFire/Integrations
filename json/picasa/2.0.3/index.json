@@ -17,7 +17,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "userID": {
             "type": "string",
@@ -110,11 +111,13 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/atom+xml"
           },
           "userID": {
             "type": "string",
@@ -208,7 +211,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "userID": {
             "type": "string",
@@ -306,7 +310,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "Content-Type": {
             "type": "string",
@@ -331,7 +336,8 @@
           },
           "MIME-version": {
             "type": "string",
-            "description": "MIME version."
+            "description": "MIME version.",
+            "default": "1"
           },
           "Slug": {
             "type": "string",
@@ -434,15 +440,18 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/atom+xml"
           },
           "If-Match": {
             "type": "string",
-            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag.",
+            "default": "*"
           },
           "userID": {
             "type": "string",
@@ -483,11 +492,13 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "If-Match": {
             "type": "string",
-            "description": "If you want to make sure that you don't delete an album that has been changed by another client since you retrieved it, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to delete the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag. (In this case, you don't need to retrieve the album before deleting it.)"
+            "description": "If you want to make sure that you don't delete an album that has been changed by another client since you retrieved it, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to delete the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag. (In this case, you don't need to retrieve the album before deleting it.)",
+            "default": "*"
           },
           "userID": {
             "type": "string",
@@ -527,7 +538,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "userID": {
             "type": "string",
@@ -630,11 +642,13 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/atom+xml"
           },
           "userID": {
             "type": "string",
@@ -738,7 +752,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "Content-Type": {
             "type": "string",
@@ -748,11 +763,13 @@
               "image/gif",
               "image/jpeg",
               "image/png"
-            ]
+            ],
+            "default": "image/jpeg"
           },
           "If-Match": {
             "type": "string",
-            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag.",
+            "default": "*"
           }
         },
         "additionalProperties": false,
@@ -773,11 +790,13 @@
         "properties": {
           "Content-Type": {
             "type": "string",
-            "description": "Content type."
+            "description": "Content type.",
+            "default": "application/atom+xml"
           },
           "If-Match": {
             "type": "string",
-            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag.",
+            "default": "*"
           }
         },
         "additionalProperties": false,
@@ -797,7 +816,8 @@
         "properties": {
           "If-Match": {
             "type": "string",
-            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag.",
+            "default": "*"
           }
         },
         "additionalProperties": false,
@@ -816,7 +836,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "userID": {
             "type": "string",
@@ -855,7 +876,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "userID": {
             "type": "string",
@@ -899,7 +921,8 @@
         "properties": {
           "GData-Version": {
             "type": "string",
-            "description": "The API version. Current version is 2."
+            "description": "The API version. Current version is 2.",
+            "default": "2"
           },
           "q": {
             "type": "string",

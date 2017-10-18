@@ -3946,11 +3946,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -6279,11 +6281,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -6680,11 +6684,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -6984,11 +6990,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -7294,11 +7302,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -7604,11 +7614,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "type": {
             "type": "string",
@@ -12851,11 +12863,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -13281,11 +13295,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "has_unread_messages": {
             "type": "string",
@@ -19137,11 +19153,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "type": {
             "type": "string",
@@ -19713,11 +19731,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "created_by": {
             "type": "string",
@@ -20083,11 +20103,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "before_date_created": {
             "type": "string",
@@ -21934,11 +21956,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "list_id": {
             "type": "string",
@@ -22062,11 +22086,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "list_id": {
             "type": "string",
@@ -22377,11 +22403,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "list_id": {
             "type": "string",
@@ -22568,11 +22596,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "type": {
             "type": "string",
@@ -23014,11 +23044,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -23452,11 +23484,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "list_id": {
             "type": "string",
@@ -24203,11 +24237,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "list_id": {
             "type": "string",
@@ -24790,11 +24826,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "list_id": {
             "type": "string",
@@ -26716,11 +26754,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -27255,11 +27295,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "type": {
             "type": "string",
@@ -29308,11 +29350,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -29694,11 +29738,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "device_hash": {
             "type": "string",
@@ -30169,11 +30215,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "type": {
             "type": "string",
@@ -31616,11 +31664,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -31980,11 +32030,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -32220,11 +32272,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -32850,11 +32904,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -33494,11 +33550,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -33587,11 +33645,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -34418,11 +34478,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -34653,11 +34715,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "created_by": {
             "type": "string",
@@ -35315,11 +35379,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "campaign_id": {
             "type": "string",
@@ -35877,11 +35943,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "dc": {
             "type": "string",
@@ -37150,11 +37218,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -38668,11 +38738,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -39157,11 +39229,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -40338,11 +40412,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -41037,11 +41113,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -44067,11 +44145,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -44610,11 +44690,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -45780,11 +45862,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",
@@ -46576,11 +46660,13 @@
           "count": {
             "type": "integer",
             "description": "The number of records to return. [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **10**.",
-            "maximum": 1000
+            "maximum": 1000,
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**."
+            "description": "The number of records from a collection to skip. Iterating over large collections with this parameter can be slow.  [Default value](http://developer.mailchimp.com/documentation/mailchimp/guides/get-started-with-mailchimp-api-3/#pagination) is **0**.",
+            "default": 0
           },
           "store_id": {
             "type": "string",

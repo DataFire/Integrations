@@ -1393,7 +1393,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1409,7 +1410,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1444,33 +1446,40 @@
           },
           "includeCorpusRemovals": {
             "type": "boolean",
-            "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file."
+            "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file.",
+            "default": false
           },
           "includeRemoved": {
             "type": "boolean",
-            "description": "Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access."
+            "description": "Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access.",
+            "default": true
           },
           "includeTeamDriveItems": {
             "type": "boolean",
-            "description": "Whether Team Drive files or changes should be included in results."
+            "description": "Whether Team Drive files or changes should be included in results.",
+            "default": false
           },
           "pageSize": {
             "type": "integer",
             "description": "The maximum number of changes to return per page.",
             "maximum": 1000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           },
           "restrictToMyDrive": {
             "type": "boolean",
-            "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive."
+            "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive.",
+            "default": false
           },
           "spaces": {
             "type": "string",
-            "description": "A comma-separated list of spaces to query within the user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'."
+            "description": "A comma-separated list of spaces to query within the user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.",
+            "default": "drive"
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "teamDriveId": {
             "type": "string",
@@ -1481,7 +1490,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1497,7 +1507,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1534,7 +1545,8 @@
         "properties": {
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "teamDriveId": {
             "type": "string",
@@ -1545,7 +1557,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1561,7 +1574,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1596,33 +1610,40 @@
           },
           "includeCorpusRemovals": {
             "type": "boolean",
-            "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file."
+            "description": "Whether changes should include the file resource if the file is still accessible by the user at the time of the request, even when a file was removed from the list of changes and there will be no further change entries for this file.",
+            "default": false
           },
           "includeRemoved": {
             "type": "boolean",
-            "description": "Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access."
+            "description": "Whether to include changes indicating that items have been removed from the list of changes, for example by deletion or loss of access.",
+            "default": true
           },
           "includeTeamDriveItems": {
             "type": "boolean",
-            "description": "Whether Team Drive files or changes should be included in results."
+            "description": "Whether Team Drive files or changes should be included in results.",
+            "default": false
           },
           "pageSize": {
             "type": "integer",
             "description": "The maximum number of changes to return per page.",
             "maximum": 1000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           },
           "restrictToMyDrive": {
             "type": "boolean",
-            "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive."
+            "description": "Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive.",
+            "default": false
           },
           "spaces": {
             "type": "string",
-            "description": "A comma-separated list of spaces to query within the user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'."
+            "description": "A comma-separated list of spaces to query within the user corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.",
+            "default": "drive"
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "teamDriveId": {
             "type": "string",
@@ -1636,7 +1657,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1652,7 +1674,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1695,7 +1718,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1711,7 +1735,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1755,7 +1780,8 @@
           },
           "includeTeamDriveItems": {
             "type": "boolean",
-            "description": "Whether Team Drive items should be included in results."
+            "description": "Whether Team Drive items should be included in results.",
+            "default": false
           },
           "orderBy": {
             "type": "string",
@@ -1765,7 +1791,8 @@
             "type": "integer",
             "description": "The maximum number of files to return per page. Partial or empty result pages are possible even before the end of the files list has been reached.",
             "maximum": 1000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 100
           },
           "pageToken": {
             "type": "string",
@@ -1777,11 +1804,13 @@
           },
           "spaces": {
             "type": "string",
-            "description": "A comma-separated list of spaces to query within the corpus. Supported values are 'drive', 'appDataFolder' and 'photos'."
+            "description": "A comma-separated list of spaces to query within the corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.",
+            "default": "drive"
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "teamDriveId": {
             "type": "string",
@@ -1792,7 +1821,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1808,7 +1838,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1842,11 +1873,13 @@
         "properties": {
           "ignoreDefaultVisibility": {
             "type": "boolean",
-            "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders."
+            "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.",
+            "default": false
           },
           "keepRevisionForever": {
             "type": "boolean",
-            "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive."
+            "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.",
+            "default": false
           },
           "ocrLanguage": {
             "type": "string",
@@ -1854,11 +1887,13 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "useContentAsIndexableText": {
             "type": "boolean",
-            "description": "Whether to use the uploaded content as indexable text."
+            "description": "Whether to use the uploaded content as indexable text.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/File"
@@ -1868,7 +1903,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1884,7 +1920,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1920,18 +1957,21 @@
             "type": "integer",
             "description": "The number of IDs to return.",
             "maximum": 1000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "space": {
             "type": "string",
-            "description": "The space in which the IDs can be used to create new files. Supported values are 'drive' and 'appDataFolder'."
+            "description": "The space in which the IDs can be used to create new files. Supported values are 'drive' and 'appDataFolder'.",
+            "default": "drive"
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -1947,7 +1987,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -1984,7 +2025,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2000,7 +2042,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2033,14 +2076,16 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2056,7 +2101,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2092,18 +2138,21 @@
           },
           "acknowledgeAbuse": {
             "type": "boolean",
-            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media."
+            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
+            "default": false
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2119,7 +2168,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2161,7 +2211,8 @@
           },
           "keepRevisionForever": {
             "type": "boolean",
-            "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive."
+            "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.",
+            "default": false
           },
           "ocrLanguage": {
             "type": "string",
@@ -2173,11 +2224,13 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "useContentAsIndexableText": {
             "type": "boolean",
-            "description": "Whether to use the uploaded content as indexable text."
+            "description": "Whether to use the uploaded content as indexable text.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/File"
@@ -2187,7 +2240,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2203,7 +2257,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2241,13 +2296,15 @@
           },
           "includeDeleted": {
             "type": "boolean",
-            "description": "Whether to include deleted comments. Deleted comments will not include their original content."
+            "description": "Whether to include deleted comments. Deleted comments will not include their original content.",
+            "default": false
           },
           "pageSize": {
             "type": "integer",
             "description": "The maximum number of comments to return per page.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "pageToken": {
             "type": "string",
@@ -2262,7 +2319,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2278,7 +2336,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2322,7 +2381,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2338,7 +2398,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2383,7 +2444,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2399,7 +2461,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2440,14 +2503,16 @@
           },
           "includeDeleted": {
             "type": "boolean",
-            "description": "Whether to return deleted comments. Deleted comments will not include their original content."
+            "description": "Whether to return deleted comments. Deleted comments will not include their original content.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2463,7 +2528,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2512,7 +2578,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2528,7 +2595,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2571,13 +2639,15 @@
           },
           "includeDeleted": {
             "type": "boolean",
-            "description": "Whether to include deleted replies. Deleted replies will not include their original content."
+            "description": "Whether to include deleted replies. Deleted replies will not include their original content.",
+            "default": false
           },
           "pageSize": {
             "type": "integer",
             "description": "The maximum number of replies to return per page.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 20
           },
           "pageToken": {
             "type": "string",
@@ -2588,7 +2658,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2604,7 +2675,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2653,7 +2725,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2669,7 +2742,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2719,7 +2793,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2735,7 +2810,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2781,14 +2857,16 @@
           },
           "includeDeleted": {
             "type": "boolean",
-            "description": "Whether to return deleted replies. Deleted replies will not include their original content."
+            "description": "Whether to return deleted replies. Deleted replies will not include their original content.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2804,7 +2882,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2858,7 +2937,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2874,7 +2954,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2914,11 +2995,13 @@
           },
           "ignoreDefaultVisibility": {
             "type": "boolean",
-            "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders."
+            "description": "Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.",
+            "default": false
           },
           "keepRevisionForever": {
             "type": "boolean",
-            "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive."
+            "description": "Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.",
+            "default": false
           },
           "ocrLanguage": {
             "type": "string",
@@ -2926,7 +3009,8 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/File"
@@ -2936,7 +3020,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -2952,7 +3037,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -2997,7 +3083,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3013,7 +3100,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3060,14 +3148,16 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3083,7 +3173,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3129,11 +3220,13 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "transferOwnership": {
             "type": "boolean",
-            "description": "Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect."
+            "description": "Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/Permission"
@@ -3143,7 +3236,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3159,7 +3253,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3201,14 +3296,16 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3224,7 +3321,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3265,14 +3363,16 @@
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3288,7 +3388,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3331,15 +3432,18 @@
           },
           "removeExpiration": {
             "type": "boolean",
-            "description": "Whether to remove the expiration date."
+            "description": "Whether to remove the expiration date.",
+            "default": false
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "transferOwnership": {
             "type": "boolean",
-            "description": "Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect."
+            "description": "Whether to transfer ownership to the specified user and downgrade the current owner to a writer. This parameter is required as an acknowledgement of the side effect.",
+            "default": false
           },
           "body": {
             "$ref": "#/definitions/Permission"
@@ -3349,7 +3453,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3365,7 +3470,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3406,7 +3512,8 @@
             "type": "integer",
             "description": "The maximum number of revisions to return per page.",
             "maximum": 1000,
-            "minimum": 1
+            "minimum": 1,
+            "default": 200
           },
           "pageToken": {
             "type": "string",
@@ -3417,7 +3524,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3433,7 +3541,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3478,7 +3587,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3494,7 +3604,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3535,14 +3646,16 @@
           },
           "acknowledgeAbuse": {
             "type": "boolean",
-            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media."
+            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
+            "default": false
           },
           "alt": {
             "type": "string",
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3558,7 +3671,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3607,7 +3721,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3623,7 +3738,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3662,11 +3778,13 @@
           },
           "acknowledgeAbuse": {
             "type": "boolean",
-            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media."
+            "description": "Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.",
+            "default": false
           },
           "supportsTeamDrives": {
             "type": "boolean",
-            "description": "Whether the requesting application supports Team Drives."
+            "description": "Whether the requesting application supports Team Drives.",
+            "default": false
           },
           "resource": {
             "$ref": "#/definitions/Channel"
@@ -3676,7 +3794,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3692,7 +3811,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3731,7 +3851,8 @@
             "type": "integer",
             "description": "Maximum number of Team Drives to return.",
             "maximum": 100,
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "pageToken": {
             "type": "string",
@@ -3742,7 +3863,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3758,7 +3880,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3799,7 +3922,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3815,7 +3939,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3856,7 +3981,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3872,7 +3998,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3911,7 +4038,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3927,7 +4055,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",
@@ -3971,7 +4100,8 @@
             "description": "Data format for the response.",
             "enum": [
               "json"
-            ]
+            ],
+            "default": "json"
           },
           "fields": {
             "type": "string",
@@ -3987,7 +4117,8 @@
           },
           "prettyPrint": {
             "type": "boolean",
-            "description": "Returns response with indentations and line breaks."
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
           },
           "quotaUser": {
             "type": "string",

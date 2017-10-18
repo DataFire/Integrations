@@ -5126,12 +5126,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "territory": {
             "type": "array",
@@ -5227,12 +5229,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "people": {
             "type": "string",
@@ -5366,12 +5370,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -5468,12 +5474,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -5572,12 +5580,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -5659,12 +5669,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -5723,12 +5735,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -5775,12 +5789,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "q": {
             "type": "string",
@@ -5811,12 +5827,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_pid": {
             "type": "string",
@@ -6022,12 +6040,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -6140,12 +6160,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -6271,12 +6293,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -6390,12 +6414,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",
@@ -6704,12 +6730,14 @@
           "page": {
             "type": "integer",
             "description": "which page of results to return",
-            "minimum": 1
+            "minimum": 1,
+            "default": 1
           },
           "page_size": {
             "type": "integer",
             "description": "number of results in each page",
-            "maximum": 300
+            "maximum": 300,
+            "default": 10
           },
           "partner_id": {
             "type": "array",

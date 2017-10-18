@@ -212,7 +212,11 @@
           "type": {
             "type": "array",
             "description": "type of the facility to filter by",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "default": [
+              "ESCALATOR",
+              "ELEVATOR"
+            ]
           },
           "equipmentnumber": {
             "type": "integer",
@@ -282,12 +286,20 @@
           "type": {
             "type": "array",
             "description": "type of the facility to filter by",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "default": [
+              "ESCALATOR",
+              "ELEVATOR"
+            ]
           },
           "state": {
             "type": "array",
             "description": "the state of the facility to filter by",
-            "uniqueItems": true
+            "uniqueItems": true,
+            "default": [
+              "ACTIVE",
+              "INACTIVE"
+            ]
           },
           "equipmentnumbers": {
             "type": "array",

@@ -779,11 +779,13 @@
           "limit": {
             "type": "integer",
             "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
-            "maximum": 100
+            "maximum": 100,
+            "default": 30
           },
           "offset": {
             "type": "integer",
-            "description": "The API returns builds starting from this offset, defaults to 0.\n"
+            "description": "The API returns builds starting from this offset, defaults to 0.\n",
+            "default": 0
           },
           "filter": {
             "type": "string",
@@ -1506,11 +1508,13 @@
           "limit": {
             "type": "integer",
             "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
-            "maximum": 100
+            "maximum": 100,
+            "default": 30
           },
           "offset": {
             "type": "integer",
-            "description": "The API returns builds starting from this offset, defaults to 0.\n"
+            "description": "The API returns builds starting from this offset, defaults to 0.\n",
+            "default": 0
           }
         },
         "additionalProperties": false

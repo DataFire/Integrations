@@ -3501,7 +3501,8 @@
           },
           "withPairing": {
             "type": "boolean",
-            "description": "Filter out buses that have no pairing window"
+            "description": "Filter out buses that have no pairing window",
+            "default": false
           }
         },
         "additionalProperties": false,

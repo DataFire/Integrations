@@ -1422,11 +1422,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "market": {
             "type": "string",
@@ -1522,11 +1524,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "album_type": {
             "type": "string",
@@ -1638,11 +1642,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "country": {
             "type": "string",
@@ -1721,11 +1727,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "country": {
             "type": "string",
@@ -1769,11 +1777,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "country": {
             "type": "string",
@@ -1817,11 +1827,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "country": {
             "type": "string",
@@ -1908,7 +1920,8 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "after": {
             "type": "string",
@@ -2043,11 +2056,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "market": {
             "type": "string",
@@ -2138,11 +2153,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "q": {
             "type": "string",
@@ -2280,11 +2297,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "Accept": {
             "type": "string",
@@ -2612,11 +2631,13 @@
             "type": "integer",
             "description": "The maximum number of items to return",
             "maximum": 50,
-            "minimum": 0
+            "minimum": 0,
+            "default": 20
           },
           "offset": {
             "type": "integer",
-            "description": "The index of the first item to return"
+            "description": "The index of the first item to return",
+            "default": 0
           },
           "fields": {
             "type": "string",

@@ -110,11 +110,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           }
         },
         "additionalProperties": false,
@@ -134,19 +136,23 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "date_from": {
             "type": "string",
-            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           },
           "date_to": {
             "type": "string",
-            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           }
         },
         "additionalProperties": false,
@@ -168,19 +174,23 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "date_from": {
             "type": "string",
-            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           },
           "date_to": {
             "type": "string",
-            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           }
         },
         "additionalProperties": false,
@@ -202,19 +212,23 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "country_code": {
             "type": "string",
-            "description": "2-digit code of the country in ISO 3166 format. 'BR'"
+            "description": "2-digit code of the country in ISO 3166 format. 'BR'",
+            "default": "BR"
           },
           "mobile_number": {
             "type": "string",
-            "description": "The mobile number you would like to validate. '5521983115555'"
+            "description": "The mobile number you would like to validate. '5521983115555'",
+            "default": "5521983115555"
           }
         },
         "additionalProperties": false,
@@ -236,11 +250,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           }
         },
         "additionalProperties": false,
@@ -260,11 +276,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           }
         },
         "additionalProperties": false,
@@ -284,11 +302,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           }
         },
         "additionalProperties": false,
@@ -308,27 +328,33 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "country_code": {
             "type": "string",
-            "description": "2-digit code of the country in ISO 3166 format. 'GT'"
+            "description": "2-digit code of the country in ISO 3166 format. 'GT'",
+            "default": "GT"
           },
           "carrier_code": {
             "type": "string",
-            "description": "Name of the mobile carrier. 'Claro'"
+            "description": "Name of the mobile carrier. 'Claro'",
+            "default": "Claro"
           },
           "amount": {
             "type": "integer",
-            "description": "This is the amount, in cents, of the product you are purchasing. '500' = $5.00"
+            "description": "This is the amount, in cents, of the product you are purchasing. '500' = $5.00",
+            "default": 500
           },
           "currency_code": {
             "type": "string",
-            "description": "The currency code (ISO 4217) on the product you are querying. 'USD'"
+            "description": "The currency code (ISO 4217) on the product you are querying. 'USD'",
+            "default": "USD"
           }
         },
         "additionalProperties": false,
@@ -352,11 +378,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "body": {
             "$ref": "#/definitions/Topups"
@@ -380,11 +408,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "body": {
             "$ref": "#/definitions/TopupsReports"
@@ -408,19 +438,23 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "date_from": {
             "type": "string",
-            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           },
           "date_to": {
             "type": "string",
-            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           }
         },
         "additionalProperties": false,
@@ -442,19 +476,23 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "date_from": {
             "type": "string",
-            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           },
           "date_to": {
             "type": "string",
-            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           }
         },
         "additionalProperties": false,
@@ -476,19 +514,23 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "date_from": {
             "type": "string",
-            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The beginning date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           },
           "date_to": {
             "type": "string",
-            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
+            "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'",
+            "default": "2016-01-28"
           }
         },
         "additionalProperties": false,
@@ -510,11 +552,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           },
           "body": {
             "$ref": "#/definitions/TopupsReversal"
@@ -538,11 +582,13 @@
         "properties": {
           "x-idt-beyond-app-id": {
             "type": "string",
-            "description": "Application ID you would like to use"
+            "description": "Application ID you would like to use",
+            "default": "APP_ID"
           },
           "x-idt-beyond-app-key": {
             "type": "string",
-            "description": "Application KEY you would like to use"
+            "description": "Application KEY you would like to use",
+            "default": "APP_KEY"
           }
         },
         "additionalProperties": false,

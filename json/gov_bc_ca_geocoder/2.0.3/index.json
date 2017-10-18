@@ -33,7 +33,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "addressString": {
             "type": "string",
@@ -49,11 +50,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 1
           },
           "interpolation": {
             "type": "string",
@@ -62,15 +65,18 @@
               "adaptive",
               "linear",
               "none"
-            ]
+            ],
+            "default": "adaptive"
           },
           "echo": {
             "type": "boolean",
-            "description": "If true, include unmatched address details such as site name in results."
+            "description": "If true, include unmatched address details such as site name in results.",
+            "default": true
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           },
           "outputSRS": {
             "type": "integer",
@@ -84,11 +90,13 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "minScore": {
             "type": "integer",
-            "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>"
+            "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>",
+            "default": 1
           },
           "matchPrecision": {
             "type": "string",
@@ -175,7 +183,8 @@
           },
           "provinceCode": {
             "type": "string",
-            "description": "The ISO 3166-2 Sub-Country Code. The code for British Columbia is BC."
+            "description": "The ISO 3166-2 Sub-Country Code. The code for British Columbia is BC.",
+            "default": "BC"
           },
           "localities": {
             "type": "string",
@@ -236,7 +245,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "point": {
             "type": "string",
@@ -258,19 +268,23 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 1
           },
           "minDegree": {
             "type": "integer",
-            "description": "The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1."
+            "description": "The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1.",
+            "default": 2
           },
           "maxDegree": {
             "type": "integer",
-            "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4."
+            "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4.",
+            "default": 100
           }
         },
         "additionalProperties": false,
@@ -305,7 +319,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "point": {
             "type": "string",
@@ -327,15 +342,18 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "minDegree": {
             "type": "integer",
-            "description": "The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1."
+            "description": "The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1.",
+            "default": 2
           },
           "maxDegree": {
             "type": "integer",
-            "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4."
+            "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4.",
+            "default": 100
           }
         },
         "additionalProperties": false,
@@ -369,7 +387,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "bbox": {
             "type": "string",
@@ -387,19 +406,23 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results"
+            "description": "The maximum number of search results",
+            "default": 200
           },
           "minDegree": {
             "type": "integer",
-            "description": "The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1."
+            "description": "The minimum degree an intersection can have to be included in results. A dead-end has a degree of 1.",
+            "default": 2
           },
           "maxDegree": {
             "type": "integer",
-            "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4."
+            "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4.",
+            "default": 100
           }
         },
         "additionalProperties": false,
@@ -437,7 +460,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "outputSRS": {
             "type": "integer",
@@ -451,7 +475,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           }
         },
         "additionalProperties": false,
@@ -485,7 +510,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "addressString": {
             "type": "string",
@@ -505,11 +531,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 1
           },
           "interpolation": {
             "type": "string",
@@ -518,15 +546,18 @@
               "adaptive",
               "linear",
               "none"
-            ]
+            ],
+            "default": "adaptive"
           },
           "echo": {
             "type": "boolean",
-            "description": "If true, include unmatched address details such as site name in results."
+            "description": "If true, include unmatched address details such as site name in results.",
+            "default": false
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           },
           "outputSRS": {
             "type": "integer",
@@ -540,15 +571,18 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "minScore": {
             "type": "integer",
-            "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>"
+            "description": "The minimum score required for a match to be returned. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#minScore target=\"_blank\">minScore</a>",
+            "default": 1
           },
           "matchPrecision": {
             "type": "string",
-            "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>"
+            "description": "Example: street,locality.  A comma separated list of individual match precision levels to include in results. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#matchPrecision target=\"_blank\">matchPrecision</a>",
+            "default": "OCCUPANT"
           },
           "matchPrecisionNot": {
             "type": "string",
@@ -631,7 +665,8 @@
           },
           "provinceCode": {
             "type": "string",
-            "description": "The ISO 3166-2 Sub-Country Code. The code for British Columbia is BC."
+            "description": "The ISO 3166-2 Sub-Country Code. The code for British Columbia is BC.",
+            "default": "BC"
           },
           "localities": {
             "type": "string",
@@ -692,7 +727,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "point": {
             "type": "string",
@@ -718,11 +754,13 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 1
           },
           "locationDescriptor": {
             "type": "string",
@@ -734,11 +772,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           },
           "excludeUnits": {
             "type": "boolean",
@@ -776,7 +816,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "point": {
             "type": "string",
@@ -802,7 +843,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "locationDescriptor": {
             "type": "string",
@@ -814,11 +856,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -852,7 +896,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "bbox": {
             "type": "string",
@@ -874,11 +919,13 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 200
           },
           "locationDescriptor": {
             "type": "string",
@@ -890,11 +937,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -932,7 +981,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "outputSRS": {
             "type": "integer",
@@ -946,7 +996,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "locationDescriptor": {
             "type": "string",
@@ -958,11 +1009,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           }
         },
         "additionalProperties": false,
@@ -996,7 +1049,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "point": {
             "type": "string",
@@ -1018,11 +1072,13 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 1
           },
           "locationDescriptor": {
             "type": "string",
@@ -1034,11 +1090,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           },
           "excludeUnits": {
             "type": "boolean",
@@ -1076,7 +1134,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "point": {
             "type": "string",
@@ -1098,7 +1157,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "locationDescriptor": {
             "type": "string",
@@ -1110,11 +1170,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           },
           "excludeUnits": {
             "type": "boolean",
@@ -1152,7 +1214,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "bbox": {
             "type": "string",
@@ -1170,11 +1233,13 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "maxResults": {
             "type": "integer",
-            "description": "The maximum number of search results to return."
+            "description": "The maximum number of search results to return.",
+            "default": 1
           },
           "locationDescriptor": {
             "type": "string",
@@ -1186,11 +1251,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           },
           "excludeUnits": {
             "type": "boolean",
@@ -1232,7 +1299,8 @@
               "gml",
               "csv",
               "shpz"
-            ]
+            ],
+            "default": "json"
           },
           "outputSRS": {
             "type": "integer",
@@ -1246,7 +1314,8 @@
               26909,
               26910,
               26911
-            ]
+            ],
+            "default": 4326
           },
           "locationDescriptor": {
             "type": "string",
@@ -1258,11 +1327,13 @@
               "parcelPoint",
               "rooftopPoint",
               "routingPoint"
-            ]
+            ],
+            "default": "any"
           },
           "setBack": {
             "type": "integer",
-            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
+            "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint.",
+            "default": 0
           }
         },
         "additionalProperties": false,

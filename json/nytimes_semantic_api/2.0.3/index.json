@@ -362,7 +362,8 @@
           },
           "offset": {
             "type": "integer",
-            "description": "Integer value for the index count from the first concept to the last concept, sorted alphabetically. Used in a Search Query. A Search Query will return up to 10 concepts in its results."
+            "description": "Integer value for the index count from the first concept to the last concept, sorted alphabetically. Used in a Search Query. A Search Query will return up to 10 concepts in its results.",
+            "default": 10
           },
           "fields": {
             "type": "string",

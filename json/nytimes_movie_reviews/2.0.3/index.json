@@ -211,7 +211,8 @@
           },
           "offset": {
             "type": "integer",
-            "description": "Positive integer, multiple of 20"
+            "description": "Positive integer, multiple of 20",
+            "default": 20
           },
           "order": {
             "type": "string",
@@ -263,7 +264,8 @@
           },
           "offset": {
             "type": "integer",
-            "description": "Positive integer, multiple of 20"
+            "description": "Positive integer, multiple of 20",
+            "default": 20
           },
           "order": {
             "type": "string",
@@ -272,7 +274,8 @@
               "by-title",
               "by-publication-date",
               "by-opening-date"
-            ]
+            ],
+            "default": "by-publication-date"
           }
         },
         "additionalProperties": false,

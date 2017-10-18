@@ -117,7 +117,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -145,7 +146,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -178,7 +180,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -216,7 +219,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -254,7 +258,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -292,7 +297,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -320,7 +326,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -348,7 +355,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "name": {
             "type": "string",
@@ -381,7 +389,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "name": {
             "type": "string",
@@ -414,7 +423,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -447,7 +457,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -485,7 +496,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -518,7 +530,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -551,7 +564,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -589,7 +603,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -622,7 +637,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -660,7 +676,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -688,7 +705,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -716,7 +734,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "key": {
             "type": "string",
@@ -749,7 +768,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -757,7 +777,8 @@
           },
           "logplex": {
             "type": "string",
-            "description": "Use logplex to stream logs (always true)."
+            "description": "Use logplex to stream logs (always true).",
+            "default": "true"
           },
           "num": {
             "type": "integer",
@@ -803,7 +824,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -836,7 +858,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "command": {
             "type": "string",
@@ -878,7 +901,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -919,7 +943,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -952,7 +977,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -995,7 +1021,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -1028,7 +1055,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "rollback": {
             "type": "string",
@@ -1066,7 +1094,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -1104,7 +1133,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",
@@ -1137,7 +1167,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           },
           "app": {
             "type": "string",

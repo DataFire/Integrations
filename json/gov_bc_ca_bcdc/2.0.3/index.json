@@ -130,7 +130,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the organization"
+            "description": "The id or name of the organization",
+            "default": "ministry-of-agriculture"
           }
         },
         "additionalProperties": false
@@ -154,7 +155,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the organization"
+            "description": "The id or name of the organization",
+            "default": "ministry-of-agriculture"
           }
         },
         "additionalProperties": false
@@ -178,11 +180,13 @@
         "properties": {
           "q": {
             "type": "string",
-            "description": "The string to search for"
+            "description": "The string to search for",
+            "default": "ministry"
           },
           "limit": {
             "type": "integer",
-            "description": "The maximum number of organizations to return (optional)"
+            "description": "The maximum number of organizations to return (optional)",
+            "default": 20
           }
         },
         "additionalProperties": false
@@ -206,7 +210,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the organization"
+            "description": "The id or name of the organization",
+            "default": "ministry-of-agriculture"
           }
         },
         "additionalProperties": false
@@ -230,7 +235,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the organization"
+            "description": "The id or name of the organization",
+            "default": "ministry-of-agriculture"
           }
         },
         "additionalProperties": false
@@ -254,11 +260,13 @@
         "properties": {
           "offset": {
             "type": "integer",
-            "description": "The offset (index) of the first organizations to return"
+            "description": "The offset (index) of the first organizations to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "The number of organizations to be returned per page"
+            "description": "The number of organizations to be returned per page",
+            "default": 100
           }
         },
         "additionalProperties": false
@@ -282,7 +290,8 @@
         "properties": {
           "permission": {
             "type": "string",
-            "description": "The permission the user has against the returned organization"
+            "description": "The permission the user has against the returned organization",
+            "default": "\"edit_group\""
           }
         },
         "additionalProperties": false
@@ -306,7 +315,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The name or id of the organization"
+            "description": "The name or id of the organization",
+            "default": "ministry-of-agriculture"
           }
         },
         "additionalProperties": false
@@ -330,11 +340,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the organization"
+            "description": "The id or name of the organization",
+            "default": "ministry-of-agriculture"
           },
           "include_datasets": {
             "type": "boolean",
-            "description": "include a list of the organization's datasets"
+            "description": "include a list of the organization's datasets",
+            "default": true
           }
         },
         "additionalProperties": false
@@ -358,15 +370,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the package"
+            "description": "The id or name of the package",
+            "default": "grizzly-bear-population-units"
           },
           "offset": {
             "type": "integer",
-            "description": "Where to start getting activity items from"
+            "description": "Where to start getting activity items from",
+            "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "The maximum number of activities to return"
+            "description": "The maximum number of activities to return",
+            "default": 31
           }
         },
         "additionalProperties": false
@@ -390,15 +405,18 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the package"
+            "description": "The id or name of the package",
+            "default": "grizzly-bear-population-units"
           },
           "offset": {
             "type": "integer",
-            "description": "Where to start getting activity items from"
+            "description": "Where to start getting activity items from",
+            "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "The maximum number of activities to return"
+            "description": "The maximum number of activities to return",
+            "default": 31
           }
         },
         "additionalProperties": false
@@ -422,11 +440,13 @@
         "properties": {
           "q": {
             "type": "string",
-            "description": "The string to query"
+            "description": "The string to query",
+            "default": "\"Okanagan Lake\""
           },
           "limit": {
             "type": "integer",
-            "description": "The maximum number of resource formats to return"
+            "description": "The maximum number of resource formats to return",
+            "default": 10
           }
         },
         "additionalProperties": false
@@ -450,11 +470,13 @@
         "properties": {
           "offset": {
             "type": "integer",
-            "description": "The offset (index) of the first package to return"
+            "description": "The offset (index) of the first package to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "The number of packages to be returned per page"
+            "description": "The number of packages to be returned per page",
+            "default": 100
           }
         },
         "additionalProperties": false
@@ -478,11 +500,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the first package"
+            "description": "The id or name of the first package",
+            "default": "grizzly-bear-population-units"
           },
           "id2": {
             "type": "string",
-            "description": "The id or name of the second package"
+            "description": "The id or name of the second package",
+            "default": "important-fossil-areas"
           },
           "rel": {
             "type": "string",
@@ -510,7 +534,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id or name of the dataset"
+            "description": "The id or name of the dataset",
+            "default": "grizzly-bear-population-units"
           }
         },
         "additionalProperties": false
@@ -534,7 +559,8 @@
         "properties": {
           "q": {
             "type": "string",
-            "description": "A query string"
+            "description": "A query string",
+            "default": "\"Okanagan Lake\""
           }
         },
         "additionalProperties": false
@@ -558,7 +584,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The package name"
+            "description": "The package name",
+            "default": "grizzly-bear-population-units"
           }
         },
         "additionalProperties": false
@@ -622,7 +649,8 @@
         "properties": {
           "query": {
             "type": "string",
-            "description": "The search criteria string or list of strings of the form ``{field}:{term1}``"
+            "description": "The search criteria string or list of strings of the form ``{field}:{term1}``",
+            "default": "format:csv"
           },
           "fields": {
             "type": "string",
@@ -634,11 +662,13 @@
           },
           "offset": {
             "type": "integer",
-            "description": "Apply an offset to the query"
+            "description": "Apply an offset to the query",
+            "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "Apply a limit to the query"
+            "description": "Apply a limit to the query",
+            "default": 0
           }
         },
         "additionalProperties": false
@@ -662,11 +692,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The id of the resource"
+            "description": "The id of the resource",
+            "default": "e6c8bb1d-3726-418b-9b7e-1d97a9bbb817"
           },
           "include_tracking": {
             "type": "boolean",
-            "description": "Add tracking information to dataset"
+            "description": "Add tracking information to dataset",
+            "default": false
           }
         },
         "additionalProperties": false
@@ -702,11 +734,13 @@
         "properties": {
           "offset": {
             "type": "integer",
-            "description": "The offset (index) of the first tag to return"
+            "description": "The offset (index) of the first tag to return",
+            "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "The number of tags to be returned per page"
+            "description": "The number of tags to be returned per page",
+            "default": 100
           }
         },
         "additionalProperties": false

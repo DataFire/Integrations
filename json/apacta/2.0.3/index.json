@@ -4813,7 +4813,8 @@
         "properties": {
           "show_all": {
             "type": "boolean",
-            "description": "Unless this is set to `true` only open projects will be shown"
+            "description": "Unless this is set to `true` only open projects will be shown",
+            "default": false
           },
           "project_status": {
             "type": "array",

@@ -1772,12 +1772,14 @@
           "limit": {
             "type": "integer",
             "format": "integer",
-            "description": "The maximum number of users to return"
+            "description": "The maximum number of users to return",
+            "default": 5000
           },
           "offset": {
             "type": "integer",
             "format": "integer",
-            "description": "The offset to start listing users from"
+            "description": "The offset to start listing users from",
+            "default": 0
           }
         },
         "additionalProperties": false

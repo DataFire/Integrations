@@ -349,7 +349,8 @@
           },
           "providers": {
             "type": "string",
-            "description": "A list of provider id strings concatenated by comma characters. The default : \"pesi,bgbm-cdm-server[col]\" will be used if this parameter is not set. A list of all available provider ids can be obtained from the '/capabilities' service end point. Providers can be nested, that is a parent provider can have sub providers. If the id of the parent provider is supplied all subproviders will be queried. The query can also be restriced to one or more subproviders by using the following syntax: parent-id[sub-id-1,sub-id2,...]"
+            "description": "A list of provider id strings concatenated by comma characters. The default : \"pesi,bgbm-cdm-server[col]\" will be used if this parameter is not set. A list of all available provider ids can be obtained from the '/capabilities' service end point. Providers can be nested, that is a parent provider can have sub providers. If the id of the parent provider is supplied all subproviders will be queried. The query can also be restriced to one or more subproviders by using the following syntax: parent-id[sub-id-1,sub-id2,...]",
+            "default": "pesi,eunis,bgbm-cdm-server[col]"
           },
           "searchMode": {
             "type": "string",
@@ -360,16 +361,19 @@
               "vernacularNameExact",
               "vernacularNameLike",
               "findByIdentifier"
-            ]
+            ],
+            "default": "scientificNameExact"
           },
           "addSynonymy": {
             "type": "boolean",
-            "description": "Indicates whether the synonymy of the accepted taxon should be included into the response. Turning this option on may cause an increased response time."
+            "description": "Indicates whether the synonymy of the accepted taxon should be included into the response. Turning this option on may cause an increased response time.",
+            "default": false
           },
           "timeout": {
             "type": "integer",
             "format": "int64",
-            "description": "The maximum of milliseconds to wait for responses from any of the providers. If the timeout is exceeded the service will jut return the resonses that have been received so far. The default timeout is 0 ms (wait for ever)"
+            "description": "The maximum of milliseconds to wait for responses from any of the providers. If the timeout is exceeded the service will jut return the resonses that have been received so far. The default timeout is 0 ms (wait for ever)",
+            "default": 0
           }
         },
         "additionalProperties": false,

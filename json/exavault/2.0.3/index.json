@@ -1528,15 +1528,18 @@
           },
           "requireEmail": {
             "type": "boolean",
-            "description": "Requires a user's email to access (defaults to false if not specified)."
+            "description": "Requires a user's email to access (defaults to false if not specified).",
+            "default": false
           },
           "embed": {
             "type": "boolean",
-            "description": "Allows user to embed a widget with the share. Defaults to false if not specified."
+            "description": "Allows user to embed a widget with the share. Defaults to false if not specified.",
+            "default": false
           },
           "isPublic": {
             "type": "boolean",
-            "description": "True if share has a public URL, otherwise defaults to false"
+            "description": "True if share has a public URL, otherwise defaults to false",
+            "default": false
           },
           "password": {
             "type": "string",
@@ -1556,7 +1559,8 @@
           },
           "fileDropCreateFolders": {
             "type": "boolean",
-            "description": "If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)"
+            "description": "If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1609,7 +1613,8 @@
           },
           "timeZone": {
             "type": "string",
-            "description": "The user's timezone, used for accurate time display within SWFT. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values"
+            "description": "The user's timezone, used for accurate time display within SWFT. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values",
+            "default": "America/Los_Angeles"
           },
           "nickname": {
             "type": "string",
@@ -1621,11 +1626,13 @@
           },
           "locked": {
             "type": "boolean",
-            "description": "If true, the user's account is locked by default"
+            "description": "If true, the user's account is locked by default",
+            "default": false
           },
           "welcomeEmail": {
             "type": "boolean",
-            "description": "If true, send a user email upon creation"
+            "description": "If true, send a user email upon creation",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -1836,15 +1843,18 @@
           "offset": {
             "type": "integer",
             "format": "int32",
-            "description": "Starting record in the result set. Can be used for pagination."
+            "description": "Starting record in the result set. Can be used for pagination.",
+            "default": 0
           },
           "sortBy": {
             "type": "string",
-            "description": "Sort method ['sort_logs_date' or 'sort_logs_ip_address' or 'sort_logs_username' or 'sort_logs_file' or 'sort_logs_file_source' or 'sort_logs_operation', or 'sort_logs_duration', or 'sort_logs_size', or 'sort_logs_protocol']"
+            "description": "Sort method ['sort_logs_date' or 'sort_logs_ip_address' or 'sort_logs_username' or 'sort_logs_file' or 'sort_logs_file_source' or 'sort_logs_operation', or 'sort_logs_duration', or 'sort_logs_size', or 'sort_logs_protocol']",
+            "default": "sort_logs_date"
           },
           "sortOrder": {
             "type": "string",
-            "description": "Sort in either ascending or descending order: asc, desc"
+            "description": "Sort in either ascending or descending order: asc, desc",
+            "default": "desc"
           },
           "filterBy": {
             "type": "string",
@@ -2016,7 +2026,8 @@
           },
           "detailed": {
             "type": "boolean",
-            "description": "If true, returns sharedFolder, notifications or other objects associated with specified path"
+            "description": "If true, returns sharedFolder, notifications or other objects associated with specified path",
+            "default": false
           },
           "pattern": {
             "type": "string",
@@ -2190,11 +2201,13 @@
           },
           "allowOverwrite": {
             "type": "boolean",
-            "description": "True if the file should be overwritten, false if different file names should be generated"
+            "description": "True if the file should be overwritten, false if different file names should be generated",
+            "default": true
           },
           "resume": {
             "type": "boolean",
-            "description": "True if upload resume is supported, false if it isn't"
+            "description": "True if upload resume is supported, false if it isn't",
+            "default": false
           }
         },
         "additionalProperties": false,

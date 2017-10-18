@@ -120,7 +120,8 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "Page number [page x 10 feeds]"
+            "description": "Page number [page x 10 feeds]",
+            "default": 1
           }
         },
         "additionalProperties": false,

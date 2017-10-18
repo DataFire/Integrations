@@ -2987,7 +2987,8 @@
             "enum": [
               "name",
               "path"
-            ]
+            ],
+            "default": "name"
           },
           "sort": {
             "type": "string",
@@ -2995,7 +2996,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "asc"
           },
           "page": {
             "type": "integer",
@@ -3351,7 +3353,8 @@
               "opened",
               "closed",
               "all"
-            ]
+            ],
+            "default": "opened"
           },
           "labels": {
             "type": "string",
@@ -3367,7 +3370,8 @@
             "enum": [
               "created_at",
               "updated_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -3375,7 +3379,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "page": {
             "type": "integer",
@@ -3732,7 +3737,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -3740,7 +3746,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "simple": {
             "type": "boolean",
@@ -4013,7 +4020,8 @@
               "opened",
               "closed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "labels": {
             "type": "string",
@@ -4029,7 +4037,8 @@
             "enum": [
               "created_at",
               "updated_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4037,7 +4046,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "page": {
             "type": "integer",
@@ -4287,7 +4297,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4295,7 +4306,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "archived": {
             "type": "boolean",
@@ -4465,7 +4477,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4473,7 +4486,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "archived": {
             "type": "boolean",
@@ -4572,7 +4586,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4580,7 +4595,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "archived": {
             "type": "boolean",
@@ -4650,7 +4666,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4658,7 +4675,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "page": {
             "type": "integer",
@@ -4705,7 +4723,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4713,7 +4732,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "archived": {
             "type": "boolean",
@@ -4889,7 +4909,8 @@
               "created_at",
               "updated_at",
               "last_activity_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -4897,7 +4918,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "archived": {
             "type": "boolean",
@@ -6598,7 +6620,8 @@
               "opened",
               "closed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "iid": {
             "type": "integer",
@@ -6619,7 +6642,8 @@
             "enum": [
               "created_at",
               "updated_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -6627,7 +6651,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "page": {
             "type": "integer",
@@ -8709,7 +8734,8 @@
               "closed",
               "merged",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "order_by": {
             "type": "string",
@@ -8717,7 +8743,8 @@
             "enum": [
               "created_at",
               "updated_at"
-            ]
+            ],
+            "default": "created_at"
           },
           "sort": {
             "type": "string",
@@ -8725,7 +8752,8 @@
             "enum": [
               "asc",
               "desc"
-            ]
+            ],
+            "default": "desc"
           },
           "iid": {
             "type": "array",
@@ -10080,7 +10108,8 @@
               "active",
               "closed",
               "all"
-            ]
+            ],
+            "default": "all"
           },
           "iid": {
             "type": "array",
@@ -10844,12 +10873,14 @@
           "page": {
             "type": "integer",
             "format": "int32",
-            "description": "The page for pagination"
+            "description": "The page for pagination",
+            "default": 0
           },
           "per_page": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of results per page"
+            "description": "The number of results per page",
+            "default": 20
           },
           "path": {
             "type": "string",
@@ -11147,7 +11178,8 @@
             "enum": [
               "new",
               "old"
-            ]
+            ],
+            "default": "new"
           }
         },
         "additionalProperties": false,
@@ -14943,7 +14975,8 @@
               0,
               10,
               20
-            ]
+            ],
+            "default": 10
           }
         },
         "additionalProperties": false,

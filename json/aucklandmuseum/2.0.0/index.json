@@ -120,11 +120,13 @@
           },
           "callback": {
             "type": "string",
-            "description": "The [JSON-P](http://json-p.org/) callback parameter"
+            "description": "The [JSON-P](http://json-p.org/) callback parameter",
+            "default": "callback"
           },
           "infer": {
             "type": "boolean",
-            "description": "Whether to get inferred results in the response"
+            "description": "Whether to get inferred results in the response",
+            "default": true
           }
         },
         "additionalProperties": false,
@@ -150,7 +152,8 @@
           },
           "infer": {
             "type": "boolean",
-            "description": "Whether to get inferred results in the response"
+            "description": "Whether to get inferred results in the response",
+            "default": true
           }
         },
         "additionalProperties": false,

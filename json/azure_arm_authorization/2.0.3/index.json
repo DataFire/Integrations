@@ -405,7 +405,8 @@
           },
           "$expand": {
             "type": "string",
-            "description": "Specifies whether to expand the values."
+            "description": "Specifies whether to expand the values.",
+            "default": "resourceTypes"
           }
         },
         "additionalProperties": false,
@@ -439,7 +440,8 @@
           },
           "$expand": {
             "type": "string",
-            "description": "Specifies whether to expand the values."
+            "description": "Specifies whether to expand the values.",
+            "default": "resourceTypes"
           }
         },
         "additionalProperties": false,

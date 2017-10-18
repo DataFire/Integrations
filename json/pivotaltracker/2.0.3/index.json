@@ -52,7 +52,8 @@
           "limit": {
             "type": "integer",
             "description": "Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100",
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "occurred_since_date": {
             "type": "string",
@@ -77,7 +78,8 @@
           "limit": {
             "type": "integer",
             "description": "Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100",
-            "minimum": 1
+            "minimum": 1,
+            "default": 10
           },
           "occurred_since_date": {
             "type": "string",

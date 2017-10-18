@@ -476,15 +476,18 @@
           },
           "display": {
             "type": "string",
-            "description": "The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.\n"
+            "description": "The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.\n",
+            "default": "page"
           },
           "prompt": {
             "type": "string",
-            "description": "Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.\n"
+            "description": "Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.\n",
+            "default": "login"
           },
           "max_age": {
             "type": "integer",
-            "description": "Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.\n"
+            "description": "Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.\n",
+            "default": 0
           },
           "ui_locales": {
             "type": "string",

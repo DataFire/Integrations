@@ -26,7 +26,8 @@
               "basic",
               "enhanced",
               "core"
-            ]
+            ],
+            "default": "basic"
           },
           "Content-Type": {
             "type": "string",
@@ -34,7 +35,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -59,51 +61,63 @@
               "basic",
               "enhanced",
               "core"
-            ]
+            ],
+            "default": "basic"
           },
           "city": {
             "type": "string",
-            "description": "Filters through the Companies collection by city name."
+            "description": "Filters through the Companies collection by city name.",
+            "default": "Omaha"
           },
           "companyname": {
             "type": "string",
-            "description": "Filters through the Companies collection and returns resources by company name."
+            "description": "Filters through the Companies collection and returns resources by company name.",
+            "default": "ABC"
           },
           "ein": {
             "type": "string",
-            "description": "Filters through the Companies collection and returns resources with an Employer Identification Number (EIN)."
+            "description": "Filters through the Companies collection and returns resources with an Employer Identification Number (EIN).",
+            "default": "521492843"
           },
           "email": {
             "type": "string",
-            "description": "Filters through the Companies collection and returns resources with a case-insensitive email address match at the level."
+            "description": "Filters through the Companies collection and returns resources with a case-insensitive email address match at the level.",
+            "default": "johndoe@abcco.com"
           },
           "firstname": {
             "type": "string",
-            "description": "Filters through the Companies collection by the primary contact's first name."
+            "description": "Filters through the Companies collection by the primary contact's first name.",
+            "default": "bill"
           },
           "lastname": {
             "type": "string",
-            "description": "Filters through the Companies collection by the primary contact's last name."
+            "description": "Filters through the Companies collection by the primary contact's last name.",
+            "default": "doe"
           },
           "phone": {
             "type": "string",
-            "description": "Filters through the Companies collection and returns resources with an ten-digit phone number match."
+            "description": "Filters through the Companies collection and returns resources with an ten-digit phone number match.",
+            "default": "5558675309"
           },
           "postalcode": {
             "type": "string",
-            "description": "Filters through the Companies collection by ZIP code or Postal code."
+            "description": "Filters through the Companies collection by ZIP code or Postal code.",
+            "default": "68046"
           },
           "stateprovince": {
             "type": "string",
-            "description": "Filters through the Companies collection by State or Province abbreviation."
+            "description": "Filters through the Companies collection by State or Province abbreviation.",
+            "default": "NE"
           },
           "limit": {
             "type": "integer",
-            "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10."
+            "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10.",
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0."
+            "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0.",
+            "default": 0
           },
           "Content-Type": {
             "type": "string",
@@ -111,7 +125,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -134,7 +149,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -157,7 +173,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -187,7 +204,8 @@
               "core",
               "LifeStyle",
               "TargetReady"
-            ]
+            ],
+            "default": "basic"
           },
           "Content-Type": {
             "type": "string",
@@ -195,7 +213,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -222,19 +241,23 @@
               "core",
               "LifeStyle",
               "TargetReady"
-            ]
+            ],
+            "default": "basic"
           },
           "city": {
             "type": "string",
-            "description": "Filters through the People collection by city name."
+            "description": "Filters through the People collection by city name.",
+            "default": "Omaha"
           },
           "email": {
             "type": "string",
-            "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level."
+            "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level.",
+            "default": "johndoe@abcco.com"
           },
           "emailsha1upper": {
             "type": "string",
-            "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level. If used, must be a SHA1 hashed upper case email address."
+            "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level. If used, must be a SHA1 hashed upper case email address.",
+            "default": "9d2972490f8c6a9a3a8e052d6050f9d3fde2e54d"
           },
           "includehistoricalemail": {
             "type": "boolean",
@@ -242,31 +265,38 @@
           },
           "firstname": {
             "type": "string",
-            "description": "Filters through the People collection by the primary contact's first name."
+            "description": "Filters through the People collection by the primary contact's first name.",
+            "default": "bill"
           },
           "lastname": {
             "type": "string",
-            "description": "Filters through the People collection by the primary contact's last name."
+            "description": "Filters through the People collection by the primary contact's last name.",
+            "default": "doe"
           },
           "phone": {
             "type": "string",
-            "description": "Filters through the People collection and returns resources with an ten-digit phone number match."
+            "description": "Filters through the People collection and returns resources with an ten-digit phone number match.",
+            "default": "5558675309"
           },
           "postalcode": {
             "type": "string",
-            "description": "Filters through the People collection by ZIP code or Postal code."
+            "description": "Filters through the People collection by ZIP code or Postal code.",
+            "default": "68046"
           },
           "stateprovince": {
             "type": "string",
-            "description": "Filters through the People collection by State or Province abbreviation."
+            "description": "Filters through the People collection by State or Province abbreviation.",
+            "default": "NE"
           },
           "limit": {
             "type": "integer",
-            "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10."
+            "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10.",
+            "default": 10
           },
           "offset": {
             "type": "integer",
-            "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0."
+            "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0.",
+            "default": 0
           },
           "Content-Type": {
             "type": "string",
@@ -274,7 +304,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -297,7 +328,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -320,7 +352,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -343,7 +376,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -366,7 +400,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -393,7 +428,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
@@ -413,7 +449,8 @@
         "properties": {
           "keyword": {
             "type": "string",
-            "description": "By SIC description. Example \"barber\"."
+            "description": "By SIC description. Example \"barber\".",
+            "default": "barber"
           },
           "Content-Type": {
             "type": "string",
@@ -421,7 +458,8 @@
             "enum": [
               "application/json",
               "application/xml"
-            ]
+            ],
+            "default": "application/json"
           }
         },
         "additionalProperties": false,
