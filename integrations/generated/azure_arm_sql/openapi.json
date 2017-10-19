@@ -5,8 +5,8 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "description": "Provides read functionality for Azure SQL Database Backups",
-    "title": "Azure SQL Database Backup",
+    "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities.",
+    "title": "SqlManagementClient",
     "version": "2014-04-01",
     "x-apisguru-categories": [
       "enterprise"

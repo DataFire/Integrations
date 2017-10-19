@@ -16,7 +16,7 @@
       "url": "http://creativecommons.org/licenses/by/3.0/"
     },
     "termsOfService": "https://developers.google.com/terms/",
-    "title": "BigQuery Data Transfer Service",
+    "title": "BigQuery Data Transfer",
     "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"

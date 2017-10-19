@@ -1,6 +1,6 @@
 {
   "id": "google_bigquerydatatransfer",
-  "title": "BigQuery Data Transfer Service",
+  "title": "BigQuery Data Transfer",
   "description": "Transfers data from partner SaaS applications to Google BigQuery on a scheduled, managed basis.",
   "security": {
     "google_bigquerydatatransfer": {

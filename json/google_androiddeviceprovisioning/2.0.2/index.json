@@ -1,7 +1,7 @@
 {
   "id": "google_androiddeviceprovisioning",
   "title": "Android Device Provisioning Partner",
-  "description": "Android Device Provisioning Partner API",
+  "description": "Automates reseller integration into zero-touch enrollment by assigning devices to customers and creating device reports.",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"

@@ -1,6 +1,7 @@
 {
   "id": "6_dot_authentiqio_appspot",
   "title": "Authentiq",
+  "description": "Strong authentication, without the passwords.",
   "security": {},
   "logo": {
     "backgroundColor": "#F26641",

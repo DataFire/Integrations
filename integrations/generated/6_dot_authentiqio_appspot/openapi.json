@@ -34,7 +34,8 @@
     "x-datafire": {
       "name": "6_dot_authentiqio_appspot",
       "type": "openapi"
-    }
+    },
+    "description": "Strong authentication, without the passwords."
   },
   "parameters": {
     "AuthentiqID": {

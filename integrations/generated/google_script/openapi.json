@@ -10,7 +10,7 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Executes Google Apps Script projects.",
+    "description": "An API for managing and executing Google Apps Script projects.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"

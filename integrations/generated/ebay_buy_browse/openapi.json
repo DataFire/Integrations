@@ -9,19 +9,19 @@
     "contact": {
       "name": "eBay Inc."
     },
-    "description": "The Buy Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve the details of an item.",
+    "description": "The Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve the details of an item.",
     "license": {
       "name": "eBay API License Agreement",
       "url": "https://go.developer.ebay.com/api-license-agreement"
     },
-    "title": "Buy Browse",
+    "title": "API to View & Search for Items",
     "version": "v1_beta.7.0",
     "x-apisguru-categories": [
       "ecommerce"
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_667048357307662338_PzXHlU9N_400x400.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_854751952239853568_BdT5xkFG_400x400.jpg"
     },
     "x-origin": [
       {

@@ -1,7 +1,7 @@
 {
   "id": "google_script",
   "title": "Google Apps Script Execution",
-  "description": "Executes Google Apps Script projects.",
+  "description": "An API for managing and executing Google Apps Script projects.",
   "security": {
     "google_script": {
       "integration": "google_script",

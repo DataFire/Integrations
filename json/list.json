@@ -38,6 +38,7 @@
   "6_dot_authentiqio_appspot": {
     "id": "6_dot_authentiqio_appspot",
     "title": "Authentiq",
+    "description": "Strong authentication, without the passwords.",
     "security": {},
     "logo": {
       "backgroundColor": "#F26641",
@@ -966,7 +967,7 @@
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
     "title": "Amazon EC2 Container Registry",
-    "description": "Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry service. Customers can use the familiar Dock...",
+    "description": "Amazon EC2 Container Registry (Amazon ECR) is a managed Docker registry service. Customers can use the familiar Docker C...",
     "security": {
       "amazonaws_ecr": {
         "integration": "amazonaws_ecr",
@@ -2887,7 +2888,7 @@
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
     "title": "Sentiment APIs",
-    "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/11",
+    "description": "Japanese sentiment analyzer. (tokenized by SentencePiece)[Endpoint] https://api.apitore.com/api/39",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentimentapis.jpg"
@@ -4768,8 +4769,8 @@
   },
   "azure_arm_sql": {
     "id": "azure_arm_sql",
-    "title": "Azure SQL Database Backup",
-    "description": "Provides read functionality for Azure SQL Database Backups",
+    "title": "SqlManagementClient",
+    "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services ...",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
@@ -5863,7 +5864,7 @@
     "description": "This API drives the [Discovery Market Research Tool](https://discovery.gsa.gov). It contains information on the vendors ...",
     "security": {},
     "logo": {
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cloud_gov.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cloud_gov.jpg"
     },
     "actionCount": 5,
     "tags": [
@@ -6195,8 +6196,8 @@
   },
   "ebay_buy_browse": {
     "id": "ebay_buy_browse",
-    "title": "Buy Browse",
-    "description": "The Buy Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve t...",
+    "title": "API to View & Search for Items",
+    "description": "The Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve the d...",
     "security": {
       "ebay_buy_browse": {
         "integration": "ebay_buy_browse",
@@ -6220,7 +6221,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.jpg"
     },
     "actionCount": 6,
     "tags": [
@@ -6231,7 +6232,7 @@
   "ebay_buy_marketing": {
     "id": "ebay_buy_marketing",
     "title": "Buy Marketing",
-    "description": "The Buy Marketing API lets shoppers discover the best selling products and assists shoppers with deciding which product ...",
+    "description": "The Marketing API retrieves eBay products based on a metric, such as Best Selling, as well as products that were also bo...",
     "security": {
       "ebay_buy_marketing": {
         "integration": "ebay_buy_marketing",
@@ -6255,7 +6256,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.jpg"
     },
     "actionCount": 3,
     "tags": [
@@ -6290,7 +6291,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_commerce_taxonomy.jpg"
     },
     "actionCount": 6,
     "tags": [
@@ -7309,7 +7310,7 @@
   "google_androiddeviceprovisioning": {
     "id": "google_androiddeviceprovisioning",
     "title": "Android Device Provisioning Partner",
-    "description": "Android Device Provisioning Partner API",
+    "description": "Automates reseller integration into zero-touch enrollment by assigning devices to customers and creating device reports.",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"
@@ -7581,7 +7582,7 @@
   },
   "google_bigquerydatatransfer": {
     "id": "google_bigquerydatatransfer",
-    "title": "BigQuery Data Transfer Service",
+    "title": "BigQuery Data Transfer",
     "description": "Transfers data from partner SaaS applications to Google BigQuery on a scheduled, managed basis.",
     "security": {
       "google_bigquerydatatransfer": {
@@ -10175,7 +10176,7 @@
   "google_safebrowsing": {
     "id": "google_safebrowsing",
     "title": "Google Safe Browsing",
-    "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-u...",
+    "description": "Enables client applications to check web resources (most commonly URLs) against Google-generated lists of unsafe web res...",
     "security": {},
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_safebrowsing.png"
@@ -10190,7 +10191,7 @@
   "google_script": {
     "id": "google_script",
     "title": "Google Apps Script Execution",
-    "description": "Executes Google Apps Script projects.",
+    "description": "An API for managing and executing Google Apps Script projects.",
     "security": {
       "google_script": {
         "integration": "google_script",
@@ -11126,8 +11127,8 @@
   },
   "google_videointelligence": {
     "id": "google_videointelligence",
-    "title": "Google Cloud Video Intelligence",
-    "description": "Google Cloud Video Intelligence API.",
+    "title": "Cloud Video Intelligence",
+    "description": "Cloud Video Intelligence API.",
     "security": {
       "google_videointelligence": {
         "integration": "google_videointelligence",
@@ -14514,7 +14515,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wealthport.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wealthport.jpg"
     },
     "actionCount": 26,
     "tags": [
@@ -14526,7 +14527,7 @@
   "wikimedia": {
     "id": "wikimedia",
     "title": "Wikimedia",
-    "description": "This API provides cacheable and straightforward access to Wikimedia content and data, in machine-readable formats. Each ...",
+    "description": "This API provides cacheable and straightforward access to Wikimedia content and data, in machine-readable formats.",
     "security": {
       "wikimedia": {
         "integration": "wikimedia",

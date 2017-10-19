@@ -9,7 +9,7 @@
     "contact": {
       "name": "eBay Inc."
     },
-    "description": "The Buy Marketing API lets shoppers discover the best selling products and assists shoppers with deciding which product to purchase.",
+    "description": "The Marketing API retrieves eBay products based on a metric, such as Best Selling, as well as products that were also bought and also viewed.",
     "license": {
       "name": "eBay API License Agreement",
       "url": "https://go.developer.ebay.com/api-license-agreement"
@@ -21,7 +21,7 @@
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_667048357307662338_PzXHlU9N_400x400.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_854751952239853568_BdT5xkFG_400x400.jpg"
     },
     "x-origin": [
       {

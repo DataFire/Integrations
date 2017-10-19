@@ -1,7 +1,7 @@
 {
   "id": "google_videointelligence",
-  "title": "Google Cloud Video Intelligence",
-  "description": "Google Cloud Video Intelligence API.",
+  "title": "Cloud Video Intelligence",
+  "description": "Cloud Video Intelligence API.",
   "security": {
     "google_videointelligence": {
       "integration": "google_videointelligence",

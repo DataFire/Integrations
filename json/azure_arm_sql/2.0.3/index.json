@@ -1,7 +1,7 @@
 {
   "id": "azure_arm_sql",
-  "title": "Azure SQL Database Backup",
-  "description": "Provides read functionality for Azure SQL Database Backups",
+  "title": "SqlManagementClient",
+  "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities.",
   "security": {},
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"

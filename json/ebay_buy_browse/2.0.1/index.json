@@ -1,7 +1,7 @@
 {
   "id": "ebay_buy_browse",
-  "title": "Buy Browse",
-  "description": "The Buy Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve the details of an item.",
+  "title": "API to View & Search for Items",
+  "description": "The Browse API lets shoppers search for specific items by keyword, category, product, or item aspects and retrieve the details of an item.",
   "security": {
     "ebay_buy_browse": {
       "integration": "ebay_buy_browse",
@@ -25,7 +25,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_browse.jpg"
   },
   "actionCount": 6,
   "definitions": {

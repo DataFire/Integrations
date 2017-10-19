@@ -12,7 +12,7 @@
       "name": "Mike Ralphson",
       "url": "https://github.com/mermade/aws2openapi"
     },
-    "description": "<fullname>AWS CloudHSM Service</fullname>",
+    "description": "<fullname>AWS CloudHSM Service</fullname> <p>This is the reference for AWS CloudHSM Classic. For more information, see <a href=\"http://aws.amazon.com/cloudhsm/faqs-classic/\">AWS CloudHSM Classic FAQs</a> and the <a href=\"http://docs.aws.amazon.com/cloudhsm/classic/userguide/\">AWS CloudHSM Classic User Guide</a>.</p> <p>For more information about AWS CloudHSM, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a> and the <a href=\"http://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS CloudHSM User Guide</a>.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"

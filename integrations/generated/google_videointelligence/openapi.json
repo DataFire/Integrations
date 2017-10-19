@@ -10,13 +10,13 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Google Cloud Video Intelligence API.",
+    "description": "Cloud Video Intelligence API.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"
     },
     "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Cloud Video Intelligence",
+    "title": "Cloud Video Intelligence",
     "version": "v1beta1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"

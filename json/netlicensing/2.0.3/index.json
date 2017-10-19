@@ -1,7 +1,7 @@
 {
   "id": "netlicensing",
   "title": "Labs64 NetLicensing RESTful API Test Center",
-  "description": "The Labs64 [NetLicensing RESTful API](https://www.labs64.de/confluence/x/pwCo) gives you access to NetLicensing’s core features.  \n\n**Authentication**  \nYou authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - `demo:demo`  \n\nFind out more about Labs64 NetLicensing at [netlicensing.io](http://netlicensing.io)",
+  "description": "The Labs64 [NetLicensing RESTful API](https://www.labs64.de/confluence/x/pwCo) gives you access to NetLicensing’s core features.  \n\n**Authentication**  \nYou authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - `demo:demo`  \n\nFind out more about Labs64 NetLicensing at [netlicensing.io](https://netlicensing.io)",
   "security": {
     "netlicensing": {
       "integration": "netlicensing",
