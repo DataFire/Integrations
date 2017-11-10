@@ -16,18 +16,19 @@ const DEPRECATED_DIR = __dirname + '/../integrations/deprecated';
 request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   if (err) throw err;
   let keys = Object.keys(body);
-  if (args.new) {
-    keys = keys.filter(key => {
-      let {provider, name} = getName(key);
-      return !fs.existsSync(OUT_DIR + '/' + name) && !fs.existsSync(DEPRECATED_DIR + '/' + name);
-    })
-  }
-  if (args.name) {
-    keys = keys.filter(key => {
-      let {provider, name} = getName(key);
-       return name === args.name;
-    })
-  }
+  keys = keys.filter(key => {
+    let {provider, name} = getName(key);
+    if (fs.existsSync(DEPRECATED_DIR + '/' + name)) {
+      return false;
+    }
+    if (args.new && fs.existsSync(OUT_DIR + '/' + name)) {
+      return false;
+    }
+    if (args.name && name !== args.name) {
+      return false;
+    }
+    return true;
+  })
   async.parallel(keys.map(key => {
     return acb => {
       let {name, provider} = getName(key);
@@ -42,7 +43,12 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
           name,
           openapi: api.swaggerUrl,
           patch: maybeGetPatch(name) || maybeGetPatch(provider),
-        }, acb);
+          bump: args.bump,
+        }, err => {
+          if (err) return acb(err);
+          fs.unlinkSync(path.join(OUT_DIR, name, 'details.json'));
+          acb();
+        });
       }
     }
   }), err => {

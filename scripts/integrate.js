@@ -13,15 +13,18 @@ module.exports = (args, callback=()=>{}) => {
     console.log('Writing', args.name);
     let spec = require(path.join(args.destination, args.name, 'openapi.json'));
     let pkg = JSON.parse(JSON.stringify(require('../package-template.json')))
+    let packageFile = path.join(args.destination, args.name, 'package.json');
+    let isNew = !fs.existsSync(packageFile);
+    if (!isNew) pkg = require(packageFile);
     pkg.name = '@datafire/' + args.name;
     pkg.description = "DataFire integration for " + (spec.info.title || args.name);
     pkg.datafire = pkg.datafire || {};
     pkg.datafire.origin = args[type];
     pkg.datafire.type = type;
-    let packageFile = path.join(args.destination, args.name, 'package.json');
-    if (process.env.NO_UPDATE && fs.existsSync(packageFile)) {
-      let origPackage = require(packageFile);
-      pkg.datafire = origPackage.datafire;
+    if (args.bump && !isNew) {
+      let semver = pkg.version.split('.');
+      pkg.version = [+semver[0] + 1, 0, 0].join('.');
+      console.log('bumping', pkg.version);
     }
     fs.writeFileSync(packageFile, JSON.stringify(pkg, null, 2));
     callback();

@@ -28,6 +28,7 @@ const sdkMap = module.exports = {
   states: 'StepFunctions',
   streams_dynamodb: 'DynamoDBStreams',
   tagging: 'ResourceGroupsTaggingAPI',
+  api_pricing: 'Pricing',
 }
 
 list.forEach(name => {

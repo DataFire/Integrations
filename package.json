@@ -17,7 +17,7 @@
   "homepage": "https://github.com/DataFire/Integrations#readme",
   "devDependencies": {
     "async": "^2.1.4",
-    "aws-sdk": "^2.112.0",
+    "aws-sdk": "^2.149.0",
     "chai": "^3.5.0",
     "datafire": "^2.0.2",
     "mkdirp": "^0.5.1",
