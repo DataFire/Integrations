@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_elasticfilesystem",
-  "version": "3.0.4",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Amazon Elastic File System",
   "repository": {

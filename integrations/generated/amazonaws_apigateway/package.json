@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_apigateway",
-  "version": "3.0.4",
+  "version": "4.0.0",
   "main": "index.js",
   "description": "DataFire integration for Amazon API Gateway",
   "repository": {
