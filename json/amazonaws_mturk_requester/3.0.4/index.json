@@ -183,7 +183,7 @@
           "description": "The ID of the assignment associated with this bonus payment."
         },
         "BonusAmount": {
-          "$ref": "#/definitions/NumericValue"
+          "$ref": "#/definitions/CurrencyAmount"
         },
         "GrantTime": {
           "$ref": "#/definitions/Timestamp",
@@ -250,7 +250,8 @@
         }
       },
       "required": [
-        "HITId"
+        "HITId",
+        "NumberOfAdditionalAssignments"
       ],
       "type": "object",
       "title": "CreateAdditionalAssignmentsForHITRequest"
@@ -315,7 +316,7 @@
           "description": "<p> An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT. </p> <p> The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester. </p> <p> The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped. </p>"
         },
         "Reward": {
-          "$ref": "#/definitions/NumericValue",
+          "$ref": "#/definitions/CurrencyAmount",
           "description": " The amount of money the Requester will pay a Worker for successfully completing the HIT. "
         },
         "Title": {
@@ -370,7 +371,7 @@
           "description": " A condition that a Worker's Qualifications must meet before the Worker is allowed to accept and complete the HIT. "
         },
         "Reward": {
-          "$ref": "#/definitions/NumericValue",
+          "$ref": "#/definitions/CurrencyAmount",
           "description": " The amount of money the Requester will pay a Worker for successfully completing the HIT. "
         },
         "Title": {
@@ -541,6 +542,12 @@
       "type": "object",
       "title": "CreateWorkerBlockResponse"
     },
+    "CurrencyAmount": {
+      "description": "A string representing a currency amount.",
+      "pattern": "^[0-9]+(\\.)?[0-9]{0,2}$",
+      "type": "string",
+      "title": "CurrencyAmount"
+    },
     "CustomerId": {
       "maxLength": 64,
       "minLength": 1,
@@ -684,10 +691,10 @@
     "GetAccountBalanceResponse": {
       "properties": {
         "AvailableBalance": {
-          "$ref": "#/definitions/NumericValue"
+          "$ref": "#/definitions/CurrencyAmount"
         },
         "OnHoldBalance": {
-          "$ref": "#/definitions/NumericValue"
+          "$ref": "#/definitions/CurrencyAmount"
         }
       },
       "type": "object",
@@ -902,7 +909,7 @@
           "description": " An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT."
         },
         "Reward": {
-          "$ref": "#/definitions/NumericValue"
+          "$ref": "#/definitions/CurrencyAmount"
         },
         "Title": {
           "$ref": "#/definitions/String",
@@ -924,6 +931,10 @@
           "description": "The value substituted for the parameter referenced in the HITLayout. "
         }
       },
+      "required": [
+        "Name",
+        "Value"
+      ],
       "type": "object",
       "title": "HITLayoutParameter"
     },
@@ -1412,7 +1423,7 @@
       "properties": {
         "Destination": {
           "$ref": "#/definitions/String",
-          "description": " The destination for notification messages. or email notifications (if Transport is Email), this is an email address. For Amazon Simple Queue Service (Amazon SQS) notifications (if Transport is SQS), this is the URL for your Amazon SQS queue. "
+          "description": "<p> The target for notification messages. The Destination’s format is determined by the specified Transport: </p> <ul> <li> <p>When Transport is Email, the Destination is your email address.</p> </li> <li> <p>When Transport is SQS, the Destination is your queue URL.</p> </li> <li> <p>When Transport is SNS, the Destination is the ARN of your topic.</p> </li> </ul>"
         },
         "EventTypes": {
           "$ref": "#/definitions/EventTypeList",
@@ -1420,7 +1431,7 @@
         },
         "Transport": {
           "$ref": "#/definitions/NotificationTransport",
-          "description": " The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS. "
+          "description": " The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS. "
         },
         "Version": {
           "$ref": "#/definitions/String",
@@ -1429,7 +1440,9 @@
       },
       "required": [
         "Destination",
-        "Transport"
+        "Transport",
+        "Version",
+        "EventTypes"
       ],
       "type": "object",
       "title": "NotificationSpecification"
@@ -1437,7 +1450,8 @@
     "NotificationTransport": {
       "enum": [
         "Email",
-        "SQS"
+        "SQS",
+        "SNS"
       ],
       "type": "string",
       "title": "NotificationTransport"
@@ -1508,12 +1522,6 @@
       },
       "type": "object",
       "title": "NotifyWorkersResponse"
-    },
-    "NumericValue": {
-      "description": "A string representing a numeric value.",
-      "pattern": "^[0-9]+(\\.)?[0-9]*$",
-      "type": "string",
-      "title": "NumericValue"
     },
     "PaginationToken": {
       "description": "If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. ",
@@ -1777,7 +1785,8 @@
         }
       },
       "required": [
-        "AssignmentId"
+        "AssignmentId",
+        "RequesterFeedback"
       ],
       "type": "object",
       "title": "RejectAssignmentRequest"
@@ -1896,6 +1905,9 @@
           "description": " Name of a Review Policy: SimplePlurality/2011-09-01 or ScoreMyKnownAnswers/2011-09-01 "
         }
       },
+      "required": [
+        "PolicyName"
+      ],
       "type": "object",
       "title": "ReviewPolicy"
     },
@@ -1982,7 +1994,7 @@
           "description": "The ID of the assignment for which this bonus is paid."
         },
         "BonusAmount": {
-          "$ref": "#/definitions/NumericValue",
+          "$ref": "#/definitions/CurrencyAmount",
           "description": " The Bonus amount is a US Dollar amount specified using a string (for example, \"5\" represents $5.00 USD and \"101.42\" represents $101.42 USD). Do not include currency symbols or currency codes. "
         },
         "Reason": {
@@ -2001,7 +2013,8 @@
       "required": [
         "WorkerId",
         "BonusAmount",
-        "AssignmentId"
+        "AssignmentId",
+        "Reason"
       ],
       "type": "object",
       "title": "SendBonusRequest"
@@ -2079,7 +2092,8 @@
         }
       },
       "required": [
-        "HITId"
+        "HITId",
+        "ExpireAt"
       ],
       "type": "object",
       "title": "UpdateExpirationForHITRequest"

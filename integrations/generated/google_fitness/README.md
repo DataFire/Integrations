@@ -186,6 +186,30 @@ google_fitness.users.dataSources.update({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### users.dataSources.dataPointChanges.list
+Queries for user's data point changes for a particular data source.
+
+
+```js
+google_fitness.users.dataSources.dataPointChanges.list({
+  "dataSourceId": "",
+  "userId": ""
+}, context)
+```
+
+#### Parameters
+* dataSourceId (string) **required** - The data stream ID of the data source that created the dataset.
+* limit (integer) - If specified, no more than this many data point changes will be included in the response.
+* pageToken (string) - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of nextPageToken from the previous response.
+* userId (string) **required** - List data points for the person identified. Use me to indicate the authenticated user. Only me is supported at this time.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### users.dataSources.datasets.delete
 Performs an inclusive delete of all data points whose start and end times have any overlap with the time range specified by the dataset ID. For most data types, the entire data point will be deleted. For data types where the time span represents a consistent value (such as com.google.activity.segment), and a data point straddles either end point of the dataset, only the overlapping portion of the data point will be deleted.
 

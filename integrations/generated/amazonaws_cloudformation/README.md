@@ -21,7 +21,7 @@ amazonaws_cloudformation.CancelUpdateStack({}).then(data => {
 ```
 
 ## Description
-<fullname>AWS CloudFormation</fullname> <p>AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and repeatedly. You can use AWS CloudFormation to leverage AWS products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly-reliable, highly scalable, cost-effective applications without creating or configuring the underlying AWS infrastructure.</p> <p>With AWS CloudFormation, you declare all of your resources and dependencies in a template file. The template defines a collection of resources as a single unit called a stack. AWS CloudFormation creates and deletes all member resources of the stack together and manages all dependencies between the resources for you.</p> <p>For more information about AWS CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">AWS CloudFormation Product Page</a>.</p> <p>Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <a href="http://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p> <p> <i>APIs for stacks </i> </p> <p>When you use AWS CloudFormation, you manage related resources as a single unit called a stack. You create, update, and delete a collection of resources by creating, updating, and deleting stacks. All the resources in a stack are defined by the stack's AWS CloudFormation template. </p> <p>Actions</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html">CancelUpdateStack</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ContinueUpdateRollback.html">ContinueUpdateRollback</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html">CreateStack</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html">DeleteStack</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html">DescribeStackEvents</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html">DescribeStackResource</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html">DescribeStackResources</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html">DescribeStacks</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html">EstimateTemplateCost</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html">GetStackPolicy</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html">GetTemplate</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html">GetTemplateSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListExports.html">ListExports</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListImports.html">ListImports</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html">ListStackResources</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html">ListStacks</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html">SetStackPolicy</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html">UpdateStack</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html">ValidateTemplate</a> </p> </li> </ul> <p>Data Types</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Export.html">Export</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ParameterConstraints.html">ParameterConstraints</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ParameterDeclaration.html">ParameterDeclaration</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Stack.html">Stack</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackEvent.html">StackEvent</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackResource.html">StackResource</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackResourceDetail.html">StackResourceDetail</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackResourceSummary.html">StackResourceSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSummary.html">StackSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html">Tag</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_TemplateParameter.html">TemplateParameter</a> </p> </li> </ul> <p> <i>APIs for change sets</i> </p> <p>If you need to make changes to the running resources in a stack, you update the stack. Before making changes to your resources, you can generate a change set, which is summary of your proposed changes. Change sets allow you to see how your changes might impact your running resources, especially for critical resources, before implementing them.</p> <p>Actions</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteChangeSet.html">DeleteChangeSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeChangeSet.html">DescribeChangeSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListChangeSets.html">ListChangeSets</a> </p> </li> </ul> <p>Data Types</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Change.html">Change</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ChangeSetSummary.html">ChangeSetSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ResourceChange.html">ResourceChange</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ResourceChangeDetail.html">ResourceChangeDetail</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ResourceTargetDefinition.html">ResourceTargetDefinition</a> </p> </li> </ul> <p> <i>APIs for stack sets</i> </p> <p>AWS CloudFormation StackSets lets you create a collection, or stack set, of stacks that can automatically and safely provision a common set of AWS resources across multiple AWS accounts and multiple AWS regions from a single AWS CloudFormation template. When you create a stack set, AWS CloudFormation provisions a stack in each of the specified accounts and regions by using the supplied AWS CloudFormation template and parameters. Stack sets let you manage a common set of AWS resources in a selection of accounts and regions in a single operation. </p> <p>Actions</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackSet.html">CreateStackSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStackInstances.html">DeleteStackInstances</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStackSet.html">DeleteStackSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackInstance.html">DescribeStackInstance</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSet.html">DescribeStackSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSetOperation.html">DescribeStackSetOperation</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackInstances.html">ListStackInstances</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperationResults">ListStackSetOperationResults</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperations">ListStackSetOperations</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSets">ListStackSets</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StopStackSetOperation.html">StopStackSetOperation</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> </p> </li> </ul> <p>Data Types</p> <ul> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackInstance.html.html">StackInstance</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackInstanceSummary.html.html">StackInstanceSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSet.html">StackSet</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperation.html.html">StackSetOperation</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationPreferences.html.html">StackSetOperationPreferences</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationResultSummary.html.html">StackSetOperationResultSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetOperationSummary.html.html">StackSetOperationSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StackSetSummary.html">StackSetSummary</a> </p> </li> <li> <p> <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Tag.html">Tag</a> </p> </li> </ul>
+<fullname>AWS CloudFormation</fullname> <p>AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and repeatedly. You can use AWS CloudFormation to leverage AWS products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly-reliable, highly scalable, cost-effective applications without creating or configuring the underlying AWS infrastructure.</p> <p>With AWS CloudFormation, you declare all of your resources and dependencies in a template file. The template defines a collection of resources as a single unit called a stack. AWS CloudFormation creates and deletes all member resources of the stack together and manages all dependencies between the resources for you.</p> <p>For more information about AWS CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">AWS CloudFormation Product Page</a>.</p> <p>Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <a href="http://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
 
 ## Actions
 ### CancelUpdateStack
@@ -75,6 +75,7 @@ amazonaws_cloudformation.CreateChangeSet({
 * Parameters (array)
 * ResourceTypes (array)
 * RoleARN (string)
+* RollbackConfiguration (object) - <p>Structure containing the rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.</p> <p>Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified. For each rollback trigger you create, you specify the Cloudwatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms during the stack create or update operation, and for the specified amount of time after all resources have been deployed. If any of the alarms goes to ALERT state during the stack operation or the monitoring period, CloudFormation rolls back the entire stack operation. If the monitoring period expires without any alarms going to ALERT state, CloudFormation proceeds to dispose of old resources as usual.</p> <p>By default, CloudFormation only rolls back stack operations if an alarm goes to ALERT state, not INSUFFICIENT_DATA state. To have CloudFormation roll back the stack operation if an alarm goes to INSUFFICIENT_DATA state as well, edit the CloudWatch alarm to treat missing data as <code>breaching</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">Configuring How CloudWatch Alarms Treats Missing Data</a>.</p> <p>AWS CloudFormation does not monitor rollback triggers when it rolls back a stack during an update operation.</p>
 * StackName (string) **required**
 * Tags (array)
 * TemplateBody (string)
@@ -95,11 +96,13 @@ amazonaws_cloudformation.CreateStack({
 * Capabilities (array)
 * ClientRequestToken (string)
 * DisableRollback (boolean)
+* EnableTerminationProtection (boolean)
 * NotificationARNs (array)
 * OnFailure (string)
 * Parameters (array)
 * ResourceTypes (array)
 * RoleARN (string)
+* RollbackConfiguration (object) - <p>Structure containing the rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.</p> <p>Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified. For each rollback trigger you create, you specify the Cloudwatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms during the stack create or update operation, and for the specified amount of time after all resources have been deployed. If any of the alarms goes to ALERT state during the stack operation or the monitoring period, CloudFormation rolls back the entire stack operation. If the monitoring period expires without any alarms going to ALERT state, CloudFormation proceeds to dispose of old resources as usual.</p> <p>By default, CloudFormation only rolls back stack operations if an alarm goes to ALERT state, not INSUFFICIENT_DATA state. To have CloudFormation roll back the stack operation if an alarm goes to INSUFFICIENT_DATA state as well, edit the CloudWatch alarm to treat missing data as <code>breaching</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">Configuring How CloudWatch Alarms Treats Missing Data</a>.</p> <p>AWS CloudFormation does not monitor rollback triggers when it rolls back a stack during an update operation.</p>
 * StackName (string) **required**
 * StackPolicyBody (string)
 * StackPolicyURL (string)
@@ -107,6 +110,45 @@ amazonaws_cloudformation.CreateStack({
 * TemplateBody (string)
 * TemplateURL (string)
 * TimeoutInMinutes (integer)
+
+### CreateStackInstances
+
+
+
+```js
+amazonaws_cloudformation.CreateStackInstances({
+  "StackSetName": "",
+  "Accounts": [],
+  "Regions": []
+}, context)
+```
+
+#### Parameters
+* Accounts (array) **required**
+* OperationId (string)
+* OperationPreferences (object) - <p>The user-specified preferences for how AWS CloudFormation performs a stack set operation. </p> <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+* Regions (array) **required**
+* StackSetName (string) **required**
+
+### CreateStackSet
+
+
+
+```js
+amazonaws_cloudformation.CreateStackSet({
+  "StackSetName": ""
+}, context)
+```
+
+#### Parameters
+* Capabilities (array)
+* ClientRequestToken (string)
+* Description (string)
+* Parameters (array)
+* StackSetName (string) **required**
+* Tags (array)
+* TemplateBody (string)
+* TemplateURL (string)
 
 ### DeleteChangeSet
 
@@ -137,6 +179,40 @@ amazonaws_cloudformation.DeleteStack({
 * RetainResources (array)
 * RoleARN (string)
 * StackName (string) **required**
+
+### DeleteStackInstances
+
+
+
+```js
+amazonaws_cloudformation.DeleteStackInstances({
+  "StackSetName": "",
+  "Accounts": [],
+  "Regions": [],
+  "RetainStacks": true
+}, context)
+```
+
+#### Parameters
+* Accounts (array) **required**
+* OperationId (string)
+* OperationPreferences (object) - <p>The user-specified preferences for how AWS CloudFormation performs a stack set operation. </p> <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+* Regions (array) **required**
+* RetainStacks (boolean) **required**
+* StackSetName (string) **required**
+
+### DeleteStackSet
+
+
+
+```js
+amazonaws_cloudformation.DeleteStackSet({
+  "StackSetName": ""
+}, context)
+```
+
+#### Parameters
+* StackSetName (string) **required**
 
 ### DescribeAccountLimits
 
@@ -177,6 +253,23 @@ amazonaws_cloudformation.DescribeStackEvents({}, context)
 * NextToken (string)
 * StackName (string)
 
+### DescribeStackInstance
+
+
+
+```js
+amazonaws_cloudformation.DescribeStackInstance({
+  "StackSetName": "",
+  "StackInstanceAccount": "",
+  "StackInstanceRegion": ""
+}, context)
+```
+
+#### Parameters
+* StackInstanceAccount (string) **required**
+* StackInstanceRegion (string) **required**
+* StackSetName (string) **required**
+
 ### DescribeStackResource
 
 
@@ -204,6 +297,34 @@ amazonaws_cloudformation.DescribeStackResources({}, context)
 * LogicalResourceId (string)
 * PhysicalResourceId (string)
 * StackName (string)
+
+### DescribeStackSet
+
+
+
+```js
+amazonaws_cloudformation.DescribeStackSet({
+  "StackSetName": ""
+}, context)
+```
+
+#### Parameters
+* StackSetName (string) **required**
+
+### DescribeStackSetOperation
+
+
+
+```js
+amazonaws_cloudformation.DescribeStackSetOperation({
+  "StackSetName": "",
+  "OperationId": ""
+}, context)
+```
+
+#### Parameters
+* OperationId (string) **required**
+* StackSetName (string) **required**
 
 ### DescribeStacks
 
@@ -282,6 +403,7 @@ amazonaws_cloudformation.GetTemplateSummary({}, context)
 
 #### Parameters
 * StackName (string)
+* StackSetName (string)
 * TemplateBody (string)
 * TemplateURL (string)
 
@@ -326,6 +448,23 @@ amazonaws_cloudformation.ListImports({
 * ExportName (string) **required**
 * NextToken (string)
 
+### ListStackInstances
+
+
+
+```js
+amazonaws_cloudformation.ListStackInstances({
+  "StackSetName": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* StackInstanceAccount (string)
+* StackInstanceRegion (string)
+* StackSetName (string) **required**
+
 ### ListStackResources
 
 
@@ -340,6 +479,51 @@ amazonaws_cloudformation.ListStackResources({
 * NextToken (string)
 * NextToken (string)
 * StackName (string) **required**
+
+### ListStackSetOperationResults
+
+
+
+```js
+amazonaws_cloudformation.ListStackSetOperationResults({
+  "StackSetName": "",
+  "OperationId": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* OperationId (string) **required**
+* StackSetName (string) **required**
+
+### ListStackSetOperations
+
+
+
+```js
+amazonaws_cloudformation.ListStackSetOperations({
+  "StackSetName": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* StackSetName (string) **required**
+
+### ListStackSets
+
+
+
+```js
+amazonaws_cloudformation.ListStackSets({}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* Status (string)
 
 ### ListStacks
 
@@ -388,6 +572,21 @@ amazonaws_cloudformation.SignalResource({
 * Status (string) **required**
 * UniqueId (string) **required**
 
+### StopStackSetOperation
+
+
+
+```js
+amazonaws_cloudformation.StopStackSetOperation({
+  "StackSetName": "",
+  "OperationId": ""
+}, context)
+```
+
+#### Parameters
+* OperationId (string) **required**
+* StackSetName (string) **required**
+
 ### UpdateStack
 
 
@@ -405,6 +604,7 @@ amazonaws_cloudformation.UpdateStack({
 * Parameters (array)
 * ResourceTypes (array)
 * RoleARN (string)
+* RollbackConfiguration (object) - <p>Structure containing the rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.</p> <p>Rollback triggers enable you to have AWS CloudFormation monitor the state of your application during stack creation and updating, and to roll back that operation if the application breaches the threshold of any of the alarms you've specified. For each rollback trigger you create, you specify the Cloudwatch alarm that CloudFormation should monitor. CloudFormation monitors the specified alarms during the stack create or update operation, and for the specified amount of time after all resources have been deployed. If any of the alarms goes to ALERT state during the stack operation or the monitoring period, CloudFormation rolls back the entire stack operation. If the monitoring period expires without any alarms going to ALERT state, CloudFormation proceeds to dispose of old resources as usual.</p> <p>By default, CloudFormation only rolls back stack operations if an alarm goes to ALERT state, not INSUFFICIENT_DATA state. To have CloudFormation roll back the stack operation if an alarm goes to INSUFFICIENT_DATA state as well, edit the CloudWatch alarm to treat missing data as <code>breaching</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">Configuring How CloudWatch Alarms Treats Missing Data</a>.</p> <p>AWS CloudFormation does not monitor rollback triggers when it rolls back a stack during an update operation.</p>
 * StackName (string) **required**
 * StackPolicyBody (string)
 * StackPolicyDuringUpdateBody (string)
@@ -414,6 +614,43 @@ amazonaws_cloudformation.UpdateStack({
 * TemplateBody (string)
 * TemplateURL (string)
 * UsePreviousTemplate (boolean)
+
+### UpdateStackSet
+
+
+
+```js
+amazonaws_cloudformation.UpdateStackSet({
+  "StackSetName": ""
+}, context)
+```
+
+#### Parameters
+* Capabilities (array)
+* Description (string)
+* OperationId (string)
+* OperationPreferences (object) - <p>The user-specified preferences for how AWS CloudFormation performs a stack set operation. </p> <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
+* Parameters (array)
+* StackSetName (string) **required**
+* Tags (array)
+* TemplateBody (string)
+* TemplateURL (string)
+* UsePreviousTemplate (boolean)
+
+### UpdateTerminationProtection
+
+
+
+```js
+amazonaws_cloudformation.UpdateTerminationProtection({
+  "EnableTerminationProtection": true,
+  "StackName": ""
+}, context)
+```
+
+#### Parameters
+* EnableTerminationProtection (boolean) **required**
+* StackName (string) **required**
 
 ### ValidateTemplate
 

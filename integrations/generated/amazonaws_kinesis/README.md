@@ -300,6 +300,40 @@ amazonaws_kinesis.SplitShard({
 * ShardToSplit (string) **required**
 * StreamName (string) **required**
 
+### StartStreamEncryption
+
+
+
+```js
+amazonaws_kinesis.StartStreamEncryption({
+  "StreamName": "",
+  "EncryptionType": "",
+  "KeyId": ""
+}, context)
+```
+
+#### Parameters
+* EncryptionType (string) **required**
+* KeyId (string) **required**
+* StreamName (string) **required**
+
+### StopStreamEncryption
+
+
+
+```js
+amazonaws_kinesis.StopStreamEncryption({
+  "StreamName": "",
+  "EncryptionType": "",
+  "KeyId": ""
+}, context)
+```
+
+#### Parameters
+* EncryptionType (string) **required**
+* KeyId (string) **required**
+* StreamName (string) **required**
+
 ### UpdateShardCount
 
 

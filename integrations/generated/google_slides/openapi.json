@@ -21,6 +21,9 @@
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -28,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://slides.googleapis.com/$discovery/rest?version=v1",
@@ -899,7 +902,7 @@
           "type": "string"
         },
         "url": {
-          "description": "The image URL.\n\nThe image is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Images must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.",
+          "description": "The image URL.\n\nThe image is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Images must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.\n\nThe provided URL can be at most 2 kB in length.",
           "type": "string"
         }
       },
@@ -1472,6 +1475,33 @@
       },
       "type": "object"
     },
+    "GroupObjectsRequest": {
+      "description": "Groups objects to create an object group. For example, groups PageElements to create a Group on the same page as all the children.",
+      "properties": {
+        "childrenObjectIds": {
+          "description": "The object IDs of the objects to group.\n\nOnly page elements can be grouped. There should be at least two page\nelements on the same page that are not already in another group. Some page\nelements, such as videos, tables and placeholder shapes cannot be grouped.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "groupObjectId": {
+          "description": "A user-supplied object ID for the group to be created.\n\nIf you specify an ID, it must be unique among all pages and page elements\nin the presentation. The ID must start with an alphanumeric character or an\nunderscore (matches regex `[a-zA-Z0-9_]`); remaining characters\nmay include those as well as a hyphen or colon (matches regex\n`[a-zA-Z0-9_-:]`).\nThe length of the ID must not be less than 5 or greater than 50.\n\nIf you don't specify an ID, a unique one is generated.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GroupObjectsResponse": {
+      "description": "The result of grouping objects.",
+      "properties": {
+        "objectId": {
+          "description": "The object ID of the created group.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Image": {
       "description": "A PageElement kind representing an\nimage.",
       "properties": {
@@ -1509,7 +1539,7 @@
         },
         "outline": {
           "$ref": "#/definitions/Outline",
-          "description": "The outline of the image. If not set, the the image has no outline."
+          "description": "The outline of the image. If not set, the image has no outline."
         },
         "recolor": {
           "$ref": "#/definitions/Recolor",
@@ -1618,7 +1648,7 @@
       "description": "The properties of Page are only\nrelevant for pages with page_type LAYOUT.",
       "properties": {
         "displayName": {
-          "description": "The human readable name of the layout in the presentation's locale.",
+          "description": "The human-readable name of the layout.",
           "type": "string"
         },
         "masterObjectId": {
@@ -1808,6 +1838,30 @@
       },
       "type": "object"
     },
+    "MasterProperties": {
+      "description": "The properties of Page that are only\nrelevant for pages with page_type MASTER.",
+      "properties": {
+        "displayName": {
+          "description": "The human-readable name of the master.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MergeTableCellsRequest": {
+      "description": "Merges cells in a Table.",
+      "properties": {
+        "objectId": {
+          "description": "The object ID of the table.",
+          "type": "string"
+        },
+        "tableRange": {
+          "$ref": "#/definitions/TableRange",
+          "description": "The table range specifying which cells of the table to merge.\n\nAny text in the cells being merged will be concatenated and stored in the\nupper-left (\"head\") cell of the range. If the range is non-rectangular\n(which can occur in some cases where the range covers cells that are\nalready merged), a 400 bad request error is returned."
+        }
+      },
+      "type": "object"
+    },
     "NestingLevel": {
       "description": "Contains properties describing the look and feel of a list bullet at a given\nlevel of nesting.",
       "properties": {
@@ -1892,7 +1946,7 @@
           "description": "The fill of the outline."
         },
         "propertyState": {
-          "description": "The outline property state.\n\nUpdating the the outline on a page element will implicitly update this\nfield to`RENDERED`, unless another value is specified in the same request.\nTo have no outline on a page element, set this field to `NOT_RENDERED`. In\nthis case, any other outline fields set in the same request will be\nignored.",
+          "description": "The outline property state.\n\nUpdating the outline on a page element will implicitly update this field\nto `RENDERED`, unless another value is specified in the same request. To\nhave no outline on a page element, set this field to `NOT_RENDERED`. In\nthis case, any other outline fields set in the same request will be\nignored.",
           "enum": [
             "RENDERED",
             "NOT_RENDERED",
@@ -1923,6 +1977,10 @@
         "layoutProperties": {
           "$ref": "#/definitions/LayoutProperties",
           "description": "Layout specific properties. Only set if page_type = LAYOUT."
+        },
+        "masterProperties": {
+          "$ref": "#/definitions/MasterProperties",
+          "description": "Master specific properties. Only set if page_type = MASTER."
         },
         "notesProperties": {
           "$ref": "#/definitions/NotesProperties",
@@ -1969,7 +2027,7 @@
       "description": "The page background fill.",
       "properties": {
         "propertyState": {
-          "description": "The background fill property state.\n\nUpdating the the fill on a page will implicitly update this field to\n`RENDERED`, unless another value is specified in the same request. To\nhave no fill on a page, set this field to `NOT_RENDERED`. In this case,\nany other fill fields set in the same request will be ignored.",
+          "description": "The background fill property state.\n\nUpdating the fill on a page will implicitly update this field to\n`RENDERED`, unless another value is specified in the same request. To\nhave no fill on a page, set this field to `NOT_RENDERED`. In this case,\nany other fill fields set in the same request will be ignored.",
           "enum": [
             "RENDERED",
             "NOT_RENDERED",
@@ -2033,7 +2091,7 @@
         },
         "transform": {
           "$ref": "#/definitions/AffineTransform",
-          "description": "The transform of the page element."
+          "description": "The transform of the page element.\n\nThe visual appearance of the page element is determined by its absolute\ntransform. To compute the absolute transform, preconcatenate a page\nelement's transform with the transforms of all of its parent groups. If the\npage element is not in a group, its absolute transform is the same as the\nvalue in this field.\n\nThe initial transform for the newly created Group is always the identity transform."
         },
         "video": {
           "$ref": "#/definitions/Video",
@@ -2245,12 +2303,12 @@
       "description": "Specifies a contiguous range of an indexed collection, such as characters in\ntext.",
       "properties": {
         "endIndex": {
-          "description": "The optional zero-based index of the end of the collection.\nRequired for `SPECIFIC_RANGE` delete mode.",
+          "description": "The optional zero-based index of the end of the collection.\nRequired for `FIXED_RANGE` ranges.",
           "format": "int32",
           "type": "integer"
         },
         "startIndex": {
-          "description": "The optional zero-based index of the beginning of the collection.\nRequired for `SPECIFIC_RANGE` and `FROM_START_INDEX` ranges.",
+          "description": "The optional zero-based index of the beginning of the collection.\nRequired for `FIXED_RANGE` and `FROM_START_INDEX` ranges.",
           "format": "int32",
           "type": "integer"
         },
@@ -2329,8 +2387,15 @@
           "description": "If set, this request will replace all of the shapes that contain the\ngiven text."
         },
         "imageUrl": {
-          "description": "The image URL.\n\nThe image is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Images must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.",
+          "description": "The image URL.\n\nThe image is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Images must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.\n\nThe provided URL can be at most 2 kB in length.",
           "type": "string"
+        },
+        "pageObjectIds": {
+          "description": "If non-empty, limits the matches to page elements only on the given pages.\n\nReturns a 400 bad request error if given the page object ID of a\nnotes page or a\nnotes master, or if a\npage with that object ID doesn't exist in the presentation.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "replaceMethod": {
           "description": "The replace method.",
@@ -2374,6 +2439,13 @@
           ],
           "type": "string"
         },
+        "pageObjectIds": {
+          "description": "If non-empty, limits the matches to page elements only on the given pages.\n\nReturns a 400 bad request error if given the page object ID of a\nnotes page or a\nnotes master, or if a\npage with that object ID doesn't exist in the presentation.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "spreadsheetId": {
           "description": "The ID of the Google Sheets spreadsheet that contains the chart.",
           "type": "string"
@@ -2398,6 +2470,13 @@
         "containsText": {
           "$ref": "#/definitions/SubstringMatchCriteria",
           "description": "Finds text in a shape matching this substring."
+        },
+        "pageObjectIds": {
+          "description": "If non-empty, limits the matches to page elements only on the given pages.\n\nReturns a 400 bad request error if given the page object ID of a\nnotes master,\nor if a page with that object ID doesn't exist in the presentation.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "replaceText": {
           "description": "The text that will replace the matched text.",
@@ -2476,6 +2555,10 @@
           "$ref": "#/definitions/DuplicateObjectRequest",
           "description": "Duplicates a slide or page element."
         },
+        "groupObjects": {
+          "$ref": "#/definitions/GroupObjectsRequest",
+          "description": "Groups objects, such as page elements."
+        },
         "insertTableColumns": {
           "$ref": "#/definitions/InsertTableColumnsRequest",
           "description": "Inserts columns into a table."
@@ -2487,6 +2570,10 @@
         "insertText": {
           "$ref": "#/definitions/InsertTextRequest",
           "description": "Inserts text into a shape or table cell."
+        },
+        "mergeTableCells": {
+          "$ref": "#/definitions/MergeTableCellsRequest",
+          "description": "Merges cells in a Table."
         },
         "refreshSheetsChart": {
           "$ref": "#/definitions/RefreshSheetsChartRequest",
@@ -2503,6 +2590,14 @@
         "replaceAllText": {
           "$ref": "#/definitions/ReplaceAllTextRequest",
           "description": "Replaces all instances of specified text."
+        },
+        "ungroupObjects": {
+          "$ref": "#/definitions/UngroupObjectsRequest",
+          "description": "Ungroups objects, such as groups."
+        },
+        "unmergeTableCells": {
+          "$ref": "#/definitions/UnmergeTableCellsRequest",
+          "description": "Unmerges cells in a Table."
         },
         "updateImageProperties": {
           "$ref": "#/definitions/UpdateImagePropertiesRequest",
@@ -2532,9 +2627,21 @@
           "$ref": "#/definitions/UpdateSlidesPositionRequest",
           "description": "Updates the position of a set of slides in the presentation."
         },
+        "updateTableBorderProperties": {
+          "$ref": "#/definitions/UpdateTableBorderPropertiesRequest",
+          "description": "Updates the properties of the table borders in a Table."
+        },
         "updateTableCellProperties": {
           "$ref": "#/definitions/UpdateTableCellPropertiesRequest",
           "description": "Updates the properties of a TableCell."
+        },
+        "updateTableColumnProperties": {
+          "$ref": "#/definitions/UpdateTableColumnPropertiesRequest",
+          "description": "Updates the properties of a Table\ncolumn."
+        },
+        "updateTableRowProperties": {
+          "$ref": "#/definitions/UpdateTableRowPropertiesRequest",
+          "description": "Updates the properties of a Table row."
         },
         "updateTextStyle": {
           "$ref": "#/definitions/UpdateTextStyleRequest",
@@ -2581,6 +2688,10 @@
         "duplicateObject": {
           "$ref": "#/definitions/DuplicateObjectResponse",
           "description": "The result of duplicating an object."
+        },
+        "groupObjects": {
+          "$ref": "#/definitions/GroupObjectsResponse",
+          "description": "The result of grouping objects."
         },
         "replaceAllShapesWithImage": {
           "$ref": "#/definitions/ReplaceAllShapesWithImageResponse",
@@ -2651,7 +2762,7 @@
           "description": "The shadow color value."
         },
         "propertyState": {
-          "description": "The shadow property state.\n\nUpdating the the shadow on a page element will implicitly update this field\nto `RENDERED`, unless another value is specified in the same request. To\nhave no shadow on a page element, set this field to `NOT_RENDERED`. In this\ncase, any other shadow fields set in the same request will be ignored.",
+          "description": "The shadow property state.\n\nUpdating the shadow on a page element will implicitly update this field to\n`RENDERED`, unless another value is specified in the same request. To have\nno shadow on a page element, set this field to `NOT_RENDERED`. In this\ncase, any other shadow fields set in the same request will be ignored.",
           "enum": [
             "RENDERED",
             "NOT_RENDERED",
@@ -2849,7 +2960,7 @@
       "description": "The shape background fill.",
       "properties": {
         "propertyState": {
-          "description": "The background fill property state.\n\nUpdating the the fill on a shape will implicitly update this field to\n`RENDERED`, unless another value is specified in the same request. To\nhave no fill on a shape, set this field to `NOT_RENDERED`. In this case,\nany other fill fields set in the same request will be ignored.",
+          "description": "The background fill property state.\n\nUpdating the fill on a shape will implicitly update this field to\n`RENDERED`, unless another value is specified in the same request. To\nhave no fill on a shape, set this field to `NOT_RENDERED`. In this case,\nany other fill fields set in the same request will be ignored.",
           "enum": [
             "RENDERED",
             "NOT_RENDERED",
@@ -2970,7 +3081,7 @@
       "description": "The stretched picture fill. The page or page element is filled entirely with\nthe specified picture. The picture is stretched to fit its container.",
       "properties": {
         "contentUrl": {
-          "description": "Reading the content_url:\n\nAn URL to a picture with a default lifetime of 30 minutes.\nThis URL is tagged with the account of the requester. Anyone with the URL\neffectively accesses the picture as the original requester. Access to the\npicture may be lost if the presentation's sharing settings change.\n\nWriting the content_url:\n\nThe picture is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Pictures must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.",
+          "description": "Reading the content_url:\n\nAn URL to a picture with a default lifetime of 30 minutes.\nThis URL is tagged with the account of the requester. Anyone with the URL\neffectively accesses the picture as the original requester. Access to the\npicture may be lost if the presentation's sharing settings change.\n\nWriting the content_url:\n\nThe picture is fetched once at insertion time and a copy is stored for\ndisplay inside the presentation. Pictures must be less than 50MB in size,\ncannot exceed 25 megapixels, and must be in either in PNG, JPEG, or GIF\nformat.\n\nThe provided URL can be at most 2 kB in length.",
           "type": "string"
         },
         "size": {
@@ -3002,6 +3113,13 @@
           "format": "int32",
           "type": "integer"
         },
+        "horizontalBorderRows": {
+          "description": "Properties of horizontal cell borders.\n\nA table's horizontal cell borders are represented as a grid. The grid has\none more row than the number of rows in the table and the same number of\ncolumns as the table. For example, if the table is 3 x 3, its horizontal\nborders will be represented as a grid with 4 rows and 3 columns.",
+          "items": {
+            "$ref": "#/definitions/TableBorderRow"
+          },
+          "type": "array"
+        },
         "rows": {
           "description": "Number of rows in the table.",
           "format": "int32",
@@ -3018,6 +3136,77 @@
           "description": "Properties and contents of each row.\n\nCells that span multiple rows are contained in only one of these rows and\nhave a row_span greater\nthan 1.",
           "items": {
             "$ref": "#/definitions/TableRow"
+          },
+          "type": "array"
+        },
+        "verticalBorderRows": {
+          "description": "Properties of vertical cell borders.\n\nA table's vertical cell borders are represented as a grid. The grid has the\nsame number of rows as the table and one more column than the number of\ncolumns in the table. For example, if the table is 3 x 3, its vertical\nborders will be represented as a grid with 3 rows and 4 columns.",
+          "items": {
+            "$ref": "#/definitions/TableBorderRow"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "TableBorderCell": {
+      "description": "The properties of each border cell.",
+      "properties": {
+        "location": {
+          "$ref": "#/definitions/TableCellLocation",
+          "description": "The location of the border within the border table."
+        },
+        "tableBorderProperties": {
+          "$ref": "#/definitions/TableBorderProperties",
+          "description": "The border properties."
+        }
+      },
+      "type": "object"
+    },
+    "TableBorderFill": {
+      "description": "The fill of the border.",
+      "properties": {
+        "solidFill": {
+          "$ref": "#/definitions/SolidFill",
+          "description": "Solid fill."
+        }
+      },
+      "type": "object"
+    },
+    "TableBorderProperties": {
+      "description": "The border styling properties of the\nTableBorderCell.",
+      "properties": {
+        "dashStyle": {
+          "description": "The dash style of the border.",
+          "enum": [
+            "DASH_STYLE_UNSPECIFIED",
+            "SOLID",
+            "DOT",
+            "DASH",
+            "DASH_DOT",
+            "LONG_DASH",
+            "LONG_DASH_DOT"
+          ],
+          "type": "string"
+        },
+        "tableBorderFill": {
+          "$ref": "#/definitions/TableBorderFill",
+          "description": "The fill of the table border."
+        },
+        "weight": {
+          "$ref": "#/definitions/Dimension",
+          "description": "The thickness of the border."
+        }
+      },
+      "type": "object"
+    },
+    "TableBorderRow": {
+      "description": "Contents of each border row in a table.",
+      "properties": {
+        "tableBorderCells": {
+          "description": "Properties of each border cell. When a border's adjacent table cells are\nmerged, it is not included in the response.",
+          "items": {
+            "$ref": "#/definitions/TableBorderCell"
           },
           "type": "array"
         }
@@ -3056,7 +3245,7 @@
       "description": "The table cell background fill.",
       "properties": {
         "propertyState": {
-          "description": "The background fill property state.\n\nUpdating the the fill on a table cell will implicitly update this field\nto `RENDERED`, unless another value is specified in the same request. To\nhave no fill on a table cell, set this field to `NOT_RENDERED`. In this\ncase, any other fill fields set in the same request will be ignored.",
+          "description": "The background fill property state.\n\nUpdating the fill on a table cell will implicitly update this field\nto `RENDERED`, unless another value is specified in the same request. To\nhave no fill on a table cell, set this field to `NOT_RENDERED`. In this\ncase, any other fill fields set in the same request will be ignored.",
           "enum": [
             "RENDERED",
             "NOT_RENDERED",
@@ -3140,6 +3329,20 @@
             "$ref": "#/definitions/TableCell"
           },
           "type": "array"
+        },
+        "tableRowProperties": {
+          "$ref": "#/definitions/TableRowProperties",
+          "description": "Properties of the row."
+        }
+      },
+      "type": "object"
+    },
+    "TableRowProperties": {
+      "description": "Properties of each row in a table.",
+      "properties": {
+        "minRowHeight": {
+          "$ref": "#/definitions/Dimension",
+          "description": "Minimum height of the row. The row will be rendered in the Slides editor at\na height equal to or greater than this value in order to show all the text\nin the row's cell(s)."
         }
       },
       "type": "object"
@@ -3261,7 +3464,7 @@
         },
         "weightedFontFamily": {
           "$ref": "#/definitions/WeightedFontFamily",
-          "description": "The font family and rendered weight of the text.\n\nThis field is an extension of `font_family` meant to support explicit font\nweights without breaking backwards compatibility. As such, when reading the\nstyle of a range of text, the value of `weighted_font_family.font_family`\nwill always be equal to that of `font_family`. However, when writing, if\nboth fields are included in the field mask (either explicitly or through\nthe wildcard `\"*\"`), their values are reconciled as follows:\n\n* If `font_family` is set and `weighted_font_family` is not, the value of\n  `font_family` will be applied with weight `400` (\"normal\").\n* If both fields are set, the value of `font_family` must equal that of\n  `weighted_font_family.font_family`. If so, the font family and weight of\n  `weighted_font_family` will be applied. Otherwise, a 400 bad request\n  error is returned.\n* If `weighted_font_family` is set and `font_family` is not, the font\n  family and weight of `weighted_font_family` will be applied.\n* If neither field is set, the font family and weight of the text will be\n  set to inherit from its parent. Note that these properties cannot inherit\n  separately from each other.\n\nIf an update request specifies values for both `weighted_font_family` and\n`bold`, the `weighted_font_family` will be applied first, then `bold`.\n\nIf `weighted_font_family.weight` is not set, it will default to `400`.\n\nIf `weighted_font_family` is set, then `weighted_font_family.font_family`\nmust also be set with a non-empty value. Otherwise, a 400 bad request error\nis returned."
+          "description": "The font family and rendered weight of the text.\n\nThis field is an extension of `font_family` meant to support explicit font\nweights without breaking backwards compatibility. As such, when reading the\nstyle of a range of text, the value of `weighted_font_family#font_family`\nwill always be equal to that of `font_family`. However, when writing, if\nboth fields are included in the field mask (either explicitly or through\nthe wildcard `\"*\"`), their values are reconciled as follows:\n\n* If `font_family` is set and `weighted_font_family` is not, the value of\n  `font_family` is applied with weight `400` (\"normal\").\n* If both fields are set, the value of `font_family` must match that of\n  `weighted_font_family#font_family`. If so, the font family and weight of\n  `weighted_font_family` is applied. Otherwise, a 400 bad request error is\n  returned.\n* If `weighted_font_family` is set and `font_family` is not, the font\n  family and weight of `weighted_font_family` is applied.\n* If neither field is set, the font family and weight of the text inherit\n  from the parent. Note that these properties cannot inherit separately\n  from each other.\n\nIf an update request specifies values for both `weighted_font_family` and\n`bold`, the `weighted_font_family` is applied first, then `bold`.\n\nIf `weighted_font_family#weight` is not set, it defaults to `400`.\n\nIf `weighted_font_family` is set, then `weighted_font_family#font_family`\nmust also be set with a non-empty value. Otherwise, a 400 bad request error\nis returned."
         }
       },
       "type": "object"
@@ -3319,6 +3522,33 @@
       },
       "type": "object"
     },
+    "UngroupObjectsRequest": {
+      "description": "Ungroups objects, such as groups.",
+      "properties": {
+        "objectIds": {
+          "description": "The object IDs of the objects to ungroup.\n\nOnly groups that are not inside other\ngroups can be ungrouped. All the groups\nshould be on the same page. The group itself is deleted. The visual sizes\nand positions of all the children are preserved.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UnmergeTableCellsRequest": {
+      "description": "Unmerges cells in a Table.",
+      "properties": {
+        "objectId": {
+          "description": "The object ID of the table.",
+          "type": "string"
+        },
+        "tableRange": {
+          "$ref": "#/definitions/TableRange",
+          "description": "The table range specifying which cells of the table to unmerge.\n\nAll merged cells in this range will be unmerged, and cells that are already\nunmerged will not be affected. If the range has no merged cells, the\nrequest will do nothing. If there is text in any of the merged cells, the\ntext will remain in the upper-left (\"head\") cell of the resulting block of\nunmerged cells."
+        }
+      },
+      "type": "object"
+    },
     "UpdateImagePropertiesRequest": {
       "description": "Update the properties of an Image.",
       "properties": {
@@ -3358,7 +3588,7 @@
       "type": "object"
     },
     "UpdatePageElementTransformRequest": {
-      "description": "Updates the transform of a page element.",
+      "description": "Updates the transform of a page element.\n\nUpdating the transform of a group will change the absolute transform of the\npage elements in that group, which can change their visual appearance. See\nthe documentation for PageElement.transform for more details.",
       "properties": {
         "applyMode": {
           "description": "The apply mode of the transform update.",
@@ -3463,6 +3693,44 @@
       },
       "type": "object"
     },
+    "UpdateTableBorderPropertiesRequest": {
+      "description": "Updates the properties of the table borders in a Table.",
+      "properties": {
+        "borderPosition": {
+          "description": "The border position in the table range the updates should apply to. If a\nborder position is not specified, the updates will apply to all borders in\nthe table range.",
+          "enum": [
+            "ALL",
+            "BOTTOM",
+            "INNER",
+            "INNER_HORIZONTAL",
+            "INNER_VERTICAL",
+            "LEFT",
+            "OUTER",
+            "RIGHT",
+            "TOP"
+          ],
+          "type": "string"
+        },
+        "fields": {
+          "description": "The fields that should be updated.\n\nAt least one field must be specified. The root `tableBorderProperties` is\nimplied and should not be specified. A single `\"*\"` can be used as\nshort-hand for listing every field.\n\nFor example to update the table border solid fill color, set\n`fields` to `\"tableBorderFill.solidFill.color\"`.\n\nTo reset a property to its default value, include its field name in the\nfield mask but leave the field itself unset.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID of the table.",
+          "type": "string"
+        },
+        "tableBorderProperties": {
+          "$ref": "#/definitions/TableBorderProperties",
+          "description": "The table border properties to update."
+        },
+        "tableRange": {
+          "$ref": "#/definitions/TableRange",
+          "description": "The table range representing the subset of the table to which the updates\nare applied. If a table range is not specified, the updates will apply to\nthe entire table."
+        }
+      },
+      "type": "object"
+    },
     "UpdateTableCellPropertiesRequest": {
       "description": "Update the properties of a TableCell.",
       "properties": {
@@ -3482,6 +3750,60 @@
         "tableRange": {
           "$ref": "#/definitions/TableRange",
           "description": "The table range representing the subset of the table to which the updates\nare applied. If a table range is not specified, the updates will apply to\nthe entire table."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTableColumnPropertiesRequest": {
+      "description": "Updates the properties of a Table column.",
+      "properties": {
+        "columnIndices": {
+          "description": "The list of zero-based indices specifying which columns to update. If no\nindices are provided, all columns in the table will be updated.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "fields": {
+          "description": "The fields that should be updated.\n\nAt least one field must be specified. The root `tableColumnProperties` is\nimplied and should not be specified. A single `\"*\"` can be used as\nshort-hand for listing every field.\n\nFor example to update the column width, set `fields` to `\"column_width\"`.\n\nIf '\"column_width\"' is included in the field mask but the property is left\nunset, the column width will default to 406,400 EMU (32 points).",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID of the table.",
+          "type": "string"
+        },
+        "tableColumnProperties": {
+          "$ref": "#/definitions/TableColumnProperties",
+          "description": "The table column properties to update.\n\nIf the value of `table_column_properties#column_width` in the request is\nless than 406,400 EMU (32 points), a 400 bad request error is returned."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateTableRowPropertiesRequest": {
+      "description": "Updates the properties of a Table row.",
+      "properties": {
+        "fields": {
+          "description": "The fields that should be updated.\n\nAt least one field must be specified. The root `tableRowProperties` is\nimplied and should not be specified. A single `\"*\"` can be used as\nshort-hand for listing every field.\n\nFor example to update the minimum row height, set `fields` to\n`\"min_row_height\"`.\n\nIf '\"min_row_height\"' is included in the field mask but the property is\nleft unset, the minimum row height will default to 0.",
+          "format": "google-fieldmask",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID of the table.",
+          "type": "string"
+        },
+        "rowIndices": {
+          "description": "The list of zero-based indices specifying which rows to update. If no\nindices are provided, all rows in the table will be updated.",
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "tableRowProperties": {
+          "$ref": "#/definitions/TableRowProperties",
+          "description": "The table row properties to update."
         }
       },
       "type": "object"

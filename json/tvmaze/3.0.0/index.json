@@ -1,0 +1,901 @@
+{
+  "id": "tvmaze",
+  "title": "TVmaze",
+  "description": "Access to the user API is only possible for users with a [premium](http://www.tvmaze.com/premium) account. A user can only access their own user data.\n\nAuthentication uses HTTP Basic. Use the TVmaze username as authentication username, and the TVmaze API key as authentication password. Your API key can be found on your [dashboard](http://www.tvmaze.com/dashboard). To try out these API calls from this page, click the \"Authorize\" button on top and input your credentials.\n",
+  "security": {
+    "tvmaze": {
+      "integration": "tvmaze",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tvmaze.png"
+  },
+  "actionCount": 28,
+  "definitions": {
+    "EpisodeVote": {
+      "properties": {
+        "episode_id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "vote": {
+          "description": "The vote number",
+          "maximum": 10,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "voted_at": {
+          "description": "Epoch timestamp for when the user voted for the episode",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "EpisodeVote"
+    },
+    "MarkedEpisode": {
+      "properties": {
+        "episode_id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "marked_at": {
+          "description": "Epoch timestamp for when the user watched the episode, or 0 for unknown.",
+          "type": "integer"
+        },
+        "type": {
+          "description": "0 for watched, 1 for acquired, 2 for skipped",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "MarkedEpisode"
+    },
+    "Network": {
+      "type": "object",
+      "title": "Network"
+    },
+    "NetworkFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "network": {
+              "$ref": "#/definitions/Network"
+            }
+          },
+          "type": "object"
+        },
+        "network_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "NetworkFollow"
+    },
+    "Person": {
+      "type": "object",
+      "title": "Person"
+    },
+    "PersonFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "person": {
+              "$ref": "#/definitions/Person"
+            }
+          },
+          "type": "object"
+        },
+        "person_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "PersonFollow"
+    },
+    "Show": {
+      "type": "object",
+      "title": "Show"
+    },
+    "ShowFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "show": {
+              "$ref": "#/definitions/Show"
+            }
+          },
+          "type": "object"
+        },
+        "show_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ShowFollow"
+    },
+    "ShowVote": {
+      "properties": {
+        "show_id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "vote": {
+          "description": "The vote number",
+          "maximum": 10,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "voted_at": {
+          "description": "Epoch timestamp for when the user voted for the episode",
+          "readOnly": true,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ShowVote"
+    },
+    "Webchannel": {
+      "type": "object",
+      "title": "Webchannel"
+    },
+    "WebchannelFollow": {
+      "properties": {
+        "_embedded": {
+          "properties": {
+            "webchannel": {
+              "$ref": "#/definitions/Webchannel"
+            }
+          },
+          "type": "object"
+        },
+        "webchannel_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "WebchannelFollow"
+    }
+  },
+  "actions": [
+    {
+      "id": "user.episodes.get",
+      "title": "user.episodes.get",
+      "description": "List the marked episodes",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "show_id": {
+            "type": "integer",
+            "description": "Only return episodes from this specific show"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/MarkedEpisode"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.episodes.episode_id.delete",
+      "title": "user.episodes.episode_id.delete",
+      "description": "Unmark an episode",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "episode_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "episode_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.episodes.episode_id.get",
+      "title": "user.episodes.episode_id.get",
+      "description": "Check if an episode is marked",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "episode_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "episode_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MarkedEpisode"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.episodes.episode_id.put",
+      "title": "user.episodes.episode_id.put",
+      "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/MarkedEpisode"
+          },
+          "episode_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "episode_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MarkedEpisode"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.networks.get",
+      "title": "user.follows.networks.get",
+      "description": "List the followed networks",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed": {
+            "type": "string",
+            "description": "Embed full network info",
+            "enum": [
+              "network"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/NetworkFollow"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.networks.network_id.delete",
+      "title": "user.follows.networks.network_id.delete",
+      "description": "Unfollow a network",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "network_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "network_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.networks.network_id.get",
+      "title": "user.follows.networks.network_id.get",
+      "description": "Check if a network is followed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "network_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "network_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NetworkFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.networks.network_id.put",
+      "title": "user.follows.networks.network_id.put",
+      "description": "Follow a network",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "network_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "network_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NetworkFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.people.get",
+      "title": "user.follows.people.get",
+      "description": "List the followed people",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed": {
+            "type": "string",
+            "description": "Embed full person info",
+            "enum": [
+              "person"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PersonFollow"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.people.person_id.delete",
+      "title": "user.follows.people.person_id.delete",
+      "description": "Unfollow a person",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "person_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "person_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.people.person_id.get",
+      "title": "user.follows.people.person_id.get",
+      "description": "Check if a person is followed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "person_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "person_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.people.person_id.put",
+      "title": "user.follows.people.person_id.put",
+      "description": "Follow a person",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "person_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "person_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.shows.get",
+      "title": "user.follows.shows.get",
+      "description": "List the followed shows",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed": {
+            "type": "string",
+            "description": "Embed full show info",
+            "enum": [
+              "show"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ShowFollow"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.shows.show_id.delete",
+      "title": "user.follows.shows.show_id.delete",
+      "description": "Unfollow a show",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "show_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "show_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.shows.show_id.get",
+      "title": "user.follows.shows.show_id.get",
+      "description": "Check if a show is followed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "show_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "show_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ShowFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.shows.show_id.put",
+      "title": "user.follows.shows.show_id.put",
+      "description": "Follow a show",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "show_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "show_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ShowFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.webchannels.get",
+      "title": "user.follows.webchannels.get",
+      "description": "List the followed webchannels",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed": {
+            "type": "string",
+            "description": "Embed full webchannel info",
+            "enum": [
+              "webchannel"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/WebchannelFollow"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.webchannels.webchannel_id.delete",
+      "title": "user.follows.webchannels.webchannel_id.delete",
+      "description": "Unfollow a webchannel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "webchannel_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "webchannel_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.webchannels.webchannel_id.get",
+      "title": "user.follows.webchannels.webchannel_id.get",
+      "description": "Check if a webchannel is followed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "webchannel_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "webchannel_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebchannelFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.follows.webchannels.webchannel_id.put",
+      "title": "user.follows.webchannels.webchannel_id.put",
+      "description": "Follow a webchannel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "webchannel_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "webchannel_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebchannelFollow"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.episodes.get",
+      "title": "user.votes.episodes.get",
+      "description": "List the episodes voted for",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/EpisodeVote"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.episodes.episode_id.delete",
+      "title": "user.votes.episodes.episode_id.delete",
+      "description": "Remove an episode vote",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "episode_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "episode_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.episodes.episode_id.get",
+      "title": "user.votes.episodes.episode_id.get",
+      "description": "Check if an episode is voted for",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "episode_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "episode_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EpisodeVote"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.episodes.episode_id.put",
+      "title": "user.votes.episodes.episode_id.put",
+      "description": "Vote for an episode",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/EpisodeVote"
+          },
+          "episode_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "episode_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EpisodeVote"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.shows.get",
+      "title": "user.votes.shows.get",
+      "description": "List the shows voted for",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed": {
+            "type": "string",
+            "description": "Embed full show info",
+            "enum": [
+              "show"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ShowVote"
+        },
+        "type": "array"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.shows.show_id.delete",
+      "title": "user.votes.shows.show_id.delete",
+      "description": "Remove a show vote",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "show_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "show_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.shows.show_id.get",
+      "title": "user.votes.shows.show_id.get",
+      "description": "Check if a show is voted for",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "show_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "show_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ShowVote"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    },
+    {
+      "id": "user.votes.shows.show_id.put",
+      "title": "user.votes.shows.show_id.put",
+      "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ShowVote"
+          },
+          "show_id": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "show_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ShowVote"
+      },
+      "security": {
+        "tvmaze": {
+          "integration": "tvmaze"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

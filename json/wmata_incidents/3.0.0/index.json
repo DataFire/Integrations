@@ -1,0 +1,159 @@
+{
+  "id": "wmata_incidents",
+  "title": "WMATA Incidents",
+  "description": "Rail, bus, and elevator disruptions/outages.",
+  "security": {
+    "wmata_incidents": {
+      "integration": "wmata_incidents",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_incidents.jpg"
+  },
+  "actionCount": 6,
+  "actions": [
+    {
+      "id": "BusIncidents.get",
+      "title": "BusIncidents.get",
+      "description": "#### Description\n\nReturns a set of reported bus incidents/delays for a given Route. Omit the Route to return all reported items.\n\nNote that the Route parameter accepts only base route names and no variations, i.e.: use 10A instead of 10Av1 and 10Av2.\n\nBus incidents/delays are refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nBusIncidents\n\nArray containing bus incident information ([BusIncident](#BusIncident)).\n\n\n\n\n\n\n\nBusIncident Elements\n\n\n\n\n\n\n\nDateUpdated\n\nDate and time (Eastern Standard Time) of last update. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-28T08:13:03).\n\n\n\n\n\nDescription\n\nFree-text description of the delay or incident.\n\n\n\n\n\nIncidentID\n\nUnique identifier for an incident.\n\n\n\n\n\nIncidentType\n\nFree-text description of the incident type. Usually Delay or Alert but is subject to change at any time.\n\n\n\n\n\nRoutesAffected\n\nArray containing routes affected. Routes listed are usually identical to base route names (i.e.: not 10Av1 or 10Av2, but 10A), but _may_ differ from what our bus methods return.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Route": {
+            "type": "string",
+            "description": "Bus route.  Use full route code, i.e.: C2 instead of C2v1, C2v2, etc.",
+            "enum": [
+              "90",
+              "X1"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_incidents": {
+          "integration": "wmata_incidents"
+        }
+      }
+    },
+    {
+      "id": "ElevatorIncidents.get",
+      "title": "ElevatorIncidents.get",
+      "description": "#### Description\n\nReturns a list of _reported_ elevator and escalator outages at a given station. Omit the StationCode parameter to return all reported outages.\n\nNote that for stations with multiple platforms and therefore StationCodes (e.g.: Metro Center, L'Enfant Plaza, etc.), a distinct call is required for each StationCode.\n\nElevator and escalator outages are refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nElevatorIncidents\n\nArray containing elevator/escalator outage information ([ElevatorIncident](#ElevatorIncident)).\n\n\n\n\n\n\n\nElevatorIncident Elements\n\n\n\n\n\n\n\nDateOutOfServ\n\nDate and time (Eastern Standard Time) unit was reported out of service. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T15:17:00).\n\n\n\n\n\nDateUpdated\n\nDate and time (Eastern Standard Time) outage details was last updated. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T15:17:00).\n\n\n\n\n\nDisplayOrder\n\nDeprecated.\n\n\n\n\n\nLocationDescription\n\nFree-text description of the unit location within a station (e.g.: Escalator between mezzanine and platform).\n\n\n\n\n\nStationCode\n\nUnit's station code. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationName\n\nFull station name, may include entrance information (e.g.: Metro Center, G and 11th St Entrance).\n\n\n\n\n\nSymptomCode\n\nDeprecated.\n\n\n\n\n\nSymptomDescription\n\nDescription for why the unit is out of service or otherwise in reduced operation.\n\n\n\n\n\nTimeOutOfService\n\nDeprecated. Use the time portion of the DateOutOfServ element.\n\n\n\n\n\nUnitName\n\nUnique identifier for unit, by type (a single elevator and escalator may have the same UnitName, but no two elevators or two escalators will have the same UnitName).\n\n\n\n\n\nUnitStatus\n\nDeprecated. If listed here, the unit is inoperational or otherwise impaired.\n\n\n\n\n\nUnitType\n\nType of unit. Will be ELEVATOR or ESCALATOR.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Two-letter station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "A03",
+              "E09"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_incidents": {
+          "integration": "wmata_incidents"
+        }
+      }
+    },
+    {
+      "id": "Incidents.get",
+      "title": "Incidents.get",
+      "description": "#### Description\n\nReturns reported rail incidents (significant disruptions and delays to normal service). The data is identical to WMATA's [Metrorail Service Status feed](http://www.metroalerts.info/rss.aspx?rs).\n\nRail incidents are refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nIncidents\n\nArray containing rail disruption information ([Incident](#Incident)).\n\n\n\n\n\n\n\nIncident Elements\n\n\n\n\n\n\n\nDateUpdated\n\nDate and time (Eastern Standard Time) of last update. Will be in YYYY-MM-DDTHH:mm:SS format (e.g.: 2010-07-29T14:21:28).\n\n\n\n\n\nDelaySeverity\n\nDeprecated.\n\n\n\n\n\nDescription\n\nFree-text description of the incident.\n\n\n\n\n\nEmergencyText\n\nDeprecated.\n\n\n\n\n\nEndLocationFullName\n\nDeprecated.\n\n\n\n\n\nIncidentID\n\nUnique identifier for an incident.\n\n\n\n\n\nIncidentType\n\nFree-text description of the incident type. Usually Delay or Alert but is subject to change at any time.\n\n\n\n\n\nLinesAffected\n\nSemi-colon and space separated list of line codes (e.g.: RD; or BL; OR; or BL; OR; RD;). We do plan to update this to return something more reasonable like an array, but until then, use code similar to the following:  \n\n`\"RD; GR; BL;\".split(/;[\\s]?/).filter(function(fn) { return fn !== ''; })`\n\n\n\n\n\nPassengerDelay\n\nDeprecated.\n\n\n\n\n\nStartLocationFullName\n\nDeprecated.\n\n\n\n\n\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wmata_incidents": {
+          "integration": "wmata_incidents"
+        }
+      }
+    },
+    {
+      "id": "json.BusIncidents.get",
+      "title": "json.BusIncidents.get",
+      "description": "#### Description\n\nReturns a set of reported bus incidents/delays for a given Route. Omit the Route to return all reported items.\n\nNote that the Route parameter accepts only base route names and no variations, i.e.: use 10A instead of 10Av1 and 10Av2.\n\nBus incidents/delays are refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nBusIncidents\n\nArray containing bus incident information ([BusIncident](#BusIncident)).\n\n\n\n\n\n\n\nBusIncident Elements\n\n\n\n\n\n\n\nDateUpdated\n\nDate and time (Eastern Standard Time) of last update. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-28T08:13:03).\n\n\n\n\n\nDescription\n\nFree-text description of the delay or incident.\n\n\n\n\n\nIncidentID\n\nUnique identifier for an incident.\n\n\n\n\n\nIncidentType\n\nFree-text description of the incident type. Usually Delay or Alert but is subject to change at any time.\n\n\n\n\n\nRoutesAffected\n\nArray containing routes affected. Routes listed are usually identical to base route names (i.e.: not 10Av1 or 10Av2, but 10A), but _may_ differ from what our bus methods return.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Route": {
+            "type": "string",
+            "description": "Base bus route; variations are not recognized (i.e.: C2 instead of C2v1, C2v2, etc.).",
+            "enum": [
+              "90",
+              "X1"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_incidents": {
+          "integration": "wmata_incidents"
+        }
+      }
+    },
+    {
+      "id": "json.ElevatorIncidents.get",
+      "title": "json.ElevatorIncidents.get",
+      "description": "#### Description\n\nReturns a list of _reported_ elevator and escalator outages at a given station. Omit the StationCode parameter to return all reported outages.\n\nNote that for stations with multiple platforms and therefore StationCodes (e.g.: Metro Center, L'Enfant Plaza, etc.), a distinct call is required for each StationCode.\n\nElevator and escalator outages are refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nElevatorIncidents\n\nArray containing elevator/escalator outage information ([ElevatorIncident](#ElevatorIncident)).\n\n\n\n\n\n\n\nElevatorIncident Elements\n\n\n\n\n\n\n\nDateOutOfServ\n\nDate and time (Eastern Standard Time) unit was reported out of service. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T15:17:00).\n\n\n\n\n\nDateUpdated\n\nDate and time (Eastern Standard Time) outage details was last updated. Will be in YYYY-MM-DDTHH:mm:ss format (e.g.: 2014-10-27T15:17:00).\n\n\n\n\n\nDisplayOrder\n\nDeprecated.\n\n\n\n\n\nLocationDescription\n\nFree-text description of the unit location within a station (e.g.: Escalator between mezzanine and platform).\n\n\n\n\n\nStationCode\n\nUnit's station code. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationName\n\nFull station name, may include entrance information (e.g.: Metro Center, G and 11th St Entrance).\n\n\n\n\n\nSymptomCode\n\nDeprecated.\n\n\n\n\n\nSymptomDescription\n\nDescription for why the unit is out of service or otherwise in reduced operation.\n\n\n\n\n\nTimeOutOfService\n\nDeprecated. Use the time portion of the DateOutOfServ element.\n\n\n\n\n\nUnitName\n\nUnique identifier for unit, by type (a single elevator and escalator may have the same UnitName, but no two elevators or two escalators will have the same UnitName).\n\n\n\n\n\nUnitStatus\n\nDeprecated. If listed here, the unit is inoperational or otherwise impaired.\n\n\n\n\n\nUnitType\n\nType of unit. Will be ELEVATOR or ESCALATOR.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "A03",
+              "E09"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_incidents": {
+          "integration": "wmata_incidents"
+        }
+      }
+    },
+    {
+      "id": "json.Incidents.get",
+      "title": "json.Incidents.get",
+      "description": "#### Description\n\nReturns reported rail incidents (significant disruptions and delays to normal service). The data is identical to WMATA's [Metrorail Service Status feed](http://www.metroalerts.info/rss.aspx?rs).\n\nRail incidents are refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nIncidents\n\nArray containing rail disruption information ([Incident](#Incident)).\n\n\n\n\n\n\n\nIncident Elements\n\n\n\n\n\n\n\nDateUpdated\n\nDate and time (Eastern Standard Time) of last update. Will be in YYYY-MM-DDTHH:mm:SS format (e.g.: 2010-07-29T14:21:28).\n\n\n\n\n\nDelaySeverity\n\nDeprecated.\n\n\n\n\n\nDescription\n\nFree-text description of the incident.\n\n\n\n\n\nEmergencyText\n\nDeprecated.\n\n\n\n\n\nEndLocationFullName\n\nDeprecated.\n\n\n\n\n\nIncidentID\n\nUnique identifier for an incident.\n\n\n\n\n\nIncidentType\n\nFree-text description of the incident type. Usually Delay or Alert but is subject to change at any time.\n\n\n\n\n\nLinesAffected\n\nSemi-colon and space separated list of line codes (e.g.: RD; or BL; OR; or BL; OR; RD;). We do plan to update this to return something more reasonable like an array, but until then, use code similar to the following:  \n\n`\"RD; GR; BL;\".split(/;[\\s]?/).filter(function(fn) { return fn !== ''; })`\n\n\n\n\n\nPassengerDelay\n\nDeprecated.\n\n\n\n\n\nStartLocationFullName\n\nDeprecated.\n\n\n\n\n\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wmata_incidents": {
+          "integration": "wmata_incidents"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "transport"
+  ]
+}

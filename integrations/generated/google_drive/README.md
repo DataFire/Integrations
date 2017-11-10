@@ -173,7 +173,7 @@ google_drive.files.list({}, context)
 * corpora (string) - Comma-separated list of bodies of items (files/documents) to which the query applies. Supported bodies are 'user', 'domain', 'teamDrive' and 'allTeamDrives'. 'allTeamDrives' must be combined with 'user'; all other values must be used in isolation. Prefer 'user' or 'teamDrive' to 'allTeamDrives' for efficiency.
 * corpus (string) - The source of files to list. Deprecated: use 'corpora' instead.
 * includeTeamDriveItems (boolean) - Whether Team Drive items should be included in results.
-* orderBy (string) - A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder', 'modifiedByMeTime', 'modifiedTime', 'name', 'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and 'viewedByMeTime'. Each key sorts ascending by default, but may be reversed with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime desc,name. Please note that there is a current limitation for users with approximately one million files in which the requested sort order is ignored.
+* orderBy (string) - A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder', 'modifiedByMeTime', 'modifiedTime', 'name', 'name_natural', 'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and 'viewedByMeTime'. Each key sorts ascending by default, but may be reversed with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime desc,name. Please note that there is a current limitation for users with approximately one million files in which the requested sort order is ignored.
 * pageSize (integer) - The maximum number of files to return per page. Partial or empty result pages are possible even before the end of the files list has been reached.
 * pageToken (string) - The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response.
 * q (string) - A query for filtering the file results. See the "Search for Files" guide for supported syntax.
@@ -578,7 +578,7 @@ google_drive.files.copy({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### files.export
-Exports a Google Doc to the requested MIME type and returns the exported content.
+Exports a Google Doc to the requested MIME type and returns the exported content. Please note that the exported content is limited to 10MB.
 
 
 ```js

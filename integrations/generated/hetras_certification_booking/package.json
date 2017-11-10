@@ -1,6 +1,6 @@
 {
   "name": "@datafire/hetras_certification_booking",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for hetras Booking API Version 0",
   "repository": {

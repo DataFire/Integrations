@@ -250,6 +250,47 @@ google_androidenterprise.enterprises.setAccount({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### enterprises.getAndroidDevicePolicyConfig
+Returns the Android Device Policy config resource.
+
+
+```js
+google_androidenterprise.enterprises.getAndroidDevicePolicyConfig({
+  "enterpriseId": ""
+}, context)
+```
+
+#### Parameters
+* enterpriseId (string) **required** - The ID of the enterprise.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### enterprises.setAndroidDevicePolicyConfig
+Sets the Android Device Policy config resource. EMM may use this method to enable or disable Android Device Policy support for the specified enterprise. To learn more about managing devices and apps with Android Device Policy, see the Android Management API.
+
+
+```js
+google_androidenterprise.enterprises.setAndroidDevicePolicyConfig({
+  "enterpriseId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - The Android Device Policy configuration of an enterprise.
+* enterpriseId (string) **required** - The ID of the enterprise.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### enterprises.createWebToken
 Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token into the managed Google Play javascript API. Each token may only be used to start one UI session. See the javascript API documentation for further information.
 
@@ -501,7 +542,7 @@ google_androidenterprise.products.unapprove({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### enterprises.sendTestPushNotification
-Sends a test push notification to validate the EMM integration with the Google Cloud Pub/Sub service for this enterprise.
+Sends a test notification to validate the EMM integration with the Google Cloud Pub/Sub service for this enterprise.
 
 
 ```js

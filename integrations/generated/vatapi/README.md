@@ -125,6 +125,17 @@ vatapi.ip_check({
 * Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
 * address (string) **required** - The IP address to search against
 
+### api_usage
+Check api requests remaining on current subscription plan
+
+
+```js
+vatapi.api_usage({}, context)
+```
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+
 ### vat_number_validate
 <p>We highly recommend if you are able, to check a VAT number on your end first to save wasted API lookups. It maybe that your customer has simply entered the wrong format. <a href='http://www.braemoor.co.uk/software/vat.shtml' target='_blank'>Heres a client side way to check the format using Javascript</a></p>
 

@@ -1,4 +1,3 @@
-'use strict';
 "use strict";
 let datafire = require('datafire');
 let openapi = require('./openapi.json');

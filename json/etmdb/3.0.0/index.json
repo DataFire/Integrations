@@ -1,0 +1,759 @@
+{
+  "id": "etmdb",
+  "title": "REST API v1 Core Resources",
+  "description": "The Ethiopian Movie Database",
+  "security": {
+    "etmdb": {
+      "integration": "etmdb",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://etmdb.com/api/oauth/authorize/",
+        "description": "OAuth2.0 Authorization for the EtMDB API",
+        "flow": "accessCode",
+        "scopes": {
+          "admin": "Grants read and write access to administrative information",
+          "groups": "Grants access to groups",
+          "read": "Grants read access",
+          "write": "Grants write access"
+        },
+        "tokenUrl": "https://etmdb.com/api/oauth/token/",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etmdb.webp"
+  },
+  "actionCount": 29,
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.cinema_detail.search.cinema_name.get",
+      "title": "api.v1.cinema_detail.search.cinema_name.get",
+      "description": "Return cinema details search result\n\n### Response Class (Status 200)\n\n* __{cinema_name}__: Used as a key word to search cinemas,\n\nFor more details on how cinemas are listed [see here][ref].\n[ref]: https://etmdb.com/en/cinema-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cinema_name": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cinema_name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.cinema_schedule.search.movie_title.get",
+      "title": "api.v1.cinema_schedule.search.movie_title.get",
+      "description": "Return cinema schedule search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search movie cast\n* You can use both Amharic or English charset/font to search\n\nFor more details about cinema schedule, check each cinema from the cinema list [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.cinema_schedule.searchall.param.get",
+      "title": "api.v1.cinema_schedule.searchall.param.get",
+      "description": "Return cinema schedule search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* movie title\n* cinema name\n* cinema hall name or\n* cinema technology\n\nFor more details about cinema schedule, check each cinema from the cinema list [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.cinema_shedule_showtime.search.movie_title.get",
+      "title": "api.v1.cinema_shedule_showtime.search.movie_title.get",
+      "description": "Return cinema schedule and showtime search result\n\n### Response Class (Status 200)\n* __{movie_title}__: Used as a key word to search movie cast\n* You can use both Amharic or English charset/font to search\n\nFor more details about cinema schedule showtime, check each cinema from the cinema list [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.cinema_shedule_showtime.searchall.param.get",
+      "title": "api.v1.cinema_shedule_showtime.searchall.param.get",
+      "description": "Return cinema schedule and showtime search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* movie title\n* cinema name\n* cinema hall name\n* showtime starting date\n* showtime ending date or\n* cinema technology\n\nFor more details about cinema schedule, check each cinema from the cinema list [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "cinema_search_read",
+      "title": "cinema_search_read",
+      "description": "Return cinema search result\n\n### Response Class (Status 200)\n\n* __{id}__: Used as a key to search cinemas,\n\nFor more details on how cinemas are listed [see here][ref].\n[ref]: https://etmdb.com/en/cinema-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.company_credits.search.movie_title.get",
+      "title": "api.v1.company_credits.search.movie_title.get",
+      "description": "Return company credits search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search company credits for the movie\n* You can use both Amharic or English charset/font to search\n\nFor more details on how company credits are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.company_credits.searchall.param.get",
+      "title": "api.v1.company_credits.searchall.param.get",
+      "description": "Return company credits search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* company name\n* movie title or\n* company credit description (such as production, cinematography, etc)\n\nFor more details on how company credits are listed [see here][ref].\n[ref]: https://etmdb.com/en/company-list/company_name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "company_search_read",
+      "title": "company_search_read",
+      "description": "Return company search result\n\n### Response Class (Status 200)\n\n* __{company_name}__: Used as a key word to search companies,\n\nFor more details on how companies are listed [see here][ref].\n[ref]: https://etmdb.com/en/company-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "company_name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.filmography_type.search.filmography_description.get",
+      "title": "api.v1.filmography_type.search.filmography_description.get",
+      "description": "Return filmography type search result\n\n### Response Class (Status 200)\n\n* __{filmography_description}__: Used as a key word to search filmography types\n\nFor more details on how filmography types are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filmography_description": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "filmography_description"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "filmography_search_read",
+      "title": "filmography_search_read",
+      "description": "Return filmography search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search movies\n* You can use both Amharic or English charset/font to search\n\nFor more details on how filmographies are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "filmography_searchall_read",
+      "title": "filmography_searchall_read",
+      "description": "Return filmography search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* artist first name\n* artist last name\n* artist username\n* movie title or\n* filmography description (such as director, actor, producer, etc)\n\nFor more details on how filmographies are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.genre_type.search.genre_description.get",
+      "title": "api.v1.genre_type.search.genre_description.get",
+      "description": "Return genre type search result\n\n### Response Class (Status 200)\n\n* __{genre_description}__: Used as a key word to search genre types\n\nFor more details on how genre types are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "genre_description": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "genre_description"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "genre_search_read",
+      "title": "genre_search_read",
+      "description": "Return movie genre search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search movie genres\n* You can use both Amharic or English charset/font to search\n\nFor more details on how movies are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "genre_searchall_read",
+      "title": "genre_searchall_read",
+      "description": "Return movie genre search result\n\n### Response Class (Status 200)\n\n* __{movie_genre_type}__: Used as a key word to search movie genres\n\nFor more details on how movies are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_genre_type": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_genre_type"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "job_search_read",
+      "title": "job_search_read",
+      "description": "Return job details search result\n\n### Response Class (Status 200)\n\n* __{job_title}__: Used as a key word to search jobs,\n\nFor more details on how job are listed [see here][ref].\n[ref]: https://etmdb.com/en/job-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "job_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "job_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "job_searchall_read",
+      "title": "job_searchall_read",
+      "description": "Return job details search result\n\n### Response Class (Status 200)\n\n* __{company_name}__: Used as a key word to search jobs,\n\nFor more details on how job are listed [see here][ref].\n[ref]: https://etmdb.com/en/job-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "company_name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "media_search_read",
+      "title": "media_search_read",
+      "description": "Return movie media search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search media for movies\n* You can use both Amharic or English charset/font to search\n\nFor more details on how media is listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "media_searchall_read",
+      "title": "media_searchall_read",
+      "description": "Return cast media search result\n\n### Response Class (Status 200)\n__{user}__ argument can be\n* artist first name\n* artist last name\n* artist username\n\nFor more details on how cast media is listed [see here][ref].\n[ref]: https://etmdb.com/en/cast-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.movie_cast.search.movie_title.get",
+      "title": "api.v1.movie_cast.search.movie_title.get",
+      "description": "Return movie cast search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search movie cast\n* You can use both Amharic or English charset/font to search\n\nFor more details on how movie casts are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "api.v1.movie_cast.searchall.param.get",
+      "title": "api.v1.movie_cast.searchall.param.get",
+      "description": "Return movie cast search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* artist first name\n* artist last name\n* artist username\n* movie title or\n* character name\n\nFor more details on how movie casts are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "movie_search_read",
+      "title": "movie_search_read",
+      "description": "Return movie search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search movies\n* You can use both Amharic or English charset/font to search\n\nFor more details on how movies are listed [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "news_search_read",
+      "title": "news_search_read",
+      "description": "Return news or article search result\n\n### Response Class (Status 200)\n\n* __{title}__: Used as a key word to search news and articles,\n\nFor more details on how news & articles are listed [see here][ref].\n[ref]: https://etmdb.com/en/news-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "people_search_read",
+      "title": "people_search_read",
+      "description": "Return cast search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* artist first name\n* artist last name\n* artist username\n\nFor more details on how cast are listed [see here][ref].\n[ref]: https://etmdb.com/en/cast-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "showtime_searchall_read",
+      "title": "showtime_searchall_read",
+      "description": "Return showtime search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* show time or\n* day of the week [Mon=1, Tue=2, Wed=3, Thu=4, Fri=5, Sat=6, Sun=7]\n\nFor more details about showtime, check each cinema from the cinema list [see here][ref].\n[ref]: https://etmdb.com/en/movie-list/-updated_date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "watchlist_search_read",
+      "title": "watchlist_search_read",
+      "description": "Return watchlist search result\n\n### Response Class (Status 200)\n\n* __{movie_title}__: Used as a key word to search movies on watchlist\n* You can use both Amharic or English charset/font to search\n\nFor more details on how watchlist are listed [see here][ref].\n[ref]: https://etmdb.com/en/movies/watchlist/id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "movie_title": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "movie_title"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    },
+    {
+      "id": "watchlist_searchall_read",
+      "title": "watchlist_searchall_read",
+      "description": "Return watchlist search result\n\n### Response Class (Status 200)\n__{param}__ argument can be\n* artist first name\n* artist last name\n* artist username\n* movie title or\n\nFor more details on how watchlist are listed [see here][ref].\n[ref]: https://etmdb.com/en/movies/watchlist/id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "param": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "param"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "etmdb": {
+          "integration": "etmdb"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

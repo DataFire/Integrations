@@ -457,6 +457,36 @@ amazonaws_s3.DeleteObjects({
 * Bucket (string) **required**
 * Delete (object) **required**
 
+### GetBucketEncryption
+
+
+
+```js
+amazonaws_s3.GetBucketEncryption({
+  "Bucket": ""
+}, context)
+```
+
+#### Parameters
+* Bucket (string) **required**
+
+### PutBucketEncryption
+
+
+
+```js
+amazonaws_s3.PutBucketEncryption({
+  "Bucket": "",
+  "ServerSideEncryptionConfiguration": {
+    "Rules": []
+  }
+}, context)
+```
+
+#### Parameters
+* Bucket (string) **required**
+* ServerSideEncryptionConfiguration (object) **required** - Container for server-side encryption configuration rules. Currently S3 supports one rule only.
+
 ### GetBucketInventoryConfiguration
 
 

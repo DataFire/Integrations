@@ -60,6 +60,7 @@ amazonaws_ec2.AllocateAddress({}, context)
 ```
 
 #### Parameters
+* Address (string)
 * Domain (string)
 * DryRun (boolean)
 
@@ -69,9 +70,9 @@ amazonaws_ec2.AllocateAddress({}, context)
 
 ```js
 amazonaws_ec2.AllocateHosts({
+  "AvailabilityZone": "",
   "InstanceType": "",
-  "Quantity": 0,
-  "AvailabilityZone": ""
+  "Quantity": 0
 }, context)
 ```
 
@@ -167,8 +168,8 @@ amazonaws_ec2.AssociateIamInstanceProfile({
 
 ```js
 amazonaws_ec2.AssociateRouteTable({
-  "SubnetId": "",
-  "RouteTableId": ""
+  "RouteTableId": "",
+  "SubnetId": ""
 }, context)
 ```
 
@@ -183,8 +184,8 @@ amazonaws_ec2.AssociateRouteTable({
 
 ```js
 amazonaws_ec2.AssociateSubnetCidrBlock({
-  "SubnetId": "",
-  "Ipv6CidrBlock": ""
+  "Ipv6CidrBlock": "",
+  "SubnetId": ""
 }, context)
 ```
 
@@ -204,6 +205,7 @@ amazonaws_ec2.AssociateVpcCidrBlock({
 
 #### Parameters
 * AmazonProvidedIpv6CidrBlock (boolean)
+* CidrBlock (string)
 * VpcId (string) **required**
 
 ### AttachClassicLinkVpc
@@ -212,9 +214,9 @@ amazonaws_ec2.AssociateVpcCidrBlock({
 
 ```js
 amazonaws_ec2.AttachClassicLinkVpc({
+  "Groups": [],
   "InstanceId": "",
-  "VpcId": "",
-  "Groups": []
+  "VpcId": ""
 }, context)
 ```
 
@@ -246,9 +248,9 @@ amazonaws_ec2.AttachInternetGateway({
 
 ```js
 amazonaws_ec2.AttachNetworkInterface({
-  "NetworkInterfaceId": "",
+  "DeviceIndex": 0,
   "InstanceId": "",
-  "DeviceIndex": 0
+  "NetworkInterfaceId": ""
 }, context)
 ```
 
@@ -264,9 +266,9 @@ amazonaws_ec2.AttachNetworkInterface({
 
 ```js
 amazonaws_ec2.AttachVolume({
-  "VolumeId": "",
+  "Device": "",
   "InstanceId": "",
-  "Device": ""
+  "VolumeId": ""
 }, context)
 ```
 
@@ -282,8 +284,8 @@ amazonaws_ec2.AttachVolume({
 
 ```js
 amazonaws_ec2.AttachVpnGateway({
-  "VpnGatewayId": "",
-  "VpcId": ""
+  "VpcId": "",
+  "VpnGatewayId": ""
 }, context)
 ```
 
@@ -453,8 +455,8 @@ amazonaws_ec2.CancelSpotInstanceRequests({
 
 ```js
 amazonaws_ec2.ConfirmProductInstance({
-  "ProductCode": "",
-  "InstanceId": ""
+  "InstanceId": "",
+  "ProductCode": ""
 }, context)
 ```
 
@@ -463,15 +465,34 @@ amazonaws_ec2.ConfirmProductInstance({
 * InstanceId (string) **required**
 * ProductCode (string) **required**
 
+### CopyFpgaImage
+
+
+
+```js
+amazonaws_ec2.CopyFpgaImage({
+  "SourceFpgaImageId": "",
+  "SourceRegion": ""
+}, context)
+```
+
+#### Parameters
+* ClientToken (string)
+* Description (string)
+* DryRun (boolean)
+* Name (string)
+* SourceFpgaImageId (string) **required**
+* SourceRegion (string) **required**
+
 ### CopyImage
 
 
 
 ```js
 amazonaws_ec2.CopyImage({
-  "SourceRegion": "",
+  "Name": "",
   "SourceImageId": "",
-  "Name": ""
+  "SourceRegion": ""
 }, context)
 ```
 
@@ -512,9 +533,9 @@ amazonaws_ec2.CopySnapshot({
 
 ```js
 amazonaws_ec2.CreateCustomerGateway({
-  "Type": "",
+  "BgpAsn": 0,
   "PublicIp": "",
-  "BgpAsn": 0
+  "Type": ""
 }, context)
 ```
 
@@ -523,6 +544,17 @@ amazonaws_ec2.CreateCustomerGateway({
 * DryRun (boolean)
 * PublicIp (string) **required**
 * Type (string) **required**
+
+### CreateDefaultVpc
+
+
+
+```js
+amazonaws_ec2.CreateDefaultVpc({}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
 
 ### CreateDhcpOptions
 
@@ -559,11 +591,11 @@ amazonaws_ec2.CreateEgressOnlyInternetGateway({
 
 ```js
 amazonaws_ec2.CreateFlowLogs({
+  "DeliverLogsPermissionArn": "",
+  "LogGroupName": "",
   "ResourceIds": [],
   "ResourceType": "",
-  "TrafficType": "",
-  "LogGroupName": "",
-  "DeliverLogsPermissionArn": ""
+  "TrafficType": ""
 }, context)
 ```
 
@@ -659,8 +691,8 @@ amazonaws_ec2.CreateKeyPair({
 
 ```js
 amazonaws_ec2.CreateNatGateway({
-  "SubnetId": "",
-  "AllocationId": ""
+  "AllocationId": "",
+  "SubnetId": ""
 }, context)
 ```
 
@@ -689,11 +721,11 @@ amazonaws_ec2.CreateNetworkAcl({
 
 ```js
 amazonaws_ec2.CreateNetworkAclEntry({
+  "Egress": true,
   "NetworkAclId": "",
-  "RuleNumber": 0,
   "Protocol": "",
   "RuleAction": "",
-  "Egress": true
+  "RuleNumber": 0
 }, context)
 ```
 
@@ -730,6 +762,24 @@ amazonaws_ec2.CreateNetworkInterface({
 * SecondaryPrivateIpAddressCount (integer)
 * SubnetId (string) **required**
 
+### CreateNetworkInterfacePermission
+
+
+
+```js
+amazonaws_ec2.CreateNetworkInterfacePermission({
+  "NetworkInterfaceId": "",
+  "Permission": ""
+}, context)
+```
+
+#### Parameters
+* AwsAccountId (string)
+* AwsService (string)
+* DryRun (boolean)
+* NetworkInterfaceId (string) **required**
+* Permission (string) **required**
+
 ### CreatePlacementGroup
 
 
@@ -752,10 +802,10 @@ amazonaws_ec2.CreatePlacementGroup({
 
 ```js
 amazonaws_ec2.CreateReservedInstancesListing({
-  "ReservedInstancesId": "",
+  "ClientToken": "",
   "InstanceCount": 0,
   "PriceSchedules": [],
-  "ClientToken": ""
+  "ReservedInstancesId": ""
 }, context)
 ```
 
@@ -807,8 +857,8 @@ amazonaws_ec2.CreateRouteTable({
 
 ```js
 amazonaws_ec2.CreateSecurityGroup({
-  "GroupName": "",
-  "Description": ""
+  "Description": "",
+  "GroupName": ""
 }, context)
 ```
 
@@ -854,8 +904,8 @@ amazonaws_ec2.CreateSpotDatafeedSubscription({
 
 ```js
 amazonaws_ec2.CreateSubnet({
-  "VpcId": "",
-  "CidrBlock": ""
+  "CidrBlock": "",
+  "VpcId": ""
 }, context)
 ```
 
@@ -934,8 +984,12 @@ amazonaws_ec2.CreateVpcEndpoint({
 * ClientToken (string)
 * DryRun (boolean)
 * PolicyDocument (string)
+* PrivateDnsEnabled (boolean)
 * RouteTableIds (array)
+* SecurityGroupIds (array)
 * ServiceName (string) **required**
+* SubnetIds (array)
+* VpcEndpointType (string)
 * VpcId (string) **required**
 
 ### CreateVpcPeeringConnection
@@ -958,8 +1012,8 @@ amazonaws_ec2.CreateVpcPeeringConnection({}, context)
 
 ```js
 amazonaws_ec2.CreateVpnConnection({
-  "Type": "",
   "CustomerGatewayId": "",
+  "Type": "",
   "VpnGatewayId": ""
 }, context)
 ```
@@ -977,8 +1031,8 @@ amazonaws_ec2.CreateVpnConnection({
 
 ```js
 amazonaws_ec2.CreateVpnConnectionRoute({
-  "VpnConnectionId": "",
-  "DestinationCidrBlock": ""
+  "DestinationCidrBlock": "",
+  "VpnConnectionId": ""
 }, context)
 ```
 
@@ -997,6 +1051,7 @@ amazonaws_ec2.CreateVpnGateway({
 ```
 
 #### Parameters
+* AmazonSideAsn (integer)
 * AvailabilityZone (string)
 * DryRun (boolean)
 * Type (string) **required**
@@ -1055,6 +1110,20 @@ amazonaws_ec2.DeleteFlowLogs({
 
 #### Parameters
 * FlowLogIds (array) **required**
+
+### DeleteFpgaImage
+
+
+
+```js
+amazonaws_ec2.DeleteFpgaImage({
+  "FpgaImageId": ""
+}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* FpgaImageId (string) **required**
 
 ### DeleteInternetGateway
 
@@ -1117,9 +1186,9 @@ amazonaws_ec2.DeleteNetworkAcl({
 
 ```js
 amazonaws_ec2.DeleteNetworkAclEntry({
+  "Egress": true,
   "NetworkAclId": "",
-  "RuleNumber": 0,
-  "Egress": true
+  "RuleNumber": 0
 }, context)
 ```
 
@@ -1142,6 +1211,21 @@ amazonaws_ec2.DeleteNetworkInterface({
 #### Parameters
 * DryRun (boolean)
 * NetworkInterfaceId (string) **required**
+
+### DeleteNetworkInterfacePermission
+
+
+
+```js
+amazonaws_ec2.DeleteNetworkInterfacePermission({
+  "NetworkInterfacePermissionId": ""
+}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* Force (boolean)
+* NetworkInterfacePermissionId (string) **required**
 
 ### DeletePlacementGroup
 
@@ -1330,8 +1414,8 @@ amazonaws_ec2.DeleteVpnConnection({
 
 ```js
 amazonaws_ec2.DeleteVpnConnectionRoute({
-  "VpnConnectionId": "",
-  "DestinationCidrBlock": ""
+  "DestinationCidrBlock": "",
+  "VpnConnectionId": ""
 }, context)
 ```
 
@@ -1486,6 +1570,21 @@ amazonaws_ec2.DescribeEgressOnlyInternetGateways({}, context)
 * MaxResults (integer)
 * NextToken (string)
 
+### DescribeElasticGpus
+
+
+
+```js
+amazonaws_ec2.DescribeElasticGpus({}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* ElasticGpuIds (array)
+* Filters (array)
+* MaxResults (integer)
+* NextToken (string)
+
 ### DescribeExportTasks
 
 
@@ -1510,6 +1609,38 @@ amazonaws_ec2.DescribeFlowLogs({}, context)
 * FlowLogIds (array)
 * MaxResults (integer)
 * NextToken (string)
+
+### DescribeFpgaImageAttribute
+
+
+
+```js
+amazonaws_ec2.DescribeFpgaImageAttribute({
+  "FpgaImageId": "",
+  "Attribute": ""
+}, context)
+```
+
+#### Parameters
+* Attribute (string) **required**
+* DryRun (boolean)
+* FpgaImageId (string) **required**
+
+### DescribeFpgaImages
+
+
+
+```js
+amazonaws_ec2.DescribeFpgaImages({}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* Filters (array)
+* FpgaImageIds (array)
+* MaxResults (integer)
+* NextToken (string)
+* Owners (array)
 
 ### DescribeHostReservationOfferings
 
@@ -1600,8 +1731,8 @@ amazonaws_ec2.DescribeIdentityIdFormat({
 
 ```js
 amazonaws_ec2.DescribeImageAttribute({
-  "ImageId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "ImageId": ""
 }, context)
 ```
 
@@ -1661,8 +1792,8 @@ amazonaws_ec2.DescribeImportSnapshotTasks({}, context)
 
 ```js
 amazonaws_ec2.DescribeInstanceAttribute({
-  "InstanceId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "InstanceId": ""
 }, context)
 ```
 
@@ -1790,6 +1921,20 @@ amazonaws_ec2.DescribeNetworkInterfaceAttribute({
 * Attribute (string)
 * DryRun (boolean)
 * NetworkInterfaceId (string) **required**
+
+### DescribeNetworkInterfacePermissions
+
+
+
+```js
+amazonaws_ec2.DescribeNetworkInterfacePermissions({}, context)
+```
+
+#### Parameters
+* Filters (array)
+* MaxResults (integer)
+* NetworkInterfacePermissionIds (array)
+* NextToken (string)
 
 ### DescribeNetworkInterfaces
 
@@ -1933,11 +2078,11 @@ amazonaws_ec2.DescribeRouteTables({}, context)
 
 ```js
 amazonaws_ec2.DescribeScheduledInstanceAvailability({
-  "Recurrence": {},
   "FirstSlotStartTimeRange": {
     "EarliestTime": "",
     "LatestTime": ""
-  }
+  },
+  "Recurrence": {}
 }, context)
 ```
 
@@ -1994,6 +2139,8 @@ amazonaws_ec2.DescribeSecurityGroups({}, context)
 * Filters (array)
 * GroupIds (array)
 * GroupNames (array)
+* MaxResults (integer)
+* NextToken (string)
 
 ### DescribeSnapshotAttribute
 
@@ -2001,8 +2148,8 @@ amazonaws_ec2.DescribeSecurityGroups({}, context)
 
 ```js
 amazonaws_ec2.DescribeSnapshotAttribute({
-  "SnapshotId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "SnapshotId": ""
 }, context)
 ```
 
@@ -2241,8 +2388,8 @@ amazonaws_ec2.DescribeVolumesModifications({}, context)
 
 ```js
 amazonaws_ec2.DescribeVpcAttribute({
-  "VpcId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "VpcId": ""
 }, context)
 ```
 
@@ -2287,8 +2434,10 @@ amazonaws_ec2.DescribeVpcEndpointServices({}, context)
 
 #### Parameters
 * DryRun (boolean)
+* Filters (array)
 * MaxResults (integer)
 * NextToken (string)
+* ServiceNames (array)
 
 ### DescribeVpcEndpoints
 
@@ -2427,8 +2576,8 @@ amazonaws_ec2.DetachVolume({
 
 ```js
 amazonaws_ec2.DetachVpnGateway({
-  "VpnGatewayId": "",
-  "VpcId": ""
+  "VpcId": "",
+  "VpnGatewayId": ""
 }, context)
 ```
 
@@ -2443,8 +2592,8 @@ amazonaws_ec2.DetachVpnGateway({
 
 ```js
 amazonaws_ec2.DisableVgwRoutePropagation({
-  "RouteTableId": "",
-  "GatewayId": ""
+  "GatewayId": "",
+  "RouteTableId": ""
 }, context)
 ```
 
@@ -2549,8 +2698,8 @@ amazonaws_ec2.DisassociateVpcCidrBlock({
 
 ```js
 amazonaws_ec2.EnableVgwRoutePropagation({
-  "RouteTableId": "",
-  "GatewayId": ""
+  "GatewayId": "",
+  "RouteTableId": ""
 }, context)
 ```
 
@@ -2632,8 +2781,8 @@ amazonaws_ec2.GetConsoleScreenshot({
 
 ```js
 amazonaws_ec2.GetHostReservationPurchasePreview({
-  "OfferingId": "",
-  "HostIdSet": []
+  "HostIdSet": [],
+  "OfferingId": ""
 }, context)
 ```
 
@@ -2747,8 +2896,8 @@ amazonaws_ec2.ImportSnapshot({}, context)
 amazonaws_ec2.ImportVolume({
   "AvailabilityZone": "",
   "Image": {
-    "Format": "",
     "Bytes": 0,
+    "Format": "",
     "ImportManifestUrl": ""
   },
   "Volume": {
@@ -2764,14 +2913,36 @@ amazonaws_ec2.ImportVolume({
 * Image (object) **required** - Describes a disk image.
 * Volume (object) **required** - Describes an EBS volume.
 
+### ModifyFpgaImageAttribute
+
+
+
+```js
+amazonaws_ec2.ModifyFpgaImageAttribute({
+  "FpgaImageId": ""
+}, context)
+```
+
+#### Parameters
+* Attribute (string)
+* Description (string)
+* DryRun (boolean)
+* FpgaImageId (string) **required**
+* LoadPermission (object) - Describes modifications to the load permissions of an Amazon FPGA image (AFI).
+* Name (string)
+* OperationType (string)
+* ProductCodes (array)
+* UserGroups (array)
+* UserIds (array)
+
 ### ModifyHosts
 
 
 
 ```js
 amazonaws_ec2.ModifyHosts({
-  "HostIds": [],
-  "AutoPlacement": ""
+  "AutoPlacement": "",
+  "HostIds": []
 }, context)
 ```
 
@@ -2800,9 +2971,9 @@ amazonaws_ec2.ModifyIdFormat({
 
 ```js
 amazonaws_ec2.ModifyIdentityIdFormat({
+  "PrincipalArn": "",
   "Resource": "",
-  "UseLongIds": true,
-  "PrincipalArn": ""
+  "UseLongIds": true
 }, context)
 ```
 
@@ -3019,9 +3190,14 @@ amazonaws_ec2.ModifyVpcEndpoint({
 
 #### Parameters
 * AddRouteTableIds (array)
+* AddSecurityGroupIds (array)
+* AddSubnetIds (array)
 * DryRun (boolean)
 * PolicyDocument (string)
+* PrivateDnsEnabled (boolean)
 * RemoveRouteTableIds (array)
+* RemoveSecurityGroupIds (array)
+* RemoveSubnetIds (array)
 * ResetPolicy (boolean)
 * VpcEndpointId (string) **required**
 
@@ -3040,6 +3216,22 @@ amazonaws_ec2.ModifyVpcPeeringConnectionOptions({
 * DryRun (boolean)
 * RequesterPeeringConnectionOptions (object) - The VPC peering connection options.
 * VpcPeeringConnectionId (string) **required**
+
+### ModifyVpcTenancy
+
+
+
+```js
+amazonaws_ec2.ModifyVpcTenancy({
+  "VpcId": "",
+  "InstanceTenancy": ""
+}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* InstanceTenancy (string) **required**
+* VpcId (string) **required**
 
 ### MonitorInstances
 
@@ -3075,8 +3267,8 @@ amazonaws_ec2.MoveAddressToVpc({
 
 ```js
 amazonaws_ec2.PurchaseHostReservation({
-  "OfferingId": "",
-  "HostIdSet": []
+  "HostIdSet": [],
+  "OfferingId": ""
 }, context)
 ```
 
@@ -3093,8 +3285,8 @@ amazonaws_ec2.PurchaseHostReservation({
 
 ```js
 amazonaws_ec2.PurchaseReservedInstancesOffering({
-  "ReservedInstancesOfferingId": "",
-  "InstanceCount": 0
+  "InstanceCount": 0,
+  "ReservedInstancesOfferingId": ""
 }, context)
 ```
 
@@ -3235,11 +3427,11 @@ amazonaws_ec2.ReplaceNetworkAclAssociation({
 
 ```js
 amazonaws_ec2.ReplaceNetworkAclEntry({
+  "Egress": true,
   "NetworkAclId": "",
-  "RuleNumber": 0,
   "Protocol": "",
   "RuleAction": "",
-  "Egress": true
+  "RuleNumber": 0
 }, context)
 ```
 
@@ -3300,8 +3492,8 @@ amazonaws_ec2.ReplaceRouteTableAssociation({
 ```js
 amazonaws_ec2.ReportInstanceStatus({
   "Instances": [],
-  "Status": "",
-  "ReasonCodes": []
+  "ReasonCodes": [],
+  "Status": ""
 }, context)
 ```
 
@@ -3321,10 +3513,10 @@ amazonaws_ec2.ReportInstanceStatus({
 ```js
 amazonaws_ec2.RequestSpotFleet({
   "SpotFleetRequestConfig": {
-    "SpotPrice": "",
-    "TargetCapacity": 0,
     "IamFleetRole": "",
-    "LaunchSpecifications": []
+    "LaunchSpecifications": [],
+    "SpotPrice": "",
+    "TargetCapacity": 0
   }
 }, context)
 ```
@@ -3349,6 +3541,7 @@ amazonaws_ec2.RequestSpotInstances({
 * ClientToken (string)
 * DryRun (boolean)
 * InstanceCount (integer)
+* InstanceInterruptionBehavior (string)
 * LaunchGroup (string)
 * LaunchSpecification (object) - Describes the launch specification for an instance.
 * SpotPrice (string) **required**
@@ -3356,14 +3549,29 @@ amazonaws_ec2.RequestSpotInstances({
 * ValidFrom (string)
 * ValidUntil (string)
 
+### ResetFpgaImageAttribute
+
+
+
+```js
+amazonaws_ec2.ResetFpgaImageAttribute({
+  "FpgaImageId": ""
+}, context)
+```
+
+#### Parameters
+* Attribute (string)
+* DryRun (boolean)
+* FpgaImageId (string) **required**
+
 ### ResetImageAttribute
 
 
 
 ```js
 amazonaws_ec2.ResetImageAttribute({
-  "ImageId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "ImageId": ""
 }, context)
 ```
 
@@ -3378,8 +3586,8 @@ amazonaws_ec2.ResetImageAttribute({
 
 ```js
 amazonaws_ec2.ResetInstanceAttribute({
-  "InstanceId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "InstanceId": ""
 }, context)
 ```
 
@@ -3409,8 +3617,8 @@ amazonaws_ec2.ResetNetworkInterfaceAttribute({
 
 ```js
 amazonaws_ec2.ResetSnapshotAttribute({
-  "SnapshotId": "",
-  "Attribute": ""
+  "Attribute": "",
+  "SnapshotId": ""
 }, context)
 ```
 
@@ -3481,8 +3689,8 @@ amazonaws_ec2.RevokeSecurityGroupIngress({}, context)
 ```js
 amazonaws_ec2.RunInstances({
   "ImageId": "",
-  "MinCount": 0,
-  "MaxCount": 0
+  "MaxCount": 0,
+  "MinCount": 0
 }, context)
 ```
 
@@ -3493,6 +3701,7 @@ amazonaws_ec2.RunInstances({
 * DisableApiTermination (boolean)
 * DryRun (boolean)
 * EbsOptimized (boolean)
+* ElasticGpuSpecification (array)
 * IamInstanceProfile (object) - Describes an IAM instance profile.
 * ImageId (string) **required**
 * InstanceInitiatedShutdownBehavior (string)
@@ -3520,10 +3729,10 @@ amazonaws_ec2.RunInstances({
 
 ```js
 amazonaws_ec2.RunScheduledInstances({
-  "ScheduledInstanceId": "",
   "LaunchSpecification": {
     "ImageId": ""
-  }
+  },
+  "ScheduledInstanceId": ""
 }, context)
 ```
 
@@ -3584,8 +3793,8 @@ amazonaws_ec2.TerminateInstances({
 
 ```js
 amazonaws_ec2.UnassignIpv6Addresses({
-  "NetworkInterfaceId": "",
-  "Ipv6Addresses": []
+  "Ipv6Addresses": [],
+  "NetworkInterfaceId": ""
 }, context)
 ```
 
@@ -3621,4 +3830,36 @@ amazonaws_ec2.UnmonitorInstances({
 #### Parameters
 * DryRun (boolean)
 * InstanceIds (array) **required**
+
+### UpdateSecurityGroupRuleDescriptionsEgress
+
+
+
+```js
+amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsEgress({
+  "IpPermissions": []
+}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* GroupId (string)
+* GroupName (string)
+* IpPermissions (array) **required**
+
+### UpdateSecurityGroupRuleDescriptionsIngress
+
+
+
+```js
+amazonaws_ec2.UpdateSecurityGroupRuleDescriptionsIngress({
+  "IpPermissions": []
+}, context)
+```
+
+#### Parameters
+* DryRun (boolean)
+* GroupId (string)
+* GroupName (string)
+* IpPermissions (array) **required**
 

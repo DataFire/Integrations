@@ -20,28 +20,6 @@ versioneye.getProjects({}).then(data => {
 VersionEye is a cross-platform search engine for free/libre/open source software libraries.
 
 ## Actions
-### getFacebookPing
-ping pong
-
-
-```js
-versioneye.getFacebookPing(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### postFacebookPing
-ping pong
-
-
-```js
-versioneye.postFacebookPing(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
 ### getGithub
 
 This endpoint shows all imported repositories from your Github account.
@@ -246,6 +224,45 @@ versioneye.getOrganisationsOrgaNameInventory({
 * language (string) - Filter by programming language
 * project_version (string) - Filter down by project version
 * post_filter (string) - Post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
+* orga_name (integer) **required**
+
+### getOrganisationsOrgaNameInventoryDiff
+Returns the inventory diff object
+
+
+```js
+versioneye.getOrganisationsOrgaNameInventoryDiff({
+  "orga_name": 0
+}, context)
+```
+
+#### Parameters
+* inventory_diff_id (string) - ID of the inventory diff object
+* orga_name (integer) **required**
+
+### postOrganisationsOrgaNameInventoryDiff
+
+This Endpoint takes 2 inventory filters and calculates the difference between them.
+The diff object contains wich items have been removed and/or added compared to the inventory1 filter.
+The response of this Endpoint is the ID of the diff object, which is calculated async in the background.
+              
+
+
+```js
+versioneye.postOrganisationsOrgaNameInventoryDiff({
+  "orga_name": 0
+}, context)
+```
+
+#### Parameters
+* f1_team_name (string) - Inventory1, filter by team name
+* f1_language (string) - Inventory1, filter by programming language
+* f1_project_version (string) - Inventory1, filter down by project version
+* f1_post_filter (string) - Inventory1, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
+* f2_team_name (string) - Inventory2, filter by team name
+* f2_language (string) - Inventory2, filter by programming language
+* f2_project_version (string) - Inventory2, filter down by project version
+* f2_post_filter (string) - Inventory2, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
 * orga_name (integer) **required**
 
 ### getOrganisationsOrgaNameProjects
@@ -653,6 +670,54 @@ versioneye.postProjectsProjectKey({
 #### Parameters
 * project_key (string) **required** - Project ID
 * project_file (string) **required** - Project file - [maven.pom, Gemfile ...]
+
+### putProjectsProjectKey
+
+To use this resource you need either an active session or you have to append
+your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
+
+With this Endpoint an existing project can be updated. This are the fields which 
+can be updated: 
+
+```
+{
+  public: false,
+  name: "toto",
+  description: "beschreibung",
+  license: "Lizenz",
+  version: "Versionio"
+}
+```
+            
+
+
+```js
+versioneye.putProjectsProjectKey({
+  "project_key": ""
+}, context)
+```
+
+#### Parameters
+* project_key (string) **required** - Project ID
+
+### getProjectsProjectKeyDependencies
+
+This Endpoint returns a list of ALL dependencies of the project. This list includes
+dependencies of child projects as well.
+
+To use this resource you need either an active session or you have to append
+your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
+            
+
+
+```js
+versioneye.getProjectsProjectKeyDependencies({
+  "project_key": ""
+}, context)
+```
+
+#### Parameters
+* project_key (string) **required** - Project ID or project_key
 
 ### getProjectsProjectKeyLicenses
 

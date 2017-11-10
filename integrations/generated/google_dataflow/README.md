@@ -78,7 +78,7 @@ google_dataflow.projects.workerMessages({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 
 ### projects.jobs.list
-List the jobs of a project.
+List the jobs of a project in a given region.
 
 
 ```js
@@ -378,6 +378,37 @@ google_dataflow.projects.jobs.workItems.reportStatus({
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.
 
+### projects.jobs.aggregated
+List the jobs of a project across all regions.
+
+
+```js
+google_dataflow.projects.jobs.aggregated({
+  "projectId": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - The kind of filter to use.
+* location (string) - The location that contains this job.
+* pageSize (integer) - If there are many jobs, limit response to at most this many.
+* pageToken (string) - Set this to the 'next_page_token' field of a previous response
+* projectId (string) **required** - The project which owns the jobs.
+* view (string) - Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### projects.locations.workerMessages
 Send a worker_message to the service.
 
@@ -408,7 +439,7 @@ google_dataflow.projects.locations.workerMessages({
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### projects.locations.jobs.list
-List the jobs of a project.
+List the jobs of a project in a given region.
 
 
 ```js

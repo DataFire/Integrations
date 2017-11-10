@@ -168,6 +168,7 @@ amazonaws_elasticache.CreateReplicationGroup({
 ```
 
 #### Parameters
+* AtRestEncryptionEnabled (boolean)
 * AuthToken (string)
 * AutoMinorVersionUpgrade (boolean)
 * AutomaticFailoverEnabled (boolean)
@@ -194,6 +195,7 @@ amazonaws_elasticache.CreateReplicationGroup({
 * SnapshotRetentionLimit (integer)
 * SnapshotWindow (string)
 * Tags (array)
+* TransitEncryptionEnabled (boolean)
 
 ### CreateSnapshot
 
@@ -611,6 +613,25 @@ amazonaws_elasticache.ModifyReplicationGroup({
 * SnapshotRetentionLimit (integer)
 * SnapshotWindow (string)
 * SnapshottingClusterId (string)
+
+### ModifyReplicationGroupShardConfiguration
+
+
+
+```js
+amazonaws_elasticache.ModifyReplicationGroupShardConfiguration({
+  "ReplicationGroupId": "",
+  "NodeGroupCount": 0,
+  "ApplyImmediately": true
+}, context)
+```
+
+#### Parameters
+* ApplyImmediately (boolean) **required**
+* NodeGroupCount (integer) **required**
+* NodeGroupsToRemove (array)
+* ReplicationGroupId (string) **required**
+* ReshardingConfiguration (array)
 
 ### PurchaseReservedCacheNodesOffering
 

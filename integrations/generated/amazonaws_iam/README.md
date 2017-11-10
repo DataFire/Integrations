@@ -553,6 +553,19 @@ amazonaws_iam.DeleteServerCertificate({
 #### Parameters
 * ServerCertificateName (string) **required**
 
+### DeleteServiceLinkedRole
+
+
+
+```js
+amazonaws_iam.DeleteServiceLinkedRole({
+  "RoleName": ""
+}, context)
+```
+
+#### Parameters
+* RoleName (string) **required**
+
 ### DeleteServiceSpecificCredential
 
 
@@ -954,6 +967,19 @@ amazonaws_iam.GetServerCertificate({
 
 #### Parameters
 * ServerCertificateName (string) **required**
+
+### GetServiceLinkedRoleDeletionStatus
+
+
+
+```js
+amazonaws_iam.GetServiceLinkedRoleDeletionStatus({
+  "DeletionTaskId": ""
+}, context)
+```
+
+#### Parameters
+* DeletionTaskId (string) **required**
 
 ### GetUser
 

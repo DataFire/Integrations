@@ -157,6 +157,7 @@ amazonaws_codedeploy.CreateDeployment({
 * deploymentConfigName (string)
 * deploymentGroupName (string)
 * description (string)
+* fileExistsBehavior (string)
 * ignoreApplicationStopFailures (boolean)
 * revision (object) - Information about the location of an application revision.
 * targetInstances (object) - Information about the instances to be used in the replacement environment in a blue/green deployment.
@@ -168,13 +169,14 @@ amazonaws_codedeploy.CreateDeployment({
 
 ```js
 amazonaws_codedeploy.CreateDeploymentConfig({
-  "deploymentConfigName": ""
+  "deploymentConfigName": "",
+  "minimumHealthyHosts": {}
 }, context)
 ```
 
 #### Parameters
 * deploymentConfigName (string) **required**
-* minimumHealthyHosts (object) - Information about minimum healthy instance.
+* minimumHealthyHosts (object) **required** - Information about minimum healthy instance.
 
 ### CreateDeploymentGroup
 
@@ -196,10 +198,12 @@ amazonaws_codedeploy.CreateDeploymentGroup({
 * blueGreenDeploymentConfiguration (object) - Information about blue/green deployment options for a deployment group.
 * deploymentConfigName (string)
 * deploymentGroupName (string) **required**
-* deploymentStyle (object) - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+* deploymentStyle (object) - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 * ec2TagFilters (array)
-* loadBalancerInfo (object) - Information about the load balancer used in a blue/green deployment.
+* ec2TagSet (object) - Information about groups of EC2 instance tags.
+* loadBalancerInfo (object) - Information about the Elastic Load Balancing load balancer or target group used in a deployment.
 * onPremisesInstanceTagFilters (array)
+* onPremisesTagSet (object) - Information about groups of on-premises instance tags.
 * serviceRoleArn (string) **required**
 * triggerConfigurations (array)
 
@@ -446,6 +450,17 @@ amazonaws_codedeploy.ListDeployments({}, context)
 * includeOnlyStatuses (array)
 * nextToken (string)
 
+### ListGitHubAccountTokenNames
+
+
+
+```js
+amazonaws_codedeploy.ListGitHubAccountTokenNames({}, context)
+```
+
+#### Parameters
+* nextToken (string)
+
 ### ListOnPremisesInstances
 
 
@@ -561,11 +576,13 @@ amazonaws_codedeploy.UpdateDeploymentGroup({
 * blueGreenDeploymentConfiguration (object) - Information about blue/green deployment options for a deployment group.
 * currentDeploymentGroupName (string) **required**
 * deploymentConfigName (string)
-* deploymentStyle (object) - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+* deploymentStyle (object) - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 * ec2TagFilters (array)
-* loadBalancerInfo (object) - Information about the load balancer used in a blue/green deployment.
+* ec2TagSet (object) - Information about groups of EC2 instance tags.
+* loadBalancerInfo (object) - Information about the Elastic Load Balancing load balancer or target group used in a deployment.
 * newDeploymentGroupName (string)
 * onPremisesInstanceTagFilters (array)
+* onPremisesTagSet (object) - Information about groups of on-premises instance tags.
 * serviceRoleArn (string)
 * triggerConfigurations (array)
 

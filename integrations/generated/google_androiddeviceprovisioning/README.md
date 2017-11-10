@@ -17,11 +17,11 @@ google_androiddeviceprovisioning.partners.devices.metadata({}).then(data => {
 ```
 
 ## Description
-Android Device Provisioning Partner API
+Automates reseller integration into zero-touch enrollment by assigning devices to customers and creating device reports.
 
 ## Actions
 ### partners.devices.metadata
-Update the metadata
+Update the metadata.
 
 
 ```js
@@ -33,8 +33,8 @@ google_androiddeviceprovisioning.partners.devices.metadata({
 
 #### Parameters
 * body (object) - Request to set metadata for a device.
-* deviceId (string) **required** - id of the partner.
-* metadataOwnerId (string) **required** - The owner of the newly set metadata. Should be partner id itself.
+* deviceId (string) **required** - ID of the partner.
+* metadataOwnerId (string) **required** - The owner of the newly set metadata. Set this to the partner ID.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -50,7 +50,9 @@ google_androiddeviceprovisioning.partners.devices.metadata({
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### partners.customers.list
-List all the customers that has delegates some role to this customer.
+Lists the customers that are enrolled to the reseller identified by the
+`partnerId` argument. This list includes customers that the reseller
+created and customers that enrolled themselves using the portal.
 
 
 ```js
@@ -60,7 +62,7 @@ google_androiddeviceprovisioning.partners.customers.list({
 ```
 
 #### Parameters
-* partnerId (string) **required** - the id of the partner.
+* partnerId (string) **required** - The ID of the partner.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -87,7 +89,34 @@ google_androiddeviceprovisioning.partners.devices.claim({
 
 #### Parameters
 * body (object) - Request message to claim a device on behalf of a customer.
-* partnerId (string) **required** - Id of the partner.
+* partnerId (string) **required** - ID of the partner.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### partners.devices.claimAsync
+Claim devices asynchronously.
+
+
+```js
+google_androiddeviceprovisioning.partners.devices.claimAsync({
+  "partnerId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request to claim devices asynchronously in batch.
+* partnerId (string) **required** - Partner ID.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -114,7 +143,7 @@ google_androiddeviceprovisioning.partners.devices.findByIdentifier({
 
 #### Parameters
 * body (object) - Request to find devices.
-* partnerId (string) **required** - id of the partner.
+* partnerId (string) **required** - ID of the partner.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -141,7 +170,7 @@ google_androiddeviceprovisioning.partners.devices.findByOwner({
 
 #### Parameters
 * body (object) - Request to find devices by customers.
-* partnerId (string) **required** - id of the partner.
+* partnerId (string) **required** - ID of the partner.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -157,7 +186,7 @@ google_androiddeviceprovisioning.partners.devices.findByOwner({
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### partners.devices.unclaim
-Unclaim the device identified by device_id or identifier.
+Unclaim the device identified by the `device_id` or the `deviceIdentifier`.
 
 
 ```js
@@ -168,7 +197,61 @@ google_androiddeviceprovisioning.partners.devices.unclaim({
 
 #### Parameters
 * body (object) - Request message to unclaim a device.
-* partnerId (string) **required** - Id of the partner.
+* partnerId (string) **required** - ID of the partner.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### partners.devices.unclaimAsync
+Unclaim devices asynchronously.
+
+
+```js
+google_androiddeviceprovisioning.partners.devices.unclaimAsync({
+  "partnerId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request to unclaim devices asynchronously in batch.
+* partnerId (string) **required** - Partner ID.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### partners.devices.updateMetadataAsync
+Set metadata in batch asynchronously.
+
+
+```js
+google_androiddeviceprovisioning.partners.devices.updateMetadataAsync({
+  "partnerId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request to update device metadata in batch.
+* partnerId (string) **required** - Partner ID.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -184,7 +267,7 @@ google_androiddeviceprovisioning.partners.devices.unclaim({
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### partners.devices.get
-Get a device
+Get a device.
 
 
 ```js
@@ -194,7 +277,37 @@ google_androiddeviceprovisioning.partners.devices.get({
 ```
 
 #### Parameters
-* name (string) **required** - resource name in 'partners/[PARTNER_ID]/devices/[DEVICE_ID]'.
+* name (string) **required** - Resource name in `partners/[PARTNER_ID]/devices/[DEVICE_ID]`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### partners.customers.create
+Creates a customer for zero-touch enrollment. After the method returns
+successfully, admin and owner roles can manage devices and EMM configs
+by calling API methods or using their zero-touch enrollment portal. The API
+doesn't notify the customer that they have access.
+
+
+```js
+google_androiddeviceprovisioning.partners.customers.create({
+  "parent": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request message to create a customer.
+* parent (string) **required** - Required. The parent resource ID in format `partners/[PARTNER_ID]` that
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.

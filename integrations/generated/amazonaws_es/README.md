@@ -52,7 +52,9 @@ amazonaws_es.CreateElasticsearchDomain({
 * EBSOptions (object) - Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.
 * ElasticsearchClusterConfig (object) - Specifies the configuration for the domain cluster, such as the type and number of instances.
 * ElasticsearchVersion (string)
+* LogPublishingOptions (array)
 * SnapshotOptions (object) - Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.
+* VPCOptions (object) - Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.
 
 ### DescribeElasticsearchDomains
 
@@ -96,7 +98,9 @@ amazonaws_es.UpdateElasticsearchDomainConfig({
 * AdvancedOptions (array) - <p> Exposes select native Elasticsearch configuration values from <code>elasticsearch.yml</code>. Currently, the following advanced options are available:</p> <ul> <li>Option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</li> <li>Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.</li> </ul> <p>For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options">Configuring Advanced Options</a>.</p>
 * EBSOptions (object) - Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.
 * ElasticsearchClusterConfig (object) - Specifies the configuration for the domain cluster, such as the type and number of instances.
+* LogPublishingOptions (array)
 * SnapshotOptions (object) - Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.
+* VPCOptions (object) - Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.
 
 ### DescribeElasticsearchInstanceTypeLimits
 
@@ -127,6 +131,17 @@ amazonaws_es.ListElasticsearchInstanceTypes({
 * MaxResults (string)
 * NextToken (string)
 * ElasticsearchVersion (string) **required**
+
+### DeleteElasticsearchServiceRole
+
+
+
+```js
+amazonaws_es.DeleteElasticsearchServiceRole({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
 
 ### ListElasticsearchVersions
 

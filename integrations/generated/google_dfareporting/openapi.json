@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Manages your DoubleClick Campaign Manager ad campaigns and reports.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "DCM/DFA Reporting And Trafficking",
     "version": "v2.7",
     "x-apiClientRegistration": {
@@ -28,7 +23,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/dfareporting/v2.7/rest",
@@ -49,25 +44,13 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/ddmconversions": "Manage DoubleClick Digital Marketing conversions",
         "https://www.googleapis.com/auth/dfareporting": "View and manage DoubleClick for Advertisers reports",
         "https://www.googleapis.com/auth/dfatrafficking": "View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/ddmconversions": "Manage DoubleClick Digital Marketing conversions",
-        "https://www.googleapis.com/auth/dfareporting": "View and manage DoubleClick for Advertisers reports",
-        "https://www.googleapis.com/auth/dfatrafficking": "View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -317,7 +300,7 @@
   "paths": {
     "/reports/{reportId}/files/{fileId}": {
       "get": {
-        "description": "Retrieves a report file by its report ID and file ID.",
+        "description": "Retrieves a report file by its report ID and file ID. This method supports media download.",
         "operationId": "files.get",
         "parameters": [
           {
@@ -346,9 +329,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -397,16 +377,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -464,16 +438,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -538,9 +506,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -596,9 +561,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -663,9 +625,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -721,9 +680,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -788,9 +744,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -828,13 +781,6 @@
         "operationId": "accountUserProfiles.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only active user profiles.",
             "in": "query",
             "name": "active",
@@ -851,8 +797,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -863,12 +812,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name, ID or email. Wildcards (*) are allowed. For example, \"user profile*2015\" will return objects with names like \"user profile June 2015\", \"user profile April 2015\", or simply \"user profile 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"user profile\" will match objects with name \"my user profile\", \"user profile 2015\", or simply \"user profile\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -879,7 +836,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -912,9 +870,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -984,9 +939,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1025,9 +977,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1065,9 +1014,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1109,9 +1055,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1149,13 +1092,6 @@
         "operationId": "accounts.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only active accounts. Don't set this field to select both active and non-active accounts.",
             "in": "query",
             "name": "active",
@@ -1172,8 +1108,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -1184,12 +1123,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"account*2015\" will return objects with names like \"account June 2015\", \"account April 2015\", or simply \"account 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"account\" will match objects with name \"my account\", \"account 2015\", or simply \"account\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -1200,7 +1147,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -1221,9 +1169,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1293,9 +1238,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1333,9 +1275,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1377,9 +1316,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1416,13 +1352,6 @@
         "description": "Retrieves a list of ads, possibly filtered. This method supports paging.",
         "operationId": "ads.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Select only active ads.",
             "in": "query",
@@ -1521,8 +1450,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -1547,6 +1479,13 @@
             },
             "name": "placementIds",
             "type": "array"
+          },
+          {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
           },
           {
             "collectionFormat": "multi",
@@ -1575,6 +1514,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -1585,7 +1525,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -1634,9 +1575,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1706,9 +1644,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1747,9 +1682,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1787,9 +1719,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -1831,9 +1760,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -1871,13 +1797,6 @@
         "operationId": "advertiserGroups.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only advertiser groups with these IDs.",
             "in": "query",
@@ -1888,8 +1807,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -1900,12 +1822,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"advertiser*2015\" will return objects with names like \"advertiser group June 2015\", \"advertiser group April 2015\", or simply \"advertiser group 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"advertisergroup\" will match objects with name \"my advertisergroup\", \"advertisergroup 2015\", or simply \"advertisergroup\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -1916,7 +1846,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -1937,9 +1868,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2009,9 +1937,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2049,9 +1974,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2091,9 +2013,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2130,9 +2049,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2172,9 +2088,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2212,13 +2125,6 @@
         "operationId": "advertisers.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only advertisers with these advertiser group IDs.",
             "in": "query",
@@ -2255,8 +2161,11 @@
             "type": "boolean"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -2273,12 +2182,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"advertiser*2015\" will return objects with names like \"advertiser June 2015\", \"advertiser April 2015\", or simply \"advertiser 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"advertiser\" will match objects with name \"my advertiser\", \"advertiser 2015\", or simply \"advertiser\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -2289,7 +2206,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -2326,9 +2244,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2398,9 +2313,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2439,9 +2351,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2479,9 +2388,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2522,9 +2428,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2582,9 +2485,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2621,13 +2521,6 @@
         "description": "Retrieves a list of campaigns, possibly filtered. This method supports paging.",
         "operationId": "campaigns.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "description": "Select only campaigns whose advertisers belong to these advertiser groups.",
@@ -2681,8 +2574,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -2699,12 +2595,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for campaigns by name or ID. Wildcards (*) are allowed. For example, \"campaign*2015\" will return campaigns with names like \"campaign June 2015\", \"campaign April 2015\", or simply \"campaign 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"campaign\" will match campaigns with name \"my campaign\", \"campaign 2015\", or simply \"campaign\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -2715,7 +2619,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -2742,9 +2647,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -2814,9 +2716,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2869,9 +2768,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2910,9 +2806,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -2927,13 +2820,6 @@
         "operationId": "campaignCreativeAssociations.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Campaign ID in this association.",
             "in": "path",
             "name": "campaignId",
@@ -2941,8 +2827,11 @@
             "type": "string"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -2953,7 +2842,15 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -2974,9 +2871,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3046,9 +2940,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3088,9 +2979,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3167,9 +3055,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3214,9 +3099,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3263,9 +3145,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3309,9 +3188,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3357,9 +3233,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3424,9 +3297,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3463,13 +3333,6 @@
         "description": "Retrieves a list of change logs. This method supports paging.",
         "operationId": "changeLogs.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Select only change logs with the specified action.",
             "enum": [
@@ -3512,8 +3375,11 @@
             "type": "string"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -3587,6 +3453,13 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Select only change logs whose object ID, user name, old or new values match the search string.",
             "in": "query",
             "name": "searchString",
@@ -3614,9 +3487,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3680,9 +3550,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3776,9 +3643,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3834,9 +3698,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -3901,9 +3762,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -3941,13 +3799,6 @@
         "operationId": "contentCategories.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only content categories with these IDs.",
             "in": "query",
@@ -3958,8 +3809,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -3970,12 +3824,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"contentcategory*2015\" will return objects with names like \"contentcategory June 2015\", \"contentcategory April 2015\", or simply \"contentcategory 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"contentcategory\" will match objects with name \"my contentcategory\", \"contentcategory 2015\", or simply \"contentcategory\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -3986,7 +3848,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -4007,9 +3870,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4079,9 +3939,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4119,9 +3976,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4161,9 +4015,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4200,9 +4051,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4241,9 +4089,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4331,9 +4176,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/ddmconversions"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/ddmconversions"
             ]
           }
         ],
@@ -4366,9 +4208,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4432,9 +4271,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4532,9 +4368,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4548,13 +4381,6 @@
         "description": "Retrieves a list of creative fields, possibly filtered. This method supports paging.",
         "operationId": "creativeFields.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "description": "Select only creative fields that belong to these advertisers.",
@@ -4576,8 +4402,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -4588,12 +4417,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for creative fields by name or ID. Wildcards (*) are allowed. For example, \"creativefield*2015\" will return creative fields with names like \"creativefield June 2015\", \"creativefield April 2015\", or simply \"creativefield 2015\". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of \"creativefield\" will match creative fields with the name \"my creativefield\", \"creativefield 2015\", or simply \"creativefield\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -4604,7 +4441,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -4625,9 +4463,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4697,9 +4532,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4737,9 +4569,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4779,9 +4608,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4795,13 +4621,6 @@
         "description": "Retrieves a list of creative field values, possibly filtered. This method supports paging.",
         "operationId": "creativeFieldValues.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Creative field ID for this creative field value.",
             "in": "path",
@@ -4820,8 +4639,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -4832,12 +4654,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for creative field values by their values. Wildcards (e.g. *) are not allowed.",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -4848,7 +4678,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -4869,9 +4700,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -4948,9 +4776,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -4995,9 +4820,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5044,9 +4866,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5090,9 +4909,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5138,9 +4954,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5202,9 +5015,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5243,9 +5053,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5283,13 +5090,6 @@
         "operationId": "creativeGroups.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only creative groups that belong to these advertisers.",
             "in": "query",
@@ -5302,6 +5102,8 @@
           {
             "description": "Select only creative groups that belong to this subgroup.",
             "in": "query",
+            "maximum": 2,
+            "minimum": 1,
             "name": "groupNumber",
             "type": "integer"
           },
@@ -5316,8 +5118,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -5328,12 +5133,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for creative groups by name or ID. Wildcards (*) are allowed. For example, \"creativegroup*2015\" will return creative groups with names like \"creativegroup June 2015\", \"creativegroup April 2015\", or simply \"creativegroup 2015\". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of \"creativegroup\" will match creative groups with the name \"my creativegroup\", \"creativegroup 2015\", or simply \"creativegroup\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -5344,7 +5157,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -5365,9 +5179,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5437,9 +5248,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5478,9 +5286,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5518,9 +5323,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5562,9 +5364,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5601,13 +5400,6 @@
         "description": "Retrieves a list of creatives, possibly filtered. This method supports paging.",
         "operationId": "creatives.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Select only active creatives. Leave blank to select active and inactive creatives.",
             "in": "query",
@@ -5663,8 +5455,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -5672,6 +5467,13 @@
             "description": "Value of the nextPageToken from the previous result page.",
             "in": "query",
             "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
             "type": "string"
           },
           {
@@ -5701,6 +5503,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -5711,7 +5514,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -5774,9 +5578,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5846,9 +5647,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5887,9 +5685,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -5927,9 +5722,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -5970,9 +5762,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6034,13 +5823,14 @@
         "operationId": "dimensionValues.query",
         "parameters": [
           {
-            "description": "The DFA user profile ID.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DimensionValueRequest"
+            }
           },
           {
+            "default": 100,
             "description": "Maximum number of results to return.",
             "in": "query",
             "maximum": 100,
@@ -6055,11 +5845,11 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/DimensionValueRequest"
-            }
+            "description": "The DFA user profile ID.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -6074,9 +5864,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -6090,13 +5877,6 @@
         "description": "Retrieves a list of directory site contacts, possibly filtered. This method supports paging.",
         "operationId": "directorySiteContacts.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "description": "Select only directory site contacts with these directory site IDs. This is a required field.",
@@ -6118,8 +5898,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -6130,12 +5913,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name, ID or email. Wildcards (*) are allowed. For example, \"directory site contact*2015\" will return objects with names like \"directory site contact June 2015\", \"directory site contact April 2015\", or simply \"directory site contact 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"directory site contact\" will match objects with name \"my directory site contact\", \"directory site contact 2015\", or simply \"directory site contact\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -6146,7 +5937,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -6167,9 +5959,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6234,9 +6023,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6273,13 +6059,6 @@
         "description": "Retrieves a list of directory sites, possibly filtered. This method supports paging.",
         "operationId": "directorySites.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "This search filter is no longer supported and will have no effect on the results returned.",
             "in": "query",
@@ -6327,8 +6106,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -6345,12 +6127,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name, ID or URL. Wildcards (*) are allowed. For example, \"directory site*2015\" will return objects with names like \"directory site June 2015\", \"directory site April 2015\", or simply \"directory site 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"directory site\" will match objects with name \"my directory site\", \"directory site 2015\" or simply, \"directory site\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -6361,7 +6151,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -6382,9 +6173,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6447,9 +6235,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6489,9 +6274,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6583,9 +6365,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6647,9 +6426,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6707,9 +6483,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6746,13 +6519,6 @@
         "description": "Retrieves a list of event tags, possibly filtered.",
         "operationId": "eventTags.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Select only event tags that belong to this ad.",
             "in": "query",
@@ -6809,12 +6575,20 @@
             "type": "array"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"eventtag*2015\" will return objects with names like \"eventtag June 2015\", \"eventtag April 2015\", or simply \"eventtag 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"eventtag\" will match objects with name \"my eventtag\", \"eventtag 2015\", or simply \"eventtag\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -6825,7 +6599,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -6846,9 +6621,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -6918,9 +6690,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -6958,9 +6727,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7000,9 +6766,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7039,9 +6802,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7081,9 +6841,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7121,13 +6878,7 @@
         "operationId": "files.list",
         "parameters": [
           {
-            "description": "The DFA profile ID.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
+            "default": 10,
             "description": "Maximum number of results to return.",
             "in": "query",
             "maximum": 10,
@@ -7142,8 +6893,15 @@
             "type": "string"
           },
           {
+            "description": "The DFA profile ID.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "default": "MINE",
-            "description": "The scope that defines which results are returned, default is 'MINE'.",
+            "description": "The scope that defines which results are returned.",
             "enum": [
               "ALL",
               "MINE",
@@ -7166,7 +6924,7 @@
           },
           {
             "default": "DESCENDING",
-            "description": "Order of sorted results, default is 'DESCENDING'.",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -7187,9 +6945,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -7227,13 +6982,6 @@
         "description": "Retrieves a list of floodlight activities, possibly filtered. This method supports paging.",
         "operationId": "floodlightActivities.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Select only floodlight activities for the specified advertiser ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result.",
             "in": "query",
@@ -7289,8 +7037,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -7301,12 +7052,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"floodlightactivity*2015\" will return objects with names like \"floodlightactivity June 2015\", \"floodlightactivity April 2015\", or simply \"floodlightactivity 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"floodlightactivity\" will match objects with name \"my floodlightactivity activity\", \"floodlightactivity 2015\", or simply \"floodlightactivity\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -7317,7 +7076,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -7344,9 +7104,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7416,9 +7173,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7457,9 +7211,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7497,9 +7248,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7563,9 +7311,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7602,9 +7347,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7644,9 +7386,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7684,13 +7423,6 @@
         "operationId": "floodlightActivityGroups.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only floodlight activity groups with the specified advertiser ID. Must specify either advertiserId or floodlightConfigurationId for a non-empty result.",
             "in": "query",
             "name": "advertiserId",
@@ -7713,8 +7445,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -7725,12 +7460,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"floodlightactivitygroup*2015\" will return objects with names like \"floodlightactivitygroup June 2015\", \"floodlightactivitygroup April 2015\", or simply \"floodlightactivitygroup 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"floodlightactivitygroup\" will match objects with name \"my floodlightactivitygroup activity\", \"floodlightactivitygroup 2015\", or simply \"floodlightactivitygroup\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -7741,7 +7484,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -7772,9 +7516,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7844,9 +7585,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7885,9 +7623,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -7925,9 +7660,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -7968,9 +7700,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8037,9 +7766,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8109,9 +7835,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8149,9 +7872,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8192,9 +7912,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8252,9 +7969,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8311,9 +8025,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8369,9 +8080,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8436,9 +8144,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8494,9 +8199,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8561,9 +8263,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8619,9 +8318,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8686,9 +8382,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -8725,13 +8418,6 @@
         "description": "Retrieves a list of placement groups, possibly filtered. This method supports paging.",
         "operationId": "placementGroups.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "description": "Select only placement groups that belong to these advertisers.",
@@ -8795,8 +8481,11 @@
             "type": "string"
           },
           {
+            "default": 800,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 800,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -8863,6 +8552,13 @@
             "type": "array"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for placement groups by name or ID. Wildcards (*) are allowed. For example, \"placement*2015\" will return placement groups with names like \"placement group June 2015\", \"placement group May 2015\", or simply \"placements 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"placementgroup\" will match placement groups with name \"my placementgroup\", \"placementgroup 2015\", or simply \"placementgroup\".",
             "in": "query",
             "name": "searchString",
@@ -8879,6 +8575,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -8889,7 +8586,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -8910,9 +8608,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -8982,9 +8677,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9023,9 +8715,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9063,9 +8752,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9107,9 +8793,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9147,13 +8830,6 @@
         "operationId": "placementStrategies.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only placement strategies with these IDs.",
             "in": "query",
@@ -9164,8 +8840,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -9176,12 +8855,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"placementstrategy*2015\" will return objects with names like \"placementstrategy June 2015\", \"placementstrategy April 2015\", or simply \"placementstrategy 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"placementstrategy\" will match objects with name \"my placementstrategy\", \"placementstrategy 2015\", or simply \"placementstrategy\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -9192,7 +8879,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -9213,9 +8901,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9285,9 +8970,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9325,9 +9007,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9367,9 +9046,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9406,9 +9082,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9448,9 +9121,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9487,13 +9157,6 @@
         "description": "Retrieves a list of placements, possibly filtered. This method supports paging.",
         "operationId": "placements.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "multi",
             "description": "Select only placements that belong to these advertisers.",
@@ -9584,8 +9247,11 @@
             "type": "string"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -9652,6 +9318,13 @@
             "type": "array"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for placements by name or ID. Wildcards (*) are allowed. For example, \"placement*2015\" will return placements with names like \"placement June 2015\", \"placement May 2015\", or simply \"placements 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"placement\" will match placements with name \"my placement\", \"placement 2015\", or simply \"placement\".",
             "in": "query",
             "name": "searchString",
@@ -9678,6 +9351,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -9688,7 +9362,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -9709,9 +9384,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9781,9 +9453,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9821,9 +9490,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -9863,9 +9529,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -9903,13 +9566,6 @@
         "operationId": "placements.generatetags",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Generate placements belonging to this campaign. This is a required field.",
             "in": "query",
             "name": "campaignId",
@@ -9926,8 +9582,15 @@
             "type": "array"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "collectionFormat": "multi",
-            "description": "Tag formats to generate for these placements.",
+            "description": "Tag formats to generate for these placements.\n\nNote: PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements.",
             "in": "query",
             "items": {
               "enum": [
@@ -9937,6 +9600,7 @@
                 "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY",
                 "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH",
                 "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3",
+                "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4",
                 "PLACEMENT_TAG_INTERNAL_REDIRECT",
                 "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT",
                 "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY",
@@ -9967,9 +9631,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10010,9 +9671,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10069,9 +9727,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10136,9 +9791,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10194,9 +9846,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10261,9 +9910,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10301,13 +9947,6 @@
         "operationId": "projects.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only projects with these advertiser IDs.",
             "in": "query",
@@ -10328,8 +9967,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -10340,12 +9982,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for projects by name or ID. Wildcards (*) are allowed. For example, \"project*2015\" will return projects with names like \"project June 2015\", \"project April 2015\", or simply \"project 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"project\" will match projects with name \"my project\", \"project 2015\", or simply \"project\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -10356,7 +10006,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -10377,9 +10028,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10444,9 +10092,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10484,20 +10129,6 @@
         "operationId": "inventoryItems.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Project ID for order documents.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only inventory items with these IDs.",
             "in": "query",
@@ -10514,8 +10145,11 @@
             "type": "boolean"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -10536,6 +10170,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Project ID for order documents.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "collectionFormat": "multi",
             "description": "Select only inventory items that are associated with these sites.",
             "in": "query",
@@ -10546,6 +10194,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -10556,7 +10205,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -10587,9 +10237,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10661,9 +10308,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10701,20 +10345,6 @@
         "operationId": "orderDocuments.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Project ID for order documents.",
-            "in": "path",
-            "name": "projectId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only order documents that have been approved by at least one user.",
             "in": "query",
             "name": "approved",
@@ -10731,8 +10361,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -10753,6 +10386,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Project ID for order documents.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for order documents by name or ID. Wildcards (*) are allowed. For example, \"orderdocument*2015\" will return order documents with names like \"orderdocument June 2015\", \"orderdocument April 2015\", or simply \"orderdocument 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"orderdocument\" will match order documents with name \"my orderdocument\", \"orderdocument 2015\", or simply \"orderdocument\".",
             "in": "query",
             "name": "searchString",
@@ -10769,6 +10416,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -10779,7 +10427,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -10800,9 +10449,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -10874,9 +10520,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -10914,6 +10557,31 @@
         "operationId": "orders.list",
         "parameters": [
           {
+            "collectionFormat": "multi",
+            "description": "Select only orders with these IDs.",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "ids",
+            "type": "array"
+          },
+          {
+            "default": 1000,
+            "description": "Maximum number of results to return.",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
+            "description": "Value of the nextPageToken from the previous result page.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
             "description": "User profile ID associated with this request.",
             "in": "path",
             "name": "profileId",
@@ -10925,28 +10593,6 @@
             "in": "path",
             "name": "projectId",
             "required": true,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "multi",
-            "description": "Select only orders with these IDs.",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "ids",
-            "type": "array"
-          },
-          {
-            "description": "Maximum number of results to return.",
-            "in": "query",
-            "name": "maxResults",
-            "type": "integer"
-          },
-          {
-            "description": "Value of the nextPageToken from the previous result page.",
-            "in": "query",
-            "name": "pageToken",
             "type": "string"
           },
           {
@@ -10966,6 +10612,7 @@
             "type": "array"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -10976,7 +10623,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -10997,9 +10645,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11071,9 +10716,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11129,9 +10771,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11226,9 +10865,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11266,9 +10902,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11310,9 +10943,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11350,11 +10980,10 @@
         "operationId": "remarketingLists.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
+            "description": "Select only active or only inactive remarketing lists.",
+            "in": "query",
+            "name": "active",
+            "type": "boolean"
           },
           {
             "description": "Select only remarketing lists owned by this advertiser.",
@@ -11364,20 +10993,17 @@
             "type": "string"
           },
           {
-            "description": "Select only active or only inactive remarketing lists.",
-            "in": "query",
-            "name": "active",
-            "type": "boolean"
-          },
-          {
             "description": "Select only remarketing lists that have this floodlight activity ID.",
             "in": "query",
             "name": "floodlightActivityId",
             "type": "string"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -11394,6 +11020,14 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -11404,7 +11038,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -11425,9 +11060,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11497,9 +11129,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11538,9 +11167,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11578,9 +11204,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -11622,9 +11245,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -11662,13 +11282,7 @@
         "operationId": "reports.list",
         "parameters": [
           {
-            "description": "The DFA user profile ID.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
+            "default": 10,
             "description": "Maximum number of results to return.",
             "in": "query",
             "maximum": 10,
@@ -11683,8 +11297,15 @@
             "type": "string"
           },
           {
+            "description": "The DFA user profile ID.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "default": "MINE",
-            "description": "The scope that defines which results are returned, default is 'MINE'.",
+            "description": "The scope that defines which results are returned.",
             "enum": [
               "ALL",
               "MINE"
@@ -11707,7 +11328,7 @@
           },
           {
             "default": "DESCENDING",
-            "description": "Order of sorted results, default is 'DESCENDING'.",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -11728,9 +11349,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -11792,9 +11410,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -11859,9 +11474,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -11898,9 +11510,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -11939,9 +11548,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12011,9 +11617,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -12059,9 +11662,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -12075,6 +11675,21 @@
         "description": "Lists files for a report.",
         "operationId": "reports.files.list",
         "parameters": [
+          {
+            "default": 10,
+            "description": "Maximum number of results to return.",
+            "in": "query",
+            "maximum": 10,
+            "minimum": 0,
+            "name": "maxResults",
+            "type": "integer"
+          },
+          {
+            "description": "The value of the nextToken from the previous result page.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
           {
             "description": "The DFA profile ID.",
             "in": "path",
@@ -12090,20 +11705,6 @@
             "type": "string"
           },
           {
-            "description": "Maximum number of results to return.",
-            "in": "query",
-            "maximum": 10,
-            "minimum": 0,
-            "name": "maxResults",
-            "type": "integer"
-          },
-          {
-            "description": "The value of the nextToken from the previous result page.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
-          },
-          {
             "default": "LAST_MODIFIED_TIME",
             "description": "The field by which to sort the list.",
             "enum": [
@@ -12116,7 +11717,7 @@
           },
           {
             "default": "DESCENDING",
-            "description": "Order of sorted results, default is 'DESCENDING'.",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -12137,9 +11738,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12174,7 +11772,7 @@
     },
     "/userprofiles/{profileId}/reports/{reportId}/files/{fileId}": {
       "get": {
-        "description": "Retrieves a report file.",
+        "description": "Retrieves a report file. This method supports media download.",
         "operationId": "reports.files.get",
         "parameters": [
           {
@@ -12210,9 +11808,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfareporting"
             ]
           }
@@ -12288,6 +11883,7 @@
             "type": "string"
           },
           {
+            "default": false,
             "description": "If set and true, tries to run the report synchronously.",
             "in": "query",
             "name": "synchronous",
@@ -12306,9 +11902,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfareporting"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfareporting"
             ]
           }
         ],
@@ -12322,13 +11915,6 @@
         "description": "Retrieves a list of sites, possibly filtered. This method supports paging.",
         "operationId": "sites.list",
         "parameters": [
-          {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "This search filter is no longer supported and will have no effect on the results returned.",
             "in": "query",
@@ -12390,8 +11976,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -12402,12 +11991,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name, ID or keyName. Wildcards (*) are allowed. For example, \"site*2015\" will return objects with names like \"site June 2015\", \"site April 2015\", or simply \"site 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"site\" will match objects with name \"my site\", \"site 2015\", or simply \"site\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -12418,7 +12015,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -12451,9 +12049,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -12523,9 +12118,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12564,9 +12156,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12604,9 +12193,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -12648,9 +12234,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12688,15 +12271,10 @@
         "operationId": "sizes.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only sizes with this height.",
             "in": "query",
+            "maximum": 32767,
+            "minimum": 0,
             "name": "height",
             "type": "integer"
           },
@@ -12717,8 +12295,17 @@
             "type": "array"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Select only sizes with this width.",
             "in": "query",
+            "maximum": 32767,
+            "minimum": 0,
             "name": "width",
             "type": "integer"
           }
@@ -12734,9 +12321,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -12799,9 +12383,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12842,9 +12423,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -12882,13 +12460,6 @@
         "operationId": "subaccounts.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "collectionFormat": "multi",
             "description": "Select only subaccounts with these IDs.",
             "in": "query",
@@ -12899,8 +12470,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -12911,12 +12485,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"subaccount*2015\" will return objects with names like \"subaccount June 2015\", \"subaccount April 2015\", or simply \"subaccount 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"subaccount\" will match objects with name \"my subaccount\", \"subaccount 2015\", or simply \"subaccount\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -12927,7 +12509,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -12948,9 +12531,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13020,9 +12600,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13061,9 +12638,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13101,9 +12675,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13145,9 +12716,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13185,11 +12753,10 @@
         "operationId": "targetableRemarketingLists.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
+            "description": "Select only active or only inactive targetable remarketing lists.",
+            "in": "query",
+            "name": "active",
+            "type": "boolean"
           },
           {
             "description": "Select only targetable remarketing lists targetable by these advertisers.",
@@ -13199,14 +12766,11 @@
             "type": "string"
           },
           {
-            "description": "Select only active or only inactive targetable remarketing lists.",
-            "in": "query",
-            "name": "active",
-            "type": "boolean"
-          },
-          {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -13223,6 +12787,14 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -13233,7 +12805,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -13254,9 +12827,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13321,9 +12891,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13361,13 +12928,6 @@
         "operationId": "targetingTemplates.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only targeting templates with this advertiser ID.",
             "in": "query",
             "name": "advertiserId",
@@ -13384,8 +12944,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -13396,12 +12959,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"template*2015\" will return objects with names like \"template June 2015\", \"template April 2015\", or simply \"template 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"template\" will match objects with name \"my template\", \"template 2015\", or simply \"template\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -13412,7 +12983,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -13433,9 +13005,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13505,9 +13074,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13546,9 +13112,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13586,9 +13149,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13629,9 +13189,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13688,9 +13245,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13754,9 +13308,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -13824,9 +13375,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13890,9 +13438,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -13930,13 +13475,6 @@
         "operationId": "userRoles.list",
         "parameters": [
           {
-            "description": "User profile ID associated with this request.",
-            "in": "path",
-            "name": "profileId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Select only account level user roles not associated with any specific subaccount.",
             "in": "query",
             "name": "accountUserRoleOnly",
@@ -13953,8 +13491,11 @@
             "type": "array"
           },
           {
+            "default": 1000,
             "description": "Maximum number of results to return.",
             "in": "query",
+            "maximum": 1000,
+            "minimum": 0,
             "name": "maxResults",
             "type": "integer"
           },
@@ -13965,12 +13506,20 @@
             "type": "string"
           },
           {
+            "description": "User profile ID associated with this request.",
+            "in": "path",
+            "name": "profileId",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, \"userrole*2015\" will return objects with names like \"userrole June 2015\", \"userrole April 2015\", or simply \"userrole 2015\". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of \"userrole\" will match objects with name \"my userrole\", \"userrole 2015\", or simply \"userrole\".",
             "in": "query",
             "name": "searchString",
             "type": "string"
           },
           {
+            "default": "ID",
             "description": "Field by which to sort the list.",
             "enum": [
               "ID",
@@ -13981,7 +13530,8 @@
             "type": "string"
           },
           {
-            "description": "Order of sorted results, default is ASCENDING.",
+            "default": "ASCENDING",
+            "description": "Order of sorted results.",
             "enum": [
               "ASCENDING",
               "DESCENDING"
@@ -14008,9 +13558,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14080,9 +13627,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14120,9 +13664,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14162,9 +13703,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14201,9 +13739,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14242,9 +13777,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14301,9 +13833,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
@@ -14368,9 +13897,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/dfatrafficking"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/dfatrafficking"
             ]
           }
         ],
@@ -14431,6 +13957,7 @@
           "description": "Maximum number of active ads allowed for this account.",
           "enum": [
             "ACTIVE_ADS_TIER_100K",
+            "ACTIVE_ADS_TIER_1M",
             "ACTIVE_ADS_TIER_200K",
             "ACTIVE_ADS_TIER_300K",
             "ACTIVE_ADS_TIER_40K",
@@ -14458,7 +13985,7 @@
           "type": "string"
         },
         "currencyId": {
-          "description": "ID of currency associated with this account. This is a required field.\nAcceptable values are: \n- \"1\" for USD \n- \"2\" for GBP \n- \"3\" for ESP \n- \"4\" for SEK \n- \"5\" for CAD \n- \"6\" for JPY \n- \"7\" for DEM \n- \"8\" for AUD \n- \"9\" for FRF \n- \"10\" for ITL \n- \"11\" for DKK \n- \"12\" for NOK \n- \"13\" for FIM \n- \"14\" for ZAR \n- \"15\" for IEP \n- \"16\" for NLG \n- \"17\" for EUR \n- \"18\" for KRW \n- \"19\" for TWD \n- \"20\" for SGD \n- \"21\" for CNY \n- \"22\" for HKD \n- \"23\" for NZD \n- \"24\" for MYR \n- \"25\" for BRL \n- \"26\" for PTE \n- \"27\" for MXP \n- \"28\" for CLP \n- \"29\" for TRY \n- \"30\" for ARS \n- \"31\" for PEN \n- \"32\" for ILS \n- \"33\" for CHF \n- \"34\" for VEF \n- \"35\" for COP \n- \"36\" for GTQ \n- \"37\" for PLN \n- \"39\" for INR \n- \"40\" for THB \n- \"41\" for IDR \n- \"42\" for CZK \n- \"43\" for RON \n- \"44\" for HUF \n- \"45\" for RUB \n- \"46\" for AED \n- \"47\" for BGN \n- \"48\" for HRK",
+          "description": "ID of currency associated with this account. This is a required field.\nAcceptable values are:\n- \"1\" for USD\n- \"2\" for GBP\n- \"3\" for ESP\n- \"4\" for SEK\n- \"5\" for CAD\n- \"6\" for JPY\n- \"7\" for DEM\n- \"8\" for AUD\n- \"9\" for FRF\n- \"10\" for ITL\n- \"11\" for DKK\n- \"12\" for NOK\n- \"13\" for FIM\n- \"14\" for ZAR\n- \"15\" for IEP\n- \"16\" for NLG\n- \"17\" for EUR\n- \"18\" for KRW\n- \"19\" for TWD\n- \"20\" for SGD\n- \"21\" for CNY\n- \"22\" for HKD\n- \"23\" for NZD\n- \"24\" for MYR\n- \"25\" for BRL\n- \"26\" for PTE\n- \"27\" for MXP\n- \"28\" for CLP\n- \"29\" for TRY\n- \"30\" for ARS\n- \"31\" for PEN\n- \"32\" for ILS\n- \"33\" for CHF\n- \"34\" for VEF\n- \"35\" for COP\n- \"36\" for GTQ\n- \"37\" for PLN\n- \"39\" for INR\n- \"40\" for THB\n- \"41\" for IDR\n- \"42\" for CZK\n- \"43\" for RON\n- \"44\" for HUF\n- \"45\" for RUB\n- \"46\" for AED\n- \"47\" for BGN\n- \"48\" for HRK\n- \"49\" for MXN",
           "format": "int64",
           "type": "string"
         },
@@ -14482,11 +14009,11 @@
           "type": "string"
         },
         "locale": {
-          "description": "Locale of this account.\nAcceptable values are: \n- \"cs\" (Czech) \n- \"de\" (German) \n- \"en\" (English) \n- \"en-GB\" (English United Kingdom) \n- \"es\" (Spanish) \n- \"fr\" (French) \n- \"it\" (Italian) \n- \"ja\" (Japanese) \n- \"ko\" (Korean) \n- \"pl\" (Polish) \n- \"pt-BR\" (Portuguese Brazil) \n- \"ru\" (Russian) \n- \"sv\" (Swedish) \n- \"tr\" (Turkish) \n- \"zh-CN\" (Chinese Simplified) \n- \"zh-TW\" (Chinese Traditional)",
+          "description": "Locale of this account.\nAcceptable values are:\n- \"cs\" (Czech)\n- \"de\" (German)\n- \"en\" (English)\n- \"en-GB\" (English United Kingdom)\n- \"es\" (Spanish)\n- \"fr\" (French)\n- \"it\" (Italian)\n- \"ja\" (Japanese)\n- \"ko\" (Korean)\n- \"pl\" (Polish)\n- \"pt-BR\" (Portuguese Brazil)\n- \"ru\" (Russian)\n- \"sv\" (Swedish)\n- \"tr\" (Turkish)\n- \"zh-CN\" (Chinese Simplified)\n- \"zh-TW\" (Chinese Traditional)",
           "type": "string"
         },
         "maximumImageSize": {
-          "description": "Maximum image size allowed for this account.",
+          "description": "Maximum image size allowed for this account, in kilobytes. Value must be greater than or equal to 1.",
           "format": "int64",
           "type": "string"
         },
@@ -14507,7 +14034,7 @@
           "type": "boolean"
         },
         "teaserSizeLimit": {
-          "description": "File size limit in kilobytes of Rich Media teaser creatives. Must be between 1 and 10240.",
+          "description": "File size limit in kilobytes of Rich Media teaser creatives. Acceptable values are 1 to 10240, inclusive.",
           "format": "int64",
           "type": "string"
         }
@@ -14531,6 +14058,7 @@
           "description": "Maximum number of active ads allowed for the account.",
           "enum": [
             "ACTIVE_ADS_TIER_100K",
+            "ACTIVE_ADS_TIER_1M",
             "ACTIVE_ADS_TIER_200K",
             "ACTIVE_ADS_TIER_300K",
             "ACTIVE_ADS_TIER_40K",
@@ -14692,7 +14220,7 @@
           "type": "string"
         },
         "locale": {
-          "description": "Locale of the user profile. This is a required field.\nAcceptable values are:  \n- \"cs\" (Czech) \n- \"de\" (German) \n- \"en\" (English) \n- \"en-GB\" (English United Kingdom) \n- \"es\" (Spanish) \n- \"fr\" (French) \n- \"it\" (Italian) \n- \"ja\" (Japanese) \n- \"ko\" (Korean) \n- \"pl\" (Polish) \n- \"pt-BR\" (Portuguese Brazil)\n- \"ru\" (Russian) \n- \"sv\" (Swedish) \n- \"tr\" (Turkish) \n- \"zh-CN\" (Chinese Simplified) \n- \"zh-TW\" (Chinese Traditional)",
+          "description": "Locale of the user profile. This is a required field.\nAcceptable values are:\n- \"cs\" (Czech)\n- \"de\" (German)\n- \"en\" (English)\n- \"en-GB\" (English United Kingdom)\n- \"es\" (Spanish)\n- \"fr\" (French)\n- \"it\" (Italian)\n- \"ja\" (Japanese)\n- \"ko\" (Korean)\n- \"pl\" (Polish)\n- \"pt-BR\" (Portuguese Brazil)\n- \"ru\" (Russian)\n- \"sv\" (Swedish)\n- \"tr\" (Turkish)\n- \"zh-CN\" (Chinese Simplified)\n- \"zh-TW\" (Chinese Traditional)",
           "type": "string"
         },
         "name": {
@@ -15103,7 +14631,7 @@
           "type": "string"
         },
         "floodlightConfigurationId": {
-          "description": "Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left blank. This field can be set to another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this advertiser, so long as: \n- This advertiser's original floodlight configuration is not already associated with floodlight activities or floodlight activity groups. \n- This advertiser's original floodlight configuration is not already shared with another advertiser.",
+          "description": "Floodlight configuration ID of this advertiser. The floodlight configuration ID will be created automatically, so on insert this field should be left blank. This field can be set to another advertiser's floodlight configuration ID in order to share that advertiser's floodlight configuration with this advertiser, so long as:\n- This advertiser's original floodlight configuration is not already associated with floodlight activities or floodlight activity groups.\n- This advertiser's original floodlight configuration is not already shared with another advertiser.",
           "format": "int64",
           "type": "string"
         },
@@ -15227,7 +14755,7 @@
       "description": "Audience Segment.",
       "properties": {
         "allocation": {
-          "description": "Weight allocated to this segment. Must be between 1 and 1000. The weight assigned will be understood in proportion to the weights assigned to other segments in the same segment group.",
+          "description": "Weight allocated to this segment. The weight assigned will be understood in proportion to the weights assigned to other segments in the same segment group. Acceptable values are 1 to 1000, inclusive.",
           "format": "int32",
           "type": "integer"
         },
@@ -15693,7 +15221,7 @@
       "description": "Click-through URL",
       "properties": {
         "computedClickThroughUrl": {
-          "description": "Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows: \n- If defaultLandingPage is enabled then the campaign's default landing page URL is assigned to this field.\n- If defaultLandingPage is not enabled and a landingPageId is specified then that landing page's URL is assigned to this field.\n- If neither of the above cases apply, then the customClickThroughUrl is assigned to this field.",
+          "description": "Read-only convenience field representing the actual URL that will be used for this click-through. The URL is computed as follows:\n- If defaultLandingPage is enabled then the campaign's default landing page URL is assigned to this field.\n- If defaultLandingPage is not enabled and a landingPageId is specified then that landing page's URL is assigned to this field.\n- If neither of the above cases apply, then the customClickThroughUrl is assigned to this field.",
           "type": "string"
         },
         "customClickThroughUrl": {
@@ -16035,7 +15563,7 @@
           "type": "string"
         },
         "status": {
-          "description": "The status of each conversion's insertion status. The status is returned in the same order that conversions are inserted.",
+          "description": "The insert status of each conversion. Statuses are returned in the same order that conversions are inserted.",
           "items": {
             "$ref": "#/definitions/ConversionStatus"
           },
@@ -16333,7 +15861,7 @@
           "description": "OpenWindow FSCommand of this creative. This lets the SWF file communicate with either Flash Player or the program hosting Flash Player, such as a web browser. This is only triggered if allowScriptAccess field is true. Applicable to the following creative types: FLASH_INPAGE."
         },
         "htmlCode": {
-          "description": "HTML code for the creative. This is a required field when applicable. This field is ignored if htmlCodeLocked is false. Applicable to the following creative types: all CUSTOM, FLASH_INPAGE, and HTML5_BANNER, and all RICH_MEDIA.",
+          "description": "HTML code for the creative. This is a required field when applicable. This field is ignored if htmlCodeLocked is true. Applicable to the following creative types: all CUSTOM, FLASH_INPAGE, and HTML5_BANNER, and all RICH_MEDIA.",
           "type": "string"
         },
         "htmlCodeLocked": {
@@ -16578,7 +16106,7 @@
           "type": "array"
         },
         "customStartTimeValue": {
-          "description": "Custom start time in seconds for making the asset visible. Applicable to the following creative types: all RICH_MEDIA.",
+          "description": "Custom start time in seconds for making the asset visible. Applicable to the following creative types: all RICH_MEDIA. Value must be greater than or equal to 0.",
           "format": "int32",
           "type": "integer"
         },
@@ -16674,7 +16202,7 @@
           "type": "string"
         },
         "duration": {
-          "description": "Duration in seconds for which an asset will be displayed. Applicable to the following creative types: INSTREAM_VIDEO and VPAID_LINEAR_VIDEO.",
+          "description": "Duration in seconds for which an asset will be displayed. Applicable to the following creative types: INSTREAM_VIDEO and VPAID_LINEAR_VIDEO. Value must be greater than or equal to 1.",
           "format": "int32",
           "type": "integer"
         },
@@ -16765,7 +16293,7 @@
           "type": "boolean"
         },
         "pushdownDuration": {
-          "description": "Pushdown duration in seconds for an asset. Must be between 0 and 9.99. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable when the asset pushdown field is true, the offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height.",
+          "description": "Pushdown duration in seconds for an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable when the asset pushdown field is true, the offsets are 0, the collapsedSize.width matches size.width, and the collapsedSize.height is less than size.height. Acceptable values are 0 to 9.99, inclusive.",
           "format": "float",
           "type": "number"
         },
@@ -16826,7 +16354,7 @@
           "type": "string"
         },
         "zIndex": {
-          "description": "zIndex value of an asset. This is a read-only field. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable to assets whose displayType is NOT one of the following types: ASSET_DISPLAY_TYPE_INPAGE or ASSET_DISPLAY_TYPE_OVERLAY.",
+          "description": "zIndex value of an asset. Applicable to the following creative types: all RICH_MEDIA.Additionally, only applicable to assets whose displayType is NOT one of the following types: ASSET_DISPLAY_TYPE_INPAGE or ASSET_DISPLAY_TYPE_OVERLAY. Acceptable values are -999999999 to 999999999, inclusive.",
           "format": "int32",
           "type": "integer"
         },
@@ -17063,14 +16591,14 @@
           "type": "string"
         },
         "richMediaExitOverrides": {
-          "description": "Rich media exit overrides for this creative assignment.\nApplicable when the creative type is any of the following: \n- RICH_MEDIA_INPAGE\n- RICH_MEDIA_INPAGE_FLOATING\n- RICH_MEDIA_IM_EXPAND\n- RICH_MEDIA_EXPANDING\n- RICH_MEDIA_INTERSTITIAL_FLOAT\n- RICH_MEDIA_MOBILE_IN_APP\n- RICH_MEDIA_MULTI_FLOATING\n- RICH_MEDIA_PEEL_DOWN\n- ADVANCED_BANNER\n- VPAID_LINEAR\n- VPAID_NON_LINEAR",
+          "description": "Rich media exit overrides for this creative assignment.\nApplicable when the creative type is any of the following:\n- DISPLAY\n- RICH_MEDIA_INPAGE\n- RICH_MEDIA_INPAGE_FLOATING\n- RICH_MEDIA_IM_EXPAND\n- RICH_MEDIA_EXPANDING\n- RICH_MEDIA_INTERSTITIAL_FLOAT\n- RICH_MEDIA_MOBILE_IN_APP\n- RICH_MEDIA_MULTI_FLOATING\n- RICH_MEDIA_PEEL_DOWN\n- VPAID_LINEAR\n- VPAID_NON_LINEAR",
           "items": {
             "$ref": "#/definitions/RichMediaExitOverride"
           },
           "type": "array"
         },
         "sequence": {
-          "description": "Sequence number of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_SEQUENTIAL.",
+          "description": "Sequence number of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_SEQUENTIAL. Acceptable values are 1 to 65535, inclusive.",
           "format": "int32",
           "type": "integer"
         },
@@ -17084,7 +16612,7 @@
           "type": "string"
         },
         "weight": {
-          "description": "Weight of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_RANDOM.",
+          "description": "Weight of the creative assignment, applicable when the rotation type is CREATIVE_ROTATION_TYPE_RANDOM. Value must be greater than or equal to 1.",
           "format": "int32",
           "type": "integer"
         }
@@ -17294,7 +16822,7 @@
           "description": "Dimension value for the ID of the advertiser. This is a read-only, auto-generated field."
         },
         "groupNumber": {
-          "description": "Subgroup of the creative group. Assign your creative groups to one of the following subgroups in order to filter or manage them more easily. This field is required on insertion and is read-only after insertion.\nAcceptable values are: \n- 1\n- 2",
+          "description": "Subgroup of the creative group. Assign your creative groups to a subgroup in order to filter or manage them more easily. This field is required on insertion and is read-only after insertion. Acceptable values are 1 to 2, inclusive.",
           "format": "int32",
           "type": "integer"
         },
@@ -17706,7 +17234,7 @@
           "type": "array"
         },
         "hoursOfDay": {
-          "description": "Hours of the day when the ad will serve. Must be an integer between 0 and 23 (inclusive), where 0 is midnight to 1 AM, and 23 is 11 PM to midnight. Can be specified with days of week, in which case the ad would serve during these hours on the specified days. For example, if Monday, Wednesday, Friday are the days of week specified and 9-10am, 3-5pm (hours 9, 15, and 16) is specified, the ad would serve Monday, Wednesdays, and Fridays at 9-10am and 3-5pm.",
+          "description": "Hours of the day when the ad will serve, where 0 is midnight to 1 AM and 23 is 11 PM to midnight. Can be specified with days of week, in which case the ad would serve during these hours on the specified days. For example if Monday, Wednesday, Friday are the days of week specified and 9-10am, 3-5pm (hours 9, 15, and 16) is specified, the ad would serve Monday, Wednesdays, and Fridays at 9-10am and 3-5pm. Acceptable values are 0 to 23, inclusive.",
           "items": {
             "format": "int32",
             "type": "integer"
@@ -17747,7 +17275,7 @@
           "type": "boolean"
         },
         "impressionRatio": {
-          "description": "Impression ratio for this ad. This ratio determines how often each ad is served relative to the others. For example, if ad A has an impression ratio of 1 and ad B has an impression ratio of 3, then DCM will serve ad B three times as often as ad A. Must be between 1 and 10.",
+          "description": "Impression ratio for this ad. This ratio determines how often each ad is served relative to the others. For example, if ad A has an impression ratio of 1 and ad B has an impression ratio of 3, then DCM will serve ad B three times as often as ad A. Acceptable values are 1 to 10, inclusive.",
           "format": "int64",
           "type": "string"
         },
@@ -17946,17 +17474,17 @@
           "type": "array"
         },
         "countryId": {
-          "description": "Country ID of this directory site.",
+          "description": "Country ID of this directory site. This is a read-only field.",
           "format": "int64",
           "type": "string"
         },
         "currencyId": {
-          "description": "Currency ID of this directory site.\nPossible values are: \n- \"1\" for USD \n- \"2\" for GBP \n- \"3\" for ESP \n- \"4\" for SEK \n- \"5\" for CAD \n- \"6\" for JPY \n- \"7\" for DEM \n- \"8\" for AUD \n- \"9\" for FRF \n- \"10\" for ITL \n- \"11\" for DKK \n- \"12\" for NOK \n- \"13\" for FIM \n- \"14\" for ZAR \n- \"15\" for IEP \n- \"16\" for NLG \n- \"17\" for EUR \n- \"18\" for KRW \n- \"19\" for TWD \n- \"20\" for SGD \n- \"21\" for CNY \n- \"22\" for HKD \n- \"23\" for NZD \n- \"24\" for MYR \n- \"25\" for BRL \n- \"26\" for PTE \n- \"27\" for MXP \n- \"28\" for CLP \n- \"29\" for TRY \n- \"30\" for ARS \n- \"31\" for PEN \n- \"32\" for ILS \n- \"33\" for CHF \n- \"34\" for VEF \n- \"35\" for COP \n- \"36\" for GTQ \n- \"37\" for PLN \n- \"39\" for INR \n- \"40\" for THB \n- \"41\" for IDR \n- \"42\" for CZK \n- \"43\" for RON \n- \"44\" for HUF \n- \"45\" for RUB \n- \"46\" for AED \n- \"47\" for BGN \n- \"48\" for HRK",
+          "description": "Currency ID of this directory site. This is a read-only field.\nPossible values are:\n- \"1\" for USD\n- \"2\" for GBP\n- \"3\" for ESP\n- \"4\" for SEK\n- \"5\" for CAD\n- \"6\" for JPY\n- \"7\" for DEM\n- \"8\" for AUD\n- \"9\" for FRF\n- \"10\" for ITL\n- \"11\" for DKK\n- \"12\" for NOK\n- \"13\" for FIM\n- \"14\" for ZAR\n- \"15\" for IEP\n- \"16\" for NLG\n- \"17\" for EUR\n- \"18\" for KRW\n- \"19\" for TWD\n- \"20\" for SGD\n- \"21\" for CNY\n- \"22\" for HKD\n- \"23\" for NZD\n- \"24\" for MYR\n- \"25\" for BRL\n- \"26\" for PTE\n- \"27\" for MXP\n- \"28\" for CLP\n- \"29\" for TRY\n- \"30\" for ARS\n- \"31\" for PEN\n- \"32\" for ILS\n- \"33\" for CHF\n- \"34\" for VEF\n- \"35\" for COP\n- \"36\" for GTQ\n- \"37\" for PLN\n- \"39\" for INR\n- \"40\" for THB\n- \"41\" for IDR\n- \"42\" for CZK\n- \"43\" for RON\n- \"44\" for HUF\n- \"45\" for RUB\n- \"46\" for AED\n- \"47\" for BGN\n- \"48\" for HRK\n- \"49\" for MXN",
           "format": "int64",
           "type": "string"
         },
         "description": {
-          "description": "Description of this directory site.",
+          "description": "Description of this directory site. This is a read-only field.",
           "type": "string"
         },
         "id": {
@@ -18146,7 +17674,7 @@
           "type": "boolean"
         },
         "videoActiveViewOptOut": {
-          "description": "Whether this directory site has disabled active view for in-stream video creatives.",
+          "description": "Whether this directory site has disabled active view for in-stream video creatives. This is a read-only field.",
           "type": "boolean"
         }
       },
@@ -18571,7 +18099,7 @@
           "description": "Dimension value for the ID of the advertiser. This is a read-only, auto-generated field."
         },
         "cacheBustingType": {
-          "description": "Code type used for cache busting in the generated tag.",
+          "description": "Code type used for cache busting in the generated tag. Applicable only when floodlightActivityGroupType is COUNTER and countingMethod is STANDARD_COUNTING or UNIQUE_COUNTING.",
           "enum": [
             "ACTIVE_SERVER_PAGE",
             "COLD_FUSION",
@@ -18700,7 +18228,7 @@
           "type": "string"
         },
         "userDefinedVariableTypes": {
-          "description": "List of the user-defined variables used by this conversion tag. These map to the \"u[1-20]=\" in the tags. Each of these can have a user defined type.\nAcceptable values are:\n- \"U1\"\n- \"U2\"\n- \"U3\"\n- \"U4\"\n- \"U5\"\n- \"U6\"\n- \"U7\"\n- \"U8\"\n- \"U9\"\n- \"U10\"\n- \"U11\"\n- \"U12\"\n- \"U13\"\n- \"U14\"\n- \"U15\"\n- \"U16\"\n- \"U17\"\n- \"U18\"\n- \"U19\"\n- \"U20\"",
+          "description": "List of the user-defined variables used by this conversion tag. These map to the \"u[1-100]=\" in the tags. Each of these can have a user defined type.\nAcceptable values are U1 to U100, inclusive.",
           "items": {
             "enum": [
               "U1",
@@ -19109,12 +18637,12 @@
       "description": "Frequency Cap.",
       "properties": {
         "duration": {
-          "description": "Duration of time, in seconds, for this frequency cap. The maximum duration is 90 days in seconds, or 7,776,000.",
+          "description": "Duration of time, in seconds, for this frequency cap. The maximum duration is 90 days. Acceptable values are 1 to 7776000, inclusive.",
           "format": "int64",
           "type": "string"
         },
         "impressions": {
-          "description": "Number of times an individual user can be served the ad within the specified duration. The maximum allowed is 15.",
+          "description": "Number of times an individual user can be served the ad within the specified duration. Acceptable values are 1 to 15, inclusive.",
           "format": "int64",
           "type": "string"
         }
@@ -19553,12 +19081,12 @@
       "description": "Lookback configuration settings.",
       "properties": {
         "clickDuration": {
-          "description": "Lookback window, in days, from the last time a given user clicked on one of your ads. If you enter 0, clicks will not be considered as triggering events for floodlight tracking. If you leave this field blank, the default value for your account will be used.",
+          "description": "Lookback window, in days, from the last time a given user clicked on one of your ads. If you enter 0, clicks will not be considered as triggering events for floodlight tracking. If you leave this field blank, the default value for your account will be used. Acceptable values are 0 to 90, inclusive.",
           "format": "int32",
           "type": "integer"
         },
         "postImpressionActivitiesDuration": {
-          "description": "Lookback window, in days, from the last time a given user viewed one of your ads. If you enter 0, impressions will not be considered as triggering events for floodlight tracking. If you leave this field blank, the default value for your account will be used.",
+          "description": "Lookback window, in days, from the last time a given user viewed one of your ads. If you enter 0, impressions will not be considered as triggering events for floodlight tracking. If you leave this field blank, the default value for your account will be used. Acceptable values are 0 to 90, inclusive.",
           "format": "int32",
           "type": "integer"
         }
@@ -19850,7 +19378,7 @@
           "description": "Dimension value for the ID of the floodlight activity. This is a read-only, auto-generated field."
         },
         "weight": {
-          "description": "Weight associated with this optimization. Must be greater than 1. The weight assigned will be understood in proportion to the weights assigned to the other optimization activities.",
+          "description": "Weight associated with this optimization. The weight assigned will be understood in proportion to the weights assigned to the other optimization activities. Value must be greater than or equal to 1.",
           "format": "int32",
           "type": "integer"
         }
@@ -20344,7 +19872,7 @@
           "type": "string"
         },
         "tagFormats": {
-          "description": "Tag formats to generate for this placement. This field is required on insertion.\nAcceptable values are:\n- \"PLACEMENT_TAG_STANDARD\"\n- \"PLACEMENT_TAG_IFRAME_JAVASCRIPT\"\n- \"PLACEMENT_TAG_IFRAME_ILAYER\"\n- \"PLACEMENT_TAG_INTERNAL_REDIRECT\"\n- \"PLACEMENT_TAG_JAVASCRIPT\"\n- \"PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT\"\n- \"PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT\"\n- \"PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT\"\n- \"PLACEMENT_TAG_CLICK_COMMANDS\"\n- \"PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH\"\n- \"PLACEMENT_TAG_TRACKING\"\n- \"PLACEMENT_TAG_TRACKING_IFRAME\"\n- \"PLACEMENT_TAG_TRACKING_JAVASCRIPT\"",
+          "description": "Tag formats to generate for this placement. This field is required on insertion.\nAcceptable values are:\n- \"PLACEMENT_TAG_STANDARD\"\n- \"PLACEMENT_TAG_IFRAME_JAVASCRIPT\"\n- \"PLACEMENT_TAG_IFRAME_ILAYER\"\n- \"PLACEMENT_TAG_INTERNAL_REDIRECT\"\n- \"PLACEMENT_TAG_JAVASCRIPT\"\n- \"PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT\"\n- \"PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT\"\n- \"PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT\"\n- \"PLACEMENT_TAG_CLICK_COMMANDS\"\n- \"PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH\"\n- \"PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3\"\n- \"PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4\"\n- \"PLACEMENT_TAG_TRACKING\"\n- \"PLACEMENT_TAG_TRACKING_IFRAME\"\n- \"PLACEMENT_TAG_TRACKING_JAVASCRIPT\"",
           "items": {
             "enum": [
               "PLACEMENT_TAG_CLICK_COMMANDS",
@@ -20353,6 +19881,7 @@
               "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY",
               "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH",
               "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3",
+              "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4",
               "PLACEMENT_TAG_INTERNAL_REDIRECT",
               "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT",
               "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY",
@@ -20383,7 +19912,7 @@
           "description": "A collection of settings which affect video creatives served through this placement. Applicable to placements with IN_STREAM_VIDEO compatibility."
         },
         "vpaidAdapterChoice": {
-          "description": "VPAID adapter setting for this placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to this placement.",
+          "description": "VPAID adapter setting for this placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to this placement.\n\nNote: Flash is no longer supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH.",
           "enum": [
             "BOTH",
             "DEFAULT",
@@ -20933,7 +20462,7 @@
           "type": "string"
         },
         "rateOrCostNanos": {
-          "description": "Rate or cost of this pricing period.",
+          "description": "Rate or cost of this pricing period in nanos (i.e., multipled by 1000000000). Acceptable values are 0 to 1000000000000000000, inclusive.",
           "format": "int64",
           "type": "string"
         },
@@ -20943,7 +20472,7 @@
           "type": "string"
         },
         "units": {
-          "description": "Units of this pricing period.",
+          "description": "Units of this pricing period. Acceptable values are 0 to 10000000000, inclusive.",
           "format": "int64",
           "type": "string"
         }
@@ -21250,7 +20779,7 @@
           "type": "string"
         },
         "lifeSpan": {
-          "description": "Number of days that a user should remain in the remarketing list without an impression.",
+          "description": "Number of days that a user should remain in the remarketing list without an impression. Acceptable values are 1 to 540, inclusive.",
           "format": "int64",
           "type": "string"
         },
@@ -21745,7 +21274,7 @@
               "type": "string"
             },
             "repeats": {
-              "description": "The interval for which the report is repeated. Note:  \n- \"DAILY\" also requires field \"every\" to be set. \n- \"WEEKLY\" also requires fields \"every\" and \"repeatsOnWeekDays\" to be set. \n- \"MONTHLY\" also requires fields \"every\" and \"runsOnDayOfMonth\" to be set.",
+              "description": "The interval for which the report is repeated. Note:\n- \"DAILY\" also requires field \"every\" to be set.\n- \"WEEKLY\" also requires fields \"every\" and \"repeatsOnWeekDays\" to be set.\n- \"MONTHLY\" also requires fields \"every\" and \"runsOnDayOfMonth\" to be set.",
               "type": "string"
             },
             "repeatsOnWeekDays": {
@@ -21876,7 +21405,7 @@
           "description": "Default lookback windows for new advertisers in this account."
         },
         "reportGenerationTimeZoneId": {
-          "description": "Report generation time zone ID of this account. This is a required field that can only be changed by a superuser.\nAcceptable values are:\n\n- \"1\" for \"America/New_York\" \n- \"2\" for \"Europe/London\" \n- \"3\" for \"Europe/Paris\" \n- \"4\" for \"Africa/Johannesburg\" \n- \"5\" for \"Asia/Jerusalem\" \n- \"6\" for \"Asia/Shanghai\" \n- \"7\" for \"Asia/Hong_Kong\" \n- \"8\" for \"Asia/Tokyo\" \n- \"9\" for \"Australia/Sydney\" \n- \"10\" for \"Asia/Dubai\" \n- \"11\" for \"America/Los_Angeles\" \n- \"12\" for \"Pacific/Auckland\" \n- \"13\" for \"America/Sao_Paulo\"",
+          "description": "Report generation time zone ID of this account. This is a required field that can only be changed by a superuser.\nAcceptable values are:\n\n- \"1\" for \"America/New_York\"\n- \"2\" for \"Europe/London\"\n- \"3\" for \"Europe/Paris\"\n- \"4\" for \"Africa/Johannesburg\"\n- \"5\" for \"Asia/Jerusalem\"\n- \"6\" for \"Asia/Shanghai\"\n- \"7\" for \"Asia/Hong_Kong\"\n- \"8\" for \"Asia/Tokyo\"\n- \"9\" for \"Australia/Sydney\"\n- \"10\" for \"Asia/Dubai\"\n- \"11\" for \"America/Los_Angeles\"\n- \"12\" for \"Pacific/Auckland\"\n- \"13\" for \"America/Sao_Paulo\"",
           "format": "int64",
           "type": "string"
         }
@@ -22059,7 +21588,7 @@
           "type": "boolean"
         },
         "vpaidAdapterChoiceTemplate": {
-          "description": "Default VPAID adapter setting for new placements created under this site. This value will be used to populate the placements.vpaidAdapterChoice field, when no value is specified for the new placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to the placement. The publisher's specifications will typically determine this setting. For VPAID creatives, the adapter format will match the VPAID format (HTML5 VPAID creatives use the HTML5 adapter, and Flash VPAID creatives use the Flash adapter).",
+          "description": "Default VPAID adapter setting for new placements created under this site. This value will be used to populate the placements.vpaidAdapterChoice field, when no value is specified for the new placement. Controls which VPAID format the measurement adapter will use for in-stream video creatives assigned to the placement. The publisher's specifications will typically determine this setting. For VPAID creatives, the adapter format will match the VPAID format (HTML5 VPAID creatives use the HTML5 adapter).\n\nNote: Flash is no longer supported. This field now defaults to HTML5 when the following values are provided: FLASH, BOTH.",
           "enum": [
             "BOTH",
             "DEFAULT",
@@ -22097,7 +21626,7 @@
       "description": "Represents the dimensions of ads, placements, creatives, or creative assets.",
       "properties": {
         "height": {
-          "description": "Height of this size.",
+          "description": "Height of this size. Acceptable values are 0 to 32767, inclusive.",
           "format": "int32",
           "type": "integer"
         },
@@ -22116,7 +21645,7 @@
           "type": "string"
         },
         "width": {
-          "description": "Width of this size.",
+          "description": "Width of this size. Acceptable values are 0 to 32767, inclusive.",
           "format": "int32",
           "type": "integer"
         }
@@ -22246,7 +21775,7 @@
       "description": "Placement Tag Data",
       "properties": {
         "adId": {
-          "description": "Ad associated with this placement tag.",
+          "description": "Ad associated with this placement tag. Applicable only when format is PLACEMENT_TAG_TRACKING.",
           "format": "int64",
           "type": "string"
         },
@@ -22255,7 +21784,7 @@
           "type": "string"
         },
         "creativeId": {
-          "description": "Creative associated with this placement tag.",
+          "description": "Creative associated with this placement tag. Applicable only when format is PLACEMENT_TAG_TRACKING.",
           "format": "int64",
           "type": "string"
         },
@@ -22268,6 +21797,7 @@
             "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY",
             "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH",
             "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3",
+            "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4",
             "PLACEMENT_TAG_INTERNAL_REDIRECT",
             "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT",
             "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY",
@@ -23053,12 +22583,12 @@
       "description": "Video Offset",
       "properties": {
         "offsetPercentage": {
-          "description": "Duration, as a percentage of video duration. Do not set when offsetSeconds is set.",
+          "description": "Duration, as a percentage of video duration. Do not set when offsetSeconds is set. Acceptable values are 0 to 100, inclusive.",
           "format": "int32",
           "type": "integer"
         },
         "offsetSeconds": {
-          "description": "Duration, in seconds. Do not set when offsetPercentage is set.",
+          "description": "Duration, in seconds. Do not set when offsetPercentage is set. Acceptable values are 0 to 86399, inclusive.",
           "format": "int32",
           "type": "integer"
         }

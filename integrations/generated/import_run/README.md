@@ -47,5 +47,4 @@ import_run.extractor.extractorId.start.post({
 
 #### Parameters
 * extractorId (string) **required** - the id of the extractor to start crawling with
-* loginSessionId (string) - The loginSessionId required for authenticated extractors. Only required when running authenticated extractors.
 

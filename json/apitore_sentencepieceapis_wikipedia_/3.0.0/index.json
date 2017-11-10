@@ -1,0 +1,123 @@
+{
+  "id": "apitore_sentencepieceapis_wikipedia_",
+  "title": "SentencePiece APIs (wikipedia)",
+  "description": "SentencePiece tokenizer (wikipedia).<BR />[Endpoint] https://api.apitore.com/api/37",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_wikipedia_.jpg"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "SPTokenEntity": {
+      "properties": {
+        "token": {
+          "description": "Token",
+          "type": "string"
+        },
+        "wid": {
+          "description": "Word ID",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "token",
+        "wid"
+      ],
+      "type": "object",
+      "title": "SPTokenEntity"
+    },
+    "SentencePieceTokenResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "tokens": {
+          "description": "SentencePiece Tokens",
+          "items": {
+            "$ref": "#/definitions/SPTokenEntity"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "SentencePieceTokenResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "getUsingGET_1",
+      "title": "getUsingGET_1",
+      "description": "SentencePiece (bpe).  \nResponse  \n  Github: [sentencepiece-response](https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response)  \n  Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text [up to 400 characters]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SentencePieceTokenResponseEntity"
+      }
+    },
+    {
+      "id": "getUsingGET_2",
+      "title": "getUsingGET_2",
+      "description": "SentencePiece (unigram).  \nResponse  \n  Github: [sentencepiece-response](https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response)  \n  Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text [up to 400 characters]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SentencePieceTokenResponseEntity"
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

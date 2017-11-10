@@ -67,46 +67,11 @@
       "name": "github"
     },
     {
-      "description": "Operations about facebooks",
-      "name": "facebook"
-    },
-    {
       "description": "Operations about securities",
       "name": "security"
     }
   ],
   "paths": {
-    "/facebook/ping": {
-      "get": {
-        "description": "ping pong",
-        "operationId": "getFacebookPing",
-        "responses": {
-          "200": {
-            "description": "ping pong"
-          }
-        },
-        "summary": "ping pong",
-        "tags": [
-          "facebook"
-        ]
-      },
-      "post": {
-        "consumes": [
-          "application/json"
-        ],
-        "description": "ping pong",
-        "operationId": "postFacebookPing",
-        "responses": {
-          "201": {
-            "description": "ping pong"
-          }
-        },
-        "summary": "ping pong",
-        "tags": [
-          "facebook"
-        ]
-      }
-    },
     "/github": {
       "get": {
         "description": "\nThis endpoint shows all imported repositories from your Github account.\n\nThis enpoint expects that you have a GitHub account connected and the token\nis still valid. If that is not the case please visit **https://www.versioneye.com/settings/connect**.\nto update your GitHub credentials.\n\nIf it shows no or old data, then you can use the `github/sync` endpoint\nto update your account with the current meta data from GitHub.\n        ",
@@ -456,6 +421,117 @@
           }
         },
         "summary": "Returns the inventory list of the organisation",
+        "tags": [
+          "organisations"
+        ]
+      }
+    },
+    "/organisations/{orga_name}/inventory_diff": {
+      "get": {
+        "operationId": "getOrganisationsOrgaNameInventoryDiff",
+        "parameters": [
+          {
+            "description": "ID of the inventory diff object",
+            "in": "query",
+            "name": "inventory_diff_id",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "orga_name",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the inventory diff object"
+          }
+        },
+        "summary": "Returns the inventory diff object",
+        "tags": [
+          "organisations"
+        ]
+      },
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\nThis Endpoint takes 2 inventory filters and calculates the difference between them.\nThe diff object contains wich items have been removed and/or added compared to the inventory1 filter.\nThe response of this Endpoint is the ID of the diff object, which is calculated async in the background.\n              ",
+        "operationId": "postOrganisationsOrgaNameInventoryDiff",
+        "parameters": [
+          {
+            "description": "Inventory1, filter by team name",
+            "in": "formData",
+            "name": "f1_team_name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory1, filter by programming language",
+            "in": "formData",
+            "name": "f1_language",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory1, filter down by project version",
+            "in": "formData",
+            "name": "f1_project_version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory1, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'",
+            "in": "formData",
+            "name": "f1_post_filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory2, filter by team name",
+            "in": "formData",
+            "name": "f2_team_name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory2, filter by programming language",
+            "in": "formData",
+            "name": "f2_language",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory2, filter down by project version",
+            "in": "formData",
+            "name": "f2_project_version",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Inventory2, post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'",
+            "in": "formData",
+            "name": "f2_post_filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "orga_name",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Creates an inventory diff object"
+          }
+        },
+        "summary": "Creates an inventory diff object",
         "tags": [
           "organisations"
         ]
@@ -1146,6 +1222,55 @@
           }
         },
         "summary": "update project with new file",
+        "tags": [
+          "projects"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n\nWith this Endpoint an existing project can be updated. This are the fields which \ncan be updated: \n\n```\n{\n  public: false,\n  name: \"toto\",\n  description: \"beschreibung\",\n  license: \"Lizenz\",\n  version: \"Versionio\"\n}\n```\n            ",
+        "operationId": "putProjectsProjectKey",
+        "parameters": [
+          {
+            "description": "Project ID",
+            "in": "path",
+            "name": "project_key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "update project properites"
+          }
+        },
+        "summary": "update project properites",
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/projects/{project_key}/dependencies": {
+      "get": {
+        "description": "\nThis Endpoint returns a list of ALL dependencies of the project. This list includes\ndependencies of child projects as well.\n\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+        "operationId": "getProjectsProjectKeyDependencies",
+        "parameters": [
+          {
+            "description": "Project ID or project_key",
+            "in": "path",
+            "name": "project_key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get a list of ALL dependencies"
+          }
+        },
+        "summary": "get a list of ALL dependencies",
         "tags": [
           "projects"
         ]

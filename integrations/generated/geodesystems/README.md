@@ -695,6 +695,33 @@ geodesystems.search_calendar({}, context)
 * max (integer) - Max number of results
 * skip (integer) - Number to skip
 
+### search_cataloglink
+API to search for entries of type Catalog Link
+
+
+```js
+geodesystems.search_cataloglink({}, context)
+```
+
+#### Parameters
+* text (string) - Search text
+* name (string) - Search name
+* description (string) - Search description
+* fromdate (string) - From date
+* todate (string) - To date
+* createdate.from (string) - Archive create date from
+* createdate.to (string) - Archive create date to
+* changedate.from (string) - Archive change date from
+* changedate.to (string) - Archive change date to
+* group (string) - Parent entry
+* filesuffix (string) - File suffix
+* maxlatitude (number) - Northern bounds of search
+* minlongitude (number) - Western bounds of search
+* minlatitude (number) - Southern bounds of search
+* maxlongitude (number) - Eastern bounds of search
+* max (integer) - Max number of results
+* skip (integer) - Number to skip
+
 ### search_cdm_grid
 API to search for entries of type Gridded Data File
 

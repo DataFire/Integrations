@@ -9,7 +9,9 @@
     "description": "Language detection.<BR />[Endpoint] https://api.apitore.com/api/22",
     "title": "Language Detection APIs",
     "version": "0.0.1",
-    "x-description-language": "jp",
+    "x-apisguru-categories": [
+      "text"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg"
     },

@@ -31,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
@@ -486,6 +486,13 @@
         "operationId": "acl.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AclRule"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -493,11 +500,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AclRule"
-            }
+            "description": "Whether to send notifications about the calendar sharing change. Optional. The default is True.",
+            "in": "query",
+            "name": "sendNotifications",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -730,6 +736,13 @@
         "operationId": "acl.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AclRule"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -744,11 +757,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AclRule"
-            }
+            "description": "Whether to send notifications about the calendar sharing change. Note that there are no notifications on access removal. Optional. The default is True.",
+            "in": "query",
+            "name": "sendNotifications",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -778,6 +790,13 @@
         "operationId": "acl.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AclRule"
+            }
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
@@ -792,11 +811,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AclRule"
-            }
+            "description": "Whether to send notifications about the calendar sharing change. Note that there are no notifications on access removal. Optional. The default is True.",
+            "in": "query",
+            "name": "sendNotifications",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -884,17 +902,17 @@
         "operationId": "events.list",
         "parameters": [
           {
+            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
           },
           {
             "description": "Specifies event ID in the iCalendar format to be included in the response. Optional.",
@@ -911,7 +929,7 @@
           },
           {
             "default": 250,
-            "description": "Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
+            "description": "Maximum number of events returned on one result page. The number of events in the resulting page may be less than this value, or none at all, even if there are more events matching the query. Incomplete pages can be detected by a non-empty nextPageToken field in the response. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
             "in": "query",
             "minimum": 1,
             "name": "maxResults",
@@ -984,13 +1002,13 @@
             "type": "string"
           },
           {
-            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.",
+            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMin is set, timeMax must be greater than timeMin.",
             "in": "query",
             "name": "timeMax",
             "type": "string"
           },
           {
-            "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.",
+            "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.",
             "in": "query",
             "name": "timeMin",
             "type": "string"
@@ -1295,17 +1313,17 @@
         "operationId": "events.watch",
         "parameters": [
           {
+            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
+            "in": "query",
+            "name": "alwaysIncludeEmail",
+            "type": "boolean"
+          },
+          {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
             "in": "path",
             "name": "calendarId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Whether to always include a value in the email field for the organizer, creator and attendees, even if no real email is available (i.e. a generated, non-working value will be provided). The use of this option is discouraged and should only be used by clients which cannot handle the absence of an email address value in the mentioned places. Optional. The default is False.",
-            "in": "query",
-            "name": "alwaysIncludeEmail",
-            "type": "boolean"
           },
           {
             "description": "Specifies event ID in the iCalendar format to be included in the response. Optional.",
@@ -1322,7 +1340,7 @@
           },
           {
             "default": 250,
-            "description": "Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
+            "description": "Maximum number of events returned on one result page. The number of events in the resulting page may be less than this value, or none at all, even if there are more events matching the query. Incomplete pages can be detected by a non-empty nextPageToken field in the response. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.",
             "in": "query",
             "minimum": 1,
             "name": "maxResults",
@@ -1361,6 +1379,13 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "resource",
+            "schema": {
+              "$ref": "#/definitions/Channel"
+            }
+          },
+          {
             "collectionFormat": "multi",
             "description": "Extended properties constraint specified as propertyName=value. Matches only shared properties. This parameter might be repeated multiple times to return events that match all given constraints.",
             "in": "query",
@@ -1395,13 +1420,13 @@
             "type": "string"
           },
           {
-            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.",
+            "description": "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMin is set, timeMax must be greater than timeMin.",
             "in": "query",
             "name": "timeMax",
             "type": "string"
           },
           {
-            "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored.",
+            "description": "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time. Must be an RFC3339 timestamp with mandatory time zone offset, e.g., 2011-06-03T10:00:00-07:00, 2011-06-03T10:00:00Z. Milliseconds may be provided but will be ignored. If timeMax is set, timeMin must be smaller than timeMax.",
             "in": "query",
             "name": "timeMin",
             "type": "string"
@@ -1417,13 +1442,6 @@
             "in": "query",
             "name": "updatedMin",
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "resource",
-            "schema": {
-              "$ref": "#/definitions/Channel"
-            }
           }
         ],
         "responses": {
@@ -3147,40 +3165,6 @@
       },
       "type": "object"
     },
-    "DeepLinkData": {
-      "properties": {
-        "links": {
-          "items": {
-            "$ref": "#/definitions/Link"
-          },
-          "type": "array"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "DisplayInfo": {
-      "properties": {
-        "appIconUrl": {
-          "type": "string"
-        },
-        "appShortTitle": {
-          "type": "string"
-        },
-        "appTitle": {
-          "type": "string"
-        },
-        "linkShortTitle": {
-          "type": "string"
-        },
-        "linkTitle": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "Error": {
       "properties": {
         "domain": {
@@ -3473,7 +3457,7 @@
         },
         "transparency": {
           "default": "opaque",
-          "description": "Whether the event blocks time on the calendar. Optional. Possible values are:  \n- \"opaque\" - The event blocks time on the calendar. This is the default value. \n- \"transparent\" - The event does not block time on the calendar.",
+          "description": "Whether the event blocks time on the calendar. Optional. Possible values are:  \n- \"opaque\" - Default value. The event does block time on the calendar. This is equivalent to setting Show me as to Busy in the Calendar UI. \n- \"transparent\" - The event does not block time on the calendar. This is equivalent to setting Show me as to Available in the Calendar UI.",
           "type": "string"
         },
         "updated": {
@@ -3578,19 +3562,6 @@
         },
         "timeZone": {
           "description": "The time zone in which the time is specified. (Formatted as an IANA Time Zone Database name, e.g. \"Europe/Zurich\".) For recurring events this field is required and specifies the time zone in which the recurrence is expanded. For single events this field is optional and indicates a custom time zone for the event start/end.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "EventHabitInstance": {
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/HabitInstanceData",
-          "description": "Metadata specific to this instance."
-        },
-        "parentId": {
-          "description": "Id of the habit this instance belongs to.",
           "type": "string"
         }
       },
@@ -3782,57 +3753,6 @@
         "timeMin": {
           "description": "The start of the interval.",
           "format": "date-time",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "HabitInstanceData": {
-      "properties": {
-        "status": {
-          "type": "string"
-        },
-        "statusInferred": {
-          "type": "boolean"
-        },
-        "type": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "LaunchInfo": {
-      "properties": {
-        "appId": {
-          "type": "string"
-        },
-        "installUrl": {
-          "type": "string"
-        },
-        "intentAction": {
-          "type": "string"
-        },
-        "uri": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Link": {
-      "properties": {
-        "applinkingSource": {
-          "type": "string"
-        },
-        "displayInfo": {
-          "$ref": "#/definitions/DisplayInfo"
-        },
-        "launchInfo": {
-          "$ref": "#/definitions/LaunchInfo"
-        },
-        "platform": {
-          "type": "string"
-        },
-        "url": {
           "type": "string"
         }
       },

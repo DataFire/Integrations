@@ -16,7 +16,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "swagger",
         "url": "https://dweet.io/play/definition",

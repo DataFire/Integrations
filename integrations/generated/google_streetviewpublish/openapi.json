@@ -12,6 +12,11 @@
       "url": "https://google.com"
     },
     "description": "Publishes 360 photos to Google Maps, along with position, orientation, and connectivity metadata. Apps can offer an interface for positioning, connecting, and uploading user-generated Street View images.\n",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Street View Publish",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -48,11 +53,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/streetviewpublish": "Publish and manage your 360 photos on Google Street View"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/streetviewpublish": "Publish and manage your 360 photos on Google Street View"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -233,6 +248,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
         ],
@@ -320,6 +338,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
         ],
@@ -352,6 +373,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
@@ -393,6 +417,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
@@ -509,6 +536,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
         ],
@@ -562,6 +592,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
@@ -678,6 +711,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
         ],
@@ -723,6 +759,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
@@ -839,6 +878,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/streetviewpublish"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/streetviewpublish"
             ]
           }
         ],
@@ -930,7 +972,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
@@ -1101,7 +1143,7 @@
       "description": "Raw pose measurement for an entity.",
       "properties": {
         "altitude": {
-          "description": "Altitude of the pose in meters above ground level (as defined by WGS84).\nNaN indicates an unmeasured quantity.",
+          "description": "Altitude of the pose in meters above WGS84 ellipsoid.\nNaN indicates an unmeasured quantity.",
           "format": "double",
           "type": "number"
         },

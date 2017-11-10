@@ -58,6 +58,25 @@ magick_nu.postTradingAccounts({
 #### Parameters
 * body (undefined) **required**
 
+### putTradingAccountsPasswordUsernameBrokerserverMt4username
+Update MT4 Account Password
+
+
+```js
+magick_nu.putTradingAccountsPasswordUsernameBrokerserverMt4username({
+  "username": "",
+  "brokerserver": "",
+  "mt4username": "",
+  "body": null
+}, context)
+```
+
+#### Parameters
+* username (string) **required**
+* brokerserver (string) **required**
+* mt4username (string) **required**
+* body (undefined) **required**
+
 ### postUsers
 Create a new Tradeworks User
 
@@ -83,6 +102,21 @@ magick_nu.getUsersEmailEmail({
 
 #### Parameters
 * email (string) **required**
+
+### putUsersPasswordUsername
+Update user's password
+
+
+```js
+magick_nu.putUsersPasswordUsername({
+  "username": "",
+  "body": null
+}, context)
+```
+
+#### Parameters
+* username (string) **required**
+* body (undefined) **required**
 
 ### getUsersUsernameUsername
 Check if username is available

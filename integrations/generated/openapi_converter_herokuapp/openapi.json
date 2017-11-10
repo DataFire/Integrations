@@ -46,12 +46,11 @@
   },
   "consumes": [
     "application/json",
-    "text/yaml",
-    "multipart/form-data"
+    "application/x-yaml"
   ],
   "produces": [
     "application/json",
-    "text/yaml"
+    "application/x-yaml"
   ],
   "security": [],
   "tags": [
@@ -80,7 +79,8 @@
             "in": "query",
             "name": "url",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "https://raw.githubusercontent.com/Mermade/openapi-webconverter/master/contract/openapi.json"
           }
         ],
         "responses": {
@@ -98,10 +98,21 @@
       "get": {
         "description": "",
         "operationId": "convertUrl",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "The URL to retrieve the OpenAPI 2.0 definition from",
+            "format": "uri",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://raw.githubusercontent.com/Mermade/openapi-webconverter/master/contract/swagger.json"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
           }
         },
         "summary": "Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL",
@@ -110,6 +121,9 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
         "description": "",
         "operationId": "convert",
         "parameters": [
@@ -118,14 +132,16 @@
             "in": "formData",
             "name": "filename",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": ""
           },
           {
             "description": "The text of a Swagger 2.0 definition to convert",
             "in": "formData",
             "name": "source",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": "swagger: 2.0\ninfo:\n  title: API\n  version: 1.0.0\n"
           },
           {
             "enum": [
@@ -134,12 +150,18 @@
             "in": "formData",
             "name": "validate",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": ""
           }
         ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {}
           }
         },
         "summary": "Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x ",
@@ -155,7 +177,8 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
           }
         },
         "summary": "Get the status of the API",
@@ -175,12 +198,14 @@
             "in": "query",
             "name": "url",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "x-example": "https://raw.githubusercontent.com/Mermade/openapi-webconverter/master/contract/openapi.json"
           }
         ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
           }
         },
         "summary": "Validate an OpenAPI 3.0.x definition",
@@ -189,6 +214,9 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
         "description": "",
         "operationId": "validate",
         "parameters": [
@@ -197,19 +225,26 @@
             "in": "formData",
             "name": "filename",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": ""
           },
           {
             "description": "The text of an OpenAPI 3.0.x definition to validate",
             "in": "formData",
             "name": "source",
             "required": false,
-            "type": "string"
+            "type": "string",
+            "x-example": "openapi: 3.0.0\ninfo:\n  title: API\n  version: 1.0.0\npaths: {}\n"
           }
         ],
         "responses": {
           "200": {
-            "description": "default"
+            "description": "default",
+            "schema": {}
+          },
+          "400": {
+            "description": "Invalid request",
+            "schema": {}
           }
         },
         "summary": "Validate an OpenAPI 3.0.x definition supplied in the body of the request",

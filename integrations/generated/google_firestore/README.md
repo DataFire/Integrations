@@ -448,8 +448,7 @@ google_firestore.projects.databases.documents.listCollectionIds({
 ```
 
 #### Parameters
-* pageSize (integer) - The maximum number of results to return.
-* pageToken (string) - A page token. Must be a value from
+* body (object) - The request for Firestore.ListCollectionIds.
 * parent (string) **required** - The parent document. In the format:
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.

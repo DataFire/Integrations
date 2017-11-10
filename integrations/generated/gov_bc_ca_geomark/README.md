@@ -33,6 +33,7 @@ gov_bc_ca_geomark.geomarks.copy.post({
 #### Parameters
 * geomarkUrl (string) **required** - One or more geomark URLs or identifiers to create the new geomark from.
 * resultFormat (string) - The file format the geomark info resource should be returned using.
+* allowOverlap (boolean) - Select this option to allow overlapping geometries
 * callback (string) - The callback function a JSON result format would be wrapped in to support Ajax requests.
 * redirectUrl (string) - The optional external URL to redirect the user to when the geomark is created rather than showing the geomark info page. The geomarkId and geomarkUrl query string parameters will be added to the redirectUrl so that the target application gets a reference to the geomark.
 * failureRedirectUrl (string) - The url to redirect if the geomark could not be created. The URL will include a <fieldName>_Error parameter with the error message for the field that caused the error.
@@ -55,6 +56,7 @@ gov_bc_ca_geomark.geomarks.new.post({}, context)
 * srid (integer) - The srid of the coordinate system the input geometries are in. If the file includes a coordinate system definition that will be used.
 * resultFormat (string) - The file format the geomark info resource should be returned using.
 * multiple (boolean) - Boolean flag indicating if multiple geometries are to be used for the geomark (true) or only a single geometry from the first geometry (false).
+* allowOverlap (boolean) - When multiple=true select this option to allow overlapping geometries
 * callback (string) - The callback function a JSON result format would be wrapped in to support Ajax requests.
 * redirectUrl (string) - The optional external URL to redirect the user to when the geomark is created rather than showing the geomark info page. The geomarkId and geomarkUrl query string parameters will be added to the redirectUrl so that the target application gets a reference to the geomark.
 * failureRedirectUrl (string) - The url to redirect if the geomark could not be created. The URL will include a <fieldName>_Error parameter with the error message for the field that caused the error.

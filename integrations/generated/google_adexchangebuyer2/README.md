@@ -61,9 +61,7 @@ google_adexchangebuyer2.accounts.clients.list({
 ```
 
 #### Parameters
-* accountId (string) **required** - Unique numerical account ID of the sponsor buyer to list the clients for.
-* pageToken (string) - A token identifying a page of results the server should return.
-* pageSize (integer) - Requested page size. The server may return fewer clients than requested.
+* accountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -89,8 +87,7 @@ google_adexchangebuyer2.accounts.clients.create({
 ```
 
 #### Parameters
-* accountId (string) **required** - Unique numerical account ID for the buyer of which the client buyer
-* body (object) - A client resource represents a client buyer&mdash;an agency,
+* accountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -117,8 +114,8 @@ google_adexchangebuyer2.accounts.clients.get({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the client's sponsor buyer. (required)
-* clientAccountId (string) **required** - Numerical account ID of the client buyer to retrieve. (required)
+* accountId (string) **required**
+* clientAccountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -145,9 +142,8 @@ google_adexchangebuyer2.accounts.clients.update({
 ```
 
 #### Parameters
-* accountId (string) **required** - Unique numerical account ID for the buyer of which the client buyer
-* clientAccountId (string) **required** - Unique numerical account ID of the client to update. (required)
-* body (object) - A client resource represents a client buyer&mdash;an agency,
+* accountId (string) **required**
+* clientAccountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -175,10 +171,8 @@ google_adexchangebuyer2.accounts.clients.invitations.list({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the client's sponsor buyer. (required)
-* clientAccountId (string) **required** - Numerical account ID of the client buyer to list invitations for.
-* pageToken (string) - A token identifying a page of results the server should return.
-* pageSize (integer) - Requested page size. Server may return fewer clients than requested.
+* accountId (string) **required**
+* clientAccountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -206,9 +200,8 @@ google_adexchangebuyer2.accounts.clients.invitations.create({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the client's sponsor buyer. (required)
-* clientAccountId (string) **required** - Numerical account ID of the client buyer that the user
-* body (object) - An invitation for a new client user to get access to the Ad Exchange
+* accountId (string) **required**
+* clientAccountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -236,9 +229,9 @@ google_adexchangebuyer2.accounts.clients.invitations.get({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the client's sponsor buyer. (required)
-* clientAccountId (string) **required** - Numerical account ID of the client buyer that the user invitation
-* invitationId (string) **required** - Numerical identifier of the user invitation to retrieve. (required)
+* accountId (string) **required**
+* clientAccountId (string) **required**
+* invitationId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -266,10 +259,8 @@ google_adexchangebuyer2.accounts.clients.users.list({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the sponsor buyer of the client to list users for.
-* clientAccountId (string) **required** - The account ID of the client buyer to list users for. (required)
-* pageToken (string) - A token identifying a page of results the server should return.
-* pageSize (integer) - Requested page size. The server may return fewer clients than requested.
+* accountId (string) **required**
+* clientAccountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -297,9 +288,9 @@ google_adexchangebuyer2.accounts.clients.users.get({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the client's sponsor buyer. (required)
-* clientAccountId (string) **required** - Numerical account ID of the client buyer
-* userId (string) **required** - Numerical identifier of the user to retrieve. (required)
+* accountId (string) **required**
+* clientAccountId (string) **required**
+* userId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -328,10 +319,9 @@ google_adexchangebuyer2.accounts.clients.users.update({
 ```
 
 #### Parameters
-* accountId (string) **required** - Numerical account ID of the client's sponsor buyer. (required)
-* clientAccountId (string) **required** - Numerical account ID of the client buyer that the user to be retrieved
-* userId (string) **required** - Numerical identifier of the user to retrieve. (required)
-* body (object) - A client user is created under a client buyer and has restricted access to
+* accountId (string) **required**
+* clientAccountId (string) **required**
+* userId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -357,10 +347,7 @@ google_adexchangebuyer2.accounts.creatives.list({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account to list the creatives from.
-* pageToken (string) - A token identifying a page of results the server should return.
-* pageSize (integer) - Requested page size. The server may return fewer creatives than requested
-* query (string) - An optional query string to filter creatives. If no filter is specified,
+* accountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -386,9 +373,7 @@ google_adexchangebuyer2.accounts.creatives.create({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account that this creative belongs to.
-* duplicateIdMode (string) - Indicates if multiple creatives can share an ID or not. Default is
-* body (object) - A creative and its classification data.
+* accountId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -415,8 +400,8 @@ google_adexchangebuyer2.accounts.creatives.get({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account the creative belongs to.
-* creativeId (string) **required** - The ID of the creative to retrieve.
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -443,9 +428,8 @@ google_adexchangebuyer2.accounts.creatives.update({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account that this creative belongs to.
-* creativeId (string) **required** - The buyer-defined creative ID of this creative.
-* body (object) - A creative and its classification data.
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -472,11 +456,8 @@ google_adexchangebuyer2.accounts.creatives.dealAssociations.list({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account to list the associations from.
-* creativeId (string) **required** - The creative ID to list the associations from.
-* pageToken (string) - A token identifying a page of results the server should return.
-* pageSize (integer) - Requested page size. Server may return fewer associations than requested.
-* query (string) - An optional query string to filter deal associations. If no filter is
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -503,9 +484,8 @@ google_adexchangebuyer2.accounts.creatives.dealAssociations.add({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account the creative belongs to.
-* creativeId (string) **required** - The ID of the creative associated with the deal.
-* body (object) - A request for associating a deal and a creative.
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -532,9 +512,8 @@ google_adexchangebuyer2.accounts.creatives.dealAssociations.remove({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account the creative belongs to.
-* creativeId (string) **required** - The ID of the creative associated with the deal.
-* body (object) - A request for removing the association between a deal and a creative.
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -562,9 +541,8 @@ google_adexchangebuyer2.accounts.creatives.stopWatching({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account of the creative to stop notifications for.
-* creativeId (string) **required** - The creative ID of the creative to stop notifications for.
-* body (object) - A request for stopping notifications for changes to creative Status.
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -592,9 +570,8 @@ google_adexchangebuyer2.accounts.creatives.watch({
 ```
 
 #### Parameters
-* accountId (string) **required** - The account of the creative to watch.
-* creativeId (string) **required** - The creative ID to watch for status changes.
-* body (object) - A request for watching changes to creative Status.
+* accountId (string) **required**
+* creativeId (string) **required**
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -608,4 +585,382 @@ google_adexchangebuyer2.accounts.creatives.watch({
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
+
+### bidders.accounts.filterSets.bidMetrics.list
+Lists all metrics that are measured in terms of number of bids.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.bidMetrics.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.bidResponseErrors.list
+List all errors that occurred in bid responses, with the number of bid
+responses affected for each reason.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.bidResponseErrors.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.bidResponsesWithoutBids.list
+List all reasons for which bid responses were considered to have no
+applicable bids, with the number of bid responses affected for each reason.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.bidResponsesWithoutBids.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.filteredBidRequests.list
+List all reasons that caused a bid request not to be sent for an
+impression, with the number of bid requests not sent for each reason.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.filteredBidRequests.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.filteredBids.list
+List all reasons for which bids were filtered, with the number of bids
+filtered for each reason.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.filteredBids.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.filteredBids.creatives.list
+List all creatives associated with a specific reason for which bids were
+filtered, with the number of bids filtered for each creative.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.filteredBids.creatives.list({
+  "creativeStatusId": "",
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* creativeStatusId (string) **required**
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.filteredBids.details.list
+List all details associated with a specific reason for which bids were
+filtered, with the number of bids filtered for each detail.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.filteredBids.details.list({
+  "creativeStatusId": "",
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* creativeStatusId (string) **required**
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.impressionMetrics.list
+Lists all metrics that are measured in terms of number of impressions.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.impressionMetrics.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.losingBids.list
+List all reasons for which bids lost in the auction, with the number of
+bids that lost for each reason.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.losingBids.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.nonBillableWinningBids.list
+List all reasons for which winning bids were not billable, with the number
+of bids not billed for each reason.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.nonBillableWinningBids.list({
+  "filterSetName": ""
+}, context)
+```
+
+#### Parameters
+* filterSetName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.delete
+Deletes the requested filter set from the account with the given account
+ID.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.delete({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* name (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.get
+Retrieves the requested filter set for the account with the given account
+ID.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.get({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* name (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.list
+Lists all filter sets for the account with the given account ID.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.list({
+  "ownerName": ""
+}, context)
+```
+
+#### Parameters
+* ownerName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### bidders.accounts.filterSets.create
+Creates the specified filter set for the account with the given account ID.
+
+
+```js
+google_adexchangebuyer2.bidders.accounts.filterSets.create({
+  "ownerName": ""
+}, context)
+```
+
+#### Parameters
+* ownerName (string) **required**
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

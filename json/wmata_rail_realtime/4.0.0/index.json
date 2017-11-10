@@ -1,0 +1,81 @@
+{
+  "id": "wmata_rail_realtime",
+  "title": "Real-Time Rail Predictions",
+  "description": "Real-time rail prediction methods.",
+  "security": {
+    "wmata_rail_realtime": {
+      "integration": "wmata_rail_realtime",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_realtime.jpg"
+  },
+  "actionCount": 2,
+  "actions": [
+    {
+      "id": "GetPrediction.StationCodes.get",
+      "title": "GetPrediction.StationCodes.get",
+      "description": "#### Description\n\nReturns next train arrival information for one or more stations. Will return an empty set of results when no predictions are available. Use All for the StationCodes parameter to return predictions for all stations.\n\nFor terminal stations (e.g.: Greenbelt, Shady Grove, etc.), predictions may be displayed twice.\n\nSome stations have two platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center). To retrieve complete predictions for these stations, be sure to pass in both StationCodes.\n\nFor trains with no passengers, the DestinationName will be No Passenger.\n\nNext train arrival information is refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nTrains\n\nArray containing train prediction information ([AIMPredictionTrainInfo](#AIMPredictionTrainInfo)).\n\n\n\n\n\n\n\nAIMPredictionTrainInfo Elements\n\n\n\n\n\n\n\nCar\n\nNumber of cars on a train, usually 6 or 8, but might also return - or NULL.\n\n\n\n\n\nDestination\n\nAbbreviated version of the final destination for a train. This is similar to what is displayed on the signs at stations.\n\n\n\n\n\nDestinationCode\n\nDestination station code. Can be NULL. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nDestinationName\n\nWhen DestinationCode is populated, this is the full name of the destination station, as shown on the WMATA website.\n\n\n\n\n\nGroup\n\nDenotes the track this train is on, but does not necessarily equate to Track 1 or Track 2\\. With the exception of terminal stations, predictions at the same station with different Group values refer to trains on different tracks.\n\n\n\n\n\nLine\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV). May also be blank or No for trains with no passengers.\n\n\n\n\n\nLocationCode\n\nStation code for where the train is arriving. Useful when passing in All as the StationCodes parameter. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nLocationName\n\nFull name of the station where the train is arriving. Useful when passing in All as the StationCodes parameter.\n\n\n\n\n\nMin\n\nMinutes until arrival. Can be a numeric value, ARR (arriving), BRD (boarding), ---, or empty.\n\n\n\n\n\n\n\n* * *",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StationCodes": {
+            "type": "string",
+            "description": "Comma-separated list of station codes.  For all predictions, use \"All\".",
+            "enum": [
+              "B03",
+              "All"
+            ],
+            "default": "B03"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StationCodes"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_realtime": {
+          "integration": "wmata_rail_realtime"
+        }
+      }
+    },
+    {
+      "id": "json.GetPrediction.StationCodes.get",
+      "title": "json.GetPrediction.StationCodes.get",
+      "description": "#### Description\n\nReturns next train arrival information for one or more stations. Will return an empty set of results when no predictions are available. Use All for the StationCodes parameter to return predictions for all stations.\n\nFor terminal stations (e.g.: Greenbelt, Shady Grove, etc.), predictions may be displayed twice.\n\nSome stations have two platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center). To retrieve complete predictions for these stations, be sure to pass in both StationCodes.\n\nFor trains with no passengers, the DestinationName will be No Passenger.\n\nNext train arrival information is refreshed once every 20 to 30 seconds approximately.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nTrains\n\nArray containing train prediction information ([AIMPredictionTrainInfo](#AIMPredictionTrainInfo)).\n\n\n\n\n\n\n\nAIMPredictionTrainInfo Elements\n\n\n\n\n\n\n\nCar\n\nNumber of cars on a train, usually 6 or 8, but might also return - or NULL.\n\n\n\n\n\nDestination\n\nAbbreviated version of the final destination for a train. This is similar to what is displayed on the signs at stations.\n\n\n\n\n\nDestinationCode\n\nDestination station code. Can be NULL. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nDestinationName\n\nWhen DestinationCode is populated, this is the full name of the destination station, as shown on the WMATA website.\n\n\n\n\n\nGroup\n\nDenotes the track this train is on, but does not necessarily equate to Track 1 or Track 2\\. With the exception of terminal stations, predictions at the same station with different Group values refer to trains on different tracks.\n\n\n\n\n\nLine\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV). May also be blank or No for trains with no passengers.\n\n\n\n\n\nLocationCode\n\nStation code for where the train is arriving. Useful when passing in All as the StationCodes parameter. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nLocationName\n\nFull name of the station where the train is arriving. Useful when passing in All as the StationCodes parameter.\n\n\n\n\n\nMin\n\nMinutes until arrival. Can be a numeric value, ARR (arriving), BRD (boarding), ---, or empty.\n\n\n\n\n\n\n\n* * *",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StationCodes": {
+            "type": "string",
+            "description": "Comma-separated list of station codes.  For all predictions, use \"All\".",
+            "enum": [
+              "B03",
+              "All"
+            ],
+            "default": "B03"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StationCodes"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_realtime": {
+          "integration": "wmata_rail_realtime"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "transport"
+  ]
+}

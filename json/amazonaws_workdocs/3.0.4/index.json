@@ -15,7 +15,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.svg"
   },
-  "actionCount": 16,
+  "actionCount": 24,
   "definitions": {
     "AbortDocumentVersionUploadRequest": {
       "properties": {},
@@ -36,6 +36,82 @@
       },
       "type": "object",
       "title": "ActivateUserResponse"
+    },
+    "Activity": {
+      "description": "Describes the activity information.",
+      "properties": {
+        "CommentMetadata": {
+          "$ref": "#/definitions/CommentMetadata",
+          "description": "Metadata of the commenting activity. This is an optional field and is filled for commenting activities."
+        },
+        "Initiator": {
+          "$ref": "#/definitions/UserMetadata",
+          "description": "The user who performed the action."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the organization."
+        },
+        "OriginalParent": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The original parent of the resource. This is an optional field and is filled for move activities."
+        },
+        "Participants": {
+          "$ref": "#/definitions/Participants",
+          "description": "The list of users or groups impacted by this action. This is an optional field and is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED."
+        },
+        "ResourceMetadata": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The metadata of the resource involved in the user action."
+        },
+        "TimeStamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The timestamp when the action was performed."
+        },
+        "Type": {
+          "$ref": "#/definitions/ActivityType",
+          "description": "The activity type."
+        }
+      },
+      "type": "object",
+      "title": "Activity"
+    },
+    "ActivityType": {
+      "enum": [
+        "DOCUMENT_CHECKED_IN",
+        "DOCUMENT_CHECKED_OUT",
+        "DOCUMENT_RENAMED",
+        "DOCUMENT_VERSION_UPLOADED",
+        "DOCUMENT_VERSION_DELETED",
+        "DOCUMENT_RECYCLED",
+        "DOCUMENT_RESTORED",
+        "DOCUMENT_REVERTED",
+        "DOCUMENT_SHARED",
+        "DOCUMENT_UNSHARED",
+        "DOCUMENT_SHARE_PERMISSION_CHANGED",
+        "DOCUMENT_SHAREABLE_LINK_CREATED",
+        "DOCUMENT_SHAREABLE_LINK_REMOVED",
+        "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+        "DOCUMENT_MOVED",
+        "DOCUMENT_COMMENT_ADDED",
+        "DOCUMENT_COMMENT_DELETED",
+        "DOCUMENT_ANNOTATION_ADDED",
+        "DOCUMENT_ANNOTATION_DELETED",
+        "FOLDER_CREATED",
+        "FOLDER_DELETED",
+        "FOLDER_RENAMED",
+        "FOLDER_RECYCLED",
+        "FOLDER_RESTORED",
+        "FOLDER_SHARED",
+        "FOLDER_UNSHARED",
+        "FOLDER_SHARE_PERMISSION_CHANGED",
+        "FOLDER_SHAREABLE_LINK_CREATED",
+        "FOLDER_SHAREABLE_LINK_REMOVED",
+        "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+        "FOLDER_MOVED"
+      ],
+      "type": "string",
+      "title": "ActivityType"
     },
     "AddResourcePermissionsRequest": {
       "properties": {
@@ -60,6 +136,126 @@
       "type": "object",
       "title": "AddResourcePermissionsResponse"
     },
+    "AuthenticationHeaderType": {
+      "format": "password",
+      "maxLength": 8199,
+      "minLength": 1,
+      "type": "string",
+      "title": "AuthenticationHeaderType"
+    },
+    "BooleanType": {
+      "type": "boolean",
+      "title": "BooleanType"
+    },
+    "Comment": {
+      "description": "Describes a comment.",
+      "properties": {
+        "CommentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the comment."
+        },
+        "Contributor": {
+          "$ref": "#/definitions/User",
+          "description": "The details of the user who made the comment."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time that the comment was created."
+        },
+        "ParentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the parent comment."
+        },
+        "RecipientId": {
+          "$ref": "#/definitions/IdType",
+          "description": "If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to."
+        },
+        "Status": {
+          "$ref": "#/definitions/CommentStatusType",
+          "description": "The status of the comment."
+        },
+        "Text": {
+          "$ref": "#/definitions/CommentTextType",
+          "description": "The text of the comment."
+        },
+        "ThreadId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the root comment in the thread."
+        },
+        "Visibility": {
+          "$ref": "#/definitions/CommentVisibilityType",
+          "description": "The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors."
+        }
+      },
+      "required": [
+        "CommentId"
+      ],
+      "type": "object",
+      "title": "Comment"
+    },
+    "CommentIdType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+-.@]+",
+      "type": "string",
+      "title": "CommentIdType"
+    },
+    "CommentList": {
+      "items": {
+        "$ref": "#/definitions/Comment"
+      },
+      "type": "array",
+      "title": "CommentList"
+    },
+    "CommentMetadata": {
+      "description": "Describes the metadata of a comment.",
+      "properties": {
+        "CommentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the comment."
+        },
+        "CommentStatus": {
+          "$ref": "#/definitions/CommentStatusType"
+        },
+        "Contributor": {
+          "$ref": "#/definitions/User",
+          "description": "The user who made the comment."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType"
+        },
+        "RecipientId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user being replied to."
+        }
+      },
+      "type": "object",
+      "title": "CommentMetadata"
+    },
+    "CommentStatusType": {
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "DELETED"
+      ],
+      "type": "string",
+      "title": "CommentStatusType"
+    },
+    "CommentTextType": {
+      "format": "password",
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string",
+      "title": "CommentTextType"
+    },
+    "CommentVisibilityType": {
+      "enum": [
+        "PUBLIC",
+        "PRIVATE"
+      ],
+      "type": "string",
+      "title": "CommentVisibilityType"
+    },
     "ConcurrentModificationException": {
       "description": "The resource hierarchy is changing.",
       "properties": {
@@ -69,6 +265,63 @@
       },
       "type": "object",
       "title": "ConcurrentModificationException"
+    },
+    "CreateCommentRequest": {
+      "properties": {
+        "NotifyCollaborators": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Set this parameter to TRUE to send an email out to the document collaborators after the comment is created."
+        },
+        "ParentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the parent comment."
+        },
+        "Text": {
+          "$ref": "#/definitions/CommentTextType",
+          "description": "The text of the comment."
+        },
+        "ThreadId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the root comment in the thread."
+        },
+        "Visibility": {
+          "$ref": "#/definitions/CommentVisibilityType",
+          "description": "The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors."
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "type": "object",
+      "title": "CreateCommentRequest"
+    },
+    "CreateCommentResponse": {
+      "properties": {
+        "Comment": {
+          "$ref": "#/definitions/Comment",
+          "description": "The comment that has been created."
+        }
+      },
+      "type": "object",
+      "title": "CreateCommentResponse"
+    },
+    "CreateCustomMetadataRequest": {
+      "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "Custom metadata in the form of name-value pairs."
+        }
+      },
+      "required": [
+        "CustomMetadata"
+      ],
+      "type": "object",
+      "title": "CreateCustomMetadataRequest"
+    },
+    "CreateCustomMetadataResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateCustomMetadataResponse"
     },
     "CreateFolderRequest": {
       "properties": {
@@ -96,6 +349,24 @@
       },
       "type": "object",
       "title": "CreateFolderResponse"
+    },
+    "CreateLabelsRequest": {
+      "properties": {
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "List of labels to add to the resource."
+        }
+      },
+      "required": [
+        "Labels"
+      ],
+      "type": "object",
+      "title": "CreateLabelsRequest"
+    },
+    "CreateLabelsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateLabelsResponse"
     },
     "CreateNotificationSubscriptionRequest": {
       "properties": {
@@ -132,6 +403,10 @@
     },
     "CreateUserRequest": {
       "properties": {
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The email address of the user."
+        },
         "GivenName": {
           "$ref": "#/definitions/UserAttributeValueType",
           "description": "The given name of the user."
@@ -180,6 +455,55 @@
       "type": "object",
       "title": "CreateUserResponse"
     },
+    "CustomMetadataKeyList": {
+      "items": {
+        "$ref": "#/definitions/CustomMetadataKeyType"
+      },
+      "maxItems": 8,
+      "type": "array",
+      "title": "CustomMetadataKeyList"
+    },
+    "CustomMetadataKeyType": {
+      "maxLength": 56,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string",
+      "title": "CustomMetadataKeyType"
+    },
+    "CustomMetadataLimitExceededException": {
+      "description": "The limit has been reached on the number of custom properties for the specified resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "CustomMetadataLimitExceededException"
+    },
+    "CustomMetadataMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/CustomMetadataKeyType"
+          },
+          "value": {
+            "$ref": "#/definitions/CustomMetadataValueType"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "type": "array",
+      "title": "CustomMetadataMap"
+    },
+    "CustomMetadataValueType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string",
+      "title": "CustomMetadataValueType"
+    },
     "DeactivateUserRequest": {
       "properties": {},
       "type": "object",
@@ -190,6 +514,21 @@
       "properties": {},
       "type": "object",
       "title": "DeactivatingLastSystemUserException"
+    },
+    "DeleteCommentRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCommentRequest"
+    },
+    "DeleteCustomMetadataRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCustomMetadataRequest"
+    },
+    "DeleteCustomMetadataResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteCustomMetadataResponse"
     },
     "DeleteDocumentRequest": {
       "properties": {},
@@ -206,6 +545,16 @@
       "type": "object",
       "title": "DeleteFolderRequest"
     },
+    "DeleteLabelsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteLabelsRequest"
+    },
+    "DeleteLabelsResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteLabelsResponse"
+    },
     "DeleteNotificationSubscriptionRequest": {
       "properties": {},
       "type": "object",
@@ -215,6 +564,44 @@
       "properties": {},
       "type": "object",
       "title": "DeleteUserRequest"
+    },
+    "DescribeActivitiesRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeActivitiesRequest"
+    },
+    "DescribeActivitiesResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/MarkerType",
+          "description": "The marker for the next set of results."
+        },
+        "UserActivities": {
+          "$ref": "#/definitions/UserActivities",
+          "description": "The list of activities for the specified user and time period."
+        }
+      },
+      "type": "object",
+      "title": "DescribeActivitiesResponse"
+    },
+    "DescribeCommentsRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeCommentsRequest"
+    },
+    "DescribeCommentsResponse": {
+      "properties": {
+        "Comments": {
+          "$ref": "#/definitions/CommentList",
+          "description": "The list of comments for the specified document version."
+        },
+        "Marker": {
+          "$ref": "#/definitions/MarkerType",
+          "description": "The marker for the next set of results. This marker was received from a previous call."
+        }
+      },
+      "type": "object",
+      "title": "DescribeCommentsResponse"
     },
     "DescribeDocumentVersionsRequest": {
       "properties": {},
@@ -248,7 +635,7 @@
         },
         "Folders": {
           "$ref": "#/definitions/FolderMetadataList",
-          "description": "The sub-folders in the specified folder."
+          "description": "The subfolders in the specified folder."
         },
         "Marker": {
           "$ref": "#/definitions/PageMarkerType",
@@ -296,6 +683,25 @@
       "type": "object",
       "title": "DescribeResourcePermissionsResponse"
     },
+    "DescribeRootFoldersRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeRootFoldersRequest"
+    },
+    "DescribeRootFoldersResponse": {
+      "properties": {
+        "Folders": {
+          "$ref": "#/definitions/FolderMetadataList",
+          "description": "The user's special folders."
+        },
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker for the next set of results."
+        }
+      },
+      "type": "object",
+      "title": "DescribeRootFoldersResponse"
+    },
     "DescribeUsersRequest": {
       "properties": {},
       "type": "object",
@@ -325,6 +731,16 @@
       "type": "string",
       "title": "DocumentContentType"
     },
+    "DocumentLockedForCommentsException": {
+      "description": "This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "DocumentLockedForCommentsException"
+    },
     "DocumentMetadata": {
       "description": "Describes the document.",
       "properties": {
@@ -339,6 +755,10 @@
         "Id": {
           "$ref": "#/definitions/ResourceIdType",
           "description": "The ID of the document."
+        },
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "List of labels on the document."
         },
         "LatestVersionMetadata": {
           "$ref": "#/definitions/DocumentVersionMetadata",
@@ -502,6 +922,16 @@
       "type": "string",
       "title": "DocumentVersionStatus"
     },
+    "DraftUploadOutOfSyncException": {
+      "description": "This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "DraftUploadOutOfSyncException"
+    },
     "EmailAddressType": {
       "maxLength": 256,
       "minLength": 1,
@@ -584,6 +1014,14 @@
           "$ref": "#/definitions/ResourceIdType",
           "description": "The ID of the folder."
         },
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "List of labels on the folder."
+        },
+        "LatestVersionSize": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the latest version of the folder metadata."
+        },
         "ModifiedTimestamp": {
           "$ref": "#/definitions/TimestampType",
           "description": "The time when the folder was updated."
@@ -603,6 +1041,10 @@
         "Signature": {
           "$ref": "#/definitions/HashType",
           "description": "The unique identifier created from the subfolders and documents of the folder."
+        },
+        "Size": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the folder metadata."
         }
       },
       "type": "object",
@@ -614,6 +1056,21 @@
       },
       "type": "array",
       "title": "FolderMetadataList"
+    },
+    "GetCurrentUserRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetCurrentUserRequest"
+    },
+    "GetCurrentUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "Metadata of the user."
+        }
+      },
+      "type": "object",
+      "title": "GetCurrentUserResponse"
     },
     "GetDocumentPathRequest": {
       "properties": {},
@@ -637,9 +1094,13 @@
     },
     "GetDocumentResponse": {
       "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "The custom metadata on the document."
+        },
         "Metadata": {
           "$ref": "#/definitions/DocumentMetadata",
-          "description": "The document object."
+          "description": "The metadata details of the document."
         }
       },
       "type": "object",
@@ -652,6 +1113,10 @@
     },
     "GetDocumentVersionResponse": {
       "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "The custom metadata on the document version."
+        },
         "Metadata": {
           "$ref": "#/definitions/DocumentVersionMetadata",
           "description": "The version metadata."
@@ -682,6 +1147,10 @@
     },
     "GetFolderResponse": {
       "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "The custom metadata on the folder."
+        },
         "Metadata": {
           "$ref": "#/definitions/FolderMetadata",
           "description": "The metadata of the folder."
@@ -689,6 +1158,32 @@
       },
       "type": "object",
       "title": "GetFolderResponse"
+    },
+    "GroupMetadata": {
+      "description": "Describes the metadata of a user group.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user group."
+        },
+        "Name": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        }
+      },
+      "type": "object",
+      "title": "GroupMetadata"
+    },
+    "GroupMetadataList": {
+      "items": {
+        "$ref": "#/definitions/GroupMetadata"
+      },
+      "type": "array",
+      "title": "GroupMetadataList"
+    },
+    "GroupNameType": {
+      "type": "string",
+      "title": "GroupNameType"
     },
     "HashType": {
       "maxLength": 128,
@@ -798,8 +1293,23 @@
       "type": "object",
       "title": "InvalidOperationException"
     },
+    "Label": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string",
+      "title": "Label"
+    },
+    "Labels": {
+      "items": {
+        "$ref": "#/definitions/Label"
+      },
+      "maxItems": 20,
+      "type": "array",
+      "title": "Labels"
+    },
     "LimitExceededException": {
-      "description": "You've exceeded the maximum of 100,000 folders under the parent folder.",
+      "description": "The maximum of 100,000 folders under the parent folder has been exceeded.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessageType"
@@ -831,6 +1341,13 @@
       "type": "string",
       "title": "LocaleType"
     },
+    "MarkerType": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "[\\u0000-\\u00FF]+",
+      "type": "string",
+      "title": "MarkerType"
+    },
     "MessageType": {
       "format": "password",
       "maxLength": 2048,
@@ -858,6 +1375,21 @@
       "minLength": 1,
       "type": "string",
       "title": "PageMarkerType"
+    },
+    "Participants": {
+      "description": "Describes the users and/or user groups.",
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupMetadataList",
+          "description": "The list of user groups."
+        },
+        "Users": {
+          "$ref": "#/definitions/UserMetadataList",
+          "description": "The list of users."
+        }
+      },
+      "type": "object",
+      "title": "Participants"
     },
     "PasswordType": {
       "format": "password",
@@ -951,12 +1483,57 @@
       "type": "object",
       "title": "RemoveResourcePermissionRequest"
     },
+    "ResourceAlreadyCheckedOutException": {
+      "description": "The resource is already checked out.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "ResourceAlreadyCheckedOutException"
+    },
     "ResourceIdType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+-.@]+",
       "type": "string",
       "title": "ResourceIdType"
+    },
+    "ResourceMetadata": {
+      "description": "Describes the metadata of a resource.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the resource."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the resource."
+        },
+        "OriginalName": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The original name of the resource prior to a rename operation."
+        },
+        "Owner": {
+          "$ref": "#/definitions/UserMetadata",
+          "description": "The owner of the resource."
+        },
+        "ParentId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The parent ID of the resource before a rename operation."
+        },
+        "Type": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource."
+        },
+        "VersionId": {
+          "$ref": "#/definitions/DocumentVersionIdType",
+          "description": "The version ID of the resource. This is an optional field and is filled for action on document version."
+        }
+      },
+      "type": "object",
+      "title": "ResourceMetadata"
     },
     "ResourceNameType": {
       "maxLength": 255,
@@ -1015,6 +1592,14 @@
       ],
       "type": "string",
       "title": "ResourceStateType"
+    },
+    "ResourceType": {
+      "enum": [
+        "FOLDER",
+        "DOCUMENT"
+      ],
+      "type": "string",
+      "title": "ResourceType"
     },
     "RolePermissionType": {
       "enum": [
@@ -1245,6 +1830,16 @@
       "type": "string",
       "title": "TimestampType"
     },
+    "TooManyLabelsException": {
+      "description": "The limit has been reached on the number of labels for the specified resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object",
+      "title": "TooManyLabelsException"
+    },
     "TooManySubscriptionsException": {
       "description": "You've reached the limit on the number of subscriptions for the WorkDocs instance.",
       "properties": {
@@ -1446,6 +2041,13 @@
       "type": "object",
       "title": "User"
     },
+    "UserActivities": {
+      "items": {
+        "$ref": "#/definitions/Activity"
+      },
+      "type": "array",
+      "title": "UserActivities"
+    },
     "UserAttributeValueType": {
       "maxLength": 64,
       "minLength": 1,
@@ -1466,6 +2068,40 @@
       "pattern": "[&\\w+-.@, ]+",
       "type": "string",
       "title": "UserIdsType"
+    },
+    "UserMetadata": {
+      "description": "Describes the metadata of the user.",
+      "properties": {
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The email address of the user."
+        },
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user before a rename operation."
+        },
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The username of the user."
+        }
+      },
+      "type": "object",
+      "title": "UserMetadata"
+    },
+    "UserMetadataList": {
+      "items": {
+        "$ref": "#/definitions/UserMetadata"
+      },
+      "type": "array",
+      "title": "UserMetadataList"
     },
     "UserSortType": {
       "enum": [
@@ -1513,12 +2149,34 @@
     "UsernameType": {
       "maxLength": 256,
       "minLength": 1,
-      "pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
+      "pattern": "[\\w\\-+.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
       "type": "string",
       "title": "UsernameType"
     }
   },
   "actions": [
+    {
+      "id": "DescribeActivities",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeActivitiesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeActivitiesResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
     {
       "id": "InitiateDocumentVersionUpload",
       "title": "",
@@ -1662,6 +2320,105 @@
       }
     },
     {
+      "id": "CreateComment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DocumentId": {
+            "type": "string"
+          },
+          "VersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateCommentRequest"
+          }
+        ],
+        "required": [
+          "DocumentId",
+          "VersionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeleteComment",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DocumentId": {
+            "type": "string"
+          },
+          "VersionId": {
+            "type": "string"
+          },
+          "CommentId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteCommentRequest"
+          }
+        ],
+        "required": [
+          "DocumentId",
+          "VersionId",
+          "CommentId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeComments",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "DocumentId": {
+            "type": "string"
+          },
+          "VersionId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeCommentsRequest"
+          }
+        ],
+        "required": [
+          "DocumentId",
+          "VersionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeCommentsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
       "id": "CreateFolder",
       "title": "",
       "description": "",
@@ -1773,6 +2530,50 @@
       }
     },
     {
+      "id": "GetCurrentUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetCurrentUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetCurrentUserResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeRootFolders",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeRootFoldersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeRootFoldersResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
       "id": "DescribeNotificationSubscriptions",
       "title": "",
       "description": "",
@@ -1826,6 +2627,64 @@
         ]
       },
       "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeleteCustomMetadata",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ResourceId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteCustomMetadataRequest"
+          }
+        ],
+        "required": [
+          "ResourceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteCustomMetadataResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeleteLabels",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ResourceId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteLabelsRequest"
+          }
+        ],
+        "required": [
+          "ResourceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteLabelsResponse"
+      },
       "security": {
         "amazonaws_workdocs": {
           "integration": "amazonaws_workdocs"

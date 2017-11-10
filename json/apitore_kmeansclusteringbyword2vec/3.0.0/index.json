@@ -1,0 +1,150 @@
+{
+  "id": "apitore_kmeansclusteringbyword2vec",
+  "title": "Kmeans clustering by word2vec",
+  "description": "Kmeans clustering by word2vec.<BR />[Endpoint] https://api.apitore.com/api/48",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_kmeansclusteringbyword2vec.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "ClusterEntity": {
+      "properties": {
+        "center": {
+          "description": "center",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "words": {
+          "description": "words",
+          "items": {
+            "$ref": "#/definitions/FactorEntity"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "center",
+        "words"
+      ],
+      "type": "object",
+      "title": "ClusterEntity"
+    },
+    "ClusterResponseEntity": {
+      "properties": {
+        "clusters": {
+          "description": "Clusters",
+          "items": {
+            "$ref": "#/definitions/ClusterEntity"
+          },
+          "type": "array"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Cluster num",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "num",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "ClusterResponseEntity"
+    },
+    "ClusteringRequestEntity": {
+      "properties": {
+        "iter": {
+          "description": "iter [max 100, default 10]",
+          "format": "int32",
+          "type": "integer"
+        },
+        "num": {
+          "description": "num [max 100, default 10]",
+          "format": "int32",
+          "type": "integer"
+        },
+        "words": {
+          "description": "words [max 1000 words]",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "words"
+      ],
+      "type": "object",
+      "title": "ClusteringRequestEntity"
+    },
+    "FactorEntity": {
+      "properties": {
+        "similarity": {
+          "description": "similarity",
+          "format": "double",
+          "type": "number"
+        },
+        "word": {
+          "description": "word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "similarity",
+        "word"
+      ],
+      "type": "object",
+      "title": "FactorEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "clusterUsingPOST",
+      "title": "clusterUsingPOST",
+      "description": "kmeans clustering by word2vec.  \nResponse  \n  Github: [clustering-response](https://github.com/keigohtr/apitore-response-parent/tree/master/clustering-response)  \n  Class: com.apitore.banana.response.clustering.ClusterResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "req": {
+            "$ref": "#/definitions/ClusteringRequestEntity"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "req"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClusterResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

@@ -1,6 +1,6 @@
 # @datafire/google_bigquerydatatransfer
 
-Client library for BigQuery Data Transfer Service
+Client library for BigQuery Data Transfer
 
 ## Installation and Usage
 ```bash
@@ -17,7 +17,7 @@ let google_bigquerydatatransfer = require('@datafire/google_bigquerydatatransfer
   redirect_uri: "",
 });
 
-google_bigquerydatatransfer.projects.transferConfigs.runs.delete({}).then(data => {
+google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({}).then(data => {
   console.log(data);
 })
 ```
@@ -50,12 +50,12 @@ google_bigquerydatatransfer.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
-### projects.transferConfigs.runs.delete
+### projects.locations.transferConfigs.runs.delete
 Deletes the specified transfer run.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.runs.delete({
+google_bigquerydatatransfer.projects.locations.transferConfigs.runs.delete({
   "name": ""
 }, context)
 ```
@@ -76,12 +76,13 @@ google_bigquerydatatransfer.projects.transferConfigs.runs.delete({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.runs.get
-Returns information about the particular transfer run.
+### projects.locations.dataSources.get
+Retrieves a supported data source and returns its settings,
+which can be used for UI rendering.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.runs.get({
+google_bigquerydatatransfer.projects.locations.dataSources.get({
   "name": ""
 }, context)
 ```
@@ -102,13 +103,13 @@ google_bigquerydatatransfer.projects.transferConfigs.runs.get({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.patch
+### projects.locations.transferConfigs.patch
 Updates a data transfer configuration.
 All fields must be set, even if they are not updated.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.patch({
+google_bigquerydatatransfer.projects.locations.transferConfigs.patch({
   "name": ""
 }, context)
 ```
@@ -116,7 +117,7 @@ google_bigquerydatatransfer.projects.transferConfigs.patch({
 #### Parameters
 * authorizationCode (string) - Optional OAuth2 authorization code to use with this transfer configuration.
 * body (object) - Represents a data transfer configuration. A transfer configuration
-* name (string) **required** - The resource name of the transfer run.
+* name (string) **required** - The resource name of the transfer config.
 * updateMask (string) - Required list of fields to be updated in this request.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
@@ -132,13 +133,46 @@ google_bigquerydatatransfer.projects.transferConfigs.patch({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.dataSources.checkValidCreds
-Returns true if valid credentials exist for the given data source and
-requesting user.
+### projects.locations.list
+Lists information about the supported locations for this service.
 
 
 ```js
-google_bigquerydatatransfer.projects.dataSources.checkValidCreds({
+google_bigquerydatatransfer.projects.locations.list({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - The standard list filter.
+* name (string) **required** - The resource that owns the locations collection, if applicable.
+* pageSize (integer) - The standard list page size.
+* pageToken (string) - The standard list page token.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.locations.dataSources.checkValidCreds
+Returns true if valid credentials exist for the given data source and
+requesting user.
+Some data sources doesn't support service account, so we need to talk to
+them on behalf of the end user. This API just checks whether we have OAuth
+token for the particular user, which is a pre-requisite before user can
+create a transfer config.
+
+
+```js
+google_bigquerydatatransfer.projects.locations.dataSources.checkValidCreds({
   "name": ""
 }, context)
 ```
@@ -160,70 +194,13 @@ google_bigquerydatatransfer.projects.dataSources.checkValidCreds({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.locations.isEnabled
-Returns true if data transfer is enabled for a project.
-
-
-```js
-google_bigquerydatatransfer.projects.locations.isEnabled({
-  "name": ""
-}, context)
-```
-
-#### Parameters
-* body (object) - A request to determine whether data transfer is enabled for the project.
-* name (string) **required** - The name of the project resource in the form:
-* $.xgafv (string) - V1 error format.
-* access_token (string) - OAuth access token.
-* alt (string) - Data format for response.
-* bearer_token (string) - OAuth bearer token.
-* callback (string) - JSONP
-* fields (string) - Selector specifying which fields to include in a partial response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* pp (boolean) - Pretty-print response.
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-
-### projects.locations.setEnabled
-Enables or disables data transfer for a project. This
-method requires the additional scope of
-'https://www.googleapis.com/auth/cloudplatformprojects'
-to manage the cloud project permissions.
-
-
-```js
-google_bigquerydatatransfer.projects.locations.setEnabled({
-  "name": ""
-}, context)
-```
-
-#### Parameters
-* body (object) - A request to set whether data transfer is enabled or disabled for a project.
-* name (string) **required** - The name of the project resource in the form:
-* $.xgafv (string) - V1 error format.
-* access_token (string) - OAuth access token.
-* alt (string) - Data format for response.
-* bearer_token (string) - OAuth bearer token.
-* callback (string) - JSONP
-* fields (string) - Selector specifying which fields to include in a partial response.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* pp (boolean) - Pretty-print response.
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-
-### projects.dataSources.list
+### projects.locations.dataSources.list
 Lists supported data sources and returns their settings,
 which can be used for UI rendering.
 
 
 ```js
-google_bigquerydatatransfer.projects.dataSources.list({
+google_bigquerydatatransfer.projects.locations.dataSources.list({
   "parent": ""
 }, context)
 ```
@@ -246,12 +223,12 @@ google_bigquerydatatransfer.projects.dataSources.list({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.runs.list
+### projects.locations.transferConfigs.runs.list
 Returns information about running and completed jobs.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.runs.list({
+google_bigquerydatatransfer.projects.locations.transferConfigs.runs.list({
   "parent": ""
 }, context)
 ```
@@ -261,7 +238,7 @@ google_bigquerydatatransfer.projects.transferConfigs.runs.list({
 * pageToken (string) - Pagination token, which can be used to request a specific page
 * parent (string) **required** - Name of transfer configuration for which transfer runs should be retrieved.
 * runAttempt (string) - Indicates how run attempts are to be pulled.
-* statuses (array) - When specified, only transfer runs with requested statuses are returned.
+* states (array) - When specified, only transfer runs with requested states are returned.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -276,12 +253,12 @@ google_bigquerydatatransfer.projects.transferConfigs.runs.list({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.list
+### projects.locations.transferConfigs.list
 Returns information about all data transfers in the project.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.list({
+google_bigquerydatatransfer.projects.locations.transferConfigs.list({
   "parent": ""
 }, context)
 ```
@@ -305,12 +282,12 @@ google_bigquerydatatransfer.projects.transferConfigs.list({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.create
+### projects.locations.transferConfigs.create
 Creates a new data transfer configuration.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.create({
+google_bigquerydatatransfer.projects.locations.transferConfigs.create({
   "parent": ""
 }, context)
 ```
@@ -333,12 +310,12 @@ google_bigquerydatatransfer.projects.transferConfigs.create({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.runs.transferLogs.list
+### projects.locations.transferConfigs.runs.transferLogs.list
 Returns user facing log messages for the data transfer run.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.runs.transferLogs.list({
+google_bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs.list({
   "parent": ""
 }, context)
 ```
@@ -362,7 +339,7 @@ google_bigquerydatatransfer.projects.transferConfigs.runs.transferLogs.list({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### projects.transferConfigs.scheduleRuns
+### projects.locations.transferConfigs.scheduleRuns
 Creates transfer runs for a time range [range_start_time, range_end_time].
 For each date - or whatever granularity the data source supports - in the
 range, one transfer run is created.
@@ -370,7 +347,7 @@ Note that runs are created per UTC time in the time range.
 
 
 ```js
-google_bigquerydatatransfer.projects.transferConfigs.scheduleRuns({
+google_bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns({
   "parent": ""
 }, context)
 ```

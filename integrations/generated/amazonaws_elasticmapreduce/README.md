@@ -389,12 +389,15 @@ amazonaws_elasticmapreduce.RunJobFlow({
 * AutoScalingRole (string)
 * BootstrapActions (array)
 * Configurations (array)
+* CustomAmiId (string)
+* EbsRootVolumeSize (integer)
 * Instances (object) **required** - A description of the Amazon EC2 instance on which the cluster (job flow) runs. A valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets, which is the recommended configuration. They cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present), but we don't recommend this configuration.
 * JobFlowRole (string)
 * LogUri (string)
 * Name (string) **required**
 * NewSupportedProducts (array)
 * ReleaseLabel (string)
+* RepoUpgradeOnBoot (string)
 * ScaleDownBehavior (string)
 * SecurityConfiguration (string)
 * ServiceRole (string)

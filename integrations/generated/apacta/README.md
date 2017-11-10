@@ -325,16 +325,68 @@ apacta.clocking_records.clocking_record_id.put({
 #### Parameters
 * clocking_record_id (string) **required**
 
+### companies.get
+Get a list of companies
+
+
+```js
+apacta.companies.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### companies.company_id.get
+Details of 1 company
+
+
+```js
+apacta.companies.company_id.get({
+  "company_id": ""
+}, context)
+```
+
+#### Parameters
+* company_id (string) **required**
+
+### companies.company_id.integration_feature_settings.get
+Get a list of integration feature settings
+
+
+```js
+apacta.companies.company_id.integration_feature_settings.get({
+  "company_id": ""
+}, context)
+```
+
+#### Parameters
+* company_id (string) **required**
+
+### companies.company_id.integration_feature_settings.integration_feature_setting_id.get
+Show details of 1 integration feature setting
+
+
+```js
+apacta.companies.company_id.integration_feature_settings.integration_feature_setting_id.get({
+  "company_id": "",
+  "integration_feature_setting_id": ""
+}, context)
+```
+
+#### Parameters
+* company_id (string) **required**
+* integration_feature_setting_id (string) **required**
+
 ### contact_types.get
 Get list of contact types supported in Apacta
 
 
 ```js
-apacta.contact_types.get(null, context)
+apacta.contact_types.get({}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* identifier (string) - Search for specific identifier value
 
 ### contact_types.contact_type_id.get
 Get details about one contact type
@@ -414,6 +466,7 @@ apacta.contacts.contact_id.put({
 
 #### Parameters
 * contact_id (string) **required**
+* contact (object)
 
 ### currencies.get
 Get list of currencies supported in Apacta
@@ -854,6 +907,7 @@ apacta.invoice_lines.invoice_line_id.put({
 
 #### Parameters
 * invoice_line_id (string) **required**
+* invoice_line (object)
 
 ### invoices.get
 View list of invoices
@@ -924,6 +978,44 @@ apacta.invoices.invoice_id.put({
 
 #### Parameters
 * invoice_id (string) **required**
+* invoice (object)
+
+### mass_messages_users.get
+View list of mass messages for specific user
+
+
+```js
+apacta.mass_messages_users.get({}, context)
+```
+
+#### Parameters
+* is_read (boolean) - Used to filter on the `is_read` of the mass messages
+
+### mass_messages_users.mass_messages_user_id.get
+View mass message
+
+
+```js
+apacta.mass_messages_users.mass_messages_user_id.get({
+  "mass_messages_user_id": ""
+}, context)
+```
+
+#### Parameters
+* mass_messages_user_id (string) **required**
+
+### mass_messages_users.mass_messages_user_id.put
+Edit mass message
+
+
+```js
+apacta.mass_messages_users.mass_messages_user_id.put({
+  "mass_messages_user_id": ""
+}, context)
+```
+
+#### Parameters
+* mass_messages_user_id (string) **required**
 
 ### materials.get
 View list of all materials
@@ -1080,6 +1172,54 @@ apacta.materials.material_id.rentals.material_rental_id.put({
 * material_id (string) **required**
 * material_rental_id (string) **required**
 
+### payment_term_types.get
+Get a list of payment term types
+
+
+```js
+apacta.payment_term_types.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### payment_term_types.payment_term_type_id.get
+Details of 1 payment term type
+
+
+```js
+apacta.payment_term_types.payment_term_type_id.get({
+  "payment_term_type_id": ""
+}, context)
+```
+
+#### Parameters
+* payment_term_type_id (string) **required**
+
+### payment_terms.get
+Get a list of payment terms
+
+
+```js
+apacta.payment_terms.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### payment_terms.payment_term_id.get
+Details of 1 payment term
+
+
+```js
+apacta.payment_terms.payment_term_id.get({
+  "payment_term_id": ""
+}, context)
+```
+
+#### Parameters
+* payment_term_id (string) **required**
+
 ### ping.get
 Check if API is up and API key works
 
@@ -1188,9 +1328,14 @@ apacta.projects.get({}, context)
 
 #### Parameters
 * show_all (boolean) - Unless this is set to `true` only open projects will be shown
-* project_status (array) - ID's of `ProjectStatus(s)` only to look in
+* contact_id (string) - Used to filter on the `contact_id` of the projects
 * project_status_id (string) - Used to filter on the `project_status_id` of the projects
-* name (string) - Used to filter on the `name` of the projects
+* project_status_ids (array) - Used to filter on the `project_status_id` of the projects (match any of the provided values)
+* name (string) - Used to search on the `name` of the projects
+* erp_id (string) - Used to search on the `erp_id` of the projects
+* start_time_gte (string) - Show projects with start time after than this value
+* start_time_lte (string) - Show projects with start time before this value
+* start_time_eq (string) - Show only projects with start time on specific date
 
 ### projects.post
 Add a project
@@ -1241,6 +1386,7 @@ apacta.projects.project_id.put({
 
 #### Parameters
 * project_id (string) **required**
+* project (object)
 
 ### projects.project_id.files.get
 Used to show files uploaded to a project from wall post or form

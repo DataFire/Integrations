@@ -253,8 +253,56 @@ postmarkapp_server.searchOutboundMessages({
 * todate (string) - Filter messages up to the date specified. e.g. `2014-02-01`
 * fromdate (string) - Filter messages starting from the date specified. e.g. `2014-02-01`
 
+### searchClicksForOutboundMessages
+Clicks for a all messages
+
+
+```js
+postmarkapp_server.searchClicksForOutboundMessages({
+  "X-Postmark-Server-Token": "",
+  "count": 0,
+  "offset": 0
+}, context)
+```
+
+#### Parameters
+* X-Postmark-Server-Token (string) **required** - The token associated with the Server on which this request will operate.
+* count (integer) **required** - Number of message clicks to return per request. Max 500.
+* offset (integer) **required** - Number of messages to skip
+* recipient (string) - Filter by To, Cc, Bcc
+* tag (string) - Filter by tag
+* client_name (string) - Filter by client name, i.e. Outlook, Gmail
+* client_company (string) - Filter by company, i.e. Microsoft, Apple, Google
+* client_family (string) - Filter by client family, i.e. OS X, Chrome
+* os_name (string) - Filter by full OS name and specific version, i.e. OS X 10.9 Mavericks, Windows 7
+* os_family (string) - Filter by kind of OS used without specific version, i.e. OS X, Windows
+* os_company (string) - Filter by company which produced the OS, i.e. Apple Computer, Inc., Microsoft Corporation
+* platform (string) - Filter by platform, i.e. webmail, desktop, mobile
+* country (string) - Filter by country messages were opened in, i.e. Denmark, Russia
+* region (string) - Filter by full name of region messages were opened in, i.e. Moscow, New York
+* city (string) - Filter by full name of region messages were opened in, i.e. Moscow, New York
+
+### getClicksForSingleOutboundMessage
+Retrieve Message Clicks
+
+
+```js
+postmarkapp_server.getClicksForSingleOutboundMessage({
+  "X-Postmark-Server-Token": "",
+  "messageid": "",
+  "count": 0,
+  "offset": 0
+}, context)
+```
+
+#### Parameters
+* X-Postmark-Server-Token (string) **required** - The token associated with the Server on which this request will operate.
+* messageid (string) **required** - The ID of the Outbound Message for which click statistics should be retrieved.
+* count (integer) **required** - Number of message clicks to return per request. Max 500.
+* offset (integer) **required** - Number of messages to skip.
+
 ### searchOpensForOutboundMessages
-Opens for a single message
+Opens for all messages
 
 
 ```js

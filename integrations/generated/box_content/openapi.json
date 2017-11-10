@@ -2102,7 +2102,7 @@
         ]
       }
     },
-    "/files/{FILE_ID}/metadata/": {
+    "/files/{FILE_ID}/metadata": {
       "get": {
         "description": "Used to retrieve all metadata associated with a given file",
         "externalDocs": {
@@ -2240,7 +2240,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "An instance of the template that includes key:value pairs defined by a user or application.",
             "examples": {
               "application/json": {
@@ -3983,7 +3983,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "An instance of the template that includes key:value pairs defined by a user or application.",
             "examples": {
               "application/json": {
@@ -5585,7 +5585,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "The schema representing the metadata template created.",
             "examples": {
               "application/json": {
@@ -10271,10 +10271,10 @@
       "type": "object"
     },
     "Metadata": {
-      "additionalProperties": {
-        "type": "object"
-      },
       "description": "Metadata can be used for many purposes. Enterprises may want to have a better way to organize their digital assets for their marketing teams or developers may want to provide advanced content functionality such as facilitating workflows or approvals. Metadata is also visible in the Box Web Application. To learn more, please visit the help documentation.\nTemplates\nMetadata that belongs to a file/folder is grouped by templates. Templates allow the metadata service to provide a multitude of services, such as pre-defining sets of key:value pairs or schema enforcement on specific fields. For example, a marketingCollateral template may define where and when specific marketing content should be used. You can also see the representation of the template in the Box web application while navigating to a file preview. Currently, metadata associated with folders does not show in the web application.\nEach file/folder can have multiple distinct template instances associated with it, such as a marketingCollateral and retentionPolicy template instances. Template instances are also grouped by scopes. Currently, the only scopes support are enterprise and global. Enterprise scopes are defined on a per enterprises basis, whereas global scopes are Box application-wide. Attribute order within template instances is not guaranteed.\nCurrently, there are four attributes supported by templates: string, enum, float, and  date (RFC 3339).\n\nGlobal Properties Template\nIn addition to enterprise scoped templates, every file on Box has access to the global properties template. The Properties template is a bucket of free form key:value string pairs, with no additional schema associated with it. Properties are ideal for scenarios where applications want to write metadata to file objects in a flexible way, without pre-defined template structure.\nProperties follow all the conventions of standard templates, except for being located at a different endpoint. All requests made to the properties template must be made to /files/{file_id}/metadata/global/properties.",
+      "example": {
+        "test": "testvalue"
+      },
       "title": "Metadata Object",
       "type": "object"
     },
@@ -10317,10 +10317,6 @@
         },
         "scope": {
           "description": "The scope of the object.",
-          "enum": [
-            "enterprise",
-            "global"
-          ],
           "type": "string"
         },
         "templateKey": {
@@ -10492,7 +10488,8 @@
             "file_version_retention",
             "legal_hold_policy",
             "legal_hold_policy_assignment",
-            "legal_hold"
+            "legal_hold",
+            "upload_session"
           ],
           "type": "string"
         }
@@ -10857,6 +10854,13 @@
       "type": "object"
     },
     "UpdateMetadata": {
+      "example": [
+        {
+          "op": "replace",
+          "path": "/test",
+          "value": "changedvalue"
+        }
+      ],
       "items": {
         "properties": {
           "from": {
@@ -10893,6 +10897,15 @@
       "type": "array"
     },
     "UpdateMetadataTemplate": {
+      "example": [
+        {
+          "data": {
+            "description": "Test"
+          },
+          "fieldKey": "test",
+          "op": "editField"
+        }
+      ],
       "items": {
         "properties": {
           "data": {
@@ -10922,8 +10935,11 @@
             "enum": [
               "addEnumOption",
               "addField",
+              "editEnumOption",
               "editField",
               "editTemplate",
+              "removeEnumOption",
+              "removeField",
               "reorderEnumOptions",
               "reorderFields"
             ],

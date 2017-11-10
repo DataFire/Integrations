@@ -61,11 +61,12 @@ google_storage.buckets.list({
 ```
 
 #### Parameters
-* project (string) **required** - A valid API project identifier.
 * maxResults (integer) - Maximum number of buckets to return in a single response. The service will use this parameter or 1,000 items, whichever is smaller.
 * pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
 * prefix (string) - Filter results to buckets whose names begin with this prefix.
+* project (string) **required** - A valid API project identifier.
 * projection (string) - Set of properties to return. Defaults to noAcl.
+* userProject (string) - The project to be billed for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -85,11 +86,12 @@ google_storage.buckets.insert({
 ```
 
 #### Parameters
-* project (string) **required** - A valid API project identifier.
+* body (object) - A bucket.
 * predefinedAcl (string) - Apply a predefined set of access controls to this bucket.
 * predefinedDefaultObjectAcl (string) - Apply a predefined set of default object access controls to this bucket.
+* project (string) **required** - A valid API project identifier.
 * projection (string) - Set of properties to return. Defaults to noAcl, unless the bucket resource specifies acl or defaultObjectAcl properties, when it defaults to full.
-* body (object) - A bucket.
+* userProject (string) - The project to be billed for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -112,6 +114,7 @@ google_storage.buckets.delete({
 * bucket (string) **required** - Name of a bucket.
 * ifMetagenerationMatch (string) - If set, only deletes the bucket if its metageneration matches this value.
 * ifMetagenerationNotMatch (string) - If set, only deletes the bucket if its metageneration does not match this value.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -135,6 +138,7 @@ google_storage.buckets.get({
 * ifMetagenerationMatch (string) - Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
 * projection (string) - Set of properties to return. Defaults to noAcl.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -154,13 +158,14 @@ google_storage.buckets.patch({
 ```
 
 #### Parameters
+* body (object) - A bucket.
 * bucket (string) **required** - Name of a bucket.
 * ifMetagenerationMatch (string) - Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
 * predefinedAcl (string) - Apply a predefined set of access controls to this bucket.
 * predefinedDefaultObjectAcl (string) - Apply a predefined set of default object access controls to this bucket.
 * projection (string) - Set of properties to return. Defaults to full.
-* body (object) - A bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -180,13 +185,14 @@ google_storage.buckets.update({
 ```
 
 #### Parameters
+* body (object) - A bucket.
 * bucket (string) **required** - Name of a bucket.
 * ifMetagenerationMatch (string) - Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
 * predefinedAcl (string) - Apply a predefined set of access controls to this bucket.
 * predefinedDefaultObjectAcl (string) - Apply a predefined set of default object access controls to this bucket.
 * projection (string) - Set of properties to return. Defaults to full.
-* body (object) - A bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -207,6 +213,7 @@ google_storage.bucketAccessControls.list({
 
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -226,8 +233,9 @@ google_storage.bucketAccessControls.insert({
 ```
 
 #### Parameters
-* bucket (string) **required** - Name of a bucket.
 * body (object) - An access-control entry.
+* bucket (string) **required** - Name of a bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -250,6 +258,7 @@ google_storage.bucketAccessControls.delete({
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -272,6 +281,7 @@ google_storage.bucketAccessControls.get({
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -292,9 +302,10 @@ google_storage.bucketAccessControls.patch({
 ```
 
 #### Parameters
+* body (object) - An access-control entry.
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
-* body (object) - An access-control entry.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -315,9 +326,10 @@ google_storage.bucketAccessControls.update({
 ```
 
 #### Parameters
+* body (object) - An access-control entry.
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
-* body (object) - An access-control entry.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -340,6 +352,7 @@ google_storage.defaultObjectAccessControls.list({
 * bucket (string) **required** - Name of a bucket.
 * ifMetagenerationMatch (string) - If present, only return default ACL listing if the bucket's current metageneration matches this value.
 * ifMetagenerationNotMatch (string) - If present, only return default ACL listing if the bucket's current metageneration does not match the given value.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -359,8 +372,9 @@ google_storage.defaultObjectAccessControls.insert({
 ```
 
 #### Parameters
-* bucket (string) **required** - Name of a bucket.
 * body (object) - An access-control entry.
+* bucket (string) **required** - Name of a bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -383,6 +397,7 @@ google_storage.defaultObjectAccessControls.delete({
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -405,6 +420,7 @@ google_storage.defaultObjectAccessControls.get({
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -425,9 +441,10 @@ google_storage.defaultObjectAccessControls.patch({
 ```
 
 #### Parameters
+* body (object) - An access-control entry.
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
-* body (object) - An access-control entry.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -448,9 +465,10 @@ google_storage.defaultObjectAccessControls.update({
 ```
 
 #### Parameters
+* body (object) - An access-control entry.
 * bucket (string) **required** - Name of a bucket.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
-* body (object) - An access-control entry.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -471,6 +489,7 @@ google_storage.buckets.getIamPolicy({
 
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -490,8 +509,9 @@ google_storage.buckets.setIamPolicy({
 ```
 
 #### Parameters
-* bucket (string) **required** - Name of a bucket.
 * body (object) - A bucket/object IAM policy.
+* bucket (string) **required** - Name of a bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -514,6 +534,7 @@ google_storage.buckets.testIamPermissions({
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
 * permissions (array) **required** - Permissions to test.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -533,7 +554,8 @@ google_storage.notifications.list({
 ```
 
 #### Parameters
-* bucket (string) **required** - Name of a GCS bucket.
+* bucket (string) **required** - Name of a Google Cloud Storage bucket.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -555,6 +577,7 @@ google_storage.notifications.insert({
 #### Parameters
 * body (object) - A subscription to receive Google PubSub notifications.
 * bucket (string) **required** - The parent bucket of the notification.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -577,6 +600,7 @@ google_storage.notifications.delete({
 #### Parameters
 * bucket (string) **required** - The parent bucket of the notification.
 * notification (string) **required** - ID of the notification to delete.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -599,6 +623,7 @@ google_storage.notifications.get({
 #### Parameters
 * bucket (string) **required** - The parent bucket of the notification.
 * notification (string) **required** - Notification ID
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -624,6 +649,7 @@ google_storage.objects.list({
 * pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
 * prefix (string) - Filter results to objects whose names begin with this prefix.
 * projection (string) - Set of properties to return. Defaults to noAcl.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * versions (boolean) - If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -644,16 +670,18 @@ google_storage.objects.insert({
 ```
 
 #### Parameters
+* body (object) - An object.
 * bucket (string) **required** - Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
 * contentEncoding (string) - If set, sets the contentEncoding property of the final object to this value. Setting this parameter is equivalent to setting the contentEncoding metadata property. This can be useful when uploading an object with uploadType=media to indicate the encoding of the content being uploaded.
-* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the object's current metageneration does not match the given value.
+* kmsKeyName (string) - Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
 * name (string) - Name of the object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * predefinedAcl (string) - Apply a predefined set of access controls to this object.
 * projection (string) - Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
-* body (object) - An object.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -679,8 +707,9 @@ google_storage.objects.watchAll({
 * pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
 * prefix (string) - Filter results to objects whose names begin with this prefix.
 * projection (string) - Set of properties to return. Defaults to noAcl.
-* versions (boolean) - If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
 * resource (object) - An notification channel used to watch for resource changes.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
+* versions (boolean) - If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -702,12 +731,13 @@ google_storage.objects.delete({
 
 #### Parameters
 * bucket (string) **required** - Name of the bucket in which the object resides.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * generation (string) - If present, permanently deletes a specific revision of this object (as opposed to the latest version, the default).
-* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the object's current metageneration does not match the given value.
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -729,13 +759,14 @@ google_storage.objects.get({
 
 #### Parameters
 * bucket (string) **required** - Name of the bucket in which the object resides.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
-* ifGenerationMatch (string) - Makes the operation conditional on whether the object's generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the object's current metageneration does not match the given value.
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * projection (string) - Set of properties to return. Defaults to noAcl.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -756,16 +787,17 @@ google_storage.objects.patch({
 ```
 
 #### Parameters
+* body (object) - An object.
 * bucket (string) **required** - Name of the bucket in which the object resides.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
-* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the object's current metageneration does not match the given value.
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * predefinedAcl (string) - Apply a predefined set of access controls to this object.
 * projection (string) - Set of properties to return. Defaults to full.
-* body (object) - An object.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -786,16 +818,17 @@ google_storage.objects.update({
 ```
 
 #### Parameters
+* body (object) - An object.
 * bucket (string) **required** - Name of the bucket in which the object resides.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
-* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the object's current metageneration does not match the given value.
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * predefinedAcl (string) - Apply a predefined set of access controls to this object.
 * projection (string) - Set of properties to return. Defaults to full.
-* body (object) - An object.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -817,8 +850,9 @@ google_storage.objectAccessControls.list({
 
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -839,10 +873,11 @@ google_storage.objectAccessControls.insert({
 ```
 
 #### Parameters
-* bucket (string) **required** - Name of a bucket.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
-* generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
 * body (object) - An access-control entry.
+* bucket (string) **required** - Name of a bucket.
+* generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -858,16 +893,17 @@ Permanently deletes the ACL entry for the specified entity on the specified obje
 ```js
 google_storage.objectAccessControls.delete({
   "bucket": "",
-  "object": "",
-  "entity": ""
+  "entity": "",
+  "object": ""
 }, context)
 ```
 
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -883,16 +919,17 @@ Returns the ACL entry for the specified entity on the specified object.
 ```js
 google_storage.objectAccessControls.get({
   "bucket": "",
-  "object": "",
-  "entity": ""
+  "entity": "",
+  "object": ""
 }, context)
 ```
 
 #### Parameters
 * bucket (string) **required** - Name of a bucket.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -908,17 +945,18 @@ Updates an ACL entry on the specified object. This method supports patch semanti
 ```js
 google_storage.objectAccessControls.patch({
   "bucket": "",
-  "object": "",
-  "entity": ""
+  "entity": "",
+  "object": ""
 }, context)
 ```
 
 #### Parameters
+* body (object) - An access-control entry.
 * bucket (string) **required** - Name of a bucket.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
-* body (object) - An access-control entry.
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -934,17 +972,18 @@ Updates an ACL entry on the specified object.
 ```js
 google_storage.objectAccessControls.update({
   "bucket": "",
-  "object": "",
-  "entity": ""
+  "entity": "",
+  "object": ""
 }, context)
 ```
 
 #### Parameters
+* body (object) - An access-control entry.
 * bucket (string) **required** - Name of a bucket.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * entity (string) **required** - The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
-* body (object) - An access-control entry.
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -966,8 +1005,9 @@ google_storage.objects.getIamPolicy({
 
 #### Parameters
 * bucket (string) **required** - Name of the bucket in which the object resides.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -988,10 +1028,11 @@ google_storage.objects.setIamPolicy({
 ```
 
 #### Parameters
-* bucket (string) **required** - Name of the bucket in which the object resides.
-* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
-* generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
 * body (object) - A bucket/object IAM policy.
+* bucket (string) **required** - Name of the bucket in which the object resides.
+* generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1014,9 +1055,10 @@ google_storage.objects.testIamPermissions({
 
 #### Parameters
 * bucket (string) **required** - Name of the bucket in which the object resides.
+* generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
 * object (string) **required** - Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * permissions (array) **required** - Permissions to test.
-* generation (string) - If present, selects a specific revision of this object (as opposed to the latest version, the default).
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1037,12 +1079,14 @@ google_storage.objects.compose({
 ```
 
 #### Parameters
+* body (object) - A Compose request.
 * destinationBucket (string) **required** - Name of the bucket in which to store the new object.
 * destinationObject (string) **required** - Name of the new object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * destinationPredefinedAcl (string) - Apply a predefined set of access controls to the destination object.
-* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the object's current metageneration matches the given value.
-* body (object) - A Compose request.
+* kmsKeyName (string) - Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1057,30 +1101,31 @@ Copies a source object to a destination object. Optionally overrides metadata.
 
 ```js
 google_storage.objects.copy({
-  "sourceBucket": "",
-  "sourceObject": "",
   "destinationBucket": "",
-  "destinationObject": ""
+  "destinationObject": "",
+  "sourceBucket": "",
+  "sourceObject": ""
 }, context)
 ```
 
 #### Parameters
-* sourceBucket (string) **required** - Name of the bucket in which to find the source object.
-* sourceObject (string) **required** - Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* body (object) - An object.
 * destinationBucket (string) **required** - Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * destinationObject (string) **required** - Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any.
 * destinationPredefinedAcl (string) - Apply a predefined set of access controls to the destination object.
-* ifGenerationMatch (string) - Makes the operation conditional on whether the destination object's current generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the destination object's current generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the destination object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the destination object's current metageneration does not match the given value.
-* ifSourceGenerationMatch (string) - Makes the operation conditional on whether the source object's generation matches the given value.
-* ifSourceGenerationNotMatch (string) - Makes the operation conditional on whether the source object's generation does not match the given value.
+* ifSourceGenerationMatch (string) - Makes the operation conditional on whether the source object's current generation matches the given value.
+* ifSourceGenerationNotMatch (string) - Makes the operation conditional on whether the source object's current generation does not match the given value.
 * ifSourceMetagenerationMatch (string) - Makes the operation conditional on whether the source object's current metageneration matches the given value.
 * ifSourceMetagenerationNotMatch (string) - Makes the operation conditional on whether the source object's current metageneration does not match the given value.
 * projection (string) - Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
+* sourceBucket (string) **required** - Name of the bucket in which to find the source object.
 * sourceGeneration (string) - If present, selects a specific revision of the source object (as opposed to the latest version, the default).
-* body (object) - An object.
+* sourceObject (string) **required** - Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1095,32 +1140,34 @@ Rewrites a source object to a destination object. Optionally overrides metadata.
 
 ```js
 google_storage.objects.rewrite({
-  "sourceBucket": "",
-  "sourceObject": "",
   "destinationBucket": "",
-  "destinationObject": ""
+  "destinationObject": "",
+  "sourceBucket": "",
+  "sourceObject": ""
 }, context)
 ```
 
 #### Parameters
-* sourceBucket (string) **required** - Name of the bucket in which to find the source object.
-* sourceObject (string) **required** - Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* body (object) - An object.
 * destinationBucket (string) **required** - Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.
+* destinationKmsKeyName (string) - Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.
 * destinationObject (string) **required** - Name of the new object. Required when the object metadata is not otherwise provided. Overrides the object metadata's name value, if any. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
 * destinationPredefinedAcl (string) - Apply a predefined set of access controls to the destination object.
-* ifGenerationMatch (string) - Makes the operation conditional on whether the destination object's current generation matches the given value.
-* ifGenerationNotMatch (string) - Makes the operation conditional on whether the destination object's current generation does not match the given value.
+* ifGenerationMatch (string) - Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+* ifGenerationNotMatch (string) - Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 * ifMetagenerationMatch (string) - Makes the operation conditional on whether the destination object's current metageneration matches the given value.
 * ifMetagenerationNotMatch (string) - Makes the operation conditional on whether the destination object's current metageneration does not match the given value.
-* ifSourceGenerationMatch (string) - Makes the operation conditional on whether the source object's generation matches the given value.
-* ifSourceGenerationNotMatch (string) - Makes the operation conditional on whether the source object's generation does not match the given value.
+* ifSourceGenerationMatch (string) - Makes the operation conditional on whether the source object's current generation matches the given value.
+* ifSourceGenerationNotMatch (string) - Makes the operation conditional on whether the source object's current generation does not match the given value.
 * ifSourceMetagenerationMatch (string) - Makes the operation conditional on whether the source object's current metageneration matches the given value.
 * ifSourceMetagenerationNotMatch (string) - Makes the operation conditional on whether the source object's current metageneration does not match the given value.
 * maxBytesRewrittenPerCall (string) - The maximum number of bytes that will be rewritten per rewrite request. Most callers shouldn't need to specify this parameter - it is primarily in place to support testing. If specified the value must be an integral multiple of 1 MiB (1048576). Also, this only applies to requests where the source and destination span locations and/or storage classes. Finally, this value must not change across rewrite calls else you'll get an error that the rewriteToken is invalid.
 * projection (string) - Set of properties to return. Defaults to noAcl, unless the object resource specifies the acl property, when it defaults to full.
 * rewriteToken (string) - Include this field (from the previous rewrite response) on each rewrite request after the first one, until the rewrite response 'done' flag is true. Calls that provide a rewriteToken can omit all other request fields, but if included those fields must match the values provided in the first rewrite request.
+* sourceBucket (string) **required** - Name of the bucket in which to find the source object.
 * sourceGeneration (string) - If present, selects a specific revision of the source object (as opposed to the latest version, the default).
-* body (object) - An object.
+* sourceObject (string) **required** - Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.
+* userProject (string) - The project to be billed for this request. Required for Requester Pays buckets.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1148,7 +1195,7 @@ google_storage.channels.stop({}, context)
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### projects.serviceAccount.get
-Get the email address of this project's GCS service account.
+Get the email address of this project's Google Cloud Storage service account.
 
 
 ```js
@@ -1159,6 +1206,7 @@ google_storage.projects.serviceAccount.get({
 
 #### Parameters
 * projectId (string) **required** - Project ID
+* userProject (string) - The project to be billed for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

@@ -50,6 +50,30 @@ google_firebasedynamiclinks.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
+### installAttribution
+Get iOS strong/weak-match info for post-install attribution.
+
+
+```js
+google_firebasedynamiclinks.installAttribution({}, context)
+```
+
+#### Parameters
+* body (object) - Request for iSDK to execute strong match flow for post-install attribution.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### shortLinks.create
 Creates a short Dynamic Link given either a valid long Dynamic Link or
 details such as Dynamic Link domain, Android and iOS app information.
@@ -81,4 +105,33 @@ google_firebasedynamiclinks.shortLinks.create({}, context)
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
+
+### getLinkStats
+Fetches analytics stats of a short Dynamic Link for a given
+duration. Metrics include number of clicks, redirects, installs,
+app first opens, and app reopens.
+
+
+```js
+google_firebasedynamiclinks.getLinkStats({
+  "dynamicLink": ""
+}, context)
+```
+
+#### Parameters
+* durationDays (string) - The span of time requested in days.
+* dynamicLink (string) **required** - Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

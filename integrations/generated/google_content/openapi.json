@@ -31,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/content/v2/rest",
@@ -547,7 +547,7 @@
         }
       ],
       "post": {
-        "description": "Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products. This method can only be called for non-multi-client accounts.",
+        "description": "Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products.",
         "operationId": "inventory.custombatch",
         "parameters": [
           {
@@ -612,7 +612,7 @@
         }
       ],
       "post": {
-        "description": "Retrieves or modifies multiple orders in a single request. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves or modifies multiple orders in a single request.",
         "operationId": "orders.custombatch",
         "parameters": [
           {
@@ -671,7 +671,7 @@
         }
       ],
       "post": {
-        "description": "Retrieves, inserts, and deletes multiple products in a single request. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves, inserts, and deletes multiple products in a single request.",
         "operationId": "products.custombatch",
         "parameters": [
           {
@@ -736,7 +736,7 @@
         }
       ],
       "post": {
-        "description": "Gets the statuses of multiple products in a single request. This method can only be called for non-multi-client accounts.",
+        "description": "Gets the statuses of multiple products in a single request.",
         "operationId": "productstatuses.custombatch",
         "parameters": [
           {
@@ -745,6 +745,12 @@
             "schema": {
               "$ref": "#/definitions/ProductstatusesCustomBatchRequest"
             }
+          },
+          {
+            "description": "Flag to include full product data in the results of this request. The default value is false.",
+            "in": "query",
+            "name": "includeAttributes",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -837,21 +843,21 @@
     },
     "/{merchantId}/accounts": {
       "get": {
-        "description": "Lists the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.",
+        "description": "Lists the sub-accounts in your Merchant Center account.",
         "operationId": "accounts.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The maximum number of accounts to return in the response, used for paging.",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -906,15 +912,15 @@
         }
       ],
       "post": {
-        "description": "Creates a Merchant Center sub-account. This method can only be called for multi-client accounts.",
+        "description": "Creates a Merchant Center sub-account.",
         "operationId": "accounts.insert",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
           },
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -923,11 +929,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -955,16 +961,9 @@
     },
     "/{merchantId}/accounts/{accountId}": {
       "delete": {
-        "description": "Deletes a Merchant Center sub-account. This method can only be called for multi-client accounts.",
+        "description": "Deletes a Merchant Center sub-account.",
         "operationId": "accounts.delete",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account.",
             "in": "path",
@@ -977,6 +976,20 @@
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
+          },
+          {
+            "default": false,
+            "description": "Flag to delete sub-accounts with products. The default value is false.",
+            "in": "query",
+            "name": "force",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -999,20 +1012,20 @@
         ]
       },
       "get": {
-        "description": "Retrieves a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Retrieves a Merchant Center account.",
         "operationId": "accounts.get",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account.",
             "in": "path",
             "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
             "required": true,
             "type": "string"
           }
@@ -1063,16 +1076,9 @@
         }
       ],
       "patch": {
-        "description": "Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.",
+        "description": "Updates a Merchant Center account. This method supports patch semantics.",
         "operationId": "accounts.patch",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account.",
             "in": "path",
@@ -1081,17 +1087,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          {
             "description": "Flag to run the request in dry-run mode.",
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1117,16 +1130,9 @@
         ]
       },
       "put": {
-        "description": "Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Updates a Merchant Center account.",
         "operationId": "accounts.update",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account.",
             "in": "path",
@@ -1135,17 +1141,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          {
             "description": "Flag to run the request in dry-run mode.",
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1171,23 +1184,95 @@
         ]
       }
     },
-    "/{merchantId}/accountstatuses": {
-      "get": {
-        "description": "Lists the statuses of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.",
-        "operationId": "accountstatuses.list",
+    "/{merchantId}/accounts/{accountId}/claimwebsite": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "post": {
+        "description": "Claims the website of a Merchant Center sub-account.",
+        "operationId": "accounts.claimwebsite",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "The ID of the account whose website is claimed.",
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
             "in": "path",
             "name": "merchantId",
             "required": true,
             "type": "string"
           },
           {
+            "description": "Only available to selected merchants. When set to True, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.",
+            "in": "query",
+            "name": "overwrite",
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AccountsClaimWebsiteResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/content"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/content"
+            ]
+          }
+        ],
+        "tags": [
+          "accounts"
+        ]
+      }
+    },
+    "/{merchantId}/accountstatuses": {
+      "get": {
+        "description": "Lists the statuses of the sub-accounts in your Merchant Center account.",
+        "operationId": "accountstatuses.list",
+        "parameters": [
+          {
             "description": "The maximum number of account statuses to return in the response, used for paging.",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -1244,20 +1329,20 @@
     },
     "/{merchantId}/accountstatuses/{accountId}": {
       "get": {
-        "description": "Retrieves the status of a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Retrieves the status of a Merchant Center account.",
         "operationId": "accountstatuses.get",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account.",
             "in": "path",
             "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
             "required": true,
             "type": "string"
           }
@@ -1310,21 +1395,21 @@
     },
     "/{merchantId}/accounttax": {
       "get": {
-        "description": "Lists the tax settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.",
+        "description": "Lists the tax settings of the sub-accounts in your Merchant Center account.",
         "operationId": "accounttax.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The maximum number of tax settings to return in the response, used for paging.",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -1381,20 +1466,20 @@
     },
     "/{merchantId}/accounttax/{accountId}": {
       "get": {
-        "description": "Retrieves the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Retrieves the tax settings of the account.",
         "operationId": "accounttax.get",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account for which to get/update account tax settings.",
             "in": "path",
             "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
             "required": true,
             "type": "string"
           }
@@ -1445,16 +1530,9 @@
         }
       ],
       "patch": {
-        "description": "Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.",
+        "description": "Updates the tax settings of the account. This method supports patch semantics.",
         "operationId": "accounttax.patch",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account for which to get/update account tax settings.",
             "in": "path",
@@ -1463,17 +1541,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AccountTax"
+            }
+          },
+          {
             "description": "Flag to run the request in dry-run mode.",
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AccountTax"
-            }
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1499,16 +1584,9 @@
         ]
       },
       "put": {
-        "description": "Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Updates the tax settings of the account.",
         "operationId": "accounttax.update",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account for which to get/update account tax settings.",
             "in": "path",
@@ -1517,17 +1595,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AccountTax"
+            }
+          },
+          {
             "description": "Flag to run the request in dry-run mode.",
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AccountTax"
-            }
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1555,21 +1640,21 @@
     },
     "/{merchantId}/datafeeds": {
       "get": {
-        "description": "Lists the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Lists the datafeeds in your Merchant Center account.",
         "operationId": "datafeeds.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The maximum number of products to return in the response, used for paging.",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the account that manages the datafeeds. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -1624,14 +1709,15 @@
         }
       ],
       "post": {
-        "description": "Registers a datafeed with your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Registers a datafeed configuration with your Merchant Center account.",
         "operationId": "datafeeds.insert",
         "parameters": [
           {
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Datafeed"
+            }
           },
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -1640,11 +1726,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Datafeed"
-            }
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1672,16 +1758,11 @@
     },
     "/{merchantId}/datafeeds/{datafeedId}": {
       "delete": {
-        "description": "Deletes a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Deletes a datafeed configuration from your Merchant Center account.",
         "operationId": "datafeeds.delete",
         "parameters": [
           {
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
-          {
+            "description": "The ID of the datafeed.",
             "in": "path",
             "name": "datafeedId",
             "required": true,
@@ -1692,6 +1773,13 @@
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
+          },
+          {
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1714,18 +1802,20 @@
         ]
       },
       "get": {
-        "description": "Retrieves a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves a datafeed configuration from your Merchant Center account.",
         "operationId": "datafeeds.get",
         "parameters": [
           {
+            "description": "The ID of the datafeed.",
             "in": "path",
-            "name": "merchantId",
+            "name": "datafeedId",
             "required": true,
             "type": "string"
           },
           {
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
             "in": "path",
-            "name": "datafeedId",
+            "name": "merchantId",
             "required": true,
             "type": "string"
           }
@@ -1776,16 +1866,18 @@
         }
       ],
       "patch": {
-        "description": "Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts. This method supports patch semantics.",
+        "description": "Updates a datafeed configuration of your Merchant Center account. This method supports patch semantics.",
         "operationId": "datafeeds.patch",
         "parameters": [
           {
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Datafeed"
+            }
           },
           {
+            "description": "The ID of the datafeed.",
             "in": "path",
             "name": "datafeedId",
             "required": true,
@@ -1798,11 +1890,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Datafeed"
-            }
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1828,16 +1920,18 @@
         ]
       },
       "put": {
-        "description": "Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Updates a datafeed configuration of your Merchant Center account.",
         "operationId": "datafeeds.update",
         "parameters": [
           {
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Datafeed"
+            }
           },
           {
+            "description": "The ID of the datafeed.",
             "in": "path",
             "name": "datafeedId",
             "required": true,
@@ -1850,11 +1944,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Datafeed"
-            }
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1882,21 +1976,21 @@
     },
     "/{merchantId}/datafeedstatuses": {
       "get": {
-        "description": "Lists the statuses of the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Lists the statuses of the datafeeds in your Merchant Center account.",
         "operationId": "datafeedstatuses.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The maximum number of products to return in the response, used for paging.",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the account that manages the datafeeds. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -1953,18 +2047,32 @@
     },
     "/{merchantId}/datafeedstatuses/{datafeedId}": {
       "get": {
-        "description": "Retrieves the status of a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves the status of a datafeed from your Merchant Center account.",
         "operationId": "datafeedstatuses.get",
         "parameters": [
           {
+            "description": "The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that this parameter is required for feeds targeting multiple countries and languages, since a feed may have a different status for each target.",
+            "in": "query",
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the datafeed.",
             "in": "path",
-            "name": "merchantId",
+            "name": "datafeedId",
             "required": true,
             "type": "string"
           },
           {
+            "description": "The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that this parameter is required for feeds targeting multiple countries and languages, since a feed may have a different status for each target.",
+            "in": "query",
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "description": "The ID of the account that manages the datafeed. This account cannot be a multi-client account.",
             "in": "path",
-            "name": "datafeedId",
+            "name": "merchantId",
             "required": true,
             "type": "string"
           }
@@ -2040,13 +2148,33 @@
         }
       ],
       "post": {
-        "description": "Updates price and availability of a product in your Merchant Center account. This operation does not update the expiration date of the product. This method can only be called for non-multi-client accounts.",
+        "description": "Updates price and availability of a product in your Merchant Center account.",
         "operationId": "inventory.set",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/InventorySetRequest"
+            }
+          },
+          {
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the account that contains the product. This account cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The REST id of the product for which to update price and availability.",
+            "in": "path",
+            "name": "productId",
             "required": true,
             "type": "string"
           },
@@ -2056,26 +2184,6 @@
             "name": "storeCode",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "The ID of the product for which to update price and availability.",
-            "in": "path",
-            "name": "productId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Flag to run the request in dry-run mode.",
-            "in": "query",
-            "name": "dryRun",
-            "type": "boolean"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/InventorySetRequest"
-            }
           }
         ],
         "responses": {
@@ -2103,16 +2211,9 @@
     },
     "/{merchantId}/orders": {
       "get": {
-        "description": "Lists the orders in your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Lists the orders in your Merchant Center account.",
         "operationId": "orders.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged.\nWe recommend using this filter set to false, in conjunction with the acknowledge call, such that only un-acknowledged orders are returned.",
             "in": "query",
@@ -2124,6 +2225,13 @@
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The ordering of the returned list. The only supported value are placedDate desc and placedDate asc for now, which returns orders sorted by placement date. \"placedDate desc\" stands for listing orders by placement date, from oldest to most recent. \"placedDate asc\" stands for listing orders by placement date, from most recent to oldest. In future releases we'll support other sorting criteria.",
@@ -2225,11 +2333,11 @@
     },
     "/{merchantId}/orders/{orderId}": {
       "get": {
-        "description": "Retrieves an order from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves an order from your Merchant Center account.",
         "operationId": "orders.get",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2314,11 +2422,18 @@
         }
       ],
       "post": {
-        "description": "Marks an order as acknowledged. This method can only be called for non-multi-client accounts.",
+        "description": "Marks an order as acknowledged.",
         "operationId": "orders.acknowledge",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersAcknowledgeRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2330,13 +2445,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersAcknowledgeRequest"
-            }
           }
         ],
         "responses": {
@@ -2387,11 +2495,18 @@
         }
       ],
       "post": {
-        "description": "Cancels all line items in an order, making a full refund. This method can only be called for non-multi-client accounts.",
+        "description": "Cancels all line items in an order, making a full refund.",
         "operationId": "orders.cancel",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersCancelRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2403,13 +2518,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersCancelRequest"
-            }
           }
         ],
         "responses": {
@@ -2460,11 +2568,18 @@
         }
       ],
       "post": {
-        "description": "Cancels a line item, making a full refund. This method can only be called for non-multi-client accounts.",
+        "description": "Cancels a line item, making a full refund.",
         "operationId": "orders.cancellineitem",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersCancelLineItemRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2476,13 +2591,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersCancelLineItemRequest"
-            }
           }
         ],
         "responses": {
@@ -2533,11 +2641,18 @@
         }
       ],
       "post": {
-        "description": "Refund a portion of the order, up to the full amount paid. This method can only be called for non-multi-client accounts.",
+        "description": "Refund a portion of the order, up to the full amount paid.",
         "operationId": "orders.refund",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersRefundRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2549,13 +2664,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersRefundRequest"
-            }
           }
         ],
         "responses": {
@@ -2606,11 +2714,18 @@
         }
       ],
       "post": {
-        "description": "Returns a line item. This method can only be called for non-multi-client accounts.",
+        "description": "Returns a line item.",
         "operationId": "orders.returnlineitem",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersReturnLineItemRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2622,13 +2737,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersReturnLineItemRequest"
-            }
           }
         ],
         "responses": {
@@ -2679,11 +2787,18 @@
         }
       ],
       "post": {
-        "description": "Marks line item(s) as shipped. This method can only be called for non-multi-client accounts.",
+        "description": "Marks line item(s) as shipped.",
         "operationId": "orders.shiplineitems",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersShipLineItemsRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2695,13 +2810,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersShipLineItemsRequest"
-            }
           }
         ],
         "responses": {
@@ -2752,11 +2860,18 @@
         }
       ],
       "post": {
-        "description": "Updates the merchant order ID for a given order. This method can only be called for non-multi-client accounts.",
+        "description": "Updates the merchant order ID for a given order.",
         "operationId": "orders.updatemerchantorderid",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersUpdateMerchantOrderIdRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2768,13 +2883,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersUpdateMerchantOrderIdRequest"
-            }
           }
         ],
         "responses": {
@@ -2825,11 +2933,18 @@
         }
       ],
       "post": {
-        "description": "Updates a shipment's status, carrier, and/or tracking ID. This method can only be called for non-multi-client accounts.",
+        "description": "Updates a shipment's status, carrier, and/or tracking ID.",
         "operationId": "orders.updateshipment",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/OrdersUpdateShipmentRequest"
+            }
+          },
+          {
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2841,13 +2956,6 @@
             "name": "orderId",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/OrdersUpdateShipmentRequest"
-            }
           }
         ],
         "responses": {
@@ -2875,11 +2983,11 @@
     },
     "/{merchantId}/ordersbymerchantid/{merchantOrderId}": {
       "get": {
-        "description": "Retrieves an order using merchant order id. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves an order using merchant order id.",
         "operationId": "orders.getbymerchantorderid",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -2941,16 +3049,9 @@
     },
     "/{merchantId}/products": {
       "get": {
-        "description": "Lists the products in your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Lists the products in your Merchant Center account.",
         "operationId": "products.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).",
             "in": "query",
@@ -2962,6 +3063,13 @@
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the account that contains the products. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -3016,15 +3124,15 @@
         }
       ],
       "post": {
-        "description": "Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry. This method can only be called for non-multi-client accounts.",
+        "description": "Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry.",
         "operationId": "products.insert",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
           },
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -3033,11 +3141,11 @@
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Product"
-            }
+            "description": "The ID of the account that contains the product. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3065,28 +3173,28 @@
     },
     "/{merchantId}/products/{productId}": {
       "delete": {
-        "description": "Deletes a product from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Deletes a product from your Merchant Center account.",
         "operationId": "products.delete",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "Flag to run the request in dry-run mode.",
+            "in": "query",
+            "name": "dryRun",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the account that contains the product. This account cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the product.",
+            "description": "The REST id of the product.",
             "in": "path",
             "name": "productId",
             "required": true,
             "type": "string"
-          },
-          {
-            "description": "Flag to run the request in dry-run mode.",
-            "in": "query",
-            "name": "dryRun",
-            "type": "boolean"
           }
         ],
         "responses": {
@@ -3109,18 +3217,18 @@
         ]
       },
       "get": {
-        "description": "Retrieves a product from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Retrieves a product from your Merchant Center account.",
         "operationId": "products.get",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "The ID of the account that contains the product. This account cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the product.",
+            "description": "The REST id of the product.",
             "in": "path",
             "name": "productId",
             "required": true,
@@ -3175,15 +3283,14 @@
     },
     "/{merchantId}/productstatuses": {
       "get": {
-        "description": "Lists the statuses of the products in your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Lists the statuses of the products in your Merchant Center account.",
         "operationId": "productstatuses.list",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
+            "description": "Flag to include full product data in the results of the list request. The default value is false.",
+            "in": "query",
+            "name": "includeAttributes",
+            "type": "boolean"
           },
           {
             "description": "Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).",
@@ -3196,6 +3303,13 @@
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the account that contains the products. This account cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -3252,18 +3366,24 @@
     },
     "/{merchantId}/productstatuses/{productId}": {
       "get": {
-        "description": "Gets the status of a product from your Merchant Center account. This method can only be called for non-multi-client accounts.",
+        "description": "Gets the status of a product from your Merchant Center account.",
         "operationId": "productstatuses.get",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "Flag to include full product data in the result of this get request. The default value is false.",
+            "in": "query",
+            "name": "includeAttributes",
+            "type": "boolean"
+          },
+          {
+            "description": "The ID of the account that contains the product. This account cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The ID of the product.",
+            "description": "The REST id of the product.",
             "in": "path",
             "name": "productId",
             "required": true,
@@ -3318,21 +3438,21 @@
     },
     "/{merchantId}/shippingsettings": {
       "get": {
-        "description": "Lists the shipping settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.",
+        "description": "Lists the shipping settings of the sub-accounts in your Merchant Center account.",
         "operationId": "shippingsettings.list",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The maximum number of shipping settings to return in the response, used for paging.",
             "in": "query",
             "name": "maxResults",
             "type": "integer"
+          },
+          {
+            "description": "The ID of the managing account. This must be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "The token returned by the previous request.",
@@ -3389,20 +3509,20 @@
     },
     "/{merchantId}/shippingsettings/{accountId}": {
       "get": {
-        "description": "Retrieves the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Retrieves the shipping settings of the account.",
         "operationId": "shippingsettings.get",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account for which to get/update shipping settings.",
             "in": "path",
             "name": "accountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
             "required": true,
             "type": "string"
           }
@@ -3453,16 +3573,9 @@
         }
       ],
       "patch": {
-        "description": "Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.",
+        "description": "Updates the shipping settings of the account. This method supports patch semantics.",
         "operationId": "shippingsettings.patch",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account for which to get/update shipping settings.",
             "in": "path",
@@ -3471,17 +3584,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ShippingSettings"
+            }
+          },
+          {
             "description": "Flag to run the request in dry-run mode.",
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ShippingSettings"
-            }
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3507,16 +3627,9 @@
         ]
       },
       "put": {
-        "description": "Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.",
+        "description": "Updates the shipping settings of the account.",
         "operationId": "shippingsettings.update",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The ID of the account for which to get/update shipping settings.",
             "in": "path",
@@ -3525,17 +3638,24 @@
             "type": "string"
           },
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ShippingSettings"
+            }
+          },
+          {
             "description": "Flag to run the request in dry-run mode.",
             "in": "query",
             "name": "dryRun",
             "type": "boolean"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ShippingSettings"
-            }
+            "description": "The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3645,22 +3765,22 @@
         }
       ],
       "post": {
-        "description": "Sandbox only. Creates a test order. This method can only be called for non-multi-client accounts.",
+        "description": "Sandbox only. Creates a test order.",
         "operationId": "orders.createtestorder",
         "parameters": [
-          {
-            "description": "The ID of the managing account.",
-            "in": "path",
-            "name": "merchantId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/OrdersCreateTestOrderRequest"
             }
+          },
+          {
+            "description": "The ID of the account that should manage the order. This cannot be a multi-client account.",
+            "in": "path",
+            "name": "merchantId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -3711,11 +3831,11 @@
         }
       ],
       "post": {
-        "description": "Sandbox only. Moves a test order from state \"inProgress\" to state \"pendingShipment\". This method can only be called for non-multi-client accounts.",
+        "description": "Sandbox only. Moves a test order from state \"inProgress\" to state \"pendingShipment\".",
         "operationId": "orders.advancetestorder",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "The ID of the account that manages the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -3754,11 +3874,11 @@
     },
     "/{merchantId}/testordertemplates/{templateName}": {
       "get": {
-        "description": "Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox. This method can only be called for non-multi-client accounts.",
+        "description": "Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.",
         "operationId": "orders.gettestordertemplate",
         "parameters": [
           {
-            "description": "The ID of the managing account.",
+            "description": "The ID of the account that should manage the order. This cannot be a multi-client account.",
             "in": "path",
             "name": "merchantId",
             "required": true,
@@ -3872,6 +3992,13 @@
         "websiteUrl": {
           "description": "The merchant's website.",
           "type": "string"
+        },
+        "youtubeChannelLinks": {
+          "description": "List of linked YouTube channels that are active or pending approval. To create a new link request, add a new link with status active to the list. It will remain in a pending state until approved or rejected in the YT Creator Studio interface. To delete an active link, or to cancel a link request, remove it from the list.",
+          "items": {
+            "$ref": "#/definitions/AccountYouTubeChannelLink"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -3912,6 +4039,13 @@
           "description": "The ID of the account for which the status is reported.",
           "type": "string"
         },
+        "accountLevelIssues": {
+          "description": "A list of account level issues.",
+          "items": {
+            "$ref": "#/definitions/AccountStatusAccountLevelIssue"
+          },
+          "type": "array"
+        },
         "dataQualityIssues": {
           "description": "A list of data quality issues.",
           "items": {
@@ -3922,6 +4056,35 @@
         "kind": {
           "default": "content#accountStatus",
           "description": "Identifies what kind of resource this is. Value: the fixed string \"content#accountStatus\".",
+          "type": "string"
+        },
+        "websiteClaimed": {
+          "description": "Whether the account's website is claimed or not.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "AccountStatusAccountLevelIssue": {
+      "properties": {
+        "country": {
+          "description": "Country for which this issue is reported.",
+          "type": "string"
+        },
+        "detail": {
+          "description": "Additional details about the issue.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Issue identifier.",
+          "type": "string"
+        },
+        "severity": {
+          "description": "Severity of the issue.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Short description of the issue.",
           "type": "string"
         }
       },
@@ -4065,6 +4228,19 @@
       },
       "type": "object"
     },
+    "AccountYouTubeChannelLink": {
+      "properties": {
+        "channelId": {
+          "description": "Channel ID.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the link between this Merchant Center account and the YouTube channel. Upon retrieval, it represents the actual status of the link and can be either active if it was approved in YT Creator Studio or pending if it's pending approval. Upon insertion, it represents the intended status of the link. Re-uploading a link with status active when it's still pending or with status pending when it's already active will have no effect: the status will remain unchanged. Re-uploading a link with deprecated status inactive is equivalent to not submitting the link at all and will delete the link if it was active or cancel the link request if it was pending.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AccountsAuthInfoResponse": {
       "properties": {
         "accountIdentifiers": {
@@ -4077,6 +4253,16 @@
         "kind": {
           "default": "content#accountsAuthInfoResponse",
           "description": "Identifies what kind of resource this is. Value: the fixed string \"content#accountsAuthInfoResponse\".",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AccountsClaimWebsiteResponse": {
+      "properties": {
+        "kind": {
+          "default": "content#accountsClaimWebsiteResponse",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"content#accountsClaimWebsiteResponse\".",
           "type": "string"
         }
       },
@@ -4102,7 +4288,7 @@
           "description": "The account to create or update. Only defined if the method is insert or update."
         },
         "accountId": {
-          "description": "The ID of the account to get or delete. Only defined if the method is get or delete.",
+          "description": "The ID of the targeted account. Only defined if the method is get, delete or claimwebsite.",
           "format": "uint64",
           "type": "string"
         },
@@ -4111,6 +4297,10 @@
           "format": "uint32",
           "type": "integer"
         },
+        "force": {
+          "description": "Whether the account should be deleted if the account has offers. Only applicable if the method is delete.",
+          "type": "boolean"
+        },
         "merchantId": {
           "description": "The ID of the managing account.",
           "format": "uint64",
@@ -4118,6 +4308,10 @@
         },
         "method": {
           "type": "string"
+        },
+        "overwrite": {
+          "description": "Only applicable if the method is claimwebsite. Indicates whether or not to take the claim from another account in case there is a conflict.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -4144,7 +4338,7 @@
       "properties": {
         "account": {
           "$ref": "#/definitions/Account",
-          "description": "The retrieved, created, or updated account. Not defined if the method was delete."
+          "description": "The retrieved, created, or updated account. Not defined if the method was delete or claimwebsite."
         },
         "batchId": {
           "description": "The ID of the request entry this entry responds to.",
@@ -4427,14 +4621,14 @@
       "type": "object"
     },
     "Datafeed": {
-      "description": "Datafeed data.",
+      "description": "Datafeed configuration data.",
       "properties": {
         "attributeLanguage": {
           "description": "The two-letter ISO 639-1 language in which the attributes are defined in the data feed.",
           "type": "string"
         },
         "contentLanguage": {
-          "description": "The two-letter ISO 639-1 language of the items in the feed. Must be a valid language for targetCountry.",
+          "description": "[DEPRECATED] Please use targets[].language instead. The two-letter ISO 639-1 language of the items in the feed. Must be a valid language for targetCountry.",
           "type": "string"
         },
         "contentType": {
@@ -4459,7 +4653,7 @@
           "type": "string"
         },
         "intendedDestinations": {
-          "description": "The list of intended destinations (corresponds to checked check boxes in Merchant Center).",
+          "description": "[DEPRECATED] Please use targets[].includedDestinations instead. The list of intended destinations (corresponds to checked check boxes in Merchant Center).",
           "items": {
             "type": "string"
           },
@@ -4475,8 +4669,15 @@
           "type": "string"
         },
         "targetCountry": {
-          "description": "The country where the items in the feed will be included in the search index, represented as a CLDR territory code.",
+          "description": "[DEPRECATED] Please use targets[].country instead. The country where the items in the feed will be included in the search index, represented as a CLDR territory code.",
           "type": "string"
+        },
+        "targets": {
+          "description": "The targets this feed should apply to (country, language, destinations).",
+          "items": {
+            "$ref": "#/definitions/DatafeedTarget"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -4506,6 +4707,10 @@
         "password": {
           "description": "An optional password for fetch_url.",
           "type": "string"
+        },
+        "paused": {
+          "description": "Whether the scheduled fetch is paused or not.",
+          "type": "boolean"
         },
         "timeZone": {
           "description": "Time zone used for schedule. UTC by default. E.g., \"America/Los_Angeles\".",
@@ -4542,6 +4747,10 @@
     "DatafeedStatus": {
       "description": "The status of a datafeed, i.e., the result of the last retrieval of the datafeed computed asynchronously when the feed processing is finished.",
       "properties": {
+        "country": {
+          "description": "The country for which the status is reported, represented as a  CLDR territory code.",
+          "type": "string"
+        },
         "datafeedId": {
           "description": "The ID of the feed for which the status is reported.",
           "format": "uint64",
@@ -4567,6 +4776,10 @@
         "kind": {
           "default": "content#datafeedStatus",
           "description": "Identifies what kind of resource this is. Value: the fixed string \"content#datafeedStatus\".",
+          "type": "string"
+        },
+        "language": {
+          "description": "The two-letter ISO 639-1 language for which the status is reported.",
           "type": "string"
         },
         "lastUploadDate": {
@@ -4627,6 +4840,33 @@
         },
         "value": {
           "description": "The problematic value.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DatafeedTarget": {
+      "properties": {
+        "country": {
+          "description": "The country where the items in the feed will be included in the search index, represented as a  CLDR territory code.",
+          "type": "string"
+        },
+        "excludedDestinations": {
+          "description": "The list of destinations to exclude for this target (corresponds to unchecked check boxes in Merchant Center).",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "includedDestinations": {
+          "description": "The list of destinations to include for this target (corresponds to checked check boxes in Merchant Center). Default destinations are always included unless provided in the excluded_destination field.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "language": {
+          "description": "The two-letter ISO 639-1 language of the items in the feed. Must be a valid language for targets[].country.",
           "type": "string"
         }
       },
@@ -4748,9 +4988,17 @@
           "format": "uint32",
           "type": "integer"
         },
+        "country": {
+          "description": "The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that for multi-target datafeeds this parameter is required.",
+          "type": "string"
+        },
         "datafeedId": {
-          "description": "The ID of the data feed to get or delete.",
+          "description": "The ID of the data feed to get.",
           "format": "uint64",
+          "type": "string"
+        },
+        "language": {
+          "description": "The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that for multi-target datafeeds this parameter is required.",
           "type": "string"
         },
         "merchantId": {
@@ -4900,14 +5148,14 @@
           "type": "array"
         },
         "prices": {
-          "description": "be \"infinity\". For example [{\"value\": \"10\", \"currency\": \"USD\"}, {\"value\": \"500\", \"currency\": \"USD\"}, {\"value\": \"infinity\", \"currency\": \"USD\"}] represents the headers \"<= $10\", \" $500\". All prices within a service must have the same currency. Must be non-empty. Can only be set if all other fields are not set.",
+          "description": "A list of inclusive order price upper bounds. The last price's value can be \"infinity\". For example [{\"value\": \"10\", \"currency\": \"USD\"}, {\"value\": \"500\", \"currency\": \"USD\"}, {\"value\": \"infinity\", \"currency\": \"USD\"}] represents the headers \"<= $10\", \" $500\". All prices within a service must have the same currency. Must be non-empty. Can only be set if all other fields are not set.",
           "items": {
             "$ref": "#/definitions/Price"
           },
           "type": "array"
         },
         "weights": {
-          "description": "be \"infinity\". For example [{\"value\": \"10\", \"unit\": \"kg\"}, {\"value\": \"50\", \"unit\": \"kg\"}, {\"value\": \"infinity\", \"unit\": \"kg\"}] represents the headers \"<= 10kg\", \" 50kg\". All weights within a service must have the same unit. Must be non-empty. Can only be set if all other fields are not set.",
+          "description": "A list of inclusive order weight upper bounds. The last weight's value can be \"infinity\". For example [{\"value\": \"10\", \"unit\": \"kg\"}, {\"value\": \"50\", \"unit\": \"kg\"}, {\"value\": \"infinity\", \"unit\": \"kg\"}] represents the headers \"<= 10kg\", \" 50kg\". All weights within a service must have the same unit. Must be non-empty. Can only be set if all other fields are not set.",
           "items": {
             "$ref": "#/definitions/Weight"
           },
@@ -5211,7 +5459,7 @@
           "type": "string"
         },
         "promotions": {
-          "description": "The details of the merchant provided promotions applied to the order. More details about the program are  here.",
+          "description": "The details of the merchant provided promotions applied to the order. More details about the program are here.",
           "items": {
             "$ref": "#/definitions/OrderPromotion"
           },
@@ -5357,6 +5605,10 @@
             "$ref": "#/definitions/OrderCancellation"
           },
           "type": "array"
+        },
+        "channelType": {
+          "description": "The channel type of the order: \"purchaseOnGoogle\" or \"googleExpress\".",
+          "type": "string"
         },
         "id": {
           "description": "The id of the line item.",
@@ -5541,7 +5793,7 @@
     "OrderLineItemShippingDetailsMethod": {
       "properties": {
         "carrier": {
-          "description": "The carrier for the shipping. Optional.",
+          "description": "The carrier for the shipping. Optional. See shipments[].carrier for a list of acceptable values.",
           "type": "string"
         },
         "maxDaysInTransit": {
@@ -5586,7 +5838,7 @@
           "type": "string"
         },
         "type": {
-          "description": "The type of instrument (VISA, Mastercard, etc).",
+          "description": "The type of instrument.\n\nAcceptable values are:  \n- \"AMEX\" \n- \"DISCOVER\" \n- \"JCB\" \n- \"MASTERCARD\" \n- \"UNIONPAY\" \n- \"VISA\" \n- \"\"",
           "type": "string"
         }
       },
@@ -5709,7 +5961,7 @@
     "OrderShipment": {
       "properties": {
         "carrier": {
-          "description": "The carrier handling the shipment.",
+          "description": "The carrier handling the shipment.\n\nAcceptable values are:  \n- \"gsx\" \n- \"ups\" \n- \"united parcel service\" \n- \"usps\" \n- \"united states postal service\" \n- \"fedex\" \n- \"dhl\" \n- \"ecourier\" \n- \"cxt\" \n- \"google\" \n- \"on trac\" \n- \"ontrac\" \n- \"on-trac\" \n- \"on_trac\" \n- \"delvic\" \n- \"dynamex\" \n- \"lasership\" \n- \"smartpost\" \n- \"fedex smartpost\" \n- \"mpx\" \n- \"uds\" \n- \"united delivery service\"",
           "type": "string"
         },
         "creationDate": {
@@ -6039,7 +6291,7 @@
     "OrdersCustomBatchRequestEntryShipLineItems": {
       "properties": {
         "carrier": {
-          "description": "The carrier handling the shipment.",
+          "description": "Deprecated. Please use shipmentInfo instead. The carrier handling the shipment. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
           "type": "string"
         },
         "lineItems": {
@@ -6048,6 +6300,30 @@
             "$ref": "#/definitions/OrderShipmentLineItemShipment"
           },
           "type": "array"
+        },
+        "shipmentId": {
+          "description": "Deprecated. Please use shipmentInfo instead. The ID of the shipment.",
+          "type": "string"
+        },
+        "shipmentInfos": {
+          "description": "Shipment information. This field is repeated because a single line item can be shipped in several packages (and have several tracking IDs).",
+          "items": {
+            "$ref": "#/definitions/OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo"
+          },
+          "type": "array"
+        },
+        "trackingId": {
+          "description": "Deprecated. Please use shipmentInfo instead. The tracking id for the shipment.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo": {
+      "properties": {
+        "carrier": {
+          "description": "The carrier handling the shipment. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
+          "type": "string"
         },
         "shipmentId": {
           "description": "The ID of the shipment.",
@@ -6063,7 +6339,7 @@
     "OrdersCustomBatchRequestEntryUpdateShipment": {
       "properties": {
         "carrier": {
-          "description": "The carrier handling the shipment. Not updated if missing.",
+          "description": "The carrier handling the shipment. Not updated if missing. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
           "type": "string"
         },
         "shipmentId": {
@@ -6251,7 +6527,7 @@
     "OrdersShipLineItemsRequest": {
       "properties": {
         "carrier": {
-          "description": "The carrier handling the shipment.",
+          "description": "Deprecated. Please use shipmentInfo instead. The carrier handling the shipment. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
           "type": "string"
         },
         "lineItems": {
@@ -6266,11 +6542,18 @@
           "type": "string"
         },
         "shipmentId": {
-          "description": "The ID of the shipment.",
+          "description": "Deprecated. Please use shipmentInfo instead. The ID of the shipment.",
           "type": "string"
         },
+        "shipmentInfos": {
+          "description": "Shipment information. This field is repeated because a single line item can be shipped in several packages (and have several tracking IDs).",
+          "items": {
+            "$ref": "#/definitions/OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo"
+          },
+          "type": "array"
+        },
         "trackingId": {
-          "description": "The tracking id for the shipment.",
+          "description": "Deprecated. Please use shipmentInfo instead. The tracking id for the shipment.",
           "type": "string"
         }
       },
@@ -6320,7 +6603,7 @@
     "OrdersUpdateShipmentRequest": {
       "properties": {
         "carrier": {
-          "description": "The carrier handling the shipment. Not updated if missing.",
+          "description": "The carrier handling the shipment. Not updated if missing. See shipments[].carrier in the  Orders resource representation for a list of acceptable values.",
           "type": "string"
         },
         "operationId": {
@@ -6567,7 +6850,7 @@
           "type": "string"
         },
         "id": {
-          "description": "The REST id of the product.",
+          "description": "The REST id of the product. Content API methods that operate on products take this as their productId parameter.\nThe REST id for a product is of the form channel:contentLanguage:targetCountry:offerId.",
           "type": "string"
         },
         "identifierExists": {
@@ -6607,6 +6890,16 @@
           "description": "The material of which the item is made.",
           "type": "string"
         },
+        "maxHandlingTime": {
+          "description": "Maximal product handling time (in business days).",
+          "format": "int64",
+          "type": "string"
+        },
+        "minHandlingTime": {
+          "description": "Minimal product handling time (in business days).",
+          "format": "int64",
+          "type": "string"
+        },
         "mobileLink": {
           "description": "Link to a mobile-optimized version of the landing page.",
           "type": "string"
@@ -6621,7 +6914,7 @@
           "type": "string"
         },
         "offerId": {
-          "description": "An identifier of the item. Leading and trailing whitespaces are stripped and multiple whitespaces are replaced by a single whitespace upon submission. Only valid unicode characters are accepted. See the products feed specification for details.",
+          "description": "A unique identifier for the item. Leading and trailing whitespaces are stripped and multiple whitespaces are replaced by a single whitespace upon submission. Only valid unicode characters are accepted. See the products feed specification for details.\nNote: Content API methods that operate on products take the REST id of the product, not this identifier.",
           "type": "string"
         },
         "onlineOnly": {
@@ -6833,7 +7126,7 @@
           "description": "Fixed shipping price, represented as a number."
         },
         "region": {
-          "description": "The geographic region to which a shipping rate applies (e.g. zip code).",
+          "description": "The geographic region to which a shipping rate applies.",
           "type": "string"
         },
         "service": {
@@ -6908,6 +7201,10 @@
         "link": {
           "description": "The link to the product.",
           "type": "string"
+        },
+        "product": {
+          "$ref": "#/definitions/Product",
+          "description": "Product data after applying all the join inputs."
         },
         "productId": {
           "description": "The id of the product for which status is reported.",
@@ -7153,6 +7450,9 @@
           "format": "uint32",
           "type": "integer"
         },
+        "includeAttributes": {
+          "type": "boolean"
+        },
         "merchantId": {
           "description": "The ID of the managing account.",
           "format": "uint64",
@@ -7292,6 +7592,10 @@
         "deliveryTime": {
           "$ref": "#/definitions/DeliveryTime",
           "description": "Time spent in various aspects from order to the delivery of the product. Required."
+        },
+        "minimumOrderValue": {
+          "$ref": "#/definitions/Price",
+          "description": "Minimum order value for this service. If set, indicates that customers will have to spend at least this amount. All prices within a service must have the same currency."
         },
         "name": {
           "description": "Free-form name of the service. Must be unique within target account. Required.",
@@ -7501,7 +7805,7 @@
           "type": "string"
         },
         "promotions": {
-          "description": "The details of the merchant provided promotions applied to the order. More details about the program are  here.",
+          "description": "The details of the merchant provided promotions applied to the order. More details about the program are here.",
           "items": {
             "$ref": "#/definitions/OrderPromotion"
           },

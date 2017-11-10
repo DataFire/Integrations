@@ -73,6 +73,41 @@ amazonaws_servicecatalog.AssociateProductWithPortfolio({
 * ProductId (string) **required**
 * SourcePortfolioId (string)
 
+### AssociateTagOptionWithResource
+
+
+
+```js
+amazonaws_servicecatalog.AssociateTagOptionWithResource({
+  "ResourceId": "",
+  "TagOptionId": ""
+}, context)
+```
+
+#### Parameters
+* ResourceId (string) **required**
+* TagOptionId (string) **required**
+
+### CopyProduct
+
+
+
+```js
+amazonaws_servicecatalog.CopyProduct({
+  "SourceProductArn": "",
+  "IdempotencyToken": ""
+}, context)
+```
+
+#### Parameters
+* AcceptLanguage (string)
+* CopyOptions (array)
+* IdempotencyToken (string) **required**
+* SourceProductArn (string) **required**
+* SourceProvisioningArtifactIdentifiers (array)
+* TargetProductId (string)
+* TargetProductName (string)
+
 ### CreateConstraint
 
 
@@ -156,7 +191,7 @@ amazonaws_servicecatalog.CreateProduct({
 * Name (string) **required**
 * Owner (string) **required**
 * ProductType (string) **required**
-* ProvisioningArtifactParameters (object) **required** - Provisioning artifact properties.
+* ProvisioningArtifactParameters (object) **required** - Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.
 * SupportDescription (string)
 * SupportEmail (string)
 * SupportUrl (string)
@@ -179,8 +214,23 @@ amazonaws_servicecatalog.CreateProvisioningArtifact({
 #### Parameters
 * AcceptLanguage (string)
 * IdempotencyToken (string) **required**
-* Parameters (object) **required** - Provisioning artifact properties.
+* Parameters (object) **required** - Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.
 * ProductId (string) **required**
+
+### CreateTagOption
+
+
+
+```js
+amazonaws_servicecatalog.CreateTagOption({
+  "Key": "",
+  "Value": ""
+}, context)
+```
+
+#### Parameters
+* Key (string) **required**
+* Value (string) **required**
 
 ### DeleteConstraint
 
@@ -270,6 +320,20 @@ amazonaws_servicecatalog.DescribeConstraint({
 * AcceptLanguage (string)
 * Id (string) **required**
 
+### DescribeCopyProductStatus
+
+
+
+```js
+amazonaws_servicecatalog.DescribeCopyProductStatus({
+  "CopyProductToken": ""
+}, context)
+```
+
+#### Parameters
+* AcceptLanguage (string)
+* CopyProductToken (string) **required**
+
 ### DescribePortfolio
 
 
@@ -326,6 +390,20 @@ amazonaws_servicecatalog.DescribeProductView({
 * AcceptLanguage (string)
 * Id (string) **required**
 
+### DescribeProvisionedProduct
+
+
+
+```js
+amazonaws_servicecatalog.DescribeProvisionedProduct({
+  "Id": ""
+}, context)
+```
+
+#### Parameters
+* AcceptLanguage (string)
+* Id (string) **required**
+
 ### DescribeProvisioningArtifact
 
 
@@ -341,6 +419,7 @@ amazonaws_servicecatalog.DescribeProvisioningArtifact({
 * AcceptLanguage (string)
 * ProductId (string) **required**
 * ProvisioningArtifactId (string) **required**
+* Verbose (boolean)
 
 ### DescribeProvisioningParameters
 
@@ -375,6 +454,19 @@ amazonaws_servicecatalog.DescribeRecord({
 * PageSize (integer)
 * PageToken (string)
 
+### DescribeTagOption
+
+
+
+```js
+amazonaws_servicecatalog.DescribeTagOption({
+  "Id": ""
+}, context)
+```
+
+#### Parameters
+* Id (string) **required**
+
 ### DisassociatePrincipalFromPortfolio
 
 
@@ -407,6 +499,21 @@ amazonaws_servicecatalog.DisassociateProductFromPortfolio({
 * PortfolioId (string) **required**
 * ProductId (string) **required**
 
+### DisassociateTagOptionFromResource
+
+
+
+```js
+amazonaws_servicecatalog.DisassociateTagOptionFromResource({
+  "ResourceId": "",
+  "TagOptionId": ""
+}, context)
+```
+
+#### Parameters
+* ResourceId (string) **required**
+* TagOptionId (string) **required**
+
 ### ListAcceptedPortfolioShares
 
 
@@ -416,6 +523,8 @@ amazonaws_servicecatalog.ListAcceptedPortfolioShares({}, context)
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * PageSize (integer)
 * PageToken (string)
@@ -431,6 +540,8 @@ amazonaws_servicecatalog.ListConstraintsForPortfolio({
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * PageSize (integer)
 * PageToken (string)
@@ -448,6 +559,8 @@ amazonaws_servicecatalog.ListLaunchPaths({
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * PageSize (integer)
 * PageToken (string)
@@ -476,6 +589,8 @@ amazonaws_servicecatalog.ListPortfolios({}, context)
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * PageSize (integer)
 * PageToken (string)
@@ -491,6 +606,8 @@ amazonaws_servicecatalog.ListPortfoliosForProduct({
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * PageSize (integer)
 * PageToken (string)
@@ -507,6 +624,8 @@ amazonaws_servicecatalog.ListPrincipalsForPortfolio({
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * PageSize (integer)
 * PageToken (string)
@@ -540,6 +659,39 @@ amazonaws_servicecatalog.ListRecordHistory({}, context)
 * PageSize (integer)
 * PageToken (string)
 * SearchFilter (object) - The search filter to limit results when listing request history records.
+
+### ListResourcesForTagOption
+
+
+
+```js
+amazonaws_servicecatalog.ListResourcesForTagOption({
+  "TagOptionId": ""
+}, context)
+```
+
+#### Parameters
+* PageSize (string)
+* PageToken (string)
+* PageSize (integer)
+* PageToken (string)
+* ResourceType (string)
+* TagOptionId (string) **required**
+
+### ListTagOptions
+
+
+
+```js
+amazonaws_servicecatalog.ListTagOptions({}, context)
+```
+
+#### Parameters
+* PageSize (string)
+* PageToken (string)
+* Filters (object) - The ListTagOptions filters.
+* PageSize (integer)
+* PageToken (string)
 
 ### ProvisionProduct
 
@@ -602,6 +754,8 @@ amazonaws_servicecatalog.SearchProducts({}, context)
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * Filters (array)
 * PageSize (integer)
@@ -618,6 +772,8 @@ amazonaws_servicecatalog.SearchProductsAsAdmin({}, context)
 ```
 
 #### Parameters
+* PageSize (string)
+* PageToken (string)
 * AcceptLanguage (string)
 * Filters (array)
 * PageSize (integer)
@@ -738,4 +894,19 @@ amazonaws_servicecatalog.UpdateProvisioningArtifact({
 * Name (string)
 * ProductId (string) **required**
 * ProvisioningArtifactId (string) **required**
+
+### UpdateTagOption
+
+
+
+```js
+amazonaws_servicecatalog.UpdateTagOption({
+  "Id": ""
+}, context)
+```
+
+#### Parameters
+* Active (boolean)
+* Id (string) **required**
+* Value (string)
 

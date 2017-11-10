@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apitore_sentencepieceapis_tweet_",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for SentencePiece APIs (tweet)",
   "repository": {

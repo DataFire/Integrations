@@ -380,6 +380,28 @@ hetras_certification_booking.Bookings_CancelReservation({
 * confirmationId (string) **required** - The confirmation id for the booking the reservation was made.
 * reservationNumber (integer) **required** - Specifies the reservation number for the reservation to cancel.
 
+### Bookings_CheckIn
+With this call you can set a reservation to the status inhouse. It allows only single room reservations to be checked in.
+            The reservation must have assigned a vacant and clean room.<br />
+            For more details on how the API responds to errors please check our documentation on 
+            <a href="https://developer.hetras.com/docs/errors/" onfocus="this.blur()">Error Handling</a>.
+
+
+```js
+hetras_certification_booking.Bookings_CheckIn({
+  "App-Id": "",
+  "App-Key": "",
+  "confirmationId": "",
+  "reservationNumber": 0
+}, context)
+```
+
+#### Parameters
+* App-Id (string) **required** - Application identifier
+* App-Key (string) **required** - Application key.
+* confirmationId (string) **required** - The confirmation id for the booking the reservation was made.
+* reservationNumber (integer) **required** - Specifies the reservation number for the reservation to be checked in.
+
 ### DailyRates_GetDailyRates
 With the rates request you can get a list of different daily rates. You will have to at least 
             specify the hotel, the channel code, and a calendar range. The channel code will define which rates will be 

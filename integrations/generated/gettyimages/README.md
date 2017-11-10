@@ -22,22 +22,57 @@ gettyimages.Search_GetEditorialVideosByPhrase({}).then(data => {
 Build applications using the world's most powerful imagery
 
 ## Actions
+### Artists_GetImagesByArtist
+***BETA*** Search for images by a photographer
+
+
+```js
+gettyimages.Artists_GetImagesByArtist({
+  "artist_name": ""
+}, context)
+```
+
+#### Parameters
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* artist_name (string) **required** - Name of artist for desired images
+* fields (array) - Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned.
+* page (integer) - Identifies page to return. Default page is 1.
+* page_size (integer) - Specifies page size. Default page_size is 10, maximum page_size is 100.
+
+### Artists_GetVideosByArtist
+***BETA*** Search for videos by a photographer
+
+
+```js
+gettyimages.Artists_GetVideosByArtist({
+  "artist_name": ""
+}, context)
+```
+
+#### Parameters
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* artist_name (string) **required** - Name of artist for desired images
+* fields (array) - Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned.
+* page (integer) - Identifies page to return. Default page is 1.
+* page_size (integer) - Specifies page size. Default page_size is 10, maximum page_size is 100.
+
 ### AssetChanges_PutAssetChanges
 Generates asset changes.
 
 
 ```js
 gettyimages.AssetChanges_PutAssetChanges({
-  "channel_id": 0,
-  "Authorization": ""
+  "Authorization": "",
+  "channel_id": 0
 }, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request.
+* Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * channel_id (integer) **required** - Specifies the id of the channel for the asset data. Valid channel ids can be found in the results of the Get Partner Channel query.
 * batch_size (integer) - Specifies the number of assets to return. The default is 10; maximum is 500.
-* Authorization (string) **required** - Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value.
 
 ### AssetChanges_DeleteAssetChanges
 Confirm asset changes acknowledges receipt of asset changes.
@@ -45,15 +80,14 @@ Confirm asset changes acknowledges receipt of asset changes.
 
 ```js
 gettyimages.AssetChanges_DeleteAssetChanges({
-  "change-set-id": 0,
-  "Authorization": ""
+  "Authorization": "",
+  "change-set-id": 0
 }, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request.
-* change-set-id (integer) **required** - Specify the change-set-id associated with a transaction resource whose receipt you want to confirm.
-* Authorization (string) **required** - Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value.
+* Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
+* change-set-id (integer) **required**
 
 ### AssetChanges_GetPartnerChannel
 Retrieves the channel data for the partner. This data can be used to populate the channel_id parameter in the Put Asset Changes query.
@@ -66,8 +100,7 @@ gettyimages.AssetChanges_GetPartnerChannel({
 ```
 
 #### Parameters
-* Accept-Language (string) - Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request.
-* Authorization (string) **required** - Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value.
+* Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 
 ### AssetRegistration_Register
 Register a list of customer assets.
@@ -75,18 +108,15 @@ Register a list of customer assets.
 
 ```js
 gettyimages.AssetRegistration_Register({
-  "Authorization": "",
   "request": {}
 }, context)
 ```
 
 #### Parameters
-* Authorization (string) **required** - Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value.
-* Accept-Language (string) - Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request.
 * request (object) **required** - Specify request containing the list of asset ids you want to register.
 
 ### Boards_GetAllBoards
-<b>***BETA***</b> Get all boards that the user participates in
+***BETA*** Get all boards that the user participates in
 
 
 ```js
@@ -100,16 +130,18 @@ gettyimages.Boards_GetAllBoards({
 * Accept-Language (string) - Provide a header to specify the language of result values.
 * board_relationship (string) - Search for boards the user owns or has been invited to as an editor.
 * page (integer) - Request results starting at a page number (default is 1).
-* page_size (integer) - Request number of boards to return in each page. (default is 30).
+* pageSize (integer) - Request number of boards to return in each page. (default is 30).
 * sort_order (string) - Sort the list of boards by last update date or name. Defaults to date_last_updated_descending.
 
 ### Boards_CreateBoard
-<b>***BETA***</b> Create a new board
+***BETA*** Create a new board
 
 
 ```js
 gettyimages.Boards_CreateBoard({
-  "new_board": {},
+  "new_board": {
+    "name": ""
+  },
   "Authorization": ""
 }, context)
 ```
@@ -120,7 +152,7 @@ gettyimages.Boards_CreateBoard({
 * Accept-Language (string) - Provide a header to specify the language of result values.
 
 ### Boards_DeleteBoard
-<b>***BETA***</b> Delete a board
+***BETA*** Delete a board
 
 
 ```js
@@ -133,10 +165,10 @@ gettyimages.Boards_DeleteBoard({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board to delete.
+* board_id (string) **required**
 
 ### Boards_GetBoard
-<b>***BETA***</b> Get assets and metadata for a specific board
+***BETA*** Get assets and metadata for a specific board
 
 
 ```js
@@ -149,15 +181,17 @@ gettyimages.Boards_GetBoard({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Retrieve details for a specific board.
+* board_id (string) **required**
 
 ### Boards_UpdateBoard
-<b>***BETA***</b> Update a board
+***BETA*** Update a board
 
 
 ```js
 gettyimages.Boards_UpdateBoard({
-  "board_info": {},
+  "board_info": {
+    "name": ""
+  },
   "Authorization": "",
   "board_id": ""
 }, context)
@@ -167,10 +201,10 @@ gettyimages.Boards_UpdateBoard({
 * board_info (object) **required**
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board to update.
+* board_id (string) **required**
 
 ### Boards_RemoveAssets
-<b>***BETA***</b> Remove assets from a board
+***BETA*** Remove assets from a board
 
 
 ```js
@@ -184,11 +218,11 @@ gettyimages.Boards_RemoveAssets({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board to remove assets from.
+* board_id (string) **required**
 * asset_ids (array) **required** - List the assets to be removed from the board.
 
 ### Boards_AddAssets
-<b>***BETA***</b> Add assets to a board
+***BETA*** Add assets to a board
 
 
 ```js
@@ -203,10 +237,10 @@ gettyimages.Boards_AddAssets({
 * board_assets (array) **required**
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board to add assets to.
+* board_id (string) **required**
 
 ### Boards_RemoveAsset
-<b>***BETA***</b> Remove an asset from a board
+***BETA*** Remove an asset from a board
 
 
 ```js
@@ -220,11 +254,11 @@ gettyimages.Boards_RemoveAsset({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* asset_id (string) **required** - Specify the asset to remove from the board.
-* board_id (string) **required** - Specify the board to remove an asset from.
+* asset_id (string) **required**
+* board_id (string) **required**
 
 ### Boards_AddAsset
-<b>***BETA***</b> Add an asset to a board
+***BETA*** Add an asset to a board
 
 
 ```js
@@ -238,11 +272,11 @@ gettyimages.Boards_AddAsset({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* asset_id (string) **required** - Specify the asset to add to the board. If it is already in the board's asset collection, no action is taken.
-* board_id (string) **required** - Specify the board to add an asset to.
+* asset_id (string) **required**
+* board_id (string) **required**
 
 ### Boards_GetComments
-<b>***BETA***</b> Get comments from a board
+***BETA*** Get comments from a board
 
 
 ```js
@@ -255,10 +289,10 @@ gettyimages.Boards_GetComments({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board to retrieve comments from.
+* board_id (string) **required**
 
 ### Boards_AddComment
-<b>***BETA***</b> Add a comment to a board
+***BETA*** Add a comment to a board
 
 
 ```js
@@ -273,10 +307,10 @@ gettyimages.Boards_AddComment({
 * comment (object) **required**
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board to add a comment to.
+* board_id (string) **required**
 
 ### Boards_DeleteComment
-<b>***BETA***</b> Delete a comment from a board
+***BETA*** Delete a comment from a board
 
 
 ```js
@@ -290,8 +324,8 @@ gettyimages.Boards_DeleteComment({
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * Accept-Language (string) - Provide a header to specify the language of result values.
-* board_id (string) **required** - Specify the board containing the comment to delete.
-* comment_id (string) **required** - Specify the comment to delete.
+* board_id (string) **required**
+* comment_id (string) **required**
 
 ### Collections_GetCollections
 Gets collections applicable for the customer.
@@ -305,7 +339,7 @@ gettyimages.Collections_GetCollections({
 
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 
 ### Countries_GetCountries
 Gets countries codes and names.
@@ -316,7 +350,7 @@ gettyimages.Countries_GetCountries({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 
 ### Downloads_GetDownloads
@@ -331,36 +365,37 @@ gettyimages.Downloads_GetDownloads({
 
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * company_downloads (boolean) - If specified, returns the list of previously downloaded images for all users in your company. Your account must be enabled for this functionality. Contact your Getty Images account rep for more information. Default is false.
-* date_from (string) - If specified, select assets downloaded on or after this date. Dates should be submitted in ISO
-* date_to (string) - If specified, select assets downloaded on or before this date. Dates should be submitted in ISO
+* end_date (string) - If specified, select assets downloaded on or before this date. Dates should be submitted in ISO
 * page (integer) - Identifies page to return. Default is 1.
 * page_size (integer) - Specifies page size. Default is 30, maximum page_size is 100.
-* product_type (string) - Specifies product type to be included in the previous download results.
+* product_type (string) - Specifies product type to be included in the previous download results. To get previous iStockPhoto credit downloads, credit_pack must be selected.
+* start_date (string) - If specified, select assets downloaded on or after this date. Dates should be submitted in ISO
 
-### v3.downloads.images.id.post
+### Downloads_PostDownloads
 The single step download call returns either a redirect or a response message with the URI to download the largest
                 image available.
                 Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.
 
 
 ```js
-gettyimages.v3.downloads.images.id.post({
-  "download_details": {},
+gettyimages.Downloads_PostDownloads({
   "Authorization": "",
   "id": ""
 }, context)
 ```
 
 #### Parameters
-* download_details (object) **required**
+* download_details (object)
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* id (string) **required** - Id of image to download.
-* auto_download (boolean) - Specifies whether to auto-download the image. If true is specified, a 303 SeeOther status is returned with a
-* file_type (string) - File Type expressed with three character file extension.
-* height (string) - Specifies the pixel height of the particular image to download.
-* product_id (integer) - Identifier of the instance for the selected product offering type.
-* product_type (string) - Product type.
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* id (string) **required** - <remarks>
+* auto_download (boolean) - <remarks>
+* file_type (string) - <remarks>
+* height (string) - <remarks>
+* product_id (integer) - <remarks>
+* product_type (string) - <remarks>
 
 ### Downloads_PostVideoDownloads
 The single step download call returns either a redirect or a response message with the URI to download the largest
@@ -377,34 +412,11 @@ gettyimages.Downloads_PostVideoDownloads({
 
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* id (string) **required** - Id of video to download.
-* auto_download (boolean) - Specifies whether to auto-download the video. If true is specified, a 303 SeeOther status is returned with a
-* product_id (integer) - Identifier of the instance for the selected product offering type.
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* id (string) **required** - <remarks>
+* auto_download (boolean) - <remarks>
+* product_id (integer) - <remarks>
 * size (string) - Specifies the size to be downloaded.
-
-### v3.downloads.id.post
-The single step download call returns either a redirect or a response message with the URI to download the largest
-                image available.
-                Returns HTTP status code 303 Redirect to download URI or HTTP status code 200.
-
-
-```js
-gettyimages.v3.downloads.id.post({
-  "download_details": {},
-  "Authorization": "",
-  "id": ""
-}, context)
-```
-
-#### Parameters
-* download_details (object) **required**
-* Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* id (string) **required** - Id of image to download.
-* auto_download (boolean) - Specifies whether to auto-download the image. If true is specified, a 303 SeeOther status is returned with a
-* file_type (string) - File Type expressed with three character file extension.
-* height (string) - Specifies the pixel height of the particular image to download.
-* product_id (integer) - Identifier of the instance for the selected product offering type.
-* product_type (string) - Product type.
 
 ### Events_GetBatch
 Returns an array of event metadata
@@ -415,7 +427,7 @@ gettyimages.Events_GetBatch({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * fields (array) - A comma separated list of fields to return in the response.
 * ids (array) - A comma separated list of event ids.
@@ -431,7 +443,7 @@ gettyimages.Events_Get({
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * id (integer) **required** - An event id.
 * fields (array) - A comma separated list of fields to return in the response.
@@ -447,7 +459,7 @@ gettyimages.Images_GetBatch({
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * ids (array) **required** - Specifies one or more image ids to return. Use comma delimiter when requesting multiple ids.
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
@@ -463,7 +475,7 @@ gettyimages.Images_Get({
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * id (string) **required** - An image id. For more than one image please use the /v3/images endpoint.
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
@@ -479,7 +491,7 @@ gettyimages.Images_GetSimilarImages({
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * id (string) **required** - Identifies an existing image
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
@@ -498,7 +510,7 @@ gettyimages.Products_GetProducts({
 
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * fields (array) - Comma separated list of fields. Allows product download requirements to be returned.
 
 ### Purchases_GetPreviousAssetPurchases
@@ -513,10 +525,11 @@ gettyimages.Purchases_GetPreviousAssetPurchases({
 
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* date_from (string) - If specified, retrieves previous purchases on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
-* date_to (string) - If specified, retrieves previous purchases on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* end_date (string) - If specified, retrieves previous purchases on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
 * page (integer) - Identifies page to return. Default is 1.
 * page_size (integer) - Specifies page size. Default is 75, maximum page_size is 100.
+* start_date (string) - If specified, retrieves previous purchases on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
 
 ### Purchases_GetPreviousPurchases
 Get Previously Purchased Images
@@ -530,10 +543,11 @@ gettyimages.Purchases_GetPreviousPurchases({
 
 #### Parameters
 * Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
-* date_from (string) - If specified, retrieves previous purchases on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
-* date_to (string) - If specified, retrieves previous purchases on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* end_date (string) - If specified, retrieves previous purchases on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
 * page (integer) - Identifies page to return. Default is 1.
 * page_size (integer) - Specifies page size. Default is 75, maximum page_size is 100.
+* start_date (string) - If specified, retrieves previous purchases on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD).
 
 ### Search_GetEvents
 Search for events
@@ -544,13 +558,13 @@ gettyimages.Search_GetEvents({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * date_from (string) - Filters to events that start on or after this date. Use ISO 8601 format (e.g., 1999-12-31).
 * date_to (string) - Filters to events that start on or before this date. Use ISO 8601 format (e.g., 1999-12-31).
 * editorial_segment (string) - Filters to events with a matching editorial segment.
 * fields (array) - Specifies fields to return. Default set is 'id','name','start_date'.
-* page (integer) - Request results starting at a page number (default is 1).
+* page (integer) - Request results starting at a page number (default is 1, maximum is 50).
 * page_size (integer) - Request number of images to return in each page.
 * phrase (string) - Filters to events related to this phrase
 
@@ -563,7 +577,7 @@ gettyimages.Search_GetImagesByPhrase({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * age_of_people (array) - Filter based on the age of individuals in an image.
 * artists (string) - Search for images by specific artists (free-text, comma-separated list of artists).
@@ -600,7 +614,7 @@ gettyimages.Search_GetCreativeImagesByPhrase({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * age_of_people (array) - Filter based on the age of individuals in an image.
 * artists (string) - Search for images by specific artists (free-text, comma-separated list of artists).
@@ -635,17 +649,16 @@ gettyimages.Search_GetEditorialImagesByPhrase({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * age_of_people (array) - Filter based on the age of individuals in an image.
 * artists (string) - Search for images by specific artists (free-text, comma-separated list of artists).
 * collection_codes (array) - Filter by collections (comma-separated list of collection codes). Include or exclude based on collections_filter_type.
 * collections_filter_type (string) - Use to include or exclude collections from search.
 * compositions (array) - Filter based on image composition.
-* date_from (string) - Return only images that are created on or after this date. Use ISO 8601 format (e.g., 1999-12-31).
-* date_to (string) - Return only images that are created on or before this date. Use ISO 8601 format (e.g., 1999-12-31).
 * editorial_segments (array) - Return only events with a matching editorial segment.
 * embed_content_only (boolean) - Restrict search results to embeddable images. The default is false.
+* end_date (string) - Return only images that are created on or before this date. Use ISO 8601 format (e.g., 1999-12-31).
 * entity_uris (array) - specify linked data entity uri.
 * ethnicity (array) - Filter search results based on the ethnicity of individuals in an image.
 * event_ids (array) - Filter based on specific events
@@ -664,6 +677,7 @@ gettyimages.Search_GetEditorialImagesByPhrase({}, context)
 * product_types (array) - Filter images to those having product types from the selected list.
 * sort_order (string) - Select sort order of results.
 * specific_people (array) - Return only images associated with specific people (using a comma-delimited list).
+* start_date (string) - Return only images that are created on or after this date. Use ISO 8601 format (e.g., 1999-12-31).
 
 ### Search_GetVideosByPhrase
 Search for both creative and editorial videos
@@ -674,14 +688,16 @@ gettyimages.Search_GetVideosByPhrase({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * age_of_people (array) - Provides filtering according to the age of individuals in a video.
 * collection_codes (array) - Provides filtering by collection code.
 * collections_filter_type (string) - Provides searching based on specified collection(s).
+* editorial_video_types (array) - Allows filtering by types of video.
 * exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
 * format_available (string) - Filters according to the digital video format available on a film asset.
+* frame_rates (array) - Provides filtering by video frame rate (frames/second).
 * keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
 * license_models (array) - Specifies the video licensing model(s).
 * page (integer) - Identifies page to return. Default is 1.
@@ -700,7 +716,7 @@ gettyimages.Search_GetCreativeVideosByPhrase({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * age_of_people (array) - Provides filtering according to the age of individuals in a video.
 * collection_codes (array) - Provides filtering by collection code.
@@ -708,6 +724,7 @@ gettyimages.Search_GetCreativeVideosByPhrase({}, context)
 * exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
 * format_available (string) - Filters according to the digital video format available on a film asset.
+* frame_rates (array) - Provides filtering by video frame rate (frames/second).
 * keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
 * license_models (array) - Specifies the video licensing model(s).
 * page (integer) - Identifies page to return. Default is 1.
@@ -725,15 +742,17 @@ gettyimages.Search_GetEditorialVideosByPhrase({}, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * age_of_people (array) - Provides filtering according to the age of individuals in a video.
 * collection_codes (array) - Provides filtering by collection code.
 * collections_filter_type (string) - Provides searching based on specified collection(s).
+* editorial_video_types (array) - Allows filtering by types of video.
 * entity_uris (array) - specify link data entity uri.
 * exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
 * format_available (string) - Filters according to the digital video format available on a film asset.
+* frame_rates (array) - Provides filtering by video frame rate (frames/second).
 * keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
 * page (integer) - Identifies page to return. Default is 1.
 * page_size (integer) - Specifies page size. Default is 30, maximum page_size is 100.
@@ -749,16 +768,15 @@ Report usage of assets via a batch format.
 ```js
 gettyimages.Usage_Put({
   "request": {},
-  "id": "",
-  "Authorization": ""
+  "Authorization": "",
+  "id": ""
 }, context)
 ```
 
 #### Parameters
-* Accept-Language (string) - Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request.
 * request (object) **required** - Specifies the request information for the Batch Usages endpoint.
+* Authorization (string) **required** - Provide access token in the format of 'Bearer {token}'.
 * id (string) **required** - Specifies a unique batch transaction id to identify the report.
-* Authorization (string) **required** - Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value.
 
 ### Videos_GetBatch
 Get metadata for multiple videos by supplying multiple video ids
@@ -771,7 +789,7 @@ gettyimages.Videos_GetBatch({
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * ids (array) **required** - Specifies one or more video ids to return. Use comma delimiter when requesting multiple ids.
 * fields (array) - Specifies fields to return. Defaults to 'summary_set'.
@@ -787,8 +805,26 @@ gettyimages.Videos_Get({
 ```
 
 #### Parameters
-* Accept-Language (string) - Specifies the language of result values.
+* Accept-Language (string) - Provide a header to specify the language of result values.
 * Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 * id (string) **required** - A video id. For more than one video please use the /v3/video endpoint.
 * fields (array) - comma delimited list of fields to retrive for the video
+
+### Videos_GetSimilarVideos
+***BETA*** Get videos similar to a video by supplying one video id
+
+
+```js
+gettyimages.Videos_GetSimilarVideos({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* Accept-Language (string) - Provide a header to specify the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* id (string) **required** - A video id.
+* fields (array) - comma delimited list of fields to retrive for the videos
+* page (integer) - Identifies page to return. Default is 1.
+* page_size (integer) - Specifies page size. Default is 30, maximum page_size is 100.
 

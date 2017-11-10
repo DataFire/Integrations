@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "es.amazonaws.com",
@@ -727,6 +728,64 @@
         }
       ]
     },
+    "/2015-01-01/es/role": {
+      "delete": {
+        "description": "Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.",
+        "operationId": "DeleteElasticsearchServiceRole",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "BaseException",
+            "schema": {
+              "$ref": "#/definitions/BaseException"
+            }
+          },
+          "481": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "482": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/2015-01-01/es/versions": {
       "get": {
         "description": "List all supported Elasticsearch versions",
@@ -1145,6 +1204,10 @@
     "Boolean": {
       "type": "boolean"
     },
+    "CloudWatchLogsLogGroupArn": {
+      "description": "ARN of the Cloudwatch log group to which log needs to be published.",
+      "type": "string"
+    },
     "CreateElasticsearchDomainRequest": {
       "properties": {
         "AccessPolicies": {
@@ -1171,9 +1234,17 @@
           "$ref": "#/definitions/ElasticsearchVersionString",
           "description": "String of format X.Y to specify version for the Elasticsearch domain eg. \"1.5\" or \"2.3\". For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>."
         },
+        "LogPublishingOptions": {
+          "$ref": "#/definitions/LogPublishingOptions",
+          "description": "Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log."
+        },
         "SnapshotOptions": {
           "$ref": "#/definitions/SnapshotOptions",
           "description": "Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours. "
+        },
+        "VPCOptions": {
+          "$ref": "#/definitions/VPCOptions",
+          "description": "Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>"
         }
       },
       "required": [
@@ -1398,7 +1469,13 @@
         "r4.2xlarge.elasticsearch",
         "r4.4xlarge.elasticsearch",
         "r4.8xlarge.elasticsearch",
-        "r4.16xlarge.elasticsearch"
+        "r4.16xlarge.elasticsearch",
+        "i3.large.elasticsearch",
+        "i3.xlarge.elasticsearch",
+        "i3.2xlarge.elasticsearch",
+        "i3.4xlarge.elasticsearch",
+        "i3.8xlarge.elasticsearch",
+        "i3.16xlarge.elasticsearch"
       ],
       "type": "string"
     },
@@ -1473,9 +1550,17 @@
           "$ref": "#/definitions/ElasticsearchVersionStatus",
           "description": "String of format X.Y to specify version for the Elasticsearch domain."
         },
+        "LogPublishingOptions": {
+          "$ref": "#/definitions/LogPublishingOptionsStatus",
+          "description": "Log publishing options for the given domain."
+        },
         "SnapshotOptions": {
           "$ref": "#/definitions/SnapshotOptionsStatus",
           "description": "Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain."
+        },
+        "VPCOptions": {
+          "$ref": "#/definitions/VPCDerivedInfoStatus",
+          "description": "The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>."
         }
       },
       "type": "object"
@@ -1526,6 +1611,14 @@
           "$ref": "#/definitions/ServiceUrl",
           "description": "The Elasticsearch domain endpoint that you use to submit index and search requests."
         },
+        "Endpoints": {
+          "$ref": "#/definitions/EndpointsMap",
+          "description": "Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>."
+        },
+        "LogPublishingOptions": {
+          "$ref": "#/definitions/LogPublishingOptions",
+          "description": "Log publishing options for the given domain."
+        },
         "Processing": {
           "$ref": "#/definitions/Boolean",
           "description": "The status of the Elasticsearch domain configuration. <code>True</code> if Amazon Elasticsearch Service is processing configuration changes. <code>False</code> if the configuration is active."
@@ -1533,6 +1626,10 @@
         "SnapshotOptions": {
           "$ref": "#/definitions/SnapshotOptions",
           "description": "Specifies the status of the <code>SnapshotOptions</code>"
+        },
+        "VPCOptions": {
+          "$ref": "#/definitions/VPCDerivedInfo",
+          "description": "The <code>VPCOptions</code> for the specified domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\">VPC Endpoints for Amazon Elasticsearch Service Domains</a>."
         }
       },
       "required": [
@@ -1584,6 +1681,20 @@
     },
     "ElasticsearchVersionString": {
       "type": "string"
+    },
+    "EndpointsMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/ServiceUrl"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "ErrorMessage": {
       "type": "string"
@@ -1734,6 +1845,55 @@
         }
       },
       "type": "object"
+    },
+    "LogPublishingOption": {
+      "description": "Log Publishing option that is set for given domain. <br/>Attributes and their details: <ul> <li>CloudWatchLogsLogGroupArn: ARN of the Cloudwatch log group to which log needs to be published.</li> <li>Enabled: Whether the log publishing for given log type is enabled or not</li> </ul> ",
+      "properties": {
+        "CloudWatchLogsLogGroupArn": {
+          "$ref": "#/definitions/CloudWatchLogsLogGroupArn"
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": " Specifies whether given log publishing option is enabled or not."
+        }
+      },
+      "type": "object"
+    },
+    "LogPublishingOptions": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/LogType"
+          },
+          "value": {
+            "$ref": "#/definitions/LogPublishingOption"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "LogPublishingOptionsStatus": {
+      "description": "The configured log publishing options for the domain and their current status.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/LogPublishingOptions",
+          "description": "The log publishing options configured for the Elasticsearch domain."
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus",
+          "description": "The status of the log publishing options for the Elasticsearch domain. See <code>OptionStatus</code> for the status information that's included. "
+        }
+      },
+      "type": "object"
+    },
+    "LogType": {
+      "description": "Type of Log File, it can be one of the following: <ul> <li>INDEX_SLOW_LOGS: Index slow logs contains insert requests that took more time than configured index query log threshold to execute.</li> <li>SEARCH_SLOW_LOGS: Search slow logs contains search queries that took more time than configured search query log threshold to execute.</li> </ul> ",
+      "enum": [
+        "INDEX_SLOW_LOGS",
+        "SEARCH_SLOW_LOGS"
+      ],
+      "type": "string"
     },
     "MaxResults": {
       "description": " Set this value to limit the number of results returned. ",
@@ -1975,9 +2135,17 @@
           "$ref": "#/definitions/ElasticsearchClusterConfig",
           "description": "The type and number of instances to instantiate for the domain cluster."
         },
+        "LogPublishingOptions": {
+          "$ref": "#/definitions/LogPublishingOptions",
+          "description": "Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log."
+        },
         "SnapshotOptions": {
           "$ref": "#/definitions/SnapshotOptions",
           "description": "Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. "
+        },
+        "VPCOptions": {
+          "$ref": "#/definitions/VPCOptions",
+          "description": "Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>"
         }
       },
       "type": "object"
@@ -1998,6 +2166,60 @@
     "UpdateTimestamp": {
       "format": "date-time",
       "type": "string"
+    },
+    "VPCDerivedInfo": {
+      "description": "Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.",
+      "properties": {
+        "AvailabilityZones": {
+          "$ref": "#/definitions/StringList",
+          "description": "The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions."
+        },
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/StringList",
+          "description": "Specifies the security groups for VPC endpoint."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/StringList",
+          "description": "Specifies the subnets for VPC endpoint."
+        },
+        "VPCId": {
+          "$ref": "#/definitions/String",
+          "description": "The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions."
+        }
+      },
+      "type": "object"
+    },
+    "VPCDerivedInfoStatus": {
+      "description": " Status of the VPC options for the specified Elasticsearch domain.",
+      "properties": {
+        "Options": {
+          "$ref": "#/definitions/VPCDerivedInfo",
+          "description": " Specifies the VPC options for the specified Elasticsearch domain."
+        },
+        "Status": {
+          "$ref": "#/definitions/OptionStatus",
+          "description": " Specifies the status of the VPC options for the specified Elasticsearch domain."
+        }
+      },
+      "required": [
+        "Options",
+        "Status"
+      ],
+      "type": "object"
+    },
+    "VPCOptions": {
+      "description": "Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html\" target=\"_blank\"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.",
+      "properties": {
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/StringList",
+          "description": "Specifies the security groups for VPC endpoint."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/StringList",
+          "description": "Specifies the subnets for VPC endpoint."
+        }
+      },
+      "type": "object"
     },
     "ValidationException": {
       "description": "An exception for missing / invalid input fields. Gives http status code of 400.",

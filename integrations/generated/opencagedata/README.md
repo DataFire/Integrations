@@ -38,6 +38,7 @@ opencagedata.vversion.format.get({
 * format (string) **required** - format of the response. One of 'json', 'xml' or 'map'.
 * q (string) **required** - string or lat,lng to be geocoded.
 * key (string) **required** - an application key.
+* abbrv (boolean) - when true we attempt to abbreviate the formatted field in the response.
 * add_request (boolean) - if true the request is included in the response.
 * bounds (string) - four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
 * countrycode (string) - two letter code ISO 3166-1 Alpha 2 code to limit results to that country.

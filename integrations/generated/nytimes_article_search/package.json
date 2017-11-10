@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nytimes_article_search",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Article Search",
   "repository": {

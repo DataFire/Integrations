@@ -176,7 +176,7 @@ twinehealth.fetchEmailHistory({
 ```
 
 #### Parameters
-* id (string) **required** - EmailHistory identifier
+* id (string) **required** - Email history identifier
 
 ### fetchGroups
 Get a list of groups matching the specified filters.
@@ -225,6 +225,104 @@ twinehealth.fetchGroup({
 
 #### Parameters
 * id (string) **required** - Group identifier
+
+### fetchHealthProfiles
+Get a list of health profiles
+
+
+```js
+twinehealth.fetchHealthProfiles({}, context)
+```
+
+#### Parameters
+* filter[patient] (string) - Patient id to fetch healt profile (either a patient, group or organization filter is required)
+* filter[groups] (string) - Comma-separated list of Twine group ids (either a patient, group or organization filter is required)
+* filter[organization] (string) - Twine organization id (either a patient, group or organization filter is required)
+* page[number] (integer) - Page number
+* page[size] (integer) - Page size
+* include (string) - List of related resources to include in the response
+
+### fetchHealthProfile
+Get a health profile by id
+
+
+```js
+twinehealth.fetchHealthProfile({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - Health profile identifier
+* include (string) - List of related resources to include in the response
+
+### fetchHealthProfileAnswers
+Get a list of health profile answers
+
+
+```js
+twinehealth.fetchHealthProfileAnswers({}, context)
+```
+
+#### Parameters
+* filter[patient] (string) - Patient id to fetch healt profile answers (either a patient, group or organization filter is required)
+* filter[groups] (string) - Comma-separated list of Twine group ids (either a patient, group or organization filter is required)
+* filter[organization] (string) - Twine organization id (either a patient, group or organization filter is required)
+* page[number] (integer) - Page number
+* page[size] (integer) - Page size
+* include (string) - List of related resources to include in the response
+
+### fetchHealthProfileAnswer
+Get a health profile answer by id
+
+
+```js
+twinehealth.fetchHealthProfileAnswer({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - Health profile answer identifier
+* include (string) - List of related resources to include in the response
+
+### fetchHealthProfileQuestion
+Get a health profile by id
+
+
+```js
+twinehealth.fetchHealthProfileQuestion({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - Health profile question identifier
+* include (string) - List of related resources to include in the response
+
+### fetchHealthQuestionDefinitions
+Get a list of all health question definitions
+
+
+```js
+twinehealth.fetchHealthQuestionDefinitions(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### fetchHealthQuestionDefinition
+Get a health question definition by id
+
+
+```js
+twinehealth.fetchHealthQuestionDefinition({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - Health question definition identifier
 
 ### createToken
 Create an OAuth 2.0 Bearer token. A valid bearer token is required for all other API requests.

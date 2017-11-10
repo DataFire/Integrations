@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "waf.amazonaws.com",
@@ -220,6 +221,95 @@
         }
       }
     },
+    "/#CreateGeoMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want to allow or block based on the country that the requests originate from. For example, if you're receiving a lot of requests from one or more countries and you want to block the requests, you can create an <code>GeoMatchSet</code> that contains those countries and then configure AWS WAF to block the requests. </p> <p>To create and configure a <code>GeoMatchSet</code>, perform the following steps:</p> <ol> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>CreateGeoMatchSet</code> request.</p> </li> <li> <p>Submit a <code>CreateGeoMatchSet</code> request.</p> </li> <li> <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <a>UpdateGeoMatchSet</a> request.</p> </li> <li> <p>Submit an <code>UpdateGeoMatchSetSet</code> request to specify the countries that you want AWS WAF to watch for.</p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "CreateGeoMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateGeoMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateGeoMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "483": {
+            "description": "WAFDisallowedNameException",
+            "schema": {
+              "$ref": "#/definitions/WAFDisallowedNameException"
+            }
+          },
+          "484": {
+            "description": "WAFInvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidParameterException"
+            }
+          },
+          "485": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
     "/#CreateIPSet": {
       "parameters": [
         {
@@ -301,6 +391,243 @@
             }
           },
           "485": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateRateBasedRule": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a <a>RateBasedRule</a>. The <code>RateBasedRule</code> contains a <code>RateLimit</code>, which specifies the maximum number of requests that AWS WAF allows from a specified IP address in a five-minute period. The <code>RateBasedRule</code> also contains the <code>IPSet</code> objects, <code>ByteMatchSet</code> objects, and other predicates that identify the requests that you want to count or block if these requests exceed the <code>RateLimit</code>.</p> <p>If you add more than one predicate to a <code>RateBasedRule</code>, a request not only must exceed the <code>RateLimit</code>, but it also must match all the specifications to be counted or blocked. For example, suppose you add the following to a <code>RateBasedRule</code>:</p> <ul> <li> <p>An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code> </p> </li> <li> <p>A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code> header</p> </li> </ul> <p>Further, you specify a <code>RateLimit</code> of 15,000.</p> <p>You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that you want to block requests that meet the conditions in the rule. For a request to be blocked, it must come from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code> header in the request must contain the value <code>BadBot</code>. Further, requests that match these two conditions must be received at a rate of more than 15,000 requests every five minutes. If both conditions are met and the rate is exceeded, AWS WAF blocks the requests. If the rate drops below 15,000 for a five-minute period, AWS WAF no longer blocks the requests.</p> <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a <code>RateBasedRule</code>:</p> <ul> <li> <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code> </p> </li> <li> <p>A <code>PositionalConstraint</code> of <code>STARTS_WITH</code> </p> </li> <li> <p>A <code>TargetString</code> of <code>login</code> </p> </li> </ul> <p>Further, you specify a <code>RateLimit</code> of 15,000.</p> <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p> <p>To create and configure a <code>RateBasedRule</code>, perform the following steps:</p> <ol> <li> <p>Create and update the predicates that you want to include in the rule. For more information, see <a>CreateByteMatchSet</a>, <a>CreateIPSet</a>, and <a>CreateSqlInjectionMatchSet</a>.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>CreateRule</code> request.</p> </li> <li> <p>Submit a <code>CreateRateBasedRule</code> request.</p> </li> <li> <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <a>UpdateRule</a> request.</p> </li> <li> <p>Submit an <code>UpdateRateBasedRule</code> request to specify the predicates that you want to include in the rule.</p> </li> <li> <p>Create and update a <code>WebACL</code> that contains the <code>RateBasedRule</code>. For more information, see <a>CreateWebACL</a>.</p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "CreateRateBasedRule",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRateBasedRuleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRateBasedRuleResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFDisallowedNameException",
+            "schema": {
+              "$ref": "#/definitions/WAFDisallowedNameException"
+            }
+          },
+          "483": {
+            "description": "WAFInvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateRegexMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify the part of a web request that you want AWS WAF to inspect, such as the values of the <code>User-Agent</code> header or the query string. For example, you can create a <code>RegexMatchSet</code> that contains a <code>RegexMatchTuple</code> that looks for any requests with <code>User-Agent</code> headers that match a <code>RegexPatternSet</code> with pattern <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p> <p>To create and configure a <code>RegexMatchSet</code>, perform the following steps:</p> <ol> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>CreateRegexMatchSet</code> request.</p> </li> <li> <p>Submit a <code>CreateRegexMatchSet</code> request.</p> </li> <li> <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <code>UpdateRegexMatchSet</code> request.</p> </li> <li> <p>Submit an <a>UpdateRegexMatchSet</a> request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the value, using a <code>RegexPatternSet</code>, that you want AWS WAF to watch for.</p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "CreateRegexMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRegexMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRegexMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFDisallowedNameException",
+            "schema": {
+              "$ref": "#/definitions/WAFDisallowedNameException"
+            }
+          },
+          "483": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateRegexPatternSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a <code>RegexPatternSet</code>. You then use <a>UpdateRegexPatternSet</a> to specify the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p> <p>To create and configure a <code>RegexPatternSet</code>, perform the following steps:</p> <ol> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>CreateRegexPatternSet</code> request.</p> </li> <li> <p>Submit a <code>CreateRegexPatternSet</code> request.</p> </li> <li> <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <code>UpdateRegexPatternSet</code> request.</p> </li> <li> <p>Submit an <a>UpdateRegexPatternSet</a> request to specify the string that you want AWS WAF to watch for.</p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "CreateRegexPatternSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRegexPatternSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRegexPatternSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFDisallowedNameException",
+            "schema": {
+              "$ref": "#/definitions/WAFDisallowedNameException"
+            }
+          },
+          "483": {
             "description": "WAFLimitsExceededException",
             "schema": {
               "$ref": "#/definitions/WAFLimitsExceededException"
@@ -837,6 +1164,95 @@
         }
       }
     },
+    "/#DeleteGeoMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code> if it's still used in any <code>Rules</code> or if it still includes any countries.</p> <p>If you just want to remove a <code>GeoMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p> <p>To permanently delete a <code>GeoMatchSet</code> from AWS WAF, perform the following steps:</p> <ol> <li> <p>Update the <code>GeoMatchSet</code> to remove any countries. For more information, see <a>UpdateGeoMatchSet</a>.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>DeleteGeoMatchSet</code> request.</p> </li> <li> <p>Submit a <code>DeleteGeoMatchSet</code> request.</p> </li> </ol>",
+        "operationId": "DeleteGeoMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteGeoMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteGeoMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "483": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "484": {
+            "description": "WAFReferencedItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "485": {
+            "description": "WAFNonEmptyEntityException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonEmptyEntityException"
+            }
+          }
+        }
+      }
+    },
     "/#DeleteIPSet": {
       "parameters": [
         {
@@ -915,6 +1331,273 @@
             "description": "WAFReferencedItemException",
             "schema": {
               "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "485": {
+            "description": "WAFNonEmptyEntityException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonEmptyEntityException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteRateBasedRule": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Permanently deletes a <a>RateBasedRule</a>. You can't delete a rule if it's still used in any <code>WebACL</code> objects or if it still includes any predicates, such as <code>ByteMatchSet</code> objects.</p> <p>If you just want to remove a rule from a <code>WebACL</code>, use <a>UpdateWebACL</a>.</p> <p>To permanently delete a <code>RateBasedRule</code> from AWS WAF, perform the following steps:</p> <ol> <li> <p>Update the <code>RateBasedRule</code> to remove predicates, if any. For more information, see <a>UpdateRateBasedRule</a>.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>DeleteRateBasedRule</code> request.</p> </li> <li> <p>Submit a <code>DeleteRateBasedRule</code> request.</p> </li> </ol>",
+        "operationId": "DeleteRateBasedRule",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRateBasedRuleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRateBasedRuleResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "483": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "484": {
+            "description": "WAFReferencedItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "485": {
+            "description": "WAFNonEmptyEntityException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonEmptyEntityException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteRegexMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code> if it's still used in any <code>Rules</code> or if it still includes any <code>RegexMatchTuples</code> objects (any filters).</p> <p>If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p> <p>To permanently delete a <code>RegexMatchSet</code>, perform the following steps:</p> <ol> <li> <p>Update the <code>RegexMatchSet</code> to remove filters, if any. For more information, see <a>UpdateRegexMatchSet</a>.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of a <code>DeleteRegexMatchSet</code> request.</p> </li> <li> <p>Submit a <code>DeleteRegexMatchSet</code> request.</p> </li> </ol>",
+        "operationId": "DeleteRegexMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRegexMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRegexMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "483": {
+            "description": "WAFReferencedItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "484": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "485": {
+            "description": "WAFNonEmptyEntityException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonEmptyEntityException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteRegexPatternSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code> if it's still used in any <code>RegexMatchSet</code> or if the <code>RegexPatternSet</code> is not empty. ",
+        "operationId": "DeleteRegexPatternSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRegexPatternSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRegexPatternSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "483": {
+            "description": "WAFReferencedItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "484": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
             }
           },
           "485": {
@@ -1566,6 +2249,77 @@
         }
       }
     },
+    "/#GetGeoMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.",
+        "operationId": "GetGeoMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetGeoMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetGeoMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          }
+        }
+      }
+    },
     "/#GetIPSet": {
       "parameters": [
         {
@@ -1614,6 +2368,296 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/GetIPSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetRateBasedRule": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the <a>RateBasedRule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRateBasedRule</code> request.",
+        "operationId": "GetRateBasedRule",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRateBasedRuleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRateBasedRuleResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetRateBasedRuleManagedKeys": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a> that is specified by the <code>RuleId</code>. The maximum number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the 10,000 addresses with the highest rates will be blocked.",
+        "operationId": "GetRateBasedRuleManagedKeys",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRateBasedRuleManagedKeysRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRateBasedRuleManagedKeysResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "483": {
+            "description": "WAFInvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidParameterException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetRegexMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.",
+        "operationId": "GetRegexMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRegexMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRegexMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "482": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetRegexPatternSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.",
+        "operationId": "GetRegexPatternSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetRegexPatternSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetRegexPatternSetResponse"
             }
           },
           "480": {
@@ -2122,6 +3166,71 @@
         }
       }
     },
+    "/#ListGeoMatchSets": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of <a>GeoMatchSetSummary</a> objects in the response.",
+        "operationId": "ListGeoMatchSets",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListGeoMatchSetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListGeoMatchSetsResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          }
+        }
+      }
+    },
     "/#ListIPSets": {
       "parameters": [
         {
@@ -2170,6 +3279,201 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/ListIPSetsResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListRateBasedRules": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of <a>RuleSummary</a> objects.",
+        "operationId": "ListRateBasedRules",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRateBasedRulesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRateBasedRulesResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListRegexMatchSets": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of <a>RegexMatchSetSummary</a> objects.",
+        "operationId": "ListRegexMatchSets",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRegexMatchSetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRegexMatchSetsResponse"
+            }
+          },
+          "480": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "481": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListRegexPatternSets": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns an array of <a>RegexPatternSetSummary</a> objects.",
+        "operationId": "ListRegexPatternSets",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRegexPatternSetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRegexPatternSetsResponse"
             }
           },
           "480": {
@@ -2613,6 +3917,113 @@
         }
       }
     },
+    "/#UpdateGeoMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>. For each <code>GeoMatchConstraint</code> object, you specify the following values: </p> <ul> <li> <p>Whether to insert or delete the object from the array. If you want to change an <code>GeoMatchConstraint</code> object, you delete the existing object and add a new one.</p> </li> <li> <p>The <code>Type</code>. The only valid value for <code>Type</code> is <code>Country</code>.</p> </li> <li> <p>The <code>Value</code>, which is a two character code for the country to add to the <code>GeoMatchConstraint</code> object. Valid codes are listed in <a>GeoMatchConstraint$Value</a>.</p> </li> </ul> <p>To create and configure an <code>GeoMatchSet</code>, perform the following steps:</p> <ol> <li> <p>Submit a <a>CreateGeoMatchSet</a> request.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <a>UpdateGeoMatchSet</a> request.</p> </li> <li> <p>Submit an <code>UpdateGeoMatchSet</code> request to specify the country that you want AWS WAF to watch for.</p> </li> </ol> <p>When you update an <code>GeoMatchSet</code>, you specify the country that you want to add and/or the country that you want to delete. If you want to change a country, you delete the existing country and add the new one.</p> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "UpdateGeoMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateGeoMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateGeoMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "483": {
+            "description": "WAFInvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidOperationException"
+            }
+          },
+          "484": {
+            "description": "WAFInvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidParameterException"
+            }
+          },
+          "485": {
+            "description": "WAFNonexistentContainerException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentContainerException"
+            }
+          },
+          "486": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "487": {
+            "description": "WAFReferencedItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "488": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
     "/#UpdateIPSet": {
       "parameters": [
         {
@@ -2715,6 +4126,309 @@
             "description": "WAFLimitsExceededException",
             "schema": {
               "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateRateBasedRule": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Inserts or deletes <a>Predicate</a> objects in a rule and updates the <code>RateLimit</code> in the rule. </p> <p>Each <code>Predicate</code> object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that specifies the web requests that you want to block or count. The <code>RateLimit</code> specifies the number of requests every five minutes that triggers the rule.</p> <p>If you add more than one predicate to a <code>RateBasedRule</code>, a request must match all the predicates and exceed the <code>RateLimit</code> to be counted or blocked. For example, suppose you add the following to a <code>RateBasedRule</code>:</p> <ul> <li> <p>An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code> </p> </li> <li> <p>A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code> header</p> </li> </ul> <p>Further, you specify a <code>RateLimit</code> of 15,000.</p> <p>You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that you want to block requests that satisfy the rule. For a request to be blocked, it must come from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code> header in the request must contain the value <code>BadBot</code>. Further, requests that match these two conditions much be received at a rate of more than 15,000 every five minutes. If the rate drops below this limit, AWS WAF no longer blocks the requests.</p> <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a <code>RateBasedRule</code>:</p> <ul> <li> <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code> </p> </li> <li> <p>A <code>PositionalConstraint</code> of <code>STARTS_WITH</code> </p> </li> <li> <p>A <code>TargetString</code> of <code>login</code> </p> </li> </ul> <p>Further, you specify a <code>RateLimit</code> of 15,000.</p> <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>",
+        "operationId": "UpdateRateBasedRule",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRateBasedRuleRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateRateBasedRuleResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "483": {
+            "description": "WAFInvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidOperationException"
+            }
+          },
+          "484": {
+            "description": "WAFInvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidParameterException"
+            }
+          },
+          "485": {
+            "description": "WAFNonexistentContainerException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentContainerException"
+            }
+          },
+          "486": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "487": {
+            "description": "WAFReferencedItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFReferencedItemException"
+            }
+          },
+          "488": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateRegexMatchSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Inserts or deletes <a>RegexMatchSetUpdate</a> objects (filters) in a <a>RegexMatchSet</a>. For each <code>RegexMatchSetUpdate</code> object, you specify the following values: </p> <ul> <li> <p>Whether to insert or delete the object from the array. If you want to change a <code>RegexMatchSetUpdate</code> object, you delete the existing object and add a new one.</p> </li> <li> <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p> </li> <li> <p>The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>. </p> </li> <li> <p>Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.</p> </li> </ul> <p> For example, you can create a <code>RegexPatternSet</code> that matches any requests with <code>User-Agent</code> headers that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p> <p>To create and configure a <code>RegexMatchSet</code>, perform the following steps:</p> <ol> <li> <p>Create a <code>RegexMatchSet.</code> For more information, see <a>CreateRegexMatchSet</a>.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <code>UpdateRegexMatchSet</code> request.</p> </li> <li> <p>Submit an <code>UpdateRegexMatchSet</code> request to specify the part of the request that you want AWS WAF to inspect (for example, the header or the URI) and the identifier of the <code>RegexPatternSet</code> that contain the regular expression patters you want AWS WAF to watch for.</p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "UpdateRegexMatchSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRegexMatchSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateRegexMatchSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFDisallowedNameException",
+            "schema": {
+              "$ref": "#/definitions/WAFDisallowedNameException"
+            }
+          },
+          "483": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          },
+          "484": {
+            "description": "WAFNonexistentItemException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentItemException"
+            }
+          },
+          "485": {
+            "description": "WAFNonexistentContainerException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentContainerException"
+            }
+          },
+          "486": {
+            "description": "WAFInvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidOperationException"
+            }
+          },
+          "487": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateRegexPatternSet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Inserts or deletes <a>RegexMatchSetUpdate</a> objects (filters) in a <a>RegexPatternSet</a>. For each <code>RegexPatternSet</code> object, you specify the following values: </p> <ul> <li> <p>Whether to insert or delete the object from the array. If you want to change a <code>RegexPatternSet</code> object, you delete the existing object and add a new one.</p> </li> <li> <p>The regular expression pattern that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>. </p> </li> </ul> <p> For example, you can create a <code>RegexPatternString</code> such as <code>B[a@]dB[o0]t</code>. AWS WAF will match this <code>RegexPatternString</code> to:</p> <ul> <li> <p>BadBot</p> </li> <li> <p>BadB0t</p> </li> <li> <p>B@dBot</p> </li> <li> <p>B@dB0t</p> </li> </ul> <p>To create and configure a <code>RegexPatternSet</code>, perform the following steps:</p> <ol> <li> <p>Create a <code>RegexPatternSet.</code> For more information, see <a>CreateRegexPatternSet</a>.</p> </li> <li> <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <code>UpdateRegexPatternSet</code> request.</p> </li> <li> <p>Submit an <code>UpdateRegexPatternSet</code> request to specify the regular expression pattern that you want AWS WAF to watch for.</p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "operationId": "UpdateRegexPatternSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRegexPatternSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateRegexPatternSetResponse"
+            }
+          },
+          "480": {
+            "description": "WAFStaleDataException",
+            "schema": {
+              "$ref": "#/definitions/WAFStaleDataException"
+            }
+          },
+          "481": {
+            "description": "WAFInternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/WAFInternalErrorException"
+            }
+          },
+          "482": {
+            "description": "WAFLimitsExceededException",
+            "schema": {
+              "$ref": "#/definitions/WAFLimitsExceededException"
+            }
+          },
+          "483": {
+            "description": "WAFNonexistentContainerException",
+            "schema": {
+              "$ref": "#/definitions/WAFNonexistentContainerException"
+            }
+          },
+          "484": {
+            "description": "WAFInvalidOperationException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidOperationException"
+            }
+          },
+          "485": {
+            "description": "WAFInvalidAccountException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidAccountException"
+            }
+          },
+          "486": {
+            "description": "WAFInvalidRegexPatternException",
+            "schema": {
+              "$ref": "#/definitions/WAFInvalidRegexPatternException"
             }
           }
         }
@@ -3066,7 +4780,7 @@
         }
       ],
       "post": {
-        "description": "<p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code> identifies web requests that you want to allow, block, or count. When you update a <code>WebACL</code>, you specify the following values:</p> <ul> <li> <p>A default action for the <code>WebACL</code>, either <code>ALLOW</code> or <code>BLOCK</code>. AWS WAF performs the default action if a request doesn't match the criteria in any of the <code>Rules</code> in a <code>WebACL</code>.</p> </li> <li> <p>The <code>Rules</code> that you want to add and/or delete. If you want to replace one <code>Rule</code> with another, you delete the existing <code>Rule</code> and add the new one.</p> </li> <li> <p>For each <code>Rule</code>, whether you want AWS WAF to allow requests, block requests, or count requests that match the conditions in the <code>Rule</code>.</p> </li> <li> <p>The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>. If you add more than one <code>Rule</code> to a <code>WebACL</code>, AWS WAF evaluates each request against the <code>Rules</code> in order based on the value of <code>Priority</code>. (The <code>Rule</code> that has the lowest value for <code>Priority</code> is evaluated first.) When a web request matches all of the predicates (such as <code>ByteMatchSets</code> and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code> in the <code>WebACL</code>, if any. </p> </li> </ul> <p>To create and configure a <code>WebACL</code>, perform the following steps:</p> <ol> <li> <p>Create and update the predicates that you want to include in <code>Rules</code>. For more information, see <a>CreateByteMatchSet</a>, <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>, <a>UpdateIPSet</a>, <a>CreateSqlInjectionMatchSet</a>, and <a>UpdateSqlInjectionMatchSet</a>.</p> </li> <li> <p>Create and update the <code>Rules</code> that you want to include in the <code>WebACL</code>. For more information, see <a>CreateRule</a> and <a>UpdateRule</a>.</p> </li> <li> <p>Create a <code>WebACL</code>. See <a>CreateWebACL</a>.</p> </li> <li> <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <a>UpdateWebACL</a> request.</p> </li> <li> <p>Submit an <code>UpdateWebACL</code> request to specify the <code>Rules</code> that you want to include in the <code>WebACL</code>, to specify the default action, and to associate the <code>WebACL</code> with a CloudFront distribution. </p> </li> </ol> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
+        "description": "<p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code> identifies web requests that you want to allow, block, or count. When you update a <code>WebACL</code>, you specify the following values:</p> <ul> <li> <p>A default action for the <code>WebACL</code>, either <code>ALLOW</code> or <code>BLOCK</code>. AWS WAF performs the default action if a request doesn't match the criteria in any of the <code>Rules</code> in a <code>WebACL</code>.</p> </li> <li> <p>The <code>Rules</code> that you want to add and/or delete. If you want to replace one <code>Rule</code> with another, you delete the existing <code>Rule</code> and add the new one.</p> </li> <li> <p>For each <code>Rule</code>, whether you want AWS WAF to allow requests, block requests, or count requests that match the conditions in the <code>Rule</code>.</p> </li> <li> <p>The order in which you want AWS WAF to evaluate the <code>Rules</code> in a <code>WebACL</code>. If you add more than one <code>Rule</code> to a <code>WebACL</code>, AWS WAF evaluates each request against the <code>Rules</code> in order based on the value of <code>Priority</code>. (The <code>Rule</code> that has the lowest value for <code>Priority</code> is evaluated first.) When a web request matches all of the predicates (such as <code>ByteMatchSets</code> and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code> in the <code>WebACL</code>, if any. </p> </li> </ul> <p>To create and configure a <code>WebACL</code>, perform the following steps:</p> <ol> <li> <p>Create and update the predicates that you want to include in <code>Rules</code>. For more information, see <a>CreateByteMatchSet</a>, <a>UpdateByteMatchSet</a>, <a>CreateIPSet</a>, <a>UpdateIPSet</a>, <a>CreateSqlInjectionMatchSet</a>, and <a>UpdateSqlInjectionMatchSet</a>.</p> </li> <li> <p>Create and update the <code>Rules</code> that you want to include in the <code>WebACL</code>. For more information, see <a>CreateRule</a> and <a>UpdateRule</a>.</p> </li> <li> <p>Create a <code>WebACL</code>. See <a>CreateWebACL</a>.</p> </li> <li> <p>Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code> parameter of an <a>UpdateWebACL</a> request.</p> </li> <li> <p>Submit an <code>UpdateWebACL</code> request to specify the <code>Rules</code> that you want to include in the <code>WebACL</code>, to specify the default action, and to associate the <code>WebACL</code> with a CloudFront distribution. </p> </li> </ol> <p>Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. </p> <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href=\"http://docs.aws.amazon.com/waf/latest/developerguide/\">AWS WAF Developer Guide</a>.</p>",
         "operationId": "UpdateWebACL",
         "parameters": [
           {
@@ -3262,6 +4976,10 @@
         "RuleId": {
           "$ref": "#/definitions/ResourceId",
           "description": "<p>The <code>RuleId</code> for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>), update a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete a one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>Rule</code> from AWS WAF (see <a>DeleteRule</a>).</p> <p> <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>"
+        },
+        "Type": {
+          "$ref": "#/definitions/WafRuleType",
+          "description": "The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, or <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist. "
         }
       },
       "required": [
@@ -3345,6 +5063,7 @@
       "items": {
         "$ref": "#/definitions/ByteMatchSetUpdate"
       },
+      "minItems": 1,
       "type": "array"
     },
     "ByteMatchTargetString": {
@@ -3447,6 +5166,36 @@
       },
       "type": "object"
     },
+    "CreateGeoMatchSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>GeoMatchSet</a>. You can't change <code>Name</code> after you create the <code>GeoMatchSet</code>."
+        }
+      },
+      "required": [
+        "Name",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "CreateGeoMatchSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>CreateGeoMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        },
+        "GeoMatchSet": {
+          "$ref": "#/definitions/GeoMatchSet",
+          "description": "The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>."
+        }
+      },
+      "type": "object"
+    },
     "CreateIPSetRequest": {
       "example": {
         "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
@@ -3490,6 +5239,111 @@
         "IPSet": {
           "$ref": "#/definitions/IPSet",
           "description": "The <a>IPSet</a> returned in the <code>CreateIPSet</code> response."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRateBasedRuleRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>CreateRateBasedRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        },
+        "MetricName": {
+          "$ref": "#/definitions/MetricName",
+          "description": "A friendly name or description for the metrics for this <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the <code>RateBasedRule</code>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RateBasedRule</a>. You can't change the name of a <code>RateBasedRule</code> after you create it."
+        },
+        "RateKey": {
+          "$ref": "#/definitions/RateKey",
+          "description": "The field that AWS WAF uses to determine if requests are likely arriving from a single source and thus subject to rate monitoring. The only valid value for <code>RateKey</code> is <code>IP</code>. <code>IP</code> indicates that requests that arrive from the same IP address are subject to the <code>RateLimit</code> that is specified in the <code>RateBasedRule</code>."
+        },
+        "RateLimit": {
+          "$ref": "#/definitions/RateLimit",
+          "description": "The maximum number of requests, which have an identical value in the field that is specified by <code>RateKey</code>, allowed in a five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule."
+        }
+      },
+      "required": [
+        "Name",
+        "MetricName",
+        "RateKey",
+        "RateLimit",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "CreateRateBasedRuleResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>CreateRateBasedRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        },
+        "Rule": {
+          "$ref": "#/definitions/RateBasedRule",
+          "description": "The <a>RateBasedRule</a> that is returned in the <code>CreateRateBasedRule</code> response."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRegexMatchSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>."
+        }
+      },
+      "required": [
+        "Name",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "CreateRegexMatchSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>CreateRegexMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        },
+        "RegexMatchSet": {
+          "$ref": "#/definitions/RegexMatchSet",
+          "description": "A <a>RegexMatchSet</a> that contains no <code>RegexMatchTuple</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRegexPatternSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a <code>RegexPatternSet</code>."
+        }
+      },
+      "required": [
+        "Name",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "CreateRegexPatternSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>CreateRegexPatternSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        },
+        "RegexPatternSet": {
+          "$ref": "#/definitions/RegexPatternSet",
+          "description": "A <a>RegexPatternSet</a> that contains no objects."
         }
       },
       "type": "object"
@@ -3803,6 +5657,32 @@
       },
       "type": "object"
     },
+    "DeleteGeoMatchSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "GeoMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to delete. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>."
+        }
+      },
+      "required": [
+        "GeoMatchSetId",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "DeleteGeoMatchSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteGeoMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
     "DeleteIPSetRequest": {
       "example": {
         "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
@@ -3832,6 +5712,84 @@
         "ChangeToken": {
           "$ref": "#/definitions/ChangeToken",
           "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteIPSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteRateBasedRuleRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "RuleId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to delete. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>."
+        }
+      },
+      "required": [
+        "RuleId",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "DeleteRateBasedRuleResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteRateBasedRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteRegexMatchSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "RegexMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>."
+        }
+      },
+      "required": [
+        "RegexMatchSetId",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "DeleteRegexMatchSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteRegexPatternSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "RegexPatternSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to delete. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>."
+        }
+      },
+      "required": [
+        "RegexPatternSetId",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "DeleteRegexPatternSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexPatternSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
       "type": "object"
@@ -4022,6 +5980,361 @@
       ],
       "type": "object"
     },
+    "GeoMatchConstraint": {
+      "description": "The country from which web requests originate that you want AWS WAF to search for.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/GeoMatchConstraintType",
+          "description": "The type of geographical area you want AWS WAF to search for. Currently <code>Country</code> is the only valid value."
+        },
+        "Value": {
+          "$ref": "#/definitions/GeoMatchConstraintValue",
+          "description": "The country that you want AWS WAF to search for."
+        }
+      },
+      "required": [
+        "Type",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "GeoMatchConstraintType": {
+      "enum": [
+        "Country"
+      ],
+      "type": "string"
+    },
+    "GeoMatchConstraintValue": {
+      "enum": [
+        "AF",
+        "AX",
+        "AL",
+        "DZ",
+        "AS",
+        "AD",
+        "AO",
+        "AI",
+        "AQ",
+        "AG",
+        "AR",
+        "AM",
+        "AW",
+        "AU",
+        "AT",
+        "AZ",
+        "BS",
+        "BH",
+        "BD",
+        "BB",
+        "BY",
+        "BE",
+        "BZ",
+        "BJ",
+        "BM",
+        "BT",
+        "BO",
+        "BQ",
+        "BA",
+        "BW",
+        "BV",
+        "BR",
+        "IO",
+        "BN",
+        "BG",
+        "BF",
+        "BI",
+        "KH",
+        "CM",
+        "CA",
+        "CV",
+        "KY",
+        "CF",
+        "TD",
+        "CL",
+        "CN",
+        "CX",
+        "CC",
+        "CO",
+        "KM",
+        "CG",
+        "CD",
+        "CK",
+        "CR",
+        "CI",
+        "HR",
+        "CU",
+        "CW",
+        "CY",
+        "CZ",
+        "DK",
+        "DJ",
+        "DM",
+        "DO",
+        "EC",
+        "EG",
+        "SV",
+        "GQ",
+        "ER",
+        "EE",
+        "ET",
+        "FK",
+        "FO",
+        "FJ",
+        "FI",
+        "FR",
+        "GF",
+        "PF",
+        "TF",
+        "GA",
+        "GM",
+        "GE",
+        "DE",
+        "GH",
+        "GI",
+        "GR",
+        "GL",
+        "GD",
+        "GP",
+        "GU",
+        "GT",
+        "GG",
+        "GN",
+        "GW",
+        "GY",
+        "HT",
+        "HM",
+        "VA",
+        "HN",
+        "HK",
+        "HU",
+        "IS",
+        "IN",
+        "ID",
+        "IR",
+        "IQ",
+        "IE",
+        "IM",
+        "IL",
+        "IT",
+        "JM",
+        "JP",
+        "JE",
+        "JO",
+        "KZ",
+        "KE",
+        "KI",
+        "KP",
+        "KR",
+        "KW",
+        "KG",
+        "LA",
+        "LV",
+        "LB",
+        "LS",
+        "LR",
+        "LY",
+        "LI",
+        "LT",
+        "LU",
+        "MO",
+        "MK",
+        "MG",
+        "MW",
+        "MY",
+        "MV",
+        "ML",
+        "MT",
+        "MH",
+        "MQ",
+        "MR",
+        "MU",
+        "YT",
+        "MX",
+        "FM",
+        "MD",
+        "MC",
+        "MN",
+        "ME",
+        "MS",
+        "MA",
+        "MZ",
+        "MM",
+        "NA",
+        "NR",
+        "NP",
+        "NL",
+        "NC",
+        "NZ",
+        "NI",
+        "NE",
+        "NG",
+        "NU",
+        "NF",
+        "MP",
+        "NO",
+        "OM",
+        "PK",
+        "PW",
+        "PS",
+        "PA",
+        "PG",
+        "PY",
+        "PE",
+        "PH",
+        "PN",
+        "PL",
+        "PT",
+        "PR",
+        "QA",
+        "RE",
+        "RO",
+        "RU",
+        "RW",
+        "BL",
+        "SH",
+        "KN",
+        "LC",
+        "MF",
+        "PM",
+        "VC",
+        "WS",
+        "SM",
+        "ST",
+        "SA",
+        "SN",
+        "RS",
+        "SC",
+        "SL",
+        "SG",
+        "SX",
+        "SK",
+        "SI",
+        "SB",
+        "SO",
+        "ZA",
+        "GS",
+        "SS",
+        "ES",
+        "LK",
+        "SD",
+        "SR",
+        "SJ",
+        "SZ",
+        "SE",
+        "CH",
+        "SY",
+        "TW",
+        "TJ",
+        "TZ",
+        "TH",
+        "TL",
+        "TG",
+        "TK",
+        "TO",
+        "TT",
+        "TN",
+        "TR",
+        "TM",
+        "TC",
+        "TV",
+        "UG",
+        "UA",
+        "AE",
+        "GB",
+        "US",
+        "UM",
+        "UY",
+        "UZ",
+        "VU",
+        "VE",
+        "VN",
+        "VG",
+        "VI",
+        "WF",
+        "EH",
+        "YE",
+        "ZM",
+        "ZW"
+      ],
+      "type": "string"
+    },
+    "GeoMatchConstraints": {
+      "items": {
+        "$ref": "#/definitions/GeoMatchConstraint"
+      },
+      "type": "array"
+    },
+    "GeoMatchSet": {
+      "description": "Contains one or more countries that AWS WAF will search for.",
+      "properties": {
+        "GeoMatchConstraints": {
+          "$ref": "#/definitions/GeoMatchConstraints",
+          "description": "An array of <a>GeoMatchConstraint</a> objects, which contain the country that you want AWS WAF to search for."
+        },
+        "GeoMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "<p>The <code>GeoMatchSetId</code> for an <code>GeoMatchSet</code>. You use <code>GeoMatchSetId</code> to get information about a <code>GeoMatchSet</code> (see <a>GeoMatchSet</a>), update a <code>GeoMatchSet</code> (see <a>UpdateGeoMatchSet</a>), insert a <code>GeoMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a <code>GeoMatchSet</code> from AWS WAF (see <a>DeleteGeoMatchSet</a>).</p> <p> <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>"
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>GeoMatchSet</a>. You can't change the name of an <code>GeoMatchSet</code> after you create it."
+        }
+      },
+      "required": [
+        "GeoMatchSetId",
+        "GeoMatchConstraints"
+      ],
+      "type": "object"
+    },
+    "GeoMatchSetSummaries": {
+      "items": {
+        "$ref": "#/definitions/GeoMatchSetSummary"
+      },
+      "type": "array"
+    },
+    "GeoMatchSetSummary": {
+      "description": "Contains the identifier and the name of the <code>GeoMatchSet</code>.",
+      "properties": {
+        "GeoMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>GeoMatchSetId</code> for an <a>GeoMatchSet</a>. You can use <code>GeoMatchSetId</code> in a <a>GetGeoMatchSet</a> request to get detailed information about an <a>GeoMatchSet</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>GeoMatchSet</a>. You can't change the name of an <code>GeoMatchSet</code> after you create it."
+        }
+      },
+      "required": [
+        "GeoMatchSetId",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "GeoMatchSetUpdate": {
+      "description": "Specifies the type of update to perform to an <a>GeoMatchSet</a> with <a>UpdateGeoMatchSet</a>.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/ChangeAction",
+          "description": "Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>."
+        },
+        "GeoMatchConstraint": {
+          "$ref": "#/definitions/GeoMatchConstraint",
+          "description": "The country from which web requests originate that you want AWS WAF to search for."
+        }
+      },
+      "required": [
+        "Action",
+        "GeoMatchConstraint"
+      ],
+      "type": "object"
+    },
+    "GeoMatchSetUpdates": {
+      "items": {
+        "$ref": "#/definitions/GeoMatchSetUpdate"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
     "GetByteMatchSetRequest": {
       "example": {
         "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5"
@@ -4107,6 +6420,27 @@
       },
       "type": "object"
     },
+    "GetGeoMatchSetRequest": {
+      "properties": {
+        "GeoMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to get. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>."
+        }
+      },
+      "required": [
+        "GeoMatchSetId"
+      ],
+      "type": "object"
+    },
+    "GetGeoMatchSetResponse": {
+      "properties": {
+        "GeoMatchSet": {
+          "$ref": "#/definitions/GeoMatchSet",
+          "description": "Information about the <a>GeoMatchSet</a> that you specified in the <code>GetGeoMatchSet</code> request. This includes the <code>Type</code>, which for a <code>GeoMatchContraint</code> is always <code>Country</code>, as well as the <code>Value</code>, which is the identifier for a specific country."
+        }
+      },
+      "type": "object"
+    },
     "GetIPSetRequest": {
       "example": {
         "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
@@ -4139,6 +6473,98 @@
         "IPSet": {
           "$ref": "#/definitions/IPSet",
           "description": "<p>Information about the <a>IPSet</a> that you specified in the <code>GetIPSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>IPSet</a>: Contains <code>IPSetDescriptors</code>, <code>IPSetId</code>, and <code>Name</code> </p> </li> <li> <p> <code>IPSetDescriptors</code>: Contains an array of <a>IPSetDescriptor</a> objects. Each <code>IPSetDescriptor</code> object contains <code>Type</code> and <code>Value</code> </p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "GetRateBasedRuleManagedKeysRequest": {
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "A null value and not currently used. Do not include this in your request."
+        },
+        "RuleId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to get a list of <code>ManagedKeys</code>. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>."
+        }
+      },
+      "required": [
+        "RuleId"
+      ],
+      "type": "object"
+    },
+    "GetRateBasedRuleManagedKeysResponse": {
+      "properties": {
+        "ManagedKeys": {
+          "$ref": "#/definitions/ManagedKeys",
+          "description": "An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. "
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "A null value and not currently used."
+        }
+      },
+      "type": "object"
+    },
+    "GetRateBasedRuleRequest": {
+      "properties": {
+        "RuleId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to get. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>."
+        }
+      },
+      "required": [
+        "RuleId"
+      ],
+      "type": "object"
+    },
+    "GetRateBasedRuleResponse": {
+      "properties": {
+        "Rule": {
+          "$ref": "#/definitions/RateBasedRule",
+          "description": "Information about the <a>RateBasedRule</a> that you specified in the <code>GetRateBasedRule</code> request."
+        }
+      },
+      "type": "object"
+    },
+    "GetRegexMatchSetRequest": {
+      "properties": {
+        "RegexMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>."
+        }
+      },
+      "required": [
+        "RegexMatchSetId"
+      ],
+      "type": "object"
+    },
+    "GetRegexMatchSetResponse": {
+      "properties": {
+        "RegexMatchSet": {
+          "$ref": "#/definitions/RegexMatchSet",
+          "description": "Information about the <a>RegexMatchSet</a> that you specified in the <code>GetRegexMatchSet</code> request. For more information, see <a>RegexMatchTuple</a>."
+        }
+      },
+      "type": "object"
+    },
+    "GetRegexPatternSetRequest": {
+      "properties": {
+        "RegexPatternSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to get. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>."
+        }
+      },
+      "required": [
+        "RegexPatternSetId"
+      ],
+      "type": "object"
+    },
+    "GetRegexPatternSetResponse": {
+      "properties": {
+        "RegexPatternSet": {
+          "$ref": "#/definitions/RegexPatternSet",
+          "description": "Information about the <a>RegexPatternSet</a> that you specified in the <code>GetRegexPatternSet</code> request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for. "
         }
       },
       "type": "object"
@@ -4495,7 +6921,7 @@
       "properties": {
         "IPSetDescriptors": {
           "$ref": "#/definitions/IPSetDescriptors",
-          "description": "<p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from. If the <code>WebACL</code> is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:</p> <ul> <li> <p> <code>c-ip</code>, if the viewer did not use an HTTP proxy or a load balancer to send the request</p> </li> <li> <p> <code>x-forwarded-for</code>, if the viewer did use an HTTP proxy or a load balancer to send the request</p> </li> </ul>"
+          "description": "The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from. If the <code>WebACL</code> is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs."
         },
         "IPSetId": {
           "$ref": "#/definitions/ResourceId",
@@ -4592,6 +7018,7 @@
       "items": {
         "$ref": "#/definitions/IPSetUpdate"
       },
+      "minItems": 1,
       "type": "array"
     },
     "IPString": {
@@ -4623,6 +7050,32 @@
       },
       "type": "object"
     },
+    "ListGeoMatchSetsRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PaginationLimit",
+          "description": "Specifies the number of <code>GeoMatchSet</code> objects that you want AWS WAF to return for this request. If you have more <code>GeoMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you specify a value for <code>Limit</code> and you have more <code>GeoMatchSet</code>s than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>GeoMatchSet</code> objects. For the second and subsequent <code>ListGeoMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>GeoMatchSet</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListGeoMatchSetsResponse": {
+      "properties": {
+        "GeoMatchSets": {
+          "$ref": "#/definitions/GeoMatchSetSummaries",
+          "description": "An array of <a>GeoMatchSetSummary</a> objects."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you have more <code>GeoMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>GeoMatchSet</code> objects, submit another <code>ListGeoMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
+        }
+      },
+      "type": "object"
+    },
     "ListIPSetsRequest": {
       "example": {
         "Limit": 100
@@ -4634,7 +7087,7 @@
         },
         "NextMarker": {
           "$ref": "#/definitions/NextMarker",
-          "description": "If you specify a value for <code>Limit</code> and you have more <code>IPSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>IPSets</code>. For the second and subsequent <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>ByteMatchSets</code>."
+          "description": "If you specify a value for <code>Limit</code> and you have more <code>IPSets</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>IPSets</code>. For the second and subsequent <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>IPSets</code>."
         }
       },
       "type": "object"
@@ -4656,6 +7109,84 @@
         "NextMarker": {
           "$ref": "#/definitions/NextMarker",
           "description": "If you have more <code>IPSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
+        }
+      },
+      "type": "object"
+    },
+    "ListRateBasedRulesRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PaginationLimit",
+          "description": "Specifies the number of <code>Rules</code> that you want AWS WAF to return for this request. If you have more <code>Rules</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>. For the second and subsequent <code>ListRateBasedRules</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>Rules</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ListRateBasedRulesResponse": {
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you have more <code>Rules</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>Rules</code>, submit another <code>ListRateBasedRules</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
+        },
+        "Rules": {
+          "$ref": "#/definitions/RuleSummaries",
+          "description": "An array of <a>RuleSummary</a> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListRegexMatchSetsRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PaginationLimit",
+          "description": "Specifies the number of <code>RegexMatchSet</code> objects that you want AWS WAF to return for this request. If you have more <code>RegexMatchSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RegexMatchSet</code> objects."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you specify a value for <code>Limit</code> and you have more <code>RegexMatchSet</code> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>ByteMatchSets</code>. For the second and subsequent <code>ListRegexMatchSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>RegexMatchSet</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListRegexMatchSetsResponse": {
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RegexMatchSet</code> objects, submit another <code>ListRegexMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
+        },
+        "RegexMatchSets": {
+          "$ref": "#/definitions/RegexMatchSetSummaries",
+          "description": "An array of <a>RegexMatchSetSummary</a> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListRegexPatternSetsRequest": {
+      "properties": {
+        "Limit": {
+          "$ref": "#/definitions/PaginationLimit",
+          "description": "Specifies the number of <code>RegexPatternSet</code> objects that you want AWS WAF to return for this request. If you have more <code>RegexPatternSet</code> objects than the number you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RegexPatternSet</code> objects."
+        },
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you specify a value for <code>Limit</code> and you have more <code>RegexPatternSet</code> objects than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>RegexPatternSet</code> objects. For the second and subsequent <code>ListRegexPatternSets</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>RegexPatternSet</code> objects."
+        }
+      },
+      "type": "object"
+    },
+    "ListRegexPatternSetsResponse": {
+      "properties": {
+        "NextMarker": {
+          "$ref": "#/definitions/NextMarker",
+          "description": "If you have more <code>RegexPatternSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RegexPatternSet</code> objects, submit another <code>ListRegexPatternSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request."
+        },
+        "RegexPatternSets": {
+          "$ref": "#/definitions/RegexPatternSetSummaries",
+          "description": "An array of <a>RegexPatternSetSummary</a> objects."
         }
       },
       "type": "object"
@@ -4849,6 +7380,15 @@
       },
       "type": "object"
     },
+    "ManagedKey": {
+      "type": "string"
+    },
+    "ManagedKeys": {
+      "items": {
+        "$ref": "#/definitions/ManagedKey"
+      },
+      "type": "array"
+    },
     "MatchFieldData": {
       "type": "string"
     },
@@ -4887,7 +7427,12 @@
         "SQL_INJECTION_MATCH_FIELD_TYPE",
         "BYTE_MATCH_TEXT_TRANSFORMATION",
         "BYTE_MATCH_POSITIONAL_CONSTRAINT",
-        "SIZE_CONSTRAINT_COMPARISON_OPERATOR"
+        "SIZE_CONSTRAINT_COMPARISON_OPERATOR",
+        "GEO_MATCH_LOCATION_TYPE",
+        "GEO_MATCH_LOCATION_VALUE",
+        "RATE_KEY",
+        "RULE_TYPE",
+        "NEXT_MARKER"
       ],
       "type": "string"
     },
@@ -4916,7 +7461,7 @@
       "type": "string"
     },
     "Predicate": {
-      "description": "Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, and <a>SizeConstraintSet</a> objects that you want to add to a <code>Rule</code> and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44. ",
+      "description": "Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>, <a>GeoMatchSet</a>, and <a>SizeConstraintSet</a> objects that you want to add to a <code>Rule</code> and, for each object, indicates whether you want to negate the settings, for example, requests that do NOT originate from the IP address 192.0.2.44. ",
       "properties": {
         "DataId": {
           "$ref": "#/definitions/ResourceId",
@@ -4924,7 +7469,7 @@
         },
         "Negated": {
           "$ref": "#/definitions/Negated",
-          "description": "<p>Set <code>Negated</code> to <code>False</code> if you want AWS WAF to allow, block, or count requests based on the settings in the specified <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, or <a>SizeConstraintSet</a>. For example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow or block requests based on that IP address.</p> <p>Set <code>Negated</code> to <code>True</code> if you want AWS WAF to allow or block a request based on the negation of the settings in the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, or <a>SizeConstraintSet</a>. For example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow, block, or count requests based on all IP addresses <i>except</i> <code>192.0.2.44</code>.</p>"
+          "description": "<p>Set <code>Negated</code> to <code>False</code> if you want AWS WAF to allow, block, or count requests based on the settings in the specified <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>, <a>GeoMatchSet</a>, or <a>SizeConstraintSet</a>. For example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow or block requests based on that IP address.</p> <p>Set <code>Negated</code> to <code>True</code> if you want AWS WAF to allow or block a request based on the negation of the settings in the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>, <a>GeoMatchSet</a>, or <a>SizeConstraintSet</a>. For example, if an <code>IPSet</code> includes the IP address <code>192.0.2.44</code>, AWS WAF will allow, block, or count requests based on all IP addresses <i>except</i> <code>192.0.2.44</code>.</p>"
         },
         "Type": {
           "$ref": "#/definitions/PredicateType",
@@ -4943,8 +7488,10 @@
         "IPMatch",
         "ByteMatch",
         "SqlInjectionMatch",
+        "GeoMatch",
         "SizeConstraint",
-        "XssMatch"
+        "XssMatch",
+        "RegexMatch"
       ],
       "type": "string"
     },
@@ -4952,6 +7499,230 @@
       "items": {
         "$ref": "#/definitions/Predicate"
       },
+      "type": "array"
+    },
+    "RateBasedRule": {
+      "description": "<p>A <code>RateBasedRule</code> is identical to a regular <a>Rule</a>, with one addition: a <code>RateBasedRule</code> counts the number of requests that arrive from a specified IP address every five minutes. For example, based on recent requests that you've seen from an attacker, you might create a <code>RateBasedRule</code> that includes the following conditions: </p> <ul> <li> <p>The requests come from 192.0.2.44.</p> </li> <li> <p>They contain the value <code>BadBot</code> in the <code>User-Agent</code> header.</p> </li> </ul> <p>In the rule, you also define the rate limit as 15,000.</p> <p>Requests that meet both of these conditions and exceed 15,000 requests every five minutes trigger the rule's action (block or count), which is defined in the web ACL.</p>",
+      "properties": {
+        "MatchPredicates": {
+          "$ref": "#/definitions/Predicates",
+          "description": "The <code>Predicates</code> object contains one <code>Predicate</code> element for each <a>ByteMatchSet</a>, <a>IPSet</a>, or <a>SqlInjectionMatchSet</a> object that you want to include in a <code>RateBasedRule</code>."
+        },
+        "MetricName": {
+          "$ref": "#/definitions/MetricName",
+          "description": "A friendly name or description for the metrics for a <code>RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the <code>RateBasedRule</code>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description for a <code>RateBasedRule</code>. You can't change the name of a <code>RateBasedRule</code> after you create it."
+        },
+        "RateKey": {
+          "$ref": "#/definitions/RateKey",
+          "description": "The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring. The only valid value for <code>RateKey</code> is <code>IP</code>. <code>IP</code> indicates that requests arriving from the same IP address are subject to the <code>RateLimit</code> that is specified in the <code>RateBasedRule</code>."
+        },
+        "RateLimit": {
+          "$ref": "#/definitions/RateLimit",
+          "description": "The maximum number of requests, which have an identical value in the field specified by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule."
+        },
+        "RuleId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "A unique identifier for a <code>RateBasedRule</code>. You use <code>RuleId</code> to get more information about a <code>RateBasedRule</code> (see <a>GetRateBasedRule</a>), update a <code>RateBasedRule</code> (see <a>UpdateRateBasedRule</a>), insert a <code>RateBasedRule</code> into a <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RateBasedRule</code> from AWS WAF (see <a>DeleteRateBasedRule</a>)."
+        }
+      },
+      "required": [
+        "RuleId",
+        "MatchPredicates",
+        "RateKey",
+        "RateLimit"
+      ],
+      "type": "object"
+    },
+    "RateKey": {
+      "enum": [
+        "IP"
+      ],
+      "type": "string"
+    },
+    "RateLimit": {
+      "minimum": 2000,
+      "type": "integer"
+    },
+    "RegexMatchSet": {
+      "description": "<p>In a <a>GetRegexMatchSet</a> request, <code>RegexMatchSet</code> is a complex type that contains the <code>RegexMatchSetId</code> and <code>Name</code> of a <code>RegexMatchSet</code>, and the values that you specified when you updated the <code>RegexMatchSet</code>.</p> <p> The values are contained in a <code>RegexMatchTuple</code> object, which specify the parts of web requests that you want AWS WAF to inspect and the values that you want AWS WAF to search for. If a <code>RegexMatchSet</code> contains more than one <code>RegexMatchTuple</code> object, a request needs to match the settings in only one <code>ByteMatchTuple</code> to be considered a match.</p>",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>."
+        },
+        "RegexMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "<p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a <code>RegexMatchSet</code> (see <a>GetRegexMatchSet</a>), update a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>), insert a <code>RegexMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a <code>RegexMatchSet</code> from AWS WAF (see <a>DeleteRegexMatchSet</a>).</p> <p> <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"
+        },
+        "RegexMatchTuples": {
+          "$ref": "#/definitions/RegexMatchTuples",
+          "description": "<p>Contains an array of <a>RegexMatchTuple</a> objects. Each <code>RegexMatchTuple</code> object contains: </p> <ul> <li> <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p> </li> <li> <p>The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>.</p> </li> <li> <p>Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "RegexMatchSetSummaries": {
+      "items": {
+        "$ref": "#/definitions/RegexMatchSetSummary"
+      },
+      "type": "array"
+    },
+    "RegexMatchSetSummary": {
+      "description": "Returned by <a>ListRegexMatchSets</a>. Each <code>RegexMatchSetSummary</code> object includes the <code>Name</code> and <code>RegexMatchSetId</code> for one <a>RegexMatchSet</a>.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RegexMatchSet</a>. You can't change <code>Name</code> after you create a <code>RegexMatchSet</code>."
+        },
+        "RegexMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "<p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a <code>RegexMatchSet</code>, update a <code>RegexMatchSet</code>, remove a <code>RegexMatchSet</code> from a <code>Rule</code>, and delete a <code>RegexMatchSet</code> from AWS WAF.</p> <p> <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"
+        }
+      },
+      "required": [
+        "RegexMatchSetId",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "RegexMatchSetUpdate": {
+      "description": "In an <a>UpdateRegexMatchSet</a> request, <code>RegexMatchSetUpdate</code> specifies whether to insert or delete a <a>RegexMatchTuple</a> and includes the settings for the <code>RegexMatchTuple</code>.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/ChangeAction",
+          "description": "Specifies whether to insert or delete a <a>RegexMatchTuple</a>."
+        },
+        "RegexMatchTuple": {
+          "$ref": "#/definitions/RegexMatchTuple",
+          "description": "Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify <code>DELETE</code> for the value of <code>Action</code>, the <code>RegexMatchTuple</code> values must exactly match the values in the <code>RegexMatchTuple</code> that you want to delete from the <code>RegexMatchSet</code>."
+        }
+      },
+      "required": [
+        "Action",
+        "RegexMatchTuple"
+      ],
+      "type": "object"
+    },
+    "RegexMatchSetUpdates": {
+      "items": {
+        "$ref": "#/definitions/RegexMatchSetUpdate"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "RegexMatchTuple": {
+      "description": "<p>The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. Each <code>RegexMatchTuple</code> object contains: </p> <ul> <li> <p>The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the <code>User-Agent</code> header. </p> </li> <li> <p>The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see <a>RegexPatternSet</a>. </p> </li> <li> <p>Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.</p> </li> </ul>",
+      "properties": {
+        "FieldToMatch": {
+          "$ref": "#/definitions/FieldToMatch",
+          "description": "Specifies where in a web request to look for the <code>RegexPatternSet</code>."
+        },
+        "RegexPatternSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "<p>The <code>RegexPatternSetId</code> for a <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a <code>RegexPatternSet</code> (see <a>GetRegexPatternSet</a>), update a <code>RegexPatternSet</code> (see <a>UpdateRegexPatternSet</a>), insert a <code>RegexPatternSet</code> into a <code>RegexMatchSet</code> or delete one from a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>), and delete an <code>RegexPatternSet</code> from AWS WAF (see <a>DeleteRegexPatternSet</a>).</p> <p> <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>"
+        },
+        "TextTransformation": {
+          "$ref": "#/definitions/TextTransformation",
+          "description": "<p>Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on <code>RegexPatternSet</code> before inspecting a request for a match.</p> <p> <b>CMD_LINE</b> </p> <p>When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:</p> <ul> <li> <p>Delete the following characters: \\ \" ' ^</p> </li> <li> <p>Delete spaces before the following characters: / (</p> </li> <li> <p>Replace the following characters with a space: , ;</p> </li> <li> <p>Replace multiple spaces with one space</p> </li> <li> <p>Convert uppercase letters (A-Z) to lowercase (a-z)</p> </li> </ul> <p> <b>COMPRESS_WHITE_SPACE</b> </p> <p>Use this option to replace the following characters with a space character (decimal 32):</p> <ul> <li> <p>\\f, formfeed, decimal 12</p> </li> <li> <p>\\t, tab, decimal 9</p> </li> <li> <p>\\n, newline, decimal 10</p> </li> <li> <p>\\r, carriage return, decimal 13</p> </li> <li> <p>\\v, vertical tab, decimal 11</p> </li> <li> <p>non-breaking space, decimal 160</p> </li> </ul> <p> <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p> <p> <b>HTML_ENTITY_DECODE</b> </p> <p>Use this option to replace HTML-encoded characters with unencoded characters. <code>HTML_ENTITY_DECODE</code> performs the following operations:</p> <ul> <li> <p>Replaces <code>(ampersand)quot;</code> with <code>\"</code> </p> </li> <li> <p>Replaces <code>(ampersand)nbsp;</code> with a non-breaking space, decimal 160</p> </li> <li> <p>Replaces <code>(ampersand)lt;</code> with a \"less than\" symbol</p> </li> <li> <p>Replaces <code>(ampersand)gt;</code> with <code>&gt;</code> </p> </li> <li> <p>Replaces characters that are represented in hexadecimal format, <code>(ampersand)#xhhhh;</code>, with the corresponding characters</p> </li> <li> <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding characters</p> </li> </ul> <p> <b>LOWERCASE</b> </p> <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p> <p> <b>URL_DECODE</b> </p> <p>Use this option to decode a URL-encoded value.</p> <p> <b>NONE</b> </p> <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>"
+        }
+      },
+      "required": [
+        "FieldToMatch",
+        "TextTransformation",
+        "RegexPatternSetId"
+      ],
+      "type": "object"
+    },
+    "RegexMatchTuples": {
+      "items": {
+        "$ref": "#/definitions/RegexMatchTuple"
+      },
+      "type": "array"
+    },
+    "RegexPatternSet": {
+      "description": "The <code>RegexPatternSet</code> specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a <code>RegexPatternSet</code>."
+        },
+        "RegexPatternSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "<p>The identifier for the <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a <code>RegexPatternSet</code>, update a <code>RegexPatternSet</code>, remove a <code>RegexPatternSet</code> from a <code>RegexMatchSet</code>, and delete a <code>RegexPatternSet</code> from AWS WAF.</p> <p> <code>RegexMatchSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>"
+        },
+        "RegexPatternStrings": {
+          "$ref": "#/definitions/RegexPatternStrings",
+          "description": "Specifies the regular expression (regex) patterns that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>."
+        }
+      },
+      "required": [
+        "RegexPatternSetId",
+        "RegexPatternStrings"
+      ],
+      "type": "object"
+    },
+    "RegexPatternSetSummaries": {
+      "items": {
+        "$ref": "#/definitions/RegexPatternSetSummary"
+      },
+      "type": "array"
+    },
+    "RegexPatternSetSummary": {
+      "description": "Returned by <a>ListRegexPatternSets</a>. Each <code>RegexPatternSetSummary</code> object includes the <code>Name</code> and <code>RegexPatternSetId</code> for one <a>RegexPatternSet</a>.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a <code>RegexPatternSet</code>."
+        },
+        "RegexPatternSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "<p>The <code>RegexPatternSetId</code> for a <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a <code>RegexPatternSet</code>, update a <code>RegexPatternSet</code>, remove a <code>RegexPatternSet</code> from a <code>RegexMatchSet</code>, and delete a <code>RegexPatternSet</code> from AWS WAF.</p> <p> <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>"
+        }
+      },
+      "required": [
+        "RegexPatternSetId",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "RegexPatternSetUpdate": {
+      "description": "In an <a>UpdateRegexPatternSet</a> request, <code>RegexPatternSetUpdate</code> specifies whether to insert or delete a <code>RegexPatternString</code> and includes the settings for the <code>RegexPatternString</code>.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/ChangeAction",
+          "description": "Specifies whether to insert or delete a <code>RegexPatternString</code>."
+        },
+        "RegexPatternString": {
+          "$ref": "#/definitions/RegexPatternString",
+          "description": "Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>."
+        }
+      },
+      "required": [
+        "Action",
+        "RegexPatternString"
+      ],
+      "type": "object"
+    },
+    "RegexPatternSetUpdates": {
+      "items": {
+        "$ref": "#/definitions/RegexPatternSetUpdate"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "RegexPatternString": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "RegexPatternStrings": {
+      "items": {
+        "$ref": "#/definitions/RegexPatternString"
+      },
+      "maxItems": 10,
       "type": "array"
     },
     "ResourceId": {
@@ -5178,6 +7949,7 @@
       "items": {
         "$ref": "#/definitions/SizeConstraintSetUpdate"
       },
+      "minItems": 1,
       "type": "array"
     },
     "SizeConstraints": {
@@ -5254,6 +8026,7 @@
       "items": {
         "$ref": "#/definitions/SqlInjectionMatchSetUpdate"
       },
+      "minItems": 1,
       "type": "array"
     },
     "SqlInjectionMatchTuple": {
@@ -5368,6 +8141,37 @@
       },
       "type": "object"
     },
+    "UpdateGeoMatchSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "GeoMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>."
+        },
+        "Updates": {
+          "$ref": "#/definitions/GeoMatchSetUpdates",
+          "description": "<p>An array of <code>GeoMatchSetUpdate</code> objects that you want to insert into or delete from an <a>GeoMatchSet</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>GeoMatchSetUpdate</a>: Contains <code>Action</code> and <code>GeoMatchConstraint</code> </p> </li> <li> <p> <a>GeoMatchConstraint</a>: Contains <code>Type</code> and <code>Value</code> </p> <p>You can have only one <code>Type</code> and <code>Value</code> per <code>GeoMatchConstraint</code>. To add multiple countries, include multiple <code>GeoMatchSetUpdate</code> objects in your request.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "GeoMatchSetId",
+        "ChangeToken",
+        "Updates"
+      ],
+      "type": "object"
+    },
+    "UpdateGeoMatchSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateGeoMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
     "UpdateIPSetRequest": {
       "example": {
         "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
@@ -5411,6 +8215,104 @@
         "ChangeToken": {
           "$ref": "#/definitions/ChangeToken",
           "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateRateBasedRuleRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "RateLimit": {
+          "$ref": "#/definitions/RateLimit",
+          "description": "The maximum number of requests, which have an identical value in the field specified by the <code>RateKey</code>, allowed in a five-minute period. If the number of requests exceeds the <code>RateLimit</code> and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule."
+        },
+        "RuleId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to update. <code>RuleId</code> is returned by <code>CreateRateBasedRule</code> and by <a>ListRateBasedRules</a>."
+        },
+        "Updates": {
+          "$ref": "#/definitions/RuleUpdates",
+          "description": "An array of <code>RuleUpdate</code> objects that you want to insert into or delete from a <a>RateBasedRule</a>. "
+        }
+      },
+      "required": [
+        "RuleId",
+        "ChangeToken",
+        "Updates",
+        "RateLimit"
+      ],
+      "type": "object"
+    },
+    "UpdateRateBasedRuleResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateRateBasedRule</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateRegexMatchSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "RegexMatchSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>."
+        },
+        "Updates": {
+          "$ref": "#/definitions/RegexMatchSetUpdates",
+          "description": "An array of <code>RegexMatchSetUpdate</code> objects that you want to insert into or delete from a <a>RegexMatchSet</a>. For more information, see <a>RegexMatchTuple</a>."
+        }
+      },
+      "required": [
+        "RegexMatchSetId",
+        "Updates",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "UpdateRegexMatchSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexMatchSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateRegexPatternSetRequest": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The value returned by the most recent call to <a>GetChangeToken</a>."
+        },
+        "RegexPatternSetId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to update. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>."
+        },
+        "Updates": {
+          "$ref": "#/definitions/RegexPatternSetUpdates",
+          "description": "An array of <code>RegexPatternSetUpdate</code> objects that you want to insert into or delete from a <a>RegexPatternSet</a>."
+        }
+      },
+      "required": [
+        "RegexPatternSetId",
+        "Updates",
+        "ChangeToken"
+      ],
+      "type": "object"
+    },
+    "UpdateRegexPatternSetResponse": {
+      "properties": {
+        "ChangeToken": {
+          "$ref": "#/definitions/ChangeToken",
+          "description": "The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexPatternSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>."
         }
       },
       "type": "object"
@@ -5596,7 +8498,7 @@
         },
         "Updates": {
           "$ref": "#/definitions/WebACLUpdates",
-          "description": "<p>An array of updates to make to the <a>WebACL</a>.</p> <p>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete from a <a>WebACL</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code> </p> </li> <li> <p> <a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, and <code>RuleId</code> </p> </li> <li> <p> <a>WafAction</a>: Contains <code>Type</code> </p> </li> </ul>"
+          "description": "<p>An array of updates to make to the <a>WebACL</a>.</p> <p>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete from a <a>WebACL</a>. For more information, see the applicable data types:</p> <ul> <li> <p> <a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code> </p> </li> <li> <p> <a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, <code>RuleId</code>, and <code>Type</code> </p> </li> <li> <p> <a>WafAction</a>: Contains <code>Type</code> </p> </li> </ul>"
         },
         "WebACLId": {
           "$ref": "#/definitions/ResourceId",
@@ -5705,7 +8607,7 @@
       "type": "object"
     },
     "WAFInvalidParameterException": {
-      "description": "<p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, QUERY_STRING, or URI.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>",
+      "description": "<p>The operation failed because AWS WAF didn't recognize a parameter in the request. For example:</p> <ul> <li> <p>You specified an invalid parameter name.</p> </li> <li> <p>You specified an invalid value.</p> </li> <li> <p>You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>, or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.</p> </li> <li> <p>You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value other than <code>IP</code>.</p> </li> <li> <p>You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code> other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code> other than HEADER, METHOD, QUERY_STRING, URI, or BODY.</p> </li> <li> <p>You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code> but no value for <code>Data</code>.</p> </li> <li> <p>Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.</p> </li> </ul>",
       "properties": {
         "field": {
           "$ref": "#/definitions/ParameterExceptionField"
@@ -5715,6 +8617,15 @@
         },
         "reason": {
           "$ref": "#/definitions/ParameterExceptionReason"
+        }
+      },
+      "type": "object"
+    },
+    "WAFInvalidRegexPatternException": {
+      "description": "The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/errorMessage"
         }
       },
       "type": "object"
@@ -5791,6 +8702,13 @@
         "BLOCK",
         "ALLOW",
         "COUNT"
+      ],
+      "type": "string"
+    },
+    "WafRuleType": {
+      "enum": [
+        "REGULAR",
+        "RATE_BASED"
       ],
       "type": "string"
     },
@@ -5941,6 +8859,7 @@
       "items": {
         "$ref": "#/definitions/XssMatchSetUpdate"
       },
+      "minItems": 1,
       "type": "array"
     },
     "XssMatchTuple": {

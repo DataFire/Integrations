@@ -12,6 +12,9 @@
     "x-apiClientRegistration": {
       "url": "https://www.motaword.com/developer/register"
     },
+    "x-apisguru-categories": [
+      "text"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png"
     },
@@ -40,9 +43,13 @@
   ],
   "securityDefinitions": {
     "client_credentials": {
+      "authorizationUrl": "https://api.motaword.com/token",
       "description": "OAuth2 authentication, Client Credentials flow.",
-      "flow": "password",
-      "tokenUrl": "/token",
+      "flow": "accessCode",
+      "scopes": {
+        "*": "*"
+      },
+      "tokenUrl": "https://api.motaword.com/token",
       "type": "oauth2"
     }
   },
@@ -132,6 +139,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Update your corporate account's global glossary. This endpoint is available only for corporate account customers.",
         "operationId": "updateGlobalGlossary",
         "parameters": [
@@ -275,6 +286,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Create a new project",
         "operationId": "createProject",
         "parameters": [
@@ -375,6 +390,49 @@
       }
     },
     "/projects/{id}": {
+      "delete": {
+        "description": "Delete(cancel) a project.",
+        "operationId": "deleteProject",
+        "parameters": [
+          {
+            "description": "Project ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Project canceled successfully",
+            "schema": {
+              "properties": {
+                "status": {
+                  "default": "success",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "ProjectNotFound",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "client_credentials": []
+          }
+        ],
+        "summary": "Delete a project",
+        "tags": [
+          "Project"
+        ]
+      },
       "get": {
         "description": "Get single project",
         "operationId": "getProject",
@@ -413,6 +471,10 @@
         ]
       },
       "put": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Update project language pairs",
         "operationId": "updateProject",
         "parameters": [
@@ -485,6 +547,111 @@
           }
         ],
         "summary": "Update project language pairs",
+        "tags": [
+          "Project"
+        ]
+      }
+    },
+    "/projects/{id}/callback/{actionType}": {
+      "get": {
+        "description": "Trigger a call to your callback URL related to this project.",
+        "operationId": "triggerCallback",
+        "parameters": [
+          {
+            "description": "Project ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Callback type",
+            "enum": [
+              "translated",
+              "proofread",
+              "completed"
+            ],
+            "in": "path",
+            "name": "actionType",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Callback result",
+            "schema": {
+              "$ref": "#/definitions/CallbackResult"
+            }
+          },
+          "404": {
+            "description": "ProjectNotFound",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "client_credentials": []
+          }
+        ],
+        "summary": "Trigger a call to your callback URL related to this project.",
+        "tags": [
+          "Project"
+        ]
+      }
+    },
+    "/projects/{id}/cancel": {
+      "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
+        "operationId": "cancelProject",
+        "parameters": [
+          {
+            "description": "Project ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Cancellation reason",
+            "in": "formData",
+            "name": "reason",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Project canceled successfully",
+            "schema": {
+              "properties": {
+                "status": {
+                  "default": "success",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "ProjectNotFound",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "client_credentials": []
+          }
+        ],
+        "summary": "Cancel your translation project",
         "tags": [
           "Project"
         ]
@@ -589,6 +756,10 @@
     },
     "/projects/{id}/launch": {
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "operationId": "launchProject",
         "parameters": [
           {
@@ -878,6 +1049,72 @@
         ]
       }
     },
+    "/projects/{id}/reports": {
+      "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
+        "operationId": "submitProjectReports",
+        "parameters": [
+          {
+            "description": "Project ID",
+            "format": "int64",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Activity Type",
+            "in": "formData",
+            "name": "activity_type",
+            "type": "string"
+          },
+          {
+            "description": "Report Message",
+            "in": "formData",
+            "name": "message",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Report submitted successfully",
+            "schema": {
+              "properties": {
+                "status": {
+                  "default": "success",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "MissingMessage",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "ProjectNotFound",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "client_credentials": []
+          }
+        ],
+        "summary": "Submit reports for a project",
+        "tags": [
+          "Project"
+        ]
+      }
+    },
     "/projects/{projectId}/activities": {
       "get": {
         "description": "Get a list of realtime activities on the project, such as translation suggestion and translation approval.",
@@ -976,6 +1213,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Submit a comment to an activity.",
         "operationId": "submitComment",
         "parameters": [
@@ -1165,6 +1406,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Upload a new document",
         "operationId": "createDocument",
         "parameters": [
@@ -1182,6 +1427,13 @@
             "name": "documents[]",
             "required": true,
             "type": "file"
+          },
+          {
+            "description": "JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.",
+            "in": "formData",
+            "name": "schemes[]",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1205,6 +1457,12 @@
           },
           "405": {
             "description": "UnsupportedDocumentFormat",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "InvalidDocumentScheme",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -1331,6 +1589,10 @@
         ]
       },
       "put": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Update the document. File name and contents will replaced with the new one.",
         "operationId": "updateDocument",
         "parameters": [
@@ -1354,8 +1616,15 @@
             "description": "Single file data. The name is plural to provide a consistent naming convention.",
             "in": "formData",
             "name": "documents",
-            "required": true,
+            "required": false,
             "type": "file"
+          },
+          {
+            "description": "JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.",
+            "in": "formData",
+            "name": "schemes",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1379,6 +1648,12 @@
           },
           "405": {
             "description": "UnsupportedDocumentFormat",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "InvalidDocumentScheme",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -1487,6 +1762,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Upload a new glossary",
         "operationId": "createGlossary",
         "parameters": [
@@ -1659,6 +1938,10 @@
         ]
       },
       "put": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Update the glossary. File name and contents will replaced with the new one.",
         "operationId": "updateGlossary",
         "parameters": [
@@ -1815,6 +2098,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Upload a new style guide",
         "operationId": "createStyleGuide",
         "parameters": [
@@ -1981,8 +2268,12 @@
         ]
       },
       "put": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Update the style guide. File name and contents will replaced with the new one.",
-        "operationId": "updteStyleGuide",
+        "operationId": "updateStyleGuide",
         "parameters": [
           {
             "description": "Project ID",
@@ -2128,6 +2419,10 @@
         ]
       },
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "Update your corporate account's global style guide. This endpoint is available only for corporate account customers.",
         "operationId": "updateGlobalStyleGuide",
         "parameters": [
@@ -2179,6 +2474,10 @@
     },
     "/token": {
       "post": {
+        "consumes": [
+          "multipart/form-data",
+          "application/json"
+        ],
         "description": "MotaWord API is using OAuth2 procedures when authenticating or authorizing your API call. Currently, we only allow Client Credential type flow.\n",
         "operationId": "getAccessToken",
         "parameters": [
@@ -2362,6 +2661,30 @@
       },
       "type": "object"
     },
+    "CallbackResult": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Project"
+        },
+        "result": {
+          "description": "Callback response returned from `url`.",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "translated",
+            "proofread",
+            "completed"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "The URL that received the callback.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Comment": {
       "properties": {
         "comment": {
@@ -2432,6 +2755,9 @@
         },
         "name": {
           "type": "string"
+        },
+        "scheme": {
+          "type": "object"
         },
         "uploaded_at": {
           "format": "date",

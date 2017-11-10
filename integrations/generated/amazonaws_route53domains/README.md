@@ -38,6 +38,20 @@ amazonaws_route53domains.CheckDomainAvailability({
 * DomainName (string) **required**
 * IdnLangCode (string)
 
+### CheckDomainTransferability
+
+
+
+```js
+amazonaws_route53domains.CheckDomainTransferability({
+  "DomainName": ""
+}, context)
+```
+
+#### Parameters
+* AuthCode (string)
+* DomainName (string) **required**
+
 ### DeleteTagsForDomain
 
 

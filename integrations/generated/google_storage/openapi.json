@@ -31,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/storage/v1/rest",
@@ -174,13 +174,6 @@
         "operationId": "buckets.list",
         "parameters": [
           {
-            "description": "A valid API project identifier.",
-            "in": "query",
-            "name": "project",
-            "required": true,
-            "type": "string"
-          },
-          {
             "default": 1000,
             "description": "Maximum number of buckets to return in a single response. The service will use this parameter or 1,000 items, whichever is smaller.",
             "in": "query",
@@ -201,6 +194,13 @@
             "type": "string"
           },
           {
+            "description": "A valid API project identifier.",
+            "in": "query",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Set of properties to return. Defaults to noAcl.",
             "enum": [
               "full",
@@ -208,6 +208,12 @@
             ],
             "in": "query",
             "name": "projection",
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -293,11 +299,11 @@
         "operationId": "buckets.insert",
         "parameters": [
           {
-            "description": "A valid API project identifier.",
-            "in": "query",
-            "name": "project",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Bucket"
+            }
           },
           {
             "description": "Apply a predefined set of access controls to this bucket.",
@@ -327,6 +333,13 @@
             "type": "string"
           },
           {
+            "description": "A valid API project identifier.",
+            "in": "query",
+            "name": "project",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Set of properties to return. Defaults to noAcl, unless the bucket resource specifies acl or defaultObjectAcl properties, when it defaults to full.",
             "enum": [
               "full",
@@ -337,11 +350,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Bucket"
-            }
+            "description": "The project to be billed for this request.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -405,6 +417,12 @@
             "description": "If set, only deletes the bucket if its metageneration does not match this value.",
             "in": "query",
             "name": "ifMetagenerationNotMatch",
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -474,6 +492,12 @@
             ],
             "in": "query",
             "name": "projection",
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -559,6 +583,13 @@
         "operationId": "buckets.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Bucket"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -615,11 +646,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Bucket"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -657,6 +687,13 @@
         "operationId": "buckets.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Bucket"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -713,11 +750,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Bucket"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -761,6 +797,12 @@
             "in": "path",
             "name": "bucket",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -822,6 +864,13 @@
         "operationId": "bucketAccessControls.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BucketAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -829,11 +878,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BucketAccessControl"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -885,6 +933,12 @@
             "name": "entity",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -930,6 +984,12 @@
             "in": "path",
             "name": "entity",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -991,6 +1051,13 @@
         "operationId": "bucketAccessControls.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BucketAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -1005,11 +1072,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BucketAccessControl"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1047,6 +1113,13 @@
         "operationId": "bucketAccessControls.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/BucketAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -1061,11 +1134,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/BucketAccessControl"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1121,6 +1193,12 @@
             "description": "If present, only return default ACL listing if the bucket's current metageneration does not match the given value.",
             "in": "query",
             "name": "ifMetagenerationNotMatch",
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -1182,6 +1260,13 @@
         "operationId": "defaultObjectAccessControls.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ObjectAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -1189,11 +1274,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ObjectAccessControl"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1245,6 +1329,12 @@
             "name": "entity",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1290,6 +1380,12 @@
             "in": "path",
             "name": "entity",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -1351,6 +1447,13 @@
         "operationId": "defaultObjectAccessControls.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ObjectAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -1365,11 +1468,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ObjectAccessControl"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1407,6 +1509,13 @@
         "operationId": "defaultObjectAccessControls.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ObjectAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -1421,11 +1530,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ObjectAccessControl"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1469,6 +1577,12 @@
             "in": "path",
             "name": "bucket",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -1554,6 +1668,13 @@
         "operationId": "buckets.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Policy"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
@@ -1561,11 +1682,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Policy"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1629,6 +1749,12 @@
             "name": "permissions",
             "required": true,
             "type": "array"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1715,10 +1841,16 @@
         "operationId": "notifications.list",
         "parameters": [
           {
-            "description": "Name of a GCS bucket.",
+            "description": "Name of a Google Cloud Storage bucket.",
             "in": "path",
             "name": "bucket",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -1816,6 +1948,12 @@
             "name": "bucket",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1875,6 +2013,12 @@
             "name": "notification",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -1928,6 +2072,12 @@
             "in": "path",
             "name": "notification",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -2058,6 +2208,12 @@
             "type": "string"
           },
           {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
+          },
+          {
             "description": "If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.",
             "in": "query",
             "name": "versions",
@@ -2149,6 +2305,13 @@
         "operationId": "objects.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          },
+          {
             "description": "Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.",
             "in": "path",
             "name": "bucket",
@@ -2162,13 +2325,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -2183,6 +2346,12 @@
             "description": "Makes the operation conditional on whether the object's current metageneration does not match the given value.",
             "in": "query",
             "name": "ifMetagenerationNotMatch",
+            "type": "string"
+          },
+          {
+            "description": "Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.",
+            "in": "query",
+            "name": "kmsKeyName",
             "type": "string"
           },
           {
@@ -2216,11 +2385,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -2334,17 +2502,23 @@
             "type": "string"
           },
           {
-            "description": "If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.",
-            "in": "query",
-            "name": "versions",
-            "type": "boolean"
-          },
-          {
             "in": "body",
             "name": "resource",
             "schema": {
               "$ref": "#/definitions/Channel"
             }
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
+          },
+          {
+            "description": "If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.",
+            "in": "query",
+            "name": "versions",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2415,26 +2589,19 @@
             "type": "string"
           },
           {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "If present, permanently deletes a specific revision of this object (as opposed to the latest version, the default).",
             "in": "query",
             "name": "generation",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -2449,6 +2616,19 @@
             "description": "Makes the operation conditional on whether the object's current metageneration does not match the given value.",
             "in": "query",
             "name": "ifMetagenerationNotMatch",
+            "type": "string"
+          },
+          {
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -2499,26 +2679,19 @@
             "type": "string"
           },
           {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
             "in": "query",
             "name": "generation",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -2536,6 +2709,13 @@
             "type": "string"
           },
           {
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Set of properties to return. Defaults to noAcl.",
             "enum": [
               "full",
@@ -2543,6 +2723,12 @@
             ],
             "in": "query",
             "name": "projection",
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -2628,16 +2814,16 @@
         "operationId": "objects.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          },
+          {
             "description": "Name of the bucket in which the object resides.",
             "in": "path",
             "name": "bucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
             "required": true,
             "type": "string"
           },
@@ -2648,13 +2834,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -2669,6 +2855,13 @@
             "description": "Makes the operation conditional on whether the object's current metageneration does not match the given value.",
             "in": "query",
             "name": "ifMetagenerationNotMatch",
+            "type": "string"
+          },
+          {
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
             "type": "string"
           },
           {
@@ -2696,11 +2889,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -2738,16 +2930,16 @@
         "operationId": "objects.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          },
+          {
             "description": "Name of the bucket in which the object resides.",
             "in": "path",
             "name": "bucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
             "required": true,
             "type": "string"
           },
@@ -2758,13 +2950,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -2779,6 +2971,13 @@
             "description": "Makes the operation conditional on whether the object's current metageneration does not match the given value.",
             "in": "query",
             "name": "ifMetagenerationNotMatch",
+            "type": "string"
+          },
+          {
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
             "type": "string"
           },
           {
@@ -2806,11 +3005,10 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -2857,6 +3055,12 @@
             "type": "string"
           },
           {
+            "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+            "in": "query",
+            "name": "generation",
+            "type": "string"
+          },
+          {
             "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
             "in": "path",
             "name": "object",
@@ -2864,9 +3068,9 @@
             "type": "string"
           },
           {
-            "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
             "in": "query",
-            "name": "generation",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -2928,16 +3132,16 @@
         "operationId": "objectAccessControls.insert",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ObjectAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
             "required": true,
             "type": "string"
           },
@@ -2948,11 +3152,17 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ObjectAccessControl"
-            }
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -2999,13 +3209,6 @@
             "type": "string"
           },
           {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.",
             "in": "path",
             "name": "entity",
@@ -3016,6 +3219,19 @@
             "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
             "in": "query",
             "name": "generation",
+            "type": "string"
+          },
+          {
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -3058,13 +3274,6 @@
             "type": "string"
           },
           {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-emailAddress, allUsers, or allAuthenticatedUsers.",
             "in": "path",
             "name": "entity",
@@ -3075,6 +3284,19 @@
             "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
             "in": "query",
             "name": "generation",
+            "type": "string"
+          },
+          {
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -3136,16 +3358,16 @@
         "operationId": "objectAccessControls.patch",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ObjectAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
             "required": true,
             "type": "string"
           },
@@ -3163,11 +3385,17 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ObjectAccessControl"
-            }
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -3205,16 +3433,16 @@
         "operationId": "objectAccessControls.update",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ObjectAccessControl"
+            }
+          },
+          {
             "description": "Name of a bucket.",
             "in": "path",
             "name": "bucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
             "required": true,
             "type": "string"
           },
@@ -3232,11 +3460,17 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ObjectAccessControl"
-            }
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -3283,6 +3517,12 @@
             "type": "string"
           },
           {
+            "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+            "in": "query",
+            "name": "generation",
+            "type": "string"
+          },
+          {
             "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
             "in": "path",
             "name": "object",
@@ -3290,9 +3530,9 @@
             "type": "string"
           },
           {
-            "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
             "in": "query",
-            "name": "generation",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -3378,16 +3618,16 @@
         "operationId": "objects.setIamPolicy",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Policy"
+            }
+          },
+          {
             "description": "Name of the bucket in which the object resides.",
             "in": "path",
             "name": "bucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "object",
             "required": true,
             "type": "string"
           },
@@ -3398,11 +3638,17 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Policy"
-            }
+            "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "object",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -3457,6 +3703,12 @@
             "type": "string"
           },
           {
+            "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+            "in": "query",
+            "name": "generation",
+            "type": "string"
+          },
+          {
             "description": "Name of the object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
             "in": "path",
             "name": "object",
@@ -3475,9 +3727,9 @@
             "type": "array"
           },
           {
-            "description": "If present, selects a specific revision of this object (as opposed to the latest version, the default).",
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
             "in": "query",
-            "name": "generation",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -3588,6 +3840,13 @@
         "operationId": "objects.compose",
         "parameters": [
           {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ComposeRequest"
+            }
+          },
+          {
             "description": "Name of the bucket in which to store the new object.",
             "in": "path",
             "name": "destinationBucket",
@@ -3616,7 +3875,7 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
@@ -3628,11 +3887,16 @@
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ComposeRequest"
-            }
+            "description": "Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.",
+            "in": "query",
+            "name": "kmsKeyName",
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -3703,18 +3967,11 @@
         "operationId": "objects.copy",
         "parameters": [
           {
-            "description": "Name of the bucket in which to find the source object.",
-            "in": "path",
-            "name": "sourceBucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "sourceObject",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
           },
           {
             "description": "Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
@@ -3745,13 +4002,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the destination object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the destination object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the destination object's current generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the destination object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -3769,13 +4026,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the source object's generation matches the given value.",
+            "description": "Makes the operation conditional on whether the source object's current generation matches the given value.",
             "in": "query",
             "name": "ifSourceGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the source object's generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the source object's current generation does not match the given value.",
             "in": "query",
             "name": "ifSourceGenerationNotMatch",
             "type": "string"
@@ -3803,17 +4060,30 @@
             "type": "string"
           },
           {
+            "description": "Name of the bucket in which to find the source object.",
+            "in": "path",
+            "name": "sourceBucket",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "If present, selects a specific revision of the source object (as opposed to the latest version, the default).",
             "in": "query",
             "name": "sourceGeneration",
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
+            "description": "Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "sourceObject",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -3884,24 +4154,23 @@
         "operationId": "objects.rewrite",
         "parameters": [
           {
-            "description": "Name of the bucket in which to find the source object.",
-            "in": "path",
-            "name": "sourceBucket",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
-            "in": "path",
-            "name": "sourceObject",
-            "required": true,
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
           },
           {
             "description": "Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.",
             "in": "path",
             "name": "destinationBucket",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Resource name of the Cloud KMS key, of the form projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that will be used to encrypt the object. Overrides the object metadata's kms_key_name value, if any.",
+            "in": "query",
+            "name": "destinationKmsKeyName",
             "type": "string"
           },
           {
@@ -3926,13 +4195,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the destination object's current generation matches the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.",
             "in": "query",
             "name": "ifGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the destination object's current generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.",
             "in": "query",
             "name": "ifGenerationNotMatch",
             "type": "string"
@@ -3950,13 +4219,13 @@
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the source object's generation matches the given value.",
+            "description": "Makes the operation conditional on whether the source object's current generation matches the given value.",
             "in": "query",
             "name": "ifSourceGenerationMatch",
             "type": "string"
           },
           {
-            "description": "Makes the operation conditional on whether the source object's generation does not match the given value.",
+            "description": "Makes the operation conditional on whether the source object's current generation does not match the given value.",
             "in": "query",
             "name": "ifSourceGenerationNotMatch",
             "type": "string"
@@ -3996,17 +4265,30 @@
             "type": "string"
           },
           {
+            "description": "Name of the bucket in which to find the source object.",
+            "in": "path",
+            "name": "sourceBucket",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "If present, selects a specific revision of the source object (as opposed to the latest version, the default).",
             "in": "query",
             "name": "sourceGeneration",
             "type": "string"
           },
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Object"
-            }
+            "description": "Name of the source object. For information about how to URL encode object names to be path safe, see Encoding URI Path Parts.",
+            "in": "path",
+            "name": "sourceObject",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request. Required for Requester Pays buckets.",
+            "in": "query",
+            "name": "userProject",
+            "type": "string"
           }
         ],
         "responses": {
@@ -4138,7 +4420,7 @@
     },
     "/projects/{projectId}/serviceAccount": {
       "get": {
-        "description": "Get the email address of this project's GCS service account.",
+        "description": "Get the email address of this project's Google Cloud Storage service account.",
         "operationId": "projects.serviceAccount.get",
         "parameters": [
           {
@@ -4146,6 +4428,12 @@
             "in": "path",
             "name": "projectId",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The project to be billed for this request.",
+            "in": "query",
+            "name": "userProject",
             "type": "string"
           }
         ],
@@ -4239,6 +4527,16 @@
           },
           "type": "array"
         },
+        "billing": {
+          "description": "The bucket's billing configuration.",
+          "properties": {
+            "requesterPays": {
+              "description": "When set to true, bucket is requester pays.",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
         "cors": {
           "description": "The bucket's Cross-Origin Resource Sharing (CORS) configuration.",
           "items": {
@@ -4280,6 +4578,15 @@
             "$ref": "#/definitions/ObjectAccessControl"
           },
           "type": "array"
+        },
+        "encryption": {
+          "description": "Encryption configuration used by default for newly inserted objects, when no encryption config is specified.",
+          "properties": {
+            "defaultKmsKeyName": {
+              "type": "string"
+            }
+          },
+          "type": "object"
         },
         "etag": {
           "description": "HTTP 1.1 Entity tag for the bucket.",
@@ -4755,7 +5062,7 @@
           "type": "string"
         },
         "contentType": {
-          "description": "Content-Type of the object data. If contentType is not specified, object downloads will be served as application/octet-stream.",
+          "description": "Content-Type of the object data. If an object is stored without a Content-Type, it is served as application/octet-stream.",
           "type": "string"
         },
         "crc32c": {
@@ -4792,6 +5099,10 @@
         "kind": {
           "default": "storage#object",
           "description": "The kind of item this is. For objects, this is always storage#object.",
+          "type": "string"
+        },
+        "kmsKeyName": {
+          "description": "Cloud KMS Key used to encrypt this object, if the object is encrypted by such a key.",
           "type": "string"
         },
         "md5Hash": {
@@ -4993,6 +5304,7 @@
           "description": "An association between a role, which comes with a set of permissions, and members who may assume that role.",
           "items": {
             "properties": {
+              "condition": {},
               "members": {
                 "description": "A collection of identifiers for members who may assume the provided role. Recognized identifiers are as follows:  \n- allUsers — A special identifier that represents anyone on the internet; with or without a Google account.  \n- allAuthenticatedUsers — A special identifier that represents anyone who is authenticated with a Google account or a service account.  \n- user:emailid — An email address that represents a specific account. For example, user:alice@gmail.com or user:joe@example.com.  \n- serviceAccount:emailid — An email address that represents a service account. For example,  serviceAccount:my-other-app@appspot.gserviceaccount.com .  \n- group:emailid — An email address that represents a Google group. For example, group:admins@example.com.  \n- domain:domain — A Google Apps domain name that represents all the users of that domain. For example, domain:google.com or domain:example.com.  \n- projectOwner:projectid — Owners of the given project. For example, projectOwner:my-example-project  \n- projectEditor:projectid — Editors of the given project. For example, projectEditor:my-example-project  \n- projectViewer:projectid — Viewers of the given project. For example, projectViewer:my-example-project",
                 "items": {
@@ -5020,7 +5332,7 @@
           "type": "string"
         },
         "resourceId": {
-          "description": "The ID of the resource to which this policy belongs. Will be of the form buckets/bucket for buckets, and buckets/bucket/objects/object for objects. A specific generation may be specified by appending #generationNumber to the end of the object name, e.g. buckets/my-bucket/objects/data.txt#17. The current generation can be denoted with #0. This field is ignored on input.",
+          "description": "The ID of the resource to which this policy belongs. Will be of the form projects/_/buckets/bucket for buckets, and projects/_/buckets/bucket/objects/object for objects. A specific generation may be specified by appending #generationNumber to the end of the object name, e.g. projects/_/buckets/my-bucket/objects/data.txt#17. The current generation can be denoted with #0. This field is ignored on input.",
           "type": "string"
         }
       },
@@ -5040,7 +5352,7 @@
         },
         "objectSize": {
           "description": "The total size of the object being copied in bytes. This property is always present in the response.",
-          "format": "uint64",
+          "format": "int64",
           "type": "string"
         },
         "resource": {
@@ -5053,7 +5365,7 @@
         },
         "totalBytesRewritten": {
           "description": "The total bytes written so far, which can be used to provide a waiting user with a progress indicator. This property is always present in the response.",
-          "format": "uint64",
+          "format": "int64",
           "type": "string"
         }
       },

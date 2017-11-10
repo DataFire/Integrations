@@ -99,7 +99,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -109,7 +109,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -1829,7 +1829,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -1839,7 +1839,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -3179,6 +3179,150 @@
         ]
       }
     },
+    "/account/institution/accounts": {
+      "get": {
+        "description": "Returns the accounts for which the account has administrative privileges (assigned and inherited).",
+        "operationId": "private_institution_accounts_list",
+        "parameters": [
+          {
+            "description": "Page number. Used for pagination with page_size",
+            "format": "int64",
+            "in": "query",
+            "maximum": 5000,
+            "minimum": 1,
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": 10,
+            "description": "The number of results included on a page. Used for pagination with page",
+            "format": "int64",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of results included on a page. Used for pagination with query",
+            "format": "int64",
+            "in": "query",
+            "maximum": 1000,
+            "minimum": 1,
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+            "format": "int64",
+            "in": "query",
+            "maximum": 5000,
+            "minimum": 1,
+            "name": "offset",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Filter by active status",
+            "format": "int64",
+            "in": "query",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "is_active",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. An array of Accounts",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ShortAccount"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "all"
+            ]
+          }
+        ],
+        "summary": "Private Account Institution Accounts",
+        "tags": [
+          "institutions"
+        ]
+      }
+    },
+    "/account/institution/accounts/search": {
+      "post": {
+        "description": "Returns the accounts for which the account has administrative privileges (assigned and inherited).",
+        "operationId": "private_institution_accounts_search",
+        "parameters": [
+          {
+            "description": "Search Parameters",
+            "in": "body",
+            "name": "search",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InstitutionAccountsSearch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. An array of Accounts",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ShortAccount"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/ErrorMessage"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "all"
+            ]
+          }
+        ],
+        "summary": "Private Account Institution Accounts Search",
+        "tags": [
+          "institutions"
+        ]
+      }
+    },
     "/account/institution/articles": {
       "get": {
         "description": "Get Articles from own institution. User must be administrator of the institution",
@@ -3199,7 +3343,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -3209,7 +3353,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -3428,7 +3572,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -3438,7 +3582,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -4336,7 +4480,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -4346,7 +4490,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -4687,7 +4831,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -4697,7 +4841,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -4786,6 +4930,13 @@
             "name": "item_type",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "only return collections with this doi",
+            "in": "query",
+            "name": "doi",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -5222,7 +5373,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -5232,7 +5383,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -5309,6 +5460,13 @@
             "description": "only return collections with this resource_doi",
             "in": "query",
             "name": "resource_doi",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "only return collections with this doi",
+            "in": "query",
+            "name": "doi",
             "required": false,
             "type": "string"
           }
@@ -5451,7 +5609,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -5461,7 +5619,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -5769,7 +5927,7 @@
             "description": "The number of results included on a page. Used for pagination with page",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "page_size",
             "required": false,
@@ -5779,7 +5937,7 @@
             "description": "Number of results included on a page. Used for pagination with query",
             "format": "int64",
             "in": "query",
-            "maximum": 100,
+            "maximum": 1000,
             "minimum": 1,
             "name": "limit",
             "required": false,
@@ -6321,13 +6479,18 @@
         },
         "doi": {
           "default": "",
-          "description": "Not appliable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.",
+          "description": "Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.",
           "type": "string"
         },
         "funding": {
           "default": "",
           "description": "Grant number or funding authority",
           "type": "string"
+        },
+        "group_id": {
+          "description": "Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups",
+          "format": "int64",
+          "type": "integer"
         },
         "keywords": {
           "default": [],
@@ -6477,6 +6640,11 @@
         }
       ],
       "properties": {
+        "doi": {
+          "description": "only return collections with this doi",
+          "example": "10.6084/m9.figshare.1407024",
+          "type": "string"
+        },
         "item_type": {
           "description": "Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint",
           "example": 1,
@@ -6567,6 +6735,11 @@
           "default": "",
           "description": "Grant number or funding authority",
           "type": "string"
+        },
+        "group_id": {
+          "description": "Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups",
+          "format": "int64",
+          "type": "integer"
         },
         "keywords": {
           "default": [],
@@ -7045,6 +7218,16 @@
           "maxLength": 10000,
           "type": "string"
         },
+        "doi": {
+          "default": "",
+          "description": "Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups",
+          "format": "int64",
+          "type": "integer"
+        },
         "keywords": {
           "default": [],
           "description": "List of tags to be associated with the article. Tags can be used instead",
@@ -7141,6 +7324,11 @@
         }
       ],
       "properties": {
+        "doi": {
+          "description": "only return collections with this doi",
+          "example": "10.6084/m9.figshare.1407024",
+          "type": "string"
+        },
         "resource_doi": {
           "description": "only return collections with this resource_doi",
           "example": "10.6084/m9.figshare.1407024",
@@ -7206,6 +7394,16 @@
           "example": "Test description of article",
           "maxLength": 10000,
           "type": "string"
+        },
+        "doi": {
+          "default": "",
+          "description": "Not applicable for regular users. In an institutional case, make sure your group supports setting DOIs. This setting is applied by figshare via opening a ticket through our support/helpdesk system.",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "Not applicable to regular users. This field is reserved to institutions/publishers with access to assign to specific groups",
+          "format": "int64",
+          "type": "integer"
         },
         "keywords": {
           "default": [],
@@ -7295,7 +7493,7 @@
           "description": "Number of results included on a page. Used for pagination with query",
           "example": 10,
           "format": "int64",
-          "maximum": 100,
+          "maximum": 1000,
           "minimum": 1,
           "type": "integer"
         },
@@ -7349,7 +7547,7 @@
           "description": "The number of results included on a page. Used for pagination with page",
           "example": 10,
           "format": "int64",
-          "maximum": 100,
+          "maximum": 1000,
           "minimum": 1,
           "type": "integer"
         },
@@ -7494,6 +7692,57 @@
       "type": "object",
       "x-tag": "institutions"
     },
+    "InstitutionAccountsSearch": {
+      "properties": {
+        "is_active": {
+          "description": "Filter by active status",
+          "format": "int64",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "limit": {
+          "description": "Number of results included on a page. Used for pagination with query",
+          "example": 10,
+          "format": "int64",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "offset": {
+          "description": "Where to start the listing(the offset of the first result). Used for pagination with limit",
+          "example": 1,
+          "format": "int64",
+          "maximum": 5000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "page": {
+          "description": "Page number. Used for pagination with page_size",
+          "example": 1,
+          "format": "int64",
+          "maximum": 5000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "page_size": {
+          "default": 10,
+          "description": "The number of results included on a page. Used for pagination with page",
+          "example": 10,
+          "format": "int64",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "search_for": {
+          "description": "Search term",
+          "example": "figshare",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "institutions"
+    },
     "License": {
       "properties": {
         "name": {
@@ -7569,7 +7818,7 @@
           "description": "Number of results included on a page. Used for pagination with query",
           "example": 10,
           "format": "int64",
-          "maximum": 100,
+          "maximum": 1000,
           "minimum": 1,
           "type": "integer"
         },
@@ -7622,7 +7871,7 @@
           "description": "The number of results included on a page. Used for pagination with page",
           "example": 10,
           "format": "int64",
-          "maximum": 100,
+          "maximum": 1000,
           "minimum": 1,
           "type": "integer"
         },
@@ -8286,6 +8535,45 @@
       "type": "object",
       "x-tag": "common"
     },
+    "ShortAccount": {
+      "properties": {
+        "active": {
+          "description": "Account activity status",
+          "example": 0,
+          "format": "int64",
+          "type": "integer"
+        },
+        "email": {
+          "description": "User email",
+          "example": "user@domain.com",
+          "type": "string"
+        },
+        "first_name": {
+          "description": "First Name",
+          "example": "Doe",
+          "type": "string"
+        },
+        "id": {
+          "description": "Account id",
+          "example": 1495682,
+          "format": "int64",
+          "type": "integer"
+        },
+        "institution_id": {
+          "description": "Account institution",
+          "example": 1,
+          "format": "int64",
+          "type": "integer"
+        },
+        "last_name": {
+          "description": "Last Name",
+          "example": "John",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-tag": "other"
+    },
     "UploadFilePart": {
       "properties": {
         "endOffset": {
@@ -8564,6 +8852,27 @@
             }
           ],
           "title": "Totals"
+        },
+        {
+          "subsections": [
+            {
+              "content": "description_stats_count_endpoints",
+              "title": "Endpoint for retrieving counts"
+            },
+            {
+              "content": "description_stats_count_auth",
+              "title": "Authorization"
+            },
+            {
+              "content": "description_stats_count_format",
+              "title": "Endpoint format"
+            },
+            {
+              "content": "description_stats_count_examples",
+              "title": "Example"
+            }
+          ],
+          "title": "Count Articles"
         }
       ],
       "title": "Stats"
@@ -8726,6 +9035,10 @@
             {
               "content": "description_api_cors",
               "title": "CORS policy"
+            },
+            {
+              "content": "description_api_impersonation",
+              "title": "Impersonation"
             }
           ],
           "title": "API description"

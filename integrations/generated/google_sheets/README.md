@@ -122,6 +122,67 @@ google_sheets.spreadsheets.get({
 * bearer_token (string) - OAuth bearer token.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
+### spreadsheets.developerMetadata.get
+Returns the developer metadata with the specified ID.
+The caller must specify the spreadsheet ID and the developer metadata's
+unique metadataId.
+
+
+```js
+google_sheets.spreadsheets.developerMetadata.get({
+  "metadataId": 0,
+  "spreadsheetId": ""
+}, context)
+```
+
+#### Parameters
+* metadataId (integer) **required** - The ID of the developer metadata to retrieve.
+* spreadsheetId (string) **required** - The ID of the spreadsheet to retrieve metadata from.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### spreadsheets.developerMetadata.search
+Returns all developer metadata matching the specified DataFilter.
+If the provided DataFilter represents a DeveloperMetadataLookup object,
+this will return all DeveloperMetadata entries selected by it. If the
+DataFilter represents a location in a spreadsheet, this will return all
+developer metadata associated with locations intersecting that region.
+
+
+```js
+google_sheets.spreadsheets.developerMetadata.search({
+  "spreadsheetId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - A request to retrieve all developer metadata matching the set of specified
+* spreadsheetId (string) **required** - The ID of the spreadsheet to retrieve metadata from.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### spreadsheets.sheets.copyTo
 Copies a single sheet from a spreadsheet to another spreadsheet.
 Returns the properties of the newly created sheet.
@@ -328,6 +389,37 @@ google_sheets.spreadsheets.values.batchClear({
 * bearer_token (string) - OAuth bearer token.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
+### spreadsheets.values.batchClearByDataFilter
+Clears one or more ranges of values from a spreadsheet.
+The caller must specify the spreadsheet ID and one or more
+DataFilters. Ranges matching any of the specified data
+filters will be cleared.  Only values are cleared -- all other properties
+of the cell (such as formatting, data validation, etc..) are kept.
+
+
+```js
+google_sheets.spreadsheets.values.batchClearByDataFilter({
+  "spreadsheetId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - The request for clearing more than one range selected by a
+* spreadsheetId (string) **required** - The ID of the spreadsheet to update.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### spreadsheets.values.batchGet
 Returns one or more ranges of values from a spreadsheet.
 The caller must specify the spreadsheet ID and one or more ranges.
@@ -359,6 +451,36 @@ google_sheets.spreadsheets.values.batchGet({
 * bearer_token (string) - OAuth bearer token.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
+### spreadsheets.values.batchGetByDataFilter
+Returns one or more ranges of values that match the specified data filters.
+The caller must specify the spreadsheet ID and one or more
+DataFilters.  Ranges that match any of the data filters in
+the request will be returned.
+
+
+```js
+google_sheets.spreadsheets.values.batchGetByDataFilter({
+  "spreadsheetId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - The request for retrieving a range of values in a spreadsheet selected by a
+* spreadsheetId (string) **required** - The ID of the spreadsheet to retrieve data from.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### spreadsheets.values.batchUpdate
 Sets values in one or more ranges of a spreadsheet.
 The caller must specify the spreadsheet ID,
@@ -387,6 +509,36 @@ google_sheets.spreadsheets.values.batchUpdate({
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### spreadsheets.values.batchUpdateByDataFilter
+Sets values in one or more ranges of a spreadsheet.
+The caller must specify the spreadsheet ID,
+a valueInputOption, and one or more
+DataFilterValueRanges.
+
+
+```js
+google_sheets.spreadsheets.values.batchUpdateByDataFilter({
+  "spreadsheetId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - The request for updating more than one range of values in a spreadsheet.
+* spreadsheetId (string) **required** - The ID of the spreadsheet to update.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### spreadsheets.batchUpdate
@@ -432,5 +584,53 @@ google_sheets.spreadsheets.batchUpdate({
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### spreadsheets.getByDataFilter
+Returns the spreadsheet at the given ID.
+The caller must specify the spreadsheet ID.
+
+This method differs from GetSpreadsheet in that it allows selecting
+which subsets of spreadsheet data to return by specifying a
+dataFilters parameter.
+Multiple DataFilters can be specified.  Specifying one or
+more data filters will return the portions of the spreadsheet that
+intersect ranges matched by any of the filters.
+
+By default, data within grids will not be returned.
+You can include grid data one of two ways:
+
+* Specify a field mask listing your desired fields using the `fields` URL
+parameter in HTTP
+
+* Set the includeGridData
+parameter to true.  If a field mask is set, the `includeGridData`
+parameter is ignored
+
+For large spreadsheets, it is recommended to retrieve only the specific
+fields of the spreadsheet that you want.
+
+
+```js
+google_sheets.spreadsheets.getByDataFilter({
+  "spreadsheetId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - The request for retrieving a Spreadsheet.
+* spreadsheetId (string) **required** - The spreadsheet to request.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

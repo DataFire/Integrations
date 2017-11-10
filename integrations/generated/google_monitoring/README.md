@@ -17,7 +17,7 @@ let google_monitoring = require('@datafire/google_monitoring').create({
   redirect_uri: "",
 });
 
-google_monitoring.projects.groups.delete({}).then(data => {
+google_monitoring.uptimeCheckIps.list({}).then(data => {
   console.log(data);
 })
 ```
@@ -50,18 +50,43 @@ google_monitoring.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
-### projects.groups.delete
-Deletes an existing group.
+### uptimeCheckIps.list
+Returns the list of IPs that checkers run from
 
 
 ```js
-google_monitoring.projects.groups.delete({
+google_monitoring.uptimeCheckIps.list({}, context)
+```
+
+#### Parameters
+* pageSize (integer) - The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned. NOTE: this field is not yet implemented
+* pageToken (string) - If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results from the previous method call. NOTE: this field is not yet implemented
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.metricDescriptors.delete
+Deletes a metric descriptor. Only user-created custom metrics can be deleted.
+
+
+```js
+google_monitoring.projects.metricDescriptors.delete({
   "name": ""
 }, context)
 ```
 
 #### Parameters
-* name (string) **required** - The group to delete. The format is "projects/{project_id_or_number}/groups/{group_id}".
+* name (string) **required** - The metric descriptor on which to execute the request. The format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An example of {metric_id} is: "custom.googleapis.com/my_test_metric".
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -76,18 +101,47 @@ google_monitoring.projects.groups.delete({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### projects.groups.get
-Gets a single group.
+### projects.metricDescriptors.get
+Gets a single metric descriptor. This method does not require a Stackdriver account.
 
 
 ```js
-google_monitoring.projects.groups.get({
+google_monitoring.projects.metricDescriptors.get({
   "name": ""
 }, context)
 ```
 
 #### Parameters
-* name (string) **required** - The group to retrieve. The format is "projects/{project_id_or_number}/groups/{group_id}".
+* name (string) **required** - The metric descriptor on which to execute the request. The format is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An example value of {metric_id} is "compute.googleapis.com/instance/disk/read_bytes_count".
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.uptimeCheckConfigs.patch
+Updates an uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the fields to be updated via "updateMask". Returns the updated configuration.
+
+
+```js
+google_monitoring.projects.uptimeCheckConfigs.patch({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - This message configures which resources and services to monitor for availability.
+* name (string) **required** - A unique resource name for this UptimeCheckConfig. The format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field should be omitted when creating the uptime check configuration; on create, the resource name is assigned by the server and included in the response.
+* name1 (string) - The uptime check configuration to update. The format isprojects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+* updateMask (string) - Optional. If present, only the listed fields in the current uptime check configuration are updated with values from the new configuration. If this field is empty, then the current configuration is completely replaced with the new configuration.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -354,10 +408,6 @@ google_monitoring.projects.timeSeries.list({
 * orderBy (string) - Specifies the order in which the points of the time series should be returned. By default, results are not ordered. Currently, this field must be left blank.
 * pageSize (integer) - A positive number that is the maximum number of results to return. When view field sets to FULL, it limits the number of Points server will return; if view field is HEADERS, it limits the number of TimeSeries server will return.
 * pageToken (string) - If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return additional results from the previous method call.
-* secondaryAggregation.alignmentPeriod (string) - The alignment period for per-time series alignment. If present, alignmentPeriod must be at least 60 seconds. After per-time series alignment, each time series will contain data points only on the period boundaries. If perSeriesAligner is not specified or equals ALIGN_NONE, then this field is ignored. If perSeriesAligner is specified and does not equal ALIGN_NONE, then this field must be defined; otherwise an error is returned.
-* secondaryAggregation.crossSeriesReducer (string) - The approach to be used to combine time series. Not all reducer functions may be applied to all time series, depending on the metric type and the value type of the original time series. Reduction may change the metric type of value type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If crossSeriesReducer is specified, then perSeriesAligner must be specified and not equal ALIGN_NONE and alignmentPeriod must be specified; otherwise, an error is returned.
-* secondaryAggregation.groupByFields (array) - The set of fields to preserve when crossSeriesReducer is specified. The groupByFields determine how the time series are partitioned into subsets prior to applying the aggregation function. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The crossSeriesReducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in groupByFields are aggregated away. If groupByFields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If crossSeriesReducer is not defined, this field is ignored.
-* secondaryAggregation.perSeriesAligner (string) - The approach to be used to align individual time series. Not all alignment functions may be applied to all time series, depending on the metric type and value type of the original time series. Alignment may change the metric type or the value type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If crossSeriesReducer is specified, then perSeriesAligner must be specified and not equal ALIGN_NONE and alignmentPeriod must be specified; otherwise, an error is returned.
 * view (string) - Specifies which information is returned about the time series.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
@@ -399,4 +449,59 @@ google_monitoring.projects.timeSeries.create({
 * alt (string) - Data format for response.
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.uptimeCheckConfigs.list
+Lists the existing valid uptime check configurations for the project, leaving out any invalid configurations.
+
+
+```js
+google_monitoring.projects.uptimeCheckConfigs.list({
+  "parent": ""
+}, context)
+```
+
+#### Parameters
+* pageSize (integer) - The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned.
+* pageToken (string) - If this field is not empty then it must contain the nextPageToken value returned by a previous call to this method. Using this field causes the method to return more results from the previous method call.
+* parent (string) **required** - The project whose uptime check configurations are listed. The format isprojects/[PROJECT_ID].
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.uptimeCheckConfigs.create
+Creates a new uptime check configuration.
+
+
+```js
+google_monitoring.projects.uptimeCheckConfigs.create({
+  "parent": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - This message configures which resources and services to monitor for availability.
+* parent (string) **required** - The project in which to create the uptime check. The format is:projects/[PROJECT_ID].
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

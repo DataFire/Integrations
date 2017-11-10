@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Lets Android application developers access their Google Play accounts.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Play Developer",
     "version": "v2",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/androidpublisher/v2/rest",
@@ -52,21 +47,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -194,9 +179,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -260,9 +242,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -299,9 +278,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -340,9 +316,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -405,9 +378,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -472,9 +442,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -545,9 +512,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -631,9 +595,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -690,9 +651,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -779,9 +737,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -839,9 +794,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -905,9 +857,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -951,9 +900,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -999,9 +945,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1077,9 +1020,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1131,9 +1071,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1217,9 +1154,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1279,9 +1213,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1321,9 +1252,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1393,9 +1321,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1441,9 +1366,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1480,9 +1402,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1521,9 +1440,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1592,9 +1508,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1639,9 +1552,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1718,9 +1628,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1772,9 +1679,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -1840,9 +1744,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -1904,9 +1805,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2073,9 +1971,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2143,9 +2038,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2220,9 +2112,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2303,9 +2192,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2362,9 +2248,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2404,9 +2287,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2483,9 +2363,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2568,9 +2445,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2628,9 +2502,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2695,9 +2566,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2760,9 +2628,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -2882,9 +2747,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2952,9 +2814,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -2992,9 +2851,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3031,9 +2887,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3109,9 +2962,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3163,9 +3013,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3212,9 +3059,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3285,9 +3129,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3379,9 +3220,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3459,9 +3297,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3528,9 +3363,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3599,9 +3431,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3616,14 +3445,7 @@
         "operationId": "purchases.voidedpurchases.list",
         "parameters": [
           {
-            "description": "The package name of the application for which voided purchases need to be returned (for example, 'com.some.thing').",
-            "in": "path",
-            "name": "packageName",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The time, in milliseconds since the Epoch, of the newest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be greater than the current time and is ignored if a pagination token is set. Default value is current time.",
+            "description": "The time, in milliseconds since the Epoch, of the newest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be greater than the current time and is ignored if a pagination token is set. Default value is current time. Note: This filter is applied on the time at which the record is seen as voided by our systems and not the actual voided time returned in the response.",
             "in": "query",
             "name": "endTime",
             "type": "string"
@@ -3634,12 +3456,19 @@
             "type": "integer"
           },
           {
+            "description": "The package name of the application for which voided purchases need to be returned (for example, 'com.some.thing').",
+            "in": "path",
+            "name": "packageName",
+            "required": true,
+            "type": "string"
+          },
+          {
             "in": "query",
             "name": "startIndex",
             "type": "integer"
           },
           {
-            "description": "The time, in milliseconds since the Epoch, of the oldest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be older than 30 days and is ignored if a pagination token is set. Default value is current time minus 30 days.",
+            "description": "The time, in milliseconds since the Epoch, of the oldest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be older than 30 days and is ignored if a pagination token is set. Default value is current time minus 30 days. Note: This filter is applied on the time at which the record is seen as voided by our systems and not the actual voided time returned in the response.",
             "in": "query",
             "name": "startTime",
             "type": "string"
@@ -3661,9 +3490,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3741,9 +3567,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3810,9 +3633,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
@@ -3906,9 +3726,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidpublisher"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/androidpublisher"
             ]
           }
         ],
@@ -3938,6 +3755,10 @@
       "properties": {
         "sha1": {
           "description": "A sha1 hash of the APK payload, encoded as a hex string and matching the output of the sha1sum command.",
+          "type": "string"
+        },
+        "sha256": {
+          "description": "A sha256 hash of the APK payload, encoded as a hex string and matching the output of the sha256sum command.",
           "type": "string"
         }
       },
@@ -4630,6 +4451,10 @@
           "description": "This kind represents an inappPurchase object in the androidpublisher service.",
           "type": "string"
         },
+        "orderId": {
+          "description": "The order id associated with the purchase of the inapp product.",
+          "type": "string"
+        },
         "purchaseState": {
           "description": "The purchase state of the order. Possible values are:  \n- Purchased \n- Cancelled",
           "format": "int32",
@@ -4767,7 +4592,7 @@
           "type": "boolean"
         },
         "cancelReason": {
-          "description": "The reason why a subscription was cancelled or is not auto-renewing. Possible values are:  \n- User cancelled the subscription \n- Subscription was cancelled by the system, for example because of a billing problem",
+          "description": "The reason why a subscription was cancelled or is not auto-renewing. Possible values are:  \n- User cancelled the subscription \n- Subscription was cancelled by the system, for example because of a billing problem \n- Subscription was replaced with a new subscription",
           "format": "int32",
           "type": "integer"
         },
@@ -4789,8 +4614,12 @@
           "description": "This kind represents a subscriptionPurchase object in the androidpublisher service.",
           "type": "string"
         },
+        "orderId": {
+          "description": "The order id of the latest recurring order associated with the purchase of the subscription.",
+          "type": "string"
+        },
         "paymentState": {
-          "description": "The payment state of the subscription. Possible values are:  \n- Payment pending \n- Payment received",
+          "description": "The payment state of the subscription. Possible values are:  \n- Payment pending \n- Payment received \n- Free trial",
           "format": "int32",
           "type": "integer"
         },

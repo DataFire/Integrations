@@ -21,7 +21,7 @@ amazonaws_appstream2.AssociateFleet({}).then(data => {
 ```
 
 ## Description
-<fullname>Amazon AppStream 2.0</fullname> <p>API documentation for Amazon AppStream 2.0.</p>
+<fullname>Amazon AppStream 2.0</fullname> <p>You can use Amazon AppStream 2.0 to stream desktop applications to any device running a web browser, without rewriting them.</p>
 
 ## Actions
 ### AssociateFleet
@@ -39,6 +39,26 @@ amazonaws_appstream2.AssociateFleet({
 * FleetName (string) **required**
 * StackName (string) **required**
 
+### CreateDirectoryConfig
+
+
+
+```js
+amazonaws_appstream2.CreateDirectoryConfig({
+  "DirectoryName": "",
+  "OrganizationalUnitDistinguishedNames": [],
+  "ServiceAccountCredentials": {
+    "AccountName": "",
+    "AccountPassword": ""
+  }
+}, context)
+```
+
+#### Parameters
+* DirectoryName (string) **required**
+* OrganizationalUnitDistinguishedNames (array) **required**
+* ServiceAccountCredentials (object) **required** - Describes the credentials for the service account used by the streaming instance to connect to the directory.
+
 ### CreateFleet
 
 
@@ -55,16 +75,54 @@ amazonaws_appstream2.CreateFleet({
 ```
 
 #### Parameters
-* ComputeCapacity (object) **required** - The capacity configuration for the fleet.
+* ComputeCapacity (object) **required** - Describes the capacity for a fleet.
 * Description (string)
 * DisconnectTimeoutInSeconds (integer)
 * DisplayName (string)
+* DomainJoinInfo (object) - Contains the information needed for streaming instances to join a domain.
 * EnableDefaultInternetAccess (boolean)
+* FleetType (string)
 * ImageName (string) **required**
 * InstanceType (string) **required**
 * MaxUserDurationInSeconds (integer)
 * Name (string) **required**
-* VpcConfig (object) - VPC configuration information.
+* VpcConfig (object) - Describes VPC configuration information.
+
+### CreateImageBuilder
+
+
+
+```js
+amazonaws_appstream2.CreateImageBuilder({
+  "Name": "",
+  "ImageName": "",
+  "InstanceType": ""
+}, context)
+```
+
+#### Parameters
+* Description (string)
+* DisplayName (string)
+* DomainJoinInfo (object) - Contains the information needed for streaming instances to join a domain.
+* EnableDefaultInternetAccess (boolean)
+* ImageName (string) **required**
+* InstanceType (string) **required**
+* Name (string) **required**
+* VpcConfig (object) - Describes VPC configuration information.
+
+### CreateImageBuilderStreamingURL
+
+
+
+```js
+amazonaws_appstream2.CreateImageBuilderStreamingURL({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+* Validity (integer)
 
 ### CreateStack
 
@@ -80,6 +138,7 @@ amazonaws_appstream2.CreateStack({
 * Description (string)
 * DisplayName (string)
 * Name (string) **required**
+* StorageConnectors (array) - The storage connectors.
 
 ### CreateStreamingURL
 
@@ -101,12 +160,51 @@ amazonaws_appstream2.CreateStreamingURL({
 * UserId (string) **required**
 * Validity (integer)
 
+### DeleteDirectoryConfig
+
+
+
+```js
+amazonaws_appstream2.DeleteDirectoryConfig({
+  "DirectoryName": ""
+}, context)
+```
+
+#### Parameters
+* DirectoryName (string) **required**
+
 ### DeleteFleet
 
 
 
 ```js
 amazonaws_appstream2.DeleteFleet({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+
+### DeleteImage
+
+
+
+```js
+amazonaws_appstream2.DeleteImage({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+
+### DeleteImageBuilder
+
+
+
+```js
+amazonaws_appstream2.DeleteImageBuilder({
   "Name": ""
 }, context)
 ```
@@ -127,6 +225,19 @@ amazonaws_appstream2.DeleteStack({
 #### Parameters
 * Name (string) **required**
 
+### DescribeDirectoryConfigs
+
+
+
+```js
+amazonaws_appstream2.DescribeDirectoryConfigs({}, context)
+```
+
+#### Parameters
+* DirectoryNames (array)
+* MaxResults (integer)
+* NextToken (string)
+
 ### DescribeFleets
 
 
@@ -136,6 +247,19 @@ amazonaws_appstream2.DescribeFleets({}, context)
 ```
 
 #### Parameters
+* Names (array)
+* NextToken (string)
+
+### DescribeImageBuilders
+
+
+
+```js
+amazonaws_appstream2.DescribeImageBuilders({}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
 * Names (array)
 * NextToken (string)
 
@@ -250,6 +374,19 @@ amazonaws_appstream2.StartFleet({
 #### Parameters
 * Name (string) **required**
 
+### StartImageBuilder
+
+
+
+```js
+amazonaws_appstream2.StartImageBuilder({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+
 ### StopFleet
 
 
@@ -263,6 +400,34 @@ amazonaws_appstream2.StopFleet({
 #### Parameters
 * Name (string) **required**
 
+### StopImageBuilder
+
+
+
+```js
+amazonaws_appstream2.StopImageBuilder({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+
+### UpdateDirectoryConfig
+
+
+
+```js
+amazonaws_appstream2.UpdateDirectoryConfig({
+  "DirectoryName": ""
+}, context)
+```
+
+#### Parameters
+* DirectoryName (string) **required**
+* OrganizationalUnitDistinguishedNames (array)
+* ServiceAccountCredentials (object) - Describes the credentials for the service account used by the streaming instance to connect to the directory.
+
 ### UpdateFleet
 
 
@@ -274,17 +439,19 @@ amazonaws_appstream2.UpdateFleet({
 ```
 
 #### Parameters
-* ComputeCapacity (object) - The capacity configuration for the fleet.
+* AttributesToDelete (array) - The fleet attributes.
+* ComputeCapacity (object) - Describes the capacity for a fleet.
 * DeleteVpcConfig (boolean)
 * Description (string)
 * DisconnectTimeoutInSeconds (integer)
 * DisplayName (string)
+* DomainJoinInfo (object) - Contains the information needed for streaming instances to join a domain.
 * EnableDefaultInternetAccess (boolean)
 * ImageName (string)
 * InstanceType (string)
 * MaxUserDurationInSeconds (integer)
 * Name (string) **required**
-* VpcConfig (object) - VPC configuration information.
+* VpcConfig (object) - Describes VPC configuration information.
 
 ### UpdateStack
 
@@ -297,7 +464,9 @@ amazonaws_appstream2.UpdateStack({
 ```
 
 #### Parameters
+* DeleteStorageConnectors (boolean)
 * Description (string)
 * DisplayName (string)
 * Name (string) **required**
+* StorageConnectors (array) - The storage connectors.
 

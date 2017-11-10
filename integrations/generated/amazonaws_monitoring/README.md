@@ -37,6 +37,17 @@ amazonaws_monitoring.DeleteAlarms({
 #### Parameters
 * AlarmNames (array) **required**
 
+### DeleteDashboards
+
+
+
+```js
+amazonaws_monitoring.DeleteDashboards({}, context)
+```
+
+#### Parameters
+* DashboardNames (array)
+
 ### DescribeAlarmHistory
 
 
@@ -119,6 +130,17 @@ amazonaws_monitoring.EnableAlarmActions({
 #### Parameters
 * AlarmNames (array) **required**
 
+### GetDashboard
+
+
+
+```js
+amazonaws_monitoring.GetDashboard({}, context)
+```
+
+#### Parameters
+* DashboardName (string)
+
 ### GetMetricStatistics
 
 
@@ -144,6 +166,18 @@ amazonaws_monitoring.GetMetricStatistics({
 * Statistics (array)
 * Unit (string)
 
+### ListDashboards
+
+
+
+```js
+amazonaws_monitoring.ListDashboards({}, context)
+```
+
+#### Parameters
+* DashboardNamePrefix (string)
+* NextToken (string)
+
 ### ListMetrics
 
 
@@ -158,6 +192,18 @@ amazonaws_monitoring.ListMetrics({}, context)
 * MetricName (string)
 * Namespace (string)
 * NextToken (string)
+
+### PutDashboard
+
+
+
+```js
+amazonaws_monitoring.PutDashboard({}, context)
+```
+
+#### Parameters
+* DashboardBody (string)
+* DashboardName (string)
 
 ### PutMetricAlarm
 

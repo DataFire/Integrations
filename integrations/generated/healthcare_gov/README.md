@@ -11,7 +11,7 @@ npm install --save datafire @datafire/healthcare_gov
 let datafire = require('datafire');
 let healthcare_gov = require('@datafire/healthcare_gov').create();
 
-healthcare_gov.api.articles.json.get({}).then(data => {
+healthcare_gov.api.articlesmediaTypeExtension.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -20,199 +20,231 @@ healthcare_gov.api.articles.json.get({}).then(data => {
 
 
 ## Actions
-### api.articles.json.get
+### api.articlesmediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.api.articles.json.get(null, context)
+healthcare_gov.api.articlesmediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 
-### api.blog.json.get
+### api.blogmediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.api.blog.json.get(null, context)
+healthcare_gov.api.blogmediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 
-### api.glossary.json.get
+### api.glossarymediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.api.glossary.json.get(null, context)
+healthcare_gov.api.glossarymediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 
-### api.questions.json.get
+### api.questionsmediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.api.questions.json.get(null, context)
+healthcare_gov.api.questionsmediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 
-### api.states.json.get
+### api.statesmediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.api.states.json.get(null, context)
+healthcare_gov.api.statesmediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 
-### api.topics.json.get
+### api.topicsmediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.api.topics.json.get(null, context)
+healthcare_gov.api.topicsmediaTypeExtension.get({
+  "mediaTypeExtension": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 
-### blog.pageName.json.get
+### blog.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.blog.pageName.json.get({
+healthcare_gov.blog.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### es.blog.pageName.json.get
+### es.blog.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.es.blog.pageName.json.get({
+healthcare_gov.es.blog.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### es.glossary.pageName.json.get
+### es.glossary.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.es.glossary.pageName.json.get({
+healthcare_gov.es.glossary.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### es.question.pageName.json.get
+### es.question.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.es.question.pageName.json.get({
+healthcare_gov.es.question.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### es.pageName.json.get
+### es.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.es.pageName.json.get({
+healthcare_gov.es.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### es.stateName.json.get
+### es.stateNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.es.stateName.json.get({
+healthcare_gov.es.stateNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "stateName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * stateName (string) **required**
 
-### glossary.pageName.json.get
+### glossary.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.glossary.pageName.json.get({
+healthcare_gov.glossary.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### question.pageName.json.get
+### question.pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.question.pageName.json.get({
+healthcare_gov.question.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### pageName.json.get
+### pageNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.pageName.json.get({
+healthcare_gov.pageNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "pageName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * pageName (string) **required**
 
-### stateName.json.get
+### stateNamemediaTypeExtension.get
 Returns pages content.
 
 
 ```js
-healthcare_gov.stateName.json.get({
+healthcare_gov.stateNamemediaTypeExtension.get({
+  "mediaTypeExtension": "",
   "stateName": ""
 }, context)
 ```
 
 #### Parameters
+* mediaTypeExtension (string) **required** - Omiting the param causes html to be returned.
 * stateName (string) **required**
 

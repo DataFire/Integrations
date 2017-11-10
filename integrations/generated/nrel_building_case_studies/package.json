@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nrel_building_case_studies",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for High Performance Building Database",
   "repository": {

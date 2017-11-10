@@ -16,7 +16,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.jpg"
   },
-  "actionCount": 29,
+  "actionCount": 30,
   "definitions": {
     "AliasName": {
       "maxLength": 100,
@@ -348,7 +348,7 @@
       "properties": {
         "abortStatement": {
           "$ref": "#/definitions/Statement",
-          "description": "The message that Amazon Lex uses to abort a conversation. For more information, see ."
+          "description": "The message that Amazon Lex uses to abort a conversation. For more information, see <a>PutBot</a>."
         },
         "checksum": {
           "$ref": "#/definitions/String",
@@ -360,7 +360,7 @@
         },
         "clarificationPrompt": {
           "$ref": "#/definitions/Prompt",
-          "description": "The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see . "
+          "description": "The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see <a>PutBot</a>. "
         },
         "createdDate": {
           "$ref": "#/definitions/Timestamp",
@@ -376,11 +376,11 @@
         },
         "idleSessionTTLInSeconds": {
           "$ref": "#/definitions/SessionTTL",
-          "description": "The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see ."
+          "description": "The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see <a>PutBot</a>."
         },
         "intents": {
           "$ref": "#/definitions/IntentList",
-          "description": "An array of <code>Intent</code> objects. For more information, see ."
+          "description": "An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>."
         },
         "lastUpdatedDate": {
           "$ref": "#/definitions/Timestamp",
@@ -404,7 +404,7 @@
         },
         "voiceId": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon Parrot voice ID that Amazon Lex uses for voice interactions with the user."
+          "description": "The Amazon Polly voice ID that Amazon Lex uses for voice interactions with the user."
         }
       },
       "type": "object",
@@ -522,6 +522,10 @@
           "$ref": "#/definitions/SlotTypeName",
           "description": "The name of the slot type."
         },
+        "valueSelectionStrategy": {
+          "$ref": "#/definitions/SlotValueSelectionStrategy",
+          "description": "The strategy that Amazon Lex uses to determine the value of the slot. For more information, see <a>PutSlotType</a>."
+        },
         "version": {
           "$ref": "#/definitions/Version",
           "description": "The version assigned to the new slot type version. "
@@ -591,6 +595,10 @@
     "EnumerationValue": {
       "description": "<p>Each slot type can have a set of values. Each enumeration value represents a value the slot type can take. </p> <p>For example, a pizza ordering bot could have a slot type that specifies the type of crust that the pizza should have. The slot type could include the values </p> <ul> <li> <p>thick</p> </li> <li> <p>thin</p> </li> <li> <p>stuffed</p> </li> </ul>",
       "properties": {
+        "synonyms": {
+          "$ref": "#/definitions/SynonymList",
+          "description": "Additional values related to the slot type value."
+        },
         "value": {
           "$ref": "#/definitions/Value",
           "description": "The value of the slot type."
@@ -611,16 +619,32 @@
       "type": "array",
       "title": "EnumerationValues"
     },
+    "ExportStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "READY",
+        "FAILED"
+      ],
+      "type": "string",
+      "title": "ExportStatus"
+    },
+    "ExportType": {
+      "enum": [
+        "ALEXA_SKILLS_KIT"
+      ],
+      "type": "string",
+      "title": "ExportType"
+    },
     "FollowUpPrompt": {
-      "description": "After an intent is fulfilled, you might prompt the user for additional activity. For example, after the <code>OrderPizza</code> intent is fulfilled (the pizza order is placed with a pizzeria), you might prompt the user to find out whether the user wants to order drinks (another intent you defined in your bot).",
+      "description": "A prompt for additional activity after an intent is fulfilled. For example, after the <code>OrderPizza</code> intent is fulfilled, you might prompt the user to find out whether the user wants to order drinks.",
       "properties": {
         "prompt": {
           "$ref": "#/definitions/Prompt",
-          "description": "Obtains information from the user. "
+          "description": "Prompts for information from the user. "
         },
         "rejectionStatement": {
           "$ref": "#/definitions/Statement",
-          "description": "If the user answers \"no\" to the question defined in <code>confirmationPrompt</code>, Amazon Lex responds with this statement to acknowledge that the intent was canceled. "
+          "description": "If the user answers \"no\" to the question defined in the <code>prompt</code> field, Amazon Lex responds with this statement to acknowledge that the intent was canceled. "
         }
       },
       "required": [
@@ -773,15 +797,62 @@
       "title": "GetBotChannelAssociationsResponse"
     },
     "GetBotRequest": {
+      "example": {
+        "name": "DocOrderPizza",
+        "versionOrAlias": "$LATEST"
+      },
       "properties": {},
       "type": "object",
       "title": "GetBotRequest"
     },
     "GetBotResponse": {
+      "example": {
+        "abortStatement": {
+          "messages": [
+            {
+              "content": "I don't understand. Can you try again?",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "I'm sorry, I don't understand.",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "checksum": "20172ee3-fa06-49b2-bbc5-667c090303e9",
+        "childDirected": true,
+        "clarificationPrompt": {
+          "maxAttempts": 1,
+          "messages": [
+            {
+              "content": "I'm sorry, I didn't hear that. Can you repeate what you just said?",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "Can you say that again?",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "createdDate": 1494360160.133,
+        "description": "Orders a pizza from a local pizzeria.",
+        "idleSessionTTLInSeconds": 300,
+        "intents": [
+          {
+            "intentName": "DocOrderPizza",
+            "intentVersion": "$LATEST"
+          }
+        ],
+        "lastUpdatedDate": 1494360160.133,
+        "locale": "en-US",
+        "name": "DocOrderPizzaBot",
+        "status": "NOT_BUILT",
+        "version": "$LATEST"
+      },
       "properties": {
         "abortStatement": {
           "$ref": "#/definitions/Statement",
-          "description": "The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see ."
+          "description": "The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see <a>PutBot</a>."
         },
         "checksum": {
           "$ref": "#/definitions/String",
@@ -793,7 +864,7 @@
         },
         "clarificationPrompt": {
           "$ref": "#/definitions/Prompt",
-          "description": "The message Amazon Lex uses when it doesn't understand the user's request. For more information, see . "
+          "description": "The message Amazon Lex uses when it doesn't understand the user's request. For more information, see <a>PutBot</a>. "
         },
         "createdDate": {
           "$ref": "#/definitions/Timestamp",
@@ -809,11 +880,11 @@
         },
         "idleSessionTTLInSeconds": {
           "$ref": "#/definitions/SessionTTL",
-          "description": "The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see ."
+          "description": "The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see <a>PutBot</a>."
         },
         "intents": {
           "$ref": "#/definitions/IntentList",
-          "description": "An array of <code>intent</code> objects. For more information, see ."
+          "description": "An array of <code>intent</code> objects. For more information, see <a>PutBot</a>."
         },
         "lastUpdatedDate": {
           "$ref": "#/definitions/Timestamp",
@@ -837,7 +908,7 @@
         },
         "voiceId": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon Parrot voice ID that Amazon Lex uses for voice interaction with the user. For more information, see ."
+          "description": "The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. For more information, see <a>PutBot</a>."
         }
       },
       "type": "object",
@@ -863,11 +934,27 @@
       "title": "GetBotVersionsResponse"
     },
     "GetBotsRequest": {
+      "example": {
+        "maxResults": 5,
+        "nextToken": ""
+      },
       "properties": {},
       "type": "object",
       "title": "GetBotsRequest"
     },
     "GetBotsResponse": {
+      "example": {
+        "bots": [
+          {
+            "createdDate": 1494360160.133,
+            "description": "Orders a pizza from a local pizzeria.",
+            "lastUpdatedDate": 1494360160.133,
+            "name": "DocOrderPizzaBot",
+            "status": "NOT_BUILT",
+            "version": "$LATEST"
+          }
+        ]
+      },
       "properties": {
         "bots": {
           "$ref": "#/definitions/BotMetadataList",
@@ -942,12 +1029,188 @@
       "type": "object",
       "title": "GetBuiltinSlotTypesResponse"
     },
+    "GetExportRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "GetExportRequest"
+    },
+    "GetExportResponse": {
+      "properties": {
+        "exportStatus": {
+          "$ref": "#/definitions/ExportStatus",
+          "description": "<p>The status of the export. </p> <ul> <li> <p> <code>IN_PROGRESS</code> - The export is in progress.</p> </li> <li> <p> <code>READY</code> - The export is complete.</p> </li> <li> <p> <code>FAILED</code> - The export could not be completed.</p> </li> </ul>"
+        },
+        "exportType": {
+          "$ref": "#/definitions/ExportType",
+          "description": "The format of the exported data."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/String",
+          "description": "If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the reason that it failed to export the resource."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the bot being exported."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of the exported resource."
+        },
+        "url": {
+          "$ref": "#/definitions/String",
+          "description": "An S3 pre-signed URL that provides the location of the exported resource. The exported resource is a ZIP archive that contains the exported resource in JSON format. The structure of the archive may change. Your code should not rely on the archive structure."
+        },
+        "version": {
+          "$ref": "#/definitions/NumericalVersion",
+          "description": "The version of the bot being exported."
+        }
+      },
+      "type": "object",
+      "title": "GetExportResponse"
+    },
     "GetIntentRequest": {
+      "example": {
+        "name": "DocOrderPizza",
+        "version": "$LATEST"
+      },
       "properties": {},
       "type": "object",
       "title": "GetIntentRequest"
     },
     "GetIntentResponse": {
+      "example": {
+        "checksum": "ca9bc13d-afc8-4706-bbaf-091f7a5935d6",
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
+              "contentType": "PlainText"
+            }
+          ],
+          "responseCard": "foo"
+        },
+        "confirmationPrompt": {
+          "maxAttempts": 1,
+          "messages": [
+            {
+              "content": "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "createdDate": 1494359783.453,
+        "description": "Order a pizza from a local pizzeria.",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "lastUpdatedDate": 1494359783.453,
+        "name": "DocOrderPizza",
+        "rejectionStatement": {
+          "messages": [
+            {
+              "content": "Ok, I'll cancel your order.",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "I cancelled your order.",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "sampleUtterances": [
+          "Order me a pizza.",
+          "Order me a {Type} pizza.",
+          "I want a {Crust} crust {Type} pizza",
+          "I want a {Crust} crust {Type} pizza with {Sauce} sauce."
+        ],
+        "slots": [
+          {
+            "description": "The type of pizza to order.",
+            "name": "Type",
+            "priority": 1,
+            "sampleUtterances": [
+              "Get me a {Type} pizza.",
+              "A {Type} pizza please.",
+              "I'd like a {Type} pizza."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "What type of pizza would you like?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Vegie or cheese pizza?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "I can get you a vegie or a cheese pizza.",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          },
+          {
+            "description": "The type of pizza crust to order.",
+            "name": "Crust",
+            "priority": 2,
+            "sampleUtterances": [
+              "Make it a {Crust} crust.",
+              "I'd like a {Crust} crust."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaCrustType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "What type of crust would you like?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Thick or thin crust?",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          },
+          {
+            "description": "The type of sauce to use on the pizza.",
+            "name": "Sauce",
+            "priority": 3,
+            "sampleUtterances": [
+              "Make it {Sauce} sauce.",
+              "I'd like {Sauce} sauce."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaSauceType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "White or red sauce?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Garlic or tomato sauce?",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          }
+        ],
+        "version": "$LATEST"
+      },
       "properties": {
         "checksum": {
           "$ref": "#/definitions/String",
@@ -959,7 +1222,7 @@
         },
         "confirmationPrompt": {
           "$ref": "#/definitions/Prompt",
-          "description": "If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see . "
+          "description": "If defined in the bot, Amazon Lex uses prompt to confirm the intent before fulfilling the user's request. For more information, see <a>PutIntent</a>. "
         },
         "createdDate": {
           "$ref": "#/definitions/Timestamp",
@@ -971,15 +1234,15 @@
         },
         "dialogCodeHook": {
           "$ref": "#/definitions/CodeHook",
-          "description": "If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see . "
+          "description": "If defined in the bot, Amazon Amazon Lex invokes this Lambda function for each user input. For more information, see <a>PutIntent</a>. "
         },
         "followUpPrompt": {
           "$ref": "#/definitions/FollowUpPrompt",
-          "description": "If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see ."
+          "description": "If defined in the bot, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled. For more information, see <a>PutIntent</a>."
         },
         "fulfillmentActivity": {
           "$ref": "#/definitions/FulfillmentActivity",
-          "description": "Describes how the intent is fulfilled. For more information, see . "
+          "description": "Describes how the intent is fulfilled. For more information, see <a>PutIntent</a>. "
         },
         "lastUpdatedDate": {
           "$ref": "#/definitions/Timestamp",
@@ -1033,15 +1296,30 @@
       "title": "GetIntentVersionsResponse"
     },
     "GetIntentsRequest": {
+      "example": {
+        "maxResults": 10,
+        "nextToken": ""
+      },
       "properties": {},
       "type": "object",
       "title": "GetIntentsRequest"
     },
     "GetIntentsResponse": {
+      "example": {
+        "intents": [
+          {
+            "createdDate": 1494359783.453,
+            "description": "Order a pizza from a local pizzeria.",
+            "lastUpdatedDate": 1494359783.453,
+            "name": "DocOrderPizza",
+            "version": "$LATEST"
+          }
+        ]
+      },
       "properties": {
         "intents": {
           "$ref": "#/definitions/IntentMetadataList",
-          "description": "An array of <code>Intent</code> objects. For more information, see ."
+          "description": "An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>."
         },
         "nextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1052,11 +1330,31 @@
       "title": "GetIntentsResponse"
     },
     "GetSlotTypeRequest": {
+      "example": {
+        "name": "DocPizzaCrustType",
+        "version": "$LATEST"
+      },
       "properties": {},
       "type": "object",
       "title": "GetSlotTypeRequest"
     },
     "GetSlotTypeResponse": {
+      "example": {
+        "checksum": "210b3d5a-90a3-4b22-ac7e-f50c2c71095f",
+        "createdDate": 1494359274.403,
+        "description": "Available crust types",
+        "enumerationValues": [
+          {
+            "value": "thick"
+          },
+          {
+            "value": "thin"
+          }
+        ],
+        "lastUpdatedDate": 1494359274.403,
+        "name": "DocPizzaCrustType",
+        "version": "$LATEST"
+      },
       "properties": {
         "checksum": {
           "$ref": "#/definitions/String",
@@ -1081,6 +1379,10 @@
         "name": {
           "$ref": "#/definitions/SlotTypeName",
           "description": "The name of the slot type."
+        },
+        "valueSelectionStrategy": {
+          "$ref": "#/definitions/SlotValueSelectionStrategy",
+          "description": "The strategy that Amazon Lex uses to determine the value of the slot. For more information, see <a>PutSlotType</a>."
         },
         "version": {
           "$ref": "#/definitions/Version",
@@ -1110,11 +1412,40 @@
       "title": "GetSlotTypeVersionsResponse"
     },
     "GetSlotTypesRequest": {
+      "example": {
+        "maxResults": 10,
+        "nextToken": ""
+      },
       "properties": {},
       "type": "object",
       "title": "GetSlotTypesRequest"
     },
     "GetSlotTypesResponse": {
+      "example": {
+        "slotTypes": [
+          {
+            "createdDate": 1494359274.403,
+            "description": "Available crust types",
+            "lastUpdatedDate": 1494359274.403,
+            "name": "DocPizzaCrustType",
+            "version": "$LATEST"
+          },
+          {
+            "createdDate": 1494356442.23,
+            "description": "Available pizza sauces",
+            "lastUpdatedDate": 1494356442.23,
+            "name": "DocPizzaSauceType",
+            "version": "$LATEST"
+          },
+          {
+            "createdDate": 1494359198.656,
+            "description": "Available pizzas",
+            "lastUpdatedDate": 1494359198.656,
+            "name": "DocPizzaType",
+            "version": "$LATEST"
+          }
+        ]
+      },
       "properties": {
         "nextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1141,7 +1472,7 @@
         },
         "utterances": {
           "$ref": "#/definitions/ListsOfUtterances",
-          "description": "An array of objects, each containing a list of objects describing the utterances that were processed by your bot. The response contains a maximum of 100 <code>UtteranceData</code> objects for each version."
+          "description": "An array of <a>UtteranceList</a> objects, each containing a list of <a>UtteranceData</a> objects describing the utterances that were processed by your bot. The response contains a maximum of 100 <code>UtteranceData</code> objects for each version."
         }
       },
       "type": "object",
@@ -1170,8 +1501,6 @@
       "items": {
         "$ref": "#/definitions/Intent"
       },
-      "maxItems": 100,
-      "minItems": 1,
       "type": "array",
       "title": "IntentList"
     },
@@ -1323,7 +1652,7 @@
     "Name": {
       "maxLength": 64,
       "minLength": 1,
-      "pattern": "[a-zA-Z]+",
+      "pattern": "[a-zA-Z_]+",
       "type": "string",
       "title": "Name"
     },
@@ -1457,6 +1786,45 @@
       "title": "PutBotAliasResponse"
     },
     "PutBotRequest": {
+      "example": {
+        "abortStatement": {
+          "messages": [
+            {
+              "content": "I don't understand. Can you try again?",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "I'm sorry, I don't understand.",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "childDirected": true,
+        "clarificationPrompt": {
+          "maxAttempts": 1,
+          "messages": [
+            {
+              "content": "I'm sorry, I didn't hear that. Can you repeate what you just said?",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "Can you say that again?",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "description": "Orders a pizza from a local pizzeria.",
+        "idleSessionTTLInSeconds": 300,
+        "intents": [
+          {
+            "intentName": "DocOrderPizza",
+            "intentVersion": "$LATEST"
+          }
+        ],
+        "locale": "en-US",
+        "name": "DocOrderPizzaBot",
+        "processBehavior": "SAVE"
+      },
       "properties": {
         "abortStatement": {
           "$ref": "#/definitions/Statement",
@@ -1472,7 +1840,7 @@
         },
         "clarificationPrompt": {
           "$ref": "#/definitions/Prompt",
-          "description": "When Amazon Lex doesn't understand the user's intent, it uses one of these messages to get clarification. For example, \"Sorry, I didn't understand. Please repeat.\" Amazon Lex repeats the clarification prompt the number of times specified in <code>maxAttempts</code>. If Amazon Lex still can't understand, it sends the message specified in <code>abortStatement</code>. "
+          "description": "<p>When Amazon Lex doesn't understand the user's intent, it uses this message to get clarification. To specify how many times Amazon Lex should repeate the clarification prompt, use the <code>maxAttempts</code> field. If Amazon Lex still doesn't understand, it sends the message in the <code>abortStatement</code> field. </p> <p>When you create a clarification prompt, make sure that it suggests the correct response from the user. for example, for a bot that orders pizza and drinks, you might create this clarification prompt: \"What would you like to do? You can say 'Order a pizza' or 'Order a drink.'\"</p>"
         },
         "description": {
           "$ref": "#/definitions/Description",
@@ -1496,7 +1864,7 @@
         },
         "voiceId": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon Parrot voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_Voice.html\">Voice</a> in the <i>Amazon Polly Developer Guide</i>."
+          "description": "The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/voicelist.html\">Available Voices</a> in the <i>Amazon Polly Developer Guide</i>."
         }
       },
       "required": [
@@ -1507,10 +1875,53 @@
       "title": "PutBotRequest"
     },
     "PutBotResponse": {
+      "example": {
+        "abortStatement": {
+          "messages": [
+            {
+              "content": "I don't understand. Can you try again?",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "I'm sorry, I don't understand.",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "checksum": "20172ee3-fa06-49b2-bbc5-667c090303e9",
+        "childDirected": true,
+        "clarificationPrompt": {
+          "maxAttempts": 1,
+          "messages": [
+            {
+              "content": "I'm sorry, I didn't hear that. Can you repeate what you just said?",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "Can you say that again?",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "createdDate": 1494360160.133,
+        "description": "Orders a pizza from a local pizzeria.",
+        "idleSessionTTLInSeconds": 300,
+        "intents": [
+          {
+            "intentName": "DocOrderPizza",
+            "intentVersion": "$LATEST"
+          }
+        ],
+        "lastUpdatedDate": 1494360160.133,
+        "locale": "en-US",
+        "name": "DocOrderPizzaBot",
+        "status": "NOT_BUILT",
+        "version": "$LATEST"
+      },
       "properties": {
         "abortStatement": {
           "$ref": "#/definitions/Statement",
-          "description": "The message that Amazon Lex uses to abort a conversation. For more information, see ."
+          "description": "The message that Amazon Lex uses to abort a conversation. For more information, see <a>PutBot</a>."
         },
         "checksum": {
           "$ref": "#/definitions/String",
@@ -1522,7 +1933,7 @@
         },
         "clarificationPrompt": {
           "$ref": "#/definitions/Prompt",
-          "description": " The prompts that Amazon Lex uses when it doesn't understand the user's intent. For more information, see . "
+          "description": " The prompts that Amazon Lex uses when it doesn't understand the user's intent. For more information, see <a>PutBot</a>. "
         },
         "createdDate": {
           "$ref": "#/definitions/Timestamp",
@@ -1538,11 +1949,11 @@
         },
         "idleSessionTTLInSeconds": {
           "$ref": "#/definitions/SessionTTL",
-          "description": "The maximum length of time that Amazon Lex retains the data gathered in a conversation. For more information, see ."
+          "description": "The maximum length of time that Amazon Lex retains the data gathered in a conversation. For more information, see <a>PutBot</a>."
         },
         "intents": {
           "$ref": "#/definitions/IntentList",
-          "description": "An array of <code>Intent</code> objects. For more information, see ."
+          "description": "An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>."
         },
         "lastUpdatedDate": {
           "$ref": "#/definitions/Timestamp",
@@ -1566,13 +1977,142 @@
         },
         "voiceId": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon Parrot voice ID that Amazon Lex uses for voice interaction with the user. For more information, see ."
+          "description": "The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. For more information, see <a>PutBot</a>."
         }
       },
       "type": "object",
       "title": "PutBotResponse"
     },
     "PutIntentRequest": {
+      "example": {
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
+              "contentType": "PlainText"
+            }
+          ],
+          "responseCard": "foo"
+        },
+        "confirmationPrompt": {
+          "maxAttempts": 1,
+          "messages": [
+            {
+              "content": "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "description": "Order a pizza from a local pizzeria.",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "name": "DocOrderPizza",
+        "rejectionStatement": {
+          "messages": [
+            {
+              "content": "Ok, I'll cancel your order.",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "I cancelled your order.",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "sampleUtterances": [
+          "Order me a pizza.",
+          "Order me a {Type} pizza.",
+          "I want a {Crust} crust {Type} pizza",
+          "I want a {Crust} crust {Type} pizza with {Sauce} sauce."
+        ],
+        "slots": [
+          {
+            "description": "The type of pizza to order.",
+            "name": "Type",
+            "priority": 1,
+            "sampleUtterances": [
+              "Get me a {Type} pizza.",
+              "A {Type} pizza please.",
+              "I'd like a {Type} pizza."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "What type of pizza would you like?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Vegie or cheese pizza?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "I can get you a vegie or a cheese pizza.",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          },
+          {
+            "description": "The type of pizza crust to order.",
+            "name": "Crust",
+            "priority": 2,
+            "sampleUtterances": [
+              "Make it a {Crust} crust.",
+              "I'd like a {Crust} crust."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaCrustType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "What type of crust would you like?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Thick or thin crust?",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          },
+          {
+            "description": "The type of sauce to use on the pizza.",
+            "name": "Sauce",
+            "priority": 3,
+            "sampleUtterances": [
+              "Make it {Sauce} sauce.",
+              "I'd like {Sauce} sauce."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaSauceType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "White or red sauce?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Garlic or tomato sauce?",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          }
+        ]
+      },
       "properties": {
         "checksum": {
           "$ref": "#/definitions/String",
@@ -1596,11 +2136,11 @@
         },
         "followUpPrompt": {
           "$ref": "#/definitions/FollowUpPrompt",
-          "description": "<p>A user prompt for additional activity after an intent is fulfilled. For example, after the <code>OrderPizza</code> intent is fulfilled (your Lambda function placed an order with a pizzeria), you might prompt the user to find if they want to order a drink (assuming that you have defined an <code>OrderDrink</code> intent in your bot).</p> <note> <p>The <code>followUpPrompt</code> and <code>conclusionStatement</code> are mutually exclusive. You can specify only one. For example, your bot may not solicit both the following: </p> <p> Follow up prompt - \"<code>$session.FirstName</code>, your pizza order has been placed. Would you like to order a drink or a dessert?\" </p> <p> Conclusion statement - \"<code>$session.FirstName</code>, your pizza order has been placed.\" </p> </note>"
+          "description": "<p>Amazon Lex uses this prompt to solicit additional activity after fulfilling an intent. For example, after the <code>OrderPizza</code> intent is fulfilled, you might prompt the user to order a drink.</p> <p>The action that Amazon Lex takes depends on the user's response, as follows:</p> <ul> <li> <p>If the user says \"Yes\" it responds with the clarification prompt that is configured for the bot.</p> </li> <li> <p>if the user says \"Yes\" and continues with an utterance that triggers an intent it starts a conversation for the intent.</p> </li> <li> <p>If the user says \"No\" it responds with the rejection statement configured for the the follow-up prompt.</p> </li> <li> <p>If it doesn't recognize the utterance it repeats the follow-up prompt again.</p> </li> </ul> <p>The <code>followUpPrompt</code> field and the <code>conclusionStatement</code> field are mutually exclusive. You can specify only one. </p>"
         },
         "fulfillmentActivity": {
           "$ref": "#/definitions/FulfillmentActivity",
-          "description": "<p> Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, <code>fulfillmentActivity</code> defines how the bot places an order with a local pizza store. </p> <p> You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria). </p>"
+          "description": "<p>Required. Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, <code>fulfillmentActivity</code> defines how the bot places an order with a local pizza store. </p> <p> You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria). </p>"
         },
         "parentIntentSignature": {
           "$ref": "#/definitions/BuiltinIntentSignature",
@@ -1616,13 +2156,146 @@
         },
         "slots": {
           "$ref": "#/definitions/SlotList",
-          "description": "An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user using prompts defined in the slots. For more information, see &lt;xref linkend=\"how-it-works\"/&gt;. "
+          "description": "An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user using prompts defined in the slots. For more information, see <a>how-it-works</a>. "
         }
       },
       "type": "object",
       "title": "PutIntentRequest"
     },
     "PutIntentResponse": {
+      "example": {
+        "checksum": "ca9bc13d-afc8-4706-bbaf-091f7a5935d6",
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
+              "contentType": "PlainText"
+            }
+          ],
+          "responseCard": "foo"
+        },
+        "confirmationPrompt": {
+          "maxAttempts": 1,
+          "messages": [
+            {
+              "content": "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "createdDate": 1494359783.453,
+        "description": "Order a pizza from a local pizzeria.",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "lastUpdatedDate": 1494359783.453,
+        "name": "DocOrderPizza",
+        "rejectionStatement": {
+          "messages": [
+            {
+              "content": "Ok, I'll cancel your order.",
+              "contentType": "PlainText"
+            },
+            {
+              "content": "I cancelled your order.",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "sampleUtterances": [
+          "Order me a pizza.",
+          "Order me a {Type} pizza.",
+          "I want a {Crust} crust {Type} pizza",
+          "I want a {Crust} crust {Type} pizza with {Sauce} sauce."
+        ],
+        "slots": [
+          {
+            "description": "The type of sauce to use on the pizza.",
+            "name": "Sauce",
+            "priority": 3,
+            "sampleUtterances": [
+              "Make it {Sauce} sauce.",
+              "I'd like {Sauce} sauce."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaSauceType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "White or red sauce?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Garlic or tomato sauce?",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          },
+          {
+            "description": "The type of pizza to order.",
+            "name": "Type",
+            "priority": 1,
+            "sampleUtterances": [
+              "Get me a {Type} pizza.",
+              "A {Type} pizza please.",
+              "I'd like a {Type} pizza."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "What type of pizza would you like?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Vegie or cheese pizza?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "I can get you a vegie or a cheese pizza.",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          },
+          {
+            "description": "The type of pizza crust to order.",
+            "name": "Crust",
+            "priority": 2,
+            "sampleUtterances": [
+              "Make it a {Crust} crust.",
+              "I'd like a {Crust} crust."
+            ],
+            "slotConstraint": "Required",
+            "slotType": "DocPizzaCrustType",
+            "slotTypeVersion": "$LATEST",
+            "valueElicitationPrompt": {
+              "maxAttempts": 1,
+              "messages": [
+                {
+                  "content": "What type of crust would you like?",
+                  "contentType": "PlainText"
+                },
+                {
+                  "content": "Thick or thin crust?",
+                  "contentType": "PlainText"
+                }
+              ]
+            }
+          }
+        ],
+        "version": "$LATEST"
+      },
       "properties": {
         "checksum": {
           "$ref": "#/definitions/String",
@@ -1689,6 +2362,18 @@
       "title": "PutIntentResponse"
     },
     "PutSlotTypeRequest": {
+      "example": {
+        "description": "Available pizza sauces",
+        "enumerationValues": [
+          {
+            "value": "red"
+          },
+          {
+            "value": "white"
+          }
+        ],
+        "name": "PizzaSauceType"
+      },
       "properties": {
         "checksum": {
           "$ref": "#/definitions/String",
@@ -1700,13 +2385,33 @@
         },
         "enumerationValues": {
           "$ref": "#/definitions/EnumerationValues",
-          "description": "A list of <code>EnumerationValue</code> objects that defines the values that the slot type can take."
+          "description": "<p>A list of <code>EnumerationValue</code> objects that defines the values that the slot type can take. Each value can have a list of <code>synonyms</code>, which are additional values that help train the machine learning model about the values that it resolves for a slot. </p> <p>When Amazon Lex resolves a slot value, it generates a resolution list that contains up to five possible values for the slot. If you are using a Lambda function, this resolution list is passed to the function. If you are not using a Lambda function you can choose to return the value that the user entered or the first value in the resolution list as the slot value. The <code>valueSelectionStrategy</code> field indicates the option to use. </p>"
+        },
+        "valueSelectionStrategy": {
+          "$ref": "#/definitions/SlotValueSelectionStrategy",
+          "description": "<p>Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:</p> <ul> <li> <p> <code>ORIGINAL_VALUE</code> - Returns the value entered by the user, if the user value is similar to the slot value.</p> </li> <li> <p> <code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.</p> </li> </ul> <p>If you don't specify the <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</p>"
         }
       },
       "type": "object",
       "title": "PutSlotTypeRequest"
     },
     "PutSlotTypeResponse": {
+      "example": {
+        "checksum": "cfd00ed1-775d-4357-947c-aca7e73b44ba",
+        "createdDate": 1494356442.23,
+        "description": "Available pizza sauces",
+        "enumerationValues": [
+          {
+            "value": "red"
+          },
+          {
+            "value": "white"
+          }
+        ],
+        "lastUpdatedDate": 1494356442.23,
+        "name": "DocPizzaSauceType",
+        "version": "$LATEST"
+      },
       "properties": {
         "checksum": {
           "$ref": "#/definitions/String",
@@ -1731,6 +2436,10 @@
         "name": {
           "$ref": "#/definitions/SlotTypeName",
           "description": "The name of the slot type."
+        },
+        "valueSelectionStrategy": {
+          "$ref": "#/definitions/SlotValueSelectionStrategy",
+          "description": "The slot resolution strategy that Amazon Lex uses to determine the value of the slot. For more information, see <a>PutSlotType</a>."
         },
         "version": {
           "$ref": "#/definitions/Version",
@@ -1777,6 +2486,13 @@
       },
       "type": "object",
       "title": "ResourceReference"
+    },
+    "ResourceType": {
+      "enum": [
+        "BOT"
+      ],
+      "type": "string",
+      "title": "ResourceType"
     },
     "ResponseCard": {
       "maxLength": 50000,
@@ -1911,6 +2627,14 @@
       "type": "array",
       "title": "SlotUtteranceList"
     },
+    "SlotValueSelectionStrategy": {
+      "enum": [
+        "ORIGINAL_VALUE",
+        "TOP_RESOLUTION"
+      ],
+      "type": "string",
+      "title": "SlotValueSelectionStrategy"
+    },
     "Statement": {
       "description": "A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey. ",
       "properties": {
@@ -1920,7 +2644,7 @@
         },
         "responseCard": {
           "$ref": "#/definitions/ResponseCard",
-          "description": " At runtime, if the client is using the API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card. "
+          "description": " At runtime, if the client is using the <a href=\"http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html\">PostText</a> API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card. "
         }
       },
       "required": [
@@ -1950,6 +2674,13 @@
     "String": {
       "type": "string",
       "title": "String"
+    },
+    "SynonymList": {
+      "items": {
+        "$ref": "#/definitions/Value"
+      },
+      "type": "array",
+      "title": "SynonymList"
     },
     "Timestamp": {
       "format": "date-time",
@@ -2004,7 +2735,7 @@
         },
         "utterances": {
           "$ref": "#/definitions/ListOfUtterance",
-          "description": "One or more objects that contain information about the utterances that have been made to a bot. The maximum number of object is 100."
+          "description": "One or more <a>UtteranceData</a> objects that contain information about the utterances that have been made to a bot. The maximum number of object is 100."
         }
       },
       "type": "object",
@@ -2159,7 +2890,8 @@
         "required": [
           "name",
           "botName",
-          "aliasName"
+          "aliasName",
+          "name"
         ]
       },
       "outputSchema": {
@@ -2192,7 +2924,8 @@
         ],
         "required": [
           "name",
-          "botName"
+          "botName",
+          "name"
         ]
       },
       "outputSchema": {
@@ -2281,6 +3014,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2308,6 +3042,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2341,6 +3076,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2370,6 +3106,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2403,7 +3140,8 @@
         ],
         "required": [
           "name",
-          "versionoralias"
+          "versionoralias",
+          "name"
         ]
       },
       "outputSchema": {
@@ -2435,6 +3173,8 @@
           }
         ],
         "required": [
+          "name",
+          "version",
           "name",
           "version"
         ]
@@ -2534,6 +3274,28 @@
       }
     },
     {
+      "id": "GetExport",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetExportRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetExportResponse"
+      },
+      "security": {
+        "amazonaws_models_lex": {
+          "integration": "amazonaws_models_lex"
+        }
+      }
+    },
+    {
       "id": "GetIntents",
       "title": "",
       "description": "",
@@ -2579,6 +3341,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2606,6 +3369,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2639,6 +3403,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2668,6 +3433,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2700,6 +3466,8 @@
           }
         ],
         "required": [
+          "name",
+          "version",
           "name",
           "version"
         ]
@@ -2759,6 +3527,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2790,6 +3559,8 @@
         ],
         "required": [
           "name",
+          "version",
+          "name",
           "version"
         ]
       },
@@ -2817,6 +3588,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2850,6 +3622,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2879,6 +3652,7 @@
           }
         ],
         "required": [
+          "name",
           "name"
         ]
       },
@@ -2911,6 +3685,8 @@
           }
         ],
         "required": [
+          "name",
+          "version",
           "name",
           "version"
         ]

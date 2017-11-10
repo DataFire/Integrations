@@ -21,6 +21,9 @@
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -28,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://servicecontrol.googleapis.com/$discovery/rest?version=v1",
@@ -221,7 +224,7 @@
         }
       ],
       "post": {
-        "description": "Attempts to allocate quota for the specified consumer. It should be called\nbefore the operation is executed.\n\nThis method requires the `servicemanagement.services.quota`\npermission on the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).\n\n**NOTE:** the client code **must** fail-open if the server returns one\nof the following quota errors:\n-   `PROJECT_STATUS_UNAVAILABLE`\n-   `SERVICE_STATUS_UNAVAILABLE`\n-   `BILLING_STATUS_UNAVAILABLE`\n-   `QUOTA_SYSTEM_UNAVAILABLE`\n\nThe server may inject above errors to prohibit any hard dependency\non the quota system.",
+        "description": "Attempts to allocate quota for the specified consumer. It should be called\nbefore the operation is executed.\n\nThis method requires the `servicemanagement.services.quota`\npermission on the specified service. For more information, see\n[Cloud IAM](https://cloud.google.com/iam).\n\n**NOTE:** The client **must** fail-open on server errors `INTERNAL`,\n`UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system\nreliability, the server may inject these errors to prohibit any hard\ndependency on the quota functionality.",
         "operationId": "services.allocateQuota",
         "parameters": [
           {
@@ -313,22 +316,22 @@
         }
       ],
       "post": {
-        "description": "Checks an operation with Google Service Control to decide whether\nthe given operation should proceed. It should be called before the\noperation is executed.\n\nIf feasible, the client should cache the check results and reuse them for\n60 seconds. In case of server errors, the client can rely on the cached\nresults for longer time.\n\nNOTE: the `CheckRequest` has the size limit of 64KB.\n\nThis method requires the `servicemanagement.services.check` permission\non the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).",
+        "description": "Checks an operation with Google Service Control to decide whether\nthe given operation should proceed. It should be called before the\noperation is executed.\n\nIf feasible, the client should cache the check results and reuse them for\n60 seconds. In case of server errors, the client can rely on the cached\nresults for longer time.\n\nNOTE: the CheckRequest has the size limit of 64KB.\n\nThis method requires the `servicemanagement.services.check` permission\non the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).",
         "operationId": "services.check",
         "parameters": [
-          {
-            "description": "The service name as specified in its service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name.",
-            "in": "path",
-            "name": "serviceName",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/CheckRequest"
             }
+          },
+          {
+            "description": "The service name as specified in its service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee\n[google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service)\nfor the definition of a service name.",
+            "in": "path",
+            "name": "serviceName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -497,7 +500,7 @@
         }
       ],
       "post": {
-        "description": "Releases previously allocated quota done through AllocateQuota method.\n\nThis method requires the `servicemanagement.services.quota`\npermission on the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).\n\n**NOTE:** the client code **must** fail-open if the server returns one\nof the following quota errors:\n-   `PROJECT_STATUS_UNAVAILABLE`\n-   `SERVICE_STATUS_UNAVAILABLE`\n-   `BILLING_STATUS_UNAVAILABLE`\n-   `QUOTA_SYSTEM_UNAVAILABLE`\n\nThe server may inject above errors to prohibit any hard dependency\non the quota system.",
+        "description": "Releases previously allocated quota done through AllocateQuota method.\n\nThis method requires the `servicemanagement.services.quota`\npermission on the specified service. For more information, see\n[Cloud IAM](https://cloud.google.com/iam).\n\n\n**NOTE:** The client **must** fail-open on server errors `INTERNAL`,\n`UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system\nreliability, the server may inject these errors to prohibit any hard\ndependency on the quota functionality.",
         "operationId": "services.releaseQuota",
         "parameters": [
           {
@@ -589,22 +592,22 @@
         }
       ],
       "post": {
-        "description": "Reports operation results to Google Service Control, such as logs and\nmetrics. It should be called after an operation is completed.\n\nIf feasible, the client should aggregate reporting data for up to 5\nseconds to reduce API traffic. Limiting aggregation to 5 seconds is to\nreduce data loss during client crashes. Clients should carefully choose\nthe aggregation time window to avoid data loss risk more than 0.01%\nfor business and compliance reasons.\n\nNOTE: the `ReportRequest` has the size limit of 1MB.\n\nThis method requires the `servicemanagement.services.report` permission\non the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).",
+        "description": "Reports operation results to Google Service Control, such as logs and\nmetrics. It should be called after an operation is completed.\n\nIf feasible, the client should aggregate reporting data for up to 5\nseconds to reduce API traffic. Limiting aggregation to 5 seconds is to\nreduce data loss during client crashes. Clients should carefully choose\nthe aggregation time window to avoid data loss risk more than 0.01%\nfor business and compliance reasons.\n\nNOTE: the ReportRequest has the size limit of 1MB.\n\nThis method requires the `servicemanagement.services.report` permission\non the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).",
         "operationId": "services.report",
         "parameters": [
-          {
-            "description": "The service name as specified in its service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name.",
-            "in": "path",
-            "name": "serviceName",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/ReportRequest"
             }
+          },
+          {
+            "description": "The service name as specified in its service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee\n[google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service)\nfor the definition of a service name.",
+            "in": "path",
+            "name": "serviceName",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -732,22 +735,24 @@
     }
   },
   "definitions": {
+    "AllocateInfo": {
+      "properties": {
+        "unusedArguments": {
+          "description": "A list of label keys that were unused by the server in processing the\nrequest. Thus, for similar requests repeated in a certain future time\nwindow, the caller can choose to ignore these labels in the requests\nto achieve better client-side cache hits and quota aggregation.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "AllocateQuotaRequest": {
       "description": "Request message for the AllocateQuota method.",
       "properties": {
         "allocateOperation": {
           "$ref": "#/definitions/QuotaOperation",
           "description": "Operation that describes the quota allocation."
-        },
-        "allocationMode": {
-          "description": "Allocation mode for this operation.\nDeprecated: use QuotaMode inside the QuotaOperation.",
-          "enum": [
-            "UNSPECIFIED",
-            "NORMAL",
-            "BEST_EFFORT",
-            "CHECK_ONLY"
-          ],
-          "type": "string"
         },
         "serviceConfigId": {
           "description": "Specifies which version of service configuration should be used to process\nthe request. If unspecified or no matching version can be found, the latest\none will be used.",
@@ -766,12 +771,16 @@
           },
           "type": "array"
         },
+        "allocateInfo": {
+          "$ref": "#/definitions/AllocateInfo",
+          "description": "WARNING: DO NOT use this field until this warning message is removed."
+        },
         "operationId": {
           "description": "The same operation_id value used in the AllocateQuotaRequest. Used for\nlogging and diagnostics purposes.",
           "type": "string"
         },
         "quotaMetrics": {
-          "description": "Quota metrics to indicate the result of allocation. Depending on the\nrequest, one or more of the following metrics will be included:\n\n1. For rate quota, per quota group or per quota metric incremental usage\nwill be specified using the following delta metric:\n  \"serviceruntime.googleapis.com/api/consumer/quota_used_count\"\n\n2. For allocation quota, per quota metric total usage will be specified\nusing the following gauge metric:\n  \"serviceruntime.googleapis.com/allocation/consumer/quota_used_count\"\n\n3. For both rate quota and allocation quota, the quota limit reached\ncondition will be specified using the following boolean metric:\n  \"serviceruntime.googleapis.com/quota/exceeded\"\n\n4. For allocation quota, value for each quota limit associated with\nthe metrics will be specified using the following gauge metric:\n  \"serviceruntime.googleapis.com/quota/limit\"",
+          "description": "Quota metrics to indicate the result of allocation. Depending on the\nrequest, one or more of the following metrics will be included:\n\n1. Per quota group or per quota metric incremental usage will be specified\nusing the following delta metric :\n  \"serviceruntime.googleapis.com/api/consumer/quota_used_count\"\n\n2. The quota limit reached condition will be specified using the following\nboolean metric :\n  \"serviceruntime.googleapis.com/quota/exceeded\"",
           "items": {
             "$ref": "#/definitions/MetricValueSet"
           },
@@ -797,6 +806,13 @@
             "$ref": "#/definitions/AuthorizationInfo"
           },
           "type": "array"
+        },
+        "metadata": {
+          "additionalProperties": {
+            "description": "Properties of the object."
+          },
+          "description": "Other service-specific data about the request, response, and other\ninformation associated with the current audited event.",
+          "type": "object"
         },
         "methodName": {
           "description": "The name of the service method or operation.\nFor API calls, this should be the name of the API method.\nFor example,\n\n    \"google.datastore.v1.Datastore.RunQuery\"\n    \"google.logging.v1.LoggingService.DeleteLog\"",
@@ -833,7 +849,7 @@
           "additionalProperties": {
             "description": "Properties of the object. Contains field @type with type URL."
           },
-          "description": "Other service-specific data about the request, response, and other\nactivities.",
+          "description": "Deprecated, use `metadata` field instead.\nOther service-specific data about the request, response, and other\nactivities.",
           "type": "object"
         },
         "serviceName": {
@@ -855,8 +871,15 @@
           "type": "string"
         },
         "principalEmail": {
-          "description": "The email address of the authenticated user making the request.",
+          "description": "The email address of the authenticated user (or service account on behalf\nof third party principal) making the request. For privacy reasons, the\nprincipal email address is redacted for all read-only operations that fail\nwith a \"permission denied\" error.",
           "type": "string"
+        },
+        "thirdPartyPrincipal": {
+          "additionalProperties": {
+            "description": "Properties of the object."
+          },
+          "description": "The third party identification (if any) of the authenticated user making\nthe request.\nWhen the JSON object represented here has a proto equivalent, the proto\nname will be indicated in the `@type` property.",
+          "type": "object"
         }
       },
       "type": "object"
@@ -873,7 +896,7 @@
           "type": "string"
         },
         "resource": {
-          "description": "The resource being accessed, as a REST-style string. For example:\n\n    bigquery.googlapis.com/projects/PROJECTID/datasets/DATASETID",
+          "description": "The resource being accessed, as a REST-style string. For example:\n\n    bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID",
           "type": "string"
         }
       },
@@ -928,7 +951,12 @@
       "type": "object"
     },
     "CheckInfo": {
+      "description": "Contains additional information about the check operation.",
       "properties": {
+        "consumerInfo": {
+          "$ref": "#/definitions/ConsumerInfo",
+          "description": "Consumer info of this check."
+        },
         "unusedArguments": {
           "description": "A list of fields and label keys that are ignored by the server.\nThe client doesn't need to send them for following requests to improve\nperformance and allow better aggregation.",
           "items": {
@@ -990,6 +1018,17 @@
       },
       "type": "object"
     },
+    "ConsumerInfo": {
+      "description": "`ConsumerInfo` provides information about the consumer project.",
+      "properties": {
+        "projectNumber": {
+          "description": "The Google cloud project number, e.g. 1234567890. A value of 0 indicates\nno project number is found.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Distribution": {
       "description": "Distribution represents a frequency distribution of double-valued sample\npoints. It contains the size of the population of sample points plus\nadditional optional information:\n\n  - the arithmetic mean of the samples\n  - the minimum and maximum of the samples\n  - the sum-squared-deviation of the samples, used to compute variance\n  - a histogram of the values of the sample points",
       "properties": {
@@ -1042,6 +1081,7 @@
       "type": "object"
     },
     "EndReconciliationRequest": {
+      "description": "Request message for QuotaController.EndReconciliation.",
       "properties": {
         "reconciliationOperation": {
           "$ref": "#/definitions/QuotaOperation",
@@ -1055,6 +1095,7 @@
       "type": "object"
     },
     "EndReconciliationResponse": {
+      "description": "Response message for QuotaController.EndReconciliation.",
       "properties": {
         "operationId": {
           "description": "The same operation_id value used in the EndReconciliationRequest. Used for\nlogging and diagnostics purposes.",
@@ -1159,7 +1200,7 @@
           "additionalProperties": {
             "description": "Properties of the object. Contains field @type with type URL."
           },
-          "description": "The log entry payload, represented as a protocol buffer that is\nexpressed as a JSON object. You can only pass `protoPayload`\nvalues that belong to a set of approved types.",
+          "description": "The log entry payload, represented as a protocol buffer that is\nexpressed as a JSON object. The only accepted type currently is\nAuditLog.",
           "type": "object"
         },
         "severity": {
@@ -1334,11 +1375,18 @@
         },
         "quotaProperties": {
           "$ref": "#/definitions/QuotaProperties",
-          "description": "Represents the properties needed for quota check. Applicable only if this\noperation is for a quota check request."
+          "description": "Represents the properties needed for quota check. Applicable only if this\noperation is for a quota check request. If this is not specified, no quota\ncheck will be performed."
         },
         "resourceContainer": {
-          "description": "The resource name of the parent of a resource in the resource hierarchy.\n\nThis can be in one of the following formats:\n    - “projects/<project-id or project-number>”\n    - “folders/<folder-id>”\n    - “organizations/<organization-id>”",
+          "description": "DO NOT USE. This field is deprecated, use \"resources\" field instead.\nThe resource name of the parent of a resource in the resource hierarchy.\n\nThis can be in one of the following formats:\n    - “projects/<project-id or project-number>”\n    - “folders/<folder-id>”\n    - “organizations/<organization-id>”",
           "type": "string"
+        },
+        "resources": {
+          "description": "The resources that are involved in the operation.",
+          "items": {
+            "$ref": "#/definitions/ResourceInfo"
+          },
+          "type": "array"
         },
         "startTime": {
           "description": "Required. Start time of the operation.",
@@ -1349,27 +1397,23 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "User defined labels for the resource that this operation is associated\nwith.",
+          "description": "User defined labels for the resource that this operation is associated\nwith. Only a combination of 1000 user labels per consumer project are\nallowed.",
           "type": "object"
         }
       },
       "type": "object"
     },
     "QuotaError": {
+      "description": "Represents error information for QuotaOperation.",
       "properties": {
         "code": {
           "description": "Error code.",
           "enum": [
             "UNSPECIFIED",
             "RESOURCE_EXHAUSTED",
-            "PROJECT_SUSPENDED",
-            "SERVICE_NOT_ENABLED",
+            "OUT_OF_RANGE",
             "BILLING_NOT_ACTIVE",
             "PROJECT_DELETED",
-            "PROJECT_INVALID",
-            "IP_ADDRESS_BLOCKED",
-            "REFERER_BLOCKED",
-            "CLIENT_APP_BLOCKED",
             "API_KEY_INVALID",
             "API_KEY_EXPIRED",
             "SPATULA_HEADER_INVALID",
@@ -1408,7 +1452,7 @@
             "format": "int32",
             "type": "integer"
           },
-          "description": "Map of quota group name to the actual number of tokens consumed. If the\nquota check was not successful, then this will not be populated due to no\nquota consumption.\nDeprecated: Use quota_metrics to get per quota group usage.",
+          "description": "Map of quota group name to the actual number of tokens consumed. If the\nquota check was not successful, then this will not be populated due to no\nquota consumption.\n\nWe are not merging this field with 'quota_metrics' field because of the\ncomplexity of scaling in Chemist client code base. For simplicity, we will\nkeep this field for Castor (that scales quota usage) and 'quota_metrics'\nfor SuperQuota (that doesn't scale quota usage).\n",
           "type": "object"
         },
         "quotaMetrics": {
@@ -1436,15 +1480,15 @@
           "type": "object"
         },
         "methodName": {
-          "description": "Fully qualified name of the API method for which this quota operation is\nrequested. This name is used for matching quota rules or metric rules and\nbilling status rules defined in service configuration. This field is not\nrequired if the quota operation is performed on non-API resources.\n\nExample of an RPC method name:\n    google.example.library.v1.LibraryService.CreateShelf",
+          "description": "Fully qualified name of the API method for which this quota operation is\nrequested. This name is used for matching quota rules or metric rules and\nbilling status rules defined in service configuration.\n\nThis field should not be set if any of the following is true:\n(1) the quota operation is performed on non-API resources.\n(2) quota_metrics is set because the caller is doing quota override.\n\nExample of an RPC method name:\n    google.example.library.v1.LibraryService.CreateShelf",
           "type": "string"
         },
         "operationId": {
-          "description": "Identity of the operation. This must be unique within the scope of the\nservice that generated the operation. If the service calls AllocateQuota\nand ReleaseQuota on the same operation, the two calls should carry the\nsame ID.\n\nUUID version 4 is recommended, though not required. In scenarios where an\noperation is computed from existing information and an idempotent id is\ndesirable for deduplication purpose, UUID version 5 is recommended. See\nRFC 4122 for details.",
+          "description": "Identity of the operation. This is expected to be unique within the scope\nof the service that generated the operation, and guarantees idempotency in\ncase of retries.\n\nUUID version 4 is recommended, though not required. In scenarios where an\noperation is computed from existing information and an idempotent id is\ndesirable for deduplication purpose, UUID version 5 is recommended. See\nRFC 4122 for details.",
           "type": "string"
         },
         "quotaMetrics": {
-          "description": "Represents information about this operation. Each MetricValueSet\ncorresponds to a metric defined in the service configuration.\nThe data type used in the MetricValueSet must agree with\nthe data type specified in the metric definition.\n\nWithin a single operation, it is not allowed to have more than one\nMetricValue instances that have the same metric names and identical\nlabel value combinations. If a request has such duplicated MetricValue\ninstances, the entire request is rejected with\nan invalid argument error.",
+          "description": "Represents information about this operation. Each MetricValueSet\ncorresponds to a metric defined in the service configuration.\nThe data type used in the MetricValueSet must agree with\nthe data type specified in the metric definition.\n\nWithin a single operation, it is not allowed to have more than one\nMetricValue instances that have the same metric names and identical\nlabel value combinations. If a request has such duplicated MetricValue\ninstances, the entire request is rejected with\nan invalid argument error.\n\nThis field is mutually exclusive with method_name.",
           "items": {
             "$ref": "#/definitions/MetricValueSet"
           },
@@ -1466,13 +1510,6 @@
     "QuotaProperties": {
       "description": "Represents the properties needed for quota operations.",
       "properties": {
-        "limitByIds": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "LimitType IDs that should be used for checking quota. Key in this map\nshould be a valid LimitType string, and the value is the ID to be used. For\nexample, an entry <USER, 123> will cause all user quota limits to use 123\nas the user ID. See google/api/quota.proto for the definition of LimitType.\nCLIENT_PROJECT: Not supported.\nUSER: Value of this entry will be used for enforcing user-level quota\n      limits. If none specified, caller IP passed in the\n      servicecontrol.googleapis.com/caller_ip label will be used instead.\n      If the server cannot resolve a value for this LimitType, an error\n      will be thrown. No validation will be performed on this ID.\nDeprecated: use servicecontrol.googleapis.com/user label to send user ID.",
-          "type": "object"
-        },
         "quotaMode": {
           "description": "Quota mode for this operation.",
           "enum": [
@@ -1529,7 +1566,7 @@
       "type": "object"
     },
     "ReportError": {
-      "description": "Represents the processing error of one `Operation` in the request.",
+      "description": "Represents the processing error of one Operation in the request.",
       "properties": {
         "operationId": {
           "description": "The Operation.operation_id value from the request.",
@@ -1537,12 +1574,13 @@
         },
         "status": {
           "$ref": "#/definitions/Status",
-          "description": "Details of the error when processing the `Operation`."
+          "description": "Details of the error when processing the Operation."
         }
       },
       "type": "object"
     },
     "ReportInfo": {
+      "description": "Contains additional info about the report operation.",
       "properties": {
         "operationId": {
           "description": "The Operation.operation_id value from the request.",
@@ -1600,17 +1638,36 @@
       "description": "Metadata about the request.",
       "properties": {
         "callerIp": {
-          "description": "The IP address of the caller.",
+          "description": "The IP address of the caller.\nFor caller from internet, this will be public IPv4 or IPv6 address.\nFor caller from a Compute Engine VM with external IP address, this\nwill be the VM's external IP address. For caller from a Compute\nEngine VM without external IP address, if the VM is in the same\norganization (or project) as the accessed resource, `caller_ip` will\nbe the VM's internal IPv4 address, otherwise the `caller_ip` will be\nredacted to \"gce-internal-ip\".\nSee https://cloud.google.com/compute/docs/vpc/ for more information.",
+          "type": "string"
+        },
+        "callerNetwork": {
+          "description": "The network of the caller.\nSet only if the network host project is part of the same GCP organization\n(or project) as the accessed resource.\nSee https://cloud.google.com/compute/docs/vpc/ for more information.\nThis is a scheme-less URI full resource name. For example:\n\n    \"//compute.googleapis.com/projects/PROJECT_ID/global/networks/NETWORK_ID\"",
           "type": "string"
         },
         "callerSuppliedUserAgent": {
-          "description": "The user agent of the caller.\nThis information is not authenticated and should be treated accordingly.\nFor example:\n\n+   `google-api-python-client/1.4.0`:\n    The request was made by the Google API client for Python.\n+   `Cloud SDK Command Line Tool apitools-client/1.0 gcloud/0.9.62`:\n    The request was made by the Google Cloud SDK CLI (gcloud).\n+   `AppEngine-Google; (+http://code.google.com/appengine; appid: s~my-project`:\n    The request was made from the `my-project` App Engine app.",
+          "description": "The user agent of the caller.\nThis information is not authenticated and should be treated accordingly.\nFor example:\n\n+   `google-api-python-client/1.4.0`:\n    The request was made by the Google API client for Python.\n+   `Cloud SDK Command Line Tool apitools-client/1.0 gcloud/0.9.62`:\n    The request was made by the Google Cloud SDK CLI (gcloud).\n+   `AppEngine-Google; (+http://code.google.com/appengine; appid: s~my-project`:\n    The request was made from the `my-project` App Engine app.\nNOLINT",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceInfo": {
+      "description": "Describes a resource associated with this operation.",
+      "properties": {
+        "resourceContainer": {
+          "description": "The identifier of the parent of this resource instance.\nMust be in one of the following formats:\n    - “projects/<project-id or project-number>”\n    - “folders/<folder-id>”\n    - “organizations/<organization-id>”",
+          "type": "string"
+        },
+        "resourceName": {
+          "description": "Name of the resource. This is used for auditing purposes.",
           "type": "string"
         }
       },
       "type": "object"
     },
     "StartReconciliationRequest": {
+      "description": "Request message for QuotaController.StartReconciliation.",
       "properties": {
         "reconciliationOperation": {
           "$ref": "#/definitions/QuotaOperation",
@@ -1624,6 +1681,7 @@
       "type": "object"
     },
     "StartReconciliationResponse": {
+      "description": "Response message for QuotaController.StartReconciliation.",
       "properties": {
         "operationId": {
           "description": "The same operation_id value used in the StartReconciliationRequest. Used\nfor logging and diagnostics purposes.",
@@ -1651,7 +1709,7 @@
       "type": "object"
     },
     "Status": {
-      "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
+      "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` that can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
       "properties": {
         "code": {
           "description": "The status code, which should be an enum value of google.rpc.Code.",
@@ -1659,7 +1717,7 @@
           "type": "integer"
         },
         "details": {
-          "description": "A list of messages that carry the error details.  There will be a\ncommon set of message types for APIs to use.",
+          "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
           "items": {
             "additionalProperties": {
               "description": "Properties of the object. Contains field @type with type URL."

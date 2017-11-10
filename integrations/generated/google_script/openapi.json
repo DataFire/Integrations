@@ -21,6 +21,9 @@
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png"
     },
@@ -28,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://script.googleapis.com/$discovery/rest?version=v1",
@@ -252,18 +255,18 @@
         "operationId": "scripts.run",
         "parameters": [
           {
-            "description": "The project key of the script to be executed. To find the project key, open\nthe project in the script editor and select **File > Project properties**.",
-            "in": "path",
-            "name": "scriptId",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "body",
             "name": "body",
             "schema": {
               "$ref": "#/definitions/ExecutionRequest"
             }
+          },
+          {
+            "description": "The script ID of the script to be executed. To find the script ID, open\nthe project in the script editor and select **File > Project properties**.",
+            "in": "path",
+            "name": "scriptId",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -424,46 +427,11 @@
       },
       "type": "object"
     },
-    "JoinAsyncRequest": {
-      "description": "A request to retrieve the results from a collection of requests,\nspecified by the operation resource names.",
-      "properties": {
-        "names": {
-          "description": "List of operation resource names that we want to join,\nas returned from a call to RunAsync.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "scriptId": {
-          "description": "The script id which specifies the script which all processes in the names\nfield must be from.",
-          "type": "string"
-        },
-        "timeout": {
-          "description": "Timeout for information retrieval in milliseconds.",
-          "format": "google-duration",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "JoinAsyncResponse": {
-      "description": "An object that provides the return value for the JoinAsync method.",
-      "properties": {
-        "results": {
-          "additionalProperties": {
-            "$ref": "#/definitions/Operation"
-          },
-          "description": "The return values for each script function, in a map of operation resource\nnames to the Operation containing the result of the process. The response\nwill contain either an error or the result of the script function.",
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
     "Operation": {
       "description": "The response will not arrive until the function finishes executing. The maximum runtime is listed in the guide to [limitations in Apps Script](https://developers.google.com/apps-script/guides/services/quotas#current_limitations).\n<p>If the script function returns successfully, the `response` field will contain an `ExecutionResponse` object with the function's return value in the object's `result` field.</p>\n<p>If the script function (or Apps Script itself) throws an exception, the `error` field will contain a `Status` object. The `Status` object's `details` field will contain an array with a single `ExecutionError` object that provides information about the nature of the error.</p>\n<p>If the `run` call itself fails (for example, because of a malformed request or an authorization error), the method will return an HTTP response code in the 4XX range with a different format for the response body. Client libraries will automatically convert a 4XX response into an exception class.</p>",
       "properties": {
         "done": {
-          "description": "This field is not used.",
+          "description": "This field is only used with asynchronous executions and indicates whether or not the script execution has completed. A completed execution has a populated response field containing the `ExecutionResponse` from function that was executed.",
           "type": "boolean"
         },
         "error": {
@@ -476,10 +444,6 @@
           },
           "description": "This field is not used.",
           "type": "object"
-        },
-        "name": {
-          "description": "This field is not used.",
-          "type": "string"
         },
         "response": {
           "additionalProperties": {
@@ -510,7 +474,7 @@
       "description": "If a `run` call succeeds but the script function (or Apps Script itself) throws an exception, the response body's `error` field will contain this `Status` object.",
       "properties": {
         "code": {
-          "description": "The status code. For this API, this value will always be 3, corresponding to an INVALID_ARGUMENT error.",
+          "description": "The status code. For this API, this value will always be 3, corresponding to an <code>INVALID_ARGUMENT</code> error.",
           "format": "int32",
           "type": "integer"
         },

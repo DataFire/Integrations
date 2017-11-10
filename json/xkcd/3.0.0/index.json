@@ -1,0 +1,85 @@
+{
+  "id": "xkcd",
+  "title": "XKCD",
+  "description": "Webcomic of romance, sarcasm, math, and language.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/xkcd.png"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "comic": {
+      "properties": {
+        "alt": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string"
+        },
+        "img": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "month": {
+          "type": "string"
+        },
+        "news": {
+          "type": "string"
+        },
+        "num": {
+          "type": "number"
+        },
+        "safe_title": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "transcript": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "comic"
+    }
+  },
+  "actions": [
+    {
+      "id": "info.0.json.get",
+      "title": "info.0.json.get",
+      "description": "Fetch current comic and metadata.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/comic"
+      }
+    },
+    {
+      "id": "comicId.info.0.json.get",
+      "title": "comicId.info.0.json.get",
+      "description": "Fetch comics and metadata  by comic id.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comicId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comicId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/comic"
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

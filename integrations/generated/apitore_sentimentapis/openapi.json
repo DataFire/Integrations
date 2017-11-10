@@ -4,22 +4,22 @@
     "https"
   ],
   "host": "api.apitore.com",
-  "basePath": "/api/11",
+  "basePath": "/api/39",
   "info": {
     "description": "Japanese sentiment analyzer. (tokenized by SentencePiece)<BR />[Endpoint] https://api.apitore.com/api/39",
     "title": "Sentiment APIs",
-    "version": "1.0.5",
+    "version": "0.0.1",
     "x-apisguru-categories": [
-      "developer_tools"
+      "developer_tools",
+      "text"
     ],
-    "x-description-language": "jp",
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_39.jpg"
     },
     "x-origin": [
       {
         "format": "swagger",
-        "url": "https://api.apitore.com/json/11",
+        "url": "https://api.apitore.com/json/39",
         "version": "2.0"
       }
     ],
@@ -39,14 +39,14 @@
   ],
   "tags": [
     {
-      "description": "Sentiment Controller",
-      "name": "sentiment-controller"
+      "description": "Sentiment V 2 Controller",
+      "name": "sentiment-v-2-controller"
     }
   ],
   "paths": {
-    "/sentiment/predict": {
+    "/sentiment-v2/predict": {
       "get": {
-        "description": "Sentiment Analysis, last update at 2016-10-16.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.sentiment.SentimentResponseEntity<BR />",
+        "description": "Sentiment Analysis, last update at 2017-4-29.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.sentiment.SentimentResponseEntity<BR />",
         "operationId": "predictUsingGET",
         "parameters": [
           {
@@ -83,7 +83,7 @@
         },
         "summary": "Sentiment predict",
         "tags": [
-          "sentiment-controller"
+          "sentiment-v-2-controller"
         ]
       }
     }

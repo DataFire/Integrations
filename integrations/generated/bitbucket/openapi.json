@@ -9,7 +9,7 @@
     "contact": {
       "email": "support@bitbucket.org",
       "name": "Bitbucket Support",
-      "url": "https://bitbucket.org/support"
+      "url": "https://support.atlassian.com/bitbucket"
     },
     "description": "Code against the Bitbucket API to automate simple tasks, embed Bitbucket data into your own site, build mobile or desktop apps, or even add custom UI add-ons into Bitbucket itself using the Connect framework.",
     "termsOfService": "https://www.atlassian.com/legal/customer-agreement",
@@ -107,6 +107,10 @@
       "name": "repositories"
     },
     {
+      "description": "Browse the source code in the repository and\n                              create new commits by uploading.",
+      "name": "source"
+    },
+    {
       "description": "",
       "name": "refs"
     },
@@ -119,7 +123,7 @@
       "name": "pullrequests"
     },
     {
-      "description": "The issues resource provides functionality for getting information on\nissues in an issue tracker, creating new issues, updating them and deleting\nthem.\n\nYou can access public issues without authentication, but you can't gain access\nto private repositories' issues. By authenticating, you will get the ability\nto create issues, as well as access to updating data or deleting issues you\nhave access to.",
+      "description": "The issue resources provide functionality for getting information on\nissues in an issue tracker, creating new issues, updating them and deleting\nthem.\n\nYou can access public issues without authentication, but you can't gain access\nto private repositories' issues. By authenticating, you will get the ability\nto create issues, as well as access to updating data or deleting issues you\nhave access to.",
       "name": "issue_tracker"
     },
     {
@@ -1803,7 +1807,7 @@
     },
     "/repositories/{username}/{repo_slug}/commits": {
       "get": {
-        "description": "These are the repository's commits. They are paginated and returned\nin reverse chronological order, similar to the output of `git log` and\n`hg log`. Like these tools, the DAG can be filtered.\n\n## GET /repositories/{username}/{repo_slug}/commits/\n\nReturns all commits in the repo in topological order (newest commit\nfirst). All branches and tags are included (similar to\n`git log --all` and `hg log`).\n\n## GET /repositories/{username}/{repo_slug}/commits/master\n\nReturns all commits on rev `master` (similar to `git log master`,\n`hg log master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/dev?exclude=master\n\nReturns all commits on ref `dev`, except those that are reachable on\n`master` (similar to `git log dev ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?exclude=master\n\nReturns all commits in the repo that are not on master\n(similar to `git log --all ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubar\n\nReturns all commits that are on refs `foo` or `bar`, but not on `fu` or\n`fubar` (similar to `git log foo bar ^fu ^fubar`).\n\nBecause the response could include a very large number of commits, it\nis paginated. Follow the 'next' link in the response to navigate to the\nnext page of commits. As with other paginated resources, do not\nconstruct your own links.\n\nWhen the include and exclude parameters are more than ca fit in a\nquery string, clients can use a `x-www-form-urlencoded` POST instead.",
+        "description": "These are the repository's commits. They are paginated and returned\nin reverse chronological order, similar to the output of `git log` and\n`hg log`. Like these tools, the DAG can be filtered.\n\n## GET /repositories/{username}/{repo_slug}/commits/\n\nReturns all commits in the repo in topological order (newest commit\nfirst). All branches and tags are included (similar to\n`git log --all` and `hg log`).\n\n## GET /repositories/{username}/{repo_slug}/commits/master\n\nReturns all commits on rev `master` (similar to `git log master`,\n`hg log master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/dev?exclude=master\n\nReturns all commits on ref `dev`, except those that are reachable on\n`master` (similar to `git log dev ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?exclude=master\n\nReturns all commits in the repo that are not on master\n(similar to `git log --all ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubar\n\nReturns all commits that are on refs `foo` or `bar`, but not on `fu` or\n`fubar` (similar to `git log foo bar ^fu ^fubar`).\n\nBecause the response could include a very large number of commits, it\nis paginated. Follow the 'next' link in the response to navigate to the\nnext page of commits. As with other paginated resources, do not\nconstruct your own links.\n\nWhen the include and exclude parameters are more than can fit in a\nquery string, clients can use a `x-www-form-urlencoded` POST instead.",
         "parameters": [],
         "responses": {
           "default": {
@@ -1877,7 +1881,7 @@
     },
     "/repositories/{username}/{repo_slug}/commits/{revision}": {
       "get": {
-        "description": "These are the repository's commits. They are paginated and returned\nin reverse chronological order, similar to the output of `git log` and\n`hg log`. Like these tools, the DAG can be filtered.\n\n## GET /repositories/{username}/{repo_slug}/commits/\n\nReturns all commits in the repo in topological order (newest commit\nfirst). All branches and tags are included (similar to\n`git log --all` and `hg log`).\n\n## GET /repositories/{username}/{repo_slug}/commits/master\n\nReturns all commits on rev `master` (similar to `git log master`,\n`hg log master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/dev?exclude=master\n\nReturns all commits on ref `dev`, except those that are reachable on\n`master` (similar to `git log dev ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?exclude=master\n\nReturns all commits in the repo that are not on master\n(similar to `git log --all ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubar\n\nReturns all commits that are on refs `foo` or `bar`, but not on `fu` or\n`fubar` (similar to `git log foo bar ^fu ^fubar`).\n\nBecause the response could include a very large number of commits, it\nis paginated. Follow the 'next' link in the response to navigate to the\nnext page of commits. As with other paginated resources, do not\nconstruct your own links.\n\nWhen the include and exclude parameters are more than ca fit in a\nquery string, clients can use a `x-www-form-urlencoded` POST instead.",
+        "description": "These are the repository's commits. They are paginated and returned\nin reverse chronological order, similar to the output of `git log` and\n`hg log`. Like these tools, the DAG can be filtered.\n\n## GET /repositories/{username}/{repo_slug}/commits/\n\nReturns all commits in the repo in topological order (newest commit\nfirst). All branches and tags are included (similar to\n`git log --all` and `hg log`).\n\n## GET /repositories/{username}/{repo_slug}/commits/master\n\nReturns all commits on rev `master` (similar to `git log master`,\n`hg log master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/dev?exclude=master\n\nReturns all commits on ref `dev`, except those that are reachable on\n`master` (similar to `git log dev ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?exclude=master\n\nReturns all commits in the repo that are not on master\n(similar to `git log --all ^master`).\n\n## GET /repositories/{username}/{repo_slug}/commits/?include=foo&include=bar&exclude=fu&exclude=fubar\n\nReturns all commits that are on refs `foo` or `bar`, but not on `fu` or\n`fubar` (similar to `git log foo bar ^fu ^fubar`).\n\nBecause the response could include a very large number of commits, it\nis paginated. Follow the 'next' link in the response to navigate to the\nnext page of commits. As with other paginated resources, do not\nconstruct your own links.\n\nWhen the include and exclude parameters are more than can fit in a\nquery string, clients can use a `x-www-form-urlencoded` POST instead.",
         "parameters": [],
         "responses": {
           "default": {
@@ -6070,6 +6074,78 @@
         }
       ]
     },
+    "/repositories/{username}/{repo_slug}/src/{node}/{path}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "description": "Instead of returning the file's contents, return the (json) meta data for it.",
+            "enum": [
+              "meta"
+            ],
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "If the path matches a file, then the raw contents of the file are\nreturned (unless the `format=meta` query parameter was provided,\nin which case a json document containing the file's meta data is\nreturned). If the path matches a directory, then a paginated\nlist of file and directory entries is returned (if the\n`format=meta` query parameter was provided, then the json document\ncontaining the directory's meta data is returned).\n"
+          },
+          "404": {
+            "description": "If the path or commit in the URL does not exist.",
+            "schema": {
+              "$ref": "#/definitions/error"
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "repository"
+            ]
+          },
+          {
+            "basic": []
+          },
+          {
+            "api_key": []
+          }
+        ],
+        "tags": [
+          "source",
+          "repositories"
+        ],
+        "operationId": "repositories.username.repo_slug.src.node.path.get"
+      },
+      "parameters": [
+        {
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "node",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "in": "path",
+          "name": "repo_slug",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
     "/repositories/{username}/{repo_slug}/versions": {
       "get": {
         "description": "Returns the versions that have been defined in the issue tracker.\n\nThis resource is only available on repositories that have the issue\ntracker enabled.",
@@ -9653,6 +9729,7 @@
                 "require_all_dependencies_merged",
                 "push",
                 "require_approvals_to_merge",
+                "enforce_merge_checks",
                 "restrict_merges",
                 "reset_pullrequest_approvals_on_change",
                 "delete"
@@ -10016,27 +10093,29 @@
         "event": {
           "description": "The event identifier.",
           "enum": [
-            "pullrequest:updated",
-            "repo:commit_status_created",
-            "repo:updated",
+            "pullrequest:unapproved",
             "issue:comment_created",
-            "project:updated",
-            "pullrequest:rejected",
-            "pullrequest:fulfilled",
-            "repo:imported",
-            "repo:deleted",
-            "pullrequest:comment_created",
-            "pullrequest:comment_deleted",
-            "repo:fork",
-            "issue:created",
-            "repo:commit_comment_created",
             "pullrequest:approved",
-            "repo:commit_status_updated",
+            "repo:created",
+            "repo:deleted",
+            "repo:imported",
             "pullrequest:comment_updated",
             "issue:updated",
-            "pullrequest:unapproved",
+            "project:updated",
+            "pullrequest:comment_created",
+            "repo:commit_status_updated",
+            "pullrequest:updated",
+            "issue:created",
+            "repo:fork",
+            "pullrequest:comment_deleted",
+            "repo:commit_status_created",
+            "repo:updated",
+            "pullrequest:rejected",
+            "pullrequest:fulfilled",
+            "repo:push",
             "pullrequest:created",
-            "repo:push"
+            "repo:transfer",
+            "repo:commit_comment_created"
           ],
           "type": "string"
         },
@@ -12872,27 +12951,29 @@
               "description": "The events this webhook is subscribed to.",
               "items": {
                 "enum": [
-                  "pullrequest:updated",
-                  "repo:commit_status_created",
-                  "repo:updated",
+                  "pullrequest:unapproved",
                   "issue:comment_created",
-                  "project:updated",
-                  "pullrequest:rejected",
-                  "pullrequest:fulfilled",
-                  "repo:imported",
-                  "repo:deleted",
-                  "pullrequest:comment_created",
-                  "pullrequest:comment_deleted",
-                  "repo:fork",
-                  "issue:created",
-                  "repo:commit_comment_created",
                   "pullrequest:approved",
-                  "repo:commit_status_updated",
+                  "repo:created",
+                  "repo:deleted",
+                  "repo:imported",
                   "pullrequest:comment_updated",
                   "issue:updated",
-                  "pullrequest:unapproved",
+                  "project:updated",
+                  "pullrequest:comment_created",
+                  "repo:commit_status_updated",
+                  "pullrequest:updated",
+                  "issue:created",
+                  "repo:fork",
+                  "pullrequest:comment_deleted",
+                  "repo:commit_status_created",
+                  "repo:updated",
+                  "pullrequest:rejected",
+                  "pullrequest:fulfilled",
+                  "repo:push",
                   "pullrequest:created",
-                  "repo:push"
+                  "repo:transfer",
+                  "repo:commit_comment_created"
                 ],
                 "type": "string"
               },
@@ -12985,5 +13066,5 @@
       "title": "Atlassian Connect"
     }
   ],
-  "x-revision": "87002ef24cff"
+  "x-revision": "1cc0811f4855"
 }

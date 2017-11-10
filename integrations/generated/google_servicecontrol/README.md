@@ -56,17 +56,12 @@ before the operation is executed.
 
 This method requires the `servicemanagement.services.quota`
 permission on the specified service. For more information, see
-[Google Cloud IAM](https://cloud.google.com/iam).
+[Cloud IAM](https://cloud.google.com/iam).
 
-**NOTE:** the client code **must** fail-open if the server returns one
-of the following quota errors:
--   `PROJECT_STATUS_UNAVAILABLE`
--   `SERVICE_STATUS_UNAVAILABLE`
--   `BILLING_STATUS_UNAVAILABLE`
--   `QUOTA_SYSTEM_UNAVAILABLE`
-
-The server may inject above errors to prohibit any hard dependency
-on the quota system.
+**NOTE:** The client **must** fail-open on server errors `INTERNAL`,
+`UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system
+reliability, the server may inject these errors to prohibit any hard
+dependency on the quota functionality.
 
 
 ```js
@@ -101,7 +96,7 @@ If feasible, the client should cache the check results and reuse them for
 60 seconds. In case of server errors, the client can rely on the cached
 results for longer time.
 
-NOTE: the `CheckRequest` has the size limit of 64KB.
+NOTE: the CheckRequest has the size limit of 64KB.
 
 This method requires the `servicemanagement.services.check` permission
 on the specified service. For more information, see
@@ -115,8 +110,8 @@ google_servicecontrol.services.check({
 ```
 
 #### Parameters
-* serviceName (string) **required** - The service name as specified in its service configuration. For example,
 * body (object) - Request message for the Check method.
+* serviceName (string) **required** - The service name as specified in its service configuration. For example,
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -148,7 +143,7 @@ google_servicecontrol.services.endReconciliation({
 
 #### Parameters
 * serviceName (string) **required** - Name of the service as specified in the service configuration. For example,
-* body (object)
+* body (object) - Request message for QuotaController.EndReconciliation.
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -168,17 +163,13 @@ Releases previously allocated quota done through AllocateQuota method.
 
 This method requires the `servicemanagement.services.quota`
 permission on the specified service. For more information, see
-[Google Cloud IAM](https://cloud.google.com/iam).
+[Cloud IAM](https://cloud.google.com/iam).
 
-**NOTE:** the client code **must** fail-open if the server returns one
-of the following quota errors:
--   `PROJECT_STATUS_UNAVAILABLE`
--   `SERVICE_STATUS_UNAVAILABLE`
--   `BILLING_STATUS_UNAVAILABLE`
--   `QUOTA_SYSTEM_UNAVAILABLE`
 
-The server may inject above errors to prohibit any hard dependency
-on the quota system.
+**NOTE:** The client **must** fail-open on server errors `INTERNAL`,
+`UNKNOWN`, `DEADLINE_EXCEEDED`, and `UNAVAILABLE`. To ensure system
+reliability, the server may inject these errors to prohibit any hard
+dependency on the quota functionality.
 
 
 ```js
@@ -214,7 +205,7 @@ reduce data loss during client crashes. Clients should carefully choose
 the aggregation time window to avoid data loss risk more than 0.01%
 for business and compliance reasons.
 
-NOTE: the `ReportRequest` has the size limit of 1MB.
+NOTE: the ReportRequest has the size limit of 1MB.
 
 This method requires the `servicemanagement.services.report` permission
 on the specified service. For more information, see
@@ -228,8 +219,8 @@ google_servicecontrol.services.report({
 ```
 
 #### Parameters
-* serviceName (string) **required** - The service name as specified in its service configuration. For example,
 * body (object) - Request message for the Report method.
+* serviceName (string) **required** - The service name as specified in its service configuration. For example,
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -280,7 +271,7 @@ google_servicecontrol.services.startReconciliation({
 
 #### Parameters
 * serviceName (string) **required** - Name of the service as specified in the service configuration. For example,
-* body (object)
+* body (object) - Request message for QuotaController.StartReconciliation.
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.

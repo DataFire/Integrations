@@ -1,6 +1,6 @@
 {
   "name": "@datafire/ebay_buy_marketing",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Buy Marketing",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/ebay.com/buy-marketing/v1_beta.0.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/ebay.com/buy-marketing/v1_beta.1.0/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

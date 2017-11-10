@@ -369,6 +369,20 @@ amazonaws_greengrass.ListDeployments({
 #### Parameters
 * GroupId (string) **required**
 
+### ResetDeployments
+
+
+
+```js
+amazonaws_greengrass.ResetDeployments({
+  "GroupId": ""
+}, context)
+```
+
+#### Parameters
+* GroupId (string) **required**
+* Force (boolean)
+
 ### GetDeploymentStatus
 
 

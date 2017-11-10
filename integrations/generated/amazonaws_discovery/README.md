@@ -145,6 +145,7 @@ amazonaws_discovery.DescribeExportTasks({}, context)
 
 #### Parameters
 * exportIds (array)
+* filters (array)
 * maxResults (integer)
 * nextToken (string)
 
@@ -254,7 +255,10 @@ amazonaws_discovery.StartExportTask({}, context)
 ```
 
 #### Parameters
+* endTime (string)
 * exportDataFormat (array)
+* filters (array)
+* startTime (string)
 
 ### StopDataCollectionByAgentIds
 

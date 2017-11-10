@@ -15,7 +15,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codedeploy.svg"
   },
-  "actionCount": 37,
+  "actionCount": 38,
   "definitions": {
     "AddTagsToOnPremisesInstancesInput": {
       "description": "Represents the input of, and adds tags to, an on-premises instance operation.",
@@ -117,6 +117,10 @@
         "createTime": {
           "$ref": "#/definitions/Timestamp",
           "description": "The time at which the application was created."
+        },
+        "gitHubAccountName": {
+          "$ref": "#/definitions/GitHubAccountTokenName",
+          "description": "The name for a connection to a GitHub account."
         },
         "linkedToGitHub": {
           "$ref": "#/definitions/Boolean",
@@ -236,7 +240,7 @@
       "title": "AutoScalingGroupNameList"
     },
     "BatchGetApplicationRevisionsInput": {
-      "description": "Represents the input of a batch get application revisions operation.",
+      "description": "Represents the input of a BatchGetApplicationRevisions operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -255,7 +259,7 @@
       "title": "BatchGetApplicationRevisionsInput"
     },
     "BatchGetApplicationRevisionsOutput": {
-      "description": "Represents the output of a batch get application revisions operation.",
+      "description": "Represents the output of a BatchGetApplicationRevisions operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -274,7 +278,7 @@
       "title": "BatchGetApplicationRevisionsOutput"
     },
     "BatchGetApplicationsInput": {
-      "description": "Represents the input of a batch get applications operation.",
+      "description": "Represents the input of a BatchGetApplications operation.",
       "properties": {
         "applicationNames": {
           "$ref": "#/definitions/ApplicationsList",
@@ -285,7 +289,7 @@
       "title": "BatchGetApplicationsInput"
     },
     "BatchGetApplicationsOutput": {
-      "description": "Represents the output of a batch get applications operation.",
+      "description": "Represents the output of a BatchGetApplications operation.",
       "properties": {
         "applicationsInfo": {
           "$ref": "#/definitions/ApplicationsInfoList",
@@ -296,7 +300,7 @@
       "title": "BatchGetApplicationsOutput"
     },
     "BatchGetDeploymentGroupsInput": {
-      "description": "Represents the input of a batch get deployment groups operation.",
+      "description": "Represents the input of a BatchGetDeploymentGroups operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -315,7 +319,7 @@
       "title": "BatchGetDeploymentGroupsInput"
     },
     "BatchGetDeploymentGroupsOutput": {
-      "description": "Represents the output of a batch get deployment groups operation.",
+      "description": "Represents the output of a BatchGetDeploymentGroups operation.",
       "properties": {
         "deploymentGroupsInfo": {
           "$ref": "#/definitions/DeploymentGroupInfoList",
@@ -330,7 +334,7 @@
       "title": "BatchGetDeploymentGroupsOutput"
     },
     "BatchGetDeploymentInstancesInput": {
-      "description": "Represents the input of a batch get deployment instances operation.",
+      "description": "Represents the input of a BatchGetDeploymentInstances operation.",
       "properties": {
         "deploymentId": {
           "$ref": "#/definitions/DeploymentId",
@@ -349,7 +353,7 @@
       "title": "BatchGetDeploymentInstancesInput"
     },
     "BatchGetDeploymentInstancesOutput": {
-      "description": "Represents the output of a batch get deployment instance operation.",
+      "description": "Represents the output of a BatchGetDeploymentInstances operation.",
       "properties": {
         "errorMessage": {
           "$ref": "#/definitions/ErrorMessage",
@@ -364,7 +368,7 @@
       "title": "BatchGetDeploymentInstancesOutput"
     },
     "BatchGetDeploymentsInput": {
-      "description": "Represents the input of a batch get deployments operation.",
+      "description": "Represents the input of a BatchGetDeployments operation.",
       "properties": {
         "deploymentIds": {
           "$ref": "#/definitions/DeploymentsList",
@@ -375,7 +379,7 @@
       "title": "BatchGetDeploymentsInput"
     },
     "BatchGetDeploymentsOutput": {
-      "description": "Represents the output of a batch get deployments operation.",
+      "description": "Represents the output of a BatchGetDeployments operation.",
       "properties": {
         "deploymentsInfo": {
           "$ref": "#/definitions/DeploymentsInfoList",
@@ -386,7 +390,7 @@
       "title": "BatchGetDeploymentsOutput"
     },
     "BatchGetOnPremisesInstancesInput": {
-      "description": "Represents the input of a batch get on-premises instances operation.",
+      "description": "Represents the input of a BatchGetOnPremisesInstances operation.",
       "properties": {
         "instanceNames": {
           "$ref": "#/definitions/InstanceNameList",
@@ -397,7 +401,7 @@
       "title": "BatchGetOnPremisesInstancesInput"
     },
     "BatchGetOnPremisesInstancesOutput": {
-      "description": "Represents the output of a batch get on-premises instances operation.",
+      "description": "Represents the output of a BatchGetOnPremisesInstances operation.",
       "properties": {
         "instanceInfos": {
           "$ref": "#/definitions/InstanceInfoList",
@@ -481,7 +485,7 @@
       "title": "ContinueDeploymentInput"
     },
     "CreateApplicationInput": {
-      "description": "Represents the input of a create application operation.",
+      "description": "Represents the input of a CreateApplication operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -495,7 +499,7 @@
       "title": "CreateApplicationInput"
     },
     "CreateApplicationOutput": {
-      "description": "Represents the output of a create application operation.",
+      "description": "Represents the output of a CreateApplication operation.",
       "properties": {
         "applicationId": {
           "$ref": "#/definitions/ApplicationId",
@@ -506,7 +510,7 @@
       "title": "CreateApplicationOutput"
     },
     "CreateDeploymentConfigInput": {
-      "description": "Represents the input of a create deployment configuration operation.",
+      "description": "Represents the input of a CreateDeploymentConfig operation.",
       "properties": {
         "deploymentConfigName": {
           "$ref": "#/definitions/DeploymentConfigName",
@@ -518,13 +522,14 @@
         }
       },
       "required": [
-        "deploymentConfigName"
+        "deploymentConfigName",
+        "minimumHealthyHosts"
       ],
       "type": "object",
       "title": "CreateDeploymentConfigInput"
     },
     "CreateDeploymentConfigOutput": {
-      "description": "Represents the output of a create deployment configuration operation.",
+      "description": "Represents the output of a CreateDeploymentConfig operation.",
       "properties": {
         "deploymentConfigId": {
           "$ref": "#/definitions/DeploymentConfigId",
@@ -535,11 +540,11 @@
       "title": "CreateDeploymentConfigOutput"
     },
     "CreateDeploymentGroupInput": {
-      "description": "Represents the input of a create deployment group operation.",
+      "description": "Represents the input of a CreateDeploymentGroup operation.",
       "properties": {
         "alarmConfiguration": {
           "$ref": "#/definitions/AlarmConfiguration",
-          "description": "Information to add about Amazon CloudWatch alarms when the deployment group is created. "
+          "description": "Information to add about Amazon CloudWatch alarms when the deployment group is created."
         },
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -559,7 +564,7 @@
         },
         "deploymentConfigName": {
           "$ref": "#/definitions/DeploymentConfigName",
-          "description": "<p>If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.</p> <p>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn't specified for the deployment or the deployment group.</p> <p>For more information about the predefined deployment configurations in AWS CodeDeploy, see see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html\">Working with Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</p>"
+          "description": "<p>If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.</p> <p>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn't specified for the deployment or the deployment group.</p> <p>For more information about the predefined deployment configurations in AWS CodeDeploy, see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html\">Working with Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</p>"
         },
         "deploymentGroupName": {
           "$ref": "#/definitions/DeploymentGroupName",
@@ -567,19 +572,27 @@
         },
         "deploymentStyle": {
           "$ref": "#/definitions/DeploymentStyle",
-          "description": "Information about the type of deployment, standard or blue/green, that you want to run and whether to route deployment traffic behind a load balancer."
+          "description": "Information about the type of deployment, in-place or blue/green, that you want to run and whether to route deployment traffic behind a load balancer."
         },
         "ec2TagFilters": {
           "$ref": "#/definitions/EC2TagFilterList",
-          "description": "The Amazon EC2 tags on which to filter."
+          "description": "The Amazon EC2 tags on which to filter. The deployment group will include EC2 instances with any of the specified tags. Cannot be used in the same call as ec2TagSet."
+        },
+        "ec2TagSet": {
+          "$ref": "#/definitions/EC2TagSet",
+          "description": "Information about groups of tags applied to EC2 instances. The deployment group will include only EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters."
         },
         "loadBalancerInfo": {
           "$ref": "#/definitions/LoadBalancerInfo",
-          "description": "Information about the load balancer used in a blue/green deployment."
+          "description": "Information about the load balancer used in a deployment."
         },
         "onPremisesInstanceTagFilters": {
           "$ref": "#/definitions/TagFilterList",
-          "description": "The on-premises instance tags on which to filter."
+          "description": "The on-premises instance tags on which to filter. The deployment group will include on-premises instances with any of the specified tags. Cannot be used in the same call as OnPremisesTagSet."
+        },
+        "onPremisesTagSet": {
+          "$ref": "#/definitions/OnPremisesTagSet",
+          "description": "Information about groups of tags applied to on-premises instances. The deployment group will include only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters."
         },
         "serviceRoleArn": {
           "$ref": "#/definitions/Role",
@@ -599,7 +612,7 @@
       "title": "CreateDeploymentGroupInput"
     },
     "CreateDeploymentGroupOutput": {
-      "description": "Represents the output of a create deployment group operation.",
+      "description": "Represents the output of a CreateDeploymentGroup operation.",
       "properties": {
         "deploymentGroupId": {
           "$ref": "#/definitions/DeploymentGroupId",
@@ -610,7 +623,7 @@
       "title": "CreateDeploymentGroupOutput"
     },
     "CreateDeploymentInput": {
-      "description": "Represents the input of a create deployment operation.",
+      "description": "Represents the input of a CreateDeployment operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -631,6 +644,10 @@
         "description": {
           "$ref": "#/definitions/Description",
           "description": "A comment about the deployment."
+        },
+        "fileExistsBehavior": {
+          "$ref": "#/definitions/FileExistsBehavior",
+          "description": "<p>Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.</p> <p>The fileExistsBehavior parameter takes any of the following values:</p> <ul> <li> <p>DISALLOW: The deployment fails. This is also the default behavior if no option is specified.</p> </li> <li> <p>OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.</p> </li> <li> <p>RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.</p> </li> </ul>"
         },
         "ignoreApplicationStopFailures": {
           "$ref": "#/definitions/Boolean",
@@ -656,7 +673,7 @@
       "title": "CreateDeploymentInput"
     },
     "CreateDeploymentOutput": {
-      "description": "Represents the output of a create deployment operation.",
+      "description": "Represents the output of a CreateDeployment operation.",
       "properties": {
         "deploymentId": {
           "$ref": "#/definitions/DeploymentId",
@@ -667,7 +684,7 @@
       "title": "CreateDeploymentOutput"
     },
     "DeleteApplicationInput": {
-      "description": "Represents the input of a delete application operation.",
+      "description": "Represents the input of a DeleteApplication operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -681,7 +698,7 @@
       "title": "DeleteApplicationInput"
     },
     "DeleteDeploymentConfigInput": {
-      "description": "Represents the input of a delete deployment configuration operation.",
+      "description": "Represents the input of a DeleteDeploymentConfig operation.",
       "properties": {
         "deploymentConfigName": {
           "$ref": "#/definitions/DeploymentConfigName",
@@ -695,7 +712,7 @@
       "title": "DeleteDeploymentConfigInput"
     },
     "DeleteDeploymentGroupInput": {
-      "description": "Represents the input of a delete deployment group operation.",
+      "description": "Represents the input of a DeleteDeploymentGroup operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -714,7 +731,7 @@
       "title": "DeleteDeploymentGroupInput"
     },
     "DeleteDeploymentGroupOutput": {
-      "description": "Represents the output of a delete deployment group operation.",
+      "description": "Represents the output of a DeleteDeploymentGroup operation.",
       "properties": {
         "hooksNotCleanedUp": {
           "$ref": "#/definitions/AutoScalingGroupList",
@@ -868,19 +885,35 @@
         },
         "deploymentStyle": {
           "$ref": "#/definitions/DeploymentStyle",
-          "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+          "description": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
         },
         "ec2TagFilters": {
           "$ref": "#/definitions/EC2TagFilterList",
-          "description": "The Amazon EC2 tags on which to filter."
+          "description": "The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags."
+        },
+        "ec2TagSet": {
+          "$ref": "#/definitions/EC2TagSet",
+          "description": "Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilters."
+        },
+        "lastAttemptedDeployment": {
+          "$ref": "#/definitions/LastDeploymentInfo",
+          "description": "Information about the most recent attempted deployment to the deployment group."
+        },
+        "lastSuccessfulDeployment": {
+          "$ref": "#/definitions/LastDeploymentInfo",
+          "description": "Information about the most recent successful deployment to the deployment group."
         },
         "loadBalancerInfo": {
           "$ref": "#/definitions/LoadBalancerInfo",
-          "description": "Information about the load balancer to use in a blue/green deployment."
+          "description": "Information about the load balancer to use in a deployment."
         },
         "onPremisesInstanceTagFilters": {
           "$ref": "#/definitions/TagFilterList",
-          "description": "The on-premises instance tags on which to filter."
+          "description": "The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags."
+        },
+        "onPremisesTagSet": {
+          "$ref": "#/definitions/OnPremisesTagSet",
+          "description": "Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters."
         },
         "serviceRoleArn": {
           "$ref": "#/definitions/Role",
@@ -989,7 +1022,7 @@
         },
         "deploymentStyle": {
           "$ref": "#/definitions/DeploymentStyle",
-          "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+          "description": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
         },
         "description": {
           "$ref": "#/definitions/Description",
@@ -998,6 +1031,10 @@
         "errorInformation": {
           "$ref": "#/definitions/ErrorInformation",
           "description": "Information about any error associated with this deployment."
+        },
+        "fileExistsBehavior": {
+          "$ref": "#/definitions/FileExistsBehavior",
+          "description": "<p>Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment.</p> <ul> <li> <p>DISALLOW: The deployment fails. This is also the default behavior if no option is specified.</p> </li> <li> <p>OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.</p> </li> <li> <p>RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.</p> </li> </ul>"
         },
         "ignoreApplicationStopFailures": {
           "$ref": "#/definitions/Boolean",
@@ -1009,7 +1046,11 @@
         },
         "loadBalancerInfo": {
           "$ref": "#/definitions/LoadBalancerInfo",
-          "description": "Information about the load balancer used in this blue/green deployment."
+          "description": "Information about the load balancer used in the deployment."
+        },
+        "previousRevision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Information about the application revision that was deployed to the deployment group before the most recent successful deployment."
         },
         "revision": {
           "$ref": "#/definitions/RevisionLocation",
@@ -1140,7 +1181,7 @@
       "title": "DeploymentStatusList"
     },
     "DeploymentStyle": {
-      "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.",
+      "description": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.",
       "properties": {
         "deploymentOption": {
           "$ref": "#/definitions/DeploymentOption",
@@ -1148,7 +1189,7 @@
         },
         "deploymentType": {
           "$ref": "#/definitions/DeploymentType",
-          "description": "Indicates whether to run a standard deployment or a blue/green deployment."
+          "description": "Indicates whether to run an in-place deployment or a blue/green deployment."
         }
       },
       "type": "object",
@@ -1177,7 +1218,7 @@
       "title": "DeploymentsList"
     },
     "DeregisterOnPremisesInstanceInput": {
-      "description": "Represents the input of a deregister on-premises instance operation.",
+      "description": "Represents the input of a DeregisterOnPremisesInstance operation.",
       "properties": {
         "instanceName": {
           "$ref": "#/definitions/InstanceName",
@@ -1228,7 +1269,7 @@
       "title": "Duration"
     },
     "EC2TagFilter": {
-      "description": "Information about a tag filter.",
+      "description": "Information about an EC2 tag filter.",
       "properties": {
         "Key": {
           "$ref": "#/definitions/Key",
@@ -1262,12 +1303,30 @@
       "type": "string",
       "title": "EC2TagFilterType"
     },
+    "EC2TagSet": {
+      "description": "Information about groups of EC2 instance tags.",
+      "properties": {
+        "ec2TagSetList": {
+          "$ref": "#/definitions/EC2TagSetList",
+          "description": "A list containing other lists of EC2 instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list."
+        }
+      },
+      "type": "object",
+      "title": "EC2TagSet"
+    },
+    "EC2TagSetList": {
+      "items": {
+        "$ref": "#/definitions/EC2TagFilterList"
+      },
+      "type": "array",
+      "title": "EC2TagSetList"
+    },
     "ELBInfo": {
-      "description": "Information about a load balancer in Elastic Load Balancing to use in a blue/green deployment.",
+      "description": "Information about a load balancer in Elastic Load Balancing to use in a deployment. Instances are registered directly with a load balancer, and traffic is routed to the load balancer.",
       "properties": {
         "name": {
           "$ref": "#/definitions/ELBName",
-          "description": "The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment."
+          "description": "For blue/green deployments, the name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes."
         }
       },
       "type": "object",
@@ -1331,6 +1390,15 @@
       "type": "string",
       "title": "ErrorMessage"
     },
+    "FileExistsBehavior": {
+      "enum": [
+        "DISALLOW",
+        "OVERWRITE",
+        "RETAIN"
+      ],
+      "type": "string",
+      "title": "FileExistsBehavior"
+    },
     "GenericRevisionInfo": {
       "description": "Information about an application revision.",
       "properties": {
@@ -1359,7 +1427,7 @@
       "title": "GenericRevisionInfo"
     },
     "GetApplicationInput": {
-      "description": "Represents the input of a get application operation.",
+      "description": "Represents the input of a GetApplication operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -1373,7 +1441,7 @@
       "title": "GetApplicationInput"
     },
     "GetApplicationOutput": {
-      "description": "Represents the output of a get application operation.",
+      "description": "Represents the output of a GetApplication operation.",
       "properties": {
         "application": {
           "$ref": "#/definitions/ApplicationInfo",
@@ -1384,7 +1452,7 @@
       "title": "GetApplicationOutput"
     },
     "GetApplicationRevisionInput": {
-      "description": "Represents the input of a get application revision operation.",
+      "description": "Represents the input of a GetApplicationRevision operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -1403,7 +1471,7 @@
       "title": "GetApplicationRevisionInput"
     },
     "GetApplicationRevisionOutput": {
-      "description": "Represents the output of a get application revision operation.",
+      "description": "Represents the output of a GetApplicationRevision operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -1422,7 +1490,7 @@
       "title": "GetApplicationRevisionOutput"
     },
     "GetDeploymentConfigInput": {
-      "description": "Represents the input of a get deployment configuration operation.",
+      "description": "Represents the input of a GetDeploymentConfig operation.",
       "properties": {
         "deploymentConfigName": {
           "$ref": "#/definitions/DeploymentConfigName",
@@ -1436,7 +1504,7 @@
       "title": "GetDeploymentConfigInput"
     },
     "GetDeploymentConfigOutput": {
-      "description": "Represents the output of a get deployment configuration operation.",
+      "description": "Represents the output of a GetDeploymentConfig operation.",
       "properties": {
         "deploymentConfigInfo": {
           "$ref": "#/definitions/DeploymentConfigInfo",
@@ -1447,7 +1515,7 @@
       "title": "GetDeploymentConfigOutput"
     },
     "GetDeploymentGroupInput": {
-      "description": "Represents the input of a get deployment group operation.",
+      "description": "Represents the input of a GetDeploymentGroup operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -1466,7 +1534,7 @@
       "title": "GetDeploymentGroupInput"
     },
     "GetDeploymentGroupOutput": {
-      "description": "Represents the output of a get deployment group operation.",
+      "description": "Represents the output of a GetDeploymentGroup operation.",
       "properties": {
         "deploymentGroupInfo": {
           "$ref": "#/definitions/DeploymentGroupInfo",
@@ -1477,7 +1545,7 @@
       "title": "GetDeploymentGroupOutput"
     },
     "GetDeploymentInput": {
-      "description": "Represents the input of a get deployment operation.",
+      "description": "Represents the input of a GetDeployment operation.",
       "properties": {
         "deploymentId": {
           "$ref": "#/definitions/DeploymentId",
@@ -1491,7 +1559,7 @@
       "title": "GetDeploymentInput"
     },
     "GetDeploymentInstanceInput": {
-      "description": "Represents the input of a get deployment instance operation.",
+      "description": "Represents the input of a GetDeploymentInstance operation.",
       "properties": {
         "deploymentId": {
           "$ref": "#/definitions/DeploymentId",
@@ -1510,7 +1578,7 @@
       "title": "GetDeploymentInstanceInput"
     },
     "GetDeploymentInstanceOutput": {
-      "description": "Represents the output of a get deployment instance operation.",
+      "description": "Represents the output of a GetDeploymentInstance operation.",
       "properties": {
         "instanceSummary": {
           "$ref": "#/definitions/InstanceSummary",
@@ -1521,7 +1589,7 @@
       "title": "GetDeploymentInstanceOutput"
     },
     "GetDeploymentOutput": {
-      "description": "Represents the output of a get deployment operation.",
+      "description": "Represents the output of a GetDeployment operation.",
       "properties": {
         "deploymentInfo": {
           "$ref": "#/definitions/DeploymentInfo",
@@ -1532,7 +1600,7 @@
       "title": "GetDeploymentOutput"
     },
     "GetOnPremisesInstanceInput": {
-      "description": "Represents the input of a get on-premises instance operation.",
+      "description": "Represents the input of a GetOnPremisesInstance operation.",
       "properties": {
         "instanceName": {
           "$ref": "#/definitions/InstanceName",
@@ -1546,7 +1614,7 @@
       "title": "GetOnPremisesInstanceInput"
     },
     "GetOnPremisesInstanceOutput": {
-      "description": "Represents the output of a get on-premises instance operation.",
+      "description": "Represents the output of a GetOnPremisesInstance operation.",
       "properties": {
         "instanceInfo": {
           "$ref": "#/definitions/InstanceInfo",
@@ -1555,6 +1623,23 @@
       },
       "type": "object",
       "title": "GetOnPremisesInstanceOutput"
+    },
+    "GitHubAccountTokenDoesNotExistException": {
+      "description": "No GitHub account connection exists with the named specified in the call.",
+      "properties": {},
+      "type": "object",
+      "title": "GitHubAccountTokenDoesNotExistException"
+    },
+    "GitHubAccountTokenName": {
+      "type": "string",
+      "title": "GitHubAccountTokenName"
+    },
+    "GitHubAccountTokenNameList": {
+      "items": {
+        "$ref": "#/definitions/GitHubAccountTokenName"
+      },
+      "type": "array",
+      "title": "GitHubAccountTokenNameList"
     },
     "GitHubLocation": {
       "description": "Information about the location of application artifacts stored in GitHub.",
@@ -1871,6 +1956,12 @@
       "type": "object",
       "title": "InvalidDeploymentIdException"
     },
+    "InvalidDeploymentInstanceTypeException": {
+      "description": "An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidDeploymentInstanceTypeException"
+    },
     "InvalidDeploymentStatusException": {
       "description": "The specified deployment status doesn't exist or cannot be determined.",
       "properties": {},
@@ -1878,16 +1969,28 @@
       "title": "InvalidDeploymentStatusException"
     },
     "InvalidDeploymentStyleException": {
-      "description": "An invalid deployment style was specified. Valid deployment types include \"IN_PLACE\" and \"BLUE_GREEN\". Valid deployment options for blue/green deployments include \"WITH_TRAFFIC_CONTROL\" and \"WITHOUT_TRAFFIC_CONTROL\".",
+      "description": "An invalid deployment style was specified. Valid deployment types include \"IN_PLACE\" and \"BLUE_GREEN\". Valid deployment options include \"WITH_TRAFFIC_CONTROL\" and \"WITHOUT_TRAFFIC_CONTROL\".",
       "properties": {},
       "type": "object",
       "title": "InvalidDeploymentStyleException"
+    },
+    "InvalidEC2TagCombinationException": {
+      "description": "A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of these data types can be used in a single call.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidEC2TagCombinationException"
     },
     "InvalidEC2TagException": {
       "description": "The tag was specified in an invalid format.",
       "properties": {},
       "type": "object",
       "title": "InvalidEC2TagException"
+    },
+    "InvalidFileExistsBehaviorException": {
+      "description": "An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or directories that already exist in a deployment target location but weren't part of the previous successful deployment. Valid values include \"DISALLOW\", \"OVERWRITE\", and \"RETAIN\".",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidFileExistsBehaviorException"
     },
     "InvalidIamSessionArnException": {
       "description": "The IAM session ARN was specified in an invalid format.",
@@ -1942,6 +2045,12 @@
       "properties": {},
       "type": "object",
       "title": "InvalidNextTokenException"
+    },
+    "InvalidOnPremisesTagCombinationException": {
+      "description": "A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet, but only one of these data types can be used in a single call.",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidOnPremisesTagCombinationException"
     },
     "InvalidOperationException": {
       "description": "An invalid operation was detected.",
@@ -2012,6 +2121,29 @@
     "Key": {
       "type": "string",
       "title": "Key"
+    },
+    "LastDeploymentInfo": {
+      "description": "Information about the most recent attempted or successful deployment to a deployment group.",
+      "properties": {
+        "createTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the most recent deployment to the deployment group started."
+        },
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The deployment ID."
+        },
+        "endTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the most recent deployment to the deployment group completed."
+        },
+        "status": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the most recent deployment."
+        }
+      },
+      "type": "object",
+      "title": "LastDeploymentInfo"
     },
     "LifecycleErrorCode": {
       "enum": [
@@ -2086,7 +2218,7 @@
       "title": "LifecycleMessage"
     },
     "ListApplicationRevisionsInput": {
-      "description": "Represents the input of a list application revisions operation.",
+      "description": "Represents the input of a ListApplicationRevisions operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2124,7 +2256,7 @@
       "title": "ListApplicationRevisionsInput"
     },
     "ListApplicationRevisionsOutput": {
-      "description": "Represents the output of a list application revisions operation.",
+      "description": "Represents the output of a ListApplicationRevisions operation.",
       "properties": {
         "nextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2139,7 +2271,7 @@
       "title": "ListApplicationRevisionsOutput"
     },
     "ListApplicationsInput": {
-      "description": "Represents the input of a list applications operation.",
+      "description": "Represents the input of a ListApplications operation.",
       "properties": {
         "nextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2150,7 +2282,7 @@
       "title": "ListApplicationsInput"
     },
     "ListApplicationsOutput": {
-      "description": "Represents the output of a list applications operation.",
+      "description": "Represents the output of a ListApplications operation.",
       "properties": {
         "applications": {
           "$ref": "#/definitions/ApplicationsList",
@@ -2165,7 +2297,7 @@
       "title": "ListApplicationsOutput"
     },
     "ListDeploymentConfigsInput": {
-      "description": "Represents the input of a list deployment configurations operation.",
+      "description": "Represents the input of a ListDeploymentConfigs operation.",
       "properties": {
         "nextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2176,7 +2308,7 @@
       "title": "ListDeploymentConfigsInput"
     },
     "ListDeploymentConfigsOutput": {
-      "description": "Represents the output of a list deployment configurations operation.",
+      "description": "Represents the output of a ListDeploymentConfigs operation.",
       "properties": {
         "deploymentConfigsList": {
           "$ref": "#/definitions/DeploymentConfigsList",
@@ -2191,7 +2323,7 @@
       "title": "ListDeploymentConfigsOutput"
     },
     "ListDeploymentGroupsInput": {
-      "description": "Represents the input of a list deployment groups operation.",
+      "description": "Represents the input of a ListDeploymentGroups operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2209,7 +2341,7 @@
       "title": "ListDeploymentGroupsInput"
     },
     "ListDeploymentGroupsOutput": {
-      "description": "Represents the output of a list deployment groups operation.",
+      "description": "Represents the output of a ListDeploymentGroups operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2228,7 +2360,7 @@
       "title": "ListDeploymentGroupsOutput"
     },
     "ListDeploymentInstancesInput": {
-      "description": "Represents the input of a list deployment instances operation.",
+      "description": "Represents the input of a ListDeploymentInstances operation.",
       "properties": {
         "deploymentId": {
           "$ref": "#/definitions/DeploymentId",
@@ -2254,7 +2386,7 @@
       "title": "ListDeploymentInstancesInput"
     },
     "ListDeploymentInstancesOutput": {
-      "description": "Represents the output of a list deployment instances operation.",
+      "description": "Represents the output of a ListDeploymentInstances operation.",
       "properties": {
         "instancesList": {
           "$ref": "#/definitions/InstancesList",
@@ -2269,7 +2401,7 @@
       "title": "ListDeploymentInstancesOutput"
     },
     "ListDeploymentsInput": {
-      "description": "Represents the input of a list deployments operation.",
+      "description": "Represents the input of a ListDeployments operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2296,7 +2428,7 @@
       "title": "ListDeploymentsInput"
     },
     "ListDeploymentsOutput": {
-      "description": "Represents the output of a list deployments operation.",
+      "description": "Represents the output of a ListDeployments operation.",
       "properties": {
         "deployments": {
           "$ref": "#/definitions/DeploymentsList",
@@ -2310,8 +2442,34 @@
       "type": "object",
       "title": "ListDeploymentsOutput"
     },
+    "ListGitHubAccountTokenNamesInput": {
+      "description": "Represents the input of a ListGitHubAccountTokenNames operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous ListGitHubAccountTokenNames call. It can be used to return the next set of names in the list. "
+        }
+      },
+      "type": "object",
+      "title": "ListGitHubAccountTokenNamesInput"
+    },
+    "ListGitHubAccountTokenNamesOutput": {
+      "description": "Represents the output of a ListGitHubAccountTokenNames operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent ListGitHubAccountTokenNames call to return the next set of names in the list. "
+        },
+        "tokenNameList": {
+          "$ref": "#/definitions/GitHubAccountTokenNameList",
+          "description": "A list of names of connections to GitHub accounts."
+        }
+      },
+      "type": "object",
+      "title": "ListGitHubAccountTokenNamesOutput"
+    },
     "ListOnPremisesInstancesInput": {
-      "description": "Represents the input of a list on-premises instances operation.",
+      "description": "Represents the input of a ListOnPremisesInstances operation.",
       "properties": {
         "nextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2354,11 +2512,15 @@
       "title": "ListStateFilterAction"
     },
     "LoadBalancerInfo": {
-      "description": "Information about the load balancer used in a blue/green deployment.",
+      "description": "Information about the Elastic Load Balancing load balancer or target group used in a deployment.",
       "properties": {
         "elbInfoList": {
           "$ref": "#/definitions/ELBInfoList",
-          "description": "An array containing information about the load balancer in Elastic Load Balancing to use in a blue/green deployment."
+          "description": "An array containing information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers."
+        },
+        "targetGroupInfoList": {
+          "$ref": "#/definitions/TargetGroupInfoList",
+          "description": "An array containing information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers."
         }
       },
       "type": "object",
@@ -2377,7 +2539,7 @@
       "properties": {
         "type": {
           "$ref": "#/definitions/MinimumHealthyHostsType",
-          "description": "<p>The minimum healthy instance type:</p> <ul> <li> <p>HOST_COUNT: The minimum number of healthy instance as an absolute value.</p> </li> <li> <p>FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.</p> </li> </ul> <p>In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.</p> <note> <p>In a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy will try to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment still succeeds.</p> </note>"
+          "description": "<p>The minimum healthy instance type:</p> <ul> <li> <p>HOST_COUNT: The minimum number of healthy instance as an absolute value.</p> </li> <li> <p>FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.</p> </li> </ul> <p>In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.</p> <note> <p>In a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy will try to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment still succeeds.</p> </note> <p>For more information, see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html\">AWS CodeDeploy Instance Health</a> in the <i>AWS CodeDeploy User Guide</i>.</p>"
         },
         "value": {
           "$ref": "#/definitions/MinimumHealthyHostsValue",
@@ -2413,8 +2575,26 @@
       "type": "boolean",
       "title": "NullableBoolean"
     },
+    "OnPremisesTagSet": {
+      "description": "Information about groups of on-premises instance tags.",
+      "properties": {
+        "onPremisesTagSetList": {
+          "$ref": "#/definitions/OnPremisesTagSetList",
+          "description": "A list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list."
+        }
+      },
+      "type": "object",
+      "title": "OnPremisesTagSet"
+    },
+    "OnPremisesTagSetList": {
+      "items": {
+        "$ref": "#/definitions/TagFilterList"
+      },
+      "type": "array",
+      "title": "OnPremisesTagSetList"
+    },
     "RegisterApplicationRevisionInput": {
-      "description": "Represents the input of a register application revision operation.",
+      "description": "Represents the input of a RegisterApplicationRevision operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2467,7 +2647,7 @@
       "title": "RegistrationStatus"
     },
     "RemoveTagsFromOnPremisesInstancesInput": {
-      "description": "Represents the input of a remove tags from on-premises instances operation.",
+      "description": "Represents the input of a RemoveTagsFromOnPremisesInstances operation.",
       "properties": {
         "instanceNames": {
           "$ref": "#/definitions/InstanceNameList",
@@ -2488,6 +2668,12 @@
     "Repository": {
       "type": "string",
       "title": "Repository"
+    },
+    "ResourceValidationException": {
+      "description": "The specified resource could not be validated.",
+      "properties": {},
+      "type": "object",
+      "title": "ResourceValidationException"
     },
     "RevisionDoesNotExistException": {
       "description": "The named revision does not exist with the applicable IAM user or AWS account.",
@@ -2644,7 +2830,7 @@
       "title": "SortOrder"
     },
     "StopDeploymentInput": {
-      "description": "Represents the input of a stop deployment operation.",
+      "description": "Represents the input of a StopDeployment operation.",
       "properties": {
         "autoRollbackEnabled": {
           "$ref": "#/definitions/NullableBoolean",
@@ -2662,7 +2848,7 @@
       "title": "StopDeploymentInput"
     },
     "StopDeploymentOutput": {
-      "description": "Represents the output of a stop deployment operation.",
+      "description": "Represents the output of a StopDeployment operation.",
       "properties": {
         "status": {
           "$ref": "#/definitions/StopStatus",
@@ -2753,6 +2939,34 @@
       "type": "object",
       "title": "TagRequiredException"
     },
+    "TagSetListLimitExceededException": {
+      "description": "The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.",
+      "properties": {},
+      "type": "object",
+      "title": "TagSetListLimitExceededException"
+    },
+    "TargetGroupInfo": {
+      "description": "Information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/TargetGroupName",
+          "description": "For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. "
+        }
+      },
+      "type": "object",
+      "title": "TargetGroupInfo"
+    },
+    "TargetGroupInfoList": {
+      "items": {
+        "$ref": "#/definitions/TargetGroupInfo"
+      },
+      "type": "array",
+      "title": "TargetGroupInfoList"
+    },
+    "TargetGroupName": {
+      "type": "string",
+      "title": "TargetGroupName"
+    },
     "TargetInstances": {
       "description": "Information about the instances to be used in the replacement environment in a blue/green deployment.",
       "properties": {
@@ -2760,9 +2974,13 @@
           "$ref": "#/definitions/AutoScalingGroupNameList",
           "description": "The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment."
         },
+        "ec2TagSet": {
+          "$ref": "#/definitions/EC2TagSet",
+          "description": "Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as tagFilters."
+        },
         "tagFilters": {
           "$ref": "#/definitions/EC2TagFilterList",
-          "description": "The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment."
+          "description": "The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet."
         }
       },
       "type": "object",
@@ -2858,7 +3076,7 @@
       "title": "UnsupportedActionForDeploymentTypeException"
     },
     "UpdateApplicationInput": {
-      "description": "Represents the input of an update application operation.",
+      "description": "Represents the input of an UpdateApplication operation.",
       "properties": {
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2873,11 +3091,11 @@
       "title": "UpdateApplicationInput"
     },
     "UpdateDeploymentGroupInput": {
-      "description": "Represents the input of an update deployment group operation.",
+      "description": "Represents the input of an UpdateDeploymentGroup operation.",
       "properties": {
         "alarmConfiguration": {
           "$ref": "#/definitions/AlarmConfiguration",
-          "description": "Information to add or change about Amazon CloudWatch alarms when the deployment group is updated. "
+          "description": "Information to add or change about Amazon CloudWatch alarms when the deployment group is updated."
         },
         "applicationName": {
           "$ref": "#/definitions/ApplicationName",
@@ -2905,15 +3123,19 @@
         },
         "deploymentStyle": {
           "$ref": "#/definitions/DeploymentStyle",
-          "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+          "description": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
         },
         "ec2TagFilters": {
           "$ref": "#/definitions/EC2TagFilterList",
           "description": "The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names."
         },
+        "ec2TagSet": {
+          "$ref": "#/definitions/EC2TagSet",
+          "description": "Information about groups of tags applied to on-premises instances. The deployment group will include only EC2 instances identified by all the tag groups."
+        },
         "loadBalancerInfo": {
           "$ref": "#/definitions/LoadBalancerInfo",
-          "description": "Information about the load balancer used in a blue/green deployment."
+          "description": "Information about the load balancer used in a deployment."
         },
         "newDeploymentGroupName": {
           "$ref": "#/definitions/DeploymentGroupName",
@@ -2922,6 +3144,10 @@
         "onPremisesInstanceTagFilters": {
           "$ref": "#/definitions/TagFilterList",
           "description": "The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names."
+        },
+        "onPremisesTagSet": {
+          "$ref": "#/definitions/OnPremisesTagSet",
+          "description": "Information about an on-premises instance tag set. The deployment group will include only on-premises instances identified by all the tag groups."
         },
         "serviceRoleArn": {
           "$ref": "#/definitions/Role",
@@ -2940,7 +3166,7 @@
       "title": "UpdateDeploymentGroupInput"
     },
     "UpdateDeploymentGroupOutput": {
-      "description": "Represents the output of an update deployment group operation.",
+      "description": "Represents the output of an UpdateDeploymentGroup operation.",
       "properties": {
         "hooksNotCleanedUp": {
           "$ref": "#/definitions/AutoScalingGroupList",
@@ -3605,6 +3831,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDeploymentsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListGitHubAccountTokenNames",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListGitHubAccountTokenNamesInput"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListGitHubAccountTokenNamesOutput"
       },
       "security": {
         "amazonaws_codedeploy": {

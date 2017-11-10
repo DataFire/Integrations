@@ -1,0 +1,680 @@
+{
+  "id": "google_oslogin",
+  "title": "Google Cloud OS Login",
+  "description": "Manages OS login configuration for Directory API users.",
+  "security": {
+    "google_oslogin": {
+      "integration": "google_oslogin",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+          "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_oslogin.png"
+  },
+  "actionCount": 7,
+  "definitions": {
+    "Empty": {
+      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "properties": {},
+      "type": "object",
+      "title": "Empty"
+    },
+    "ImportSshPublicKeyResponse": {
+      "description": "A response message for importing an SSH public key.",
+      "properties": {
+        "loginProfile": {
+          "$ref": "#/definitions/LoginProfile",
+          "description": "The login profile information for the user."
+        }
+      },
+      "type": "object",
+      "title": "ImportSshPublicKeyResponse"
+    },
+    "LoginProfile": {
+      "description": "The Directory API profile information used for logging in to a virtual\nmachine on Google Compute Engine.",
+      "properties": {
+        "name": {
+          "description": "A unique user ID for identifying the user.",
+          "type": "string"
+        },
+        "posixAccounts": {
+          "description": "The list of POSIX accounts associated with the Directory API user.",
+          "items": {
+            "$ref": "#/definitions/PosixAccount"
+          },
+          "type": "array"
+        },
+        "sshPublicKeys": {
+          "additionalProperties": {
+            "$ref": "#/definitions/SshPublicKey"
+          },
+          "description": "A map from SSH public key fingerprint to the associated key object.",
+          "type": "object"
+        },
+        "suspended": {
+          "description": "Indicates if the user is suspended.",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "LoginProfile"
+    },
+    "PosixAccount": {
+      "description": "The POSIX account information associated with a Directory API User.",
+      "properties": {
+        "gecos": {
+          "description": "The GECOS (user information) entry for this account.",
+          "type": "string"
+        },
+        "gid": {
+          "description": "The default group ID.",
+          "format": "int64",
+          "type": "string"
+        },
+        "homeDirectory": {
+          "description": "The path to the home directory for this account.",
+          "type": "string"
+        },
+        "primary": {
+          "description": "Only one POSIX account can be marked as primary.",
+          "type": "boolean"
+        },
+        "shell": {
+          "description": "The path to the logic shell for this account.",
+          "type": "string"
+        },
+        "systemId": {
+          "description": "System identifier for which account the username or uid applies to.\nBy default, the empty value is used.",
+          "type": "string"
+        },
+        "uid": {
+          "description": "The user ID.",
+          "format": "int64",
+          "type": "string"
+        },
+        "username": {
+          "description": "The username of the POSIX account.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PosixAccount"
+    },
+    "SshPublicKey": {
+      "description": "The SSH public key information associated with a Directory API User.",
+      "properties": {
+        "expirationTimeUsec": {
+          "description": "An expiration time in microseconds since epoch.",
+          "format": "int64",
+          "type": "string"
+        },
+        "fingerprint": {
+          "description": "The SHA-256 fingerprint of the SSH public key.\nOutput only.",
+          "type": "string"
+        },
+        "key": {
+          "description": "Public key text in SSH format, defined by\n<a href=\"https://www.ietf.org/rfc/rfc4253.txt\" target=\"_blank\">RFC4253</a>\nsection 6.6.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SshPublicKey"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    },
+    {
+      "id": "users.sshPublicKeys.delete",
+      "title": "users.sshPublicKeys.delete",
+      "description": "Deletes an SSH public key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The fingerprint of the public key to update. Public keys are identified by\ntheir SHA-256 fingerprint. The fingerprint of the public key is in format\n`users/{user}/sshPublicKeys/{fingerprint}`."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    },
+    {
+      "id": "users.sshPublicKeys.get",
+      "title": "users.sshPublicKeys.get",
+      "description": "Retrieves an SSH public key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The fingerprint of the public key to retrieve. Public keys are identified\nby their SHA-256 fingerprint. The fingerprint of the public key is in\nformat `users/{user}/sshPublicKeys/{fingerprint}`."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SshPublicKey"
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    },
+    {
+      "id": "users.sshPublicKeys.patch",
+      "title": "users.sshPublicKeys.patch",
+      "description": "Updates an SSH public key and returns the profile information. This method\nsupports patch semantics.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SshPublicKey"
+          },
+          "name": {
+            "type": "string",
+            "description": "The fingerprint of the public key to update. Public keys are identified by\ntheir SHA-256 fingerprint. The fingerprint of the public key is in format\n`users/{user}/sshPublicKeys/{fingerprint}`."
+          },
+          "updateMask": {
+            "type": "string",
+            "description": "Mask to control which fields get updated. Updates all if not present."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SshPublicKey"
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    },
+    {
+      "id": "users.getLoginProfile",
+      "title": "users.getLoginProfile",
+      "description": "Retrieves the profile information used for logging in to a virtual machine\non Google Compute Engine.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The unique ID for the user in format `users/{user}`."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LoginProfile"
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    },
+    {
+      "id": "users.importSshPublicKey",
+      "title": "users.importSshPublicKey",
+      "description": "Adds an SSH public key and returns the profile information. Default POSIX\naccount information is set when no username and UID exist as part of the\nlogin profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SshPublicKey"
+          },
+          "parent": {
+            "type": "string",
+            "description": "The unique ID for the user in format `users/{user}`."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ImportSshPublicKeyResponse"
+      },
+      "security": {
+        "google_oslogin": {
+          "integration": "google_oslogin"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "backend",
+    "google"
+  ]
+}

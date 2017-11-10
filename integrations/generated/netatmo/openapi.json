@@ -17,7 +17,7 @@
     },
     "termsOfService": "https://dev.netatmo.com/dev/resources/legal/introduction",
     "title": "Netatmo",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "x-apiClientRegistration": {
       "url": "https://dev.netatmo.com/dev/createanapp"
     },
@@ -78,6 +78,10 @@
     {
       "description": "Weather station specific methods",
       "name": "station"
+    },
+    {
+      "description": "Healthy Home Coach specific methods",
+      "name": "healthyhomecoach"
     },
     {
       "description": "Thermostat specific methods",
@@ -369,6 +373,32 @@
         ],
         "tags": [
           "welcome"
+        ]
+      }
+    },
+    "/gethomecoachsdata": {
+      "get": {
+        "description": "The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).",
+        "operationId": "gethomecoachsdata",
+        "parameters": [
+          {
+            "description": "Id of the device you want to retrieve information of",
+            "in": "query",
+            "name": "device_id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NAHealthyHomeCoachDataResponse"
+            }
+          }
+        },
+        "tags": [
+          "healthyhomecoach"
         ]
       }
     },
@@ -1115,6 +1145,11 @@
           "format": "float",
           "type": "number"
         },
+        "health_idx": {
+          "description": "Current health index: 0 = Healthy, 1 = Fine, 2 = Fair, 3 = Poor, 4 = Unhealthy",
+          "format": "int32",
+          "type": "integer"
+        },
         "max_temp": {
           "description": "Min temperature of the day (measured @ date_min_temp)",
           "format": "float",
@@ -1125,6 +1160,10 @@
           "format": "float",
           "type": "number"
         },
+        "pressure_trend": {
+          "description": "Pressure evolution trend",
+          "type": "string"
+        },
         "sum_rain_1": {
           "description": "Amount of rain in last hour",
           "format": "float",
@@ -1134,6 +1173,10 @@
           "description": "Amount of rain today",
           "format": "float",
           "type": "number"
+        },
+        "temp_trend": {
+          "description": "Temperature evolution trend",
+          "type": "string"
         },
         "time_utc": {
           "format": "int32",
@@ -1316,6 +1359,95 @@
       "properties": {
         "body": {
           "$ref": "#/definitions/NADeviceListBody"
+        },
+        "status": {
+          "type": "string"
+        },
+        "time_exec": {
+          "format": "double",
+          "type": "number"
+        },
+        "time_server": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "NAHealthyHomeCoach": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "cipher_id": {
+          "type": "string"
+        },
+        "co2_calibrating": {
+          "type": "boolean"
+        },
+        "dashboard_data": {
+          "$ref": "#/definitions/NADashboardData",
+          "description": "It contains all the measurements that can be displayed on the dashboard"
+        },
+        "data_type": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "date_setup": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "firmware": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "last_setup": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "last_status_store": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "last_upgrade": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/definitions/NAPlace"
+        },
+        "type": {
+          "description": "Included in every device or module. It defines the type of the device/module. Its values are among :\nNHC: Healthy Home Coach\n",
+          "type": "string"
+        },
+        "wifi_status": {
+          "description": "It contains the current wifi status. The different thresholds to take into account are\nRSSI_THRESHOLD_0 = 86 bad signal\nRSSI_THRESHOLD_1 = 71 middle quality signal\nRSSI_THRESHOLD_2 = 56 good signal\n",
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "NAHealthyHomeCoachDataBody": {
+      "properties": {
+        "devices": {
+          "items": {
+            "$ref": "#/definitions/NAHealthyHomeCoach"
+          },
+          "type": "array"
+        },
+        "user": {
+          "$ref": "#/definitions/NAUser"
+        }
+      }
+    },
+    "NAHealthyHomeCoachDataResponse": {
+      "properties": {
+        "body": {
+          "$ref": "#/definitions/NAHealthyHomeCoachDataBody"
         },
         "status": {
           "type": "string"
@@ -1758,7 +1890,8 @@
           "$ref": "#/definitions/NAPlace"
         },
         "plug_connected_boiler": {
-          "type": "boolean"
+          "format": "int32",
+          "type": "integer"
         },
         "station_name": {
           "type": "string"
@@ -1987,7 +2120,8 @@
           "$ref": "#/definitions/NAThermMeasure"
         },
         "plug_connected_boiler": {
-          "type": "boolean"
+          "format": "int32",
+          "type": "integer"
         },
         "rf_status": {
           "format": "int32",

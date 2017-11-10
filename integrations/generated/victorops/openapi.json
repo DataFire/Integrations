@@ -147,15 +147,6 @@
         "$ref": "#/definitions/ContactPhoneAdd"
       }
     },
-    "createBatchAlertRequestPayload": {
-      "description": "A collection of IDs for the alerts to be retrieved",
-      "in": "body",
-      "name": "body",
-      "required": true,
-      "schema": {
-        "$ref": "#/definitions/CreateBatchAlertRequestPayload"
-      }
-    },
     "createIncidentPayload": {
       "description": "The incident details",
       "in": "body",
@@ -280,50 +271,6 @@
     }
   ],
   "paths": {
-    "/api-public/v1/alerts/batch": {
-      "post": {
-        "description": "Retrieve the details of multiple alerts that were sent VictorOps by you.\n\nThis API may be called a maximum of 6 times per minute.\n",
-        "parameters": [
-          {
-            "$ref": "#/parameters/apiId"
-          },
-          {
-            "$ref": "#/parameters/apiKey"
-          },
-          {
-            "$ref": "#/parameters/createBatchAlertRequestPayload"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The alerts, if found.\n",
-            "schema": {
-              "$ref": "#/definitions/AlertBatchResponse"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400"
-          },
-          "401": {
-            "$ref": "#/responses/401"
-          },
-          "403": {
-            "$ref": "#/responses/403"
-          },
-          "404": {
-            "$ref": "#/responses/user-not-found"
-          },
-          "500": {
-            "$ref": "#/responses/500"
-          }
-        },
-        "summary": "Retrieve details for a collection of alerts.",
-        "tags": [
-          "Alerts"
-        ],
-        "operationId": "api_public.v1.alerts.batch.post"
-      }
-    },
     "/api-public/v1/alerts/{uuid}": {
       "get": {
         "description": "Retrieve the details of an alert that was sent VictorOps by you.\n\nThis API may be called a maximum of 6 times per minute.\n",
@@ -413,7 +360,7 @@
         "operationId": "api_public.v1.incidents.get"
       },
       "post": {
-        "description": "Create a new incident.\n\nThis call replicates the function of our\n<a href=\"https://help.victorops.com/knowledge-base/manual-incident-creation/\">manual incident creation process</a>\nMonitoring tools and custom integrations\nshould be configured using our\n<a href=\"https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/\">REST Endpoint</a>\n\nThis API may be called a maximum of 6 times per minute.\n",
+        "description": "Create a new incident.\n\nThis call replicates the function of our\n<a href=\"https://help.victorops.com/knowledge-base/manual-incident-creation/\">manual incident creation process</a>.\nMonitoring tools and custom integrations\nshould be configured using our\n<a href=\"https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/\">REST Endpoint</a>.\n\nThis API may be called a maximum of 6 times per minute.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -629,6 +576,47 @@
           "Incidents"
         ],
         "operationId": "api_public.v1.incidents.resolve.patch"
+      }
+    },
+    "/api-public/v1/org/routing-keys": {
+      "get": {
+        "description": "Retrieves a list of routing keys and associated teams.\nThis API may be called a maximum of once a minute.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of routing keys and associated teams",
+            "schema": {
+              "$ref": "#/definitions/ListRoutingKeysResponse"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "List routing keys with assoicated teams",
+        "tags": [
+          "Routing keys"
+        ],
+        "operationId": "api_public.v1.org.routing_keys.get"
       }
     },
     "/api-public/v1/team": {
@@ -2241,6 +2229,54 @@
         "operationId": "api_public.v1.user.user.oncall.schedule.get"
       }
     },
+    "/api-public/v1/user/{user}/policies": {
+      "get": {
+        "description": "Get paging policies for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/apiId"
+          },
+          {
+            "$ref": "#/parameters/apiKey"
+          },
+          {
+            "description": "The VictorOps user ID",
+            "in": "path",
+            "name": "user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All configured paging policies for a user",
+            "schema": {
+              "$ref": "#/definitions/Policies"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "401": {
+            "$ref": "#/responses/401"
+          },
+          "403": {
+            "$ref": "#/responses/403"
+          },
+          "404": {
+            "$ref": "#/responses/user-not-found"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          }
+        },
+        "summary": "Get a list of paging policies for a user",
+        "tags": [
+          "User Paging Policies"
+        ],
+        "operationId": "api_public.v1.user.user.policies.get"
+      }
+    },
     "/api-reporting/v1/incidents": {
       "get": {
         "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.  This is historical\ndata, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
@@ -2413,7 +2449,7 @@
     },
     "/api-reporting/v2/incidents": {
       "get": {
-        "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
+        "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nUnless specified otherwise with the parameter currentPhase, the response will only contain resolved incidents.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
         "parameters": [
           {
             "$ref": "#/parameters/apiId"
@@ -2470,7 +2506,7 @@
             "type": "string"
           },
           {
-            "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\". Multiple values can be separated with commas.",
+            "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\". Multiple values can be separated with commas. By default, response contains only \"resolved\" incidents",
             "in": "query",
             "name": "currentPhase",
             "required": false,
@@ -2792,6 +2828,39 @@
       "required": [
         "alertId"
       ],
+      "type": "object"
+    },
+    "AllOnCall": {
+      "properties": {
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/AllOnCallTeamsResource"
+          },
+          "type": "array"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AllOnCallTeamsResource": {
+      "properties": {
+        "escalation_policy": {
+          "items": {
+            "$ref": "#/definitions/OnCallEscalationPolicyResource"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Team name",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Team slug",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "ContactDevice": {
@@ -3127,13 +3196,31 @@
       },
       "type": "object"
     },
+    "ListRoutingKeysResponse": {
+      "description": "Info about routing keys in the org",
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "routingKeys": {
+          "items": {
+            "$ref": "#/definitions/RoutingKeyInfo"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "ListTeamMembersResponse": {
       "description": "A list of members for the team",
       "properties": {
         "_selfUrl": {
           "type": "string"
         },
-        "teams": {
+        "_teamUrl": {
+          "type": "string"
+        },
+        "members": {
           "items": {
             "$ref": "#/definitions/TeamMember"
           },
@@ -3144,18 +3231,33 @@
     },
     "ListTeamResponse": {
       "description": "Some info about teams in the org",
-      "properties": {
-        "_selfUrl": {
-          "type": "string"
-        },
-        "teams": {
-          "items": {
-            "$ref": "#/definitions/AddTeamResponse"
+      "items": {
+        "properties": {
+          "_membersUrl": {
+            "type": "string"
           },
-          "type": "array"
-        }
+          "_selfUrl": {
+            "type": "string"
+          },
+          "isDefaultTeam": {
+            "type": "boolean"
+          },
+          "memberCount": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "version": {
+            "type": "number"
+          }
+        },
+        "type": "object"
       },
-      "type": "object"
+      "type": "array"
     },
     "ListUserResponse": {
       "description": "Some info about the user",
@@ -3187,6 +3289,23 @@
           "type": "array"
         },
         "team": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OnCallEscalationPolicyResource": {
+      "properties": {
+        "id": {
+          "description": "Team ID",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Team name",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Team slug",
           "type": "string"
         }
       },
@@ -3236,6 +3355,42 @@
       },
       "type": "object"
     },
+    "PagingPolicy": {
+      "description": "Paging policy fields",
+      "properties": {
+        "contactType": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "timeout": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Policies": {
+      "description": "Paging policies accociated which this user",
+      "properties": {
+        "policies": {
+          "items": {
+            "$ref": "#/definitions/PagingPolicy"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "RelLink": {
       "properties": {
         "href": {
@@ -3257,6 +3412,39 @@
       "required": [
         "replacement"
       ],
+      "type": "object"
+    },
+    "RoutingKeyInfo": {
+      "description": "Routing keys contain the following fields",
+      "properties": {
+        "isDefault": {
+          "type": "boolean"
+        },
+        "routingKey": {
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/RoutingKeyTarget"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RoutingKeyTarget": {
+      "description": "Routing key target",
+      "properties": {
+        "_teamUrl": {
+          "type": "string"
+        },
+        "policyName": {
+          "type": "string"
+        },
+        "policySlug": {
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "TakeRequest": {
@@ -3285,9 +3473,6 @@
     "TeamMember": {
       "description": "Some info about the user",
       "properties": {
-        "_selfUrl": {
-          "type": "string"
-        },
         "firstName": {
           "type": "string"
         },

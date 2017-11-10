@@ -29,7 +29,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://clouderrorreporting.googleapis.com/$discovery/rest?version=v1beta1",
@@ -771,7 +771,14 @@
         },
         "reportLocation": {
           "$ref": "#/definitions/SourceLocation",
-          "description": "The location in the source code where the decision was made to\nreport the error, usually the place where it was logged.\nFor a logged exception this would be the source line where the\nexception is logged, usually close to the place where it was\ncaught. This value is in contrast to `Exception.cause_location`,\nwhich describes the source line where the exception was thrown."
+          "description": "The location in the source code where the decision was made to\nreport the error, usually the place where it was logged.\nFor a logged exception this would be the source line where the\nexception is logged, usually close to the place where it was\ncaught."
+        },
+        "sourceReferences": {
+          "description": "Source code that was used to build the executable which has\ncaused the given error message.",
+          "items": {
+            "$ref": "#/definitions/SourceReference"
+          },
+          "type": "array"
         },
         "user": {
           "description": "The user who caused or was affected by the crash.\nThis can be a user ID, an email address, or an arbitrary token that\nuniquely identifies the user.\nWhen sending an error report, leave this field empty if the user was not\nlogged in. In this case the\nError Reporting system will use other data, such as remote IP address, to\ndistinguish affected users. See `affected_users_count` in\n`ErrorGroupStats`.",
@@ -1013,6 +1020,20 @@
           "description": "1-based. 0 indicates that the line number is unknown.",
           "format": "int32",
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SourceReference": {
+      "description": "A reference to a particular snapshot of the source tree used to build and\ndeploy an application.",
+      "properties": {
+        "repository": {
+          "description": "Optional. A URI string identifying the repository.\nExample: \"https://github.com/GoogleCloudPlatform/kubernetes.git\"",
+          "type": "string"
+        },
+        "revisionId": {
+          "description": "The canonical and persistent identifier of the deployed revision.\nExample (git): \"0035781c50ec7aa23385dc841529ce8a4b70db1b\"",
+          "type": "string"
         }
       },
       "type": "object"

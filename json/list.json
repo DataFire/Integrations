@@ -12,7 +12,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "3blades_ai": {
     "id": "3blades_ai",
@@ -29,11 +29,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/3blades_ai.png"
     },
-    "actionCount": 102,
+    "actionCount": 116,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "6_dot_authentiqio_appspot": {
     "id": "6_dot_authentiqio_appspot",
@@ -45,8 +45,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/6_dot_authentiqio_appspot.svg"
     },
     "actionCount": 14,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "security"
+    ],
+    "latestVersion": "3.0.0"
   },
   "afterbanks": {
     "id": "afterbanks",
@@ -61,7 +63,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "airport_web_appspot": {
     "id": "airport_web_appspot",
@@ -90,7 +92,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "amadeus": {
     "id": "amadeus",
@@ -108,7 +110,7 @@
     },
     "actionCount": 23,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "amazonaws_acm": {
     "id": "amazonaws_acm",
@@ -135,6 +137,31 @@
     ],
     "latestVersion": "3.0.4"
   },
+  "amazonaws_api_pricing": {
+    "id": "amazonaws_api_pricing",
+    "title": "AWS Price List Service",
+    "description": "AWS Price List Service API (AWS Price List Service) is a centralized and convenient way to programmatically query Amazon...",
+    "security": {
+      "amazonaws_api_pricing": {
+        "integration": "amazonaws_api_pricing",
+        "fields": {
+          "accessKeyId": "",
+          "secretAccessKey": "",
+          "region": "AWS region (if applicable)"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_api_pricing.jpg"
+    },
+    "actionCount": 3,
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "latestVersion": "3.0.4"
+  },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
     "title": "Amazon API Gateway",
@@ -152,7 +179,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_apigateway.svg"
     },
-    "actionCount": 47,
+    "actionCount": 49,
     "tags": [
       "cloud",
       "aws"
@@ -177,7 +204,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appstream2.jpg"
     },
-    "actionCount": 18,
+    "actionCount": 29,
     "tags": [
       "cloud",
       "aws"
@@ -211,7 +238,7 @@
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
     "title": "Application Auto Scaling",
-    "description": "With Application Auto Scaling, you can automatically scale your AWS resources. The experience similar to that of [Auto S...",
+    "description": "With Application Auto Scaling, you can automatically scale your AWS resources. The experience is similar to that of [Aut...",
     "security": {
       "amazonaws_autoscaling": {
         "integration": "amazonaws_autoscaling",
@@ -225,7 +252,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_autoscaling.svg"
     },
-    "actionCount": 7,
+    "actionCount": 10,
     "tags": [
       "cloud",
       "aws"
@@ -299,7 +326,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpg"
     },
-    "actionCount": 47,
+    "actionCount": 57,
     "tags": [
       "cloud",
       "aws"
@@ -323,7 +350,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudformation.svg"
     },
-    "actionCount": 26,
+    "actionCount": 40,
     "tags": [
       "cloud",
       "aws"
@@ -347,7 +374,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudfront.svg"
     },
-    "actionCount": 17,
+    "actionCount": 18,
     "tags": [
       "cloud",
       "aws"
@@ -493,7 +520,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codebuild.svg"
     },
-    "actionCount": 11,
+    "actionCount": 14,
     "tags": [
       "cloud",
       "aws"
@@ -517,7 +544,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codecommit.svg"
     },
-    "actionCount": 17,
+    "actionCount": 18,
     "tags": [
       "cloud",
       "aws"
@@ -541,7 +568,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codedeploy.svg"
     },
-    "actionCount": 37,
+    "actionCount": 38,
     "tags": [
       "cloud",
       "aws"
@@ -565,7 +592,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codepipeline.svg"
     },
-    "actionCount": 26,
+    "actionCount": 27,
     "tags": [
       "cloud",
       "aws"
@@ -590,7 +617,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpg"
     },
-    "actionCount": 15,
+    "actionCount": 18,
     "tags": [
       "cloud",
       "aws"
@@ -640,7 +667,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpg"
     },
-    "actionCount": 65,
+    "actionCount": 83,
     "tags": [
       "cloud",
       "aws"
@@ -689,7 +716,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.svg"
     },
-    "actionCount": 26,
+    "actionCount": 27,
     "tags": [
       "cloud",
       "aws"
@@ -836,7 +863,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_directconnect.svg"
     },
-    "actionCount": 37,
+    "actionCount": 44,
     "tags": [
       "cloud",
       "aws"
@@ -885,7 +912,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dms.svg"
     },
-    "actionCount": 33,
+    "actionCount": 40,
     "tags": [
       "cloud",
       "aws"
@@ -909,7 +936,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ds.svg"
     },
-    "actionCount": 38,
+    "actionCount": 40,
     "tags": [
       "cloud",
       "aws"
@@ -957,7 +984,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ec2.svg"
     },
-    "actionCount": 228,
+    "actionCount": 242,
     "tags": [
       "cloud",
       "aws"
@@ -981,7 +1008,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecr.svg"
     },
-    "actionCount": 17,
+    "actionCount": 22,
     "tags": [
       "cloud",
       "aws"
@@ -1029,7 +1056,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticache.svg"
     },
-    "actionCount": 39,
+    "actionCount": 40,
     "tags": [
       "cloud",
       "aws"
@@ -1053,7 +1080,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticbeanstalk.svg"
     },
-    "actionCount": 41,
+    "actionCount": 43,
     "tags": [
       "cloud",
       "aws"
@@ -1102,7 +1129,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticloadbalancing.svg"
     },
-    "actionCount": 31,
+    "actionCount": 34,
     "tags": [
       "cloud",
       "aws"
@@ -1175,7 +1202,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.png"
     },
-    "actionCount": 49,
+    "actionCount": 60,
     "tags": [
       "cloud",
       "aws"
@@ -1225,7 +1252,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_es.jpg"
     },
-    "actionCount": 11,
+    "actionCount": 12,
     "tags": [
       "cloud",
       "aws"
@@ -1250,7 +1277,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpg"
     },
-    "actionCount": 12,
+    "actionCount": 15,
     "tags": [
       "cloud",
       "aws"
@@ -1274,7 +1301,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.svg"
     },
-    "actionCount": 7,
+    "actionCount": 8,
     "tags": [
       "cloud",
       "aws"
@@ -1298,7 +1325,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_gamelift.svg"
     },
-    "actionCount": 47,
+    "actionCount": 64,
     "tags": [
       "cloud",
       "aws"
@@ -1332,7 +1359,7 @@
   "amazonaws_glue": {
     "id": "amazonaws_glue",
     "title": "AWS Glue",
-    "description": "Defines service operations used by the GlueFrontendService",
+    "description": "AWS Glue",
     "security": {
       "amazonaws_glue": {
         "integration": "amazonaws_glue",
@@ -1347,7 +1374,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glue.jpg"
     },
-    "actionCount": 74,
+    "actionCount": 75,
     "tags": [
       "cloud",
       "aws"
@@ -1371,7 +1398,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_greengrass.svg"
     },
-    "actionCount": 32,
+    "actionCount": 33,
     "tags": [
       "cloud",
       "aws"
@@ -1420,7 +1447,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iam.svg"
     },
-    "actionCount": 120,
+    "actionCount": 122,
     "tags": [
       "cloud",
       "aws"
@@ -1468,7 +1495,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_inspector.svg"
     },
-    "actionCount": 32,
+    "actionCount": 33,
     "tags": [
       "cloud",
       "aws"
@@ -1516,7 +1543,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesis.svg"
     },
-    "actionCount": 19,
+    "actionCount": 21,
     "tags": [
       "cloud",
       "aws"
@@ -1539,7 +1566,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisanalytics.svg"
     },
-    "actionCount": 13,
+    "actionCount": 17,
     "tags": [
       "cloud",
       "aws"
@@ -1611,7 +1638,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.svg"
     },
-    "actionCount": 47,
+    "actionCount": 48,
     "tags": [
       "cloud",
       "aws"
@@ -1784,7 +1811,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.jpg"
     },
-    "actionCount": 29,
+    "actionCount": 30,
     "tags": [
       "cloud",
       "aws"
@@ -1808,7 +1835,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_monitoring.svg"
     },
-    "actionCount": 11,
+    "actionCount": 15,
     "tags": [
       "cloud",
       "aws"
@@ -1857,7 +1884,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks.svg"
     },
-    "actionCount": 70,
+    "actionCount": 73,
     "tags": [
       "cloud",
       "aws"
@@ -1929,7 +1956,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.svg"
     },
-    "actionCount": 18,
+    "actionCount": 29,
     "tags": [
       "cloud",
       "aws"
@@ -1977,7 +2004,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rds.svg"
     },
-    "actionCount": 87,
+    "actionCount": 90,
     "tags": [
       "cloud",
       "aws"
@@ -2025,7 +2052,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rekognition.svg"
     },
-    "actionCount": 12,
+    "actionCount": 14,
     "tags": [
       "cloud",
       "aws"
@@ -2048,7 +2075,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53.svg"
     },
-    "actionCount": 35,
+    "actionCount": 37,
     "tags": [
       "cloud",
       "aws"
@@ -2073,7 +2100,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53domains.jpg"
     },
-    "actionCount": 23,
+    "actionCount": 24,
     "tags": [
       "cloud",
       "aws"
@@ -2121,7 +2148,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.svg"
     },
-    "actionCount": 66,
+    "actionCount": 68,
     "tags": [
       "cloud",
       "aws"
@@ -2170,7 +2197,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_servicecatalog.svg"
     },
-    "actionCount": 43,
+    "actionCount": 53,
     "tags": [
       "cloud",
       "aws"
@@ -2290,7 +2317,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sqs.svg"
     },
-    "actionCount": 17,
+    "actionCount": 20,
     "tags": [
       "cloud",
       "aws"
@@ -2315,7 +2342,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpg"
     },
-    "actionCount": 80,
+    "actionCount": 96,
     "tags": [
       "cloud",
       "aws"
@@ -2511,7 +2538,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf.svg"
     },
-    "actionCount": 38,
+    "actionCount": 59,
     "tags": [
       "cloud",
       "aws"
@@ -2536,7 +2563,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf_regional.jpg"
     },
-    "actionCount": 42,
+    "actionCount": 63,
     "tags": [
       "cloud",
       "aws"
@@ -2560,7 +2587,7 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.svg"
     },
-    "actionCount": 16,
+    "actionCount": 24,
     "tags": [
       "cloud",
       "aws"
@@ -2633,9 +2660,12 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apacta.png"
     },
-    "actionCount": 123,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "actionCount": 134,
+    "tags": [
+      "time management",
+      "project management"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apimatic": {
     "id": "apimatic",
@@ -2660,7 +2690,7 @@
       "developer tools",
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apis_guru": {
     "id": "apis_guru",
@@ -2675,7 +2705,7 @@
       "open data",
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_2chmatomefeedsapis": {
     "id": "apitore_2chmatomefeedsapis",
@@ -2687,7 +2717,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_certificatefeedsapis": {
     "id": "apitore_certificatefeedsapis",
@@ -2699,7 +2729,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_cosinesimilarity": {
     "id": "apitore_cosinesimilarity",
@@ -2711,7 +2741,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_designfeedsapis": {
     "id": "apitore_designfeedsapis",
@@ -2723,7 +2753,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_documentfrequencyapis": {
     "id": "apitore_documentfrequencyapis",
@@ -2734,8 +2764,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_documentfrequencyapis.jpg"
     },
     "actionCount": 1,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_gamefeedsapis": {
     "id": "apitore_gamefeedsapis",
@@ -2747,7 +2779,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_japanesewordnetapis": {
     "id": "apitore_japanesewordnetapis",
@@ -2759,7 +2791,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_kmeansclusteringbyword2vec": {
     "id": "apitore_kmeansclusteringbyword2vec",
@@ -2771,7 +2803,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_kuromojiapis": {
     "id": "apitore_kuromojiapis",
@@ -2781,9 +2813,9 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_kuromojiapis.jpg"
     },
-    "actionCount": 2,
+    "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_languagedetectionapis": {
     "id": "apitore_languagedetectionapis",
@@ -2794,8 +2826,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_languagedetectionapis.jpg"
     },
     "actionCount": 2,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_newsfeedsapis": {
     "id": "apitore_newsfeedsapis",
@@ -2807,7 +2841,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_pioneerblogfeedsapis": {
     "id": "apitore_pioneerblogfeedsapis",
@@ -2819,7 +2853,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_rss2jsonapis": {
     "id": "apitore_rss2jsonapis",
@@ -2831,7 +2865,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_sentencepieceapis_tweet_": {
     "id": "apitore_sentencepieceapis_tweet_",
@@ -2845,7 +2879,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_sentencepieceapis_wikipedia_": {
     "id": "apitore_sentencepieceapis_wikipedia_",
@@ -2856,8 +2890,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_wikipedia_.jpg"
     },
     "actionCount": 2,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_sentenceseparatorapis": {
     "id": "apitore_sentenceseparatorapis",
@@ -2868,8 +2904,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentenceseparatorapis.jpg"
     },
     "actionCount": 1,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_sentencesimilarity": {
     "id": "apitore_sentencesimilarity",
@@ -2883,7 +2921,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
@@ -2895,9 +2933,10 @@
     },
     "actionCount": 1,
     "tags": [
-      "developer tools"
+      "developer tools",
+      "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_synonymapis": {
     "id": "apitore_synonymapis",
@@ -2908,8 +2947,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_synonymapis.jpg"
     },
     "actionCount": 1,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_techfeedsapis": {
     "id": "apitore_techfeedsapis",
@@ -2921,7 +2962,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_text2labelbytfidfapis": {
     "id": "apitore_text2labelbytfidfapis",
@@ -2933,7 +2974,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_text2labelbywordvectorapis": {
     "id": "apitore_text2labelbywordvectorapis",
@@ -2945,7 +2986,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_travelfeedsapis": {
     "id": "apitore_travelfeedsapis",
@@ -2957,7 +2998,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_tweetsummarizationapis": {
     "id": "apitore_tweetsummarizationapis",
@@ -2968,8 +3009,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_tweetsummarizationapis.jpg"
     },
     "actionCount": 1,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_twitterapis": {
     "id": "apitore_twitterapis",
@@ -2980,8 +3023,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.png"
     },
     "actionCount": 3,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_twitterapiswithsentimentbyapitoresentimentapi": {
     "id": "apitore_twitterapiswithsentimentbyapitoresentimentapi",
@@ -2995,7 +3040,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_twitterapiswithword2vecqueryexpansion": {
     "id": "apitore_twitterapiswithword2vecqueryexpansion",
@@ -3006,8 +3051,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion.jpg"
     },
     "actionCount": 1,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi": {
     "id": "apitore_twitterapiswithword2vecqueryexpansion_andaddsentimentbyapitoresentimentapi",
@@ -3021,7 +3068,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_url2hrefapis": {
     "id": "apitore_url2hrefapis",
@@ -3033,7 +3080,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_url2htmlapis": {
     "id": "apitore_url2htmlapis",
@@ -3045,7 +3092,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_url2labelbytfidfapis": {
     "id": "apitore_url2labelbytfidfapis",
@@ -3057,7 +3104,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_url2labelbywordvectorapis": {
     "id": "apitore_url2labelbywordvectorapis",
@@ -3069,7 +3116,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_url2srcapis": {
     "id": "apitore_url2srcapis",
@@ -3081,7 +3128,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_url2textapis": {
     "id": "apitore_url2textapis",
@@ -3093,7 +3140,7 @@
     },
     "actionCount": 1,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "apitore_word2vecapis": {
     "id": "apitore_word2vecapis",
@@ -3104,8 +3151,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_word2vecapis.jpg"
     },
     "actionCount": 5,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "apitore_wordnetapis": {
     "id": "apitore_wordnetapis",
@@ -3119,7 +3168,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_wordnethypernymapis": {
     "id": "apitore_wordnethypernymapis",
@@ -3133,7 +3182,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_wordnethyponymapis": {
     "id": "apitore_wordnethyponymapis",
@@ -3147,7 +3196,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_wordnetsimilarityapis": {
     "id": "apitore_wordnetsimilarityapis",
@@ -3161,7 +3210,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_wordnetsynonymapis": {
     "id": "apitore_wordnetsynonymapis",
@@ -3175,7 +3224,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_wordnettranslationapis": {
     "id": "apitore_wordnettranslationapis",
@@ -3189,7 +3238,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "apitore_wordstovectorsapis": {
     "id": "apitore_wordstovectorsapis",
@@ -3200,8 +3249,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordstovectorsapis.jpg"
     },
     "actionCount": 1,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "appveyor": {
     "id": "appveyor",
@@ -3219,8 +3270,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/appveyor.png"
     },
     "actionCount": 45,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "3.0.0"
   },
   "ato_gov_au": {
     "id": "ato_gov_au",
@@ -3235,7 +3288,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "aucklandmuseum": {
     "id": "aucklandmuseum",
@@ -3250,7 +3303,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "authentiq": {
     "id": "authentiq",
@@ -3290,8 +3343,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/authentiq.svg"
     },
     "actionCount": 11,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "security"
+    ],
+    "latestVersion": "3.0.0"
   },
   "azure_arm_advisor": {
     "id": "azure_arm_advisor",
@@ -3326,7 +3381,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_analysisservices": {
     "id": "azure_arm_analysisservices",
@@ -3356,12 +3411,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_analysisservices.png"
     },
-    "actionCount": 8,
+    "actionCount": 10,
     "tags": [
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_apimanagement": {
     "id": "azure_arm_apimanagement",
@@ -3396,7 +3451,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_appinsights": {
     "id": "azure_arm_appinsights",
@@ -3431,7 +3486,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_authorization": {
     "id": "azure_arm_authorization",
@@ -3466,7 +3521,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_batch": {
     "id": "azure_arm_batch",
@@ -3500,7 +3555,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_billing": {
     "id": "azure_arm_billing",
@@ -3535,7 +3590,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_cdn": {
     "id": "azure_arm_cdn",
@@ -3571,7 +3626,7 @@
       "hosting",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_cognitiveservices": {
     "id": "azure_arm_cognitiveservices",
@@ -3587,7 +3642,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_commerce": {
     "id": "azure_arm_commerce",
@@ -3602,7 +3657,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_compute": {
     "id": "azure_arm_compute",
@@ -3637,7 +3692,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_compute_containerservice": {
     "id": "azure_arm_compute_containerservice",
@@ -3652,7 +3707,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_compute_disk": {
     "id": "azure_arm_compute_disk",
@@ -3667,7 +3722,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_compute_runcommands": {
     "id": "azure_arm_compute_runcommands",
@@ -3702,7 +3757,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_consumption": {
     "id": "azure_arm_consumption",
@@ -3737,7 +3792,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_containerregistry": {
     "id": "azure_arm_containerregistry",
@@ -3751,7 +3806,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_cosmos_db": {
     "id": "azure_arm_cosmos_db",
@@ -3786,7 +3841,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_customer_insights": {
     "id": "azure_arm_customer_insights",
@@ -3821,7 +3876,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_devtestlabs": {
     "id": "azure_arm_devtestlabs",
@@ -3851,13 +3906,13 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_devtestlabs.png"
     },
-    "actionCount": 52,
+    "actionCount": 105,
     "tags": [
       "developer tools",
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_dns": {
     "id": "azure_arm_dns",
@@ -3873,7 +3928,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_documentdb": {
     "id": "azure_arm_documentdb",
@@ -3943,7 +3998,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_insights": {
     "id": "azure_arm_insights",
@@ -3957,7 +4012,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_intune": {
     "id": "azure_arm_intune",
@@ -3974,7 +4029,7 @@
       "collaboration",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_iothub": {
     "id": "azure_arm_iothub",
@@ -3990,7 +4045,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_keyvault": {
     "id": "azure_arm_keyvault",
@@ -4007,7 +4062,7 @@
       "security",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_logic": {
     "id": "azure_arm_logic",
@@ -4043,7 +4098,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_machinelearning_commitmentplans": {
     "id": "azure_arm_machinelearning_commitmentplans",
@@ -4058,7 +4113,7 @@
       "machine learning",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_machinelearning_webservices": {
     "id": "azure_arm_machinelearning_webservices",
@@ -4073,7 +4128,7 @@
       "machine learning",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_mediaservices": {
     "id": "azure_arm_mediaservices",
@@ -4109,7 +4164,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_mobileengagement": {
     "id": "azure_arm_mobileengagement",
@@ -4146,7 +4201,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_monitor": {
     "id": "azure_arm_monitor",
@@ -4175,12 +4230,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_monitor.png"
     },
-    "actionCount": 4,
+    "actionCount": 5,
     "tags": [
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_mysql": {
     "id": "azure_arm_mysql",
@@ -4215,7 +4270,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_network": {
     "id": "azure_arm_network",
@@ -4250,7 +4305,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_notificationhubs": {
     "id": "azure_arm_notificationhubs",
@@ -4285,7 +4340,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_operationalinsights": {
     "id": "azure_arm_operationalinsights",
@@ -4320,7 +4375,7 @@
       "analytics",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_postgresql": {
     "id": "azure_arm_postgresql",
@@ -4355,7 +4410,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_powerbiembedded": {
     "id": "azure_arm_powerbiembedded",
@@ -4370,7 +4425,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_recoveryservices": {
     "id": "azure_arm_recoveryservices",
@@ -4404,7 +4459,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_recoveryservicesbackup": {
     "id": "azure_arm_recoveryservicesbackup",
@@ -4438,7 +4493,7 @@
       "storage",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_recoveryservicessiterecovery": {
     "id": "azure_arm_recoveryservicessiterecovery",
@@ -4472,7 +4527,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_redis": {
     "id": "azure_arm_redis",
@@ -4507,7 +4562,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_relay": {
     "id": "azure_arm_relay",
@@ -4542,7 +4597,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_resourcehealth": {
     "id": "azure_arm_resourcehealth",
@@ -4577,7 +4632,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_scheduler": {
     "id": "azure_arm_scheduler",
@@ -4591,7 +4646,7 @@
       "time management",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_search": {
     "id": "azure_arm_search",
@@ -4626,7 +4681,7 @@
       "search",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_servermanagement": {
     "id": "azure_arm_servermanagement",
@@ -4661,7 +4716,7 @@
       "developer tools",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_service_map": {
     "id": "azure_arm_service_map",
@@ -4696,7 +4751,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_servicebus": {
     "id": "azure_arm_servicebus",
@@ -4731,7 +4786,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_servicefabric": {
     "id": "azure_arm_servicefabric",
@@ -4765,22 +4820,42 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_sql": {
     "id": "azure_arm_sql",
     "title": "SqlManagementClient",
     "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services ...",
-    "security": {},
+    "security": {
+      "azure_arm_sql": {
+        "integration": "azure_arm_sql",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+          "description": "Azure Active Directory OAuth2 Flow",
+          "flow": "implicit",
+          "scopes": {
+            "user_impersonation": "impersonate your user account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
     },
-    "actionCount": 1,
+    "actionCount": 3,
     "tags": [
       "enterprise",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_storage": {
     "id": "azure_arm_storage",
@@ -4795,7 +4870,7 @@
       "storage",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_storageimportexport": {
     "id": "azure_arm_storageimportexport",
@@ -4830,7 +4905,7 @@
       "storage",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_storsimple8000series": {
     "id": "azure_arm_storsimple8000series",
@@ -4859,12 +4934,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storsimple8000series.png"
     },
-    "actionCount": 22,
+    "actionCount": 92,
     "tags": [
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_streamanalytics": {
     "id": "azure_arm_streamanalytics",
@@ -4898,7 +4973,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_trafficmanager": {
     "id": "azure_arm_trafficmanager",
@@ -4912,7 +4987,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_visualstudio": {
     "id": "azure_arm_visualstudio",
@@ -4947,7 +5022,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "azure_arm_web": {
     "id": "azure_arm_web",
@@ -4982,7 +5057,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_insights": {
     "id": "azure_insights",
@@ -4996,7 +5071,7 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "azure_monitor": {
     "id": "azure_monitor",
@@ -5030,29 +5105,22 @@
       "cloud",
       "azure"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bbc": {
     "id": "bbc",
-    "title": "BBC Nitro",
-    "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
-    "security": {
-      "bbc": {
-        "integration": "bbc",
-        "fields": {
-          "api_key": "API key"
-        }
-      }
-    },
+    "title": "Radio & Music Services",
+    "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by r...",
+    "security": {},
     "logo": {
+      "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
     },
-    "actionCount": 25,
+    "actionCount": 75,
     "tags": [
-      "media",
-      "open data"
+      "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "4.0.0"
   },
   "bbc_rss": {
     "id": "bbc_rss",
@@ -5087,7 +5155,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bclaws_ca_bclaws": {
     "id": "bclaws_ca_bclaws",
@@ -5101,7 +5169,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "beanstream": {
     "id": "beanstream",
@@ -5117,7 +5185,7 @@
       "financial",
       "ecommerce"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "beezup": {
     "id": "beezup",
@@ -5127,7 +5195,7 @@
       "beezup": {
         "integration": "beezup",
         "fields": {
-          "api_key": "the api subscription key"
+          "api_key": "API key"
         }
       }
     },
@@ -5135,11 +5203,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beezup.png"
     },
-    "actionCount": 17,
+    "actionCount": 179,
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bigoven": {
     "id": "bigoven",
@@ -5158,9 +5226,9 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bigoven.png"
     },
-    "actionCount": 47,
+    "actionCount": 58,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bikewise": {
     "id": "bikewise",
@@ -5174,7 +5242,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bitbucket": {
     "id": "bitbucket",
@@ -5229,12 +5297,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bitbucket.png"
     },
-    "actionCount": 183,
+    "actionCount": 184,
     "tags": [
       "developer tools",
       "collaboration"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bluemix_containers": {
     "id": "bluemix_containers",
@@ -5245,8 +5313,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bluemix_containers.jpg"
     },
     "actionCount": 47,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "3.0.0"
   },
   "botify": {
     "id": "botify",
@@ -5264,12 +5334,12 @@
       "backgroundColor": "#1A1A1A",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/botify.png"
     },
-    "actionCount": 26,
+    "actionCount": 28,
     "tags": [
       "analytics",
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "box_authorization": {
     "id": "box_authorization",
@@ -5283,7 +5353,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "box_content": {
     "id": "box_content",
@@ -5314,7 +5384,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "box_token": {
     "id": "box_token",
@@ -5328,7 +5398,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "box_upload": {
     "id": "box_upload",
@@ -5355,11 +5425,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_upload.jpg"
     },
-    "actionCount": 4,
+    "actionCount": 11,
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "brandlovers": {
     "id": "brandlovers",
@@ -5381,7 +5451,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "browshot": {
     "id": "browshot",
@@ -5402,7 +5472,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bufferapp": {
     "id": "bufferapp",
@@ -5436,7 +5506,7 @@
       "social",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "bungie": {
     "id": "bungie",
@@ -5478,11 +5548,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bungie.png"
     },
-    "actionCount": 60,
+    "actionCount": 96,
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "callfire": {
     "id": "callfire",
@@ -5505,7 +5575,7 @@
     "tags": [
       "telecom"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "cambase": {
     "id": "cambase",
@@ -5517,7 +5587,7 @@
     },
     "actionCount": 17,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "ccp_is": {
     "id": "ccp_is",
@@ -5538,7 +5608,9 @@
           "flow": "implicit",
           "scopes": {
             "esi-assets.read_assets.v1": "EVE SSO scope esi-assets.read_assets.v1",
+            "esi-assets.read_corporation_assets.v1": "EVE SSO scope esi-assets.read_corporation_assets.v1",
             "esi-bookmarks.read_character_bookmarks.v1": "EVE SSO scope esi-bookmarks.read_character_bookmarks.v1",
+            "esi-bookmarks.read_corporation_bookmarks.v1": "EVE SSO scope esi-bookmarks.read_corporation_bookmarks.v1",
             "esi-calendar.read_calendar_events.v1": "EVE SSO scope esi-calendar.read_calendar_events.v1",
             "esi-calendar.respond_calendar_events.v1": "EVE SSO scope esi-calendar.respond_calendar_events.v1",
             "esi-characters.read_agents_research.v1": "EVE SSO scope esi-characters.read_agents_research.v1",
@@ -5556,8 +5628,15 @@
             "esi-clones.read_clones.v1": "EVE SSO scope esi-clones.read_clones.v1",
             "esi-clones.read_implants.v1": "EVE SSO scope esi-clones.read_implants.v1",
             "esi-contracts.read_character_contracts.v1": "EVE SSO scope esi-contracts.read_character_contracts.v1",
+            "esi-contracts.read_corporation_contracts.v1": "EVE SSO scope esi-contracts.read_corporation_contracts.v1",
+            "esi-corporations.read_blueprints.v1": "EVE SSO scope esi-corporations.read_blueprints.v1",
+            "esi-corporations.read_contacts.v1": "EVE SSO scope esi-corporations.read_contacts.v1",
+            "esi-corporations.read_container_logs.v1": "EVE SSO scope esi-corporations.read_container_logs.v1",
             "esi-corporations.read_corporation_membership.v1": "EVE SSO scope esi-corporations.read_corporation_membership.v1",
+            "esi-corporations.read_divisions.v1": "EVE SSO scope esi-corporations.read_divisions.v1",
+            "esi-corporations.read_standings.v1": "EVE SSO scope esi-corporations.read_standings.v1",
             "esi-corporations.read_structures.v1": "EVE SSO scope esi-corporations.read_structures.v1",
+            "esi-corporations.read_titles.v1": "EVE SSO scope esi-corporations.read_titles.v1",
             "esi-corporations.track_members.v1": "EVE SSO scope esi-corporations.track_members.v1",
             "esi-corporations.write_structures.v1": "EVE SSO scope esi-corporations.write_structures.v1",
             "esi-fittings.read_fittings.v1": "EVE SSO scope esi-fittings.read_fittings.v1",
@@ -5565,6 +5644,9 @@
             "esi-fleets.read_fleet.v1": "EVE SSO scope esi-fleets.read_fleet.v1",
             "esi-fleets.write_fleet.v1": "EVE SSO scope esi-fleets.write_fleet.v1",
             "esi-industry.read_character_jobs.v1": "EVE SSO scope esi-industry.read_character_jobs.v1",
+            "esi-industry.read_character_mining.v1": "EVE SSO scope esi-industry.read_character_mining.v1",
+            "esi-industry.read_corporation_jobs.v1": "EVE SSO scope esi-industry.read_corporation_jobs.v1",
+            "esi-industry.read_corporation_mining.v1": "EVE SSO scope esi-industry.read_corporation_mining.v1",
             "esi-killmails.read_corporation_killmails.v1": "EVE SSO scope esi-killmails.read_corporation_killmails.v1",
             "esi-killmails.read_killmails.v1": "EVE SSO scope esi-killmails.read_killmails.v1",
             "esi-location.read_location.v1": "EVE SSO scope esi-location.read_location.v1",
@@ -5574,6 +5656,7 @@
             "esi-mail.read_mail.v1": "EVE SSO scope esi-mail.read_mail.v1",
             "esi-mail.send_mail.v1": "EVE SSO scope esi-mail.send_mail.v1",
             "esi-markets.read_character_orders.v1": "EVE SSO scope esi-markets.read_character_orders.v1",
+            "esi-markets.read_corporation_orders.v1": "EVE SSO scope esi-markets.read_corporation_orders.v1",
             "esi-markets.structure_markets.v1": "EVE SSO scope esi-markets.structure_markets.v1",
             "esi-planets.manage_planets.v1": "EVE SSO scope esi-planets.manage_planets.v1",
             "esi-search.search_structures.v1": "EVE SSO scope esi-search.search_structures.v1",
@@ -5593,11 +5676,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ccp_is.jpeg"
     },
-    "actionCount": 158,
+    "actionCount": 187,
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "cenit": {
     "id": "cenit",
@@ -5617,7 +5700,7 @@
     },
     "actionCount": 40,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "channel4": {
     "id": "channel4",
@@ -5639,7 +5722,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "circleci": {
     "id": "circleci",
@@ -5660,7 +5743,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "circuitsandbox": {
     "id": "circuitsandbox",
@@ -5694,13 +5777,13 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circuitsandbox.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circuitsandbox.jpg"
     },
-    "actionCount": 43,
+    "actionCount": 52,
     "tags": [
       "messaging"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "cisco": {
     "id": "cisco",
@@ -5731,7 +5814,7 @@
     "tags": [
       "security"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "citrix_gotoassistseeit": {
     "id": "citrix_gotoassistseeit",
@@ -5761,7 +5844,7 @@
     "tags": [
       "collaboration"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "citrix_gototraining": {
     "id": "citrix_gototraining",
@@ -5802,7 +5885,7 @@
     },
     "actionCount": 17,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "citycontext": {
     "id": "citycontext",
@@ -5820,7 +5903,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "clarify": {
     "id": "clarify",
@@ -5835,7 +5918,7 @@
     "tags": [
       "search"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "clickmeter": {
     "id": "clickmeter",
@@ -5856,7 +5939,7 @@
     "tags": [
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "cloud_gov": {
     "id": "cloud_gov",
@@ -5870,7 +5953,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "cnab_online_herokuapp": {
     "id": "cnab_online_herokuapp",
@@ -5884,7 +5967,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "cnn_rss": {
     "id": "cnn_rss",
@@ -5906,8 +5989,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/consumerfinance_gov.png"
     },
     "actionCount": 6,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "3.0.0"
   },
   "core_ac_uk": {
     "id": "core_ac_uk",
@@ -5928,7 +6013,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "cybertaxonomy_eu": {
     "id": "cybertaxonomy_eu",
@@ -5942,7 +6027,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "data2crm": {
     "id": "data2crm",
@@ -5955,7 +6040,7 @@
     },
     "actionCount": 95,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "data_gov": {
     "id": "data_gov",
@@ -5974,7 +6059,7 @@
     },
     "actionCount": 3,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "dataatwork": {
     "id": "dataatwork",
@@ -5988,7 +6073,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "datumbox": {
     "id": "datumbox",
@@ -6010,7 +6095,7 @@
       "machine learning",
       "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "deutschebahn_betriebsstellen": {
     "id": "deutschebahn_betriebsstellen",
@@ -6023,9 +6108,10 @@
     },
     "actionCount": 2,
     "tags": [
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "deutschebahn_fahrplan": {
     "id": "deutschebahn_fahrplan",
@@ -6038,9 +6124,10 @@
     },
     "actionCount": 4,
     "tags": [
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "deutschebahn_fasta": {
     "id": "deutschebahn_fasta",
@@ -6060,9 +6147,10 @@
     },
     "actionCount": 5,
     "tags": [
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "deutschebahn_flinkster": {
     "id": "deutschebahn_flinkster",
@@ -6075,9 +6163,10 @@
     },
     "actionCount": 10,
     "tags": [
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "deutschebahn_reisezentren": {
     "id": "deutschebahn_reisezentren",
@@ -6090,14 +6179,15 @@
     },
     "actionCount": 3,
     "tags": [
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "deutschebahn_stada": {
     "id": "deutschebahn_stada",
     "title": "Stationsdatenbereitstellung",
-    "description": "An API providing master data for german railway stations by DB Station&Service AG. ",
+    "description": "An API providing master data for german railway stations by DB Station&Service AG.",
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
@@ -6105,9 +6195,10 @@
     },
     "actionCount": 4,
     "tags": [
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "docusign": {
     "id": "docusign",
@@ -6121,7 +6212,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "domainsdb_info": {
     "id": "domainsdb_info",
@@ -6156,7 +6247,7 @@
     "tags": [
       "hosting"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "dropx": {
     "id": "dropx",
@@ -6178,7 +6269,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "dweet": {
     "id": "dweet",
@@ -6192,7 +6283,7 @@
     "tags": [
       "iot"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "ebay_buy_browse": {
     "id": "ebay_buy_browse",
@@ -6227,7 +6318,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "3.0.0"
   },
   "ebay_buy_marketing": {
     "id": "ebay_buy_marketing",
@@ -6258,11 +6349,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ebay_buy_marketing.jpg"
     },
-    "actionCount": 3,
+    "actionCount": 5,
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "3.0.0"
   },
   "ebay_commerce_taxonomy": {
     "id": "ebay_commerce_taxonomy",
@@ -6297,7 +6388,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_air": {
     "id": "epa_gov_air",
@@ -6308,11 +6399,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_air.png"
     },
-    "actionCount": 8,
+    "actionCount": 16,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_case": {
     "id": "epa_gov_case",
@@ -6323,11 +6414,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_case.png"
     },
-    "actionCount": 8,
+    "actionCount": 16,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_cwa": {
     "id": "epa_gov_cwa",
@@ -6338,11 +6429,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_cwa.png"
     },
-    "actionCount": 18,
+    "actionCount": 36,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_dfr": {
     "id": "epa_gov_dfr",
@@ -6353,11 +6444,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_dfr.png"
     },
-    "actionCount": 34,
+    "actionCount": 66,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_echo": {
     "id": "epa_gov_echo",
@@ -6368,11 +6459,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_echo.png"
     },
-    "actionCount": 8,
+    "actionCount": 16,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_eff": {
     "id": "epa_gov_eff",
@@ -6383,11 +6474,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_eff.png"
     },
-    "actionCount": 4,
+    "actionCount": 8,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_rcra": {
     "id": "epa_gov_rcra",
@@ -6398,11 +6489,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_rcra.png"
     },
-    "actionCount": 8,
+    "actionCount": 16,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "epa_gov_sdw": {
     "id": "epa_gov_sdw",
@@ -6413,11 +6504,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_sdw.png"
     },
-    "actionCount": 4,
+    "actionCount": 8,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "etmdb": {
     "id": "etmdb",
@@ -6456,7 +6547,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "etsy": {
     "id": "etsy",
@@ -6482,7 +6573,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "exavault": {
     "id": "exavault",
@@ -6497,7 +6588,7 @@
     "tags": [
       "storage"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "facebook": {
     "id": "facebook",
@@ -6599,11 +6690,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/figshare.png"
     },
-    "actionCount": 111,
+    "actionCount": 113,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "firebrowse": {
     "id": "firebrowse",
@@ -6617,7 +6708,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "fitbit": {
     "id": "fitbit",
@@ -6675,11 +6766,20 @@
         },
         "oauth": {
           "authorizationUrl": "https://flat.io/auth/oauth",
-          "description": "OAuth 2.0 authentication for your app or script.\n",
+          "description": "OAuth 2.0 authentication for your app or. Please only request the most restrictive and needed scopes. Using some of the scopes may require an additional review from our team. The Flat API supports **authorization code** and **implicit** flows.\n",
           "flow": "accessCode",
           "scopes": {
             "account.education_profile": "Provides access to the basic person's education profile and public organization information.\n",
             "account.public_profile": "Provides access to the basic person's public profile. Education profiles may be anonymized with this scope, you can request the scope `education_profile` to access to the a basic education account profile.\n",
+            "edu.admin": "Full, permissive scope to manage all the admin of an organization.",
+            "edu.admin.lti": "Access and manage the LTI Credentials for an organization.",
+            "edu.admin.lti.readonly": "Read-only access to the LTI Credentials of an organization.",
+            "edu.admin.users": "Access and manage the users and invitations of the organization.",
+            "edu.admin.users.readonly": "Read-only access to the users and invitations of the organization.",
+            "edu.assignments": "Read-write access to the assignments and submissions.",
+            "edu.assignments.readonly": "Read-only access to the assignments and submissions.",
+            "edu.classes": "Full, permissive scope to manage the classes.",
+            "edu.classes.readonly": "Read-only access to the classes.",
             "scores": "Full, permissive scope to access all of a user's scores.\n",
             "scores.readonly": "Allows read-only access to all a user's scores. You won't need this scope to read public scores.\n",
             "scores.social": "Allow to post comments and like scores\n"
@@ -6692,12 +6792,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/flat.svg"
     },
-    "actionCount": 26,
+    "actionCount": 62,
     "tags": [
       "media",
       "collaboration"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "freesound": {
     "id": "freesound",
@@ -6712,7 +6812,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "furkot": {
     "id": "furkot",
@@ -6746,7 +6846,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "geneea": {
     "id": "geneea",
@@ -6767,7 +6867,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "geodesystems": {
     "id": "geodesystems",
@@ -6785,9 +6885,9 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geodesystems.ico"
     },
-    "actionCount": 228,
+    "actionCount": 229,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "getgo_gototraining": {
     "id": "getgo_gototraining",
@@ -6796,7 +6896,7 @@
     "security": {},
     "actionCount": 22,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "getgo_gotowebinar": {
     "id": "getgo_gotowebinar",
@@ -6805,7 +6905,7 @@
     "security": {},
     "actionCount": 38,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "getsandbox": {
     "id": "getsandbox",
@@ -6827,7 +6927,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gettyimages": {
     "id": "gettyimages",
@@ -6844,11 +6944,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gettyimages.png"
     },
-    "actionCount": 40,
+    "actionCount": 42,
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "giphy": {
     "id": "giphy",
@@ -6866,7 +6966,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "gisgraphy": {
     "id": "gisgraphy",
@@ -6888,7 +6988,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "github": {
     "id": "github",
@@ -6943,7 +7043,7 @@
       "collaboration",
       "developer tools"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "4.0.0"
   },
   "gitlab": {
     "id": "gitlab",
@@ -6965,7 +7065,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_acceleratedmobilepageurl": {
     "id": "google_acceleratedmobilepageurl",
@@ -6979,7 +7079,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_adexchangebuyer": {
     "id": "google_adexchangebuyer",
@@ -6996,14 +7096,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7014,7 +7114,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_adexchangebuyer2": {
     "id": "google_adexchangebuyer2",
@@ -7045,11 +7145,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer2.png"
     },
-    "actionCount": 21,
+    "actionCount": 35,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_adexchangeseller": {
     "id": "google_adexchangeseller",
@@ -7066,15 +7166,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
             "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7085,7 +7185,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_adexperiencereport": {
     "id": "google_adexperiencereport",
@@ -7120,7 +7220,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_admin": {
     "id": "google_admin",
@@ -7137,15 +7237,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/admin.reports.audit.readonly": "View audit reports for your G Suite domain",
             "https://www.googleapis.com/auth/admin.reports.usage.readonly": "View usage reports for your G Suite domain"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7157,7 +7257,7 @@
       "analytics",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_adsense": {
     "id": "google_adsense",
@@ -7193,7 +7293,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_adsensehost": {
     "id": "google_adsensehost",
@@ -7228,7 +7328,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_analytics": {
     "id": "google_analytics",
@@ -7245,8 +7345,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/analytics": "View and manage your Google Analytics data",
@@ -7256,8 +7355,9 @@
             "https://www.googleapis.com/auth/analytics.provision": "Create a new Google Analytics account along with its default property and view",
             "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7269,7 +7369,7 @@
       "analytics",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_analyticsreporting": {
     "id": "google_analyticsreporting",
@@ -7303,9 +7403,10 @@
     },
     "actionCount": 3,
     "tags": [
+      "analytics",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_androiddeviceprovisioning": {
     "id": "google_androiddeviceprovisioning",
@@ -7315,11 +7416,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"
     },
-    "actionCount": 7,
+    "actionCount": 11,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.2"
+    "latestVersion": "3.0.0"
   },
   "google_androidenterprise": {
     "id": "google_androidenterprise",
@@ -7350,11 +7451,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidenterprise.png"
     },
-    "actionCount": 79,
+    "actionCount": 81,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_androidmanagement": {
     "id": "google_androidmanagement",
@@ -7371,14 +7472,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/androidmanagement": "Manage Android devices and apps for your customers"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -7389,7 +7490,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_androidpublisher": {
     "id": "google_androidpublisher",
@@ -7406,14 +7507,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7425,7 +7526,7 @@
       "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_appengine": {
     "id": "google_appengine",
@@ -7458,11 +7559,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appengine.png"
     },
-    "actionCount": 6,
+    "actionCount": 17,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_appsactivity": {
     "id": "google_appsactivity",
@@ -7501,7 +7602,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_appstate": {
     "id": "google_appstate",
@@ -7536,7 +7637,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_bigquery": {
     "id": "google_bigquery",
@@ -7573,12 +7674,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquery.png"
     },
-    "actionCount": 23,
+    "actionCount": 24,
     "tags": [
       "search",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_bigquerydatatransfer": {
     "id": "google_bigquerydatatransfer",
@@ -7599,7 +7700,9 @@
           "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
-            "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery"
+            "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
           },
           "tokenUrl": "https://accounts.google.com/o/oauth2/token",
           "type": "oauth2"
@@ -7609,11 +7712,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquerydatatransfer.png"
     },
-    "actionCount": 14,
+    "actionCount": 13,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_blogger": {
     "id": "google_blogger",
@@ -7630,15 +7733,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/blogger": "Manage your Blogger account",
             "https://www.googleapis.com/auth/blogger.readonly": "View your Blogger account"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7650,7 +7753,7 @@
       "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_books": {
     "id": "google_books",
@@ -7667,14 +7770,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/books": "Manage your books"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -7683,9 +7786,10 @@
     },
     "actionCount": 50,
     "tags": [
+      "media",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_calendar": {
     "id": "google_calendar",
@@ -7722,7 +7826,7 @@
       "time management",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_civicinfo": {
     "id": "google_civicinfo",
@@ -7736,7 +7840,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_classroom": {
     "id": "google_classroom",
@@ -7757,12 +7861,17 @@
           "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
+            "https://www.googleapis.com/auth/classroom.announcements": "View and manage announcements in Google Classroom",
+            "https://www.googleapis.com/auth/classroom.announcements.readonly": "View announcements in Google Classroom",
             "https://www.googleapis.com/auth/classroom.courses": "Manage your Google Classroom classes",
             "https://www.googleapis.com/auth/classroom.courses.readonly": "View your Google Classroom classes",
             "https://www.googleapis.com/auth/classroom.coursework.me": "Manage your course work and view your grades in Google Classroom",
             "https://www.googleapis.com/auth/classroom.coursework.me.readonly": "View your course work and grades in Google Classroom",
             "https://www.googleapis.com/auth/classroom.coursework.students": "Manage course work and grades for students in the Google Classroom classes you teach and view the course work and grades for classes you administer",
             "https://www.googleapis.com/auth/classroom.coursework.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer",
+            "https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly": "View your Google Classroom guardians",
+            "https://www.googleapis.com/auth/classroom.guardianlinks.students": "View and manage guardians for students in your Google Classroom classes",
+            "https://www.googleapis.com/auth/classroom.guardianlinks.students.readonly": "View guardians for students in your Google Classroom classes",
             "https://www.googleapis.com/auth/classroom.profile.emails": "View the email addresses of people in your classes",
             "https://www.googleapis.com/auth/classroom.profile.photos": "View the profile photos of people in your classes",
             "https://www.googleapis.com/auth/classroom.rosters": "Manage your Google Classroom class rosters",
@@ -7778,12 +7887,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_classroom.png"
     },
-    "actionCount": 44,
+    "actionCount": 53,
     "tags": [
       "education",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudbilling": {
     "id": "google_cloudbilling",
@@ -7814,11 +7923,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbilling.png"
     },
-    "actionCount": 7,
+    "actionCount": 9,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudbuild": {
     "id": "google_cloudbuild",
@@ -7849,11 +7958,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbuild.png"
     },
-    "actionCount": 13,
+    "actionCount": 15,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_clouddebugger": {
     "id": "google_clouddebugger",
@@ -7889,7 +7998,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_clouderrorreporting": {
     "id": "google_clouderrorreporting",
@@ -7924,7 +8033,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudfunctions": {
     "id": "google_cloudfunctions",
@@ -7955,11 +8064,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudfunctions.png"
     },
-    "actionCount": 9,
+    "actionCount": 12,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudiot": {
     "id": "google_cloudiot",
@@ -7976,15 +8085,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
             "https://www.googleapis.com/auth/cloudiot": "Register and manage devices in the Google Cloud IoT service"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -7995,7 +8104,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_cloudkms": {
     "id": "google_cloudkms",
@@ -8031,7 +8140,7 @@
       "security",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudmonitoring": {
     "id": "google_cloudmonitoring",
@@ -8048,15 +8157,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
             "https://www.googleapis.com/auth/monitoring": "View and write monitoring data for all of your Google and third-party Cloud and API projects"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -8065,9 +8174,10 @@
     },
     "actionCount": 8,
     "tags": [
+      "monitoring",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudresourcemanager": {
     "id": "google_cloudresourcemanager",
@@ -8103,7 +8213,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_cloudtasks": {
     "id": "google_cloudtasks",
@@ -8120,14 +8230,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -8138,7 +8248,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_cloudtrace": {
     "id": "google_cloudtrace",
@@ -8175,7 +8285,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_clouduseraccounts": {
     "id": "google_clouduseraccounts",
@@ -8192,8 +8302,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -8201,8 +8310,9 @@
             "https://www.googleapis.com/auth/cloud.useraccounts": "Manage your Google Cloud User Accounts",
             "https://www.googleapis.com/auth/cloud.useraccounts.readonly": "View your Google Cloud User Accounts"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -8213,7 +8323,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_compute": {
     "id": "google_compute",
@@ -8249,11 +8359,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_compute.png"
     },
-    "actionCount": 263,
+    "actionCount": 305,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_consumersurveys": {
     "id": "google_consumersurveys",
@@ -8270,16 +8380,16 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/consumersurveys": "View and edit your surveys and results",
             "https://www.googleapis.com/auth/consumersurveys.readonly": "View the results for your surveys",
             "https://www.googleapis.com/auth/userinfo.email": "View your email address"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -8290,7 +8400,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_container": {
     "id": "google_container",
@@ -8321,11 +8431,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_container.png"
     },
-    "actionCount": 20,
+    "actionCount": 32,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_content": {
     "id": "google_content",
@@ -8356,12 +8466,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_content.jpg"
     },
-    "actionCount": 59,
+    "actionCount": 60,
     "tags": [
       "ecommerce",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_customsearch": {
     "id": "google_customsearch",
@@ -8376,7 +8486,7 @@
       "search",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_dataflow": {
     "id": "google_dataflow",
@@ -8399,6 +8509,7 @@
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
             "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+            "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
             "https://www.googleapis.com/auth/userinfo.email": "View your email address"
           },
           "tokenUrl": "https://accounts.google.com/o/oauth2/token",
@@ -8409,11 +8520,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dataflow.png"
     },
-    "actionCount": 30,
+    "actionCount": 31,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_dataproc": {
     "id": "google_dataproc",
@@ -8448,7 +8559,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_datastore": {
     "id": "google_datastore",
@@ -8480,12 +8591,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_datastore.png"
     },
-    "actionCount": 8,
+    "actionCount": 13,
     "tags": [
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_deploymentmanager": {
     "id": "google_deploymentmanager",
@@ -8523,7 +8634,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_dfareporting": {
     "id": "google_dfareporting",
@@ -8540,16 +8651,16 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/ddmconversions": "Manage DoubleClick Digital Marketing conversions",
             "https://www.googleapis.com/auth/dfareporting": "View and manage DoubleClick for Advertisers reports",
             "https://www.googleapis.com/auth/dfatrafficking": "View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -8560,7 +8671,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_discovery": {
     "id": "google_discovery",
@@ -8572,9 +8683,10 @@
     },
     "actionCount": 2,
     "tags": [
+      "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_dlp": {
     "id": "google_dlp",
@@ -8605,11 +8717,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dlp.png"
     },
-    "actionCount": 11,
+    "actionCount": 13,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_dns": {
     "id": "google_dns",
@@ -8645,23 +8758,46 @@
     },
     "actionCount": 11,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_doubleclickbidmanager": {
     "id": "google_doubleclickbidmanager",
     "title": "DoubleClick Bid Manager",
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
-    "security": {},
+    "security": {
+      "google_doubleclickbidmanager": {
+        "integration": "google_doubleclickbidmanager",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/doubleclickbidmanager": "View and manage your reports in DoubleClick Bid Manager"
+          },
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclickbidmanager.png"
     },
-    "actionCount": 9,
+    "actionCount": 11,
     "tags": [
+      "marketing",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_doubleclicksearch": {
     "id": "google_doubleclicksearch",
@@ -8694,9 +8830,10 @@
     },
     "actionCount": 12,
     "tags": [
+      "marketing",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_drive": {
     "id": "google_drive",
@@ -8739,7 +8876,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_firebasedynamiclinks": {
     "id": "google_firebasedynamiclinks",
@@ -8770,11 +8907,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebasedynamiclinks.png"
     },
-    "actionCount": 3,
+    "actionCount": 5,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_firebaseremoteconfig": {
     "id": "google_firebaseremoteconfig",
@@ -8789,7 +8927,7 @@
       "backend",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_firebaserules": {
     "id": "google_firebaserules",
@@ -8822,11 +8960,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebaserules.png"
     },
-    "actionCount": 10,
+    "actionCount": 12,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_firestore": {
     "id": "google_firestore",
@@ -8842,15 +8981,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
             "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -8862,7 +9001,7 @@
       "backend",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_fitness": {
     "id": "google_fitness",
@@ -8879,8 +9018,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
@@ -8902,19 +9040,20 @@
             "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
             "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_fitness.png"
     },
-    "actionCount": 15,
+    "actionCount": 16,
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_fusiontables": {
     "id": "google_fusiontables",
@@ -8931,15 +9070,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/fusiontables": "Manage your Fusion Tables",
             "https://www.googleapis.com/auth/fusiontables.readonly": "View your Fusion Tables"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -8948,9 +9087,10 @@
     },
     "actionCount": 35,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_games": {
     "id": "google_games",
@@ -8985,9 +9125,10 @@
     },
     "actionCount": 55,
     "tags": [
+      "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_gamesconfiguration": {
     "id": "google_gamesconfiguration",
@@ -9020,9 +9161,10 @@
     },
     "actionCount": 15,
     "tags": [
+      "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_gamesmanagement": {
     "id": "google_gamesmanagement",
@@ -9056,9 +9198,10 @@
     },
     "actionCount": 29,
     "tags": [
+      "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_genomics": {
     "id": "google_genomics",
@@ -9097,7 +9240,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_gmail": {
     "id": "google_gmail",
@@ -9114,8 +9257,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://mail.google.com/": "Read, send, delete, and manage your email",
@@ -9124,25 +9266,26 @@
             "https://www.googleapis.com/auth/gmail.labels": "Manage mailbox labels",
             "https://www.googleapis.com/auth/gmail.metadata": "View your email message metadata such as labels and headers, but not the email body",
             "https://www.googleapis.com/auth/gmail.modify": "View and modify but not delete your email",
-            "https://www.googleapis.com/auth/gmail.readonly": "View your emails messages and settings",
+            "https://www.googleapis.com/auth/gmail.readonly": "View your email messages and settings",
             "https://www.googleapis.com/auth/gmail.send": "Send email on your behalf",
             "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
             "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
     },
-    "actionCount": 66,
+    "actionCount": 64,
     "tags": [
       "email",
       "google"
     ],
-    "latestVersion": "2.2.0"
+    "latestVersion": "3.0.0"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",
@@ -9159,14 +9302,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/apps.groups.migration": "Manage messages in groups on your domain"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9175,9 +9318,10 @@
     },
     "actionCount": 3,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_groupssettings": {
     "id": "google_groupssettings",
@@ -9194,14 +9338,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/apps.groups.settings": "View and manage the settings of a G Suite group"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9210,9 +9354,10 @@
     },
     "actionCount": 5,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_iam": {
     "id": "google_iam",
@@ -9243,11 +9388,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_iam.png"
     },
-    "actionCount": 15,
+    "actionCount": 21,
     "tags": [
+      "security",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_identitytoolkit": {
     "id": "google_identitytoolkit",
@@ -9264,26 +9410,27 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
             "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_identitytoolkit.png"
     },
-    "actionCount": 19,
+    "actionCount": 22,
     "tags": [
+      "security",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_kgsearch": {
     "id": "google_kgsearch",
@@ -9295,9 +9442,10 @@
     },
     "actionCount": 1,
     "tags": [
+      "search",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_language": {
     "id": "google_language",
@@ -9318,6 +9466,7 @@
           "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
+            "https://www.googleapis.com/auth/cloud-language": "Apply machine learning models to reveal the structure and meaning of text",
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
           },
           "tokenUrl": "https://accounts.google.com/o/oauth2/token",
@@ -9328,12 +9477,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_language.png"
     },
-    "actionCount": 6,
+    "actionCount": 8,
     "tags": [
       "text",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_licensing": {
     "id": "google_licensing",
@@ -9350,14 +9499,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/apps.licensing": "View and manage G Suite licenses for your domain"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9369,7 +9518,7 @@
       "enterprise",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_logging": {
     "id": "google_logging",
@@ -9404,11 +9553,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_logging.jpg"
     },
-    "actionCount": 17,
+    "actionCount": 23,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_manufacturers": {
     "id": "google_manufacturers",
@@ -9439,11 +9589,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_manufacturers.png"
     },
-    "actionCount": 4,
+    "actionCount": 6,
     "tags": [
+      "marketing",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_mirror": {
     "id": "google_mirror",
@@ -9460,15 +9611,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/glass.location": "View your location",
             "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9479,7 +9630,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_ml": {
     "id": "google_ml",
@@ -9510,12 +9661,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_ml.png"
     },
-    "actionCount": 15,
+    "actionCount": 19,
     "tags": [
       "machine learning",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_monitoring": {
     "id": "google_monitoring",
@@ -9549,11 +9700,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_monitoring.png"
     },
-    "actionCount": 14,
+    "actionCount": 18,
     "tags": [
+      "monitoring",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_oauth2": {
     "id": "google_oauth2",
@@ -9570,8 +9722,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
@@ -9579,8 +9730,9 @@
             "https://www.googleapis.com/auth/userinfo.email": "View your email address",
             "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9589,9 +9741,10 @@
     },
     "actionCount": 6,
     "tags": [
+      "security",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_oslogin": {
     "id": "google_oslogin",
@@ -9608,7 +9761,8 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -9616,9 +9770,8 @@
             "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
             "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -9630,7 +9783,7 @@
       "backend",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_pagespeedonline": {
     "id": "google_pagespeedonline",
@@ -9645,7 +9798,7 @@
       "tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_partners": {
     "id": "google_partners",
@@ -9659,7 +9812,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_people": {
     "id": "google_people",
@@ -9698,11 +9851,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_people.png"
     },
-    "actionCount": 5,
+    "actionCount": 14,
     "tags": [
+      "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_playcustomapp": {
     "id": "google_playcustomapp",
@@ -9738,7 +9892,7 @@
       "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_playmoviespartner": {
     "id": "google_playmoviespartner",
@@ -9771,9 +9925,10 @@
     },
     "actionCount": 8,
     "tags": [
+      "media",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_plus": {
     "id": "google_plus",
@@ -9790,8 +9945,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
@@ -9799,8 +9953,9 @@
             "https://www.googleapis.com/auth/userinfo.email": "View your email address",
             "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9812,7 +9967,7 @@
       "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_plusdomains": {
     "id": "google_plusdomains",
@@ -9829,8 +9984,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/plus.circles.read": "View your circles and the people and pages in them",
@@ -9844,8 +9998,9 @@
             "https://www.googleapis.com/auth/userinfo.email": "View your email address",
             "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9854,9 +10009,10 @@
     },
     "actionCount": 22,
     "tags": [
+      "social",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_prediction": {
     "id": "google_prediction",
@@ -9873,8 +10029,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -9883,8 +10038,9 @@
             "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage",
             "https://www.googleapis.com/auth/prediction": "Manage your data in the Google Prediction API"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -9893,10 +10049,10 @@
     },
     "actionCount": 10,
     "tags": [
-      "prediction",
+      "machine learning",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_proximitybeacon": {
     "id": "google_proximitybeacon",
@@ -9929,9 +10085,10 @@
     },
     "actionCount": 19,
     "tags": [
+      "iot",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_pubsub": {
     "id": "google_pubsub",
@@ -9968,7 +10125,7 @@
       "messaging",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_qpxexpress": {
     "id": "google_qpxexpress",
@@ -9982,7 +10139,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_replicapool": {
     "id": "google_replicapool",
@@ -9999,8 +10156,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -10008,8 +10164,9 @@
             "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
             "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10018,9 +10175,10 @@
     },
     "actionCount": 14,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_replicapoolupdater": {
     "id": "google_replicapoolupdater",
@@ -10037,8 +10195,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -10046,8 +10203,9 @@
             "https://www.googleapis.com/auth/replicapool": "View and manage replica pools",
             "https://www.googleapis.com/auth/replicapool.readonly": "View replica pools"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10056,9 +10214,10 @@
     },
     "actionCount": 12,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_reseller": {
     "id": "google_reseller",
@@ -10075,15 +10234,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
             "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10095,7 +10254,7 @@
       "enterprise",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_resourceviews": {
     "id": "google_resourceviews",
@@ -10112,8 +10271,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -10123,8 +10281,9 @@
             "https://www.googleapis.com/auth/ndev.cloudman": "View and manage your Google Cloud Platform management resources and deployment status information",
             "https://www.googleapis.com/auth/ndev.cloudman.readonly": "View your Google Cloud Platform management resources and deployment status information"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10133,9 +10292,10 @@
     },
     "actionCount": 13,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_runtimeconfig": {
     "id": "google_runtimeconfig",
@@ -10169,9 +10329,10 @@
     },
     "actionCount": 5,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_safebrowsing": {
     "id": "google_safebrowsing",
@@ -10186,7 +10347,7 @@
       "security",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_script": {
     "id": "google_script",
@@ -10229,9 +10390,10 @@
     },
     "actionCount": 3,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_searchconsole": {
     "id": "google_searchconsole",
@@ -10246,7 +10408,7 @@
       "search",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_servicecontrol": {
     "id": "google_servicecontrol",
@@ -10280,9 +10442,10 @@
     },
     "actionCount": 8,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_servicemanagement": {
     "id": "google_servicemanagement",
@@ -10318,9 +10481,10 @@
     },
     "actionCount": 23,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_serviceuser": {
     "id": "google_serviceuser",
@@ -10355,9 +10519,10 @@
     },
     "actionCount": 6,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_sheets": {
     "id": "google_sheets",
@@ -10379,6 +10544,7 @@
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+            "https://www.googleapis.com/auth/drive.file": "View and manage Google Drive files and folders that you have opened or created with this app",
             "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
             "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
             "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
@@ -10391,11 +10557,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sheets.png"
     },
-    "actionCount": 13,
+    "actionCount": 19,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_siteverification": {
     "id": "google_siteverification",
@@ -10412,15 +10579,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/siteverification": "Manage the list of sites and domains you control",
             "https://www.googleapis.com/auth/siteverification.verify_only": "Manage your new site verifications with Google"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10429,9 +10596,10 @@
     },
     "actionCount": 9,
     "tags": [
+      "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_slides": {
     "id": "google_slides",
@@ -10469,9 +10637,10 @@
     },
     "actionCount": 7,
     "tags": [
+      "cloud",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_sourcerepo": {
     "id": "google_sourcerepo",
@@ -10492,7 +10661,10 @@
           "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
-            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/source.full_control": "Manage your source code repositories",
+            "https://www.googleapis.com/auth/source.read_only": "View the contents of your source code repositories",
+            "https://www.googleapis.com/auth/source.read_write": "Manage the contents of your source code repositories"
           },
           "tokenUrl": "https://accounts.google.com/o/oauth2/token",
           "type": "oauth2"
@@ -10504,9 +10676,10 @@
     },
     "actionCount": 9,
     "tags": [
+      "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_spanner": {
     "id": "google_spanner",
@@ -10527,7 +10700,9 @@
           "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
-            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/spanner.admin": "Administer your Spanner databases",
+            "https://www.googleapis.com/auth/spanner.data": "View and manage the contents of your Spanner databases"
           },
           "tokenUrl": "https://accounts.google.com/o/oauth2/token",
           "type": "oauth2"
@@ -10537,11 +10712,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_spanner.png"
     },
-    "actionCount": 25,
+    "actionCount": 26,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_spectrum": {
     "id": "google_spectrum",
@@ -10553,9 +10729,10 @@
     },
     "actionCount": 6,
     "tags": [
+      "telecom",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_speech": {
     "id": "google_speech",
@@ -10588,9 +10765,10 @@
     },
     "actionCount": 8,
     "tags": [
+      "machine learning",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_sqladmin": {
     "id": "google_sqladmin",
@@ -10622,11 +10800,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sqladmin.png"
     },
-    "actionCount": 42,
+    "actionCount": 43,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_storage": {
     "id": "google_storage",
@@ -10666,7 +10845,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_storagetransfer": {
     "id": "google_storagetransfer",
@@ -10702,7 +10881,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_streetviewpublish": {
     "id": "google_streetviewpublish",
@@ -10719,14 +10898,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/streetviewpublish": "Publish and manage your 360 photos on Google Street View"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -10738,7 +10917,7 @@
       "location",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_supportcases": {
     "id": "google_supportcases",
@@ -10792,16 +10971,16 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/surveys": "View and manage your surveys and results",
             "https://www.googleapis.com/auth/surveys.readonly": "View your surveys and survey results",
             "https://www.googleapis.com/auth/userinfo.email": "View your email address"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10812,7 +10991,7 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_tagmanager": {
     "id": "google_tagmanager",
@@ -10829,8 +11008,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/tagmanager.delete.containers": "Delete your Google Tag Manager containers",
@@ -10841,8 +11019,9 @@
             "https://www.googleapis.com/auth/tagmanager.publish": "Publish your Google Tag Manager container versions",
             "https://www.googleapis.com/auth/tagmanager.readonly": "View your Google Tag Manager container and its subcomponents"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10851,9 +11030,10 @@
     },
     "actionCount": 52,
     "tags": [
+      "analytics",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_taskqueue": {
     "id": "google_taskqueue",
@@ -10870,15 +11050,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/taskqueue": "Manage your Tasks and Taskqueues",
             "https://www.googleapis.com/auth/taskqueue.consumer": "Consume Tasks from your Taskqueues"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10887,9 +11067,10 @@
     },
     "actionCount": 10,
     "tags": [
+      "backend",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_tasks": {
     "id": "google_tasks",
@@ -10906,15 +11087,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/tasks": "Manage your tasks",
             "https://www.googleapis.com/auth/tasks.readonly": "View your tasks"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -10926,7 +11107,7 @@
       "time management",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_testing": {
     "id": "google_testing",
@@ -10943,15 +11124,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
             "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -10963,7 +11144,7 @@
       "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_toolresults": {
     "id": "google_toolresults",
@@ -10994,11 +11175,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_toolresults.png"
     },
-    "actionCount": 24,
+    "actionCount": 26,
     "tags": [
+      "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_tracing": {
     "id": "google_tracing",
@@ -11035,22 +11217,44 @@
     "tags": [
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_translate": {
     "id": "google_translate",
     "title": "Google Cloud Translation",
     "description": "The Google Cloud Translation API lets websites and programs integrate with",
-    "security": {},
+    "security": {
+      "google_translate": {
+        "integration": "google_translate",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
+          "flow": "accessCode",
+          "scopes": {
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/cloud-translation": "Translate text from one language to another using Google Translate"
+          },
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
+        }
+      }
+    },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_translate.jpg"
     },
-    "actionCount": 3,
+    "actionCount": 7,
     "tags": [
       "text",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_urlshortener": {
     "id": "google_urlshortener",
@@ -11067,14 +11271,14 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/urlshortener": "Manage your goo.gl short URLs"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -11086,7 +11290,7 @@
       "tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_vault": {
     "id": "google_vault",
@@ -11103,15 +11307,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "type": "oauth2",
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/ediscovery": "Manage your eDiscovery data",
             "https://www.googleapis.com/auth/ediscovery.readonly": "View your eDiscovery data"
           },
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
-          "description": "Allows offline access using a refresh_token"
+          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+          "type": "oauth2"
         }
       }
     },
@@ -11123,7 +11327,7 @@
       "storage",
       "google"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "google_videointelligence": {
     "id": "google_videointelligence",
@@ -11156,9 +11360,10 @@
     },
     "actionCount": 3,
     "tags": [
+      "media",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_vision": {
     "id": "google_vision",
@@ -11179,7 +11384,8 @@
           "description": "Oauth 2.0 accessCode authentication",
           "flow": "accessCode",
           "scopes": {
-            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+            "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+            "https://www.googleapis.com/auth/cloud-vision": "Apply machine learning models to understand and label images"
           },
           "tokenUrl": "https://accounts.google.com/o/oauth2/token",
           "type": "oauth2"
@@ -11191,9 +11397,11 @@
     },
     "actionCount": 3,
     "tags": [
+      "machine learning",
+      "analytics",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_webfonts": {
     "id": "google_webfonts",
@@ -11205,9 +11413,10 @@
     },
     "actionCount": 1,
     "tags": [
+      "developer tools",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_webmasters": {
     "id": "google_webmasters",
@@ -11224,15 +11433,15 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
             "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -11241,9 +11450,10 @@
     },
     "actionCount": 15,
     "tags": [
+      "search",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_youtube": {
     "id": "google_youtube",
@@ -11260,8 +11470,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-          "description": "Oauth 2.0 accessCode authentication",
+          "type": "oauth2",
           "flow": "accessCode",
           "scopes": {
             "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
@@ -11271,8 +11480,9 @@
             "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
             "https://www.googleapis.com/auth/youtubepartner-channel-audit": "View private information of your YouTube channel relevant during the audit process with a YouTube partner"
           },
-          "tokenUrl": "https://accounts.google.com/o/oauth2/token",
-          "type": "oauth2"
+          "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+          "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+          "description": "Allows offline access using a refresh_token"
         }
       }
     },
@@ -11281,9 +11491,10 @@
     },
     "actionCount": 74,
     "tags": [
+      "media",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_youtubeanalytics": {
     "id": "google_youtubeanalytics",
@@ -11321,9 +11532,10 @@
     "actionCount": 10,
     "tags": [
       "analytics",
+      "media",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "google_youtubereporting": {
     "id": "google_youtubereporting",
@@ -11358,9 +11570,10 @@
     "actionCount": 10,
     "tags": [
       "analytics",
+      "media",
       "google"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_bcdc": {
     "id": "gov_bc_ca_bcdc",
@@ -11413,7 +11626,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_bcgnws": {
     "id": "gov_bc_ca_bcgnws",
@@ -11427,7 +11640,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_geocoder": {
     "id": "gov_bc_ca_geocoder",
@@ -11444,11 +11657,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geocoder.jpeg"
     },
-    "actionCount": 14,
+    "actionCount": 15,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_geomark": {
     "id": "gov_bc_ca_geomark",
@@ -11462,7 +11675,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_jobposting": {
     "id": "gov_bc_ca_jobposting",
@@ -11472,11 +11685,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_jobposting.jpeg"
     },
-    "actionCount": 4,
+    "actionCount": 5,
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_open511": {
     "id": "gov_bc_ca_open511",
@@ -11490,7 +11703,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "gov_bc_ca_router": {
     "id": "gov_bc_ca_router",
@@ -11511,7 +11724,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "graphhopper": {
     "id": "graphhopper",
@@ -11532,7 +11745,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "groupon": {
     "id": "groupon",
@@ -11569,7 +11782,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "heroku": {
     "id": "heroku",
@@ -11615,9 +11828,9 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_booking.png"
     },
-    "actionCount": 15,
+    "actionCount": 16,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "hetras_certification_hotel": {
     "id": "hetras_certification_hotel",
@@ -11628,7 +11841,7 @@
     },
     "actionCount": 19,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "hhs_gov": {
     "id": "hhs_gov",
@@ -11643,7 +11856,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "icons8": {
     "id": "icons8",
@@ -11657,7 +11870,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "idtbeyond": {
     "id": "idtbeyond",
@@ -11672,7 +11885,7 @@
     "tags": [
       "telecom"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "ijenko": {
     "id": "ijenko",
@@ -11694,7 +11907,7 @@
     "tags": [
       "iot"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "import_data": {
     "id": "import_data",
@@ -11715,7 +11928,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "import_extraction": {
     "id": "import_extraction",
@@ -11736,7 +11949,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "import_rss": {
     "id": "import_rss",
@@ -11757,7 +11970,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "import_run": {
     "id": "import_run",
@@ -11778,7 +11991,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "import_schedule": {
     "id": "import_schedule",
@@ -11799,7 +12012,7 @@
     "tags": [
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "inboxroute": {
     "id": "inboxroute",
@@ -11821,7 +12034,7 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "infermedica": {
     "id": "infermedica",
@@ -11833,7 +12046,7 @@
     },
     "actionCount": 9,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "infoconnect": {
     "id": "infoconnect",
@@ -11887,7 +12100,7 @@
       "social",
       "media"
     ],
-    "latestVersion": "2.0.4"
+    "latestVersion": "3.0.0"
   },
   "kaltura": {
     "id": "kaltura",
@@ -11927,7 +12140,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "learnifier": {
     "id": "learnifier",
@@ -11941,7 +12154,7 @@
     "tags": [
       "education"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "linkedin": {
     "id": "linkedin",
@@ -11998,7 +12211,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "lufthansa_partner": {
     "id": "lufthansa_partner",
@@ -12031,7 +12244,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "lufthansa_public": {
     "id": "lufthansa_public",
@@ -12064,7 +12277,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "lyft": {
     "id": "lyft",
@@ -12102,7 +12315,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "magento": {
     "id": "magento",
@@ -12116,7 +12329,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "magick_nu": {
     "id": "magick_nu",
@@ -12126,11 +12339,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magick_nu.png"
     },
-    "actionCount": 6,
+    "actionCount": 8,
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "mailchimp": {
     "id": "mailchimp",
@@ -12164,7 +12377,30 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
+  },
+  "mashape_geodb": {
+    "id": "mashape_geodb",
+    "title": "Geo DB",
+    "description": "This developer-centric REST API focuses on getting global city and region data. Easily obtain country, region, and city ...",
+    "security": {
+      "mashape_geodb": {
+        "integration": "mashape_geodb",
+        "fields": {
+          "UserSecurity": "API key"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mashape_geodb.png"
+    },
+    "actionCount": 10,
+    "tags": [
+      "developer tools",
+      "location"
+    ],
+    "latestVersion": "2.0.0"
   },
   "medium": {
     "id": "medium",
@@ -12204,7 +12440,7 @@
       "media",
       "social"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "microsoft_security_updates": {
     "id": "microsoft_security_updates",
@@ -12225,7 +12461,7 @@
     "tags": [
       "security"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "moonmoonmoonmoon": {
     "id": "moonmoonmoonmoon",
@@ -12238,7 +12474,7 @@
     },
     "actionCount": 2,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "motaword": {
     "id": "motaword",
@@ -12255,9 +12491,13 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
+          "authorizationUrl": "https://api.motaword.com/token",
           "description": "OAuth2 authentication, Client Credentials flow.",
-          "flow": "password",
-          "tokenUrl": "/token",
+          "flow": "accessCode",
+          "scopes": {
+            "*": "*"
+          },
+          "tokenUrl": "https://api.motaword.com/token",
           "type": "oauth2"
         }
       }
@@ -12265,9 +12505,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/motaword.png"
     },
-    "actionCount": 45,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "actionCount": 49,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "3.0.0"
   },
   "mozilla_kinto": {
     "id": "mozilla_kinto",
@@ -12289,7 +12531,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "myspace": {
     "id": "myspace",
@@ -12312,8 +12554,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nativeads.png"
     },
     "actionCount": 4,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "marketing"
+    ],
+    "latestVersion": "3.0.0"
   },
   "nba": {
     "id": "nba",
@@ -12328,7 +12572,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "neowsapp": {
     "id": "neowsapp",
@@ -12339,7 +12583,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "netatmo": {
     "id": "netatmo",
@@ -12374,11 +12618,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/netatmo.png"
     },
-    "actionCount": 21,
+    "actionCount": 22,
     "tags": [
       "iot"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "netlicensing": {
     "id": "netlicensing",
@@ -12397,9 +12641,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/netlicensing.png"
     },
-    "actionCount": 39,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "actionCount": 40,
+    "tags": [
+      "developer tools"
+    ],
+    "latestVersion": "3.0.0"
   },
   "neutrinoapi": {
     "id": "neutrinoapi",
@@ -12426,7 +12672,7 @@
       "location",
       "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nextcaller": {
     "id": "nextcaller",
@@ -12476,7 +12722,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "npr_rss": {
     "id": "npr_rss",
@@ -12509,7 +12755,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nrel_transportation_incentives_laws": {
     "id": "nrel_transportation_incentives_laws",
@@ -12531,7 +12777,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nsidc": {
     "id": "nsidc",
@@ -12545,7 +12791,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_article_search": {
     "id": "nytimes_article_search",
@@ -12567,7 +12813,7 @@
       "media",
       "search"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_books_api": {
     "id": "nytimes_books_api",
@@ -12589,7 +12835,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_community": {
     "id": "nytimes_community",
@@ -12611,7 +12857,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_geo_api": {
     "id": "nytimes_geo_api",
@@ -12633,7 +12879,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_most_popular_api": {
     "id": "nytimes_most_popular_api",
@@ -12655,7 +12901,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_movie_reviews": {
     "id": "nytimes_movie_reviews",
@@ -12677,7 +12923,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_rss": {
     "id": "nytimes_rss",
@@ -12710,7 +12956,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_times_tags": {
     "id": "nytimes_times_tags",
@@ -12732,7 +12978,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_timeswire": {
     "id": "nytimes_timeswire",
@@ -12754,7 +13000,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "nytimes_top_stories": {
     "id": "nytimes_top_stories",
@@ -12776,7 +13022,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "o2_cz_mobility": {
     "id": "o2_cz_mobility",
@@ -12790,7 +13036,7 @@
     "tags": [
       "telecom"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "o2_cz_sociodemo": {
     "id": "o2_cz_sociodemo",
@@ -12804,7 +13050,7 @@
     "tags": [
       "telecom"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "oceandrivers": {
     "id": "oceandrivers",
@@ -12818,7 +13064,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "omdbapi": {
     "id": "omdbapi",
@@ -12834,7 +13080,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "onenote": {
     "id": "onenote",
@@ -12861,7 +13107,7 @@
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "openbanking_org_uk": {
     "id": "openbanking_org_uk",
@@ -12874,9 +13120,9 @@
     },
     "actionCount": 12,
     "tags": [
-      "finance"
+      "financial"
     ],
-    "latestVersion": "2.0.1"
+    "latestVersion": "3.0.0"
   },
   "opencagedata": {
     "id": "opencagedata",
@@ -12890,7 +13136,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "openfintech": {
     "id": "openfintech",
@@ -12904,7 +13150,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "orghunter": {
     "id": "orghunter",
@@ -12923,7 +13169,7 @@
     },
     "actionCount": 6,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "osisoft": {
     "id": "osisoft",
@@ -12938,7 +13184,7 @@
     "tags": [
       "enterprise"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "owler": {
     "id": "owler",
@@ -12959,7 +13205,7 @@
     "tags": [
       "search"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "oxforddictionaries": {
     "id": "oxforddictionaries",
@@ -12968,11 +13214,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oxforddictionaries.png"
     },
-    "actionCount": 27,
+    "actionCount": 24,
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "pandorabots": {
     "id": "pandorabots",
@@ -12987,8 +13233,10 @@
       }
     },
     "actionCount": 13,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "machine learning"
+    ],
+    "latestVersion": "3.0.0"
   },
   "passwordutility": {
     "id": "passwordutility",
@@ -13000,7 +13248,7 @@
       "security",
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "patientview": {
     "id": "patientview",
@@ -13012,7 +13260,7 @@
     },
     "actionCount": 15,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "paypal": {
     "id": "paypal",
@@ -13038,7 +13286,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "picasa": {
     "id": "picasa",
@@ -13100,7 +13348,7 @@
     "tags": [
       "email"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "postmarkapp_server": {
     "id": "postmarkapp_server",
@@ -13110,11 +13358,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmarkapp_server.jpg"
     },
-    "actionCount": 47,
+    "actionCount": 49,
     "tags": [
       "email"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "posty": {
     "id": "posty",
@@ -13125,7 +13373,7 @@
     "tags": [
       "email"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "producthunt": {
     "id": "producthunt",
@@ -13168,11 +13416,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ptv_vic_gov_au.jpeg"
     },
-    "actionCount": 19,
+    "actionCount": 20,
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "quandl": {
     "id": "quandl",
@@ -13209,8 +13457,11 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rbaskets_in.svg"
     },
     "actionCount": 9,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "developer tools",
+      "monitoring"
+    ],
+    "latestVersion": "3.0.0"
   },
   "rebilly": {
     "id": "rebilly",
@@ -13231,12 +13482,12 @@
       "backgroundColor": "#0033A0",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rebilly.svg"
     },
-    "actionCount": 233,
+    "actionCount": 247,
     "tags": [
       "payment",
       "ecommerce"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "reddit": {
     "id": "reddit",
@@ -13336,7 +13587,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "reverb": {
     "id": "reverb",
@@ -13380,11 +13631,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reverb.svg"
     },
-    "actionCount": 163,
+    "actionCount": 158,
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "rhapsody": {
     "id": "rhapsody",
@@ -13417,7 +13668,7 @@
     "tags": [
       "cloud"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "ritekit": {
     "id": "ritekit",
@@ -13431,7 +13682,7 @@
     "tags": [
       "social"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "rottentomatoes": {
     "id": "rottentomatoes",
@@ -13452,7 +13703,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "rubygems": {
     "id": "rubygems",
@@ -13478,7 +13729,7 @@
     "tags": [
       "machine learning"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "runscope": {
     "id": "runscope",
@@ -13515,11 +13766,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/runscope.svg"
     },
-    "actionCount": 27,
+    "actionCount": 31,
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "salesforce": {
     "id": "salesforce",
@@ -13581,7 +13832,7 @@
       "open data",
       "education"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "scrapewebsite_email": {
     "id": "scrapewebsite_email",
@@ -13593,7 +13844,22 @@
       "email",
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
+  },
+  "selectpdf": {
+    "id": "selectpdf",
+    "title": "SelectPdf HTML To PDF",
+    "description": "SelectPdf HTML To PDF Online REST API is a professional solution that lets you create PDF from web pages and raw HTML co...",
+    "security": {},
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/selectpdf.jpeg"
+    },
+    "actionCount": 1,
+    "tags": [
+      "text"
+    ],
+    "latestVersion": "2.0.0"
   },
   "semantria": {
     "id": "semantria",
@@ -13608,7 +13874,7 @@
       "social",
       "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "sendgrid": {
     "id": "sendgrid",
@@ -13625,12 +13891,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/sendgrid.png"
     },
-    "actionCount": 231,
+    "actionCount": 245,
     "tags": [
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "shipstation": {
     "id": "shipstation",
@@ -13644,7 +13910,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "shopping_com": {
     "id": "shopping_com",
@@ -13673,7 +13939,7 @@
     },
     "actionCount": 4,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "skyrock": {
     "id": "skyrock",
@@ -13690,7 +13956,7 @@
   "slack": {
     "id": "slack",
     "title": "Slack",
-    "description": "A messaging app for teams",
+    "description": "One way to interact with the Slack platform is its HTTP RPC-based Web API, a collection of methods requiring OAuth 2.0-b...",
     "security": {
       "slack": {
         "integration": "slack",
@@ -13703,65 +13969,67 @@
         },
         "oauth": {
           "authorizationUrl": "https://slack.com/oauth/authorize",
-          "description": "",
           "flow": "accessCode",
           "scopes": {
-            "admin": "",
-            "channels:history": "",
-            "channels:read": "",
-            "channels:write": "",
-            "chat:write:bot": "",
-            "chat:write:user": "",
-            "client": "",
-            "dnd:read": "",
-            "dnd:write": "",
-            "emoji:read": "",
-            "files:read": "",
-            "files:write:user": "",
-            "groups:history": "",
-            "groups:read": "",
-            "groups:write": "",
-            "identify": "",
-            "identity.basic": "",
-            "im:history": "",
-            "im:read": "",
-            "im:write": "",
-            "mpim:history": "",
-            "mpim:read": "",
-            "mpim:write": "",
-            "pins:read": "",
-            "pins:write": "",
-            "reactions:read": "",
-            "reactions:write": "",
-            "reminders:read": "",
-            "reminders:write": "",
-            "search:read": "",
-            "stars:read": "",
-            "stars:write": "",
-            "team:read": "",
-            "usergroups:read": "",
-            "usergroups:write": "",
-            "users.profile:read": "",
-            "users.profile:write": "",
-            "users:read": "",
-            "users:write": ""
+            "admin": "admin",
+            "bot": "Bot user scope",
+            "channels:history": "channels:history",
+            "channels:read": "channels:read",
+            "channels:write": "channels:write",
+            "chat:write": "chat:write",
+            "chat:write:user": "chat:write:user",
+            "conversations:history": "conversations:history",
+            "conversations:read": "conversations:read",
+            "conversations:write": "conversations:write",
+            "dnd:read": "dnd:read",
+            "dnd:write": "dnd:write",
+            "emoji:read": "emoji:read",
+            "files:read": "files:read",
+            "files:write:user": "files:write:user",
+            "groups:history": "groups:history",
+            "groups:read": "groups:read",
+            "groups:write": "groups:write",
+            "identity.basic": "identity.basic",
+            "im:history": "im:history",
+            "im:read": "im:read",
+            "im:write": "im:write",
+            "links:write": "links:write",
+            "mpim:history": "mpim:history",
+            "mpim:read": "mpim:read",
+            "mpim:write": "mpim:write",
+            "none": "No scope required",
+            "pins:read": "pins:read",
+            "pins:write": "pins:write",
+            "reactions:read": "reactions:read",
+            "reactions:write": "reactions:write",
+            "reminders:read": "reminders:read",
+            "reminders:write": "reminders:write",
+            "rtm:stream": "rtm:stream",
+            "search:read": "search:read",
+            "stars:read": "stars:read",
+            "stars:write": "stars:write",
+            "team:read": "team:read",
+            "usergroups:read": "usergroups:read",
+            "usergroups:write": "usergroups:write",
+            "users.profile:read": "users.profile:read",
+            "users.profile:write": "users.profile:write",
+            "users:read": "users:read",
+            "users:write": "users:write"
           },
           "tokenUrl": "https://slack.com/api/oauth.access",
-          "type": "oauth2",
-          "name": "token",
-          "in": "query"
+          "type": "oauth2"
         }
       }
     },
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slack.png"
     },
-    "actionCount": 32,
+    "actionCount": 134,
     "tags": [
       "collaboration",
       "messaging"
     ],
-    "latestVersion": "2.0.4"
+    "latestVersion": "3.0.0"
   },
   "slideroom": {
     "id": "slideroom",
@@ -13774,7 +14042,7 @@
     },
     "actionCount": 11,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "smart_me": {
     "id": "smart_me",
@@ -13792,9 +14060,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/smart_me.png"
     },
-    "actionCount": 23,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "actionCount": 24,
+    "tags": [
+      "iot"
+    ],
+    "latestVersion": "3.0.0"
   },
   "solarvps": {
     "id": "solarvps",
@@ -13813,7 +14083,7 @@
     },
     "actionCount": 20,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "soundcloud": {
     "id": "soundcloud",
@@ -13858,7 +14128,7 @@
       "financial",
       "payment"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "spotify": {
     "id": "spotify",
@@ -13902,7 +14172,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "squareup": {
     "id": "squareup",
@@ -13930,8 +14200,8 @@
             "ITEMS_READ": "GET endpoints related to a merchant's item library",
             "ITEMS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's item library",
             "MERCHANT_PROFILE_READ": "GET endpoints related to a merchant's business and location entities. Almost all Connect API applications need this permission in order to obtain a merchant's location IDs",
-            "ORDERS_READ": "GET endpoints related to a merchant's Square online store.",
-            "ORDERS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's Square online store",
+            "ORDERS_READ": "GET endpoints related to a merchant's orders",
+            "ORDERS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's orders",
             "PAYMENTS_READ": "GET endpoints related to transactions and refunds",
             "PAYMENTS_WRITE": "POST, PUT, and DELETE endpoints related to transactions and refunds. E-commerce applications must request this permission",
             "SETTLEMENTS_READ": "GET endpoints related to settlements (deposits)",
@@ -13946,11 +14216,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/squareup.png"
     },
-    "actionCount": 18,
+    "actionCount": 98,
     "tags": [
       "payment"
     ],
-    "latestVersion": "2.0.4"
+    "latestVersion": "3.0.0"
   },
   "stackexchange": {
     "id": "stackexchange",
@@ -13984,7 +14254,7 @@
       "developer tools",
       "support"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "staging_ecotaco": {
     "id": "staging_ecotaco",
@@ -13999,7 +14269,7 @@
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "statsocial": {
     "id": "statsocial",
@@ -14021,7 +14291,7 @@
       "social",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "storecove": {
     "id": "storecove",
@@ -14041,9 +14311,9 @@
     },
     "actionCount": 14,
     "tags": [
-      "finance"
+      "financial"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "swagger_generator": {
     "id": "swagger_generator",
@@ -14059,7 +14329,7 @@
       "developer tools",
       "tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "swaggerhub": {
     "id": "swaggerhub",
@@ -14076,11 +14346,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swaggerhub.jpg"
     },
-    "actionCount": 69,
+    "actionCount": 22,
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "synq_fm": {
     "id": "synq_fm",
@@ -14094,7 +14364,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "t213_vg": {
     "id": "t213_vg",
@@ -14129,7 +14399,28 @@
     "tags": [
       "payment"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
+  },
+  "taxrates": {
+    "id": "taxrates",
+    "title": "Taxrates.io",
+    "description": "Taxrates.io API - the successfully streamlined tax rates monitoring process. Use 'Expand operation' link on the right to...",
+    "security": {
+      "taxrates": {
+        "integration": "taxrates",
+        "fields": {
+          "Bearer": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taxrates.jpg"
+    },
+    "actionCount": 6,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "2.0.0"
   },
   "tfl_gov_uk": {
     "id": "tfl_gov_uk",
@@ -14147,12 +14438,12 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tfl_gov_uk.jpg"
     },
-    "actionCount": 78,
+    "actionCount": 84,
     "tags": [
-      "location",
+      "transport",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "thenounproject": {
     "id": "thenounproject",
@@ -14163,8 +14454,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.jpg"
     },
     "actionCount": 13,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "media"
+    ],
+    "latestVersion": "3.0.0"
   },
   "thetvdb": {
     "id": "thetvdb",
@@ -14186,7 +14479,7 @@
       "media",
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "traccar": {
     "id": "traccar",
@@ -14204,11 +14497,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/traccar.png"
     },
-    "actionCount": 55,
+    "actionCount": 57,
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "trello": {
     "id": "trello",
@@ -14230,7 +14523,7 @@
     "tags": [
       "collaboration"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "tumblr": {
     "id": "tumblr",
@@ -14281,7 +14574,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "twilio": {
     "id": "twilio",
@@ -14304,7 +14597,7 @@
       "telecom",
       "messaging"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "twinehealth": {
     "id": "twinehealth",
@@ -14335,11 +14628,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twinehealth.png"
     },
-    "actionCount": 44,
+    "actionCount": 51,
     "tags": [
       "support"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "uebermaps": {
     "id": "uebermaps",
@@ -14349,11 +14642,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/uebermaps.jpg"
     },
-    "actionCount": 54,
+    "actionCount": 56,
     "tags": [
       "location"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "urbanairship": {
     "id": "urbanairship",
@@ -14382,9 +14675,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vatapi.jpg"
     },
-    "actionCount": 10,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "actionCount": 11,
+    "tags": [
+      "financial"
+    ],
+    "latestVersion": "3.0.0"
   },
   "versioneye": {
     "id": "versioneye",
@@ -14394,18 +14689,37 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/versioneye.png"
     },
-    "actionCount": 44,
+    "actionCount": 46,
     "tags": [
       "open data",
       "search"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "vestorly": {
     "id": "vestorly",
     "title": "Vestorly",
     "description": "Vestorly Developers API",
-    "security": {},
+    "security": {
+      "vestorly": {
+        "integration": "vestorly",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://dev.vestorly.com/oauth/authorize",
+          "flow": "implicit",
+          "scopes": {
+            "default": "read and write data to your account"
+          },
+          "type": "oauth2"
+        }
+      }
+    },
     "logo": {
       "backgroundColor": "#252832",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vestorly.png"
@@ -14414,7 +14728,7 @@
     "tags": [
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "victorops": {
     "id": "victorops",
@@ -14424,11 +14738,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/victorops.jpg"
     },
-    "actionCount": 42,
+    "actionCount": 43,
     "tags": [
       "developer tools"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "visagecloud": {
     "id": "visagecloud",
@@ -14449,7 +14763,7 @@
     "tags": [
       "search"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "waag": {
     "id": "waag",
@@ -14463,7 +14777,7 @@
     "tags": [
       "open data"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "watchful_li": {
     "id": "watchful_li",
@@ -14475,7 +14789,7 @@
     },
     "actionCount": 61,
     "tags": [],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "wavecell": {
     "id": "wavecell",
@@ -14498,7 +14812,7 @@
     "tags": [
       "messaging"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "wealthport": {
     "id": "wealthport",
@@ -14522,7 +14836,7 @@
       "analytics",
       "machine learning"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "wikimedia": {
     "id": "wikimedia",
@@ -14539,11 +14853,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wikimedia.png"
     },
-    "actionCount": 10,
+    "actionCount": 28,
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "windows_arm_graphrbac": {
     "id": "windows_arm_graphrbac",
@@ -14573,9 +14887,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_arm_graphrbac.png"
     },
-    "actionCount": 34,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "actionCount": 36,
+    "tags": [
+      "security"
+    ],
+    "latestVersion": "3.0.0"
   },
   "windows_batch": {
     "id": "windows_batch",
@@ -14586,8 +14902,10 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_batch.png"
     },
     "actionCount": 74,
-    "tags": [],
-    "latestVersion": "2.0.3"
+    "tags": [
+      "cloud"
+    ],
+    "latestVersion": "3.0.0"
   },
   "winning_email": {
     "id": "winning_email",
@@ -14609,7 +14927,7 @@
       "email",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "wmata_bus_realtime": {
     "id": "wmata_bus_realtime",
@@ -14631,7 +14949,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "4.0.0"
   },
   "wmata_bus_route": {
     "id": "wmata_bus_route",
@@ -14653,7 +14971,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "wmata_incidents": {
     "id": "wmata_incidents",
@@ -14675,7 +14993,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "wmata_rail_realtime": {
     "id": "wmata_rail_realtime",
@@ -14697,7 +15015,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "3.0.0"
+    "latestVersion": "4.0.0"
   },
   "wmata_rail_station": {
     "id": "wmata_rail_station",
@@ -14719,7 +15037,7 @@
     "tags": [
       "transport"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "wordnik": {
     "id": "wordnik",
@@ -14740,7 +15058,7 @@
     "tags": [
       "text"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "xkcd": {
     "id": "xkcd",
@@ -14754,7 +15072,7 @@
     "tags": [
       "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "yellowpages": {
     "id": "yellowpages",
@@ -14788,11 +15106,11 @@
     "logo": {
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yunbi.ico"
     },
-    "actionCount": 23,
+    "actionCount": 22,
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "zalando": {
     "id": "zalando",
@@ -14806,7 +15124,7 @@
     "tags": [
       "ecommerce"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "zappiti": {
     "id": "zappiti",
@@ -14817,11 +15135,11 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zappiti.png"
     },
-    "actionCount": 6,
+    "actionCount": 7,
     "tags": [
-      "entertainment"
+      "media"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "zoomconnect": {
     "id": "zoomconnect",
@@ -14844,7 +15162,7 @@
       "messaging",
       "marketing"
     ],
-    "latestVersion": "2.0.3"
+    "latestVersion": "3.0.0"
   },
   "zuora": {
     "id": "zuora",
@@ -14858,7 +15176,7 @@
     "tags": [
       "financial"
     ],
-    "latestVersion": "2.0.0"
+    "latestVersion": "3.0.0"
   },
   "fileserver": {
     "id": "fileserver",

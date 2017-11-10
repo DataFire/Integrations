@@ -50,8 +50,33 @@ google_dlp.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
+### content.deidentify
+De-identifies potentially sensitive info from a list of strings.
+This method has limits on input size and output size.
+
+
+```js
+google_dlp.content.deidentify({}, context)
+```
+
+#### Parameters
+* body (object) - Request to de-identify a list of items.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### content.inspect
-Find potentially sensitive info in a list of strings.
+Finds potentially sensitive info in a list of strings.
 This method has limits on input size, processing time, and output size.
 
 
@@ -76,7 +101,7 @@ google_dlp.content.inspect({}, context)
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### content.redact
-Redact potentially sensitive info from a list of strings.
+Redacts potentially sensitive info from a list of strings.
 This method has limits on input size, processing time, and output size.
 
 
@@ -100,8 +125,34 @@ google_dlp.content.redact({}, context)
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
+### dataSource.analyze
+Schedules a job to compute risk analysis metrics over content in a Google
+Cloud Platform repository.
+
+
+```js
+google_dlp.dataSource.analyze({}, context)
+```
+
+#### Parameters
+* body (object) - Request for creating a risk analysis operation.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### inspect.operations.create
-Schedule a job scanning content in a Google Cloud Platform data repository.
+Schedules a job scanning content in a Google Cloud Platform data
+repository.
 
 
 ```js
@@ -175,12 +226,12 @@ google_dlp.rootCategories.infoTypes.list({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### inspect.operations.delete
+### riskAnalysis.operations.delete
 This method is not supported and the server returns `UNIMPLEMENTED`.
 
 
 ```js
-google_dlp.inspect.operations.delete({
+google_dlp.riskAnalysis.operations.delete({
   "name": ""
 }, context)
 ```
@@ -201,14 +252,14 @@ google_dlp.inspect.operations.delete({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### inspect.operations.get
+### riskAnalysis.operations.get
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 
 
 ```js
-google_dlp.inspect.operations.get({
+google_dlp.riskAnalysis.operations.get({
   "name": ""
 }, context)
 ```
@@ -240,6 +291,7 @@ google_dlp.inspect.results.findings.list({
 ```
 
 #### Parameters
+* filter (string) - Restricts findings to items that match. Supports info_type and likelihood.
 * name (string) **required** - Identifier of the results set returned as metadata of
 * pageSize (integer) - Maximum number of results to return.
 * pageToken (string) - The value returned by the last `ListInspectFindingsResponse`; indicates
@@ -257,12 +309,12 @@ google_dlp.inspect.results.findings.list({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### inspect.operations.cancel
-Cancels an operation. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.
+### riskAnalysis.operations.cancel
+Cancels an operation. Use the `inspect.operations.get` to check whether the cancellation succeeded or the operation completed despite cancellation.
 
 
 ```js
-google_dlp.inspect.operations.cancel({
+google_dlp.riskAnalysis.operations.cancel({
   "name": ""
 }, context)
 ```

@@ -75,7 +75,7 @@ google_logging.entries.list({}, context)
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
 ### entries.write
-Writes log entries to Stackdriver Logging.
+Log entry resourcesWrites log entries to Stackdriver Logging. This API method is the only way to send log entries to Stackdriver Logging. This method is used, directly or indirectly, by the Stackdriver Logging agent (fluentd) and all logging libraries configured to use Stackdriver Logging.
 
 
 ```js
@@ -123,12 +123,12 @@ google_logging.monitoredResourceDescriptors.list({}, context)
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.logs.delete
+### folders.logs.delete
 Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted.
 
 
 ```js
-google_logging.billingAccounts.logs.delete({
+google_logging.folders.logs.delete({
   "logName": ""
 }, context)
 ```
@@ -213,7 +213,7 @@ google_logging.projects.metrics.update({
 
 #### Parameters
 * metricName (string) **required** - The resource name of the metric to update:
-* body (object) - Describes a logs-based metric. The value of the metric is the number of log entries that match a logs filter in a given time interval.
+* body (object) - Describes a logs-based metric. The value of the metric is the number of log entries that match a logs filter in a given time interval.Logs-based metric can also be used to extract values from logs and create a a distribution of the values. The distribution records the statistics of the extracted values along with an optional histogram of the values as specified by the bucket options.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -228,12 +228,147 @@ google_logging.projects.metrics.update({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.logs.list
+### folders.exclusions.delete
+Deletes an exclusion.
+
+
+```js
+google_logging.folders.exclusions.delete({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* name (string) **required** - Required. The resource name of an existing exclusion to delete:
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.exclusions.get
+Gets the description of an exclusion.
+
+
+```js
+google_logging.folders.exclusions.get({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* name (string) **required** - Required. The resource name of an existing exclusion:
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.exclusions.patch
+Changes one or more properties of an existing exclusion.
+
+
+```js
+google_logging.folders.exclusions.patch({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Specifies a set of log entries that are not to be stored in Stackdriver Logging. If your project receives a large volume of logs, you might be able to use exclusions to reduce your chargeable logs. Exclusions are processed after log sinks, so you can export log entries before they are excluded. Audit log entries and log entries from Amazon Web Services are never excluded.
+* name (string) **required** - Required. The resource name of the exclusion to update:
+* updateMask (string) - Required. A nonempty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an update_mask of "filter,description".
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.exclusions.list
+Lists all the exclusions in a parent resource.
+
+
+```js
+google_logging.folders.exclusions.list({
+  "parent": ""
+}, context)
+```
+
+#### Parameters
+* pageSize (integer) - Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available.
+* pageToken (string) - Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
+* parent (string) **required** - Required. The parent resource whose exclusions are to be listed.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.exclusions.create
+Creates a new exclusion in a specified parent resource. Only log entries belonging to that resource can be excluded. You can have up to 10 exclusions in a resource.
+
+
+```js
+google_logging.folders.exclusions.create({
+  "parent": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Specifies a set of log entries that are not to be stored in Stackdriver Logging. If your project receives a large volume of logs, you might be able to use exclusions to reduce your chargeable logs. Exclusions are processed after log sinks, so you can export log entries before they are excluded. Audit log entries and log entries from Amazon Web Services are never excluded.
+* parent (string) **required** - Required. The parent resource in which to create the exclusion:
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.logs.list
 Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed.
 
 
 ```js
-google_logging.billingAccounts.logs.list({
+google_logging.folders.logs.list({
   "parent": ""
 }, context)
 ```
@@ -296,7 +431,7 @@ google_logging.projects.metrics.create({
 
 #### Parameters
 * parent (string) **required** - The resource name of the project in which to create the metric:
-* body (object) - Describes a logs-based metric. The value of the metric is the number of log entries that match a logs filter in a given time interval.
+* body (object) - Describes a logs-based metric. The value of the metric is the number of log entries that match a logs filter in a given time interval.Logs-based metric can also be used to extract values from logs and create a a distribution of the values. The distribution records the statistics of the extracted values along with an optional histogram of the values as specified by the bucket options.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.
@@ -311,12 +446,12 @@ google_logging.projects.metrics.create({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.sinks.list
+### folders.sinks.list
 Lists sinks.
 
 
 ```js
-google_logging.billingAccounts.sinks.list({
+google_logging.folders.sinks.list({
   "parent": ""
 }, context)
 ```
@@ -339,12 +474,12 @@ google_logging.billingAccounts.sinks.list({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.sinks.create
-Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the current time is outside the sink's start and end times or the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
+### folders.sinks.create
+Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.
 
 
 ```js
-google_logging.billingAccounts.sinks.create({
+google_logging.folders.sinks.create({
   "parent": ""
 }, context)
 ```
@@ -367,12 +502,12 @@ google_logging.billingAccounts.sinks.create({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.sinks.delete
+### folders.sinks.delete
 Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted.
 
 
 ```js
-google_logging.billingAccounts.sinks.delete({
+google_logging.folders.sinks.delete({
   "sinkName": ""
 }, context)
 ```
@@ -393,12 +528,12 @@ google_logging.billingAccounts.sinks.delete({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.sinks.get
+### folders.sinks.get
 Gets a sink.
 
 
 ```js
-google_logging.billingAccounts.sinks.get({
+google_logging.folders.sinks.get({
   "sinkName": ""
 }, context)
 ```
@@ -419,20 +554,50 @@ google_logging.billingAccounts.sinks.get({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### billingAccounts.sinks.update
-Updates a sink. If the named sink doesn't exist, then this method is identical to sinks.create. If the named sink does exist, then this method replaces the following fields in the existing sink with values from the new sink: destination, filter, output_version_format, start_time, and end_time. The updated filter might also have a new writer_identity; see the unique_writer_identity field.
+### folders.sinks.patch
+Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter. The updated sink might also have a new writer_identity; see the unique_writer_identity field.
 
 
 ```js
-google_logging.billingAccounts.sinks.update({
+google_logging.folders.sinks.patch({
   "sinkName": ""
 }, context)
 ```
 
 #### Parameters
+* body (object) - Describes a sink used to export log entries to one of the following destinations in any project: a Cloud Storage bucket, a BigQuery dataset, or a Cloud Pub/Sub topic. A logs filter controls which log entries are exported. The sink must be created within a project, organization, billing account, or folder.
 * sinkName (string) **required** - Required. The full resource name of the sink to update, including the parent resource and the sink identifier:
 * uniqueWriterIdentity (boolean) - Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both the old and new values of this field:
+* updateMask (string) - Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:  destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample: updateMask=filter.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### folders.sinks.update
+Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter. The updated sink might also have a new writer_identity; see the unique_writer_identity field.
+
+
+```js
+google_logging.folders.sinks.update({
+  "sinkName": ""
+}, context)
+```
+
+#### Parameters
 * body (object) - Describes a sink used to export log entries to one of the following destinations in any project: a Cloud Storage bucket, a BigQuery dataset, or a Cloud Pub/Sub topic. A logs filter controls which log entries are exported. The sink must be created within a project, organization, billing account, or folder.
+* sinkName (string) **required** - Required. The full resource name of the sink to update, including the parent resource and the sink identifier:
+* uniqueWriterIdentity (boolean) - Optional. See sinks.create for a description of this field. When updating a sink, the effect of this field on the value of writer_identity in the updated sink depends on both the old and new values of this field:
+* updateMask (string) - Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:  destination,filter,includeChildren At some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmaskExample: updateMask=filter.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.

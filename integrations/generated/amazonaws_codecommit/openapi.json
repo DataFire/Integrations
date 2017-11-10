@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "codecommit.amazonaws.com",
@@ -479,6 +480,125 @@
         }
       }
     },
+    "/#DeleteBranch": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a branch from a repository, unless that branch is the default branch for the repository. ",
+        "operationId": "DeleteBranch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBranchInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteBranchOutput"
+            }
+          },
+          "480": {
+            "description": "RepositoryNameRequiredException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNameRequiredException"
+            }
+          },
+          "481": {
+            "description": "RepositoryDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryDoesNotExistException"
+            }
+          },
+          "482": {
+            "description": "InvalidRepositoryNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRepositoryNameException"
+            }
+          },
+          "483": {
+            "description": "BranchNameRequiredException",
+            "schema": {
+              "$ref": "#/definitions/BranchNameRequiredException"
+            }
+          },
+          "484": {
+            "description": "InvalidBranchNameException",
+            "schema": {
+              "$ref": "#/definitions/InvalidBranchNameException"
+            }
+          },
+          "485": {
+            "description": "DefaultBranchCannotBeDeletedException",
+            "schema": {
+              "$ref": "#/definitions/DefaultBranchCannotBeDeletedException"
+            }
+          },
+          "486": {
+            "description": "EncryptionIntegrityChecksFailedException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionIntegrityChecksFailedException"
+            }
+          },
+          "487": {
+            "description": "EncryptionKeyAccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyAccessDeniedException"
+            }
+          },
+          "488": {
+            "description": "EncryptionKeyDisabledException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyDisabledException"
+            }
+          },
+          "489": {
+            "description": "EncryptionKeyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyNotFoundException"
+            }
+          },
+          "490": {
+            "description": "EncryptionKeyUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/EncryptionKeyUnavailableException"
+            }
+          }
+        }
+      }
+    },
     "/#DeleteRepository": {
       "parameters": [
         {
@@ -510,7 +630,7 @@
         }
       ],
       "post": {
-        "description": "<p>Deletes a repository. If a specified repository was already deleted, a null repository ID will be returned.</p> <important><p>Deleting a repository also deletes all associated objects and metadata. After a repository is deleted, all future push calls to the deleted repository will fail.</p> </important>",
+        "description": "<p>Deletes a repository. If a specified repository was already deleted, a null repository ID will be returned.</p> <important> <p>Deleting a repository also deletes all associated objects and metadata. After a repository is deleted, all future push calls to the deleted repository will fail.</p> </important>",
         "operationId": "DeleteRepository",
         "parameters": [
           {
@@ -2277,6 +2397,10 @@
           "$ref": "#/definitions/UserInfo",
           "description": "Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git."
         },
+        "commitId": {
+          "$ref": "#/definitions/ObjectId",
+          "description": "The full SHA of the specified commit. "
+        },
         "committer": {
           "$ref": "#/definitions/UserInfo",
           "description": "<p>Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git.</p> <p>For more information about the difference between an author and a committer in Git, see <a href=\"http://git-scm.com/book/ch2-3.html\">Viewing the Commit History</a> in Pro Git by Scott Chacon and Ben Straub.</p>"
@@ -2378,6 +2502,39 @@
     },
     "Date": {
       "type": "string"
+    },
+    "DefaultBranchCannotBeDeletedException": {
+      "description": "The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteBranchInput": {
+      "description": "Represents the input of a delete branch operation.",
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": "The name of the branch to delete."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository that contains the branch to be deleted."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "branchName"
+      ],
+      "type": "object"
+    },
+    "DeleteBranchOutput": {
+      "description": "Represents the output of a delete branch operation.",
+      "properties": {
+        "deletedBranch": {
+          "$ref": "#/definitions/BranchInfo",
+          "description": "Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch."
+        }
+      },
+      "type": "object"
     },
     "DeleteRepositoryInput": {
       "description": "Represents the input of a delete repository operation.",
@@ -2519,7 +2676,7 @@
       "properties": {
         "commitId": {
           "$ref": "#/definitions/ObjectId",
-          "description": "The commit ID."
+          "description": "The commit ID. Commit IDs are the full SHA of the commit."
         },
         "repositoryName": {
           "$ref": "#/definitions/RepositoryName",
@@ -3006,7 +3163,7 @@
       "properties": {
         "branches": {
           "$ref": "#/definitions/BranchNameList",
-          "description": "The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches."
+          "description": "<p>The branches that will be included in the trigger configuration. If you specify an empty array, the trigger will apply to all branches.</p> <note> <p>While no content is required in the array, you must include the array itself.</p> </note>"
         },
         "customData": {
           "$ref": "#/definitions/RepositoryTriggerCustomData",

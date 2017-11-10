@@ -546,7 +546,7 @@ zoomconnect.sms.send_url_parameters.post({
 * dataField (string) - optional extra data
 
 ### sms.send_url.token.get
-Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
+Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is 
 
 
 ```js
@@ -566,7 +566,7 @@ zoomconnect.sms.send_url.token.get({
 * dataField (string) - optional extra data
 
 ### sms.send_url.token.post
-Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
+Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is 
 
 
 ```js

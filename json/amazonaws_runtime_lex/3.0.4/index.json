@@ -22,6 +22,11 @@
       "type": "string",
       "title": "Accept"
     },
+    "AttributesString": {
+      "format": "password",
+      "type": "string",
+      "title": "AttributesString"
+    },
     "BadGatewayException": {
       "description": "Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.",
       "properties": {
@@ -33,7 +38,7 @@
       "title": "BadGatewayException"
     },
     "BadRequestException": {
-      "description": " Request validation failed, there is no usable message in the context, or the bot build failed. ",
+      "description": " Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes. ",
       "properties": {
         "message": {
           "$ref": "#/definitions/String"
@@ -103,7 +108,7 @@
       "title": "ContentType"
     },
     "DependencyFailedException": {
-      "description": " One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, if Amazon Lex does not have sufficient permissions to call a Lambda function, it results in Lambda throwing an exception. ",
+      "description": "<p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, </p> <ul> <li> <p>If Amazon Lex does not have sufficient permissions to call a Lambda function.</p> </li> <li> <p>If a Lambda function takes longer than 30 seconds to execute.</p> </li> <li> <p>If a fulfillment Lambda function returns a <code>Delegate</code> dialog action without removing any slot values.</p> </li> </ul>",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessage"
@@ -184,7 +189,7 @@
       "title": "LimitExceededException"
     },
     "LoopDetectedException": {
-      "description": "Lambda fulfilment function returned <code>DelegateDialogAction</code> to Amazon Lex without changing any slot values. ",
+      "description": "This exception is not used.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessage"
@@ -217,7 +222,7 @@
       "properties": {
         "inputStream": {
           "$ref": "#/definitions/BlobStream",
-          "description": " User input in PCM or Opus audio format or text format as described in the <code>Content-Type</code> HTTP header. "
+          "description": "<p> User input in PCM or Opus audio format or text format as described in the <code>Content-Type</code> HTTP header. </p> <p>You can stream audio data to Amazon Lex or you can create a local buffer that captures all of the audio data before sending. In general, you get better performance if you stream audio data rather than buffering the data locally.</p>"
         }
       },
       "required": [
@@ -242,9 +247,13 @@
           "$ref": "#/definitions/Text",
           "description": "The text that the user entered (Amazon Lex interprets this text)."
         },
+        "requestAttributes": {
+          "$ref": "#/definitions/StringMap",
+          "description": "<p>Request-specific information passed between Amazon Lex and a client application.</p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs\">Setting Request Attributes</a>.</p>"
+        },
         "sessionAttributes": {
           "$ref": "#/definitions/StringMap",
-          "description": "<p> By using session attributes, a client application can pass contextual information in the request to Amazon Lex For example, </p> <ul> <li> <p>In Getting Started Exercise 1, the example bot uses the <code>price</code> session attribute to maintain the price of the flowers ordered (for example, \"Price\":25). The code hook (the Lambda function) sets this attribute based on the type of flowers ordered. For more information, see <a href=\"http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html\">Review the Details of Information Flow</a>. </p> </li> <li> <p>In the BookTrip bot exercise, the bot uses the <code>currentReservation</code> session attribute to maintain slot data during the in-progress conversation to book a hotel or book a car. For more information, see <a href=\"http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html\">Details of Information Flow</a>. </p> </li> <li> <p>You might use the session attributes (key, value pairs) to track the requestID of user requests.</p> </li> </ul> <p> Amazon Lex simply passes these session attributes to the Lambda functions configured for the intent.</p> <p>In your Lambda function, you can also use the session attributes for initialization and customization (prompts and response cards). Some examples are:</p> <ul> <li> <p> Initialization - In a pizza ordering bot, if you can pass the user location as a session attribute (for example, <code>\"Location\" : \"111 Maple street\"</code>), then your Lambda function might use this information to determine the closest pizzeria to place the order (perhaps to set the storeAddress slot value). </p> </li> <li> <p> Personalize prompts - For example, you can configure prompts to refer to the user name. (For example, \"Hey [FirstName], what toppings would you like?\"). You can pass the user name as a session attribute (<code>\"FirstName\" : \"Joe\"</code>) so that Amazon Lex can substitute the placeholder to provide a personalize prompt to the user (\"Hey Joe, what toppings would you like?\"). </p> </li> </ul> <note> <p> Amazon Lex does not persist session attributes. </p> <p> If you configure a code hook for the intent, Amazon Lex passes the incoming session attributes to the Lambda function. If you want Amazon Lex to return these session attributes back to the client, the Lambda function must return them. </p> <p> If there is no code hook configured for the intent, Amazon Lex simply returns the session attributes back to the client application. </p> </note>"
+          "description": "<p>Application-specific information passed between Amazon Lex and a client application.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs\">Setting Session Attributes</a>.</p>"
         }
       },
       "required": [
@@ -257,7 +266,7 @@
       "properties": {
         "dialogState": {
           "$ref": "#/definitions/DialogState",
-          "description": "<p> Identifies the current state of the user interaction. Amazon Lex returns one of the following values as <code>dialogState</code>. The client can optionally use this information to customize the user interface. </p> <ul> <li> <p> <code>ElicitIntent</code> – Amazon Lex wants to elicit user intent. </p> <p>For example, a user might utter an intent (\"I want to order a pizza\"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialogState.</p> </li> <li> <p> <code>ConfirmIntent</code> – Amazon Lex is expecting a \"yes\" or \"no\" response. </p> <p> For example, Amazon Lex wants user confirmation before fulfilling an intent. </p> <p>Instead of a simple \"yes\" or \"no,\" a user might respond with additional information. For example, \"yes, but make it thick crust pizza\" or \"no, I want to order a drink\". Amazon Lex can process such additional information (in these examples, update the crust type slot value, or change intent from OrderPizza to OrderDrink).</p> </li> <li> <p> <code>ElicitSlot</code> – Amazon Lex is expecting a slot value for the current intent. </p> <p>For example, suppose that in the response Amazon Lex sends this message: \"What size pizza would you like?\". A user might reply with the slot value (e.g., \"medium\"). The user might also provide additional information in the response (e.g., \"medium thick crust pizza\"). Amazon Lex can process such additional information appropriately. </p> </li> <li> <p> <code>Fulfilled</code> – Conveys that the Lambda function configured for the intent has successfully fulfilled the intent. </p> </li> <li> <p> <code>ReadyForFulfillment</code> – Conveys that the client has to fulfill the intent. </p> </li> <li> <p> <code>Failed</code> – Conveys that the conversation with the user failed. </p> <p> This can happen for various reasons including that the user did not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or the Lambda function failed to fulfill the intent. </p> </li> </ul>"
+          "description": "<p> Identifies the current state of the user interaction. Amazon Lex returns one of the following values as <code>dialogState</code>. The client can optionally use this information to customize the user interface. </p> <ul> <li> <p> <code>ElicitIntent</code> - Amazon Lex wants to elicit user intent. </p> <p>For example, a user might utter an intent (\"I want to order a pizza\"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialogState.</p> </li> <li> <p> <code>ConfirmIntent</code> - Amazon Lex is expecting a \"yes\" or \"no\" response. </p> <p> For example, Amazon Lex wants user confirmation before fulfilling an intent. </p> <p>Instead of a simple \"yes\" or \"no,\" a user might respond with additional information. For example, \"yes, but make it thick crust pizza\" or \"no, I want to order a drink\". Amazon Lex can process such additional information (in these examples, update the crust type slot value, or change intent from OrderPizza to OrderDrink).</p> </li> <li> <p> <code>ElicitSlot</code> - Amazon Lex is expecting a slot value for the current intent. </p> <p>For example, suppose that in the response Amazon Lex sends this message: \"What size pizza would you like?\". A user might reply with the slot value (e.g., \"medium\"). The user might also provide additional information in the response (e.g., \"medium thick crust pizza\"). Amazon Lex can process such additional information appropriately. </p> </li> <li> <p> <code>Fulfilled</code> - Conveys that the Lambda function configured for the intent has successfully fulfilled the intent. </p> </li> <li> <p> <code>ReadyForFulfillment</code> - Conveys that the client has to fulfill the intent. </p> </li> <li> <p> <code>Failed</code> - Conveys that the conversation with the user failed. </p> <p> This can happen for various reasons including that the user did not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or the Lambda function failed to fulfill the intent. </p> </li> </ul>"
         },
         "intentName": {
           "$ref": "#/definitions/IntentName",
@@ -281,7 +290,7 @@
         },
         "slots": {
           "$ref": "#/definitions/StringMap",
-          "description": " The intent slots (name/value pairs) that Amazon Lex detected so far from the user input in the conversation. "
+          "description": "<p> The intent slots that Amazon Lex detected from the user input in the conversation. </p> <p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type was created or updated. If <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value is similar to the slot values. If <code>valueSelectionStrategy</code> is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</p>"
         }
       },
       "type": "object",
@@ -348,6 +357,7 @@
       "title": "StringWithLength"
     },
     "Text": {
+      "format": "password",
       "maxLength": 1024,
       "minLength": 1,
       "type": "string",

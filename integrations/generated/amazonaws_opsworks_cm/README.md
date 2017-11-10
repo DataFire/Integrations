@@ -225,6 +225,7 @@ amazonaws_opsworks_cm.StartMaintenance({
 ```
 
 #### Parameters
+* EngineAttributes (array)
 * ServerName (string) **required**
 
 ### UpdateServer

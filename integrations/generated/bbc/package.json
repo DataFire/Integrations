@@ -1,8 +1,8 @@
 {
   "name": "@datafire/bbc",
-  "version": "2.0.3",
+  "version": "4.0.0",
   "main": "index.js",
-  "description": "DataFire integration for BBC Nitro",
+  "description": "DataFire integration for Radio & Music Services",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/bbc.com/1.0.0/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/bbc.co.uk/1.0.0/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

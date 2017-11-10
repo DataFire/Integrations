@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "ecr.amazonaws.com",
@@ -375,7 +376,7 @@
         }
       ],
       "post": {
-        "description": "<p>Inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed. You can optionally provide a <code>sha256</code> digest of the image layer for data validation purposes.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
+        "description": "<p>Informs Amazon ECR that the image layer upload has completed for a specified registry, repository name, and upload ID. You can optionally provide a <code>sha256</code> digest of the image layer for data validation purposes.</p> <note> <p>This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p> </note>",
         "operationId": "CompleteLayerUpload",
         "parameters": [
           {
@@ -517,6 +518,83 @@
             "description": "LimitExceededException",
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteLifecyclePolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified lifecycle policy.",
+        "operationId": "DeleteLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLifecyclePolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "LifecyclePolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LifecyclePolicyNotFoundException"
             }
           }
         }
@@ -1000,6 +1078,160 @@
         }
       }
     },
+    "/#GetLifecyclePolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves the specified lifecycle policy.",
+        "operationId": "GetLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "LifecyclePolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LifecyclePolicyNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#GetLifecyclePolicyPreview": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves the results of the specified lifecycle policy preview request.",
+        "operationId": "GetLifecyclePolicyPreview",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyPreviewRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLifecyclePolicyPreviewResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "LifecyclePolicyPreviewNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LifecyclePolicyPreviewNotFoundException"
+            }
+          }
+        }
+      }
+    },
     "/#GetRepositoryPolicy": {
       "parameters": [
         {
@@ -1322,6 +1554,77 @@
         }
       }
     },
+    "/#PutLifecyclePolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates or updates a lifecycle policy.",
+        "operationId": "PutLifecyclePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutLifecyclePolicyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutLifecyclePolicyResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        }
+      }
+    },
     "/#SetRepositoryPolicy": {
       "parameters": [
         {
@@ -1388,6 +1691,89 @@
             "description": "RepositoryNotFoundException",
             "schema": {
               "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#StartLifecyclePolicyPreview": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts a preview of the specified lifecycle policy. This allows you to see the results before creating the lifecycle policy.",
+        "operationId": "StartLifecyclePolicyPreview",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartLifecyclePolicyPreviewRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartLifecyclePolicyPreviewResponse"
+            }
+          },
+          "480": {
+            "description": "ServerException",
+            "schema": {
+              "$ref": "#/definitions/ServerException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "RepositoryNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/RepositoryNotFoundException"
+            }
+          },
+          "483": {
+            "description": "LifecyclePolicyNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LifecyclePolicyNotFoundException"
+            }
+          },
+          "484": {
+            "description": "LifecyclePolicyPreviewInProgressException",
+            "schema": {
+              "$ref": "#/definitions/LifecyclePolicyPreviewInProgressException"
             }
           }
         }
@@ -1756,6 +2142,43 @@
       "format": "date-time",
       "type": "string"
     },
+    "DeleteLifecyclePolicyRequest": {
+      "properties": {
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository that is associated with the repository policy to&#8232; delete."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "DeleteLifecyclePolicyResponse": {
+      "properties": {
+        "lastEvaluatedAt": {
+          "$ref": "#/definitions/EvaluationTimestamp",
+          "description": "The time stamp of the last time that the lifecycle policy was run."
+        },
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The JSON repository policy text."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The registry ID associated with the request."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The repository name associated with the request."
+        }
+      },
+      "type": "object"
+    },
     "DeleteRepositoryPolicyRequest": {
       "example": {
         "repositoryName": "ubuntu"
@@ -1805,7 +2228,7 @@
       "properties": {
         "force": {
           "$ref": "#/definitions/ForceFlag",
-          "description": "Force the deletion of the repository if it contains images."
+          "description": " If a repository contains images, forces the deletion."
         },
         "registryId": {
           "$ref": "#/definitions/RegistryId",
@@ -1951,6 +2374,10 @@
       },
       "type": "object"
     },
+    "EvaluationTimestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
     "ExceptionMessage": {
       "type": "string"
     },
@@ -2031,6 +2458,108 @@
       },
       "type": "object"
     },
+    "GetLifecyclePolicyPreviewRequest": {
+      "properties": {
+        "filter": {
+          "$ref": "#/definitions/LifecyclePolicyPreviewFilter",
+          "description": "An optional parameter that filters results based on image tag status and all tags, if tagged."
+        },
+        "imageIds": {
+          "$ref": "#/definitions/ImageIdentifierList",
+          "description": "The list of imageIDs to be included."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of repository results returned by <code>GetLifecyclePolicyPreviewRequest</code> in&#8232; paginated output. When this parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns&#8232; <code>maxResults</code> results in a single page along with a <code>nextToken</code>&#8232; response element. The remaining results of the initial request can be seen by sending&#8232; another <code>GetLifecyclePolicyPreviewRequest</code> request with the returned <code>nextToken</code>&#8232; value. This value can be between 1 and 100. If this&#8232; parameter is not used, then <code>GetLifecyclePolicyPreviewRequest</code> returns up to&#8232; 100 results and a <code>nextToken</code> value, if&#8232; applicable."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> value returned from a previous paginated&#8232; <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code> was used and the&#8232; results exceeded the value of that parameter. Pagination continues from the end of the&#8232; previous results that returned the <code>nextToken</code> value. This value is&#8232; <code>null</code> when there are no more results to return."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository with the policy to retrieve."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "GetLifecyclePolicyPreviewResponse": {
+      "properties": {
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The JSON repository policy text."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>GetLifecyclePolicyPreview</code> request. When the results of a <code>GetLifecyclePolicyPreview</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return."
+        },
+        "previewResults": {
+          "$ref": "#/definitions/LifecyclePolicyPreviewResultList",
+          "description": "The results of the lifecycle policy preview request."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The registry ID associated with the request."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The repository name associated with the request."
+        },
+        "status": {
+          "$ref": "#/definitions/LifecyclePolicyPreviewStatus",
+          "description": "The status of the lifecycle policy preview request."
+        },
+        "summary": {
+          "$ref": "#/definitions/LifecyclePolicyPreviewSummary",
+          "description": "The list of images that is returned as a result of the action."
+        }
+      },
+      "type": "object"
+    },
+    "GetLifecyclePolicyRequest": {
+      "properties": {
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository with the policy to retrieve."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "GetLifecyclePolicyResponse": {
+      "properties": {
+        "lastEvaluatedAt": {
+          "$ref": "#/definitions/EvaluationTimestamp",
+          "description": "The time stamp of the last time that the lifecycle policy was run."
+        },
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The JSON repository policy text."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The registry ID associated with the request."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The repository name associated with the request."
+        }
+      },
+      "type": "object"
+    },
     "GetRepositoryPolicyRequest": {
       "example": {
         "repositoryName": "ubuntu"
@@ -2042,7 +2571,7 @@
         },
         "repositoryName": {
           "$ref": "#/definitions/RepositoryName",
-          "description": "The name of the repository whose policy you want to retrieve."
+          "description": "The name of the repository with the policy to retrieve."
         }
       },
       "required": [
@@ -2094,8 +2623,14 @@
       },
       "type": "object"
     },
+    "ImageActionType": {
+      "enum": [
+        "EXPIRE"
+      ],
+      "type": "string"
+    },
     "ImageAlreadyExistsException": {
-      "description": "The specified image has already been pushed, and there are no changes to the manifest or image tag since the last push.",
+      "description": "The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.",
       "properties": {
         "message": {
           "$ref": "#/definitions/ExceptionMessage",
@@ -2103,6 +2638,10 @@
         }
       },
       "type": "object"
+    },
+    "ImageCount": {
+      "minimum": 0,
+      "type": "integer"
     },
     "ImageDetail": {
       "description": "An object that describes an image returned by a <a>DescribeImages</a> operation.",
@@ -2236,11 +2775,11 @@
       "properties": {
         "registryId": {
           "$ref": "#/definitions/RegistryId",
-          "description": "The AWS account ID associated with the registry that you intend to upload layers to. If you do not specify a registry, the default registry is assumed."
+          "description": "The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed."
         },
         "repositoryName": {
           "$ref": "#/definitions/RepositoryName",
-          "description": "The name of the repository that you intend to upload layers to."
+          "description": "The name of the repository to which you intend to upload layers."
         }
       },
       "required": [
@@ -2434,6 +2973,113 @@
       },
       "type": "object"
     },
+    "LifecyclePolicyNotFoundException": {
+      "description": "The lifecycle policy could not be found, and no policy is set to the repository.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyPreviewFilter": {
+      "description": "The filter for the lifecycle policy preview.",
+      "properties": {
+        "tagStatus": {
+          "$ref": "#/definitions/TagStatus",
+          "description": "The tag status of the image."
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyPreviewInProgressException": {
+      "description": "The previous lifecycle policy preview request has not completed. Please try again later.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyPreviewNotFoundException": {
+      "description": "There is no dry run for this repository.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyPreviewResult": {
+      "description": "The result of the lifecycle policy preview.",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/LifecyclePolicyRuleAction",
+          "description": "The type of action to be taken."
+        },
+        "appliedRulePriority": {
+          "$ref": "#/definitions/LifecyclePolicyRulePriority",
+          "description": "The priority of the applied rule."
+        },
+        "imageDigest": {
+          "$ref": "#/definitions/ImageDigest",
+          "description": "The <code>sha256</code> digest of the image manifest."
+        },
+        "imagePushedAt": {
+          "$ref": "#/definitions/PushTimestamp",
+          "description": "The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository."
+        },
+        "imageTags": {
+          "$ref": "#/definitions/ImageTagList",
+          "description": "The list of tags associated with this image."
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyPreviewResultList": {
+      "items": {
+        "$ref": "#/definitions/LifecyclePolicyPreviewResult"
+      },
+      "type": "array"
+    },
+    "LifecyclePolicyPreviewStatus": {
+      "enum": [
+        "IN_PROGRESS",
+        "COMPLETE",
+        "EXPIRED",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "LifecyclePolicyPreviewSummary": {
+      "description": "The summary of the lifecycle policy preview request.",
+      "properties": {
+        "expiringImageTotalCount": {
+          "$ref": "#/definitions/ImageCount",
+          "description": "The number of expiring images."
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyRuleAction": {
+      "description": "The type of action to be taken.",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/ImageActionType",
+          "description": "The type of action to be taken."
+        }
+      },
+      "type": "object"
+    },
+    "LifecyclePolicyRulePriority": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "LifecyclePolicyText": {
+      "maxLength": 10240,
+      "minLength": 100,
+      "type": "string"
+    },
     "LimitExceededException": {
       "description": "The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html\">Amazon ECR Default Service Limits</a> in the Amazon EC2 Container Registry User Guide.",
       "properties": {
@@ -2473,11 +3119,11 @@
         },
         "registryId": {
           "$ref": "#/definitions/RegistryId",
-          "description": "The AWS account ID associated with the registry that contains the repository to list images in. If you do not specify a registry, the default registry is assumed."
+          "description": "The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed."
         },
         "repositoryName": {
           "$ref": "#/definitions/RepositoryName",
-          "description": "The repository whose image IDs are to be listed."
+          "description": "The repository with image IDs to be listed."
         }
       },
       "required": [
@@ -2512,7 +3158,6 @@
       "type": "integer"
     },
     "MediaType": {
-      "pattern": "\\w{1,127}\\/[-+.\\w]{1,127}",
       "type": "string"
     },
     "MediaTypeList": {
@@ -2571,6 +3216,44 @@
       },
       "type": "object"
     },
+    "PutLifecyclePolicyRequest": {
+      "properties": {
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The JSON repository policy text to apply to the repository."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The AWS account ID associated with the registry that contains the repository. If you do&#8232; not specify a registry, the default registry is assumed."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to receive the policy."
+        }
+      },
+      "required": [
+        "repositoryName",
+        "lifecyclePolicyText"
+      ],
+      "type": "object"
+    },
+    "PutLifecyclePolicyResponse": {
+      "properties": {
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The JSON repository policy text."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The registry ID associated with the request."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The repository name associated with the request."
+        }
+      },
+      "type": "object"
+    },
     "RegistryId": {
       "pattern": "[0-9]{12}",
       "type": "string"
@@ -2580,7 +3263,7 @@
       "properties": {
         "createdAt": {
           "$ref": "#/definitions/CreationTimestamp",
-          "description": "The date and time, in JavaScript date/time format, when the repository was created."
+          "description": "The date and time, in JavaScript date format, when the repository was created."
         },
         "registryId": {
           "$ref": "#/definitions/RegistryId",
@@ -2588,7 +3271,7 @@
         },
         "repositoryArn": {
           "$ref": "#/definitions/Arn",
-          "description": "The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>."
+          "description": "The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>."
         },
         "repositoryName": {
           "$ref": "#/definitions/RepositoryName",
@@ -2596,7 +3279,7 @@
         },
         "repositoryUri": {
           "$ref": "#/definitions/Url",
-          "description": "The URI for the repository. You can use this URI for Docker <code>push</code> and <code>pull</code> operations."
+          "description": "The URI for the repository. You can use this URI for Docker <code>push</code> or <code>pull</code> operations."
         }
       },
       "type": "object"
@@ -2718,6 +3401,47 @@
       },
       "type": "object"
     },
+    "StartLifecyclePolicyPreviewRequest": {
+      "properties": {
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The policy to be evaluated against. If you do not specify a policy, the current policy for the repository is used."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The name of the repository to be evaluated."
+        }
+      },
+      "required": [
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "StartLifecyclePolicyPreviewResponse": {
+      "properties": {
+        "lifecyclePolicyText": {
+          "$ref": "#/definitions/LifecyclePolicyText",
+          "description": "The JSON repository policy text."
+        },
+        "registryId": {
+          "$ref": "#/definitions/RegistryId",
+          "description": "The registry ID associated with the request."
+        },
+        "repositoryName": {
+          "$ref": "#/definitions/RepositoryName",
+          "description": "The repository name associated with the request."
+        },
+        "status": {
+          "$ref": "#/definitions/LifecyclePolicyPreviewStatus",
+          "description": "The status of the lifecycle policy preview request."
+        }
+      },
+      "type": "object"
+    },
     "TagStatus": {
       "enum": [
         "TAGGED",
@@ -2745,11 +3469,11 @@
         },
         "registryId": {
           "$ref": "#/definitions/RegistryId",
-          "description": "The AWS account ID associated with the registry that you are uploading layer parts to. If you do not specify a registry, the default registry is assumed."
+          "description": "The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed."
         },
         "repositoryName": {
           "$ref": "#/definitions/RepositoryName",
-          "description": "The name of the repository that you are uploading layer parts to."
+          "description": "The name of the repository to which you are uploading layer parts."
         },
         "uploadId": {
           "$ref": "#/definitions/UploadId",

@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "polly.amazonaws.com",
@@ -1025,6 +1026,7 @@
         "Justin",
         "Kendra",
         "Kimberly",
+        "Matthew",
         "Salli",
         "Conchita",
         "Enrique",
@@ -1053,7 +1055,9 @@
         "Maxim",
         "Tatyana",
         "Astrid",
-        "Filiz"
+        "Filiz",
+        "Vicki",
+        "Takumi"
       ],
       "type": "string"
     },

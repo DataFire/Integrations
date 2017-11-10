@@ -69,8 +69,8 @@ hetras_certification_hotel.Codes_GetCodes({
 * App-Id (string) **required** - Application identifier
 * App-Key (string) **required** - Application key.
 * hotelId (integer) **required** - The hotel id you are trying to find codes for.
-* code (string) - Return all codes matching the code. Only the combinication of code and type
-* type (string) - Return all codes available for the specified type
+* code (string) - Return all results matching the specified code. A code is unique in combination with the type
+* type (string) - Return all codes for the specified type
 
 ### Codes_GetCode
 Read the details about a specific code available for the defined hotel.

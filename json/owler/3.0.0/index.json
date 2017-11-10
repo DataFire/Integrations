@@ -1,0 +1,920 @@
+{
+  "id": "owler",
+  "title": "Owler",
+  "description": "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.",
+  "security": {
+    "owler": {
+      "integration": "owler",
+      "fields": {
+        "user_key": "API Access Key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/owler.png"
+  },
+  "actionCount": 11,
+  "definitions": {
+    "Acquisition": {
+      "properties": {
+        "acquirer_company_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "company_id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "undisclosed": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "title": "Acquisition"
+    },
+    "Address": {
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "street1": {
+          "type": "string"
+        },
+        "street2": {
+          "type": "string"
+        }
+      },
+      "title": "Address"
+    },
+    "Ceo": {
+      "properties": {
+        "ceo_rating": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "title": "Ceo"
+    },
+    "CompanyBasicSearchVO": {
+      "properties": {
+        "company_id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "hq_address": {
+          "$ref": "#/definitions/Address"
+        },
+        "name": {
+          "type": "string"
+        },
+        "perm_id": {
+          "type": "string"
+        },
+        "profile_url": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "title": "CompanyBasicSearchVO"
+    },
+    "CompanyBasicVO": {
+      "properties": {
+        "company_id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "profile_url": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "company_id",
+        "name",
+        "website",
+        "logo_url",
+        "profile_url"
+      ],
+      "title": "CompanyBasicVO"
+    },
+    "CompanyCompetitorVO": {
+      "properties": {
+        "competitor": {
+          "items": {
+            "$ref": "#/definitions/CompanyBasicVO"
+          },
+          "type": "array"
+        }
+      },
+      "title": "CompanyCompetitorVO"
+    },
+    "CompanySearchResultVO": {
+      "properties": {
+        "company_id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "company_type": {
+          "enum": [
+            "Private",
+            "Public",
+            "Product/Brand/Service",
+            "NGO/NPO/NFP/Organization/Association",
+            "Investment Company",
+            "Government"
+          ],
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "hq_address": {
+          "$ref": "#/definitions/Address"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "perm_id": {
+          "type": "string"
+        },
+        "profile_url": {
+          "type": "string"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "stock": {
+          "$ref": "#/definitions/Stock"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "company_id",
+        "name",
+        "website",
+        "logo_url",
+        "profile_url"
+      ],
+      "title": "CompanySearchResultVO"
+    },
+    "CompetitorBasicVO": {
+      "properties": {
+        "company_id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "profile_url": {
+          "type": "string"
+        },
+        "score": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "company_id",
+        "name",
+        "website",
+        "logo_url",
+        "profile_url",
+        "score"
+      ],
+      "title": "CompetitorBasicVO"
+    },
+    "FeedsVO": {
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "company": {
+          "$ref": "#/definitions/CompanyBasicVO"
+        },
+        "enclosure_image": {
+          "type": "string"
+        },
+        "feed_date": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "owler_feed_url": {
+          "type": "string"
+        },
+        "publisher_logo": {
+          "type": "string"
+        },
+        "publisher_name": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "title": "FeedsVO"
+    },
+    "Funding": {
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "investor": {
+          "items": {
+            "$ref": "#/definitions/Investor"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "undisclosed": {
+          "type": "string"
+        }
+      },
+      "title": "Funding"
+    },
+    "Investor": {
+      "properties": {
+        "company_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "title": "Investor"
+    },
+    "SectorVO": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "parent_industry": {
+          "type": "string"
+        }
+      },
+      "title": "SectorVO"
+    },
+    "Stock": {
+      "properties": {
+        "exchange": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "title": "Stock"
+    },
+    "basic_results": {
+      "properties": {
+        "company": {
+          "items": {
+            "$ref": "#/definitions/CompanyBasicSearchVO"
+          },
+          "type": "array"
+        }
+      },
+      "title": "basic_results"
+    },
+    "company": {
+      "properties": {
+        "acquisition": {
+          "items": {
+            "$ref": "#/definitions/Acquisition"
+          },
+          "type": "array"
+        },
+        "ceo": {
+          "$ref": "#/definitions/Ceo"
+        },
+        "company_id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "company_type": {
+          "enum": [
+            "Private",
+            "Public",
+            "Product/Brand/Service",
+            "NGO/NPO/NFP/Organization/Association",
+            "Investment Company",
+            "Government"
+          ],
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "employee_count": {
+          "type": "string"
+        },
+        "facebook_link": {
+          "type": "string"
+        },
+        "founded_date": {
+          "type": "string"
+        },
+        "funding": {
+          "items": {
+            "$ref": "#/definitions/Funding"
+          },
+          "type": "array"
+        },
+        "hq_address": {
+          "$ref": "#/definitions/Address"
+        },
+        "industries": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "linkedin_link": {
+          "type": "string"
+        },
+        "logo_url": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "perm_id": {
+          "type": "string"
+        },
+        "portfolio_company_ids": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "profile_url": {
+          "type": "string"
+        },
+        "revenue": {
+          "type": "string"
+        },
+        "sectors": {
+          "items": {
+            "$ref": "#/definitions/SectorVO"
+          },
+          "type": "array"
+        },
+        "short_name": {
+          "type": "string"
+        },
+        "stock": {
+          "$ref": "#/definitions/Stock"
+        },
+        "twitter_link": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "youtube_link": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "company_id",
+        "name",
+        "website",
+        "logo_url",
+        "profile_url"
+      ],
+      "title": "company"
+    },
+    "competitors": {
+      "properties": {
+        "competitor": {
+          "items": {
+            "$ref": "#/definitions/CompetitorBasicVO"
+          },
+          "type": "array"
+        },
+        "pagination_id": {
+          "type": "string"
+        }
+      },
+      "title": "competitors"
+    },
+    "results": {
+      "properties": {
+        "feeds": {
+          "items": {
+            "$ref": "#/definitions/FeedsVO"
+          },
+          "type": "array"
+        },
+        "pagination_id": {
+          "type": "string"
+        }
+      },
+      "title": "results"
+    }
+  },
+  "actions": [
+    {
+      "id": "basicCompanySearch",
+      "title": "basicCompanySearch",
+      "description": "The Company Basic Search API searches for a company based on the input and will returns results containing basic details about matching companies. By default the API returns the top 10 available results unless the limit is specified. The maximum limit is restricted to 30.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Search term"
+          },
+          "fields": {
+            "type": "array",
+            "description": "Fields to be searched - name, website, ticker, permid. If not specfied, will be searched against all fields"
+          },
+          "limit": {
+            "type": "string",
+            "description": "Number of results to be displayed - 10 (by default, if not specified) to 30"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/basic_results"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.company.competitor.id.companyId.get",
+      "title": "v1.company.competitor.id.companyId.get",
+      "description": "The Competitors API provides basic information about top 3 competitors of a company specified in the Company Id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "description": "Company Id"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "companyId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CompanyCompetitorVO"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.company.competitor.url.website.get",
+      "title": "v1.company.competitor.url.website.get",
+      "description": "The Competitors API provides basic information about top 3 competitors of a company specified in the website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "website": {
+            "type": "string",
+            "description": "Company Id"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "website"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CompanyCompetitorVO"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.company.competitorpremium.id.companyId.get",
+      "title": "v1.company.competitorpremium.id.companyId.get",
+      "description": "The Competitors API provides basic information about all competitors of a given company Id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "description": "Company Id"
+          },
+          "pagination_id": {
+            "type": "string",
+            "description": "Pass pagination_id as * in the first API request. The API response will return top competitors along with the next pagination_id which can be passed in the subsequent API request to get the next set of competitors. Repeat this process until needed or till the pagination_id returned is blank. Note:Every response will have maximum of 50 competitors."
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "companyId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/competitors"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.company.competitorpremium.url.website.get",
+      "title": "v1.company.competitorpremium.url.website.get",
+      "description": "The Competitors API provides basic information about all competitors of a given company Id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "website": {
+            "type": "string",
+            "description": "Company Id"
+          },
+          "pagination_id": {
+            "type": "string",
+            "description": "Pass pagination_id as * in the first API request. The API response will return top competitors along with the next pagination_id which can be passed in the subsequent API request to get the next set of competitors. Repeat this process until needed or till the pagination_id returned is blank. Note:Every response will have maximum of 50 competitors."
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "website"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/competitors"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.company.id.companyId.get",
+      "title": "v1.company.id.companyId.get",
+      "description": "The Company Data API provides complete information about a company for the specified Company Id ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "description": "Company Id"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "companyId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "searchCompany",
+      "title": "searchCompany",
+      "description": "The Company Search API searches for a company based on the input and will returns results containing basic details about matching companies. By default the API returns the top 10 available results unless the limit is specified. The maximum limit is restricted to 30.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Search term"
+          },
+          "fields": {
+            "type": "array",
+            "description": "Fields to be searched - name, website, ticker. If not specified, will be searched against all fields"
+          },
+          "limit": {
+            "type": "string",
+            "description": "Number of results to be displayed - 10 (by default, if not specified) to 30"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/results"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.company.url.website.get",
+      "title": "v1.company.url.website.get",
+      "description": "The Company Data API provides complete information about a company for the specified URL ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "website": {
+            "type": "string",
+            "description": "Company Domain"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "website"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.companypremium.id.companyId.get",
+      "title": "v1.companypremium.id.companyId.get",
+      "description": "The Company Premium Data API provides complete information about a company for the specified Company Id ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "description": "Company Id"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "companyId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "v1.companypremium.url.website.get",
+      "title": "v1.companypremium.url.website.get",
+      "description": "The Company Data API provides complete information about a company for the specified URL ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "website": {
+            "type": "string",
+            "description": "Company Domain"
+          },
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "website"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    },
+    {
+      "id": "getFeeds",
+      "title": "getFeeds",
+      "description": "The Feeds API provides a list of feeds and individual feed information for the given Company Ids and Category. By default the API returns the latest 10 feeds available unless the limit is specified. The maximum result is restricted to 100 feeds per API request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Format of the response content - json (by default if not specified), xml",
+            "enum": [
+              "xml",
+              "json"
+            ],
+            "default": "json"
+          },
+          "company_id": {
+            "type": "array",
+            "description": "Company Ids separated by comma (Maximum of 150 Company Ids)"
+          },
+          "limit": {
+            "type": "string",
+            "description": "Number of results to be displayed - 10 (by default, if not specified) to 100",
+            "default": "10"
+          },
+          "pagination_id": {
+            "type": "string",
+            "description": "Pass pagination_id as blank in the first API request. The API response will return the latest feeds along with the next pagination_id which can be passed in the subsequent API request to get the next set of feeds. Repeat this process until needed or till the pagination_id returned is blank",
+            "default": "*"
+          },
+          "category": {
+            "type": "array",
+            "description": "Categories separated by comma. If not specified, will search against all categories"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "company_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/results"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "search"
+  ]
+}

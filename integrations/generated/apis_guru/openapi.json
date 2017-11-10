@@ -14,7 +14,7 @@
     "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.\n\n**Warning**: If you want to be notified about changes in advance please subscribe to our [Gitter channel](https://gitter.im/APIs-guru/api-models).\n\nClient sample: [[Demo]](https://apis.guru/simple-ui) [[Repo]](https://github.com/APIs-guru/simple-ui)\n",
     "license": {
       "name": "CC0 1.0",
-      "url": "https://github.com/APIs-guru/api-models#licenses"
+      "url": "https://github.com/APIs-guru/openapi-directory#licenses"
     },
     "title": "APIs.guru",
     "version": "2.0",
@@ -48,7 +48,7 @@
     }
   },
   "externalDocs": {
-    "url": "https://github.com/APIs-guru/api-models/blob/master/API.md"
+    "url": "https://github.com/APIs-guru/openapi-directory/blob/master/API.md"
   },
   "produces": [
     "application/json"

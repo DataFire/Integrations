@@ -1,8 +1,8 @@
 {
   "name": "@datafire/google_bigquerydatatransfer",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
-  "description": "DataFire integration for BigQuery Data Transfer Service",
+  "description": "DataFire integration for BigQuery Data Transfer",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

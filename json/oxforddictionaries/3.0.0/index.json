@@ -1,0 +1,2369 @@
+{
+  "id": "oxforddictionaries",
+  "title": "Oxford Dictionaries",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oxforddictionaries.png"
+  },
+  "actionCount": 24,
+  "definitions": {
+    "ArrayOfRelatedEntries": {
+      "description": "A list of written or spoken words",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domains": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A subject, discipline, or branch of knowledge particular to the Sense"
+          },
+          "id": {
+            "description": "The identifier of the word",
+            "type": "string"
+          },
+          "language": {
+            "description": "IANA language code specifying the language of the word",
+            "type": "string"
+          },
+          "regions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A particular area in which the pronunciation occurs, e.g. 'Great Britain'"
+          },
+          "registers": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A level of language usage, typically with respect to formality. e.g. 'offensive', 'informal'",
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "id"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "ArrayOfRelatedEntries"
+    },
+    "CategorizedTextList": {
+      "description": "various types of notes that appear",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "The identifier of the word",
+            "type": "string"
+          },
+          "text": {
+            "description": "A note text",
+            "type": "string"
+          },
+          "type": {
+            "description": "The descriptive category of the text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "type"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "CategorizedTextList"
+    },
+    "CrossReferencesList": {
+      "description": "A reference to another word that is closely related, might provide additional information about the subject, has a variant spelling or is an abbreviated form of it.",
+      "items": {
+        "additionalProperties": false,
+        "description": "cross references of a sense",
+        "properties": {
+          "id": {
+            "description": "The word id of cooccurrence",
+            "type": "string"
+          },
+          "text": {
+            "description": "The word of cooccurrence",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of relation between the two words. Possible values are 'close match', 'related', 'see also', 'variant spelling', and 'abbreviation' in case of crossreferences, or 'pre', 'post' in case of collocates.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "type"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "CrossReferencesList"
+    },
+    "Entry": {
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "etymologies": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "The origin of the word and the way in which its meaning has changed throughout history"
+        },
+        "grammaticalFeatures": {
+          "$ref": "#/definitions/GrammaticalFeaturesList"
+        },
+        "homographNumber": {
+          "description": "Identifies the homograph grouping. The last two digits identify different entries of the same homograph. The first one/two digits identify the homograph number.",
+          "type": "string"
+        },
+        "notes": {
+          "$ref": "#/definitions/CategorizedTextList"
+        },
+        "pronunciations": {
+          "$ref": "#/definitions/PronunciationsList"
+        },
+        "senses": {
+          "description": "Complete list of senses",
+          "items": {
+            "$ref": "#/definitions/Sense"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "variantForms": {
+          "$ref": "#/definitions/VariantFormsList",
+          "description": "Various words that are used interchangeably depending on the context, e.g 'a' and 'an'"
+        }
+      },
+      "type": "object",
+      "title": "Entry"
+    },
+    "ExamplesList": {
+      "description": "A list of written or spoken rendering of examples of use of a word or text",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "definitions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A list of statements of the exact meaning of a word"
+          },
+          "domains": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A subject, discipline, or branch of knowledge particular to the Sense"
+          },
+          "notes": {
+            "$ref": "#/definitions/CategorizedTextList"
+          },
+          "regions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A particular area in which the pronunciation occurs, e.g. 'Great Britain'"
+          },
+          "registers": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A level of language usage, typically with respect to formality. e.g. 'offensive', 'informal'"
+          },
+          "senseIds": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "The list of sense identifiers related to the example. Provided in the sentences endpoint only."
+          },
+          "text": {
+            "type": "string"
+          },
+          "translations": {
+            "$ref": "#/definitions/TranslationsList"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "ExamplesList"
+    },
+    "Filters": {
+      "description": "Schema for the Filters endpoint.",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "additionalProperties": false,
+          "description": "A mapping of filters available per endpoints.",
+          "minProperties": 1,
+          "properties": {
+            "entries": {
+              "$ref": "#/definitions/arrayofstrings",
+              "description": "A list of filters available for Retrieve Entry endpoint"
+            },
+            "inflections": {
+              "$ref": "#/definitions/arrayofstrings",
+              "description": "A list of filters available for LEMMATRON endpoint"
+            },
+            "translations": {
+              "$ref": "#/definitions/arrayofstrings",
+              "description": "A list of filters available for Translations endpoint"
+            },
+            "wordlist": {
+              "$ref": "#/definitions/arrayofstrings",
+              "description": "A list of filters available for Translations endpoint"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "title": "Filters"
+    },
+    "GrammaticalFeaturesList": {
+      "description": "The different forms are correlated with meanings or functions which we text as 'features'",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "type"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "GrammaticalFeaturesList"
+    },
+    "HeadwordEntry": {
+      "additionalProperties": false,
+      "description": "Description of a word",
+      "properties": {
+        "id": {
+          "description": "The identifier of a word",
+          "type": "string"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalEntries": {
+          "description": "A grouping of various senses in a specific language, and a lexical category that relates to a word",
+          "items": {
+            "$ref": "#/definitions/lexicalEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "pronunciations": {
+          "$ref": "#/definitions/PronunciationsList"
+        },
+        "type": {
+          "description": "The json object type. Could be 'headword', 'inflection' or 'phrase'",
+          "type": "string"
+        },
+        "word": {
+          "description": "A given written or spoken realisation of a an entry, lowercased.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "language",
+        "lexicalEntries",
+        "word"
+      ],
+      "type": "object",
+      "title": "HeadwordEntry"
+    },
+    "HeadwordLemmatron": {
+      "additionalProperties": false,
+      "description": "Description of an inflected form of a word",
+      "properties": {
+        "id": {
+          "description": "The identifier of a word",
+          "type": "string"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalEntries": {
+          "description": "A grouping of various senses in a specific language, and a lexical category that relates to a word",
+          "items": {
+            "$ref": "#/definitions/LemmatronLexicalEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "type": {
+          "description": "The json object type. Could be 'headword', 'inflection' or 'phrase'",
+          "type": "string"
+        },
+        "word": {
+          "description": "A given written or spoken realisation of a an entry, lowercased.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "language",
+        "lexicalEntries",
+        "word"
+      ],
+      "type": "object",
+      "title": "HeadwordLemmatron"
+    },
+    "HeadwordThesaurus": {
+      "additionalProperties": false,
+      "description": "description of thesaurus information of a word",
+      "properties": {
+        "id": {
+          "description": "The identifier of a word",
+          "type": "string"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalEntries": {
+          "description": "A grouping of various senses in a specific language, and a lexical category that relates to a word",
+          "items": {
+            "$ref": "#/definitions/ThesaurusLexicalEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "type": {
+          "description": "The json object type. Could be 'headword', 'inflection' or 'phrase'",
+          "type": "string"
+        },
+        "word": {
+          "description": "A given written or spoken realisation of a an entry, lowercased.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "word",
+        "id",
+        "language",
+        "lexicalEntries"
+      ],
+      "type": "object",
+      "title": "HeadwordThesaurus"
+    },
+    "InflectionsList": {
+      "description": "A grouping of the modifications of a word to express different grammatical categories",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "description": "The identifier of the word",
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "id"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "InflectionsList"
+    },
+    "Languages": {
+      "description": "Schema for the languages endpoint.",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "description": "A list of languages available.",
+          "items": {
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "region": {
+                "description": "Name of region.",
+                "type": "string"
+              },
+              "source": {
+                "description": "Name of source dictionary.",
+                "type": "string"
+              },
+              "sourceLanguage": {
+                "description": "Source language of the results",
+                "properties": {
+                  "id": {
+                    "description": "IANA language code",
+                    "type": "string"
+                  },
+                  "language": {
+                    "description": "Language label.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "targetLanguage": {
+                "description": "Translation language of the results",
+                "properties": {
+                  "id": {
+                    "description": "IANA language code",
+                    "type": "string"
+                  },
+                  "language": {
+                    "description": "Language label.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": {
+                "description": "whether monolingual or bilingual.",
+                "enum": [
+                  "monolingual",
+                  "bilingual"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Languages"
+    },
+    "Lemmatron": {
+      "description": "Schema for the inflections endpoint.",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "description": "A list of inflections matching a given word",
+          "items": {
+            "$ref": "#/definitions/HeadwordLemmatron"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Lemmatron"
+    },
+    "LemmatronLexicalEntry": {
+      "additionalProperties": false,
+      "description": "Description of an entry for a particular part of speech and grammatical features",
+      "properties": {
+        "grammaticalFeatures": {
+          "$ref": "#/definitions/GrammaticalFeaturesList"
+        },
+        "inflectionOf": {
+          "$ref": "#/definitions/InflectionsList",
+          "description": "The canonical form of words for which the entry is an inflection"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalCategory": {
+          "description": "A linguistic category of words (or more precisely lexical items), generally defined by the syntactic or morphological behaviour of the lexical item in question, such as noun or verb",
+          "type": "string"
+        },
+        "text": {
+          "description": "A given written or spoken realisation of a an entry.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "inflectionOf",
+        "language",
+        "lexicalCategory",
+        "text"
+      ],
+      "type": "object",
+      "title": "LemmatronLexicalEntry"
+    },
+    "PronunciationsList": {
+      "description": "A list of possible pronunciations of a word",
+      "items": {
+        "additionalProperties": false,
+        "description": "A grouping of pronunciation information",
+        "minProperties": 1,
+        "properties": {
+          "audioFile": {
+            "description": "The URL of the sound file",
+            "type": "string"
+          },
+          "dialects": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A local or regional variation where the pronunciation occurs, e.g. 'British English'"
+          },
+          "phoneticNotation": {
+            "description": "The alphabetic system used to display the phonetic spelling",
+            "type": "string"
+          },
+          "phoneticSpelling": {
+            "description": "Phonetic spelling is the representation of vocal sounds which express pronunciations of words. It is a system of spelling in which each letter represents invariably the same spoken sound",
+            "type": "string"
+          },
+          "regions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A particular area in which the pronunciation occurs, e.g. 'Great Britain'"
+          }
+        },
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "PronunciationsList"
+    },
+    "Regions": {
+      "description": "Schema for region endpoint.",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "additionalProperties": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A list of lables for region."
+          },
+          "description": "A mapping of regions available.",
+          "type": "object"
+        }
+      },
+      "title": "Regions"
+    },
+    "RetrieveEntry": {
+      "description": "Schema for the 'entries' endpoints",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "description": "A list of entries and all the data related to them",
+          "items": {
+            "$ref": "#/definitions/HeadwordEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "RetrieveEntry"
+    },
+    "Sense": {
+      "additionalProperties": false,
+      "description": "A lexical sense represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element",
+      "minProperties": 1,
+      "properties": {
+        "crossReferenceMarkers": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A grouping of crossreference notes."
+        },
+        "crossReferences": {
+          "$ref": "#/definitions/CrossReferencesList"
+        },
+        "definitions": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A list of statements of the exact meaning of a word"
+        },
+        "domains": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A subject, discipline, or branch of knowledge particular to the Sense"
+        },
+        "examples": {
+          "$ref": "#/definitions/ExamplesList"
+        },
+        "id": {
+          "description": "The id of the sense that is required for the delete procedure",
+          "type": "string"
+        },
+        "notes": {
+          "$ref": "#/definitions/CategorizedTextList"
+        },
+        "pronunciations": {
+          "$ref": "#/definitions/PronunciationsList"
+        },
+        "regions": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A particular area in which the Sense occurs, e.g. 'Great Britain'"
+        },
+        "registers": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A level of language usage, typically with respect to formality. e.g. 'offensive', 'informal'"
+        },
+        "subsenses": {
+          "description": "Ordered list of subsenses of a sense",
+          "items": {
+            "$ref": "#/definitions/Sense"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "translations": {
+          "$ref": "#/definitions/TranslationsList"
+        },
+        "variantForms": {
+          "$ref": "#/definitions/VariantFormsList",
+          "description": "Various words that are used interchangeably depending on the context, e.g 'duck' and 'duck boat'"
+        }
+      },
+      "type": "object",
+      "title": "Sense"
+    },
+    "SentencesEntry": {
+      "additionalProperties": false,
+      "description": "Description of a word",
+      "properties": {
+        "id": {
+          "description": "The identifier of a word",
+          "type": "string"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalEntries": {
+          "description": "A grouping of various senses in a specific language, and a lexical category that relates to a word",
+          "items": {
+            "$ref": "#/definitions/SentencesLexicalEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "type": {
+          "description": "The json object type. Could be 'headword', 'inflection' or 'phrase'",
+          "type": "string"
+        },
+        "word": {
+          "description": "A given written or spoken realisation of a an entry, lowercased.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "language",
+        "lexicalEntries",
+        "word"
+      ],
+      "type": "object",
+      "title": "SentencesEntry"
+    },
+    "SentencesLexicalEntry": {
+      "additionalProperties": false,
+      "description": "Description of an entry for a particular part of speech",
+      "properties": {
+        "grammaticalFeatures": {
+          "$ref": "#/definitions/GrammaticalFeaturesList"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalCategory": {
+          "description": "A linguistic category of words (or more precisely lexical items), generally defined by the syntactic or morphological behaviour of the lexical item in question, such as noun or verb",
+          "type": "string"
+        },
+        "sentences": {
+          "$ref": "#/definitions/ExamplesList",
+          "description": "A list of examples of use sentences"
+        },
+        "text": {
+          "description": "A given written or spoken realisation of a an entry.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "language",
+        "sentences",
+        "text"
+      ],
+      "type": "object",
+      "title": "SentencesLexicalEntry"
+    },
+    "SentencesResults": {
+      "description": "Schema for the 'sentences' endpoint",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "description": "A list of entries and all the data related to them",
+          "items": {
+            "$ref": "#/definitions/SentencesEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "SentencesResults"
+    },
+    "SynonymsAntonyms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domains": {
+            "$ref": "#/definitions/arrayofstrings"
+          },
+          "id": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "regions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A particular area in which the Sense occurs, e.g. 'Great Britain'"
+          },
+          "registers": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A level of language usage, typically with respect to formality. e.g. 'offensive', 'informal'"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "SynonymsAntonyms"
+    },
+    "Thesaurus": {
+      "description": "Schema for thesaurus endpoint",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "description": "A list of found synonyms or antonyms",
+          "items": {
+            "$ref": "#/definitions/HeadwordThesaurus"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Thesaurus"
+    },
+    "ThesaurusEntry": {
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "homographNumber": {
+          "description": "Identifies the homograph grouping. The last two digits identify different entries of the same homograph. The first one/two digits identify the homograph number.",
+          "type": "string"
+        },
+        "senses": {
+          "description": "Complete list of senses",
+          "items": {
+            "$ref": "#/definitions/ThesaurusSense"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "variantForms": {
+          "$ref": "#/definitions/VariantFormsList",
+          "description": "Various words that are used interchangeably depending on the context, e.g 'a' and 'an'"
+        }
+      },
+      "type": "object",
+      "title": "ThesaurusEntry"
+    },
+    "ThesaurusLexicalEntry": {
+      "additionalProperties": false,
+      "description": "Description of an entry for a particular part of speech",
+      "properties": {
+        "entries": {
+          "items": {
+            "$ref": "#/definitions/ThesaurusEntry"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalCategory": {
+          "description": "A linguistic category of words (or more precisely lexical items), generally defined by the syntactic or morphological behaviour of the lexical item in question, such as noun or verb",
+          "type": "string"
+        },
+        "text": {
+          "description": "A given written or spoken realisation of a an entry.",
+          "type": "string"
+        },
+        "variantForms": {
+          "$ref": "#/definitions/VariantFormsList",
+          "description": "Various words that are used interchangeably depending on the context, e.g 'a' and 'an'"
+        }
+      },
+      "required": [
+        "language",
+        "lexicalCategory",
+        "text"
+      ],
+      "type": "object",
+      "title": "ThesaurusLexicalEntry"
+    },
+    "ThesaurusSense": {
+      "additionalProperties": false,
+      "description": "A lexical sense represents the lexical meaning of a lexical entry when interpreted as referring to the corresponding ontology element",
+      "minProperties": 1,
+      "properties": {
+        "antonyms": {
+          "$ref": "#/definitions/SynonymsAntonyms",
+          "description": "antonym of word"
+        },
+        "domains": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A subject, discipline, or branch of knowledge particular to the Sense"
+        },
+        "examples": {
+          "$ref": "#/definitions/ExamplesList"
+        },
+        "id": {
+          "description": "The id of the sense that is required for the delete procedure",
+          "type": "string"
+        },
+        "regions": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A particular area in which the Sense occurs, e.g. 'Great Britain'"
+        },
+        "registers": {
+          "$ref": "#/definitions/arrayofstrings",
+          "description": "A level of language usage, typically with respect to formality. e.g. 'offensive', 'informal'"
+        },
+        "subsenses": {
+          "description": "subsenses of word",
+          "items": {
+            "$ref": "#/definitions/ThesaurusSense"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "synonyms": {
+          "$ref": "#/definitions/SynonymsAntonyms",
+          "description": "synonym of word"
+        }
+      },
+      "type": "object",
+      "title": "ThesaurusSense"
+    },
+    "TranslationsList": {
+      "description": "A list of written or spoken rendering of the meaning of a word or text in another language(s)",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domains": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A subject, discipline, or branch of knowledge particular to the translation"
+          },
+          "grammaticalFeatures": {
+            "$ref": "#/definitions/GrammaticalFeaturesList"
+          },
+          "language": {
+            "description": "IANA language code specifying the language of the translation",
+            "type": "string"
+          },
+          "notes": {
+            "$ref": "#/definitions/CategorizedTextList"
+          },
+          "regions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A particular area in which the translation occurs, e.g. 'Great Britain'"
+          },
+          "registers": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A level of language usage, typically with respect to formality. e.g. 'offensive', 'informal'"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "language"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "TranslationsList"
+    },
+    "UtilityLabels": {
+      "description": "Schema for lexicalcategories, registers utility endpoints.",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "additionalProperties": {
+            "description": "the list of labels for an object. Every object can be a lexical category, or a register, or a domain.",
+            "properties": {
+              "en": {
+                "description": "Label in English",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "description": "Mapping of labels available.",
+          "type": "object"
+        }
+      },
+      "title": "UtilityLabels"
+    },
+    "VariantFormsList": {
+      "description": "Various words that are used interchangeably depending on the context, e.g 'aluminium' and 'aluminum'",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "regions": {
+            "$ref": "#/definitions/arrayofstrings",
+            "description": "A particular area in which the variant form occurs, e.g. 'Great Britain'"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "title": "VariantFormsList"
+    },
+    "Wordlist": {
+      "description": "Schema for wordlist endpoint.",
+      "properties": {
+        "metadata": {
+          "description": "Additional Information provided by OUP",
+          "type": "object"
+        },
+        "results": {
+          "description": "A list of found words",
+          "items": {
+            "additionalProperties": true,
+            "description": "Description of found word",
+            "properties": {
+              "id": {
+                "description": "The identifier of a word",
+                "type": "string"
+              },
+              "matchString": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "matchType": {
+                "type": "string"
+              },
+              "region": {
+                "description": "Name of region.",
+                "type": "string"
+              },
+              "word": {
+                "description": "A given written or spoken realisation of a an entry, lowercased.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "word"
+            ],
+            "type": "object"
+          },
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Wordlist"
+    },
+    "arrayofstrings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "title": "arrayofstrings"
+    },
+    "lexicalEntry": {
+      "additionalProperties": false,
+      "description": "Description of an entry for a particular part of speech",
+      "properties": {
+        "derivativeOf": {
+          "$ref": "#/definitions/ArrayOfRelatedEntries",
+          "description": "Other words from which this one derives"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/definitions/Entry"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "grammaticalFeatures": {
+          "$ref": "#/definitions/GrammaticalFeaturesList"
+        },
+        "language": {
+          "description": "IANA language code",
+          "type": "string"
+        },
+        "lexicalCategory": {
+          "description": "A linguistic category of words (or more precisely lexical items), generally defined by the syntactic or morphological behaviour of the lexical item in question, such as noun or verb",
+          "type": "string"
+        },
+        "notes": {
+          "$ref": "#/definitions/CategorizedTextList"
+        },
+        "pronunciations": {
+          "$ref": "#/definitions/PronunciationsList"
+        },
+        "text": {
+          "description": "A given written or spoken realisation of a an entry.",
+          "type": "string"
+        },
+        "variantForms": {
+          "$ref": "#/definitions/VariantFormsList",
+          "description": "Various words that are used interchangeably depending on the context, e.g 'a' and 'an'"
+        }
+      },
+      "required": [
+        "language",
+        "lexicalCategory",
+        "text"
+      ],
+      "type": "object",
+      "title": "lexicalEntry"
+    }
+  },
+  "actions": [
+    {
+      "id": "domains.source_domains_language.target_domains_language.get",
+      "title": "domains.source_domains_language.target_domains_language.get",
+      "description": "Returns a list of the available [domains](documentation/glossary?term=domain) for a given bilingual language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_domains_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "nso",
+              "zu",
+              "ur",
+              "de",
+              "pt"
+            ]
+          },
+          "target_domains_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "es",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ro",
+              "de",
+              "pt"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_domains_language",
+          "target_domains_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UtilityLabels",
+        "title": "DomainsResults"
+      }
+    },
+    {
+      "id": "domains.source_language.get",
+      "title": "domains.source_language.get",
+      "description": "Returns a list of the available [domains](documentation/glossary?term=domain) for a given monolingual language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "nso",
+              "zu",
+              "hi",
+              "sw",
+              "ur",
+              "de",
+              "pt",
+              "ta",
+              "gu"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UtilityLabels",
+        "title": "DomainsResults"
+      }
+    },
+    {
+      "id": "entries.source_language.word_id.sentences.get",
+      "title": "entries.source_language.word_id.sentences.get",
+      "description": "Use this to retrieve sentences extracted from corpora which show how a word is used in the language. This is available for English and Spanish. For English, the sentences are linked to the correct sense of the word in the dictionary. In Spanish, they are linked at the headword level.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SentencesResults",
+        "title": "SentencesResults"
+      }
+    },
+    {
+      "id": "entries.source_lang.word_id.get",
+      "title": "entries.source_lang.word_id.get",
+      "description": "Use this to retrieve definitions, pronunciations, example sentences, grammatical information and word origins. It only works for dictionary headwords, so you may need to use the Lemmatron first if your input is likely to be an inflected form (e.g., 'swimming'). This would return the linked headword (e.g., 'swim') which you can then use in the Entries endpoint. Unless specified using a region filter, the default lookup will be the Oxford Dictionary of English (GB).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "lv",
+              "hi",
+              "sw",
+              "ta",
+              "gu"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveEntry",
+        "title": "RetrieveEntryResults"
+      }
+    },
+    {
+      "id": "entries.source_lang.word_id.antonyms.get",
+      "title": "entries.source_lang.word_id.antonyms.get",
+      "description": "Retrieve words that are opposite in meaning to the input word (antonym).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Thesaurus",
+        "title": "ThesaurusResults"
+      }
+    },
+    {
+      "id": "entries.source_lang.word_id.regions_region.get",
+      "title": "entries.source_lang.word_id.regions_region.get",
+      "description": "\nUSe this filter to restrict the lookup to either our Oxford Dictionary of English (GB) or New Oxford American Dictionary (US).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region filter parameter. gb = Oxford Dictionary of English. us = New Oxford American Dictionary.",
+            "enum": [
+              "gb",
+              "us"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "region",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveEntry",
+        "title": "RetrieveEntryResults"
+      }
+    },
+    {
+      "id": "entries.source_lang.word_id.synonyms.get",
+      "title": "entries.source_lang.word_id.synonyms.get",
+      "description": "Use this to retrieve words that are similar in meaning to the input word (synonym).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Thesaurus",
+        "title": "ThesaurusResults"
+      }
+    },
+    {
+      "id": "entries.source_lang.word_id.synonyms_antonyms.get",
+      "title": "entries.source_lang.word_id.synonyms_antonyms.get",
+      "description": "Retrieve available [synonyms](documentation/glossary?term=thesaurus) and [antonyms](documentation/glossary?term=thesaurus) for a given word and language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Thesaurus",
+        "title": "ThesaurusResults"
+      }
+    },
+    {
+      "id": "entries.source_lang.word_id.filters.get",
+      "title": "entries.source_lang.word_id.filters.get",
+      "description": "Use filters to limit the entry information that is returned. For example, you may only require definitions and not everything else, or just pronunciations. The full list of filters can be retrieved from the filters Utility endpoint. You can also specify values within the filter using '='. For example 'grammaticalFeatures=singular'. Filters can also be combined using a semicolon.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "lv",
+              "hi",
+              "sw",
+              "ta",
+              "gu"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "An Entry identifier. Case-sensitive.",
+            "default": "ace"
+          },
+          "filters": {
+            "type": "array",
+            "description": "Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "filters",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveEntry",
+        "title": "RetrieveEntryResults"
+      }
+    },
+    {
+      "id": "entries.source_translation_language.word_id.translations_target_translation_language.get",
+      "title": "entries.source_translation_language.word_id.translations_target_translation_language.get",
+      "description": "Use this to return translations for a given word. In the event that a word in the dataset does not have a direct translation, the response will be a [definition](documentation/glossary?term=entry) in the target language.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_translation_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ur",
+              "de",
+              "pt"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "The source word",
+            "default": "change"
+          },
+          "target_translation_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "es",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ro",
+              "de",
+              "pt"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_translation_language",
+          "word_id",
+          "target_translation_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveEntry",
+        "title": "InflectionsResults"
+      }
+    },
+    {
+      "id": "filters.get",
+      "title": "filters.get",
+      "description": "Returns a list of all the valid filters to construct API calls.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Filters",
+        "title": "FiltersResults"
+      }
+    },
+    {
+      "id": "filters.endpoint.get",
+      "title": "filters.endpoint.get",
+      "description": "Returns a list of all the valid filters for a given endpoint to construct API calls.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "endpoint": {
+            "type": "string",
+            "description": "Name of the endpoint.",
+            "enum": [
+              "entries",
+              "inflections",
+              "translations"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "endpoint",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Filters",
+        "title": "FiltersResults"
+      }
+    },
+    {
+      "id": "grammaticalFeatures.source_language.get",
+      "title": "grammaticalFeatures.source_language.get",
+      "description": "Returns a list of the available [grammatical features](documentation/glossary?term=grammaticalfeatures) for a given language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_language": {
+            "type": "string",
+            "description": "IANA language code. If provided output will be filtered by sourceLanguage.",
+            "enum": [
+              "en",
+              "es",
+              "lv",
+              "nso",
+              "zu",
+              "ms",
+              "tn",
+              "ur",
+              "hi",
+              "sw",
+              "de",
+              "pt",
+              "ta",
+              "gu"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UtilityLabels",
+        "title": "RegistersResults"
+      }
+    },
+    {
+      "id": "inflections.source_lang.word_id.get",
+      "title": "inflections.source_lang.word_id.get",
+      "description": "Use this to check if a word exists in the dictionary, or what 'root' form it links to (e.g., swimming > swim). The response tells you the possible [lemmas](documentation/glossary?term=lemma) for a given [inflected](documentation/glossary?term=inflection) word. This can then be combined with other endpoints to retrieve more information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "nso",
+              "tn",
+              "zu",
+              "de",
+              "pt"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "The input word",
+            "default": "swimming"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Lemmatron",
+        "title": "InflectionsResults"
+      }
+    },
+    {
+      "id": "inflections.source_lang.word_id.filters.get",
+      "title": "inflections.source_lang.word_id.filters.get",
+      "description": "Retrieve available [lemmas](documentation/glossary?term=lemma) for a given [inflected](documentation/glossary?term=inflection) wordform. Filter results by categories.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "nso",
+              "tn",
+              "zu",
+              "de",
+              "pt"
+            ]
+          },
+          "word_id": {
+            "type": "string",
+            "description": "The input word",
+            "default": "change"
+          },
+          "filters": {
+            "type": "array",
+            "description": "Separate filtering conditions using a semicolon. Conditions take values grammaticalFeatures and/or lexicalCategory and are case-sensitive. To list multiple values in single condition divide them with comma."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "filters",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Lemmatron",
+        "title": "InflectionsResults"
+      }
+    },
+    {
+      "id": "languages.get",
+      "title": "languages.get",
+      "description": "Returns a list of monolingual and bilingual language datasets available in the API\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sourceLanguage": {
+            "type": "string",
+            "description": "IANA language code. If provided output will be filtered by sourceLanguage.",
+            "enum": [
+              "es",
+              "en",
+              "lv",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ur",
+              "hi",
+              "sw",
+              "ro",
+              "de",
+              "pt",
+              "ta",
+              "gu"
+            ]
+          },
+          "targetLanguage": {
+            "type": "string",
+            "description": "IANA language code. If provided output will be filtered by sourceLanguage.",
+            "enum": [
+              "es",
+              "en",
+              "lv",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ur",
+              "hi",
+              "sw",
+              "ro"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Languages",
+        "title": "LanguagesResults"
+      }
+    },
+    {
+      "id": "lexicalcategories.language.get",
+      "title": "lexicalcategories.language.get",
+      "description": "Returns a list of available [lexical categories](documentation/glossary?term=lexicalcategory) for a given language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "es",
+              "en",
+              "lv",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ur",
+              "hi",
+              "sw",
+              "ro",
+              "de",
+              "pt",
+              "ta",
+              "gu"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UtilityLabels",
+        "title": "LexicalCategoriesResults"
+      }
+    },
+    {
+      "id": "regions.source_language.get",
+      "title": "regions.source_language.get",
+      "description": "Returns a list of the available [regions](documentation/glossary?term=regions) for a given monolingual language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Regions",
+        "title": "RegionsResults"
+      }
+    },
+    {
+      "id": "registers.source_language.get",
+      "title": "registers.source_language.get",
+      "description": "Returns a list of the available [registers](documentation/glossary?term=registers) for a given monolingual language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "id",
+              "lv",
+              "ms",
+              "sw",
+              "ur",
+              "de",
+              "pt",
+              "ta",
+              "gu"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UtilityLabels",
+        "title": "RegistersResults"
+      }
+    },
+    {
+      "id": "registers.source_register_language.target_register_language.get",
+      "title": "registers.source_register_language.target_register_language.get",
+      "description": "Returns a list of the available [registers](documentation/glossary?term=registers) for a given bilingual language dataset.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_register_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "ms",
+              "id",
+              "ur",
+              "de",
+              "pt"
+            ]
+          },
+          "target_register_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "es",
+              "en",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ro",
+              "de",
+              "pt"
+            ]
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_register_language",
+          "target_register_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UtilityLabels",
+        "title": "RegistersResults"
+      }
+    },
+    {
+      "id": "search.source_lang.get",
+      "title": "search.source_lang.get",
+      "description": "Use this to retrieve possible headword matches for a given string of text. The results are culculated using headword matching, fuzzy matching, and lemmatization",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "lv",
+              "sw",
+              "ta",
+              "gu"
+            ]
+          },
+          "q": {
+            "type": "string",
+            "description": "Search string",
+            "default": "eye"
+          },
+          "prefix": {
+            "type": "boolean",
+            "description": "Set prefix to true if you'd like to get results only starting with search string.",
+            "enum": [
+              "false",
+              "true"
+            ]
+          },
+          "regions": {
+            "type": "string",
+            "description": "If searching in English, filter words with specific region(s) either 'us' or 'gb'."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit the number of results per response. Default and maximum limit is 5000."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset the start number of the result."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Wordlist",
+        "title": "WordlistResults"
+      }
+    },
+    {
+      "id": "search.source_search_language.translations_target_search_language.get",
+      "title": "search.source_search_language.translations_target_search_language.get",
+      "description": "Use this to find matches in our translation dictionaries.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_search_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ur",
+              "de",
+              "pt"
+            ]
+          },
+          "target_search_language": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "es",
+              "nso",
+              "zu",
+              "ms",
+              "id",
+              "tn",
+              "ro",
+              "de",
+              "pt"
+            ]
+          },
+          "q": {
+            "type": "string",
+            "description": "Search string.",
+            "default": "eye"
+          },
+          "prefix": {
+            "type": "boolean",
+            "description": "Set prefix to true if you'd like to get results only starting with search string.",
+            "enum": [
+              "false",
+              "true"
+            ]
+          },
+          "regions": {
+            "type": "string",
+            "description": "Filter words with specific region(s) E.g., regions=us. For now gb, us are available for en language."
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit the number of results per response. Default and maximum limit is 5000."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset the start number of the result."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_search_language",
+          "target_search_language",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Wordlist",
+        "title": "WordlistResults"
+      }
+    },
+    {
+      "id": "wordlist.source_lang.filters_advanced.get",
+      "title": "wordlist.source_lang.filters_advanced.get",
+      "description": "Use this to apply more complex filters to the list of words. For example, you may only want to filter out words for which all senses match the filter, or only its 'prime sense'. You can also filter by word length or match by substring (prefix).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "lv",
+              "sw",
+              "ta",
+              "gu"
+            ]
+          },
+          "filters_advanced": {
+            "type": "string",
+            "description": "Semicolon separated list of wordlist parameters, presented as value pairs: LexicalCategory, domains, regions, registers. Parameters can take comma separated list of values. E.g., lexicalCategory=noun,adjective;domains=sport. Number of values limited to 5.",
+            "default": "lexicalCategory=Noun;domains=sport"
+          },
+          "exclude": {
+            "type": "string",
+            "description": "Semicolon separated list of parameters-value pairs (same as filters). Excludes headwords that have any senses in specified exclusion attributes (lexical categories, domains, etc.) from results."
+          },
+          "exclude_senses": {
+            "type": "string",
+            "description": "Semicolon separated list of parameters-value pairs (same as filters). Excludes only those senses of a particular headword that match specified exclusion attributes (lexical categories, domains, etc.) from results but includes the headword if it has other permitted senses."
+          },
+          "exclude_prime_senses": {
+            "type": "string",
+            "description": "Semicolon separated list of parameters-value pairs (same as filters). Excludes a headword only if the primary sense matches the specified exclusion attributes (registers, domains only)."
+          },
+          "word_length": {
+            "type": "string",
+            "description": "Parameter to speficy the minimum (>), exact or maximum (<) length of the words required. E.g., >5 - more than 5 chars; <4 - less than 4 chars; >5<10 - from 5 to 10 chars; 3 - exactly 3 chars.",
+            "default": ">5,<10"
+          },
+          "prefix": {
+            "type": "string",
+            "description": "Filter words that start with prefix parameter",
+            "default": "goal"
+          },
+          "exact": {
+            "type": "boolean",
+            "description": "If exact=true wordlist returns a list of entries that exactly matches the search string. Otherwise wordlist lists entries that start with prefix string.",
+            "enum": [
+              "false",
+              "true"
+            ]
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit the number of results per response. Default and maximum limit is 5000."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset the start number of the result."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "filters_advanced",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Wordlist",
+        "title": "WordlistResults"
+      }
+    },
+    {
+      "id": "wordlist.source_lang.filters_basic.get",
+      "title": "wordlist.source_lang.filters_basic.get",
+      "description": "Use this to retrieve a list of words for particular [domain](documentation/glossary?term=domain), [lexical category](documentation/glossary?term=lexicalcategory), [register](documentation/glossary?term=registers) and/or [region](documentation/glossary?term=regions). View the full list of possible filters using the filters Utility endpoint. The response only includes headwords, not all their possible inflections. If you require a full wordlist including inflected forms, contact us and we can help.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source_lang": {
+            "type": "string",
+            "description": "IANA language code",
+            "enum": [
+              "en",
+              "es",
+              "hi",
+              "lv",
+              "sw",
+              "ta",
+              "gu"
+            ]
+          },
+          "filters_basic": {
+            "type": "string",
+            "description": "Semicolon separated list of wordlist parameters, presented as value pairs: LexicalCategory, domains, regions, registers. Parameters can take comma separated list of values. E.g., lexicalCategory=noun,adjective;domains=sport. Number of values limited to 5.",
+            "default": "registers=Rare;domains=Art"
+          },
+          "limit": {
+            "type": "string",
+            "description": "Limit the number of results per response. Default and maximum limit is 5000."
+          },
+          "offset": {
+            "type": "string",
+            "description": "Offset the start number of the result"
+          },
+          "app_id": {
+            "type": "string",
+            "description": "App ID Authentication Parameter",
+            "default": "5037d509"
+          },
+          "app_key": {
+            "type": "string",
+            "description": "App Key Authentication Parameter",
+            "default": "4dc1aebaa63721f0f8e79a55e2514bc7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "filters_basic",
+          "app_id",
+          "app_key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Wordlist",
+        "title": "WordlistResults"
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

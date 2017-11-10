@@ -70,6 +70,30 @@ google_compute.projects.get({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### acceleratorTypes.aggregatedList
+Retrieves an aggregated list of accelerator types.
+
+
+```js
+google_compute.acceleratorTypes.aggregatedList({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### addresses.aggregatedList
 Retrieves an aggregated list of addresses.
 
@@ -81,11 +105,11 @@ google_compute.addresses.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -105,11 +129,11 @@ google_compute.autoscalers.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -129,11 +153,35 @@ google_compute.backendServices.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Name of the project scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Name of the project scoping this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### regionCommitments.aggregatedList
+Retrieves an aggregated list of commitments.
+
+
+```js
+google_compute.regionCommitments.aggregatedList({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -153,11 +201,11 @@ google_compute.diskTypes.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -177,11 +225,11 @@ google_compute.disks.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -201,11 +249,11 @@ google_compute.forwardingRules.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -225,11 +273,11 @@ google_compute.instanceGroupManagers.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -249,11 +297,11 @@ google_compute.instanceGroups.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -273,11 +321,35 @@ google_compute.instances.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnectAttachments.aggregatedList
+Retrieves an aggregated list of interconnect attachments.
+
+
+```js
+google_compute.interconnectAttachments.aggregatedList({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -297,11 +369,11 @@ google_compute.machineTypes.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -321,11 +393,11 @@ google_compute.globalOperations.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -345,11 +417,11 @@ google_compute.routers.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -369,11 +441,11 @@ google_compute.subnetworks.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -393,11 +465,11 @@ google_compute.targetInstances.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -417,11 +489,11 @@ google_compute.targetPools.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -441,11 +513,11 @@ google_compute.targetVpnGateways.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -465,11 +537,141 @@ google_compute.vpnTunnels.aggregatedList({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.disableXpnHost
+Disable this project as a shared VPC host project.
+
+
+```js
+google_compute.projects.disableXpnHost({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.disableXpnResource
+Disable a serivce resource (a.k.a service project) associated with this host project.
+
+
+```js
+google_compute.projects.disableXpnResource({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.enableXpnHost
+Enable this project as a shared VPC host project.
+
+
+```js
+google_compute.projects.enableXpnHost({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.enableXpnResource
+Enable service resource (a.k.a service project) for a host project, so that subnets in the host project can be used by instances in the service project.
+
+
+```js
+google_compute.projects.enableXpnResource({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.getXpnHost
+Get the shared VPC host project that this project links to. May be empty if no link exists.
+
+
+```js
+google_compute.projects.getXpnHost({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.getXpnResources
+Get service resources (a.k.a service project) associated with this host project.
+
+
+```js
+google_compute.projects.getXpnResources({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string)
+* maxResults (integer)
+* order_by (string)
+* pageToken (string)
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -489,11 +691,11 @@ google_compute.globalAddresses.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -513,8 +715,9 @@ google_compute.globalAddresses.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A reserved address resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -529,14 +732,15 @@ Deletes the specified address resource.
 
 ```js
 google_compute.globalAddresses.delete({
-  "project": "",
-  "address": ""
+  "address": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * address (string) **required** - Name of the address resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -578,11 +782,11 @@ google_compute.backendBuckets.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -602,8 +806,9 @@ google_compute.backendBuckets.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A BackendBucket resource. This resource defines a Cloud Storage bucket.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -618,14 +823,15 @@ Deletes the specified BackendBucket resource.
 
 ```js
 google_compute.backendBuckets.delete({
-  "project": "",
-  "backendBucket": ""
+  "backendBucket": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * backendBucket (string) **required** - Name of the BackendBucket resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -657,7 +863,7 @@ google_compute.backendBuckets.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### backendBuckets.patch
-Updates the specified BackendBucket resource with the data included in the request. This method supports patch semantics.
+Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -671,6 +877,7 @@ google_compute.backendBuckets.patch({
 * backendBucket (string) **required** - Name of the BackendBucket resource to patch.
 * body (object) - A BackendBucket resource. This resource defines a Cloud Storage bucket.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -685,15 +892,16 @@ Updates the specified BackendBucket resource with the data included in the reque
 
 ```js
 google_compute.backendBuckets.update({
-  "project": "",
-  "backendBucket": ""
+  "backendBucket": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * backendBucket (string) **required** - Name of the BackendBucket resource to update.
 * body (object) - A BackendBucket resource. This resource defines a Cloud Storage bucket.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -713,11 +921,11 @@ google_compute.backendServices.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -737,8 +945,9 @@ google_compute.backendServices.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -753,14 +962,15 @@ Deletes the specified BackendService resource.
 
 ```js
 google_compute.backendServices.delete({
-  "project": "",
-  "backendService": ""
+  "backendService": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * backendService (string) **required** - Name of the BackendService resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -792,7 +1002,7 @@ google_compute.backendServices.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### backendServices.patch
-Patches the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.
+Patches the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -806,6 +1016,7 @@ google_compute.backendServices.patch({
 * backendService (string) **required** - Name of the BackendService resource to patch.
 * body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -820,15 +1031,16 @@ Updates the specified BackendService resource with the data included in the requ
 
 ```js
 google_compute.backendServices.update({
-  "project": "",
-  "backendService": ""
+  "backendService": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * backendService (string) **required** - Name of the BackendService resource to update.
 * body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -871,11 +1083,11 @@ google_compute.firewalls.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -895,8 +1107,9 @@ google_compute.firewalls.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - Represents a Firewall resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -911,14 +1124,15 @@ Deletes the specified firewall.
 
 ```js
 google_compute.firewalls.delete({
-  "project": "",
-  "firewall": ""
+  "firewall": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * firewall (string) **required** - Name of the firewall rule to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -950,20 +1164,21 @@ google_compute.firewalls.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### firewalls.patch
-Updates the specified firewall rule with the data included in the request. Using PUT method, can only update following fields of firewall rule: allowed, description, sourceRanges, sourceTags, targetTags. This method supports patch semantics.
+Updates the specified firewall rule with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
 google_compute.firewalls.patch({
-  "project": "",
-  "firewall": ""
+  "firewall": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* firewall (string) **required** - Name of the firewall rule to update.
 * body (object) - Represents a Firewall resource.
+* firewall (string) **required** - Name of the firewall rule to patch.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -978,15 +1193,16 @@ Updates the specified firewall rule with the data included in the request. Using
 
 ```js
 google_compute.firewalls.update({
-  "project": "",
-  "firewall": ""
+  "firewall": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* firewall (string) **required** - Name of the firewall rule to update.
 * body (object) - Represents a Firewall resource.
+* firewall (string) **required** - Name of the firewall rule to update.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1006,11 +1222,11 @@ google_compute.globalForwardingRules.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1030,8 +1246,9 @@ google_compute.globalForwardingRules.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1046,14 +1263,15 @@ Deletes the specified GlobalForwardingRule resource.
 
 ```js
 google_compute.globalForwardingRules.delete({
-  "project": "",
-  "forwardingRule": ""
+  "forwardingRule": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * forwardingRule (string) **required** - Name of the ForwardingRule resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1090,15 +1308,16 @@ Changes target URL for the GlobalForwardingRule resource. The new target should 
 
 ```js
 google_compute.globalForwardingRules.setTarget({
-  "project": "",
-  "forwardingRule": ""
+  "forwardingRule": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* forwardingRule (string) **required** - Name of the ForwardingRule resource in which target is to be set.
 * body (object)
+* forwardingRule (string) **required** - Name of the ForwardingRule resource in which target is to be set.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1118,11 +1337,11 @@ google_compute.healthChecks.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1142,8 +1361,9 @@ google_compute.healthChecks.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - An HealthCheck resource. This resource defines a template for how individual virtual machines should be checked for health, via one of the supported protocols.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1158,14 +1378,15 @@ Deletes the specified HealthCheck resource.
 
 ```js
 google_compute.healthChecks.delete({
-  "project": "",
-  "healthCheck": ""
+  "healthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * healthCheck (string) **required** - Name of the HealthCheck resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1197,7 +1418,7 @@ google_compute.healthChecks.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### healthChecks.patch
-Updates a HealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.
+Updates a HealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -1211,6 +1432,7 @@ google_compute.healthChecks.patch({
 * body (object) - An HealthCheck resource. This resource defines a template for how individual virtual machines should be checked for health, via one of the supported protocols.
 * healthCheck (string) **required** - Name of the HealthCheck resource to patch.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1225,15 +1447,16 @@ Updates a HealthCheck resource in the specified project using the data included 
 
 ```js
 google_compute.healthChecks.update({
-  "project": "",
-  "healthCheck": ""
+  "healthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* healthCheck (string) **required** - Name of the HealthCheck resource to update.
 * body (object) - An HealthCheck resource. This resource defines a template for how individual virtual machines should be checked for health, via one of the supported protocols.
+* healthCheck (string) **required** - Name of the HealthCheck resource to update.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1253,11 +1476,11 @@ google_compute.httpHealthChecks.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1277,8 +1500,9 @@ google_compute.httpHealthChecks.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - An HttpHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTP.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1293,14 +1517,15 @@ Deletes the specified HttpHealthCheck resource.
 
 ```js
 google_compute.httpHealthChecks.delete({
-  "project": "",
-  "httpHealthCheck": ""
+  "httpHealthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * httpHealthCheck (string) **required** - Name of the HttpHealthCheck resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1332,7 +1557,7 @@ google_compute.httpHealthChecks.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### httpHealthChecks.patch
-Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.
+Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -1346,6 +1571,7 @@ google_compute.httpHealthChecks.patch({
 * body (object) - An HttpHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTP.
 * httpHealthCheck (string) **required** - Name of the HttpHealthCheck resource to patch.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1360,15 +1586,16 @@ Updates a HttpHealthCheck resource in the specified project using the data inclu
 
 ```js
 google_compute.httpHealthChecks.update({
-  "project": "",
-  "httpHealthCheck": ""
+  "httpHealthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* httpHealthCheck (string) **required** - Name of the HttpHealthCheck resource to update.
 * body (object) - An HttpHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTP.
+* httpHealthCheck (string) **required** - Name of the HttpHealthCheck resource to update.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1388,11 +1615,11 @@ google_compute.httpsHealthChecks.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1412,8 +1639,9 @@ google_compute.httpsHealthChecks.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - An HttpsHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTPS.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1428,14 +1656,15 @@ Deletes the specified HttpsHealthCheck resource.
 
 ```js
 google_compute.httpsHealthChecks.delete({
-  "project": "",
-  "httpsHealthCheck": ""
+  "httpsHealthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * httpsHealthCheck (string) **required** - Name of the HttpsHealthCheck resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1467,7 +1696,7 @@ google_compute.httpsHealthChecks.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### httpsHealthChecks.patch
-Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.
+Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -1481,6 +1710,7 @@ google_compute.httpsHealthChecks.patch({
 * body (object) - An HttpsHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTPS.
 * httpsHealthCheck (string) **required** - Name of the HttpsHealthCheck resource to patch.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1495,15 +1725,16 @@ Updates a HttpsHealthCheck resource in the specified project using the data incl
 
 ```js
 google_compute.httpsHealthChecks.update({
-  "project": "",
-  "httpsHealthCheck": ""
+  "httpsHealthCheck": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* httpsHealthCheck (string) **required** - Name of the HttpsHealthCheck resource to update.
 * body (object) - An HttpsHealthCheck resource. This resource defines a template for how individual instances should be checked for health, via HTTPS.
+* httpsHealthCheck (string) **required** - Name of the HttpsHealthCheck resource to update.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1523,11 +1754,11 @@ google_compute.images.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1547,8 +1778,10 @@ google_compute.images.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - An Image resource.
+* forceCreate (boolean) - Force image creation if true.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1585,14 +1818,15 @@ Deletes the specified image.
 
 ```js
 google_compute.images.delete({
-  "project": "",
-  "image": ""
+  "image": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * image (string) **required** - Name of the image resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1631,15 +1865,39 @@ If an empty request body is given, clears the deprecation status instead.
 
 ```js
 google_compute.images.deprecate({
-  "project": "",
-  "image": ""
+  "image": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* image (string) **required** - Image name.
 * body (object) - Deprecation status for a public resource.
+* image (string) **required** - Image name.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### images.setLabels
+Sets the labels on an image. To learn more about labels, read the Labeling Resources documentation.
+
+
+```js
+google_compute.images.setLabels({
+  "project": "",
+  "resource": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* resource (string) **required** - Name of the resource for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1659,11 +1917,11 @@ google_compute.instanceTemplates.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1683,8 +1941,9 @@ google_compute.instanceTemplates.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - An Instance Template resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1699,14 +1958,15 @@ Deletes the specified instance template. If you delete an instance template that
 
 ```js
 google_compute.instanceTemplates.delete({
-  "project": "",
-  "instanceTemplate": ""
+  "instanceTemplate": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * instanceTemplate (string) **required** - The name of the instance template to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1737,8 +1997,169 @@ google_compute.instanceTemplates.get({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### interconnectLocations.list
+Retrieves the list of interconnect locations available to the specified project.
+
+
+```js
+google_compute.interconnectLocations.list({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnectLocations.get
+Returns the details for the specified interconnect location. Get a list of available interconnect locations by making a list() request.
+
+
+```js
+google_compute.interconnectLocations.get({
+  "interconnectLocation": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* interconnectLocation (string) **required** - Name of the interconnect location to return.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnects.list
+Retrieves the list of interconnect available to the specified project.
+
+
+```js
+google_compute.interconnects.list({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnects.insert
+Creates a Interconnect in the specified project using the data included in the request.
+
+
+```js
+google_compute.interconnects.insert({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Protocol definitions for Mixer API to support Interconnect. Next available tag: 25
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnects.delete
+Deletes the specified interconnect.
+
+
+```js
+google_compute.interconnects.delete({
+  "interconnect": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* interconnect (string) **required** - Name of the interconnect to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnects.get
+Returns the specified interconnect. Get a list of available interconnects by making a list() request.
+
+
+```js
+google_compute.interconnects.get({
+  "interconnect": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* interconnect (string) **required** - Name of the interconnect to return.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnects.patch
+Updates the specified interconnect with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
+
+
+```js
+google_compute.interconnects.patch({
+  "interconnect": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Protocol definitions for Mixer API to support Interconnect. Next available tag: 25
+* interconnect (string) **required** - Name of the interconnect to update.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### licenses.get
-Returns the specified License resource. Get a list of available licenses by making a list() request.
+Returns the specified License resource.
 
 
 ```js
@@ -1770,11 +2191,11 @@ google_compute.networks.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1794,8 +2215,9 @@ google_compute.networks.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - Represents a Network resource. Read Networks and Firewalls for more information.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1810,14 +2232,15 @@ Deletes the specified network.
 
 ```js
 google_compute.networks.delete({
-  "project": "",
-  "network": ""
+  "network": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * network (string) **required** - Name of the network to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1848,20 +2271,93 @@ google_compute.networks.get({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### networks.patch
+Patches the specified network with the data included in the request.
+
+
+```js
+google_compute.networks.patch({
+  "network": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Represents a Network resource. Read Networks and Firewalls for more information.
+* network (string) **required** - Name of the network to update.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### networks.addPeering
+Adds a peering to the specified network.
+
+
+```js
+google_compute.networks.addPeering({
+  "network": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* network (string) **required** - Name of the network resource to add peering to.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### networks.removePeering
+Removes a peering from the specified network.
+
+
+```js
+google_compute.networks.removePeering({
+  "network": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* network (string) **required** - Name of the network resource to remove peering from.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### networks.switchToCustomMode
 Switches the network mode from auto subnet mode to custom subnet mode.
 
 
 ```js
 google_compute.networks.switchToCustomMode({
-  "project": "",
-  "network": ""
+  "network": "",
+  "project": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * network (string) **required** - Name of the network to be updated.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1881,11 +2377,11 @@ google_compute.globalOperations.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1949,11 +2445,11 @@ google_compute.routes.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1973,8 +2469,9 @@ google_compute.routes.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - Represents a Route resource. A route specifies how certain packets should be handled by the network. Routes are associated with instances by tags and the set of routes for a particular instance is called its routing table.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1996,6 +2493,7 @@ google_compute.routes.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * route (string) **required** - Name of the Route resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2038,11 +2536,34 @@ google_compute.snapshots.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### snapshots.setLabels
+Sets the labels on a snapshot. To learn more about labels, read the Labeling Resources documentation.
+
+
+```js
+google_compute.snapshots.setLabels({
+  "project": "",
+  "resource": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* resource (string) **required** - Name of the resource for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2066,6 +2587,7 @@ google_compute.snapshots.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * snapshot (string) **required** - Name of the Snapshot resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2108,11 +2630,11 @@ google_compute.sslCertificates.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2132,8 +2654,9 @@ google_compute.sslCertificates.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - An SslCertificate resource. This resource provides a mechanism to upload an SSL key and certificate to the load balancer to serve secure connections from the user.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2155,6 +2678,7 @@ google_compute.sslCertificates.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * sslCertificate (string) **required** - Name of the SslCertificate resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2197,11 +2721,11 @@ google_compute.targetHttpProxies.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2221,8 +2745,9 @@ google_compute.targetHttpProxies.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A TargetHttpProxy resource. This resource defines an HTTP proxy.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2244,6 +2769,7 @@ google_compute.targetHttpProxies.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetHttpProxy (string) **required** - Name of the TargetHttpProxy resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2286,11 +2812,11 @@ google_compute.targetHttpsProxies.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2310,8 +2836,9 @@ google_compute.targetHttpsProxies.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A TargetHttpsProxy resource. This resource defines an HTTPS proxy.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2333,6 +2860,7 @@ google_compute.targetHttpsProxies.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetHttpsProxy (string) **required** - Name of the TargetHttpsProxy resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2375,11 +2903,11 @@ google_compute.targetSslProxies.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2399,8 +2927,9 @@ google_compute.targetSslProxies.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A TargetSslProxy resource. This resource defines an SSL proxy.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2422,6 +2951,7 @@ google_compute.targetSslProxies.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetSslProxy (string) **required** - Name of the TargetSslProxy resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2465,9 +2995,10 @@ google_compute.targetSslProxies.setBackendService({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* targetSslProxy (string) **required** - Name of the TargetSslProxy resource whose BackendService resource is to be set.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetSslProxy (string) **required** - Name of the TargetSslProxy resource whose BackendService resource is to be set.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2488,9 +3019,10 @@ google_compute.targetSslProxies.setProxyHeader({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* targetSslProxy (string) **required** - Name of the TargetSslProxy resource whose ProxyHeader is to be set.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetSslProxy (string) **required** - Name of the TargetSslProxy resource whose ProxyHeader is to be set.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2511,9 +3043,149 @@ google_compute.targetSslProxies.setSslCertificates({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* targetSslProxy (string) **required** - Name of the TargetSslProxy resource whose SslCertificate resource is to be set.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetSslProxy (string) **required** - Name of the TargetSslProxy resource whose SslCertificate resource is to be set.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### targetTcpProxies.list
+Retrieves the list of TargetTcpProxy resources available to the specified project.
+
+
+```js
+google_compute.targetTcpProxies.list({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### targetTcpProxies.insert
+Creates a TargetTcpProxy resource in the specified project using the data included in the request.
+
+
+```js
+google_compute.targetTcpProxies.insert({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - A TargetTcpProxy resource. This resource defines a TCP proxy.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### targetTcpProxies.delete
+Deletes the specified TargetTcpProxy resource.
+
+
+```js
+google_compute.targetTcpProxies.delete({
+  "project": "",
+  "targetTcpProxy": ""
+}, context)
+```
+
+#### Parameters
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetTcpProxy (string) **required** - Name of the TargetTcpProxy resource to delete.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### targetTcpProxies.get
+Returns the specified TargetTcpProxy resource. Get a list of available target TCP proxies by making a list() request.
+
+
+```js
+google_compute.targetTcpProxies.get({
+  "project": "",
+  "targetTcpProxy": ""
+}, context)
+```
+
+#### Parameters
+* project (string) **required** - Project ID for this request.
+* targetTcpProxy (string) **required** - Name of the TargetTcpProxy resource to return.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### targetTcpProxies.setBackendService
+Changes the BackendService for TargetTcpProxy.
+
+
+```js
+google_compute.targetTcpProxies.setBackendService({
+  "project": "",
+  "targetTcpProxy": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetTcpProxy (string) **required** - Name of the TargetTcpProxy resource whose BackendService resource is to be set.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### targetTcpProxies.setProxyHeader
+Changes the ProxyHeaderType for TargetTcpProxy.
+
+
+```js
+google_compute.targetTcpProxies.setProxyHeader({
+  "project": "",
+  "targetTcpProxy": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetTcpProxy (string) **required** - Name of the TargetTcpProxy resource whose ProxyHeader is to be set.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2533,11 +3205,11 @@ google_compute.urlMaps.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2557,8 +3229,9 @@ google_compute.urlMaps.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A UrlMap resource. This resource defines the mapping from URL to the BackendService resource, based on the "longest-match" of the URL's host and path.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2580,6 +3253,7 @@ google_compute.urlMaps.delete({
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * urlMap (string) **required** - Name of the UrlMap resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2612,7 +3286,7 @@ google_compute.urlMaps.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### urlMaps.patch
-Patches the specified UrlMap resource with the data included in the request. This method supports patch semantics.
+Patches the specified UrlMap resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -2625,6 +3299,7 @@ google_compute.urlMaps.patch({
 #### Parameters
 * body (object) - A UrlMap resource. This resource defines the mapping from URL to the BackendService resource, based on the "longest-match" of the URL's host and path.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * urlMap (string) **required** - Name of the UrlMap resource to patch.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2646,9 +3321,10 @@ google_compute.urlMaps.update({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* urlMap (string) **required** - Name of the UrlMap resource to update.
 * body (object) - A UrlMap resource. This resource defines the mapping from URL to the BackendService resource, based on the "longest-match" of the URL's host and path.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* urlMap (string) **required** - Name of the UrlMap resource to update.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2669,9 +3345,10 @@ google_compute.urlMaps.invalidateCache({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* urlMap (string) **required** - Name of the UrlMap scoping this request.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* urlMap (string) **required** - Name of the UrlMap scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2703,6 +3380,31 @@ google_compute.urlMaps.validate({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### projects.listXpnHosts
+List all shared VPC host projects visible to the user in an organization.
+
+
+```js
+google_compute.projects.listXpnHosts({
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* filter (string)
+* maxResults (integer)
+* order_by (string)
+* pageToken (string)
+* project (string) **required** - Project ID for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### projects.moveDisk
 Moves a persistent disk from one zone to another.
 
@@ -2714,8 +3416,9 @@ google_compute.projects.moveDisk({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2735,8 +3438,9 @@ google_compute.projects.moveInstance({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2756,11 +3460,11 @@ google_compute.regions.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2803,12 +3507,12 @@ google_compute.addresses.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2829,9 +3533,10 @@ google_compute.addresses.insert({
 ```
 
 #### Parameters
+* body (object) - A reserved address resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
-* body (object) - A reserved address resource.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2846,16 +3551,17 @@ Deletes the specified address resource.
 
 ```js
 google_compute.addresses.delete({
+  "address": "",
   "project": "",
-  "region": "",
-  "address": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* address (string) **required** - Name of the address resource to delete.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
-* address (string) **required** - Name of the address resource to delete.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2900,12 +3606,12 @@ google_compute.regionAutoscalers.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2915,7 +3621,7 @@ google_compute.regionAutoscalers.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### regionAutoscalers.patch
-Updates an autoscaler in the specified project using the data included in the request. This method supports patch semantics.
+Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -2930,6 +3636,7 @@ google_compute.regionAutoscalers.patch({
 * body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2950,9 +3657,10 @@ google_compute.regionAutoscalers.insert({
 ```
 
 #### Parameters
+* body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2973,10 +3681,11 @@ google_compute.regionAutoscalers.update({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
 * autoscaler (string) - Name of the autoscaler to update.
 * body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2991,16 +3700,17 @@ Deletes the specified autoscaler.
 
 ```js
 google_compute.regionAutoscalers.delete({
+  "autoscaler": "",
   "project": "",
-  "region": "",
-  "autoscaler": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* autoscaler (string) **required** - Name of the autoscaler to delete.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* autoscaler (string) **required** - Name of the autoscaler to delete.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3045,12 +3755,12 @@ google_compute.regionBackendServices.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3071,9 +3781,10 @@ google_compute.regionBackendServices.insert({
 ```
 
 #### Parameters
+* body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3088,16 +3799,17 @@ Deletes the specified regional BackendService resource.
 
 ```js
 google_compute.regionBackendServices.delete({
+  "backendService": "",
   "project": "",
-  "region": "",
-  "backendService": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* backendService (string) **required** - Name of the BackendService resource to delete.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* backendService (string) **required** - Name of the BackendService resource to delete.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3131,7 +3843,7 @@ google_compute.regionBackendServices.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### regionBackendServices.patch
-Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.
+Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -3147,6 +3859,7 @@ google_compute.regionBackendServices.patch({
 * body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3161,17 +3874,18 @@ Updates the specified regional BackendService resource with the data included in
 
 ```js
 google_compute.regionBackendServices.update({
+  "backendService": "",
   "project": "",
-  "region": "",
-  "backendService": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
 * backendService (string) **required** - Name of the BackendService resource to update.
 * body (object) - A BackendService resource. This resource defines a group of backend virtual machines and their serving capacity.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3205,6 +3919,80 @@ google_compute.regionBackendServices.getHealth({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### regionCommitments.list
+Retrieves a list of commitments contained within the specified region.
+
+
+```js
+google_compute.regionCommitments.list({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### regionCommitments.insert
+Creates a commitment in the specified project using the data included in the request.
+
+
+```js
+google_compute.regionCommitments.insert({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Represents a Commitment resource. Creating a Commitment resource means that you are purchasing a committed use contract with an explicit start and end time. You can create commitments based on vCPUs and memory usage and receive discounted rates. For full details, read Signing Up for Committed Use Discounts.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### regionCommitments.get
+Returns the specified commitment resource. Get a list of available commitments by making a list() request.
+
+
+```js
+google_compute.regionCommitments.get({
+  "commitment": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* commitment (string) **required** - Name of the commitment to return.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### forwardingRules.list
 Retrieves a list of ForwardingRule resources available to the specified project and region.
 
@@ -3217,12 +4005,12 @@ google_compute.forwardingRules.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3243,9 +4031,10 @@ google_compute.forwardingRules.insert({
 ```
 
 #### Parameters
+* body (object) - A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* body (object) - A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3260,16 +4049,17 @@ Deletes the specified ForwardingRule resource.
 
 ```js
 google_compute.forwardingRules.delete({
+  "forwardingRule": "",
   "project": "",
-  "region": "",
-  "forwardingRule": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* forwardingRule (string) **required** - Name of the ForwardingRule resource to delete.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* forwardingRule (string) **required** - Name of the ForwardingRule resource to delete.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3308,17 +4098,18 @@ Changes target URL for forwarding rule. The new target should be of the same typ
 
 ```js
 google_compute.forwardingRules.setTarget({
+  "forwardingRule": "",
   "project": "",
-  "region": "",
-  "forwardingRule": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* forwardingRule (string) **required** - Name of the ForwardingRule resource in which target is to be set.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* forwardingRule (string) **required** - Name of the ForwardingRule resource in which target is to be set.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3339,12 +4130,12 @@ google_compute.regionInstanceGroupManagers.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3367,9 +4158,10 @@ google_compute.regionInstanceGroupManagers.insert({
 ```
 
 #### Parameters
+* body (object) - An Instance Group Manager resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* body (object) - An Instance Group Manager resource.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3384,16 +4176,17 @@ Deletes the specified managed instance group and all of the instances in that gr
 
 ```js
 google_compute.regionInstanceGroupManagers.delete({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* instanceGroupManager (string) **required** - Name of the managed instance group to delete.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - Name of the managed instance group to delete.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3429,22 +4222,25 @@ google_compute.regionInstanceGroupManagers.get({
 ### regionInstanceGroupManagers.abandonInstances
 Schedules a group action to remove the specified instances from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 You can specify a maximum of 1000 instances with this method per request.
 
 
 ```js
 google_compute.regionInstanceGroupManagers.abandonInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* instanceGroupManager (string) **required** - Name of the managed instance group.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - Name of the managed instance group.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3456,22 +4252,25 @@ google_compute.regionInstanceGroupManagers.abandonInstances({
 ### regionInstanceGroupManagers.deleteInstances
 Schedules a group action to delete the specified instances in the managed instance group. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 You can specify a maximum of 1000 instances with this method per request.
 
 
 ```js
 google_compute.regionInstanceGroupManagers.deleteInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* instanceGroupManager (string) **required** - Name of the managed instance group.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - Name of the managed instance group.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3511,22 +4310,25 @@ google_compute.regionInstanceGroupManagers.listManagedInstances({
 ### regionInstanceGroupManagers.recreateInstances
 Schedules a group action to recreate the specified instances in the managed instance group. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the action is scheduled even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 You can specify a maximum of 1000 instances with this method per request.
 
 
 ```js
 google_compute.regionInstanceGroupManagers.recreateInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* instanceGroupManager (string) **required** - Name of the managed instance group.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - Name of the managed instance group.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3538,20 +4340,23 @@ google_compute.regionInstanceGroupManagers.recreateInstances({
 ### regionInstanceGroupManagers.resize
 Changes the intended size for the managed instance group. If you increase the size, the group schedules actions to create new instances using the current instance template. If you decrease the size, the group schedules delete actions on one or more instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 
 ```js
 google_compute.regionInstanceGroupManagers.resize({
+  "instanceGroupManager": "",
   "project": "",
   "region": "",
-  "instanceGroupManager": "",
   "size": 0
 }, context)
 ```
 
 #### Parameters
+* instanceGroupManager (string) **required** - Name of the managed instance group.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - Name of the managed instance group.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * size (integer) **required** - Number of instances that should exist in this instance group manager.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -3567,17 +4372,18 @@ Sets the instance template to use when creating new instances or recreating inst
 
 ```js
 google_compute.regionInstanceGroupManagers.setInstanceTemplate({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* instanceGroupManager (string) **required** - The name of the managed instance group.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - The name of the managed instance group.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3592,17 +4398,18 @@ Modifies the target pools to which all new instances in this group are assigned.
 
 ```js
 google_compute.regionInstanceGroupManagers.setTargetPools({
+  "instanceGroupManager": "",
   "project": "",
-  "region": "",
-  "instanceGroupManager": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* instanceGroupManager (string) **required** - Name of the managed instance group.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroupManager (string) **required** - Name of the managed instance group.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3623,12 +4430,12 @@ google_compute.regionInstanceGroups.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3667,21 +4474,21 @@ Lists the instances in the specified instance group and displays information abo
 
 ```js
 google_compute.regionInstanceGroups.listInstances({
+  "instanceGroup": "",
   "project": "",
-  "region": "",
-  "instanceGroup": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
+* body (object)
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * instanceGroup (string) **required** - Name of the regional instance group for which we want to list the instances.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
-* body (object)
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3696,17 +4503,117 @@ Sets the named ports for the specified regional instance group.
 
 ```js
 google_compute.regionInstanceGroups.setNamedPorts({
+  "instanceGroup": "",
   "project": "",
-  "region": "",
-  "instanceGroup": ""
+  "region": ""
 }, context)
 ```
 
 #### Parameters
+* body (object)
+* instanceGroup (string) **required** - The name of the regional instance group where the named ports are updated.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* instanceGroup (string) **required** - The name of the regional instance group where the named ports are updated.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnectAttachments.list
+Retrieves the list of interconnect attachments contained within the specified region.
+
+
+```js
+google_compute.interconnectAttachments.list({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnectAttachments.insert
+Creates an InterconnectAttachment in the specified project using the data included in the request.
+
+
+```js
+google_compute.interconnectAttachments.insert({
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Protocol definitions for Mixer API to support InterconnectAttachment. Next available tag: 23
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnectAttachments.delete
+Deletes the specified interconnect attachment.
+
+
+```js
+google_compute.interconnectAttachments.delete({
+  "interconnectAttachment": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* interconnectAttachment (string) **required** - Name of the interconnect attachment to delete.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### interconnectAttachments.get
+Returns the specified interconnect attachment.
+
+
+```js
+google_compute.interconnectAttachments.get({
+  "interconnectAttachment": "",
+  "project": "",
+  "region": ""
+}, context)
+```
+
+#### Parameters
+* interconnectAttachment (string) **required** - Name of the interconnect attachment to return.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3727,12 +4634,12 @@ google_compute.regionOperations.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3801,12 +4708,12 @@ google_compute.routers.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3827,9 +4734,10 @@ google_compute.routers.insert({
 ```
 
 #### Parameters
+* body (object) - Router resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
-* body (object) - Router resource.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3853,6 +4761,7 @@ google_compute.routers.delete({
 #### Parameters
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * router (string) **required** - Name of the Router resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -3887,7 +4796,7 @@ google_compute.routers.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### routers.patch
-Patches the specified Router resource with the data included in the request. This method supports patch semantics.
+Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
 
 
 ```js
@@ -3902,6 +4811,7 @@ google_compute.routers.patch({
 * body (object) - Router resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * router (string) **required** - Name of the Router resource to patch.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -3924,10 +4834,11 @@ google_compute.routers.update({
 ```
 
 #### Parameters
+* body (object) - Router resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * router (string) **required** - Name of the Router resource to update.
-* body (object) - Router resource.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3997,12 +4908,12 @@ google_compute.subnetworks.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4023,9 +4934,10 @@ google_compute.subnetworks.insert({
 ```
 
 #### Parameters
+* body (object) - A Subnetwork resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* body (object) - A Subnetwork resource.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4049,6 +4961,7 @@ google_compute.subnetworks.delete({
 #### Parameters
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * subnetwork (string) **required** - Name of the Subnetwork resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4095,10 +5008,11 @@ google_compute.subnetworks.expandIpCidrRange({
 ```
 
 #### Parameters
+* body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * subnetwork (string) **required** - Name of the Subnetwork resource to update.
-* body (object)
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4108,7 +5022,7 @@ google_compute.subnetworks.expandIpCidrRange({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### subnetworks.setPrivateIpGoogleAccess
-Set whether VMs in this subnet can access Google services without assigning external IP addresses through Cloudpath.
+Set whether VMs in this subnet can access Google services without assigning external IP addresses through Private Google Access.
 
 
 ```js
@@ -4123,6 +5037,7 @@ google_compute.subnetworks.setPrivateIpGoogleAccess({
 * body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * subnetwork (string) **required** - Name of the Subnetwork resource.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4144,12 +5059,12 @@ google_compute.targetPools.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4170,9 +5085,10 @@ google_compute.targetPools.insert({
 ```
 
 #### Parameters
+* body (object) - A TargetPool resource. This resource defines a pool of instances, an associated HttpHealthCheck resource, and the fallback target pool.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
-* body (object) - A TargetPool resource. This resource defines a pool of instances, an associated HttpHealthCheck resource, and the fallback target pool.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4196,6 +5112,7 @@ google_compute.targetPools.delete({
 #### Parameters
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetPool (string) **required** - Name of the TargetPool resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4242,10 +5159,11 @@ google_compute.targetPools.addHealthCheck({
 ```
 
 #### Parameters
+* body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetPool (string) **required** - Name of the target pool to add a health check to.
-* body (object)
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4267,10 +5185,11 @@ google_compute.targetPools.addInstance({
 ```
 
 #### Parameters
+* body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetPool (string) **required** - Name of the TargetPool resource to add instances to.
-* body (object)
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4317,10 +5236,11 @@ google_compute.targetPools.removeHealthCheck({
 ```
 
 #### Parameters
+* body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetPool (string) **required** - Name of the target pool to remove health checks from.
-* body (object)
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4342,10 +5262,11 @@ google_compute.targetPools.removeInstance({
 ```
 
 #### Parameters
+* body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetPool (string) **required** - Name of the TargetPool resource to remove instances from.
-* body (object)
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4367,11 +5288,12 @@ google_compute.targetPools.setBackup({
 ```
 
 #### Parameters
+* body (object)
+* failoverRatio (number) - New failoverRatio value for the target pool.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetPool (string) **required** - Name of the TargetPool resource to set a backup pool for.
-* failoverRatio (number) - New failoverRatio value for the target pool.
-* body (object)
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4392,12 +5314,12 @@ google_compute.targetVpnGateways.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4418,9 +5340,10 @@ google_compute.targetVpnGateways.insert({
 ```
 
 #### Parameters
+* body (object) - Represents a Target VPN gateway resource.
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
-* body (object) - Represents a Target VPN gateway resource.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4444,6 +5367,7 @@ google_compute.targetVpnGateways.delete({
 #### Parameters
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetVpnGateway (string) **required** - Name of the target VPN gateway to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4489,12 +5413,12 @@ google_compute.vpnTunnels.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* region (string) **required** - Name of the region for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* region (string) **required** - Name of the region for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4515,9 +5439,10 @@ google_compute.vpnTunnels.insert({
 ```
 
 #### Parameters
+* body (object)
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
-* body (object)
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4541,6 +5466,7 @@ google_compute.vpnTunnels.delete({
 #### Parameters
 * project (string) **required** - Project ID for this request.
 * region (string) **required** - Name of the region for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * vpnTunnel (string) **required** - Name of the VpnTunnel resource to delete.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4585,8 +5511,9 @@ google_compute.projects.setCommonInstanceMetadata({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - A metadata key/value entry.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4606,8 +5533,9 @@ google_compute.projects.setUsageExportBucket({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
 * body (object) - The location in Cloud Storage and naming method of the daily usage report. Contains bucket_name and report_name prefix.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4628,9 +5556,10 @@ google_compute.targetHttpProxies.setUrlMap({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* targetHttpProxy (string) **required** - Name of the TargetHttpProxy to set a URL map for.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetHttpProxy (string) **required** - Name of the TargetHttpProxy to set a URL map for.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4651,9 +5580,10 @@ google_compute.targetHttpsProxies.setSslCertificates({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* targetHttpsProxy (string) **required** - Name of the TargetHttpsProxy resource to set an SslCertificates resource for.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetHttpsProxy (string) **required** - Name of the TargetHttpsProxy resource to set an SslCertificates resource for.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4674,9 +5604,10 @@ google_compute.targetHttpsProxies.setUrlMap({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* targetHttpsProxy (string) **required** - Name of the TargetHttpsProxy resource whose URL map is to be set.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* targetHttpsProxy (string) **required** - Name of the TargetHttpsProxy resource whose URL map is to be set.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4696,11 +5627,11 @@ google_compute.zones.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4731,6 +5662,56 @@ google_compute.zones.get({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### acceleratorTypes.list
+Retrieves a list of accelerator types available to the specified project.
+
+
+```js
+google_compute.acceleratorTypes.list({
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
+* maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
+* orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
+* pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### acceleratorTypes.get
+Returns the specified accelerator type. Get a list of available accelerator types by making a list() request.
+
+
+```js
+google_compute.acceleratorTypes.get({
+  "acceleratorType": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* acceleratorType (string) **required** - Name of the accelerator type to return.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### autoscalers.list
 Retrieves a list of autoscalers contained within the specified zone.
 
@@ -4743,12 +5724,12 @@ google_compute.autoscalers.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - Name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4758,7 +5739,7 @@ google_compute.autoscalers.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### autoscalers.patch
-Updates an autoscaler in the specified project using the data included in the request. This method supports patch semantics.
+Updates an autoscaler in the specified project using the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 
 
 ```js
@@ -4772,6 +5753,7 @@ google_compute.autoscalers.patch({
 * autoscaler (string) - Name of the autoscaler to patch.
 * body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
 * project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * zone (string) **required** - Name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4793,9 +5775,10 @@ google_compute.autoscalers.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone for this request.
 * body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - Name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4816,10 +5799,11 @@ google_compute.autoscalers.update({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone for this request.
 * autoscaler (string) - Name of the autoscaler to update.
 * body (object) - Represents an Autoscaler resource. Autoscalers allow you to automatically scale virtual machine instances in managed instance groups according to an autoscaling policy that you define. For more information, read Autoscaling Groups of Instances.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - Name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4834,16 +5818,17 @@ Deletes the specified autoscaler.
 
 ```js
 google_compute.autoscalers.delete({
+  "autoscaler": "",
   "project": "",
-  "zone": "",
-  "autoscaler": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone for this request.
 * autoscaler (string) **required** - Name of the autoscaler to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - Name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4888,12 +5873,12 @@ google_compute.diskTypes.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4938,12 +5923,12 @@ google_compute.disks.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4964,10 +5949,11 @@ google_compute.disks.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* sourceImage (string) - Optional. Source image to restore onto a disk.
 * body (object) - A Disk resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* sourceImage (string) - Optional. Source image to restore onto a disk.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4982,16 +5968,17 @@ Deletes the specified persistent disk. Deleting a disk removes its data permanen
 
 ```js
 google_compute.disks.delete({
+  "disk": "",
   "project": "",
-  "zone": "",
-  "disk": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
 * disk (string) **required** - Name of the persistent disk to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5030,18 +6017,19 @@ Creates a snapshot of a specified persistent disk.
 
 ```js
 google_compute.disks.createSnapshot({
+  "disk": "",
   "project": "",
-  "zone": "",
-  "disk": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
+* body (object) - A persistent disk snapshot resource.
 * disk (string) **required** - Name of the persistent disk to snapshot.
 * guestFlush (boolean)
-* body (object) - A persistent disk snapshot resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5056,17 +6044,44 @@ Resizes the specified persistent disk.
 
 ```js
 google_compute.disks.resize({
+  "disk": "",
   "project": "",
-  "zone": "",
-  "disk": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* disk (string) **required** - The name of the persistent disk.
 * body (object)
+* disk (string) **required** - The name of the persistent disk.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### disks.setLabels
+Sets the labels on a disk. To learn more about labels, read the Labeling Resources documentation.
+
+
+```js
+google_compute.disks.setLabels({
+  "project": "",
+  "resource": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* resource (string) **required** - Name of the resource for this request.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5087,12 +6102,12 @@ google_compute.instanceGroupManagers.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5104,7 +6119,7 @@ google_compute.instanceGroupManagers.list({
 ### instanceGroupManagers.insert
 Creates a managed instance group using the information that you specify in the request. After the group is created, it schedules an action to create instances in the group using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.
 
-A managed instance group can have up to 1000 VM instances per group.
+A managed instance group can have up to 1000 VM instances per group. Please contact Cloud Support if you need an increase in this limit.
 
 
 ```js
@@ -5115,9 +6130,10 @@ google_compute.instanceGroupManagers.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where you want to create the managed instance group.
 * body (object) - An Instance Group Manager resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where you want to create the managed instance group.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5132,16 +6148,17 @@ Deletes the specified managed instance group and all of the instances in that gr
 
 ```js
 google_compute.instanceGroupManagers.delete({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
 * instanceGroupManager (string) **required** - The name of the managed instance group to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5177,22 +6194,25 @@ google_compute.instanceGroupManagers.get({
 ### instanceGroupManagers.abandonInstances
 Schedules a group action to remove the specified instances from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 You can specify a maximum of 1000 instances with this method per request.
 
 
 ```js
 google_compute.instanceGroupManagers.abandonInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
-* instanceGroupManager (string) **required** - The name of the managed instance group.
 * body (object)
+* instanceGroupManager (string) **required** - The name of the managed instance group.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5204,22 +6224,25 @@ google_compute.instanceGroupManagers.abandonInstances({
 ### instanceGroupManagers.deleteInstances
 Schedules a group action to delete the specified instances in the managed instance group. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 You can specify a maximum of 1000 instances with this method per request.
 
 
 ```js
 google_compute.instanceGroupManagers.deleteInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
-* instanceGroupManager (string) **required** - The name of the managed instance group.
 * body (object)
+* instanceGroupManager (string) **required** - The name of the managed instance group.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5259,22 +6282,25 @@ google_compute.instanceGroupManagers.listManagedInstances({
 ### instanceGroupManagers.recreateInstances
 Schedules a group action to recreate the specified instances in the managed instance group. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the action is scheduled even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 You can specify a maximum of 1000 instances with this method per request.
 
 
 ```js
 google_compute.instanceGroupManagers.recreateInstances({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
-* instanceGroupManager (string) **required** - The name of the managed instance group.
 * body (object)
+* instanceGroupManager (string) **required** - The name of the managed instance group.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5286,21 +6312,24 @@ google_compute.instanceGroupManagers.recreateInstances({
 ### instanceGroupManagers.resize
 Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted.
+
 
 ```js
 google_compute.instanceGroupManagers.resize({
-  "project": "",
-  "zone": "",
   "instanceGroupManager": "",
-  "size": 0
+  "project": "",
+  "size": 0,
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
 * instanceGroupManager (string) **required** - The name of the managed instance group.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * size (integer) **required** - The number of running instances that the managed instance group should maintain at any given time. The group automatically adds or removes instances to maintain the number of instances specified by this parameter.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5315,17 +6344,18 @@ Specifies the instance template to use when creating new instances in this group
 
 ```js
 google_compute.instanceGroupManagers.setInstanceTemplate({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
-* instanceGroupManager (string) **required** - The name of the managed instance group.
 * body (object)
+* instanceGroupManager (string) **required** - The name of the managed instance group.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5340,17 +6370,18 @@ Modifies the target pools to which all instances in this managed instance group 
 
 ```js
 google_compute.instanceGroupManagers.setTargetPools({
+  "instanceGroupManager": "",
   "project": "",
-  "zone": "",
-  "instanceGroupManager": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the managed instance group is located.
-* instanceGroupManager (string) **required** - The name of the managed instance group.
 * body (object)
+* instanceGroupManager (string) **required** - The name of the managed instance group.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the managed instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5371,12 +6402,12 @@ google_compute.instanceGroups.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the instance group is located.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone where the instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5397,9 +6428,10 @@ google_compute.instanceGroups.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where you want to create the instance group.
 * body (object)
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where you want to create the instance group.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5414,16 +6446,17 @@ Deletes the specified instance group. The instances in the group are not deleted
 
 ```js
 google_compute.instanceGroups.delete({
+  "instanceGroup": "",
   "project": "",
-  "zone": "",
-  "instanceGroup": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the instance group is located.
 * instanceGroup (string) **required** - The name of the instance group to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5462,17 +6495,18 @@ Adds a list of instances to the specified instance group. All of the instances i
 
 ```js
 google_compute.instanceGroups.addInstances({
+  "instanceGroup": "",
   "project": "",
-  "zone": "",
-  "instanceGroup": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the instance group is located.
-* instanceGroup (string) **required** - The name of the instance group where you are adding instances.
 * body (object)
+* instanceGroup (string) **required** - The name of the instance group where you are adding instances.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5487,21 +6521,21 @@ Lists the instances in the specified instance group.
 
 ```js
 google_compute.instanceGroups.listInstances({
+  "instanceGroup": "",
   "project": "",
-  "zone": "",
-  "instanceGroup": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the instance group is located.
+* body (object)
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * instanceGroup (string) **required** - The name of the instance group from which you want to generate a list of included instances.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
-* body (object)
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone where the instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5513,20 +6547,23 @@ google_compute.instanceGroups.listInstances({
 ### instanceGroups.removeInstances
 Removes one or more instances from the specified instance group, but does not delete those instances.
 
+If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration before the VM instance is removed or deleted.
+
 
 ```js
 google_compute.instanceGroups.removeInstances({
+  "instanceGroup": "",
   "project": "",
-  "zone": "",
-  "instanceGroup": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the instance group is located.
-* instanceGroup (string) **required** - The name of the instance group where the specified instances will be removed.
 * body (object)
+* instanceGroup (string) **required** - The name of the instance group where the specified instances will be removed.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5541,17 +6578,18 @@ Sets the named ports for the specified instance group.
 
 ```js
 google_compute.instanceGroups.setNamedPorts({
+  "instanceGroup": "",
   "project": "",
-  "zone": "",
-  "instanceGroup": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone where the instance group is located.
-* instanceGroup (string) **required** - The name of the instance group where the named ports are updated.
 * body (object)
+* instanceGroup (string) **required** - The name of the instance group where the named ports are updated.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone where the instance group is located.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5572,12 +6610,12 @@ google_compute.instances.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5598,9 +6636,10 @@ google_compute.instances.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
 * body (object) - An Instance resource.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5615,16 +6654,17 @@ Deletes the specified Instance resource. For more information, see Stopping or D
 
 ```js
 google_compute.instances.delete({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
 * instance (string) **required** - Name of the instance resource to delete.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5663,19 +6703,20 @@ Adds an access config to an instance's network interface.
 
 ```js
 google_compute.instances.addAccessConfig({
-  "project": "",
-  "zone": "",
   "instance": "",
-  "networkInterface": ""
+  "networkInterface": "",
+  "project": "",
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
+* body (object) - An access configuration attached to an instance's network interface. Only one access config per instance is supported.
 * instance (string) **required** - The instance name for this request.
 * networkInterface (string) **required** - The name of the network interface to add to this instance.
-* body (object) - An access configuration attached to an instance's network interface. Only one access config per instance is supported.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5685,22 +6726,23 @@ google_compute.instances.addAccessConfig({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### instances.attachDisk
-Attaches a Disk resource to an instance.
+Attaches an existing Disk resource to an instance. You must first create the disk before you can attach it. It is not possible to create and attach a disk at the same time. For more information, read Adding a persistent disk to your instance.
 
 
 ```js
 google_compute.instances.attachDisk({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - The instance name for this request.
 * body (object) - An instance-attached disk resource.
+* instance (string) **required** - The instance name for this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5715,20 +6757,21 @@ Deletes an access config from an instance's network interface.
 
 ```js
 google_compute.instances.deleteAccessConfig({
-  "project": "",
-  "zone": "",
-  "instance": "",
   "accessConfig": "",
-  "networkInterface": ""
+  "instance": "",
+  "networkInterface": "",
+  "project": "",
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - The instance name for this request.
 * accessConfig (string) **required** - The name of the access config to delete.
+* instance (string) **required** - The instance name for this request.
 * networkInterface (string) **required** - The name of the network interface.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5743,18 +6786,19 @@ Detaches a disk from an instance.
 
 ```js
 google_compute.instances.detachDisk({
-  "project": "",
-  "zone": "",
+  "deviceName": "",
   "instance": "",
-  "deviceName": ""
+  "project": "",
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Instance name.
 * deviceName (string) **required** - Disk device name to detach.
+* instance (string) **required** - Instance name.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5769,16 +6813,17 @@ Performs a reset on the instance. For more information, see Resetting an instanc
 
 ```js
 google_compute.instances.reset({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
 * instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5819,20 +6864,73 @@ Sets the auto-delete flag for a disk attached to an instance.
 
 ```js
 google_compute.instances.setDiskAutoDelete({
-  "project": "",
-  "zone": "",
-  "instance": "",
   "autoDelete": true,
-  "deviceName": ""
+  "deviceName": "",
+  "instance": "",
+  "project": "",
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - The instance name.
 * autoDelete (boolean) **required** - Whether to auto-delete the disk when the instance is deleted.
 * deviceName (string) **required** - The device name of the disk to modify.
+* instance (string) **required** - The instance name.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.setLabels
+Sets labels on an instance. To learn more about labels, read the Labeling Resources documentation.
+
+
+```js
+google_compute.instances.setLabels({
+  "instance": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.setMachineResources
+Changes the number and/or type of accelerator for a stopped instance to the values specified in the request.
+
+
+```js
+google_compute.instances.setMachineResources({
+  "instance": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5847,17 +6945,18 @@ Changes the machine type for a stopped instance to the machine type specified in
 
 ```js
 google_compute.instances.setMachineType({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Name of the instance scoping this request.
 * body (object)
+* instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5872,17 +6971,44 @@ Sets metadata for the specified instance to the data included in the request.
 
 ```js
 google_compute.instances.setMetadata({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Name of the instance scoping this request.
 * body (object) - A metadata key/value entry.
+* instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.setMinCpuPlatform
+Changes the minimum CPU platform that this instance should use. This method can only be called on a stopped instance. For more information, read Specifying a Minimum CPU Platform.
+
+
+```js
+google_compute.instances.setMinCpuPlatform({
+  "instance": "",
+  "project": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5897,17 +7023,18 @@ Sets an instance's scheduling options.
 
 ```js
 google_compute.instances.setScheduling({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Instance name.
 * body (object) - Sets the scheduling options for an Instance.
+* instance (string) **required** - Instance name.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5922,17 +7049,18 @@ Sets the service account on the instance. For more information, read Changing th
 
 ```js
 google_compute.instances.setServiceAccount({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Name of the instance resource to start.
 * body (object)
+* instance (string) **required** - Name of the instance resource to start.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5947,17 +7075,18 @@ Sets tags for the specified instance to the data included in the request.
 
 ```js
 google_compute.instances.setTags({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Name of the instance scoping this request.
 * body (object) - A set of instance tags.
+* instance (string) **required** - Name of the instance scoping this request.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5972,16 +7101,17 @@ Starts an instance that was stopped using the using the instances().stop method.
 
 ```js
 google_compute.instances.start({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
 * instance (string) **required** - Name of the instance resource to start.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -5996,17 +7126,18 @@ Starts an instance that was stopped using the using the instances().stop method.
 
 ```js
 google_compute.instances.startWithEncryptionKey({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* instance (string) **required** - Name of the instance resource to start.
 * body (object)
+* instance (string) **required** - Name of the instance resource to start.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6016,21 +7147,48 @@ google_compute.instances.startWithEncryptionKey({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### instances.stop
-Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur per-minute, virtual machine usage charges while they are stopped, but any resources that the virtual machine is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance.
+Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur VM usage charges while they are stopped. However, resources that the VM is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance.
 
 
 ```js
 google_compute.instances.stop({
+  "instance": "",
   "project": "",
-  "zone": "",
-  "instance": ""
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
 * instance (string) **required** - Name of the instance resource to stop.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - The name of the zone for this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.setDeletionProtection
+Sets deletion protection on the instance.
+
+
+```js
+google_compute.instances.setDeletionProtection({
+  "project": "",
+  "resource": "",
+  "zone": ""
+}, context)
+```
+
+#### Parameters
+* deletionProtection (boolean) - Whether the resource should be protected against deletion.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* resource (string) **required** - Name of the resource for this request.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6051,12 +7209,12 @@ google_compute.machineTypes.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - The name of the zone for this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - The name of the zone for this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6101,12 +7259,12 @@ google_compute.zoneOperations.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone for request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - Name of the zone for request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6175,12 +7333,12 @@ google_compute.targetInstances.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone scoping this request.
-* filter (string) - Sets a filter expression for filtering listed resources, in the form filter={expression}. Your {expression} must be in the format: field_name comparison_string literal_string.
+* filter (string) - Sets a filter {expression} for filtering listed resources. Your {expression} must be in the format: field_name comparison_string literal_string.
 * maxResults (integer) - The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
 * orderBy (string) - Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
 * pageToken (string) - Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
+* project (string) **required** - Project ID for this request.
+* zone (string) **required** - Name of the zone scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6201,9 +7359,10 @@ google_compute.targetInstances.insert({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone scoping this request.
 * body (object) - A TargetInstance resource. This resource defines an endpoint instance that terminates traffic of certain protocols.
+* project (string) **required** - Project ID for this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
+* zone (string) **required** - Name of the zone scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -6219,15 +7378,16 @@ Deletes the specified TargetInstance resource.
 ```js
 google_compute.targetInstances.delete({
   "project": "",
-  "zone": "",
-  "targetInstance": ""
+  "targetInstance": "",
+  "zone": ""
 }, context)
 ```
 
 #### Parameters
 * project (string) **required** - Project ID for this request.
-* zone (string) **required** - Name of the zone scoping this request.
+* requestId (string) - An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
 * targetInstance (string) **required** - Name of the TargetInstance resource to delete.
+* zone (string) **required** - Name of the zone scoping this request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

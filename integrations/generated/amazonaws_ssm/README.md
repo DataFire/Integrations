@@ -21,7 +21,7 @@ amazonaws_ssm.AddTagsToResource({}).then(data => {
 ```
 
 ## Description
-<fullname>Amazon EC2 Systems Manager</fullname> <p>Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon EC2 Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems Manager Prerequisites</a>.</p>
+<fullname>Amazon EC2 Systems Manager</fullname> <p>Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon EC2 Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems Manager Prerequisites</a>.</p> <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information about how to use a Query API, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API Requests</a>. </p>
 
 ## Actions
 ### AddTagsToResource
@@ -83,6 +83,7 @@ amazonaws_ssm.CreateAssociation({
 ```
 
 #### Parameters
+* AssociationName (string)
 * DocumentVersion (string)
 * InstanceId (string)
 * Name (string) **required**
@@ -138,6 +139,7 @@ amazonaws_ssm.CreateMaintenanceWindow({
 * AllowUnassociatedTargets (boolean) **required**
 * ClientToken (string)
 * Cutoff (integer) **required**
+* Description (string)
 * Duration (integer) **required**
 * Name (string) **required**
 * Schedule (string) **required**
@@ -155,11 +157,32 @@ amazonaws_ssm.CreatePatchBaseline({
 #### Parameters
 * ApprovalRules (object) - A set of rules defining the approval rules for a patch baseline.
 * ApprovedPatches (array)
+* ApprovedPatchesComplianceLevel (string)
 * ClientToken (string)
 * Description (string)
 * GlobalFilters (object) - A set of patch filters, typically used for approval rules.
 * Name (string) **required**
+* OperatingSystem (string)
 * RejectedPatches (array)
+
+### CreateResourceDataSync
+
+
+
+```js
+amazonaws_ssm.CreateResourceDataSync({
+  "SyncName": "",
+  "S3Destination": {
+    "BucketName": "",
+    "SyncFormat": "",
+    "Region": ""
+  }
+}, context)
+```
+
+#### Parameters
+* S3Destination (object) **required** - Information about the target Amazon S3 bucket for the Resource Data Sync.
+* SyncName (string) **required**
 
 ### DeleteActivation
 
@@ -226,6 +249,19 @@ amazonaws_ssm.DeleteParameter({
 #### Parameters
 * Name (string) **required**
 
+### DeleteParameters
+
+
+
+```js
+amazonaws_ssm.DeleteParameters({
+  "Names": []
+}, context)
+```
+
+#### Parameters
+* Names (array) **required**
+
 ### DeletePatchBaseline
 
 
@@ -238,6 +274,19 @@ amazonaws_ssm.DeletePatchBaseline({
 
 #### Parameters
 * BaselineId (string) **required**
+
+### DeleteResourceDataSync
+
+
+
+```js
+amazonaws_ssm.DeleteResourceDataSync({
+  "SyncName": ""
+}, context)
+```
+
+#### Parameters
+* SyncName (string) **required**
 
 ### DeregisterManagedInstance
 
@@ -279,6 +328,7 @@ amazonaws_ssm.DeregisterTargetFromMaintenanceWindow({
 ```
 
 #### Parameters
+* Safe (boolean)
 * WindowId (string) **required**
 * WindowTargetId (string) **required**
 
@@ -322,6 +372,7 @@ amazonaws_ssm.DescribeAssociation({}, context)
 
 #### Parameters
 * AssociationId (string)
+* AssociationVersion (string)
 * InstanceId (string)
 * Name (string)
 
@@ -592,9 +643,12 @@ amazonaws_ssm.DescribeParameters({}, context)
 ```
 
 #### Parameters
+* MaxResults (string)
+* NextToken (string)
 * Filters (array)
 * MaxResults (integer)
 * NextToken (string)
+* ParameterFilters (array)
 
 ### DescribePatchBaselines
 
@@ -631,6 +685,7 @@ amazonaws_ssm.DescribePatchGroups({}, context)
 ```
 
 #### Parameters
+* Filters (array)
 * MaxResults (integer)
 * NextToken (string)
 
@@ -672,7 +727,7 @@ amazonaws_ssm.GetDefaultPatchBaseline({}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* OperatingSystem (string)
 
 ### GetDeployablePatchSnapshotForInstance
 
@@ -728,6 +783,7 @@ amazonaws_ssm.GetInventorySchema({}, context)
 #### Parameters
 * MaxResults (integer)
 * NextToken (string)
+* SubType (boolean)
 * TypeName (string)
 
 ### GetMaintenanceWindow
@@ -771,6 +827,52 @@ amazonaws_ssm.GetMaintenanceWindowExecutionTask({
 * TaskId (string) **required**
 * WindowExecutionId (string) **required**
 
+### GetMaintenanceWindowExecutionTaskInvocation
+
+
+
+```js
+amazonaws_ssm.GetMaintenanceWindowExecutionTaskInvocation({
+  "WindowExecutionId": "",
+  "TaskId": "",
+  "InvocationId": ""
+}, context)
+```
+
+#### Parameters
+* InvocationId (string) **required**
+* TaskId (string) **required**
+* WindowExecutionId (string) **required**
+
+### GetMaintenanceWindowTask
+
+
+
+```js
+amazonaws_ssm.GetMaintenanceWindowTask({
+  "WindowId": "",
+  "WindowTaskId": ""
+}, context)
+```
+
+#### Parameters
+* WindowId (string) **required**
+* WindowTaskId (string) **required**
+
+### GetParameter
+
+
+
+```js
+amazonaws_ssm.GetParameter({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+* WithDecryption (boolean)
+
 ### GetParameterHistory
 
 
@@ -782,6 +884,8 @@ amazonaws_ssm.GetParameterHistory({
 ```
 
 #### Parameters
+* MaxResults (string)
+* NextToken (string)
 * MaxResults (integer)
 * Name (string) **required**
 * NextToken (string)
@@ -799,6 +903,26 @@ amazonaws_ssm.GetParameters({
 
 #### Parameters
 * Names (array) **required**
+* WithDecryption (boolean)
+
+### GetParametersByPath
+
+
+
+```js
+amazonaws_ssm.GetParametersByPath({
+  "Path": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+* ParameterFilters (array)
+* Path (string) **required**
+* Recursive (boolean)
 * WithDecryption (boolean)
 
 ### GetPatchBaseline
@@ -825,7 +949,23 @@ amazonaws_ssm.GetPatchBaselineForPatchGroup({
 ```
 
 #### Parameters
+* OperatingSystem (string)
 * PatchGroup (string) **required**
+
+### ListAssociationVersions
+
+
+
+```js
+amazonaws_ssm.ListAssociationVersions({
+  "AssociationId": ""
+}, context)
+```
+
+#### Parameters
+* AssociationId (string) **required**
+* MaxResults (integer)
+* NextToken (string)
 
 ### ListAssociations
 
@@ -877,6 +1017,34 @@ amazonaws_ssm.ListCommands({}, context)
 * MaxResults (integer)
 * NextToken (string)
 
+### ListComplianceItems
+
+
+
+```js
+amazonaws_ssm.ListComplianceItems({}, context)
+```
+
+#### Parameters
+* Filters (array)
+* MaxResults (integer)
+* NextToken (string)
+* ResourceIds (array)
+* ResourceTypes (array)
+
+### ListComplianceSummaries
+
+
+
+```js
+amazonaws_ssm.ListComplianceSummaries({}, context)
+```
+
+#### Parameters
+* Filters (array)
+* MaxResults (integer)
+* NextToken (string)
+
 ### ListDocumentVersions
 
 
@@ -904,6 +1072,7 @@ amazonaws_ssm.ListDocuments({}, context)
 * MaxResults (string)
 * NextToken (string)
 * DocumentFilterList (array)
+* Filters (array)
 * MaxResults (integer)
 * NextToken (string)
 
@@ -924,6 +1093,31 @@ amazonaws_ssm.ListInventoryEntries({
 * MaxResults (integer)
 * NextToken (string)
 * TypeName (string) **required**
+
+### ListResourceComplianceSummaries
+
+
+
+```js
+amazonaws_ssm.ListResourceComplianceSummaries({}, context)
+```
+
+#### Parameters
+* Filters (array)
+* MaxResults (integer)
+* NextToken (string)
+
+### ListResourceDataSync
+
+
+
+```js
+amazonaws_ssm.ListResourceDataSync({}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
 
 ### ListTagsForResource
 
@@ -957,6 +1151,30 @@ amazonaws_ssm.ModifyDocumentPermission({
 * Name (string) **required**
 * PermissionType (string) **required**
 
+### PutComplianceItems
+
+
+
+```js
+amazonaws_ssm.PutComplianceItems({
+  "ResourceId": "",
+  "ResourceType": "",
+  "ComplianceType": "",
+  "ExecutionSummary": {
+    "ExecutionTime": ""
+  },
+  "Items": []
+}, context)
+```
+
+#### Parameters
+* ComplianceType (string) **required**
+* ExecutionSummary (object) **required** - A summary of the call execution that includes an execution ID, the type of execution (for example, <code>Command</code>), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+* ItemContentHash (string)
+* Items (array) **required**
+* ResourceId (string) **required**
+* ResourceType (string) **required**
+
 ### PutInventory
 
 
@@ -985,6 +1203,7 @@ amazonaws_ssm.PutParameter({
 ```
 
 #### Parameters
+* AllowedPattern (string)
 * Description (string)
 * KeyId (string)
 * Name (string) **required**
@@ -1034,6 +1253,8 @@ amazonaws_ssm.RegisterTargetWithMaintenanceWindow({
 
 #### Parameters
 * ClientToken (string)
+* Description (string)
+* Name (string)
 * OwnerInformation (string)
 * ResourceType (string) **required**
 * Targets (array) **required**
@@ -1057,13 +1278,16 @@ amazonaws_ssm.RegisterTaskWithMaintenanceWindow({
 
 #### Parameters
 * ClientToken (string)
+* Description (string)
 * LoggingInfo (object) - Information about an Amazon S3 bucket to write instance-level logs to.
 * MaxConcurrency (string) **required**
 * MaxErrors (string) **required**
+* Name (string)
 * Priority (integer)
 * ServiceRoleArn (string) **required**
 * Targets (array) **required**
 * TaskArn (string) **required**
+* TaskInvocationParameters (object) - The parameters for task execution.
 * TaskParameters (array)
 * TaskType (string) **required**
 * WindowId (string) **required**
@@ -1084,6 +1308,22 @@ amazonaws_ssm.RemoveTagsFromResource({
 * ResourceId (string) **required**
 * ResourceType (string) **required**
 * TagKeys (array) **required**
+
+### SendAutomationSignal
+
+
+
+```js
+amazonaws_ssm.SendAutomationSignal({
+  "AutomationExecutionId": "",
+  "SignalType": ""
+}, context)
+```
+
+#### Parameters
+* AutomationExecutionId (string) **required**
+* Payload (array)
+* SignalType (string) **required**
 
 ### SendCommand
 
@@ -1123,6 +1363,7 @@ amazonaws_ssm.StartAutomationExecution({
 ```
 
 #### Parameters
+* ClientToken (string)
 * DocumentName (string) **required**
 * DocumentVersion (string)
 * Parameters (array)
@@ -1152,10 +1393,14 @@ amazonaws_ssm.UpdateAssociation({
 
 #### Parameters
 * AssociationId (string) **required**
+* AssociationName (string)
+* AssociationVersion (string)
 * DocumentVersion (string)
+* Name (string)
 * OutputLocation (object) - An Amazon S3 bucket where you want to store the results of this request.
 * Parameters (array)
 * ScheduleExpression (string)
+* Targets (array)
 
 ### UpdateAssociationStatus
 
@@ -1222,11 +1467,60 @@ amazonaws_ssm.UpdateMaintenanceWindow({
 #### Parameters
 * AllowUnassociatedTargets (boolean)
 * Cutoff (integer)
+* Description (string)
 * Duration (integer)
 * Enabled (boolean)
 * Name (string)
+* Replace (boolean)
 * Schedule (string)
 * WindowId (string) **required**
+
+### UpdateMaintenanceWindowTarget
+
+
+
+```js
+amazonaws_ssm.UpdateMaintenanceWindowTarget({
+  "WindowId": "",
+  "WindowTargetId": ""
+}, context)
+```
+
+#### Parameters
+* Description (string)
+* Name (string)
+* OwnerInformation (string)
+* Replace (boolean)
+* Targets (array)
+* WindowId (string) **required**
+* WindowTargetId (string) **required**
+
+### UpdateMaintenanceWindowTask
+
+
+
+```js
+amazonaws_ssm.UpdateMaintenanceWindowTask({
+  "WindowId": "",
+  "WindowTaskId": ""
+}, context)
+```
+
+#### Parameters
+* Description (string)
+* LoggingInfo (object) - Information about an Amazon S3 bucket to write instance-level logs to.
+* MaxConcurrency (string)
+* MaxErrors (string)
+* Name (string)
+* Priority (integer)
+* Replace (boolean)
+* ServiceRoleArn (string)
+* Targets (array)
+* TaskArn (string)
+* TaskInvocationParameters (object) - The parameters for task execution.
+* TaskParameters (array)
+* WindowId (string) **required**
+* WindowTaskId (string) **required**
 
 ### UpdateManagedInstanceRole
 
@@ -1256,6 +1550,7 @@ amazonaws_ssm.UpdatePatchBaseline({
 #### Parameters
 * ApprovalRules (object) - A set of rules defining the approval rules for a patch baseline.
 * ApprovedPatches (array)
+* ApprovedPatchesComplianceLevel (string)
 * BaselineId (string) **required**
 * Description (string)
 * GlobalFilters (object) - A set of patch filters, typically used for approval rules.

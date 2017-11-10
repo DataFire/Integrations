@@ -150,6 +150,39 @@
           "Effluent Charts"
         ],
         "operationId": "eff_rest_services.download_effluent_chart.get"
+      },
+      "post": {
+        "description": "Downloads tabular Discharge Monitoring Report (DMR) and compliance data for one NPDES permit as a CSV.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/outfall"
+          },
+          {
+            "$ref": "#/parameters/parameter_code"
+          },
+          {
+            "$ref": "#/parameters/start_date"
+          },
+          {
+            "$ref": "#/parameters/end_date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object with summary effluent information",
+            "schema": {
+              "type": "file"
+            }
+          }
+        },
+        "summary": "Effluent Charts Download Service",
+        "tags": [
+          "Effluent Charts"
+        ],
+        "operationId": "eff_rest_services.download_effluent_chart.post"
       }
     },
     "/eff_rest_services.get_effluent_chart": {
@@ -200,6 +233,54 @@
           "Effluent Charts"
         ],
         "operationId": "eff_rest_services.get_effluent_chart.get"
+      },
+      "post": {
+        "description": "Discharge Monitoring Report (DMR) data supporting each effluent chart for one NPDES permit. Includes Discharge Monitoring Reports and NPDES Violations. \n\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/outfall"
+          },
+          {
+            "$ref": "#/parameters/parameter_code"
+          },
+          {
+            "$ref": "#/parameters/start_date"
+          },
+          {
+            "$ref": "#/parameters/end_date"
+          },
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object with detailed effluent information",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/eff1_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Effluent Chart Service",
+        "tags": [
+          "Effluent Charts"
+        ],
+        "operationId": "eff_rest_services.get_effluent_chart.post"
       }
     },
     "/eff_rest_services.get_summary_chart": {
@@ -244,6 +325,48 @@
           "Effluent Charts"
         ],
         "operationId": "eff_rest_services.get_summary_chart.get"
+      },
+      "post": {
+        "description": "Summary of compliance status each outfall and parameter for one NPDES permit. Provides the current compliance status and overall compliance status for the date range of interest. This service supports the Summary Matrix on the Effluent Charts.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          },
+          {
+            "$ref": "#/parameters/start_date"
+          },
+          {
+            "$ref": "#/parameters/end_date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object with summary effluent information",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/eff2_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Summary Effluent Chart Service",
+        "tags": [
+          "Effluent Charts"
+        ],
+        "operationId": "eff_rest_services.get_summary_chart.post"
       }
     },
     "/rest_lookups.cwa_parameters": {
@@ -270,7 +393,7 @@
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/rlk9_Results"
+                  "$ref": "#/definitions/rlk16_Results"
                 }
               },
               "required": [
@@ -285,6 +408,45 @@
           "Lookups"
         ],
         "operationId": "rest_lookups.cwa_parameters.get"
+      },
+      "post": {
+        "description": "Look up Clean Water Act parameter codes and descriptions in the Integrated Compliance Information System - National Pollutant Discharge Elimination System (ICIS-NPDES) by code or term.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          },
+          {
+            "$ref": "#/parameters/search_term"
+          },
+          {
+            "$ref": "#/parameters/search_code"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an array of parameter codes and descriptions that contain the search_term or search_code entered. If search term or search code not provided, returns all values. ValueCode is the 5-digit parameter code.\nValueDescription is the parameter description.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/rlk16_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "ECHO CWA Parameter Lookup Service",
+        "tags": [
+          "Lookups"
+        ],
+        "operationId": "rest_lookups.cwa_parameters.post"
       }
     }
   },
@@ -380,6 +542,11 @@
           "description": "The unique identifier of the Limit Set Schedule, generated in ICIS-NPDES",
           "example": "3400204974",
           "title": "Limit Set Schedule ID",
+          "type": "string"
+        },
+        "LimitTypeCode": {
+          "example": "C1",
+          "title": "Limit Type Code",
           "type": "string"
         },
         "LimitUnitCode": {
@@ -535,6 +702,7 @@
         "LimitSetScheduleId",
         "NmbrOfSubmission",
         "LimitId",
+        "LimitTypeCode",
         "LimitBeginDate",
         "LimitEndDate",
         "LimitValueId",
@@ -729,8 +897,8 @@
       "required": [
         "PermFeatureNmbr",
         "PermFeatureTypeCode",
-        "Parameters",
-        "PermFeatureTypeDesc"
+        "PermFeatureTypeDesc",
+        "Parameters"
       ],
       "type": "object"
     },
@@ -1144,7 +1312,7 @@
       ],
       "type": "object"
     },
-    "rlk0_LuValues": {
+    "rlk00_LuValues": {
       "description": "Lookup Values",
       "properties": {
         "ValueCode": {
@@ -1164,12 +1332,12 @@
       ],
       "type": "object"
     },
-    "rlk9_Results": {
+    "rlk16_Results": {
       "description": "Results Object",
       "properties": {
         "LuValues": {
           "items": {
-            "$ref": "#/definitions/rlk0_LuValues"
+            "$ref": "#/definitions/rlk00_LuValues"
           },
           "type": "array"
         },

@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Manages the execution of large numbers of distributed requests. Cloud Tasks is in Alpha.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Cloud Tasks",
     "version": "v2beta2",
     "x-apiClientRegistration": {
@@ -44,11 +49,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -186,6 +201,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -228,6 +246,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -315,6 +336,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -366,6 +390,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -490,6 +517,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -571,6 +601,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -654,6 +687,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -735,6 +771,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -818,6 +857,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -899,6 +941,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -982,6 +1027,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1064,6 +1112,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1115,6 +1166,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1196,6 +1250,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1210,7 +1267,7 @@
         "operationId": "projects.locations.queues.tasks.list",
         "parameters": [
           {
-            "description": "\nSort order used for the query. The fields supported for sorting\nare Task.schedule_time and PullMessage.tag. All results will be\nreturned in ascending order. The default ordering is by\nTask.schedule_time.",
+            "description": "Sort order used for the query. The only fields supported for sorting\nare `schedule_time` and `pull_message.tag`. All results will be\nreturned in approximately ascending order. The default ordering is by\n`schedule_time`.",
             "in": "query",
             "name": "orderBy",
             "type": "string"
@@ -1258,6 +1315,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1338,6 +1398,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1421,6 +1484,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1502,6 +1568,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
@@ -1585,6 +1654,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           }
         ],
@@ -1655,11 +1727,11 @@
       "type": "object"
     },
     "AppEngineQueueConfig": {
-      "description": "Deprecated. Use AppEngineTarget.",
+      "description": "Deprecated. Use AppEngineHttpTarget.",
       "properties": {
         "appEngineRoutingOverride": {
           "$ref": "#/definitions/AppEngineRouting",
-          "description": "Deprecated. Use AppEngineTarget.app_engine_routing_override."
+          "description": "Deprecated. Use AppEngineHttpTarget.app_engine_routing_override."
         }
       },
       "type": "object"
@@ -1837,7 +1909,6 @@
       "properties": {
         "nextPageToken": {
           "description": "A token to retrieve next page of results.\n\nTo return the next page of results, call\nCloudTasks.ListQueues with this value as the\nListQueuesRequest.page_token.\n\nIf the next_page_token is empty, there are no more results.\n\nThe page token is valid for only 2 hours.",
-          "format": "byte",
           "type": "string"
         },
         "queues": {
@@ -1855,7 +1926,6 @@
       "properties": {
         "nextPageToken": {
           "description": "A token to retrieve next page of results.\n\nTo return the next page of results, call\nCloudTasks.ListTasks with this value as the\nListTasksRequest.page_token.\n\nIf the next_page_token is empty, there are no more results.",
-          "format": "byte",
           "type": "string"
         },
         "tasks": {

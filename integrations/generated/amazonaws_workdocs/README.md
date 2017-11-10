@@ -15,7 +15,7 @@ let amazonaws_workdocs = require('@datafire/amazonaws_workdocs').create({
   region: "",
 });
 
-amazonaws_workdocs.InitiateDocumentVersionUpload({}).then(data => {
+amazonaws_workdocs.DescribeActivities({}).then(data => {
   console.log(data);
 })
 ```
@@ -24,6 +24,17 @@ amazonaws_workdocs.InitiateDocumentVersionUpload({}).then(data => {
 <p>The WorkDocs API is designed for the following use cases:</p> <ul> <li> <p>File Migration: File migration applications are supported for users who want to migrate their files from an on-premise or off-premise file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.</p> </li> <li> <p>Security: Support security applications are supported for users who have additional security needs, such as anti-virus or data loss prevention. The APIs, in conjunction with Amazon CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs, so the application can take the necessary actions and replace the target file. The application can also choose to email the user if the target file violates the policy.</p> </li> <li> <p>eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic and/or record the actions in an Amazon WorkDocs site, in conjunction with Amazon CloudTrails, to replicate data for eDiscovery, backup, or analytical applications.</p> </li> </ul> <p>All Amazon WorkDocs APIs are Amazon authenticated, certificate-signed APIs. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.</p>
 
 ## Actions
+### DescribeActivities
+
+
+
+```js
+amazonaws_workdocs.DescribeActivities({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### InitiateDocumentVersionUpload
 
 
@@ -103,6 +114,59 @@ amazonaws_workdocs.UpdateDocumentVersion({
 * VersionId (string) **required**
 * VersionStatus (string)
 
+### CreateComment
+
+
+
+```js
+amazonaws_workdocs.CreateComment({
+  "DocumentId": "",
+  "VersionId": "",
+  "Text": ""
+}, context)
+```
+
+#### Parameters
+* DocumentId (string) **required**
+* VersionId (string) **required**
+* NotifyCollaborators (boolean)
+* ParentId (string)
+* Text (string) **required**
+* ThreadId (string)
+* Visibility (string)
+
+### DeleteComment
+
+
+
+```js
+amazonaws_workdocs.DeleteComment({
+  "DocumentId": "",
+  "VersionId": "",
+  "CommentId": ""
+}, context)
+```
+
+#### Parameters
+* DocumentId (string) **required**
+* VersionId (string) **required**
+* CommentId (string) **required**
+
+### DescribeComments
+
+
+
+```js
+amazonaws_workdocs.DescribeComments({
+  "DocumentId": "",
+  "VersionId": ""
+}, context)
+```
+
+#### Parameters
+* DocumentId (string) **required**
+* VersionId (string) **required**
+
 ### CreateFolder
 
 
@@ -161,6 +225,28 @@ amazonaws_workdocs.GetFolderPath({
 #### Parameters
 * FolderId (string) **required**
 
+### GetCurrentUser
+
+
+
+```js
+amazonaws_workdocs.GetCurrentUser({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### DescribeRootFolders
+
+
+
+```js
+amazonaws_workdocs.DescribeRootFolders({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### DescribeNotificationSubscriptions
 
 
@@ -188,6 +274,32 @@ amazonaws_workdocs.DeleteNotificationSubscription({
 #### Parameters
 * OrganizationId (string) **required**
 * SubscriptionId (string) **required**
+
+### DeleteCustomMetadata
+
+
+
+```js
+amazonaws_workdocs.DeleteCustomMetadata({
+  "ResourceId": ""
+}, context)
+```
+
+#### Parameters
+* ResourceId (string) **required**
+
+### DeleteLabels
+
+
+
+```js
+amazonaws_workdocs.DeleteLabels({
+  "ResourceId": ""
+}, context)
+```
+
+#### Parameters
+* ResourceId (string) **required**
 
 ### RemoveAllResourcePermissions
 

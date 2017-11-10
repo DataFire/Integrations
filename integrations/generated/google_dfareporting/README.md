@@ -51,7 +51,7 @@ google_dfareporting.oauthRefresh(null, context)
 *This action has no parameters*
 
 ### files.get
-Retrieves a report file by its report ID and file ID.
+Retrieves a report file by its report ID and file ID. This method supports media download.
 
 
 ```js
@@ -226,14 +226,14 @@ google_dfareporting.accountUserProfiles.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * active (boolean) - Select only active user profiles.
 * ids (array) - Select only user profiles with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name, ID or email. Wildcards (*) are allowed. For example, "user profile*2015" will return objects with names like "user profile June 2015", "user profile April 2015", or simply "user profile 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "user profile" will match objects with name "my user profile", "user profile 2015", or simply "user profile".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * subaccountId (string) - Select only user profiles with the specified subaccount ID.
 * userRoleId (string) - Select only user profiles with the specified user role ID.
 * alt (string) - Data format for the response.
@@ -342,14 +342,14 @@ google_dfareporting.accounts.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * active (boolean) - Select only active accounts. Don't set this field to select both active and non-active accounts.
 * ids (array) - Select only accounts with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "account*2015" will return objects with names like "account June 2015", "account April 2015", or simply "account 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "account" will match objects with name "my account", "account 2015", or simply "account".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -435,7 +435,6 @@ google_dfareporting.ads.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * active (boolean) - Select only active ads.
 * advertiserId (string) - Select only ads with this advertiser ID.
 * archived (boolean) - Select only archived ads.
@@ -451,11 +450,12 @@ google_dfareporting.ads.list({
 * overriddenEventTagId (string) - Select only ads with this event tag override ID.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
 * placementIds (array) - Select only ads with these placement IDs assigned.
+* profileId (string) **required** - User profile ID associated with this request.
 * remarketingListIds (array) - Select only ads whose list targeting expression use these remarketing list IDs.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "ad*2015" will return objects with names like "ad June 2015", "ad April 2015", or simply "ad 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "ad" will match objects with name "my ad", "ad 2015", or simply "ad".
 * sizeIds (array) - Select only ads with these size IDs.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * sslCompliant (boolean) - Select only ads that are SSL-compliant.
 * sslRequired (boolean) - Select only ads that require SSL.
 * type (array) - Select only ads with these types.
@@ -565,13 +565,13 @@ google_dfareporting.advertiserGroups.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * ids (array) - Select only advertiser groups with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "advertiser*2015" will return objects with names like "advertiser group June 2015", "advertiser group April 2015", or simply "advertiser group 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "advertisergroup" will match objects with name "my advertisergroup", "advertisergroup 2015", or simply "advertisergroup".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -700,7 +700,6 @@ google_dfareporting.advertisers.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserGroupIds (array) - Select only advertisers with these advertiser group IDs.
 * floodlightConfigurationIds (array) - Select only advertisers with these floodlight configuration IDs.
 * ids (array) - Select only advertisers with these IDs.
@@ -708,9 +707,10 @@ google_dfareporting.advertisers.list({
 * maxResults (integer) - Maximum number of results to return.
 * onlyParent (boolean) - Select only advertisers which use another advertiser's floodlight configuration.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "advertiser*2015" will return objects with names like "advertiser June 2015", "advertiser April 2015", or simply "advertiser 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "advertiser" will match objects with name "my advertiser", "advertiser 2015", or simply "advertiser".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * status (string) - Select only advertisers with the specified status.
 * subaccountId (string) - Select only advertisers with these subaccount IDs.
 * alt (string) - Data format for the response.
@@ -839,7 +839,6 @@ google_dfareporting.campaigns.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserGroupIds (array) - Select only campaigns whose advertisers belong to these advertiser groups.
 * advertiserIds (array) - Select only campaigns that belong to these advertisers.
 * archived (boolean) - Select only archived campaigns. Don't set this field to select both archived and non-archived campaigns.
@@ -849,9 +848,10 @@ google_dfareporting.campaigns.list({
 * maxResults (integer) - Maximum number of results to return.
 * overriddenEventTagId (string) - Select only campaigns that have overridden this event tag ID.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for campaigns by name or ID. Wildcards (*) are allowed. For example, "campaign*2015" will return campaigns with names like "campaign June 2015", "campaign April 2015", or simply "campaign 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "campaign" will match campaigns with name "my campaign", "campaign 2015", or simply "campaign".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * subaccountId (string) - Select only campaigns that belong to this subaccount.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -936,17 +936,17 @@ Retrieves the list of creative IDs associated with the specified campaign. This 
 
 ```js
 google_dfareporting.campaignCreativeAssociations.list({
-  "profileId": "",
-  "campaignId": ""
+  "campaignId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * campaignId (string) **required** - Campaign ID in this association.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* profileId (string) **required** - User profile ID associated with this request.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1152,7 +1152,6 @@ google_dfareporting.changeLogs.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * action (string) - Select only change logs with the specified action.
 * ids (array) - Select only change logs with these IDs.
 * maxChangeTime (string) - Select only change logs whose change time is before the specified maxChangeTime.The time should be formatted as an RFC3339 date/time string. For example, for 10:54 PM on July 18th, 2015, in the America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In other words, the year, month, day, the letter T, the hour (24-hour clock system), minute, second, and then the time zone offset.
@@ -1161,6 +1160,7 @@ google_dfareporting.changeLogs.list({
 * objectIds (array) - Select only change logs with these object IDs.
 * objectType (string) - Select only change logs with the specified object type.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Select only change logs whose object ID, user name, old or new values match the search string.
 * userProfileIds (array) - Select only change logs with these user profile IDs.
 * alt (string) - Data format for the response.
@@ -1270,13 +1270,13 @@ google_dfareporting.contentCategories.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * ids (array) - Select only content categories with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "contentcategory*2015" will return objects with names like "contentcategory June 2015", "contentcategory April 2015", or simply "contentcategory 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "contentcategory" will match objects with name "my contentcategory", "contentcategory 2015", or simply "contentcategory".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1491,14 +1491,14 @@ google_dfareporting.creativeFields.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserIds (array) - Select only creative fields that belong to these advertisers.
 * ids (array) - Select only creative fields with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for creative fields by name or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will return creative fields with names like "creativefield June 2015", "creativefield April 2015", or simply "creativefield 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of "creativefield" will match creative fields with the name "my creativefield", "creativefield 2015", or simply "creativefield".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1578,20 +1578,20 @@ Retrieves a list of creative field values, possibly filtered. This method suppor
 
 ```js
 google_dfareporting.creativeFieldValues.list({
-  "profileId": "",
-  "creativeFieldId": ""
+  "creativeFieldId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * creativeFieldId (string) **required** - Creative field ID for this creative field value.
 * ids (array) - Select only creative field values with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for creative field values by their values. Wildcards (e.g. *) are not allowed.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1774,15 +1774,15 @@ google_dfareporting.creativeGroups.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserIds (array) - Select only creative groups that belong to these advertisers.
 * groupNumber (integer) - Select only creative groups that belong to this subgroup.
 * ids (array) - Select only creative groups with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for creative groups by name or ID. Wildcards (*) are allowed. For example, "creativegroup*2015" will return creative groups with names like "creativegroup June 2015", "creativegroup April 2015", or simply "creativegroup 2015". Most of the searches also add wild-cards implicitly at the start and the end of the search string. For example, a search string of "creativegroup" will match creative groups with the name "my creativegroup", "creativegroup 2015", or simply "creativegroup".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1889,7 +1889,6 @@ google_dfareporting.creatives.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * active (boolean) - Select only active creatives. Leave blank to select active and inactive creatives.
 * advertiserId (string) - Select only creatives with this advertiser ID.
 * archived (boolean) - Select only archived creatives. Leave blank to select archived and unarchived creatives.
@@ -1899,11 +1898,12 @@ google_dfareporting.creatives.list({
 * ids (array) - Select only creatives with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * renderingIds (array) - Select only creatives with these rendering IDs.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "creative*2015" will return objects with names like "creative June 2015", "creative April 2015", or simply "creative 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "creative" will match objects with name "my creative", "creative 2015", or simply "creative".
 * sizeIds (array) - Select only creatives with these size IDs.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * studioCreativeId (string) - Select only creatives corresponding to this Studio creative ID.
 * types (array) - Select only creatives with these creative types.
 * alt (string) - Data format for the response.
@@ -2012,10 +2012,10 @@ google_dfareporting.dimensionValues.query({
 ```
 
 #### Parameters
-* profileId (string) **required** - The DFA user profile ID.
+* body (object) - Represents a DimensionValuesRequest.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - The value of the nextToken from the previous result page.
-* body (object) - Represents a DimensionValuesRequest.
+* profileId (string) **required** - The DFA user profile ID.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2035,14 +2035,14 @@ google_dfareporting.directorySiteContacts.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * directorySiteIds (array) - Select only directory site contacts with these directory site IDs. This is a required field.
 * ids (array) - Select only directory site contacts with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name, ID or email. Wildcards (*) are allowed. For example, "directory site contact*2015" will return objects with names like "directory site contact June 2015", "directory site contact April 2015", or simply "directory site contact 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "directory site contact" will match objects with name "my directory site contact", "directory site contact 2015", or simply "directory site contact".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2084,7 +2084,6 @@ google_dfareporting.directorySites.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * acceptsInStreamVideoPlacements (boolean) - This search filter is no longer supported and will have no effect on the results returned.
 * acceptsInterstitialPlacements (boolean) - This search filter is no longer supported and will have no effect on the results returned.
 * acceptsPublisherPaidPlacements (boolean) - Select only directory sites that accept publisher paid placements. This field can be left blank.
@@ -2095,9 +2094,10 @@ google_dfareporting.directorySites.list({
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
 * parentId (string) - Select only directory sites with this parent ID.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name, ID or URL. Wildcards (*) are allowed. For example, "directory site*2015" will return objects with names like "directory site June 2015", "directory site April 2015", or simply "directory site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "directory site" will match objects with name "my directory site", "directory site 2015" or simply, "directory site".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2231,7 +2231,6 @@ google_dfareporting.eventTags.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * adId (string) - Select only event tags that belong to this ad.
 * advertiserId (string) - Select only event tags that belong to this advertiser.
 * campaignId (string) - Select only event tags that belong to this campaign.
@@ -2239,9 +2238,10 @@ google_dfareporting.eventTags.list({
 * enabled (boolean) - Select only enabled event tags. What is considered enabled or disabled depends on the definitionsOnly parameter. When definitionsOnly is set to true, only the specified advertiser or campaign's event tags' enabledByDefault field is examined. When definitionsOnly is set to false, the specified ad or specified campaign's parent advertiser's or parent campaign's event tags' enabledByDefault and status fields are examined as well.
 * eventTagTypes (array) - Select only event tags with the specified event tag types. Event tag types can be used to specify whether to use a third-party pixel, a third-party JavaScript URL, or a third-party click-through URL for either impression or click tracking.
 * ids (array) - Select only event tags with these IDs.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "eventtag*2015" will return objects with names like "eventtag June 2015", "eventtag April 2015", or simply "eventtag 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "eventtag" will match objects with name "my eventtag", "eventtag 2015", or simply "eventtag".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2370,12 +2370,12 @@ google_dfareporting.files.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - The DFA profile ID.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - The value of the nextToken from the previous result page.
-* scope (string) - The scope that defines which results are returned, default is 'MINE'.
+* profileId (string) **required** - The DFA profile ID.
+* scope (string) - The scope that defines which results are returned.
 * sortField (string) - The field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is 'DESCENDING'.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -2395,7 +2395,6 @@ google_dfareporting.floodlightActivities.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserId (string) - Select only floodlight activities for the specified advertiser ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result.
 * floodlightActivityGroupIds (array) - Select only floodlight activities with the specified floodlight activity group IDs.
 * floodlightActivityGroupName (string) - Select only floodlight activities with the specified floodlight activity group name.
@@ -2405,9 +2404,10 @@ google_dfareporting.floodlightActivities.list({
 * ids (array) - Select only floodlight activities with the specified IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "floodlightactivity*2015" will return objects with names like "floodlightactivity June 2015", "floodlightactivity April 2015", or simply "floodlightactivity 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "floodlightactivity" will match objects with name "my floodlightactivity activity", "floodlightactivity 2015", or simply "floodlightactivity".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * tagString (string) - Select only floodlight activities with the specified tag string.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2558,15 +2558,15 @@ google_dfareporting.floodlightActivityGroups.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserId (string) - Select only floodlight activity groups with the specified advertiser ID. Must specify either advertiserId or floodlightConfigurationId for a non-empty result.
 * floodlightConfigurationId (string) - Select only floodlight activity groups with the specified floodlight configuration ID. Must specify either advertiserId, or floodlightConfigurationId for a non-empty result.
 * ids (array) - Select only floodlight activity groups with the specified IDs. Must specify either advertiserId or floodlightConfigurationId for a non-empty result.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "floodlightactivitygroup*2015" will return objects with names like "floodlightactivitygroup June 2015", "floodlightactivitygroup April 2015", or simply "floodlightactivitygroup 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "floodlightactivitygroup" will match objects with name "my floodlightactivitygroup activity", "floodlightactivitygroup 2015", or simply "floodlightactivitygroup".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * type (string) - Select only floodlight activity groups with the specified floodlight activity group type.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -2927,7 +2927,6 @@ google_dfareporting.placementGroups.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserIds (array) - Select only placement groups that belong to these advertisers.
 * archived (boolean) - Select only archived placements. Don't set this field to select both archived and non-archived placements.
 * campaignIds (array) - Select only placement groups that belong to these campaigns.
@@ -2943,10 +2942,11 @@ google_dfareporting.placementGroups.list({
 * placementGroupType (string) - Select only placement groups belonging with this group type. A package is a simple group of placements that acts as a single pricing point for a group of tags. A roadblock is a group of placements that not only acts as a single pricing point but also assumes that all the tags in it will be served at the same time. A roadblock requires one of its assigned placements to be marked as primary for reporting.
 * placementStrategyIds (array) - Select only placement groups that are associated with these placement strategies.
 * pricingTypes (array) - Select only placement groups with these pricing types.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for placement groups by name or ID. Wildcards (*) are allowed. For example, "placement*2015" will return placement groups with names like "placement group June 2015", "placement group May 2015", or simply "placements 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "placementgroup" will match placement groups with name "my placementgroup", "placementgroup 2015", or simply "placementgroup".
 * siteIds (array) - Select only placement groups that are associated with these sites.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3053,13 +3053,13 @@ google_dfareporting.placementStrategies.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * ids (array) - Select only placement strategies with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "placementstrategy*2015" will return objects with names like "placementstrategy June 2015", "placementstrategy April 2015", or simply "placementstrategy 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "placementstrategy" will match objects with name "my placementstrategy", "placementstrategy 2015", or simply "placementstrategy".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3188,7 +3188,6 @@ google_dfareporting.placements.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserIds (array) - Select only placements that belong to these advertisers.
 * archived (boolean) - Select only archived placements. Don't set this field to select both archived and non-archived placements.
 * campaignIds (array) - Select only placements that belong to these campaigns.
@@ -3206,11 +3205,12 @@ google_dfareporting.placements.list({
 * paymentSource (string) - Select only placements with this payment source.
 * placementStrategyIds (array) - Select only placements that are associated with these placement strategies.
 * pricingTypes (array) - Select only placements with these pricing types.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for placements by name or ID. Wildcards (*) are allowed. For example, "placement*2015" will return placements with names like "placement June 2015", "placement May 2015", or simply "placements 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "placement" will match placements with name "my placement", "placement 2015", or simply "placement".
 * siteIds (array) - Select only placements that are associated with these sites.
 * sizeIds (array) - Select only placements that are associated with these sizes.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3295,9 +3295,9 @@ google_dfareporting.placements.generatetags({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * campaignId (string) - Generate placements belonging to this campaign. This is a required field.
 * placementIds (array) - Generate tags for these placements.
+* profileId (string) **required** - User profile ID associated with this request.
 * tagFormats (array) - Tag formats to generate for these placements.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -3424,14 +3424,14 @@ google_dfareporting.projects.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserIds (array) - Select only projects with these advertiser IDs.
 * ids (array) - Select only projects with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for projects by name or ID. Wildcards (*) are allowed. For example, "project*2015" will return projects with names like "project June 2015", "project April 2015", or simply "project 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "project" will match projects with name "my project", "project 2015", or simply "project".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3474,16 +3474,16 @@ google_dfareporting.inventoryItems.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
-* projectId (string) **required** - Project ID for order documents.
 * ids (array) - Select only inventory items with these IDs.
 * inPlan (boolean) - Select only inventory items that are in plan.
 * maxResults (integer) - Maximum number of results to return.
 * orderId (array) - Select only inventory items that belong to specified orders.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
+* projectId (string) **required** - Project ID for order documents.
 * siteId (array) - Select only inventory items that are associated with these sites.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * type (string) - Select only inventory items with this type.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -3529,17 +3529,17 @@ google_dfareporting.orderDocuments.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
-* projectId (string) **required** - Project ID for order documents.
 * approved (boolean) - Select only order documents that have been approved by at least one user.
 * ids (array) - Select only order documents with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * orderId (array) - Select only order documents for specified orders.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
+* projectId (string) **required** - Project ID for order documents.
 * searchString (string) - Allows searching for order documents by name or ID. Wildcards (*) are allowed. For example, "orderdocument*2015" will return order documents with names like "orderdocument June 2015", "orderdocument April 2015", or simply "orderdocument 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "orderdocument" will match order documents with name "my orderdocument", "orderdocument 2015", or simply "orderdocument".
 * siteId (array) - Select only order documents that are associated with these sites.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3584,15 +3584,15 @@ google_dfareporting.orders.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
-* projectId (string) **required** - Project ID for orders.
 * ids (array) - Select only orders with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
+* projectId (string) **required** - Project ID for orders.
 * searchString (string) - Allows searching for orders by name or ID. Wildcards (*) are allowed. For example, "order*2015" will return orders with names like "order June 2015", "order April 2015", or simply "order 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "order" will match orders with name "my order", "order 2015", or simply "order".
 * siteId (array) - Select only orders that are associated with these site IDs.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3717,21 +3717,21 @@ Retrieves a list of remarketing lists, possibly filtered. This method supports p
 
 ```js
 google_dfareporting.remarketingLists.list({
-  "profileId": "",
-  "advertiserId": ""
+  "advertiserId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
-* advertiserId (string) **required** - Select only remarketing lists owned by this advertiser.
 * active (boolean) - Select only active or only inactive remarketing lists.
+* advertiserId (string) **required** - Select only remarketing lists owned by this advertiser.
 * floodlightActivityId (string) - Select only remarketing lists that have this floodlight activity ID.
 * maxResults (integer) - Maximum number of results to return.
 * name (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "remarketing list*2015" will return objects with names like "remarketing list June 2015", "remarketing list April 2015", or simply "remarketing list 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "remarketing list" will match objects with name "my remarketing list", "remarketing list 2015", or simply "remarketing list".
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3838,12 +3838,12 @@ google_dfareporting.reports.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - The DFA user profile ID.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - The value of the nextToken from the previous result page.
-* scope (string) - The scope that defines which results are returned, default is 'MINE'.
+* profileId (string) **required** - The DFA user profile ID.
+* scope (string) - The scope that defines which results are returned.
 * sortField (string) - The field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is 'DESCENDING'.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -3996,12 +3996,12 @@ google_dfareporting.reports.files.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - The DFA profile ID.
-* reportId (string) **required** - The ID of the parent report.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - The value of the nextToken from the previous result page.
+* profileId (string) **required** - The DFA profile ID.
+* reportId (string) **required** - The ID of the parent report.
 * sortField (string) - The field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is 'DESCENDING'.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4011,7 +4011,7 @@ google_dfareporting.reports.files.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### reports.files.get
-Retrieves a report file.
+Retrieves a report file. This method supports media download.
 
 
 ```js
@@ -4068,7 +4068,6 @@ google_dfareporting.sites.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * acceptsInStreamVideoPlacements (boolean) - This search filter is no longer supported and will have no effect on the results returned.
 * acceptsInterstitialPlacements (boolean) - This search filter is no longer supported and will have no effect on the results returned.
 * acceptsPublisherPaidPlacements (boolean) - Select only sites that accept publisher paid placements.
@@ -4079,9 +4078,10 @@ google_dfareporting.sites.list({
 * ids (array) - Select only sites with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name, ID or keyName. Wildcards (*) are allowed. For example, "site*2015" will return objects with names like "site June 2015", "site April 2015", or simply "site 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "site" will match objects with name "my site", "site 2015", or simply "site".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * subaccountId (string) - Select only sites with this subaccount ID.
 * unmappedSite (boolean) - Select only sites that have not been mapped to a directory site.
 * alt (string) - Data format for the response.
@@ -4190,10 +4190,10 @@ google_dfareporting.sizes.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * height (integer) - Select only sizes with this height.
 * iabStandard (boolean) - Select only IAB standard sizes.
 * ids (array) - Select only sizes with these IDs.
+* profileId (string) **required** - User profile ID associated with this request.
 * width (integer) - Select only sizes with this width.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -4257,13 +4257,13 @@ google_dfareporting.subaccounts.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * ids (array) - Select only subaccounts with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "subaccount*2015" will return objects with names like "subaccount June 2015", "subaccount April 2015", or simply "subaccount 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "subaccount" will match objects with name "my subaccount", "subaccount 2015", or simply "subaccount".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4365,20 +4365,20 @@ Retrieves a list of targetable remarketing lists, possibly filtered. This method
 
 ```js
 google_dfareporting.targetableRemarketingLists.list({
-  "profileId": "",
-  "advertiserId": ""
+  "advertiserId": "",
+  "profileId": ""
 }, context)
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
-* advertiserId (string) **required** - Select only targetable remarketing lists targetable by these advertisers.
 * active (boolean) - Select only active or only inactive targetable remarketing lists.
+* advertiserId (string) **required** - Select only targetable remarketing lists targetable by these advertisers.
 * maxResults (integer) - Maximum number of results to return.
 * name (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "remarketing list*2015" will return objects with names like "remarketing list June 2015", "remarketing list April 2015", or simply "remarketing list 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "remarketing list" will match objects with name "my remarketing list", "remarketing list 2015", or simply "remarketing list".
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4420,14 +4420,14 @@ google_dfareporting.targetingTemplates.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * advertiserId (string) - Select only targeting templates with this advertiser ID.
 * ids (array) - Select only targeting templates with these IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "template*2015" will return objects with names like "template June 2015", "template April 2015", or simply "template 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "template" will match objects with name "my template", "template 2015", or simply "template".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -4619,14 +4619,14 @@ google_dfareporting.userRoles.list({
 ```
 
 #### Parameters
-* profileId (string) **required** - User profile ID associated with this request.
 * accountUserRoleOnly (boolean) - Select only account level user roles not associated with any specific subaccount.
 * ids (array) - Select only user roles with the specified IDs.
 * maxResults (integer) - Maximum number of results to return.
 * pageToken (string) - Value of the nextPageToken from the previous result page.
+* profileId (string) **required** - User profile ID associated with this request.
 * searchString (string) - Allows searching for objects by name or ID. Wildcards (*) are allowed. For example, "userrole*2015" will return objects with names like "userrole June 2015", "userrole April 2015", or simply "userrole 2015". Most of the searches also add wildcards implicitly at the start and the end of the search string. For example, a search string of "userrole" will match objects with name "my userrole", "userrole 2015", or simply "userrole".
 * sortField (string) - Field by which to sort the list.
-* sortOrder (string) - Order of sorted results, default is ASCENDING.
+* sortOrder (string) - Order of sorted results.
 * subaccountId (string) - Select only user roles that belong to this subaccount.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.

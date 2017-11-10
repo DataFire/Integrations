@@ -1,0 +1,124 @@
+{
+  "id": "azure_arm_appinsights",
+  "title": "AppInsightsManagementClient",
+  "description": "Azure Application Insights client for web test based alerting.",
+  "security": {
+    "azure_arm_appinsights": {
+      "integration": "azure_arm_appinsights",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_appinsights.png"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "ErrorResponse": {
+      "description": "Error reponse indicates Insights service is not able to process the incoming request. The reason is provided in the error message.",
+      "properties": {
+        "code": {
+          "description": "Error code.",
+          "type": "string"
+        },
+        "message": {
+          "description": "Error message indicating why the operation failed.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ErrorResponse"
+    },
+    "Operation": {
+      "description": "CDN REST API operation",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.Cdn",
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: Profile, endpoint, etc.",
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Operation"
+    },
+    "OperationListResult": {
+      "description": "Result of the request to list CDN operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "type": "string"
+        },
+        "value": {
+          "description": "List of CDN operations supported by the CDN resource provider.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "type": "array"
+        }
+      },
+      "title": "OperationListResult"
+    }
+  },
+  "actions": [
+    {
+      "id": "Operations_List",
+      "title": "Operations_List",
+      "description": "Lists all of the available insights REST API operations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_appinsights": {
+          "integration": "azure_arm_appinsights"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

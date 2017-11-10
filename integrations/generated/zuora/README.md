@@ -129,7 +129,7 @@ For security reasons, instead of using cookies, an API request via CORS uses **t
 
 The token method of authentication is only designed for use with requests that must originate from your customer's browser; **it should  not be considered a replacement to the existing cookie authentication** mechanism.
 
-See [Zuora CORS REST](https://knowledgecenter.zuora.com/DC_Developers/REST_API/A_REST_basics/G_CORS_REST "Zuora CORS REST") for details on how CORS works and how you can begin to implement customer calls to the Zuora REST APIs. See  [HMAC Signatures](https://www.zuora.com/developer/API-Reference/#operation/POSTHMACSignature "HMAC Signatures") for details on the HMAC method that returns the authentication token.
+See [Zuora CORS REST](https://knowledgecenter.zuora.com/DC_Developers/REST_API/A_REST_basics/G_CORS_REST "Zuora CORS REST") for details on how CORS works and how you can begin to implement customer calls to the Zuora REST APIs. See  [HMAC Signatures](https://www.zuora.com/developer/api-reference/#operation/POSTHMACSignature "HMAC Signatures") for details on the HMAC method that returns the authentication token.
 
 # Requests and Responses
 
@@ -209,18 +209,18 @@ The following table lists the supported versions and the fields that have a Zuor
 
 | Fields         | Minor Version      | REST Methods    | Description |
 |:--------|:--------|:--------|:--------|
-| invoiceCollect | 189.0 and earlier  | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/API-Reference/#operation/POST_Account "Create Account")|Generates an invoice and collects a payment for a subscription. |
-| collect        | 196.0 and later    | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/API-Reference/#operation/POST_Account "Create Account")|Collects an automatic payment for a subscription. |
-| invoice | 196.0 and 207.0| [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/API-Reference/#operation/POST_Account "Create Account")|Generates an invoice for a subscription. |
+| invoiceCollect | 189.0 and earlier  | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/api-reference/#operation/POST_Account "Create Account")|Generates an invoice and collects a payment for a subscription. |
+| collect        | 196.0 and later    | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/api-reference/#operation/POST_Account "Create Account")|Collects an automatic payment for a subscription. |
+| invoice | 196.0 and 207.0| [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/api-reference/#operation/POST_Account "Create Account")|Generates an invoice for a subscription. |
 | invoiceTargetDate | 196.0 and earlier  | [Preview Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_SubscriptionPreview "Preview Subscription") |Date through which charges are calculated on the invoice, as `yyyy-mm-dd`. |
-| invoiceTargetDate | 207.0 and earlier  | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/API-Reference/#operation/POST_Account "Create Account")|Date through which charges are calculated on the invoice, as `yyyy-mm-dd`. |
+| invoiceTargetDate | 207.0 and earlier  | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/api-reference/#operation/POST_Account "Create Account")|Date through which charges are calculated on the invoice, as `yyyy-mm-dd`. |
 | targetDate | 207.0 and later | [Preview Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_SubscriptionPreview "Preview Subscription") |Date through which charges are calculated on the invoice, as `yyyy-mm-dd`. |
-| targetDate | 211.0 and later | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/API-Reference/#operation/POST_Account "Create Account")|Date through which charges are calculated on the invoice, as `yyyy-mm-dd`. |
+| targetDate | 211.0 and later | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/api-reference/#operation/POST_Account "Create Account")|Date through which charges are calculated on the invoice, as `yyyy-mm-dd`. |
 | includeExisting DraftInvoiceItems | 196.0 and earlier| [Preview Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_SubscriptionPreview "Preview Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription") | Specifies whether to include draft invoice items in subscription previews. Specify it to be `true` (default) to include draft invoice items in the preview result. Specify it to be `false` to excludes draft invoice items in the preview result. |
 | includeExisting DraftDocItems | 207.0 and later  | [Preview Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_SubscriptionPreview "Preview Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription") | Specifies whether to include draft invoice items in subscription previews. Specify it to be `true` (default) to include draft invoice items in the preview result. Specify it to be `false` to excludes draft invoice items in the preview result. |
 | previewType | 196.0 and earlier| [Preview Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_SubscriptionPreview "Preview Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription") | The type of preview you will receive. The possible values are `InvoiceItem`(default), `ChargeMetrics`, and `InvoiceItemChargeMetrics`. |
 | previewType | 207.0 and later  | [Preview Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_SubscriptionPreview "Preview Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription") | The type of preview you will receive. The possible values are `LegalDoc`(default), `ChargeMetrics`, and `LegalDocChargeMetrics`. |
-| runBilling  | 211.0 and later  | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/API-Reference/#operation/POST_Account "Create Account")|Generates an invoice or credit memo for a subscription. **Note:** Credit memos are only available if you have the Advanced AR Settlement feature enabled. |
+| runBilling  | 211.0 and later  | [Create Subscription](https://www.zuora.com/developer/api-reference/#operation/POST_Subscription "Create Subscription"); [Update Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_Subscription "Update Subscription"); [Renew Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_RenewSubscription "Renew Subscription"); [Cancel Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_CancelSubscription "Cancel Subscription"); [Suspend Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_SuspendSubscription "Suspend Subscription"); [Resume Subscription](https://www.zuora.com/developer/api-reference/#operation/PUT_ResumeSubscription "Resume Subscription"); [Create Account](https://www.zuora.com/developer/api-reference/#operation/POST_Account "Create Account")|Generates an invoice or credit memo for a subscription. **Note:** Credit memos are only available if you have the Advanced AR Settlement feature enabled. |
 | invoiceDate | 214.0 and earlier  | [Invoice and Collect](https://www.zuora.com/developer/api-reference/#operation/POST_TransactionInvoicePayment "Invoice and Collect") |Date that should appear on the invoice being generated, as `yyyy-mm-dd`. |
 | invoiceTargetDate | 214.0 and earlier  | [Invoice and Collect](https://www.zuora.com/developer/api-reference/#operation/POST_TransactionInvoicePayment "Invoice and Collect") |Date through which to calculate charges on this account if an invoice is generated, as `yyyy-mm-dd`. |
 | documentDate | 215.0 and later | [Invoice and Collect](https://www.zuora.com/developer/api-reference/#operation/POST_TransactionInvoicePayment "Invoice and Collect") |Date that should appear on the invoice and credit memo being generated, as `yyyy-mm-dd`. |
@@ -254,9 +254,9 @@ The following table provides the API name of each Zuora object:
 | Accounting Period                             | `AccountingPeriod`                         |
 | Amendment                                     | `Amendment`                                |
 | Application Group                             | `ApplicationGroup`                         |
+| Billing Run                                   | `BillingRun`                               |
 | Contact                                       | `Contact`                                  |
 | Contact Snapshot                              | `ContactSnapshot`                          |
-| Billing Run                                   | `BillingRun`                               |
 | Credit Balance Adjustment                     | `CreditBalanceAdjustment`                  |
 | Credit Memo                                   | `CreditMemo`                               |
 | Credit Memo Application                       | `CreditMemoApplication`                    |
@@ -269,7 +269,7 @@ The following table provides the API name of each Zuora object:
 | Debit Memo                                    | `DebitMemo`                                |
 | Debit Memo Item                               | `DebitMemoItem`                            |
 | Debit Taxation Item                           | `DebitTaxationItem`                        |
-| Payment Method                                | `PaymentMethod`                            |
+| Discount Applied Metrics                      | `DiscountAppliedMetrics`                   |
 | Entity                                        | `Tenant`                                   |
 | Gateway Reconciliation Event                  | `PaymentGatewayReconciliationEventLog`     |
 | Gateway Reconciliation Job                    | `PaymentReconciliationJob`                 |
@@ -282,9 +282,16 @@ The following table provides the API name of each Zuora object:
 | Journal Entry                                 | `JournalEntry`                             |
 | Journal Entry Item                            | `JournalEntryItem`                         |
 | Journal Run                                   | `JournalRun`                               |
+| Order                                         | `Order`                                    |
+| Order Action                                  | `OrderAction`                              |
+| Order MRR                                     | `OrderMrr`                                 |
+| Order Quantity                                | `OrderQuantity`                            |
+| Order TCB                                     | `OrderTcb`                                 |
+| Order TCV                                     | `OrderTcv`                                 |
 | Payment                                       | `Payment`                                  |
 | Payment Application                           | `PaymentApplication`                       |
 | Payment Application Item                      | `PaymentApplicationItem`                   |
+| Payment Method                                | `PaymentMethod`                            |
 | Payment Method Snapshot                       | `PaymentMethodSnapshot`                    |
 | Payment Method Transaction Log                | `PaymentMethodTransactionLog`              |
 | Payment Method Update                         | `UpdaterDetail`                            |
@@ -330,6 +337,7 @@ The following table provides the API name of each Zuora object:
 | Revenue Schedule Item Invoice Item            | `RevenueScheduleItemInvoiceItem`           |
 | Revenue Schedule Item Invoice Item Adjustment | `RevenueScheduleItemInvoiceItemAdjustment` |
 | Subscription                                  | `Subscription`                             |
+| Taxable Item Snapshot                         | `TaxableItemSnapshot`                      |
 | Taxation Item                                 | `TaxationItem`                             |
 | Updater Batch                                 | `UpdaterBatch`                             |
 | Usage                                         | `Usage`                                    |
@@ -355,24 +363,6 @@ zuora.createToken({
 * client_id (string) **required** - The Client ID of the OAuth client.
 * client_secret (string) **required** - The Client Secret that was displayed when the OAuth client was created.
 * grant_type (string) **required** - The OAuth grant type that will be used to generate the token. The value of this parameter must be `client_credentials`.
-
-### PUT_VerifyPaymentMethods
-Sends an authorization request to the corresponding payment gateway to verify the payment method, even though no changes are made for the payment method. Supported payment methods are Credit Cards and Paypal.
-
-If a payment method is created by a Hosted Payment Method page, it cannot be verified through this operation.
-
-
-
-```js
-zuora.PUT_VerifyPaymentMethods({
-  "payment-method-id": "",
-  "body": {}
-}, context)
-```
-
-#### Parameters
-* payment-method-id (string) **required** - The ID of the payment method to be verified.
-* body (object) **required**
 
 ### GET_AllAccountingCodes
 This reference describes how to query all accounting codes in your chart of accounts through the REST API.
@@ -1406,6 +1396,28 @@ zuora.POST_EmailBillingDocumentsfromBillRun({
 * billRunId (string) **required** - The ID of the bill run. For example, 2c92c8f95d0c886e015d11287a8f0f8b.
 * Request (object) **required**
 
+### GET_BillingDocuments
+Retrieves the information about all billing documents associated with a specified account. The billing documents contain invoices, credit memos, and debit memos. 
+
+To retrieve information about credit memos and debit memos, you must have the Advanced AR Settlement feature enabled. 
+
+
+
+```js
+zuora.GET_BillingDocuments({
+  "accountId": ""
+}, context)
+```
+
+#### Parameters
+* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* pageSize (integer) - Number of rows returned per page.
+* accountId (string) **required** - The ID of the customer account that the billing documents are associated with. 
+* documentDate (string) - The date of the billing document. It represents the invoice date for invoices, credit memo date for credit memos, and debit memo date for debit memos.
+* status (string) - The status of the billing document.
+* sort (string) - This parameter restricts the order of the data returned in the response. You can use this parameter to supply a dimension you want to sort on.
+
 ### POST_BillingPreviewRun
 **Note:** This feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
 
@@ -1638,7 +1650,9 @@ zuora.GET_CreditMemos({}, context)
 ### POST_CreditMemoFromPrpc
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
-Creates an ad-hoc credit memo from a product rate plan charge. Zuora only supports one-time negative charges for credit memos.
+Creates an ad-hoc credit memo from a product rate plan charge. Zuora only supports one-time negative charges for credit memos. 
+
+You can create a credit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
 
 
 
@@ -1655,51 +1669,12 @@ zuora.POST_CreditMemoFromPrpc({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * body (object) **required**
 
-### POST_CreditMemoFromInvoice
-**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
-
-Creates an ad-hoc credit memo from an invoice.
-
-
-
-```js
-zuora.POST_CreditMemoFromInvoice({
-  "body": {},
-  "invoiceId": ""
-}, context)
-```
-
-#### Parameters
-* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* body (object) **required**
-* invoiceId (string) **required** - The ID of an invoice that you want to create a credit memo from.
-
-### POST_QueryCreditMemos
-**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
-
-Retrieves the information about all credit memos associated with a specific account. 
-
-
-
-```js
-zuora.POST_QueryCreditMemos({
-  "body": {
-    "accountId": ""
-  }
-}, context)
-```
-
-#### Parameters
-* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* pageSize (integer) - Number of rows returned per page.
-* body (object) **required**
-
 ### DELETE_CreditMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Deletes a credit memo. Only credit memos with the Cancelled status can be deleted. 
+
+You can delete a credit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
 
 
 
@@ -1741,6 +1716,8 @@ If the amount of a memo item is updated, the tax will be recalculated in the fol
   - The memo is created from a product rate plan charge and you use Avalara to calculate the tax.
   - The memo is created from an invoice and you use Avalara or Zuora Tax to calculate the tax.
 
+You can update a credit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
 
 
 ```js
@@ -1756,15 +1733,17 @@ zuora.PUT_UpdateCreditMemo({
 * body (object) **required**
 * creditMemoId (string) **required** - The unique ID of a credit memo. For example, 8a8082e65b27f6c3015ba45ff82c7172. 
 
-### POST_ApplyCreditMemo
+### PUT_ApplyCreditMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
 
 Applies a posted credit memo to one or more invoices and debit memos. 
 
+You can apply a credit memo to an invoice or a debit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
 
 
 ```js
-zuora.POST_ApplyCreditMemo({
+zuora.PUT_ApplyCreditMemo({
   "body": {},
   "creditMemoId": ""
 }, context)
@@ -1776,15 +1755,17 @@ zuora.POST_ApplyCreditMemo({
 * body (object) **required**
 * creditMemoId (string) **required** - The unique ID of a credit memo. For example, 8a8082e65b27f6c3015ba45ff82c7172.
 
-### POST_CancelCreditMemo
+### PUT_CancelCreditMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Cancels a credit memo. Only credit memos with the Draft status can be cancelled. 
 
+You can cancel a credit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
 
 
 ```js
-zuora.POST_CancelCreditMemo({
+zuora.PUT_CancelCreditMemo({
   "creditMemoId": ""
 }, context)
 ```
@@ -1969,7 +1950,7 @@ zuora.POST_CreditMemoPDF({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * creditMemoId (string) **required** - The unique ID of the credit memo that you want to create PDF for. For example, 8a8082e65b27f6c3015ba45ff82c7172.
 
-### POST_PostCreditMemo
+### PUT_PostCreditMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Posts a credit memo to activate it. You can post credit memos only if you have the [Billing permissions](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles#Billing_Permissions).
@@ -1977,7 +1958,7 @@ Posts a credit memo to activate it. You can post credit memos only if you have t
 
 
 ```js
-zuora.POST_PostCreditMemo({
+zuora.PUT_PostCreditMemo({
   "creditMemoId": ""
 }, context)
 ```
@@ -1987,15 +1968,37 @@ zuora.POST_PostCreditMemo({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * creditMemoId (string) **required** - The unique ID of a credit memo. For example, 8a8082e65b27f6c3015ba45ff82c7172.
 
-### POST_UnapplyCreditMemo
-**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+### POST_CM_TaxationItems
+**Note:** This feature is only available if you have the Advanced AR Settlement feature enabled. The Advanced AR Settlement feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
 
-Unapplies an applied credit memo from one or more invoices and debit memos. The full applied amount from invoices and debit memos is transferred into the unapplied amount of the credit memo. 
+Creates taxation items for a credit memo.
 
 
 
 ```js
-zuora.POST_UnapplyCreditMemo({
+zuora.POST_CM_TaxationItems({
+  "creditMemoId": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* creditMemoId (string) **required** - The unique ID of a credit memo. For example, 8a8082e65b27f6c3015ba45ff82c7172.
+* body (object) **required**
+
+### PUT_UnapplyCreditMemo
+**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+
+Unapplies an applied credit memo from one or more invoices and debit memos. The full applied amount from invoices and debit memos is transferred into the unapplied amount of the credit memo. 
+
+You can unapply a credit memo from an invoice or a debit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
+
+
+```js
+zuora.PUT_UnapplyCreditMemo({
   "body": {},
   "creditMemoId": ""
 }, context)
@@ -2008,7 +2011,7 @@ zuora.POST_UnapplyCreditMemo({
 * creditMemoId (string) **required** - The unique ID of a credit memo. For example, 8a8082e65b27f6c3015ba45ff82c7172.
 
 ### GET_BreakdownCreditMemoByOrder
-**Note:** This operation is only available if you have the [Advanced AR Settlement](https://knowledgecenter.zuora.com/CB_Billing/Advanced_AR_Settlement) and [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) features enabled. If you wish to have access to the features, submit a request at [Zuora Global Support](http://support.zuora.com/).
+**Note:** This operation is only available if you have the [Advanced AR Settlement](https://knowledgecenter.zuora.com/CB_Billing/Advanced_AR_Settlement) and [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) features enabled. If you wish to have access to the features, submit a request at [Zuora Global Support](http://support.zuora.com/).
 
 
 Retrieves a specified credit memo that is broken down by orders. The credit memo items might be broken down into a list of order rated items.
@@ -2029,7 +2032,9 @@ zuora.GET_BreakdownCreditMemoByOrder({
 ### POST_RefundCreditMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
-Refunds a full or partial posted credit memo to your customers. Only the amount of unapplied part could be refunded. See [Refunds](https://knowledgecenter.zuora.com/CB_Billing/K_Payment_Operations/Refunds) fore more information. 
+Refunds a full or partial posted credit memo to your customers. Only the amount of unapplied part could be refunded. 
+
+You can refund a credit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
 
 
 
@@ -2067,7 +2072,7 @@ zuora.GET_CustomExchangeRates({
 #### Parameters
 * entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* currency (string) **required** - The target currency. The exchange rates in the response are calculated in relation to the target currency.
+* currency (string) **required** - The target base currency of the tenant. The exchange rates in the response are calculated in relation to the target currency.
 * startDate (string) **required** - Start date of the date range for which you want to get exchange rates.
 * endDate (string) **required** - End date of the date range for which you want to get exchange rates.
 
@@ -2092,7 +2097,9 @@ zuora.GET_DebitMemos({}, context)
 ### POST_DebitMemoFromPrpc
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
-Creates an ad-hoc debit memo from a product rate plan charge. Zuora only supports one-time positive charges for debit memos.
+Creates an ad-hoc debit memo from a product rate plan charge. Zuora only supports one-time positive charges for debit memos. 
+
+ You can create a debit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
 
 
 
@@ -2109,30 +2116,12 @@ zuora.POST_DebitMemoFromPrpc({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * body (object) **required**
 
-### POST_DebitMemoFromInvoice
-**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
-
-Creates an ad-hoc debit memo from an invoice.
-
-
-
-```js
-zuora.POST_DebitMemoFromInvoice({
-  "invoiceId": "",
-  "body": {}
-}, context)
-```
-
-#### Parameters
-* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* invoiceId (string) **required** - The ID of an invoice that you want to create a debit memo from.
-* body (object) **required**
-
 ### DELETE_DebitMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Deletes a debit memo. Only debit memos with the Cancelled status can be deleted. 
+
+You can delete a debit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
 
 
 
@@ -2174,6 +2163,8 @@ If the amount of a memo item is updated, the tax will be recalculated in the fol
   - The memo is created from a product rate plan charge and you use Avalara to calculate the tax.
   - The memo is created from an invoice and you use Avalara or Zuora Tax to calculate the tax.
 
+You can update a debit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
 
 
 ```js
@@ -2189,15 +2180,17 @@ zuora.PUT_DebitMemo({
 * body (object) **required**
 * debitMemoId (string) **required** - The unique ID of a debit memo. For example, 8a8082e65b27f6c3015ba419f3c2644e.
 
-### POST_CancelDebitMemo
+### PUT_CancelDebitMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
-Cancels a debit memo. Only debit memos with the Draft status can be cancelled.
+Cancels a debit memo. Only debit memos with the Draft status can be cancelled. 
+
+You can cancel a debit memo only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
 
 
 
 ```js
-zuora.POST_CancelDebitMemo({
+zuora.PUT_CancelDebitMemo({
   "debitMemoId": ""
 }, context)
 ```
@@ -2300,7 +2293,7 @@ zuora.POST_DebitMemoPDF({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * debitMemoId (string) **required** - The unique ID of the debit memo that you want to create PDF for. For example, 8a8082e65b27f6c3015ba419f3c2644e.
 
-### POST_PostDebitMemo
+### PUT_PostDebitMemo
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Posts a debit memo to activate it. You can post debit memos only if you have the [Billing permissions](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles#Billing_Permissions).
@@ -2308,7 +2301,7 @@ Posts a debit memo to activate it. You can post debit memos only if you have the
 
 
 ```js
-zuora.POST_PostDebitMemo({
+zuora.PUT_PostDebitMemo({
   "debitMemoId": ""
 }, context)
 ```
@@ -2318,10 +2311,30 @@ zuora.POST_PostDebitMemo({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * debitMemoId (string) **required** - The unique ID of a debit memo. For example, 8a8082e65b27f6c3015ba419f3c2644e.
 
+### POST_DM_TaxationItems
+**Note:** This feature is only available if you have the Advanced AR Settlement feature enabled. The Advanced AR Settlement feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
+
+Creates taxation items for a debit memo.
+
+
+
+```js
+zuora.POST_DM_TaxationItems({
+  "debitMemoId": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* debitMemoId (string) **required** - The unique ID of a debit memo. For example, 8a8082e65b27f6c3015ba419f3c2644e.
+* body (object) **required**
+
 ### GET_Describe
 Provides a reference listing of each object that is available in your Zuora tenant.
 
-The information returned by this call is useful if you are using [CRUD: Create Export](https://www.zuora.com/developer/api-reference/#operation/Object_POSTExport) or the [AQuA API](https://knowledgecenter.zuora.com/DC_Developers/T_Aggregate_Query_API) to create a data source export. See [Export ZOQ](https://knowledgecenter.zuora.com/DC_Developers/M_Export_ZOQL) for more information.
+The information returned by this call is useful if you are using [CRUD: Create Export](https://www.zuora.com/developer/api-reference/#operation/Object_POSTExport) or the [AQuA API](https://knowledgecenter.zuora.com/DC_Developers/T_Aggregate_Query_API) to create a data source export. See [Export ZOQL](https://knowledgecenter.zuora.com/DC_Developers/M_Export_ZOQL) for more information.
 
 ## Response
 The response contains an XML document that lists the fields of the specified object. Each of the object's fields is represented by a `<field>` element in the XML document.
@@ -2709,6 +2722,50 @@ zuora.Get_HostedPages({}, context)
 * pageSize (integer) - Number of rows returned per page.
 * versionNumber (string) - Version of the Payment Pages for which you want to retrieve the configuration information. Specify 1 for Payment Pages 1.0 or 2 for Payment Pages 2.0. If omitted, information for all versions of Payment Pages are returned.
 
+### POST_CreditMemoFromInvoice
+**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+Creates an ad-hoc credit memo from an invoice.
+
+You can create a credit memo from an invoice only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
+
+
+```js
+zuora.POST_CreditMemoFromInvoice({
+  "body": {},
+  "invoiceId": ""
+}, context)
+```
+
+#### Parameters
+* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* body (object) **required**
+* invoiceId (string) **required** - The ID of an invoice that you want to create a credit memo from.
+
+### POST_DebitMemoFromInvoice
+**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+Creates an ad-hoc debit memo from an invoice.
+
+You can create a debit memo from an invoice only if you have the user permission. See [Billing Roles](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/A_Administrator_Settings/User_Roles/d_Billing_Roles) for more information.
+
+
+
+```js
+zuora.POST_DebitMemoFromInvoice({
+  "invoiceId": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* invoiceId (string) **required** - The ID of an invoice that you want to create a debit memo from.
+* body (object) **required**
+
 ### POST_EmailInvoice
 Sends a posted invoice to the specified email addresses manually.
 
@@ -2775,7 +2832,7 @@ zuora.PUT_ReverseInvoice({
 * Request (object) **required**
 
 ### GET_BreakdownInvoiceByOrder
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 
 Retrieves a specified invoice that is broken down by orders. The invoice items might be broken down into a list of order rated items.
@@ -3386,7 +3443,10 @@ zuora.Object_GETCreditBalanceAdjustment({
 * id (string) **required** - Object id
 
 ### Object_POSTExport
-CRUD: Create Export
+Use this operation to create a data source export. After you have created a data source export, use [CRUD: Retrieve Export](https://www.zuora.com/developer/api-reference/#operation/Object_GETExport) to check the status of the data source export and access the exported data.
+
+When you export data from Zuora, each exported file is available for download for 7 days. Data source exports (Export objects) older than 90 days are automatically deleted.
+
 
 
 ```js
@@ -3404,7 +3464,10 @@ zuora.Object_POSTExport({
 * CreateRequest (object) **required**
 
 ### Object_GETExport
-CRUD: Retrieve Export
+Use this operation to check the status of a data source export and access the exported data.
+
+When you export data from Zuora, each exported file is available for download for 7 days. Data source exports (Export objects) older than 90 days are automatically deleted.
+
 
 
 ```js
@@ -4584,6 +4647,14 @@ payment on the generated invoice(s), leave the **invoiceId** field empty.
 The operation is atomic; if any part is unsuccessful, the entire
 operation is rolled back.
 
+When an error occurs, gateway reason codes and error messages are returned the error response of this operation. The following items are some gateway response code examples.
+
+- Orbital: `05 Do Not Honor`; `14 Invalid Credit Card Number`
+- Vantiv: `301 Invalid Account Number`; `304 Lost/Stolen Card`  
+- CyberSource2: `202 Expired card`; `231 Invalid account number`
+
+For more reason code information, see the corresponding payment gateway documentation. 
+
 
 ## Notes
 
@@ -4607,7 +4678,7 @@ zuora.POST_TransactionInvoicePayment({
 * Request (object) **required**
 
 ### GET_AllOrders
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 
 Retrieves information about all orders in your tenant. By default, it returns the first page of the orders. 
@@ -4628,7 +4699,7 @@ zuora.GET_AllOrders({}, context)
 * endDate (string) - The result will only contains orders with the date of dateFilterOption earlier than or equal to this date.
 
 ### GET_OrdersByInvoiceOwner
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 Retrieves the detailed information about all orders for a specified invoice owner.
 
@@ -4651,7 +4722,7 @@ zuora.GET_OrdersByInvoiceOwner({
 * endDate (string) - The result will only contain the orders with the date of dateFilterOption earlier than or equal to this date.
 
 ### GET_OrdersBySubscriptionNumber
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 Retrieves the detailed information about all orders for a specified subscription. Any orders containing the changes on the specified subscription are returned.
 
@@ -4674,7 +4745,7 @@ zuora.GET_OrdersBySubscriptionNumber({
 * endDate (string) - The result will only contain the orders with the date of 'dateFilterOption' earlier than or equal to this date.
 
 ### GET_OrdersBySubscriptionOwner
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 Retrieves the detailed information about all orders for a specified subscription owner. Any orders containing the changes on the subscriptions owned by this account are returned.
 
@@ -4697,7 +4768,7 @@ zuora.GET_OrdersBySubscriptionOwner({
 * endDate (string) - The result will only contain the orders with the date of 'dateFilterOption' earlier than or equal to this date.
 
 ### GET_Order
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 
 Retrieves the detailed information about a specified order.
@@ -4716,7 +4787,7 @@ zuora.GET_Order({
 * orderNumber (string) **required** - The order number to be retrieved.
 
 ### GET_OrderBillingInfo
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 Retrieves the billing information about a specified order. The information includes the billed and unbilled amount of the order.
 
@@ -4735,7 +4806,7 @@ zuora.GET_OrderBillingInfo({
 * asOfDate (string) - Billing states of the order will be calculated as of this date. Invoices with the invoice date later than this date will not be counted into the billed amount. The default value is today.
 
 ### GET_OrderMetricsforEvergreenSubscription
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 
 Retrieves the metrics of an evergreen subscription in a specified order.
@@ -4760,7 +4831,7 @@ zuora.GET_OrderMetricsforEvergreenSubscription({
 * endDate (string) **required** - The end date of the date range for which you want to get the metrics. The date must be in yyyy-mm-dd format. For example, 2017-12-03.
 
 ### GET_OrderRatedResult
-**Note:** This feature is only available if you have the [Revenue Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
+**Note:** This feature is only available if you have the [Order Metrics](https://knowledgecenter.zuora.com/BC_Subscription_Management/Orders/Orders_Generation_for_Subscriptions_and_Amendments) feature enabled. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). We will investigate your use cases and data before enabling this feature for you.
 
 Retrieves the rated results of all the subscriptions in the specified order.
 
@@ -4893,6 +4964,26 @@ zuora.DELETE_PaymentMethods({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * payment-method-id (string) **required** - Unique identifier of a payment method. (Since this ID is unique, and linked to a customer account in the system, no customer identifier is needed.)
 
+### PUT_VerifyPaymentMethods
+Sends an authorization request to the corresponding payment gateway to verify the payment method, even though no changes are made for the payment method. Supported payment methods are Credit Cards and Paypal.
+
+Zuora now supports performing a standalone zero dollar verification or one dollar authorization for credit cards. It also supports a billing agreement status check on PayPal payment methods.
+
+If a payment method is created by Hosted Payment Pages and is not assigned to any billing account, the payment method cannot be verified through this operation.
+
+
+
+```js
+zuora.PUT_VerifyPaymentMethods({
+  "payment-method-id": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* payment-method-id (string) **required** - The ID of the payment method to be verified.
+* body (object) **required**
+
 ### GET_Paymentgateways
 Retrieves the basic information about all the payment gateways.
 
@@ -4993,7 +5084,7 @@ zuora.GET_Payment({
 * entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
 * paymentId (string) **required** - The unique ID of a payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
 
-### PUT_UpdatePayemnt
+### PUT_UpdatePayment
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Updates a payment.
@@ -5001,7 +5092,7 @@ Updates a payment.
 
 
 ```js
-zuora.PUT_UpdatePayemnt({
+zuora.PUT_UpdatePayment({
   "body": {},
   "paymentId": ""
 }, context)
@@ -5013,29 +5104,7 @@ zuora.PUT_UpdatePayemnt({
 * body (object) **required**
 * paymentId (string) **required** - The unique ID of an unapplied payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
 
-### POST_TransferPayemnt
-**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
-
-Transfers an unapplied payment.
-
-For more information, see [Transfer Unapplied Payments](https://knowledgecenter.zuora.com/CB_Billing/Advanced_AR_Settlement/A_Unapplied_Payments/Management_of_Unapplied_Payments/Transfer_Unapplied_Payments).
-
-
-
-```js
-zuora.POST_TransferPayemnt({
-  "body": {},
-  "paymentId": ""
-}, context)
-```
-
-#### Parameters
-* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* body (object) **required**
-* paymentId (string) **required** - The unique ID of an unapplied payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
-
-### POST_ApplyPayment
+### PUT_ApplyPayment
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Applies an unapplied payment to invoices and debit memos.
@@ -5045,7 +5114,7 @@ For more information, see [Apply Unapplied Payments to Invoices and Debit Memos]
 
 
 ```js
-zuora.POST_ApplyPayment({
+zuora.PUT_ApplyPayment({
   "body": {},
   "paymentId": ""
 }, context)
@@ -5057,7 +5126,7 @@ zuora.POST_ApplyPayment({
 * body (object) **required**
 * paymentId (string) **required** - The unique ID of an unapplied payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
 
-### POST_CancelPayment
+### PUT_CancelPayment
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Cancels a payment.
@@ -5065,7 +5134,7 @@ Cancels a payment.
 
 
 ```js
-zuora.POST_CancelPayment({
+zuora.PUT_CancelPayment({
   "paymentId": ""
 }, context)
 ```
@@ -5114,7 +5183,7 @@ zuora.GET_PaymentPart({
 * partid (string) **required** - The unique ID of a specific payment part. You can get the payment part ID from the response of [Get payment parts](https://www.zuora.com/developer/api-reference/#operation/GET_PaymentParts).
 * paymentId (string) **required** - The unique ID of a payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
 
-### GET_PayemntItemParts
+### GET_PaymentItemParts
 **Note:** The Invoice Item Settlement feature is in **Limited Availability**, and it must be used together with other Advanced AR Settlement features (Unapplied Payments, and Credit and Debit memos). If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Retrieves the information about all items of a payment part. A payment part item is a single line item in a payment part. A payment part can consist of several different types of items.
@@ -5122,7 +5191,7 @@ Retrieves the information about all items of a payment part. A payment part item
 
 
 ```js
-zuora.GET_PayemntItemParts({
+zuora.GET_PaymentItemParts({
   "partid": "",
   "paymentId": ""
 }, context)
@@ -5182,7 +5251,29 @@ zuora.POST_RefundPayment({
 * body (object) **required**
 * paymentId (string) **required** - The unique ID of an unapplied payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
 
-### POST_UNAPPLY_PAYMENT
+### PUT_TransferPayment
+**Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
+
+Transfers an unapplied payment.
+
+For more information, see [Transfer Unapplied Payments](https://knowledgecenter.zuora.com/CB_Billing/Advanced_AR_Settlement/A_Unapplied_Payments/Management_of_Unapplied_Payments/Transfer_Unapplied_Payments).
+
+
+
+```js
+zuora.PUT_TransferPayment({
+  "body": {},
+  "paymentId": ""
+}, context)
+```
+
+#### Parameters
+* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
+* body (object) **required**
+* paymentId (string) **required** - The unique ID of an unapplied payment. For example, 8a8082e65b27f6c3015b89e4344c16b1.
+
+### PUT_UnapplyPayment
 **Note:** The Advanced AR Settlement feature is in **Limited Availability**. This feature includes Unapplied Payments, Credit and Debit Memo, and Invoice Item Settlement. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Unapplies an applied payment from invoices and debit memos.
@@ -5192,7 +5283,7 @@ For more information, see [Unapply Payments from Invoices and Debit Memos](https
 
 
 ```js
-zuora.POST_UNAPPLY_PAYMENT({
+zuora.PUT_UnapplyPayment({
   "body": {},
   "paymentId": ""
 }, context)
@@ -5310,7 +5401,7 @@ zuora.PUT_UpdateRefund({
 * body (object) **required**
 * refundId (string) **required** - The unique ID of a refund. For example, 4028905f5a87c0ff015a889e590e00c9.
 
-### POST_CancelRefund
+### PUT_CancelRefund
 **Note:** This feature is only available if you have the Advanced AR Settlement feature enabled. The Advanced AR Settlement feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/). 
 
 Cancels a refund.
@@ -5318,7 +5409,7 @@ Cancels a refund.
 
 
 ```js
-zuora.POST_CancelRefund({
+zuora.PUT_CancelRefund({
   "refundId": ""
 }, context)
 ```
@@ -5583,7 +5674,7 @@ zuora.GET_RSbyCreditMemoItem({
 #### Parameters
 * cmi-id (string) **required** - The unique ID of a credit memo item. You can get the credit memo item ID from the response of [Get credit memo items](https://www.zuora.com/developer/api-reference/#operation/GET_CreditMemoItems).
 
-### POST_RSforCrditMemoItem_ManualDistribution
+### POST_RSforCreditMemoItem_ManualDistribution
 **Note:** This feature is only available if you have the Advanced AR Settlement feature enabled. The Advanced AR Settlement feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
 
 Creates a revenue schedule for a credit memo item, and manually distribute the revenue.
@@ -5591,7 +5682,7 @@ Creates a revenue schedule for a credit memo item, and manually distribute the r
 
 
 ```js
-zuora.POST_RSforCrditMemoItem_ManualDistribution({
+zuora.POST_RSforCreditMemoItem_ManualDistribution({
   "cmi-id": "",
   "body": {}
 }, context)
@@ -5825,13 +5916,13 @@ zuora.GET_RSforSubscCharge({
 * pageSize (integer) - Number of rows returned per page.
 * charge-key (string) **required** - ID of the subscription rate plan charge; for example, 402892793e173340013e173b81000012.
 
-### POST_RSforSubsCharge
+### POST_RSforSubscCharge
 Creates a revenue schedule by specifying the subscription charge. This method is for custom unlimited revenue recognition only.
 
 
 
 ```js
-zuora.POST_RSforSubsCharge({
+zuora.POST_RSforSubscCharge({
   "charge-key": "",
   "Request": {
     "amount": "",
@@ -6276,46 +6367,6 @@ zuora.GET_SubscriptionsByKeyAndVersion({
 * subscription-key (string) **required** - Subscription number. For example, A-S00000135.
 * version (string) **required** - Subscription version. For example, 1.
 * charge-detail (string) - 
-
-### POST_CM_TaxationItems
-**Note:** This feature is only available if you have the Advanced AR Settlement feature enabled. The Advanced AR Settlement feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
-
-Creates taxation items for a credit memo.
-
-
-
-```js
-zuora.POST_CM_TaxationItems({
-  "memoId": "",
-  "body": {}
-}, context)
-```
-
-#### Parameters
-* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* memoId (string) **required** - The unique ID of a credit memo. For example, 8a8082e65b27f6c3015ba45ff82c7172.
-* body (object) **required**
-
-### POST_DM_TaxationItems
-**Note:** This feature is only available if you have the Advanced AR Settlement feature enabled. The Advanced AR Settlement feature is in **Limited Availability**. If you wish to have access to the feature, submit a request at [Zuora Global Support](http://support.zuora.com/).
-
-Creates taxation items for a debit memo.
-
-
-
-```js
-zuora.POST_DM_TaxationItems({
-  "memoId": "",
-  "body": {}
-}, context)
-```
-
-#### Parameters
-* entityId (string) - The Id of the entity that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* entityName (string) - The [name of the entity](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Multi-entity/B_Introduction_to_Entity_and_Entity_Hierarchy#Name_and_Display_Name) that you want to access. Note that you must have permission to access the entity. For more information, see [REST Authentication](https://www.zuora.com/developer/api-reference/#section/Authentication/Entity-Id-and-Entity-Name).
-* memoId (string) **required** - The unique ID of a debit memo. For example, 8a8082e65b27f6c3015ba419f3c2644e.
-* body (object) **required**
 
 ### DELETE_TaxationItem
 Deletes a specific taxation item by ID.

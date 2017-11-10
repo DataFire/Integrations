@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "codestar.amazonaws.com",
@@ -877,6 +878,77 @@
         }
       }
     },
+    "/#ListTagsForProject": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Gets the tags for a project.",
+        "operationId": "ListTagsForProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForProjectResult"
+            }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ProjectNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          }
+        }
+      }
+    },
     "/#ListTeamMembers": {
       "parameters": [
         {
@@ -1008,6 +1080,160 @@
             "description": "ValidationException",
             "schema": {
               "$ref": "#/definitions/ValidationException"
+            }
+          }
+        }
+      }
+    },
+    "/#TagProject": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Adds tags to a project.",
+        "operationId": "TagProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagProjectResult"
+            }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ProjectNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#UntagProject": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Removes tags from a project.",
+        "operationId": "UntagProject",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagProjectResult"
+            }
+          },
+          "480": {
+            "description": "ProjectNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ProjectNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
             }
           }
         }
@@ -1244,7 +1470,7 @@
       "properties": {
         "clientRequestToken": {
           "$ref": "#/definitions/ClientRequestToken",
-          "description": "A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request. "
+          "description": "A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request."
         },
         "projectId": {
           "$ref": "#/definitions/ProjectId",
@@ -1260,7 +1486,7 @@
         },
         "userArn": {
           "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) for the IAM user you want to add to the DevHub project."
+          "description": "The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project."
         }
       },
       "required": [
@@ -1274,7 +1500,7 @@
       "properties": {
         "clientRequestToken": {
           "$ref": "#/definitions/ClientRequestToken",
-          "description": "The user- or system-generated token from the initial request that can be used to repeat the request. "
+          "description": "The user- or system-generated token from the initial request that can be used to repeat the request."
         }
       },
       "type": "object"
@@ -1579,6 +1805,7 @@
       "type": "object"
     },
     "Email": {
+      "format": "password",
       "maxLength": 128,
       "minLength": 3,
       "pattern": "^[\\w-.+]+@[\\w-.+]+$",
@@ -1636,7 +1863,7 @@
       "properties": {
         "maxResults": {
           "$ref": "#/definitions/MaxResults",
-          "description": "he maximum amount of data that can be contained in a single set of results."
+          "description": "The maximum amount of data that can be contained in a single set of results."
         },
         "nextToken": {
           "$ref": "#/definitions/PaginationToken",
@@ -1661,6 +1888,39 @@
         "resources": {
           "$ref": "#/definitions/ResourcesResult",
           "description": "An array of resources associated with the project. "
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project to get tags for."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Reserved for future use."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Reserved for future use."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "ListTagsForProjectResult": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Reserved for future use."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags for the project."
         }
       },
       "type": "object"
@@ -1736,7 +1996,7 @@
       "type": "integer"
     },
     "PaginationToken": {
-      "maxLength": 256,
+      "maxLength": 512,
       "minLength": 1,
       "pattern": "^[\\w/+=]+$",
       "type": "string"
@@ -1849,12 +2109,69 @@
       "pattern": "^arn:aws[^:\\s]*:cloudformation:[^:\\s]+:[0-9]{12}:stack\\/[^:\\s]+\\/[^:\\s]+$",
       "type": "string"
     },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project you want to add a tag to."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags you want to add to the project."
+        }
+      },
+      "required": [
+        "id",
+        "tags"
+      ],
+      "type": "object"
+    },
+    "TagProjectResult": {
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags for the project."
+        }
+      },
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "TeamMember": {
       "description": "Information about a team member in a project.",
       "properties": {
         "projectRole": {
           "$ref": "#/definitions/Role",
-          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the AWS CodeStar User Guide. "
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>. "
         },
         "remoteAccessAllowed": {
           "$ref": "#/definitions/RemoteAccessAllowed",
@@ -1886,6 +2203,27 @@
         "$ref": "#/definitions/TeamMember"
       },
       "type": "array"
+    },
+    "UntagProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project to remove tags from."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "The tags to remove from the project."
+        }
+      },
+      "required": [
+        "id",
+        "tags"
+      ],
+      "type": "object"
+    },
+    "UntagProjectResult": {
+      "properties": {},
+      "type": "object"
     },
     "UpdateProjectRequest": {
       "properties": {
@@ -1919,7 +2257,7 @@
         },
         "projectRole": {
           "$ref": "#/definitions/Role",
-          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the AWS CodeStar User Guide."
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>."
         },
         "remoteAccessAllowed": {
           "$ref": "#/definitions/RemoteAccessAllowed",
@@ -2012,7 +2350,7 @@
     "UserArn": {
       "maxLength": 95,
       "minLength": 32,
-      "pattern": "arn:aws:iam::\\d{12}:user\\/[\\w-]+",
+      "pattern": "^arn:aws:iam::\\d{12}:user(?:(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F))[\\w+=,.@-]+$",
       "type": "string"
     },
     "UserProfileAlreadyExistsException": {

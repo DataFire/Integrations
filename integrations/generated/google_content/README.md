@@ -161,7 +161,7 @@ google_content.datafeedstatuses.custombatch({}, context)
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### inventory.custombatch
-Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products. This method can only be called for non-multi-client accounts.
+Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products.
 
 
 ```js
@@ -180,7 +180,7 @@ google_content.inventory.custombatch({}, context)
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.custombatch
-Retrieves or modifies multiple orders in a single request. This method can only be called for non-multi-client accounts.
+Retrieves or modifies multiple orders in a single request.
 
 
 ```js
@@ -198,7 +198,7 @@ google_content.orders.custombatch({}, context)
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.custombatch
-Retrieves, inserts, and deletes multiple products in a single request. This method can only be called for non-multi-client accounts.
+Retrieves, inserts, and deletes multiple products in a single request.
 
 
 ```js
@@ -217,7 +217,7 @@ google_content.products.custombatch({}, context)
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### productstatuses.custombatch
-Gets the statuses of multiple products in a single request. This method can only be called for non-multi-client accounts.
+Gets the statuses of multiple products in a single request.
 
 
 ```js
@@ -226,6 +226,7 @@ google_content.productstatuses.custombatch({}, context)
 
 #### Parameters
 * body (object)
+* includeAttributes (boolean) - Flag to include full product data in the results of this request. The default value is false.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -254,7 +255,7 @@ google_content.shippingsettings.custombatch({}, context)
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.list
-Lists the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
+Lists the sub-accounts in your Merchant Center account.
 
 
 ```js
@@ -264,8 +265,8 @@ google_content.accounts.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * maxResults (integer) - The maximum number of accounts to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the managing account. This must be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -276,7 +277,7 @@ google_content.accounts.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.insert
-Creates a Merchant Center sub-account. This method can only be called for multi-client accounts.
+Creates a Merchant Center sub-account.
 
 
 ```js
@@ -286,9 +287,9 @@ google_content.accounts.insert({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - Account data.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. This must be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -298,20 +299,21 @@ google_content.accounts.insert({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.delete
-Deletes a Merchant Center sub-account. This method can only be called for multi-client accounts.
+Deletes a Merchant Center sub-account.
 
 
 ```js
 google_content.accounts.delete({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account.
 * dryRun (boolean) - Flag to run the request in dry-run mode.
+* force (boolean) - Flag to delete sub-accounts with products. The default value is false.
+* merchantId (string) **required** - The ID of the managing account. This must be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -321,19 +323,19 @@ google_content.accounts.delete({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.get
-Retrieves a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Retrieves a Merchant Center account.
 
 
 ```js
 google_content.accounts.get({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -343,21 +345,21 @@ google_content.accounts.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.patch
-Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.
+Updates a Merchant Center account. This method supports patch semantics.
 
 
 ```js
 google_content.accounts.patch({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - Account data.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -367,21 +369,44 @@ google_content.accounts.patch({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.update
-Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Updates a Merchant Center account.
 
 
 ```js
 google_content.accounts.update({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - Account data.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounts.claimwebsite
+Claims the website of a Merchant Center sub-account.
+
+
+```js
+google_content.accounts.claimwebsite({
+  "accountId": "",
+  "merchantId": ""
+}, context)
+```
+
+#### Parameters
+* accountId (string) **required** - The ID of the account whose website is claimed.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
+* overwrite (boolean) - Only available to selected merchants. When set to True, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -391,7 +416,7 @@ google_content.accounts.update({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accountstatuses.list
-Lists the statuses of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
+Lists the statuses of the sub-accounts in your Merchant Center account.
 
 
 ```js
@@ -401,8 +426,8 @@ google_content.accountstatuses.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * maxResults (integer) - The maximum number of account statuses to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the managing account. This must be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -413,19 +438,19 @@ google_content.accountstatuses.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accountstatuses.get
-Retrieves the status of a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Retrieves the status of a Merchant Center account.
 
 
 ```js
 google_content.accountstatuses.get({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -435,7 +460,7 @@ google_content.accountstatuses.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounttax.list
-Lists the tax settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
+Lists the tax settings of the sub-accounts in your Merchant Center account.
 
 
 ```js
@@ -445,8 +470,8 @@ google_content.accounttax.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * maxResults (integer) - The maximum number of tax settings to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the managing account. This must be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -457,19 +482,19 @@ google_content.accounttax.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounttax.get
-Retrieves the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Retrieves the tax settings of the account.
 
 
 ```js
 google_content.accounttax.get({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account for which to get/update account tax settings.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -479,21 +504,21 @@ google_content.accounttax.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounttax.patch
-Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.
+Updates the tax settings of the account. This method supports patch semantics.
 
 
 ```js
 google_content.accounttax.patch({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account for which to get/update account tax settings.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - The tax settings of a merchant account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -503,21 +528,21 @@ google_content.accounttax.patch({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounttax.update
-Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Updates the tax settings of the account.
 
 
 ```js
 google_content.accounttax.update({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account for which to get/update account tax settings.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - The tax settings of a merchant account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -527,7 +552,7 @@ google_content.accounttax.update({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.list
-Lists the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.
+Lists the datafeeds in your Merchant Center account.
 
 
 ```js
@@ -537,8 +562,8 @@ google_content.datafeeds.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * maxResults (integer) - The maximum number of products to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the account that manages the datafeeds. This account cannot be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -549,7 +574,7 @@ google_content.datafeeds.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.insert
-Registers a datafeed with your Merchant Center account. This method can only be called for non-multi-client accounts.
+Registers a datafeed configuration with your Merchant Center account.
 
 
 ```js
@@ -559,9 +584,9 @@ google_content.datafeeds.insert({
 ```
 
 #### Parameters
-* merchantId (string) **required**
+* body (object) - Datafeed configuration data.
 * dryRun (boolean) - Flag to run the request in dry-run mode.
-* body (object) - Datafeed data.
+* merchantId (string) **required** - The ID of the account that manages the datafeed. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -571,20 +596,20 @@ google_content.datafeeds.insert({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.delete
-Deletes a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Deletes a datafeed configuration from your Merchant Center account.
 
 
 ```js
 google_content.datafeeds.delete({
-  "merchantId": "",
-  "datafeedId": ""
+  "datafeedId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required**
-* datafeedId (string) **required**
+* datafeedId (string) **required** - The ID of the datafeed.
 * dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the account that manages the datafeed. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -594,19 +619,19 @@ google_content.datafeeds.delete({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.get
-Retrieves a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Retrieves a datafeed configuration from your Merchant Center account.
 
 
 ```js
 google_content.datafeeds.get({
-  "merchantId": "",
-  "datafeedId": ""
+  "datafeedId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required**
-* datafeedId (string) **required**
+* datafeedId (string) **required** - The ID of the datafeed.
+* merchantId (string) **required** - The ID of the account that manages the datafeed. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -616,21 +641,21 @@ google_content.datafeeds.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.patch
-Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts. This method supports patch semantics.
+Updates a datafeed configuration of your Merchant Center account. This method supports patch semantics.
 
 
 ```js
 google_content.datafeeds.patch({
-  "merchantId": "",
-  "datafeedId": ""
+  "datafeedId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required**
-* datafeedId (string) **required**
+* body (object) - Datafeed configuration data.
+* datafeedId (string) **required** - The ID of the datafeed.
 * dryRun (boolean) - Flag to run the request in dry-run mode.
-* body (object) - Datafeed data.
+* merchantId (string) **required** - The ID of the account that manages the datafeed. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -640,21 +665,21 @@ google_content.datafeeds.patch({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.update
-Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts.
+Updates a datafeed configuration of your Merchant Center account.
 
 
 ```js
 google_content.datafeeds.update({
-  "merchantId": "",
-  "datafeedId": ""
+  "datafeedId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required**
-* datafeedId (string) **required**
+* body (object) - Datafeed configuration data.
+* datafeedId (string) **required** - The ID of the datafeed.
 * dryRun (boolean) - Flag to run the request in dry-run mode.
-* body (object) - Datafeed data.
+* merchantId (string) **required** - The ID of the account that manages the datafeed. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -664,7 +689,7 @@ google_content.datafeeds.update({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeedstatuses.list
-Lists the statuses of the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.
+Lists the statuses of the datafeeds in your Merchant Center account.
 
 
 ```js
@@ -674,8 +699,8 @@ google_content.datafeedstatuses.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * maxResults (integer) - The maximum number of products to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the account that manages the datafeeds. This account cannot be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -686,19 +711,21 @@ google_content.datafeedstatuses.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeedstatuses.get
-Retrieves the status of a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Retrieves the status of a datafeed from your Merchant Center account.
 
 
 ```js
 google_content.datafeedstatuses.get({
-  "merchantId": "",
-  "datafeedId": ""
+  "datafeedId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required**
-* datafeedId (string) **required**
+* country (string) - The country for which to get the datafeed status. If this parameter is provided then language must also be provided. Note that this parameter is required for feeds targeting multiple countries and languages, since a feed may have a different status for each target.
+* datafeedId (string) **required** - The ID of the datafeed.
+* language (string) - The language for which to get the datafeed status. If this parameter is provided then country must also be provided. Note that this parameter is required for feeds targeting multiple countries and languages, since a feed may have a different status for each target.
+* merchantId (string) **required** - The ID of the account that manages the datafeed. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -708,23 +735,23 @@ google_content.datafeedstatuses.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### inventory.set
-Updates price and availability of a product in your Merchant Center account. This operation does not update the expiration date of the product. This method can only be called for non-multi-client accounts.
+Updates price and availability of a product in your Merchant Center account.
 
 
 ```js
 google_content.inventory.set({
   "merchantId": "",
-  "storeCode": "",
-  "productId": ""
+  "productId": "",
+  "storeCode": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* storeCode (string) **required** - The code of the store for which to update price and availability. Use online to update price and availability of an online product.
-* productId (string) **required** - The ID of the product for which to update price and availability.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object)
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the account that contains the product. This account cannot be a multi-client account.
+* productId (string) **required** - The REST id of the product for which to update price and availability.
+* storeCode (string) **required** - The code of the store for which to update price and availability. Use online to update price and availability of an online product.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -734,7 +761,7 @@ google_content.inventory.set({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.list
-Lists the orders in your Merchant Center account. This method can only be called for non-multi-client accounts.
+Lists the orders in your Merchant Center account.
 
 
 ```js
@@ -744,9 +771,9 @@ google_content.orders.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * acknowledged (boolean) - Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged.
 * maxResults (integer) - The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250 orders per page.
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
 * orderBy (string) - The ordering of the returned list. The only supported value are placedDate desc and placedDate asc for now, which returns orders sorted by placement date. "placedDate desc" stands for listing orders by placement date, from oldest to most recent. "placedDate asc" stands for listing orders by placement date, from most recent to oldest. In future releases we'll support other sorting criteria.
 * pageToken (string) - The token returned by the previous request.
 * placedDateEnd (string) - Obtains orders placed before this date (exclusively), in ISO 8601 format.
@@ -761,7 +788,7 @@ google_content.orders.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.get
-Retrieves an order from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Retrieves an order from your Merchant Center account.
 
 
 ```js
@@ -772,7 +799,7 @@ google_content.orders.get({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
 * orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -783,7 +810,7 @@ google_content.orders.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.acknowledge
-Marks an order as acknowledged. This method can only be called for non-multi-client accounts.
+Marks an order as acknowledged.
 
 
 ```js
@@ -794,9 +821,9 @@ google_content.orders.acknowledge({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -806,7 +833,7 @@ google_content.orders.acknowledge({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.cancel
-Cancels all line items in an order, making a full refund. This method can only be called for non-multi-client accounts.
+Cancels all line items in an order, making a full refund.
 
 
 ```js
@@ -817,9 +844,9 @@ google_content.orders.cancel({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order to cancel.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order to cancel.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -829,7 +856,7 @@ google_content.orders.cancel({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.cancellineitem
-Cancels a line item, making a full refund. This method can only be called for non-multi-client accounts.
+Cancels a line item, making a full refund.
 
 
 ```js
@@ -840,9 +867,9 @@ google_content.orders.cancellineitem({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -852,7 +879,7 @@ google_content.orders.cancellineitem({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.refund
-Refund a portion of the order, up to the full amount paid. This method can only be called for non-multi-client accounts.
+Refund a portion of the order, up to the full amount paid.
 
 
 ```js
@@ -863,9 +890,9 @@ google_content.orders.refund({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order to refund.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order to refund.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -875,7 +902,7 @@ google_content.orders.refund({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.returnlineitem
-Returns a line item. This method can only be called for non-multi-client accounts.
+Returns a line item.
 
 
 ```js
@@ -886,9 +913,9 @@ google_content.orders.returnlineitem({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -898,7 +925,7 @@ google_content.orders.returnlineitem({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.shiplineitems
-Marks line item(s) as shipped. This method can only be called for non-multi-client accounts.
+Marks line item(s) as shipped.
 
 
 ```js
@@ -909,9 +936,9 @@ google_content.orders.shiplineitems({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -921,7 +948,7 @@ google_content.orders.shiplineitems({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.updatemerchantorderid
-Updates the merchant order ID for a given order. This method can only be called for non-multi-client accounts.
+Updates the merchant order ID for a given order.
 
 
 ```js
@@ -932,9 +959,9 @@ google_content.orders.updatemerchantorderid({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -944,7 +971,7 @@ google_content.orders.updatemerchantorderid({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.updateshipment
-Updates a shipment's status, carrier, and/or tracking ID. This method can only be called for non-multi-client accounts.
+Updates a shipment's status, carrier, and/or tracking ID.
 
 
 ```js
@@ -955,9 +982,9 @@ google_content.orders.updateshipment({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* orderId (string) **required** - The ID of the order.
 * body (object)
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
+* orderId (string) **required** - The ID of the order.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -967,7 +994,7 @@ google_content.orders.updateshipment({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.getbymerchantorderid
-Retrieves an order using merchant order id. This method can only be called for non-multi-client accounts.
+Retrieves an order using merchant order id.
 
 
 ```js
@@ -978,7 +1005,7 @@ google_content.orders.getbymerchantorderid({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
 * merchantOrderId (string) **required** - The merchant order id to be looked for.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -989,7 +1016,7 @@ google_content.orders.getbymerchantorderid({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.list
-Lists the products in your Merchant Center account. This method can only be called for non-multi-client accounts.
+Lists the products in your Merchant Center account.
 
 
 ```js
@@ -999,9 +1026,9 @@ google_content.products.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * includeInvalidInsertedItems (boolean) - Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).
 * maxResults (integer) - The maximum number of products to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the account that contains the products. This account cannot be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -1012,7 +1039,7 @@ google_content.products.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.insert
-Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry. This method can only be called for non-multi-client accounts.
+Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry.
 
 
 ```js
@@ -1022,9 +1049,9 @@ google_content.products.insert({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - Product data.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the account that contains the product. This account cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1034,7 +1061,7 @@ google_content.products.insert({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.delete
-Deletes a product from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Deletes a product from your Merchant Center account.
 
 
 ```js
@@ -1045,9 +1072,9 @@ google_content.products.delete({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* productId (string) **required** - The ID of the product.
 * dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the account that contains the product. This account cannot be a multi-client account.
+* productId (string) **required** - The REST id of the product.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1057,7 +1084,7 @@ google_content.products.delete({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.get
-Retrieves a product from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Retrieves a product from your Merchant Center account.
 
 
 ```js
@@ -1068,8 +1095,8 @@ google_content.products.get({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* productId (string) **required** - The ID of the product.
+* merchantId (string) **required** - The ID of the account that contains the product. This account cannot be a multi-client account.
+* productId (string) **required** - The REST id of the product.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1079,7 +1106,7 @@ google_content.products.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### productstatuses.list
-Lists the statuses of the products in your Merchant Center account. This method can only be called for non-multi-client accounts.
+Lists the statuses of the products in your Merchant Center account.
 
 
 ```js
@@ -1089,9 +1116,10 @@ google_content.productstatuses.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
+* includeAttributes (boolean) - Flag to include full product data in the results of the list request. The default value is false.
 * includeInvalidInsertedItems (boolean) - Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).
 * maxResults (integer) - The maximum number of product statuses to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the account that contains the products. This account cannot be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -1102,7 +1130,7 @@ google_content.productstatuses.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### productstatuses.get
-Gets the status of a product from your Merchant Center account. This method can only be called for non-multi-client accounts.
+Gets the status of a product from your Merchant Center account.
 
 
 ```js
@@ -1113,8 +1141,9 @@ google_content.productstatuses.get({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
-* productId (string) **required** - The ID of the product.
+* includeAttributes (boolean) - Flag to include full product data in the result of this get request. The default value is false.
+* merchantId (string) **required** - The ID of the account that contains the product. This account cannot be a multi-client account.
+* productId (string) **required** - The REST id of the product.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1124,7 +1153,7 @@ google_content.productstatuses.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### shippingsettings.list
-Lists the shipping settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
+Lists the shipping settings of the sub-accounts in your Merchant Center account.
 
 
 ```js
@@ -1134,8 +1163,8 @@ google_content.shippingsettings.list({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * maxResults (integer) - The maximum number of shipping settings to return in the response, used for paging.
+* merchantId (string) **required** - The ID of the managing account. This must be a multi-client account.
 * pageToken (string) - The token returned by the previous request.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -1146,19 +1175,19 @@ google_content.shippingsettings.list({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### shippingsettings.get
-Retrieves the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Retrieves the shipping settings of the account.
 
 
 ```js
 google_content.shippingsettings.get({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account for which to get/update shipping settings.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1168,21 +1197,21 @@ google_content.shippingsettings.get({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### shippingsettings.patch
-Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.
+Updates the shipping settings of the account. This method supports patch semantics.
 
 
 ```js
 google_content.shippingsettings.patch({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account for which to get/update shipping settings.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - The merchant account's shipping settings.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1192,21 +1221,21 @@ google_content.shippingsettings.patch({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### shippingsettings.update
-Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
+Updates the shipping settings of the account.
 
 
 ```js
 google_content.shippingsettings.update({
-  "merchantId": "",
-  "accountId": ""
+  "accountId": "",
+  "merchantId": ""
 }, context)
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * accountId (string) **required** - The ID of the account for which to get/update shipping settings.
-* dryRun (boolean) - Flag to run the request in dry-run mode.
 * body (object) - The merchant account's shipping settings.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* merchantId (string) **required** - The ID of the managing account. If this account is not a multi-client account, then this parameter must be the same as accountId.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1236,7 +1265,7 @@ google_content.shippingsettings.getsupportedcarriers({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.createtestorder
-Sandbox only. Creates a test order. This method can only be called for non-multi-client accounts.
+Sandbox only. Creates a test order.
 
 
 ```js
@@ -1246,8 +1275,8 @@ google_content.orders.createtestorder({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
 * body (object)
+* merchantId (string) **required** - The ID of the account that should manage the order. This cannot be a multi-client account.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1257,7 +1286,7 @@ google_content.orders.createtestorder({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.advancetestorder
-Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment". This method can only be called for non-multi-client accounts.
+Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment".
 
 
 ```js
@@ -1268,7 +1297,7 @@ google_content.orders.advancetestorder({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
+* merchantId (string) **required** - The ID of the account that manages the order. This cannot be a multi-client account.
 * orderId (string) **required** - The ID of the test order to modify.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
@@ -1279,7 +1308,7 @@ google_content.orders.advancetestorder({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.gettestordertemplate
-Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox. This method can only be called for non-multi-client accounts.
+Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.
 
 
 ```js
@@ -1290,7 +1319,7 @@ google_content.orders.gettestordertemplate({
 ```
 
 #### Parameters
-* merchantId (string) **required** - The ID of the managing account.
+* merchantId (string) **required** - The ID of the account that should manage the order. This cannot be a multi-client account.
 * templateName (string) **required** - The name of the template to retrieve.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.

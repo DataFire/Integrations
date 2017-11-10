@@ -37,6 +37,17 @@ amazonaws_events.DeleteRule({
 #### Parameters
 * Name (string) **required**
 
+### DescribeEventBus
+
+
+
+```js
+amazonaws_events.DescribeEventBus({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### DescribeRule
 
 
@@ -132,6 +143,23 @@ amazonaws_events.PutEvents({
 #### Parameters
 * Entries (array) **required**
 
+### PutPermission
+
+
+
+```js
+amazonaws_events.PutPermission({
+  "Action": "",
+  "Principal": "",
+  "StatementId": ""
+}, context)
+```
+
+#### Parameters
+* Action (string) **required**
+* Principal (string) **required**
+* StatementId (string) **required**
+
 ### PutRule
 
 
@@ -164,6 +192,19 @@ amazonaws_events.PutTargets({
 #### Parameters
 * Rule (string) **required**
 * Targets (array) **required**
+
+### RemovePermission
+
+
+
+```js
+amazonaws_events.RemovePermission({
+  "StatementId": ""
+}, context)
+```
+
+#### Parameters
+* StatementId (string) **required**
 
 ### RemoveTargets
 

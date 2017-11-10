@@ -140,7 +140,7 @@ google_cloudkms.projects.locations.list({
 * bearer_token (string) - OAuth bearer token.
 
 ### projects.locations.keyRings.cryptoKeys.decrypt
-Decrypt data that was protected by Encrypt.
+Decrypts data that was protected by Encrypt.
 
 
 ```js
@@ -205,7 +205,7 @@ google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
 * bearer_token (string) - OAuth bearer token.
 
 ### projects.locations.keyRings.cryptoKeys.encrypt
-Encrypt data, so that it can only be recovered by a call to Decrypt.
+Encrypts data, so that it can only be recovered by a call to Decrypt.
 
 
 ```js

@@ -79,10 +79,10 @@ google_sqladmin.instances.list({
 ```
 
 #### Parameters
-* project (string) **required** - Project ID of the project for which to list Cloud SQL instances.
-* filter (string) - A filter expression for filtering listed instances.
+* filter (string) - An expression for filtering the results of the request, such as by name or label.
 * maxResults (integer) - The maximum number of results to return per response.
 * pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
+* project (string) **required** - Project ID of the project for which to list Cloud SQL instances.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -478,6 +478,29 @@ google_sqladmin.databases.update({
 * instance (string) **required** - Database instance ID. This does not include the project ID.
 * database (string) **required** - Name of the database to be updated in the instance.
 * body (object) - A database resource inside a Cloud SQL instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.demoteMaster
+Demotes the standalone instance to be a read replica Cloud SQL instance of an on-premises master.
+
+
+```js
+google_sqladmin.instances.demoteMaster({
+  "instance": "",
+  "project": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Database demote master request.
+* instance (string) **required** - Cloud SQL instance name.
+* project (string) **required** - ID of the project that contains the instance.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

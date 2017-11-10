@@ -11,16 +11,16 @@ npm install --save datafire @datafire/6_dot_authentiqio_appspot
 let datafire = require('datafire');
 let dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').create();
 
-dot_authentiqio_appspot.key.delete({}).then(data => {
+dot_authentiqio_appspot.key_revoke_nosecret({}).then(data => {
   console.log(data);
 })
 ```
 
 ## Description
-
+Strong authentication, without the passwords.
 
 ## Actions
-### key.delete
+### key_revoke_nosecret
 Revoke an Authentiq ID using email & phone.
 
 If called with `email` and `phone` only, a verification code 
@@ -30,7 +30,7 @@ complete the revocation.
 
 
 ```js
-dot_authentiqio_appspot.key.delete({
+dot_authentiqio_appspot.key_revoke_nosecret({
   "email": "",
   "phone": ""
 }, context)
@@ -41,7 +41,7 @@ dot_authentiqio_appspot.key.delete({
 * phone (string) **required** - primary phone number, international representation
 * code (string) - verification code sent by email
 
-### key.post
+### key_register
 Register a new ID `JWT(sub, devtoken)`
 
 v5: `JWT(sub, pk, devtoken, ...)`
@@ -51,7 +51,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-dot_authentiqio_appspot.key.post({
+dot_authentiqio_appspot.key_register({
   "body": null
 }, context)
 ```
@@ -59,12 +59,12 @@ dot_authentiqio_appspot.key.post({
 #### Parameters
 * body (undefined) **required** - Authentiq ID in JWT format, self-signed.
 
-### key.PK.delete
+### key_revoke
 Revoke an Identity (Key) with a revocation secret
 
 
 ```js
-dot_authentiqio_appspot.key.PK.delete({
+dot_authentiqio_appspot.key_revoke({
   "PK": "",
   "secret": ""
 }, context)
@@ -102,7 +102,7 @@ dot_authentiqio_appspot.key.PK.head({
 #### Parameters
 * PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
 
-### key.PK.post
+### key_update
 update properties of an Authentiq ID.
 (not operational in v4; use PUT for now)
 
@@ -114,7 +114,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-dot_authentiqio_appspot.key.PK.post({
+dot_authentiqio_appspot.key_update({
   "PK": "",
   "body": null
 }, context)
@@ -124,7 +124,7 @@ dot_authentiqio_appspot.key.PK.post({
 * PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
 * body (undefined) **required** - Authentiq ID in JWT format, self-signed.
 
-### key.PK.put
+### key_bind
 Update Authentiq ID by replacing the object.
 
 v4: `JWT(sub,email,phone)` to bind email/phone hash; 
@@ -137,7 +137,7 @@ See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 ```js
-dot_authentiqio_appspot.key.PK.put({
+dot_authentiqio_appspot.key_bind({
   "PK": "",
   "body": null
 }, context)
@@ -147,14 +147,14 @@ dot_authentiqio_appspot.key.PK.put({
 * PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
 * body (undefined) **required** - Authentiq ID in JWT format, self-signed.
 
-### login.post
+### push_login_request
 push sign-in request
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 
 ```js
-dot_authentiqio_appspot.login.post({
+dot_authentiqio_appspot.push_login_request({
   "body": null,
   "callback": ""
 }, context)
@@ -164,14 +164,14 @@ dot_authentiqio_appspot.login.post({
 * body (undefined) **required** - PushToken in JWT format, self-signed. 
 * callback (string) **required** - URI App will connect to
 
-### scope.post
+### sign_request
 scope verification request
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 
 ```js
-dot_authentiqio_appspot.scope.post({
+dot_authentiqio_appspot.sign_request({
   "body": null
 }, context)
 ```
@@ -180,12 +180,12 @@ dot_authentiqio_appspot.scope.post({
 * body (undefined) **required** - Claim in JWT format, self- or issuer-signed. 
 * test (integer) - test only mode, using test issuer
 
-### scope.job.delete
+### sign_delete
 delete a verification job
 
 
 ```js
-dot_authentiqio_appspot.scope.job.delete({
+dot_authentiqio_appspot.sign_delete({
   "job": ""
 }, context)
 ```
@@ -193,12 +193,12 @@ dot_authentiqio_appspot.scope.job.delete({
 #### Parameters
 * job (string) **required** - Job ID (20 chars)
 
-### scope.job.get
+### sign_retrieve
 get the status / current content of a verification job
 
 
 ```js
-dot_authentiqio_appspot.scope.job.get({
+dot_authentiqio_appspot.sign_retrieve({
   "job": ""
 }, context)
 ```
@@ -206,12 +206,12 @@ dot_authentiqio_appspot.scope.job.get({
 #### Parameters
 * job (string) **required** - Job ID (20 chars)
 
-### scope.job.head
+### sign_retrieve_head
 HEAD to get the status of a verification job
 
 
 ```js
-dot_authentiqio_appspot.scope.job.head({
+dot_authentiqio_appspot.sign_retrieve_head({
   "job": ""
 }, context)
 ```
@@ -219,12 +219,12 @@ dot_authentiqio_appspot.scope.job.head({
 #### Parameters
 * job (string) **required** - Job ID (20 chars)
 
-### scope.job.post
+### sign_confirm
 this is a scope confirmation
 
 
 ```js
-dot_authentiqio_appspot.scope.job.post({
+dot_authentiqio_appspot.sign_confirm({
   "job": ""
 }, context)
 ```
@@ -232,14 +232,14 @@ dot_authentiqio_appspot.scope.job.post({
 #### Parameters
 * job (string) **required** - Job ID (20 chars)
 
-### scope.job.put
+### sign_update
 authority updates a JWT with its signature
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
 
 ```js
-dot_authentiqio_appspot.scope.job.put({
+dot_authentiqio_appspot.sign_update({
   "job": ""
 }, context)
 ```

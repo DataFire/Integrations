@@ -1,0 +1,738 @@
+{
+  "id": "google_translate",
+  "title": "Google Cloud Translation",
+  "description": "The Google Cloud Translation API lets websites and programs integrate with\n    Google Translate programmatically.",
+  "security": {
+    "google_translate": {
+      "integration": "google_translate",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-translation": "Translate text from one language to another using Google Translate"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_translate.jpg"
+  },
+  "actionCount": 7,
+  "definitions": {
+    "DetectLanguageRequest": {
+      "description": "The request message for language detection.",
+      "properties": {
+        "q": {
+          "description": "The input text upon which to perform language detection. Repeat this\nparameter to perform language detection on multiple text inputs.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "DetectLanguageRequest"
+    },
+    "DetectionsListResponse": {
+      "properties": {
+        "detections": {
+          "description": "A detections contains detection results of several text",
+          "items": {
+            "$ref": "#/definitions/DetectionsResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "DetectionsListResponse"
+    },
+    "DetectionsResource": {
+      "description": "An array of languages which we detect for the given text The most likely language list first.",
+      "items": {
+        "properties": {
+          "confidence": {
+            "description": "The confidence of the detection result of this language.",
+            "format": "float",
+            "type": "number"
+          },
+          "isReliable": {
+            "description": "A boolean to indicate is the language detection result reliable.",
+            "type": "boolean"
+          },
+          "language": {
+            "description": "The language we detected.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "DetectionsResource"
+    },
+    "GetSupportedLanguagesRequest": {
+      "description": "The request message for discovering supported languages.",
+      "properties": {
+        "target": {
+          "description": "The language to use to return localized, human readable names of supported\nlanguages.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "GetSupportedLanguagesRequest"
+    },
+    "LanguagesListResponse": {
+      "properties": {
+        "languages": {
+          "description": "List of source/target languages supported by the translation API. If target parameter is unspecified, the list is sorted by the ASCII code point order of the language code. If target parameter is specified, the list is sorted by the collation order of the language name in the target language.",
+          "items": {
+            "$ref": "#/definitions/LanguagesResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "LanguagesListResponse"
+    },
+    "LanguagesResource": {
+      "properties": {
+        "language": {
+          "description": "Supported language code, generally consisting of its ISO 639-1\nidentifier. (E.g. 'en', 'ja'). In certain cases, BCP-47 codes including\nlanguage + region identifiers are returned (e.g. 'zh-TW' and 'zh-CH')",
+          "type": "string"
+        },
+        "name": {
+          "description": "Human readable name of the language localized to the target language.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "LanguagesResource"
+    },
+    "TranslateTextRequest": {
+      "description": "The main translation request message for the Cloud Translation API.",
+      "properties": {
+        "format": {
+          "description": "The format of the source text, in either HTML (default) or plain-text. A\nvalue of \"html\" indicates HTML and a value of \"text\" indicates plain-text.",
+          "type": "string"
+        },
+        "model": {
+          "description": "The `model` type requested for this translation. Valid values are\nlisted in public documentation.",
+          "type": "string"
+        },
+        "q": {
+          "description": "The input text to translate. Repeat this parameter to perform translation\noperations on multiple text inputs.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "source": {
+          "description": "The language of the source text, set to one of the language codes listed in\nLanguage Support. If the source language is not specified, the API will\nattempt to identify the source language automatically and return it within\nthe response.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The language to use for translation of the input text, set to one of the\nlanguage codes listed in Language Support.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "TranslateTextRequest"
+    },
+    "TranslationsListResponse": {
+      "description": "The main language translation response message.",
+      "properties": {
+        "translations": {
+          "description": "Translations contains list of translation results of given text",
+          "items": {
+            "$ref": "#/definitions/TranslationsResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "TranslationsListResponse"
+    },
+    "TranslationsResource": {
+      "properties": {
+        "detectedSourceLanguage": {
+          "description": "The source language of the initial request, detected automatically, if\nno source language was passed within the initial request. If the\nsource language was passed, auto-detection of the language will not\noccur and this field will be empty.",
+          "type": "string"
+        },
+        "model": {
+          "description": "The `model` type used for this translation. Valid values are\nlisted in public documentation. Can be different from requested `model`.\nPresent only if specific model type was explicitly requested.",
+          "type": "string"
+        },
+        "translatedText": {
+          "description": "Text translated into the target language.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "TranslationsResource"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    },
+    {
+      "id": "translations.list",
+      "title": "translations.list",
+      "description": "Translates input text, returning translated text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cid": {
+            "type": "array",
+            "description": "The customization id for translate"
+          },
+          "format": {
+            "type": "string",
+            "description": "The format of the source text, in either HTML (default) or plain-text. A\nvalue of \"html\" indicates HTML and a value of \"text\" indicates plain-text.",
+            "enum": [
+              "html",
+              "text"
+            ]
+          },
+          "model": {
+            "type": "string",
+            "description": "The `model` type requested for this translation. Valid values are\nlisted in public documentation."
+          },
+          "q": {
+            "type": "array",
+            "description": "The input text to translate. Repeat this parameter to perform translation\noperations on multiple text inputs."
+          },
+          "source": {
+            "type": "string",
+            "description": "The language of the source text, set to one of the language codes listed in\nLanguage Support. If the source language is not specified, the API will\nattempt to identify the source language automatically and return it within\nthe response."
+          },
+          "target": {
+            "type": "string",
+            "description": "The language to use for translation of the input text, set to one of the\nlanguage codes listed in Language Support."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "target"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TranslationsListResponse"
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    },
+    {
+      "id": "translations.translate",
+      "title": "translations.translate",
+      "description": "Translates input text, returning translated text.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/TranslateTextRequest"
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TranslationsListResponse"
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    },
+    {
+      "id": "detections.list",
+      "title": "detections.list",
+      "description": "Detects the language of text within a request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "array",
+            "description": "The input text upon which to perform language detection. Repeat this\nparameter to perform language detection on multiple text inputs."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectionsListResponse"
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    },
+    {
+      "id": "detections.detect",
+      "title": "detections.detect",
+      "description": "Detects the language of text within a request.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DetectLanguageRequest"
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectionsListResponse"
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    },
+    {
+      "id": "languages.list",
+      "title": "languages.list",
+      "description": "Returns a list of supported languages for translation.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "The model type for which supported languages should be returned."
+          },
+          "target": {
+            "type": "string",
+            "description": "The language to use to return localized, human readable names of supported\nlanguages."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ],
+            "default": "json"
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response.",
+            "default": true
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks.",
+            "default": true
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LanguagesListResponse"
+      },
+      "security": {
+        "google_translate": {
+          "integration": "google_translate"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "text",
+    "google"
+  ]
+}

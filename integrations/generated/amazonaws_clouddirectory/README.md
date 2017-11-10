@@ -212,7 +212,7 @@ amazonaws_clouddirectory.CreateIndex({
 * IsUnique (boolean) **required**
 * LinkName (string)
 * OrderedIndexedAttributeList (array) **required**
-* ParentReference (object) - Reference that identifies an object.
+* ParentReference (object) - The reference that identifies an object.
 
 ### AttachToIndex
 
@@ -226,8 +226,8 @@ amazonaws_clouddirectory.AttachToIndex({
 ```
 
 #### Parameters
-* IndexReference (object) **required** - Reference that identifies an object.
-* TargetReference (object) **required** - Reference that identifies an object.
+* IndexReference (object) **required** - The reference that identifies an object.
+* TargetReference (object) **required** - The reference that identifies an object.
 
 ### DetachFromIndex
 
@@ -241,8 +241,8 @@ amazonaws_clouddirectory.DetachFromIndex({
 ```
 
 #### Parameters
-* IndexReference (object) **required** - Reference that identifies an object.
-* TargetReference (object) **required** - Reference that identifies an object.
+* IndexReference (object) **required** - The reference that identifies an object.
+* TargetReference (object) **required** - The reference that identifies an object.
 
 ### ListIndex
 
@@ -257,7 +257,7 @@ amazonaws_clouddirectory.ListIndex({
 #### Parameters
 * MaxResults (string)
 * NextToken (string)
-* IndexReference (object) **required** - Reference that identifies an object.
+* IndexReference (object) **required** - The reference that identifies an object.
 * MaxResults (integer)
 * NextToken (string)
 * RangesOnIndexedValues (array)
@@ -275,7 +275,7 @@ amazonaws_clouddirectory.CreateObject({
 #### Parameters
 * LinkName (string)
 * ObjectAttributeList (array)
-* ParentReference (object) - Reference that identifies an object.
+* ParentReference (object) - The reference that identifies an object.
 * SchemaFacets (array) **required**
 
 ### AttachObject
@@ -291,9 +291,9 @@ amazonaws_clouddirectory.AttachObject({
 ```
 
 #### Parameters
-* ChildReference (object) **required** - Reference that identifies an object.
+* ChildReference (object) **required** - The reference that identifies an object.
 * LinkName (string) **required**
-* ParentReference (object) **required** - Reference that identifies an object.
+* ParentReference (object) **required** - The reference that identifies an object.
 
 ### ListObjectAttributes
 
@@ -311,7 +311,7 @@ amazonaws_clouddirectory.ListObjectAttributes({
 * FacetFilter (object) - A facet.
 * MaxResults (integer)
 * NextToken (string)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### ListObjectChildren
 
@@ -328,7 +328,7 @@ amazonaws_clouddirectory.ListObjectChildren({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### DeleteObject
 
@@ -341,7 +341,7 @@ amazonaws_clouddirectory.DeleteObject({
 ```
 
 #### Parameters
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### DetachObject
 
@@ -356,7 +356,7 @@ amazonaws_clouddirectory.DetachObject({
 
 #### Parameters
 * LinkName (string) **required**
-* ParentReference (object) **required** - Reference that identifies an object.
+* ParentReference (object) **required** - The reference that identifies an object.
 
 ### AddFacetToObject
 
@@ -371,7 +371,7 @@ amazonaws_clouddirectory.AddFacetToObject({
 
 #### Parameters
 * ObjectAttributeList (array)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 * SchemaFacet (object) **required** - A facet.
 
 ### RemoveFacetFromObject
@@ -386,7 +386,7 @@ amazonaws_clouddirectory.RemoveFacetFromObject({
 ```
 
 #### Parameters
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 * SchemaFacet (object) **required** - A facet.
 
 ### ListAttachedIndices
@@ -404,7 +404,7 @@ amazonaws_clouddirectory.ListAttachedIndices({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* TargetReference (object) **required** - Reference that identifies an object.
+* TargetReference (object) **required** - The reference that identifies an object.
 
 ### GetObjectInformation
 
@@ -417,7 +417,7 @@ amazonaws_clouddirectory.GetObjectInformation({
 ```
 
 #### Parameters
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### ListObjectParents
 
@@ -434,7 +434,7 @@ amazonaws_clouddirectory.ListObjectParents({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### ListObjectParentPaths
 
@@ -451,7 +451,7 @@ amazonaws_clouddirectory.ListObjectParentPaths({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### ListObjectPolicies
 
@@ -468,7 +468,7 @@ amazonaws_clouddirectory.ListObjectPolicies({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### UpdateObjectAttributes
 
@@ -483,7 +483,7 @@ amazonaws_clouddirectory.UpdateObjectAttributes({
 
 #### Parameters
 * AttributeUpdates (array) **required**
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### AttachPolicy
 
@@ -497,8 +497,8 @@ amazonaws_clouddirectory.AttachPolicy({
 ```
 
 #### Parameters
-* ObjectReference (object) **required** - Reference that identifies an object.
-* PolicyReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
+* PolicyReference (object) **required** - The reference that identifies an object.
 
 ### ListPolicyAttachments
 
@@ -515,7 +515,7 @@ amazonaws_clouddirectory.ListPolicyAttachments({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* PolicyReference (object) **required** - Reference that identifies an object.
+* PolicyReference (object) **required** - The reference that identifies an object.
 
 ### DetachPolicy
 
@@ -529,8 +529,8 @@ amazonaws_clouddirectory.DetachPolicy({
 ```
 
 #### Parameters
-* ObjectReference (object) **required** - Reference that identifies an object.
-* PolicyReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
+* PolicyReference (object) **required** - The reference that identifies an object.
 
 ### LookupPolicy
 
@@ -547,7 +547,7 @@ amazonaws_clouddirectory.LookupPolicy({
 * NextToken (string)
 * MaxResults (integer)
 * NextToken (string)
-* ObjectReference (object) **required** - Reference that identifies an object.
+* ObjectReference (object) **required** - The reference that identifies an object.
 
 ### DeleteSchema
 
@@ -717,4 +717,174 @@ amazonaws_clouddirectory.UntagResource({
 #### Parameters
 * ResourceArn (string) **required**
 * TagKeys (array) **required**
+
+### AttachTypedLink
+
+
+
+```js
+amazonaws_clouddirectory.AttachTypedLink({
+  "SourceObjectReference": {},
+  "TargetObjectReference": {},
+  "TypedLinkFacet": {
+    "SchemaArn": "",
+    "TypedLinkName": ""
+  },
+  "Attributes": []
+}, context)
+```
+
+#### Parameters
+* Attributes (array) **required**
+* SourceObjectReference (object) **required** - The reference that identifies an object.
+* TargetObjectReference (object) **required** - The reference that identifies an object.
+* TypedLinkFacet (object) **required** - Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
+
+### DetachTypedLink
+
+
+
+```js
+amazonaws_clouddirectory.DetachTypedLink({
+  "TypedLinkSpecifier": {
+    "TypedLinkFacet": {
+      "SchemaArn": "",
+      "TypedLinkName": ""
+    },
+    "SourceObjectReference": {},
+    "TargetObjectReference": {},
+    "IdentityAttributeValues": []
+  }
+}, context)
+```
+
+#### Parameters
+* TypedLinkSpecifier (object) **required** - Contains all the information that is used to uniquely identify a typed link. The parameters discussed in this topic are used to uniquely specify the typed link being operated on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API operations provide typed link specifiers as output. You can also construct a typed link specifier from scratch.
+
+### UpdateTypedLinkFacet
+
+
+
+```js
+amazonaws_clouddirectory.UpdateTypedLinkFacet({
+  "Name": "",
+  "AttributeUpdates": [],
+  "IdentityAttributeOrder": []
+}, context)
+```
+
+#### Parameters
+* AttributeUpdates (array) **required**
+* IdentityAttributeOrder (array) **required**
+* Name (string) **required**
+
+### ListTypedLinkFacetAttributes
+
+
+
+```js
+amazonaws_clouddirectory.ListTypedLinkFacetAttributes({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* Name (string) **required**
+* NextToken (string)
+
+### CreateTypedLinkFacet
+
+
+
+```js
+amazonaws_clouddirectory.CreateTypedLinkFacet({
+  "Facet": {
+    "Name": "",
+    "Attributes": [],
+    "IdentityAttributeOrder": []
+  }
+}, context)
+```
+
+#### Parameters
+* Facet (object) **required** - Defines the typed links structure and its attributes. To create a typed link facet, use the <a>CreateTypedLinkFacet</a> API.
+
+### DeleteTypedLinkFacet
+
+
+
+```js
+amazonaws_clouddirectory.DeleteTypedLinkFacet({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+
+### GetTypedLinkFacetInformation
+
+
+
+```js
+amazonaws_clouddirectory.GetTypedLinkFacetInformation({
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Name (string) **required**
+
+### ListTypedLinkFacetNames
+
+
+
+```js
+amazonaws_clouddirectory.ListTypedLinkFacetNames({}, context)
+```
+
+#### Parameters
+* MaxResults (string)
+* NextToken (string)
+* MaxResults (integer)
+* NextToken (string)
+
+### ListIncomingTypedLinks
+
+
+
+```js
+amazonaws_clouddirectory.ListIncomingTypedLinks({
+  "ObjectReference": {}
+}, context)
+```
+
+#### Parameters
+* ConsistencyLevel (string)
+* FilterAttributeRanges (array)
+* FilterTypedLink (object) - Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
+* MaxResults (integer)
+* NextToken (string)
+* ObjectReference (object) **required** - The reference that identifies an object.
+
+### ListOutgoingTypedLinks
+
+
+
+```js
+amazonaws_clouddirectory.ListOutgoingTypedLinks({
+  "ObjectReference": {}
+}, context)
+```
+
+#### Parameters
+* ConsistencyLevel (string)
+* FilterAttributeRanges (array)
+* FilterTypedLink (object) - Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
+* MaxResults (integer)
+* NextToken (string)
+* ObjectReference (object) **required** - The reference that identifies an object.
 

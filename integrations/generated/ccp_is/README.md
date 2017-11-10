@@ -273,6 +273,61 @@ ccp_is.get_characters_character_id_assets({
 #### Parameters
 * character_id (integer) **required** - An EVE character ID
 * datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### post_characters_character_id_assets_locations
+Return locations for a set of item ids, which you can get from character assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)
+
+---
+Alternate route: `/v1/characters/{character_id}/assets/locations/`
+
+Alternate route: `/legacy/characters/{character_id}/assets/locations/`
+
+Alternate route: `/dev/characters/{character_id}/assets/locations/`
+
+
+
+```js
+ccp_is.post_characters_character_id_assets_locations({
+  "character_id": 0,
+  "item_ids": []
+}, context)
+```
+
+#### Parameters
+* character_id (integer) **required** - An EVE character ID
+* datasource (string) - The server name you would like data from
+* item_ids (array) **required** - item_ids array
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### post_characters_character_id_assets_names
+Return names for a set of item ids, which you can get from character assets endpoint. Typically used for items that can customize names, like containers or ships.
+
+---
+Alternate route: `/v1/characters/{character_id}/assets/names/`
+
+Alternate route: `/legacy/characters/{character_id}/assets/names/`
+
+Alternate route: `/dev/characters/{character_id}/assets/names/`
+
+
+
+```js
+ccp_is.post_characters_character_id_assets_names({
+  "character_id": 0,
+  "item_ids": []
+}, context)
+```
+
+#### Parameters
+* character_id (integer) **required** - An EVE character ID
+* datasource (string) - The server name you would like data from
+* item_ids (array) **required** - item_ids array
 * token (string) - Access token to use if unable to set a header
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
@@ -305,12 +360,12 @@ ccp_is.get_characters_character_id_attributes({
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
 ### get_characters_character_id_blueprints
-Return a list of blueprints the character has
+Return a list of blueprints the character owns
 
 ---
-Alternate route: `/v1/characters/{character_id}/blueprints/`
+Alternate route: `/v2/characters/{character_id}/blueprints/`
 
-Alternate route: `/legacy/characters/{character_id}/blueprints/`
+Alternate route: `/dev/characters/{character_id}/blueprints/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -325,6 +380,7 @@ ccp_is.get_characters_character_id_blueprints({
 #### Parameters
 * character_id (integer) **required** - An EVE character ID
 * datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
 * token (string) - Access token to use if unable to set a header
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
@@ -336,8 +392,6 @@ List your character's personal bookmarks
 Alternate route: `/v1/characters/{character_id}/bookmarks/`
 
 Alternate route: `/legacy/characters/{character_id}/bookmarks/`
-
-Alternate route: `/dev/characters/{character_id}/bookmarks/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -364,8 +418,6 @@ Alternate route: `/v1/characters/{character_id}/bookmarks/folders/`
 
 Alternate route: `/legacy/characters/{character_id}/bookmarks/folders/`
 
-Alternate route: `/dev/characters/{character_id}/bookmarks/folders/`
-
 ---
 This route is cached for up to 3600 seconds
 
@@ -384,7 +436,7 @@ ccp_is.get_characters_character_id_bookmarks_folders({
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
 ### get_characters_character_id_calendar
-Get 50 event summaries from the calendar. If no event ID is given, the resource will return the next 50 chronological event summaries from now. If an event ID is specified, it will return the next 50 chronological event summaries from after that event.
+Get 50 event summaries from the calendar. If no from_event ID is given, the resource will return the next 50 chronological event summaries from now. If a from_event ID is specified, it will return the next 50 chronological event summaries from after that event.
 
 ---
 Alternate route: `/v1/characters/{character_id}/calendar/`
@@ -465,8 +517,37 @@ ccp_is.put_characters_character_id_calendar_event_id({
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
+### get_characters_character_id_calendar_event_id_attendees
+Get all invited attendees for a given event
+
+---
+Alternate route: `/v1/characters/{character_id}/calendar/{event_id}/attendees/`
+
+Alternate route: `/dev/characters/{character_id}/calendar/{event_id}/attendees/`
+
+Alternate route: `/legacy/characters/{character_id}/calendar/{event_id}/attendees/`
+
+---
+This route is cached for up to 600 seconds
+
+
+```js
+ccp_is.get_characters_character_id_calendar_event_id_attendees({
+  "character_id": 0,
+  "event_id": 0
+}, context)
+```
+
+#### Parameters
+* character_id (integer) **required** - An EVE character ID
+* datasource (string) - The server name you would like data from
+* event_id (integer) **required** - The id of the event requested
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
 ### get_characters_character_id_chat_channels
-Return chat channels that a character is the owner or an operator of
+Return chat channels that a character is the owner or operator of
 
 ---
 Alternate route: `/v1/characters/{character_id}/chat_channels/`
@@ -716,7 +797,7 @@ ccp_is.get_characters_character_id_contracts_contract_id_bids({
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
 ### get_characters_character_id_contracts_contract_id_items
-Lists Items and details of a particular contract
+Lists items of a particular contract
 
 ---
 Alternate route: `/v1/characters/{character_id}/contracts/{contract_id}/items/`
@@ -904,6 +985,33 @@ ccp_is.delete_characters_character_id_fittings_fitting_id({
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
+### get_characters_character_id_fleet
+Return the fleet ID the character is in, if any.
+
+---
+Alternate route: `/v1/characters/{character_id}/fleet/`
+
+Alternate route: `/legacy/characters/{character_id}/fleet/`
+
+Alternate route: `/dev/characters/{character_id}/fleet/`
+
+---
+This route is cached for up to 60 seconds
+
+
+```js
+ccp_is.get_characters_character_id_fleet({
+  "character_id": 0
+}, context)
+```
+
+#### Parameters
+* character_id (integer) **required** - An EVE character ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
 ### get_characters_character_id_implants
 Return implants on the active clone of a character
 
@@ -1025,6 +1133,8 @@ Alternate route: `/legacy/characters/{character_id}/loyalty/points/`
 
 Alternate route: `/dev/characters/{character_id}/loyalty/points/`
 
+---
+This route is cached for up to 3600 seconds
 
 
 ```js
@@ -1177,7 +1287,6 @@ ccp_is.delete_characters_character_id_mail_labels_label_id({
 ### get_characters_character_id_mail_lists
 Return all mailing lists that the character is subscribed to
 
-
 ---
 Alternate route: `/v1/characters/{character_id}/mail/lists/`
 
@@ -1303,6 +1412,62 @@ This route is cached for up to 3600 seconds
 
 ```js
 ccp_is.get_characters_character_id_medals({
+  "character_id": 0
+}, context)
+```
+
+#### Parameters
+* character_id (integer) **required** - An EVE character ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_characters_character_id_mining
+Paginated record of all mining done by a character for the past 30 days
+
+
+---
+Alternate route: `/v1/characters/{character_id}/mining/`
+
+Alternate route: `/legacy/characters/{character_id}/mining/`
+
+Alternate route: `/dev/characters/{character_id}/mining/`
+
+---
+This route is cached for up to 600 seconds
+
+
+```js
+ccp_is.get_characters_character_id_mining({
+  "character_id": 0
+}, context)
+```
+
+#### Parameters
+* character_id (integer) **required** - An EVE character ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_characters_character_id_notifications
+Return character notifications
+
+---
+Alternate route: `/v1/characters/{character_id}/notifications/`
+
+Alternate route: `/legacy/characters/{character_id}/notifications/`
+
+Alternate route: `/dev/characters/{character_id}/notifications/`
+
+---
+This route is cached for up to 600 seconds
+
+
+```js
+ccp_is.get_characters_character_id_notifications({
   "character_id": 0
 }, context)
 ```
@@ -1687,9 +1852,9 @@ ccp_is.get_characters_character_id_wallet({
 Retrieve character wallet journal
 
 ---
-Alternate route: `/v1/characters/{character_id}/wallet/journal/`
+Alternate route: `/v2/characters/{character_id}/wallet/journal/`
 
-Alternate route: `/legacy/characters/{character_id}/wallet/journal/`
+Alternate route: `/dev/characters/{character_id}/wallet/journal/`
 
 ---
 This route is cached for up to 3600 seconds
@@ -1733,6 +1898,94 @@ ccp_is.get_characters_character_id_wallet_transactions({
 * character_id (integer) **required** - An EVE character ID
 * datasource (string) - The server name you would like data from
 * from_id (integer) - Only show transactions happened before the one referenced by this id
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporation_corporation_id_mining_extractions
+Extraction timers for all moon chunks being extracted by refineries belonging to a corporation.
+
+
+---
+Alternate route: `/v1/corporation/{corporation_id}/mining/extractions/`
+
+Alternate route: `/legacy/corporation/{corporation_id}/mining/extractions/`
+
+Alternate route: `/dev/corporation/{corporation_id}/mining/extractions/`
+
+---
+This route is cached for up to 1800 seconds
+
+
+```js
+ccp_is.get_corporation_corporation_id_mining_extractions({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporation_corporation_id_mining_observers
+Paginated list of all entities capable of observing and recording mining for a corporation
+
+
+---
+Alternate route: `/v1/corporation/{corporation_id}/mining/observers/`
+
+Alternate route: `/legacy/corporation/{corporation_id}/mining/observers/`
+
+Alternate route: `/dev/corporation/{corporation_id}/mining/observers/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporation_corporation_id_mining_observers({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporation_corporation_id_mining_observers_observer_id
+Paginated record of all mining seen by an observer
+
+
+---
+Alternate route: `/v1/corporation/{corporation_id}/mining/observers/{observer_id}/`
+
+Alternate route: `/legacy/corporation/{corporation_id}/mining/observers/{observer_id}/`
+
+Alternate route: `/dev/corporation/{corporation_id}/mining/observers/{observer_id}/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporation_corporation_id_mining_observers_observer_id({
+  "corporation_id": 0,
+  "observer_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* observer_id (integer) **required** - A mining observer id
+* page (integer) - Which page of results to return
 * token (string) - Access token to use if unable to set a header
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
@@ -1830,6 +2083,341 @@ ccp_is.get_corporations_corporation_id_alliancehistory({
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
+### get_corporations_corporation_id_assets
+Return a list of the corporation assets
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/assets/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/assets/`
+
+Alternate route: `/dev/corporations/{corporation_id}/assets/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_assets({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### post_corporations_corporation_id_assets_locations
+Return locations for a set of item ids, which you can get from corporation assets endpoint. Coordinates for items in hangars or stations are set to (0,0,0)
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/assets/locations/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/assets/locations/`
+
+Alternate route: `/dev/corporations/{corporation_id}/assets/locations/`
+
+
+
+```js
+ccp_is.post_corporations_corporation_id_assets_locations({
+  "corporation_id": 0,
+  "item_ids": []
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* item_ids (array) **required** - item_ids array
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### post_corporations_corporation_id_assets_names
+Return names for a set of item ids, which you can get from corporation assets endpoint. Only valid for items that can customize names, like containers or ships.
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/assets/names/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/assets/names/`
+
+Alternate route: `/dev/corporations/{corporation_id}/assets/names/`
+
+
+
+```js
+ccp_is.post_corporations_corporation_id_assets_names({
+  "corporation_id": 0,
+  "item_ids": []
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* item_ids (array) **required** - item_ids array
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_blueprints
+Returns a list of blueprints the corporation owns
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/blueprints/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/blueprints/`
+
+Alternate route: `/dev/corporations/{corporation_id}/blueprints/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_blueprints({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_bookmarks
+A list of your corporation's bookmarks
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/bookmarks/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/bookmarks/`
+
+Alternate route: `/dev/corporations/{corporation_id}/bookmarks/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_bookmarks({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_bookmarks_folders
+A list of your corporation's bookmark folders
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/bookmarks/folders/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/bookmarks/folders/`
+
+Alternate route: `/dev/corporations/{corporation_id}/bookmarks/folders/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_bookmarks_folders({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_contacts
+Return contacts of a corporation
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/contacts/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/contacts/`
+
+Alternate route: `/dev/corporations/{corporation_id}/contacts/`
+
+---
+This route is cached for up to 300 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_contacts({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_containers_logs
+Returns logs recorded in the past seven days from all audit log secure containers (ALSC) owned by a given corporation
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/containers/logs/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/containers/logs/`
+
+Alternate route: `/dev/corporations/{corporation_id}/containers/logs/`
+
+---
+This route is cached for up to 600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_containers_logs({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_contracts
+Returns contracts available to a coporation, only if the corporation is issuer, acceptor or assignee. Only returns contracts no older than 30 days, or if the status is "in_progress".
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/contracts/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/contracts/`
+
+Alternate route: `/dev/corporations/{corporation_id}/contracts/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_contracts({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_contracts_contract_id_bids
+Lists bids on a particular auction contract
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/bids/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/contracts/{contract_id}/bids/`
+
+Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/bids/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_contracts_contract_id_bids({
+  "contract_id": 0,
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* contract_id (integer) **required** - ID of a contract
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_contracts_contract_id_items
+Lists items of a particular contract
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/contracts/{contract_id}/items/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/contracts/{contract_id}/items/`
+
+Alternate route: `/dev/corporations/{corporation_id}/contracts/{contract_id}/items/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_contracts_contract_id_items({
+  "contract_id": 0,
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* contract_id (integer) **required** - ID of a contract
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_divisions
+Return corporation hangar and wallet division names, only show if a division is not using the default name
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/divisions/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/divisions/`
+
+Alternate route: `/dev/corporations/{corporation_id}/divisions/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_divisions({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
 ### get_corporations_corporation_id_icons
 Get the icon urls for a corporation
 
@@ -1853,6 +2441,35 @@ ccp_is.get_corporations_corporation_id_icons({
 #### Parameters
 * corporation_id (integer) **required** - An EVE corporation ID
 * datasource (string) - The server name you would like data from
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_industry_jobs
+List industry jobs run by a corporation
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/industry/jobs/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/industry/jobs/`
+
+Alternate route: `/dev/corporations/{corporation_id}/industry/jobs/`
+
+---
+This route is cached for up to 300 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_industry_jobs({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* include_completed (boolean) - Whether retrieve completed industry jobs as well
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
@@ -1909,6 +2526,33 @@ ccp_is.get_corporations_corporation_id_members({
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
+### get_corporations_corporation_id_members_limit
+Return a corporation's member limit, not including CEO himself
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/members/limit/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/members/limit/`
+
+Alternate route: `/dev/corporations/{corporation_id}/members/limit/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_members_limit({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
 ### get_corporations_corporation_id_membertracking
 Returns additional information about a corporation's members which helps tracking their activities
 
@@ -1936,6 +2580,34 @@ ccp_is.get_corporations_corporation_id_membertracking({
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
+### get_corporations_corporation_id_orders
+List market orders placed on behalf of a corporation
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/orders/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/orders/`
+
+Alternate route: `/dev/corporations/{corporation_id}/orders/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_orders({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
 ### get_corporations_corporation_id_roles
 Return the roles of all members if the character has the personnel manager role or any grantable role.
 
@@ -1959,6 +2631,62 @@ ccp_is.get_corporations_corporation_id_roles({
 #### Parameters
 * corporation_id (integer) **required** - An EVE corporation ID
 * datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_shareholders
+Return the current member list of a corporation, the token's character need to be a member of the corporation.
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/shareholders/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/shareholders/`
+
+Alternate route: `/dev/corporations/{corporation_id}/shareholders/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_shareholders({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_standings
+Return corporation standings from agents, NPC corporations, and factions
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/standings/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/standings/`
+
+Alternate route: `/dev/corporations/{corporation_id}/standings/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_standings({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
 * token (string) - Access token to use if unable to set a header
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
@@ -2021,6 +2749,33 @@ ccp_is.put_corporations_corporation_id_structures_structure_id({
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
+### get_corporations_corporation_id_titles
+Returns a corporation's titles
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/titles/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/titles/`
+
+Alternate route: `/dev/corporations/{corporation_id}/titles/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_titles({
+  "corporation_id": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
 ### get_corporations_corporation_id_wallets
 Get a corporation's wallets
 
@@ -2059,11 +2814,41 @@ Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/journ
 Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/journal/`
 
 ---
-This route is cached for up to 300 seconds
+This route is cached for up to 3600 seconds
 
 
 ```js
 ccp_is.get_corporations_corporation_id_wallets_division_journal({
+  "corporation_id": 0,
+  "division": 0
+}, context)
+```
+
+#### Parameters
+* corporation_id (integer) **required** - An EVE corporation ID
+* datasource (string) - The server name you would like data from
+* division (integer) **required** - Wallet key of the division to fetch journals from
+* from_id (integer) - Only show journal entries happened before the transaction referenced by this id
+* token (string) - Access token to use if unable to set a header
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_corporations_corporation_id_wallets_division_transactions
+Get wallet transactions of a corporation
+
+---
+Alternate route: `/v1/corporations/{corporation_id}/wallets/{division}/transactions/`
+
+Alternate route: `/legacy/corporations/{corporation_id}/wallets/{division}/transactions/`
+
+Alternate route: `/dev/corporations/{corporation_id}/wallets/{division}/transactions/`
+
+---
+This route is cached for up to 3600 seconds
+
+
+```js
+ccp_is.get_corporations_corporation_id_wallets_division_transactions({
   "corporation_id": 0,
   "division": 0
 }, context)
@@ -2257,7 +3042,7 @@ ccp_is.get_fleets_fleet_id_members({
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
 ### post_fleets_fleet_id_members
-Invite a character into the fleet, if a character has a CSPA charge set, it is not possible to invite them to the fleet using ESI
+Invite a character into the fleet. If a character has a CSPA charge set it is not possible to invite them to the fleet using ESI
 
 ---
 Alternate route: `/v1/fleets/{fleet_id}/members/`
@@ -2981,6 +3766,33 @@ ccp_is.get_markets_region_id_orders({
 * page (integer) - Which page of results to return
 * region_id (integer) **required** - Return orders in this region
 * type_id (integer) - Return orders only for this type
+* user_agent (string) - Client identifier, takes precedence over headers
+* X-User-Agent (string) - Client identifier, takes precedence over User-Agent
+
+### get_markets_region_id_types
+Return a list of type IDs that have active orders in the region, for efficient market indexing.
+
+---
+Alternate route: `/v1/markets/{region_id}/types/`
+
+Alternate route: `/legacy/markets/{region_id}/types/`
+
+Alternate route: `/dev/markets/{region_id}/types/`
+
+---
+This route is cached for up to 600 seconds
+
+
+```js
+ccp_is.get_markets_region_id_types({
+  "region_id": 0
+}, context)
+```
+
+#### Parameters
+* datasource (string) - The server name you would like data from
+* page (integer) - Which page of results to return
+* region_id (integer) **required** - Return statistics in this region
 * user_agent (string) - Client identifier, takes precedence over headers
 * X-User-Agent (string) - Client identifier, takes precedence over User-Agent
 
@@ -4033,9 +4845,9 @@ ccp_is.get_universe_types({}, context)
 Get information on a type
 
 ---
-Alternate route: `/v2/universe/types/{type_id}/`
+Alternate route: `/v3/universe/types/{type_id}/`
 
-Alternate route: `/legacy/universe/types/{type_id}/`
+Alternate route: `/dev/universe/types/{type_id}/`
 
 ---
 This route expires daily at 11:05

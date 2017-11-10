@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "lambda.amazonaws.com",
@@ -208,6 +209,12 @@
             "description": "InvalidRequestContentException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestContentException"
+            }
+          },
+          "483": {
+            "description": "InvalidRuntimeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRuntimeException"
             }
           }
         }
@@ -484,7 +491,7 @@
     },
     "/2015-03-31/functions/": {
       "get": {
-        "description": "<p>Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use <a>GetFunction</a> to retrieve the code for your function.</p> <p>This operation requires permission for the <code>lambda:ListFunctions</code> action.</p> <p>If you are using versioning feature, the response returns list of $LATEST versions of your functions. For information about the versioning feature, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p>",
+        "description": "<p>Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use <a>GetFunction</a> to retrieve the code for your function.</p> <p>This operation requires permission for the <code>lambda:ListFunctions</code> action.</p> <p>If you are using the versioning feature, you can list all of your functions or only <code>$LATEST</code> versions. For information about the versioning feature, see <a href=\"http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html\">AWS Lambda Function Versioning and Aliases</a>. </p>",
         "operationId": "ListFunctions",
         "parameters": [
           {
@@ -527,6 +534,12 @@
             "description": "TooManyRequestsException",
             "schema": {
               "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterValueException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValueException"
             }
           }
         }
@@ -1009,6 +1022,12 @@
             "schema": {
               "$ref": "#/definitions/TooManyRequestsException"
             }
+          },
+          "484": {
+            "description": "ResourceConflictException",
+            "schema": {
+              "$ref": "#/definitions/ResourceConflictException"
+            }
           }
         }
       }
@@ -1186,6 +1205,12 @@
             "description": "KMSNotFoundException",
             "schema": {
               "$ref": "#/definitions/KMSNotFoundException"
+            }
+          },
+          "499": {
+            "description": "InvalidRuntimeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRuntimeException"
             }
           }
         }
@@ -1891,7 +1916,7 @@
         },
         "Runtime": {
           "$ref": "#/definitions/Runtime",
-          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\".</p> <note> <p>You can no longer create functions using the v0.10.42 runtime version as of November, 2016. Existing functions will be supported until early 2017, but we recommend you migrate them to either nodejs6.10 or nodejs4.3 runtime version as soon as possible.</p> </note>"
+          "description": "<p>The runtime environment for the Lambda function you are uploading.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. You can request a one-time extension until June 30, 2017 by going to the Lambda console and following the instructions provided. Failure to do so will result in an invalid parmaeter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
         },
         "Tags": {
           "$ref": "#/definitions/Tags",
@@ -2223,11 +2248,11 @@
           "description": "The parent object that contains your environment's configuration settings."
         },
         "FunctionArn": {
-          "$ref": "#/definitions/FunctionArn",
+          "$ref": "#/definitions/NameSpacedFunctionArn",
           "description": "The Amazon Resource Name (ARN) assigned to the function."
         },
         "FunctionName": {
-          "$ref": "#/definitions/FunctionName",
+          "$ref": "#/definitions/NamespacedFunctionName",
           "description": "The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length."
         },
         "Handler": {
@@ -2240,7 +2265,11 @@
         },
         "LastModified": {
           "$ref": "#/definitions/Timestamp",
-          "description": "The time stamp of the last time you updated the function."
+          "description": "The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a href=\"https://www.w3.org/TR/NOTE-datetime\">Date and Time Formats</a>."
+        },
+        "MasterArn": {
+          "$ref": "#/definitions/FunctionArn",
+          "description": "Returns the ARN (Amazon Resource Name) of the master function."
         },
         "MemorySize": {
           "$ref": "#/definitions/MemorySize",
@@ -2283,6 +2312,12 @@
       "maxLength": 140,
       "minLength": 1,
       "pattern": "(arn:aws:lambda:)?([a-z]{2}-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string"
+    },
+    "FunctionVersion": {
+      "enum": [
+        "ALL"
+      ],
       "type": "string"
     },
     "GetAccountSettingsRequest": {
@@ -2418,7 +2453,7 @@
       "type": "integer"
     },
     "InvalidParameterValueException": {
-      "description": "One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. ",
+      "description": "One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>CreateFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. You will also get this exception if you have selected a deprecated runtime, such as Node v0.10.42. ",
       "properties": {
         "Type": {
           "$ref": "#/definitions/String",
@@ -2441,6 +2476,18 @@
         "message": {
           "$ref": "#/definitions/String",
           "description": "<p/>"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidRuntimeException": {
+      "description": "The runtime or runtime version specified is not supported.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/String"
+        },
+        "Type": {
+          "$ref": "#/definitions/String"
         }
       },
       "type": "object"
@@ -2724,6 +2771,10 @@
     "Long": {
       "type": "integer"
     },
+    "MasterRegion": {
+      "pattern": "ALL|[a-z]{2}(-gov)?-[a-z]+-\\d{1}",
+      "type": "string"
+    },
     "MaxListItems": {
       "maximum": 10000,
       "minimum": 1,
@@ -2733,6 +2784,22 @@
       "maximum": 1536,
       "minimum": 128,
       "type": "integer"
+    },
+    "NameSpacedFunctionArn": {
+      "pattern": "arn:aws:lambda:[a-z]{2}-[a-z]+-\\d{1}:\\d{12}:function:[a-zA-Z0-9-_\\.]+(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string"
+    },
+    "NamespacedFunctionName": {
+      "maxLength": 170,
+      "minLength": 1,
+      "pattern": "(arn:aws:lambda:)?([a-z]{2}-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_\\.]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "type": "string"
+    },
+    "NamespacedStatementId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "([a-zA-Z0-9-_.]+)",
+      "type": "string"
     },
     "PolicyLengthExceededException": {
       "description": "Lambda function access policy is limited to 20 KB.",
@@ -2847,7 +2914,7 @@
     "S3Bucket": {
       "maxLength": 63,
       "minLength": 3,
-      "pattern": "^[0-9A-Za-z\\.\\-_]*\\(\\?<!\\.\\)$",
+      "pattern": "^[0-9A-Za-z\\.\\-_]*$",
       "type": "string"
     },
     "S3Key": {
@@ -3156,7 +3223,7 @@
         },
         "Runtime": {
           "$ref": "#/definitions/Runtime",
-          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\".</p> <note> <p>You can no longer downgrade to the v0.10.42 runtime version. This version will no longer be supported as of early 2017.</p> </note>"
+          "description": "<p>The runtime environment for the Lambda function.</p> <p>To use the Python runtime v3.6, set the value to \"python3.6\". To use the Python runtime v2.7, set the value to \"python2.7\". To use the Node.js runtime v6.10, set the value to \"nodejs6.10\". To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use the Python runtime v3.6, set the value to \"python3.6\".</p> <note> <p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. You can request a one-time extension until June 30, 2017 by going to the Lambda console and following the instructions provided. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p> </note>"
         },
         "Timeout": {
           "$ref": "#/definitions/Timeout",

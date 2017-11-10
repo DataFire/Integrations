@@ -75,12 +75,12 @@ azure_arm_resourcehealth.AvailabilityStatuses_ListByResourceGroup({
 * $filter (string) - The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN
 * $expand (string) - Setting $expand=recommendedactions in url query expands the recommendedactions in the response.
 
-### Availabilitystatuses_List
+### AvailabilityStatuses_List
 Lists the historical availability statuses for a single resource. Use the nextLink property in the response to get the next page of availability status
 
 
 ```js
-azure_arm_resourcehealth.Availabilitystatuses_List({
+azure_arm_resourcehealth.AvailabilityStatuses_List({
   "resourceUri": "",
   "api-version": ""
 }, context)
@@ -92,12 +92,12 @@ azure_arm_resourcehealth.Availabilitystatuses_List({
 * $filter (string) - The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN
 * $expand (string) - Setting $expand=recommendedactions in url query expands the recommendedactions in the response.
 
-### AvailabilityStatus_GetByResource
+### AvailabilityStatuses_GetByResource
 Gets current availability status for a single resource
 
 
 ```js
-azure_arm_resourcehealth.AvailabilityStatus_GetByResource({
+azure_arm_resourcehealth.AvailabilityStatuses_GetByResource({
   "resourceUri": "",
   "api-version": ""
 }, context)

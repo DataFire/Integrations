@@ -94,20 +94,18 @@ Requires access token obtained via the authenticateUser operation. Available to 
 ```js
 exavault.createNotification({
   "access_token": "",
-  "type": "",
   "path": "",
   "action": "",
-  "usernames": [],
+  "usernames": "",
   "sendEmail": true
 }, context)
 ```
 
 #### Parameters
 * access_token (string) **required** - Access token required to make the API call
-* type (string) **required** - Type of notification: 'file' or 'folder' 
 * path (string) **required** - Full path of file/folder where notification is set.
 * action (string) **required** - Type of action to filter on: 'upload', 'download', 'delete', 'all'
-* usernames (array) **required** - Array of usernames or with one flag to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'
+* usernames (string) **required** - User type to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'
 * sendEmail (boolean) **required** - Set to true if the user should be notified by email when the notification is triggered.
 * emails (array) - Email addresses to send notification to. If not specified, sends to owner by default.
 
@@ -120,8 +118,7 @@ exavault.createShare({
   "access_token": "",
   "type": "",
   "name": "",
-  "filePaths": [],
-  "accessMode": ""
+  "filePaths": []
 }, context)
 ```
 
@@ -130,16 +127,16 @@ exavault.createShare({
 * type (string) **required** - The type of share to create: shared_folder, send, receive.
 * name (string) **required** - Name of the Share.
 * filePaths (array) **required** - Array of strings containing the file paths to share.
-* accessMode (string) **required** - Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete.
 * subject (string) - Share message subject (for email invitations).
 * message (string) - Share message contents (for email invitations).
 * emails (array) - Array of strings for email recipients (for email invitations).
 * ccEmail (string) - Specifies a CC email recipient.
 * requireEmail (boolean) - Requires a user's email to access (defaults to false if not specified).
+* accessMode (string) - Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete. Defaults to download if no option specified.
 * embed (boolean) - Allows user to embed a widget with the share. Defaults to false if not specified.
 * isPublic (boolean) - True if share has a public URL, otherwise defaults to false
 * password (string) - If not null, value of password is required to access this Share
-* expiration (string) - The date the current Share should expire, formatted YYYY-mm-dd hh:mm:ss
+* expiration (string) - The date the current Share should expire, formatted YYYY-mm-dd
 * hasNotification (boolean) - True if the user should be notified about activity on this Share.
 * notificationEmails (array) - An array of recipients who should receive notification emails.
 * fileDropCreateFolders (boolean) - If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)
@@ -171,7 +168,7 @@ exavault.createUser({
 * permissions (string) **required** - A CSV string of user permissions. The following values are supported: upload, download, delete, modify, list, changePassword, share, notification.
 * timeZone (string) **required** - The user's timezone, used for accurate time display within SWFT. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values
 * nickname (string) - The user's nickname
-* expiration (string) - The date when the user should expire, formatted YYYY-mm-dd hh:mm:ss
+* expiration (string) - The date when the user should expire, formatted YYYY-mm-dd
 * locked (boolean) - If true, the user's account is locked by default
 * welcomeEmail (boolean) - If true, send a user email upon creation
 
@@ -581,7 +578,7 @@ exavault.updateNotification({
 * id (integer) **required** - The notification ID
 * path (string) - Full path of file/folder where notification is set.
 * action (string) - Type of action to filter on: 'upload', 'download', 'delete', 'all'
-* usernames (array) - Array of usernames or with one flag to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'
+* usernames (string) - User type to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'
 * emails (array) - Email addresses to send notification to. If not specified, sends to owner by default.
 * sendEmail (boolean) - Set to true if the user should be notified by email when the notification is triggered.
 
@@ -601,16 +598,16 @@ exavault.updateShare({
 * id (integer) **required** - The ID of the Share to update.
 * name (string) - Name of the Share.
 * filePaths (array) - Array of strings containing the file paths to share.
-* accessMode (string) - Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete.
 * subject (string) - Share message subject (for email invitations).
 * message (string) - Share message contents (for email invitations).
 * emails (array) - Array of strings for email recipients (for email invitations).
 * ccEmail (string) - Specifies a CC email recipient.
 * requireEmail (boolean) - Requires a user's email to access.
+* accessMode (string) - Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete.
 * embed (boolean) - Allows user to embed a widget with the share.
 * isPublic (boolean) - True if share has a public URL, otherwise defaults to false
 * password (string) - If not null, value of password is required to access this Share
-* expiration (string) - The date the current Share should expire, formatted YYYY-mm-dd hh:mm:ss
+* expiration (string) - The date the current Share should expire, formatted YYYY-mm-dd
 * hasNotification (boolean) - True if the user should be notified about activity on this Share.
 * notificationEmails (array) - An array of recipients who should receive notification emails.
 * fileDropCreateFolders (boolean) - If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)
@@ -631,7 +628,7 @@ exavault.updateUser({
 * userId (integer) **required** - The user ID, must be obtained from getUser method first
 * username (string) - Name of the subaccount user to modify
 * nickname (string) - The user's nickname
-* expiration (string) - The date when use should expire in format: YYYY-mm-dd hh:mm:ss
+* expiration (string) - The date when use should expire in format: YYYY-MM-DD
 * email (string) - The user's email
 * destinationFolder (string) - The user's home folder
 * password (string) - The user's password

@@ -251,6 +251,58 @@ google_toolresults.projects.histories.executions.patch({
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
+### projects.histories.executions.clusters.list
+Lists Screenshot Clusters
+
+Returns the list of screenshot clusters corresponding to an execution. Screenshot clusters are created after the execution is finished. Clusters are created from a set of screenshots. Between any two screenshots, a matching score is calculated based off their metadata that determines how similar they are. Screenshots are placed in the cluster that has screens which have the highest matching scores.
+
+
+```js
+google_toolresults.projects.histories.executions.clusters.list({
+  "executionId": "",
+  "historyId": "",
+  "projectId": ""
+}, context)
+```
+
+#### Parameters
+* executionId (string) **required** - An Execution id.
+* historyId (string) **required** - A History id.
+* projectId (string) **required** - A Project id.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### projects.histories.executions.clusters.get
+Retrieves a single screenshot cluster by its ID
+
+
+```js
+google_toolresults.projects.histories.executions.clusters.get({
+  "clusterId": "",
+  "executionId": "",
+  "historyId": "",
+  "projectId": ""
+}, context)
+```
+
+#### Parameters
+* clusterId (string) **required** - A Cluster id
+* executionId (string) **required** - An Execution id.
+* historyId (string) **required** - A History id.
+* projectId (string) **required** - A Project id.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
 ### projects.histories.executions.steps.list
 Lists Steps for a given Execution.
 
@@ -406,9 +458,9 @@ google_toolresults.projects.histories.executions.steps.getPerfMetricsSummary({
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### projects.histories.executions.steps.perfMetricsSummary.create
-Creates a PerfMetricsSummary resource.
+Creates a PerfMetricsSummary resource. Returns the existing one if it has already been created.
 
-May return any of the following error code(s): - ALREADY_EXISTS - A PerfMetricSummary already exists for the given Step - NOT_FOUND - The containing Step does not exist
+May return any of the following error code(s): - NOT_FOUND - The containing Step does not exist
 
 
 ```js
@@ -675,11 +727,11 @@ google_toolresults.projects.getSettings({
 ### projects.initializeSettings
 Creates resources for settings which have not yet been set.
 
-Currently, this creates a single resource: a Google Cloud Storage bucket, to be used as the default bucket for this project. The bucket is created in the name of the user calling. Except in rare cases, calling this method in parallel from multiple clients will only create a single bucket. In order to avoid unnecessary storage charges, the bucket is configured to automatically delete objects older than 90 days.
+Currently, this creates a single resource: a Google Cloud Storage bucket, to be used as the default bucket for this project. The bucket is created in an FTL-own storage project. Except for in rare cases, calling this method in parallel from multiple clients will only create a single bucket. In order to avoid unnecessary storage charges, the bucket is configured to automatically delete objects older than 90 days.
 
-The bucket is created with the project-private ACL: All project team members are given permissions to the bucket and objects created within it according to their roles. Project owners have owners rights, and so on. The default ACL on objects created in the bucket is project-private as well. See Google Cloud Storage documentation for more details.
+The bucket is created with the following permissions: - Owner access for owners of central storage project (FTL-owned) - Writer access for owners/editors of customer project - Reader access for viewers of customer project The default ACL on objects created in the bucket is: - Owner access for owners of central storage project - Reader access for owners/editors/viewers of customer project See Google Cloud Storage documentation for more details.
 
-If there is already a default bucket set and the project can access the bucket, this call does nothing. However, if the project doesn't have the permission to access the bucket or the bucket is deteleted, a new bucket will be created.
+If there is already a default bucket set and the project can access the bucket, this call does nothing. However, if the project doesn't have the permission to access the bucket or the bucket is deleted, a new bucket will be created.
 
 May return any canonical error codes, including the following:
 

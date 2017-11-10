@@ -8,6 +8,9 @@
     "description": "A client for issuing REST requests to the Azure Batch service.",
     "title": "BatchService",
     "version": "2017-01-01.4.0",
+    "x-apisguru-categories": [
+      "cloud"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },

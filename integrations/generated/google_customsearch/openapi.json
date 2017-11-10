@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Searches over a website or collection of websites",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "CustomSearch",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/customsearch/v1/rest",
@@ -111,13 +106,6 @@
         "operationId": "cse.list",
         "parameters": [
           {
-            "description": "Query",
-            "in": "query",
-            "name": "q",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "Turns off the translation between zh-CN and zh-TW.",
             "in": "query",
             "name": "c2coff",
@@ -127,12 +115,6 @@
             "description": "Country restrict(s).",
             "in": "query",
             "name": "cr",
-            "type": "string"
-          },
-          {
-            "description": "The URL of a linked custom search engine",
-            "in": "query",
-            "name": "cref",
             "type": "string"
           },
           {
@@ -331,6 +313,13 @@
             "type": "string"
           },
           {
+            "description": "Query",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string"
+          },
+          {
             "description": "Specifies that all search results should be pages that are related to the specified URL",
             "in": "query",
             "name": "relatedSite",
@@ -518,9 +507,6 @@
           "type": "integer"
         },
         "cr": {
-          "type": "string"
-        },
-        "cref": {
           "type": "string"
         },
         "cx": {
@@ -794,7 +780,7 @@
         "url": {
           "properties": {
             "template": {
-              "default": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&cref={cref?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json",
+              "default": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json",
               "type": "string"
             },
             "type": {

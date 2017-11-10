@@ -9,7 +9,6 @@
     "description": "Various certificate feeds.<BR />[Endpoint] https://api.apitore.com/api/31",
     "title": "Certificate feeds APIs",
     "version": "0.0.1",
-    "x-description-language": "jp",
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_31.jpg"
     },

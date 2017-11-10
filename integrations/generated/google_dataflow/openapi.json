@@ -28,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://dataflow.googleapis.com/$discovery/rest?version=v1b3",
@@ -54,6 +54,7 @@
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
       "type": "oauth2"
@@ -65,6 +66,7 @@
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
       "tokenUrl": "https://accounts.google.com/o/oauth2/token",
@@ -76,6 +78,7 @@
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -269,6 +272,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -283,7 +294,7 @@
     },
     "/v1b3/projects/{projectId}/jobs": {
       "get": {
-        "description": "List the jobs of a project.",
+        "description": "List the jobs of a project in a given region.",
         "operationId": "projects.jobs.list",
         "parameters": [
           {
@@ -359,6 +370,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -485,6 +504,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -558,6 +585,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -673,6 +708,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -776,6 +819,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -887,6 +938,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -986,6 +1045,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -1098,6 +1165,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -1250,6 +1325,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -1357,6 +1440,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -1368,6 +1459,149 @@
           "projects"
         ]
       }
+    },
+    "/v1b3/projects/{projectId}/jobs:aggregated": {
+      "get": {
+        "description": "List the jobs of a project across all regions.",
+        "operationId": "projects.jobs.aggregated",
+        "parameters": [
+          {
+            "description": "The kind of filter to use.",
+            "enum": [
+              "UNKNOWN",
+              "ALL",
+              "TERMINATED",
+              "ACTIVE"
+            ],
+            "in": "query",
+            "name": "filter",
+            "type": "string"
+          },
+          {
+            "description": "The location that contains this job.",
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "description": "If there are many jobs, limit response to at most this many.\nThe actual number of jobs returned will be the lesser of max_responses\nand an unspecified server-defined limit.",
+            "in": "query",
+            "name": "pageSize",
+            "type": "integer"
+          },
+          {
+            "description": "Set this to the 'next_page_token' field of a previous response\nto request additional results in a long list.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
+          },
+          {
+            "description": "The project which owns the jobs.",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.",
+            "enum": [
+              "JOB_VIEW_UNKNOWN",
+              "JOB_VIEW_SUMMARY",
+              "JOB_VIEW_ALL",
+              "JOB_VIEW_DESCRIPTION"
+            ],
+            "in": "query",
+            "name": "view",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ListJobsResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ]
     },
     "/v1b3/projects/{projectId}/locations/{location}/WorkerMessages": {
       "parameters": [
@@ -1464,6 +1698,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -1478,7 +1720,7 @@
     },
     "/v1b3/projects/{projectId}/locations/{location}/jobs": {
       "get": {
-        "description": "List the jobs of a project.",
+        "description": "List the jobs of a project in a given region.",
         "operationId": "projects.locations.jobs.list",
         "parameters": [
           {
@@ -1555,6 +1797,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -1682,6 +1932,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -1756,6 +2014,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -1868,6 +2134,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -1986,6 +2260,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -2100,6 +2382,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -2200,6 +2490,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -2313,6 +2611,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -2472,6 +2778,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -2586,6 +2900,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -2693,6 +3015,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -2763,6 +3093,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -2927,6 +3265,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -3027,6 +3373,14 @@
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ]
+          },
+          {
+            "Oauth2": [
               "https://www.googleapis.com/auth/userinfo.email"
             ],
             "Oauth2c": [
@@ -3096,6 +3450,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -3255,6 +3617,14 @@
             ],
             "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute.readonly"
             ]
           },
           {
@@ -3482,10 +3852,6 @@
         "systemStageName": {
           "description": "The system stage name.",
           "type": "string"
-        },
-        "userStageName": {
-          "description": "The user stage name.",
-          "type": "string"
         }
       },
       "type": "object"
@@ -3575,6 +3941,10 @@
           "description": "A string containing a more specific namespace of the counter's origin.",
           "type": "string"
         },
+        "originalRequestingStepName": {
+          "description": "The step name requesting an operation, such as GBK.\nI.e. the ParDo causing a read/write from shuffle to occur.",
+          "type": "string"
+        },
         "originalStepName": {
           "description": "System generated name of the original step in the user's graph, before\noptimization.",
           "type": "string"
@@ -3587,6 +3957,10 @@
             "VALUE"
           ],
           "type": "string"
+        },
+        "sideInput": {
+          "$ref": "#/definitions/SideInputId",
+          "description": "ID of a side input being read from/written to. Side inputs are identified\nby a pair of (reader, input_index). The reader is usually equal to the\noriginal name, but it may be different, if a ParDo emits its Iterator /\nMap side input object."
         },
         "workerId": {
           "description": "ID of a particular worker.",
@@ -3832,12 +4206,9 @@
           "$ref": "#/definitions/SplitInt64",
           "description": "The count of the number of elements present in the distribution."
         },
-        "logBuckets": {
-          "description": "(Optional) Logarithmic histogram of values.\nEach log may be in no more than one bucket. Order does not matter.",
-          "items": {
-            "$ref": "#/definitions/LogBucket"
-          },
-          "type": "array"
+        "histogram": {
+          "$ref": "#/definitions/Histogram",
+          "description": "(Optional) Histogram of value counts for the distribution."
         },
         "max": {
           "$ref": "#/definitions/SplitInt64",
@@ -4116,6 +4487,25 @@
         "status": {
           "$ref": "#/definitions/Status",
           "description": "The status of the get template request. Any problems with the\nrequest will be indicated in the error_details."
+        }
+      },
+      "type": "object"
+    },
+    "Histogram": {
+      "description": "Histogram of value counts for a distribution.\n\nBuckets have an inclusive lower bound and exclusive upper bound and use\n\"1,2,5 bucketing\": The first bucket range is from [0,1) and all subsequent\nbucket boundaries are powers of ten multiplied by 1, 2, or 5. Thus, bucket\nboundaries are 0, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, ...\nNegative values are not supported.",
+      "properties": {
+        "bucketCounts": {
+          "description": "Counts of values in each bucket. For efficiency, prefix and trailing\nbuckets with count = 0 are elided. Buckets can store the full range of\nvalues of an unsigned long, with ULLONG_MAX falling into the 59th bucket\nwith range [1e19, 2e19).",
+          "items": {
+            "format": "int64",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "firstBucketOffset": {
+          "description": "Starting index of first stored bucket. The non-inclusive upper-bound of\nthe ith bucket is given by:\n  pow(10,(i-first_bucket_offset)/3) * (1,2,5)[(i-first_bucket_offset)%3]",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -4575,22 +4965,6 @@
         "nextPageToken": {
           "description": "Set if there may be more results than fit in this response.",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "LogBucket": {
-      "description": "Bucket of values for Distribution's logarithmic histogram.",
-      "properties": {
-        "count": {
-          "description": "Number of values in this bucket.",
-          "format": "int64",
-          "type": "string"
-        },
-        "log": {
-          "description": "floor(log2(value)); defined to be zero for nonpositive values.\n  log(-1) = 0\n  log(0) = 0\n  log(1) = 0\n  log(2) = 1\n  log(3) = 1\n  log(4) = 2\n  log(5) = 2",
-          "format": "int32",
-          "type": "integer"
         }
       },
       "type": "object"
@@ -5097,6 +5471,10 @@
           "description": "Whether to bypass the safety checks for the job's temporary directory.\nUse with caution.",
           "type": "boolean"
         },
+        "machineType": {
+          "description": "The machine type to use for the job. Defaults to the value from the\ntemplate if not specified.",
+          "type": "string"
+        },
         "maxWorkers": {
           "description": "The maximum number of Google Compute Engine instances to be made\navailable to your pipeline during execution, from 1 to 1000.",
           "format": "int32",
@@ -5111,7 +5489,7 @@
           "type": "string"
         },
         "zone": {
-          "description": "The Compute Engine [availability zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones)\nfor launching worker instances to run your pipeline.",
+          "description": "The Compute Engine [availability\nzone](https://cloud.google.com/compute/docs/regions-zones/regions-zones)\nfor launching worker instances to run your pipeline.",
           "type": "string"
         }
       },
@@ -5236,6 +5614,21 @@
         },
         "exitCode": {
           "description": "Exit code for the task.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SideInputId": {
+      "description": "Uniquely identifies a side input.",
+      "properties": {
+        "declaringStepName": {
+          "description": "The step that receives and usually consumes this side input.",
+          "type": "string"
+        },
+        "inputIndex": {
+          "description": "The index of the side input, from the list of non_parallel_inputs.",
           "format": "int32",
           "type": "integer"
         }
@@ -5392,9 +5785,25 @@
           "$ref": "#/definitions/SourceGetMetadataRequest",
           "description": "Information about a request to get metadata about a source."
         },
+        "name": {
+          "description": "User-provided name of the Read instruction for this source.",
+          "type": "string"
+        },
+        "originalName": {
+          "description": "System-defined name for the Read instruction for this source\nin the original workflow graph.",
+          "type": "string"
+        },
         "split": {
           "$ref": "#/definitions/SourceSplitRequest",
           "description": "Information about a request to split a source."
+        },
+        "stageName": {
+          "description": "System-defined name of the stage containing the source operation.\nUnique across the workflow.",
+          "type": "string"
+        },
+        "systemName": {
+          "description": "System-defined name of the Read instruction for this source.\nUnique across the workflow.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -5546,7 +5955,7 @@
       "type": "object"
     },
     "Status": {
-      "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
+      "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` that can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
       "properties": {
         "code": {
           "description": "The status code, which should be an enum value of google.rpc.Code.",
@@ -5554,7 +5963,7 @@
           "type": "integer"
         },
         "details": {
-          "description": "A list of messages that carry the error details.  There will be a\ncommon set of message types for APIs to use.",
+          "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
           "items": {
             "additionalProperties": {
               "description": "Properties of the object. Contains field @type with type URL."
@@ -5883,10 +6292,6 @@
     "TemplateMetadata": {
       "description": "Metadata describing a template.",
       "properties": {
-        "bypassTempDirValidation": {
-          "description": "If true, will bypass the validation that the temp directory is\nwritable. This should only be used with templates for pipelines\nthat are guaranteed not to need to write to the temp directory,\nwhich is subject to change based on the optimizer.",
-          "type": "boolean"
-        },
         "description": {
           "description": "Optional. A description of the template.",
           "type": "string"
@@ -6174,6 +6579,11 @@
           "$ref": "#/definitions/Position",
           "description": "A worker may split an active map task in two parts, \"primary\" and\n\"residual\", continuing to process the primary part and returning the\nresidual part into the pool of available work.\nThis event is called a \"dynamic split\" and is critical to the dynamic\nwork rebalancing feature. The two obtained sub-tasks are called\n\"parts\" of the split.\nThe parts, if concatenated, must represent the same input as would\nbe read by the current task if the split did not happen.\nThe exact way in which the original task is decomposed into the two\nparts is specified either as a position demarcating them\n(stop_position), or explicitly as two DerivedSources, if this\ntask consumes a user-defined source type (dynamic_source_split).\n\nThe \"current\" task is adjusted as a result of the split: after a task\nwith range [A, B) sends a stop_position update at C, its range is\nconsidered to be [A, C), e.g.:\n* Progress should be interpreted relative to the new range, e.g.\n  \"75% completed\" means \"75% of [A, C) completed\"\n* The worker should interpret proposed_stop_position relative to the\n  new range, e.g. \"split at 68%\" should be interpreted as\n  \"split at 68% of [A, C)\".\n* If the worker chooses to split again using stop_position, only\n  stop_positions in [A, C) will be accepted.\n* Etc.\ndynamic_source_split has similar semantics: e.g., if a task with\nsource S splits using dynamic_source_split into {P, R}\n(where P and R must be together equivalent to S), then subsequent\nprogress and proposed_stop_position should be interpreted relative\nto P, and in a potential subsequent dynamic_source_split into {P', R'},\nP' and R' must be together equivalent to P, etc."
         },
+        "totalThrottlerWaitTimeSeconds": {
+          "description": "Total time the worker spent being throttled by external systems.",
+          "format": "double",
+          "type": "number"
+        },
         "workItemId": {
           "description": "Identifies the WorkItem.",
           "type": "string"
@@ -6248,6 +6658,10 @@
         "workerMetrics": {
           "$ref": "#/definitions/ResourceUtilizationReport",
           "description": "Resource metrics reported by workers."
+        },
+        "workerShutdownNotice": {
+          "$ref": "#/definitions/WorkerShutdownNotice",
+          "description": "Shutdown notice by workers."
         }
       },
       "type": "object"
@@ -6279,6 +6693,10 @@
         "workerMetricsResponse": {
           "$ref": "#/definitions/ResourceUtilizationReportResponse",
           "description": "Service's response to reporting worker metrics (currently empty)."
+        },
+        "workerShutdownNoticeResponse": {
+          "$ref": "#/definitions/WorkerShutdownNoticeResponse",
+          "description": "Service's response to shutdown notice (currently empty)."
         }
       },
       "type": "object"
@@ -6433,6 +6851,21 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "WorkerShutdownNotice": {
+      "description": "Shutdown notification from workers. This is to be sent by the shutdown\nscript of the worker VM so that the backend knows that the VM is being\nshut down.",
+      "properties": {
+        "reason": {
+          "description": "The reason for the worker shutdown.\nCurrent possible values are:\n  \"UNKNOWN\": shutdown reason is unknown.\n  \"PREEMPTION\": shutdown reason is preemption.\nOther possible reasons may be added in the future.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WorkerShutdownNoticeResponse": {
+      "description": "Service-side response to WorkerMessage issuing shutdown notice.",
+      "properties": {},
       "type": "object"
     },
     "WriteInstruction": {

@@ -241,6 +241,19 @@ amazonaws_config.GetComplianceSummaryByResourceType({}, context)
 #### Parameters
 * ResourceTypes (array)
 
+### GetDiscoveredResourceCounts
+
+
+
+```js
+amazonaws_config.GetDiscoveredResourceCounts({}, context)
+```
+
+#### Parameters
+* limit (integer)
+* nextToken (string)
+* resourceTypes (array)
+
 ### GetResourceConfigHistory
 
 

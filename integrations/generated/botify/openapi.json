@@ -354,8 +354,8 @@
         {
           "description": "URLs list type (crawled URLs or error URLs)",
           "enum": [
-            "organic",
-            "social"
+            "crawled",
+            "errors"
           ],
           "in": "path",
           "name": "list_type",
@@ -555,6 +555,54 @@
           }
         },
         "summary": "Lost pagerank",
+        "tags": [
+          "Analysis"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "User's identifier",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Project's identifier",
+          "in": "path",
+          "name": "project_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Analysis' identifier",
+          "in": "path",
+          "name": "analysis_slug",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/analyses/{username}/{project_slug}/{analysis_slug}/features/search_console/stats": {
+      "get": {
+        "description": "List clicks and impressions per day",
+        "operationId": "getKeywordsStats",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/KeywordsStats"
+            }
+          },
+          "default": {
+            "description": "error payload",
+            "schema": {
+              "$ref": "#/definitions/DefaultPayload"
+            }
+          }
+        },
+        "summary": "List clicks and impressions per day",
         "tags": [
           "Analysis"
         ]
@@ -1145,7 +1193,8 @@
               "current",
               "disappeared",
               "new",
-              "search_engines_orphans"
+              "search_engines_orphans",
+              "gsc_keywords"
             ],
             "in": "query",
             "name": "area",
@@ -1255,7 +1304,8 @@
               "current",
               "disappeared",
               "new",
-              "search_engines_orphans"
+              "search_engines_orphans",
+              "gsc_keywords"
             ],
             "in": "query",
             "name": "area",
@@ -1268,7 +1318,7 @@
             "description": "Successful operation",
             "schema": {
               "items": {
-                "$ref": "#/definitions/UrlsAggs"
+                "$ref": "#/definitions/Aggs"
               },
               "type": "array"
             }
@@ -1298,7 +1348,8 @@
               "current",
               "disappeared",
               "new",
-              "search_engines_orphans"
+              "search_engines_orphans",
+              "gsc_keywords"
             ],
             "in": "query",
             "name": "area",
@@ -1454,7 +1505,8 @@
               "current",
               "disappeared",
               "new",
-              "search_engines_orphans"
+              "search_engines_orphans",
+              "gsc_keywords"
             ],
             "in": "query",
             "name": "area",
@@ -1532,6 +1584,61 @@
           "description": "Url Export ID",
           "in": "path",
           "name": "url_export_id",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/analyses/{username}/{project_slug}/{analysis_slug}/urls/html/{url}": {
+      "get": {
+        "description": "Gets the HTML of an URL for an analysis",
+        "operationId": "getUrlHTML",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/UrlHTML"
+            }
+          },
+          "default": {
+            "description": "error payload",
+            "schema": {
+              "$ref": "#/definitions/DefaultPayload"
+            }
+          }
+        },
+        "summary": "Gets the HTML of an URL for an analysis",
+        "tags": [
+          "Analysis"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "User's identifier",
+          "in": "path",
+          "name": "username",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Project's identifier",
+          "in": "path",
+          "name": "project_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Analysis' identifier",
+          "in": "path",
+          "name": "analysis_slug",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "(Urlencoded) Searched URL",
+          "in": "path",
+          "name": "url",
           "required": true,
           "type": "string"
         }
@@ -1914,7 +2021,8 @@
             "enum": [
               "current",
               "disappeared",
-              "new"
+              "new",
+              "gsc_keywords"
             ],
             "in": "query",
             "name": "area",
@@ -1972,6 +2080,10 @@
           "readOnly": true,
           "type": "string"
         },
+        "full_export": {
+          "default": false,
+          "type": "boolean"
+        },
         "job_id": {
           "readOnly": true,
           "type": "string"
@@ -2004,6 +2116,10 @@
     },
     "AdvancedExporter": {
       "properties": {
+        "full_export": {
+          "default": false,
+          "type": "boolean"
+        },
         "group": {
           "type": "string"
         },
@@ -2040,6 +2156,21 @@
       ],
       "type": "object"
     },
+    "Aggs": {
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorAgg"
+        },
+        "status": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": "object"
+    },
     "Analysis": {
       "properties": {
         "computing_revision": {
@@ -2047,6 +2178,10 @@
           "type": "string"
         },
         "config": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "crawl_launch_type": {
           "readOnly": true,
           "type": "string"
         },
@@ -2067,7 +2202,15 @@
           "format": "date-time",
           "type": "string"
         },
+        "failures": {
+          "readOnly": true,
+          "type": "string"
+        },
         "features": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "friendly_name": {
           "readOnly": true,
           "type": "string"
         },
@@ -2076,8 +2219,19 @@
           "readOnly": true,
           "type": "integer"
         },
+        "import_keywords_data": {
+          "readOnly": true,
+          "type": "string"
+        },
         "name": {
           "readOnly": true,
+          "type": "string"
+        },
+        "owner": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "red_button_domain": {
           "type": "string"
         },
         "slug": {
@@ -2119,6 +2273,14 @@
           "readOnly": true,
           "type": "string"
         },
+        "crawl_launch_type": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "date_created": {
+          "format": "date-time",
+          "type": "string"
+        },
         "date_finished": {
           "format": "date-time",
           "type": "string"
@@ -2140,12 +2302,24 @@
           "readOnly": true,
           "type": "string"
         },
+        "friendly_name": {
+          "readOnly": true,
+          "type": "string"
+        },
         "id": {
           "format": "int64",
           "readOnly": true,
           "type": "integer"
         },
+        "import_keywords_data": {
+          "readOnly": true,
+          "type": "string"
+        },
         "name": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "owner": {
           "readOnly": true,
           "type": "string"
         },
@@ -2217,6 +2391,15 @@
       ],
       "type": "object"
     },
+    "CheckExternalStorageAccess": {
+      "properties": {
+        "access_ok": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "CrawlOrphanURLs": {
       "properties": {
         "url": {
@@ -2235,6 +2418,9 @@
     },
     "CrawlStatistics": {
       "properties": {
+        "crawler_ip": {
+          "type": "string"
+        },
         "depth_current": {
           "format": "int64",
           "type": "integer"
@@ -2428,7 +2614,6 @@
     "CsvExportStatus": {
       "properties": {
         "area": {
-          "default": "current",
           "type": "string"
         },
         "date_created": {
@@ -2515,6 +2700,9 @@
         "name": {
           "type": "string"
         },
+        "optional": {
+          "type": "boolean"
+        },
         "permissions": {
           "items": {
             "type": "string"
@@ -2535,7 +2723,8 @@
         "group",
         "type",
         "id",
-        "permissions"
+        "permissions",
+        "optional"
       ],
       "type": "object"
     },
@@ -2581,6 +2770,21 @@
       },
       "type": "object"
     },
+    "ErrorAgg": {
+      "properties": {
+        "error_code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "error_code"
+      ],
+      "type": "object"
+    },
     "FieldValues": {
       "properties": {
         "count": {
@@ -2613,6 +2817,96 @@
       "required": [
         "value",
         "nb_urls"
+      ],
+      "type": "object"
+    },
+    "KeywordsStat": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/KeywordsStatData"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "KeywordsStatData": {
+      "properties": {
+        "all": {
+          "$ref": "#/definitions/KeywordsStatDetail"
+        },
+        "date": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "desktop": {
+          "$ref": "#/definitions/KeywordsStatDetail"
+        },
+        "mobile": {
+          "$ref": "#/definitions/KeywordsStatDetail"
+        },
+        "tablet": {
+          "$ref": "#/definitions/KeywordsStatDetail"
+        }
+      },
+      "required": [
+        "date",
+        "all",
+        "desktop",
+        "mobile",
+        "tablet"
+      ],
+      "type": "object"
+    },
+    "KeywordsStatDetail": {
+      "properties": {
+        "clicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "impressions": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "sampled_clicks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "sampled_impressions": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "clicks",
+        "impressions",
+        "sampled_clicks",
+        "sampled_impressions"
+      ],
+      "type": "object"
+    },
+    "KeywordsStats": {
+      "properties": {
+        "stats": {
+          "items": {
+            "$ref": "#/definitions/KeywordsStat"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "stats"
       ],
       "type": "object"
     },
@@ -3103,33 +3397,8 @@
       "properties": {},
       "type": "object"
     },
-    "UrlsAgg": {
-      "properties": {
-        "aggs": {
-          "items": {
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
-    "UrlsAggs": {
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/UrlsAgg"
-        },
-        "error": {
-          "$ref": "#/definitions/UrlsErrorAgg"
-        },
-        "status": {
-          "format": "int64",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "status"
-      ],
+    "UrlHTML": {
+      "properties": {},
       "type": "object"
     },
     "UrlsAggsQueries": {
@@ -3151,21 +3420,6 @@
           "type": "object"
         }
       },
-      "type": "object"
-    },
-    "UrlsErrorAgg": {
-      "properties": {
-        "error_code": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "message",
-        "error_code"
-      ],
       "type": "object"
     },
     "UrlsQuery": {

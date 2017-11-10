@@ -1,0 +1,113 @@
+{
+  "id": "selectpdf",
+  "title": "SelectPdf HTML To PDF",
+  "description": "SelectPdf HTML To PDF Online REST API is a professional solution that lets you create PDF from web pages and raw HTML code in your applications. The API is easy to use and the integration takes only a few lines of code.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/selectpdf.jpeg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "ConversionParameters": {
+      "properties": {
+        "base_url": {
+          "description": "An optional base url parameter can be used together with html to resolve relative paths from the html string",
+          "example": "https://selectpdf.com",
+          "type": "string"
+        },
+        "html": {
+          "description": "The raw html string that will be converted to PDF",
+          "example": "<b>test html string</b>",
+          "type": "string"
+        },
+        "key": {
+          "description": "The license key required to use the API",
+          "example": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+          "format": "uuid",
+          "type": "string"
+        },
+        "margin_bottom": {
+          "description": "Bottom margin of the generated PDF document in points (1 point = 1/72 inch)",
+          "example": 5,
+          "type": "integer"
+        },
+        "margin_left": {
+          "description": "Left margin of the generated PDF document in points (1 point = 1/72 inch)",
+          "example": 5,
+          "type": "integer"
+        },
+        "margin_right": {
+          "description": "Right margin of the generated PDF document in points (1 point = 1/72 inch)",
+          "example": 5,
+          "type": "integer"
+        },
+        "margin_top": {
+          "description": "Top margin of the generated PDF document in points (1 point = 1/72 inch)",
+          "example": 5,
+          "type": "integer"
+        },
+        "page_orientation": {
+          "default": "Portrait",
+          "description": "Specifies the page orientation of the generated pdf document",
+          "enum": [
+            "Portrait",
+            "Landscape"
+          ],
+          "example": "Portrait",
+          "type": "string"
+        },
+        "page_size": {
+          "default": "A4",
+          "description": "Specifies the page size of the generated pdf document",
+          "enum": [
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "Letter",
+            "HalfLetter",
+            "Ledger",
+            "Legal"
+          ],
+          "example": "A4",
+          "type": "string"
+        },
+        "url": {
+          "description": "The url that will be converted to PDF",
+          "example": "https://selectpdf.com",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "title": "ConversionParameters"
+    }
+  },
+  "actions": [
+    {
+      "id": "api2.convert.post",
+      "title": "api2.convert.post",
+      "description": "Converts provided HTML string or url to PDF",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/ConversionParameters"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

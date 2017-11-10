@@ -9,7 +9,6 @@
     "description": "Text to label by word2vec of contents.<BR />[Endpoint] https://api.apitore.com/api/19",
     "title": "Text2Label by word vector APIs",
     "version": "0.0.1",
-    "x-description-language": "jp",
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_19.jpg"
     },

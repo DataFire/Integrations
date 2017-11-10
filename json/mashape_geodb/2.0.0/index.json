@@ -1,0 +1,878 @@
+{
+  "id": "mashape_geodb",
+  "title": "Geo DB",
+  "description": "This developer-centric REST API focuses on getting global city and region data. Easily obtain country, region, and city data for use in your apps!\n\n*   Filter cities by name prefix, country, location, and even minimum population.\n*   Get all country regions.\n*   Get all cities in a given region.\n*   Developer-friendly RESTful API adheres to industry best-practices, including HATEOS-style links to facilitate paging results.\n*   Backed by Amazon AWS load-balanced infrastructure for resiliency and performance!\n*   Data is periodically refreshed from GeoNames.org.\n\nNotes:\n\n*   All endpoints implicitly support JSONP-style invocation via an optional callback param.\n*   Since the database is periodically updated, this may **very rarely** result in certain cities being marked deleted (e.g., duplicates removed). By default, endpoints returning city data will exclude cities marked deleted. However, in the unlikely event that this occurs while your app is paging through a set of affected results - and you care about the paged results suddenly changing underneath - specify includeDeleted=SINCE_YESTERDAY (or SINCE_LAST_WEEK if you're really paranoid!).\n\n* * *\n\n### Useful Resources\n\n*   SDKs\n    *   [Angular](https://www.npmjs.com/package/wft-geodb-angular-client), [Sample App](https://github.com/wirefreethought/geo-db-sample-angular-app)\n    *   [Java](https://github.com/wirefreethought/geo-db-java-client)\n*   [Swagger Docs](swagger.json)\n*   [Usage License](http://creativecommons.org/licenses/by/3.0/)",
+  "security": {
+    "mashape_geodb": {
+      "integration": "mashape_geodb",
+      "fields": {
+        "UserSecurity": "API key"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mashape_geodb.png"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "CitiesResponse": {
+      "properties": {
+        "data": {
+          "description": "A list of CitySummaries",
+          "items": {
+            "$ref": "#/definitions/CitySummary"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        },
+        "links": {
+          "description": "A list of Links",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object",
+      "title": "CitiesResponse"
+    },
+    "CityDetails": {
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "elevationMeters": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "location": {
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "population": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "region": {
+          "type": "string"
+        },
+        "regionCode": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CityDetails"
+    },
+    "CityResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CityDetails"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CityResponse"
+    },
+    "CitySummary": {
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "region": {
+          "type": "string"
+        },
+        "regionCode": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CitySummary"
+    },
+    "CountriesResponse": {
+      "properties": {
+        "data": {
+          "description": "A list of CountrySummarys",
+          "items": {
+            "$ref": "#/definitions/CountrySummary"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        },
+        "links": {
+          "description": "A list of Links",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object",
+      "title": "CountriesResponse"
+    },
+    "CountryDetails": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "description": "A ISO-4217 currency code",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "numRegions": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "CountryDetails"
+    },
+    "CountryResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CountryDetails"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CountryResponse"
+    },
+    "CountrySummary": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "description": "A ISO-4217 currency code",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CountrySummary"
+    },
+    "CurrenciesResponse": {
+      "properties": {
+        "data": {
+          "description": "A list of CurrencyDescriptors",
+          "items": {
+            "$ref": "#/definitions/CurrencyDescriptor"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        },
+        "links": {
+          "description": "A list of Links",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object",
+      "title": "CurrenciesResponse"
+    },
+    "CurrencyDescriptor": {
+      "properties": {
+        "code": {
+          "description": "A ISO-4217 currency code",
+          "type": "string"
+        },
+        "countryCodes": {
+          "description": "A list of ISO-3166 country codes",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyDescriptor"
+    },
+    "GeoLocation": {
+      "properties": {
+        "latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "GeoLocation"
+    },
+    "Link": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Link"
+    },
+    "LocaleDescriptor": {
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "LocaleDescriptor"
+    },
+    "LocalesResponse": {
+      "properties": {
+        "data": {
+          "description": "A list of LocalDescriptors",
+          "items": {
+            "$ref": "#/definitions/LocaleDescriptor"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        },
+        "links": {
+          "description": "A list of Links",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object",
+      "title": "LocalesResponse"
+    },
+    "Metadata": {
+      "properties": {
+        "currentOffset": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalCount": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Metadata"
+    },
+    "RegionDetails": {
+      "properties": {
+        "capital": {
+          "type": "string"
+        },
+        "countryCode": {
+          "description": "An ISO-3166 country code",
+          "type": "string"
+        },
+        "fipsCode": {
+          "type": "string"
+        },
+        "hascCode": {
+          "type": "string"
+        },
+        "isoCode": {
+          "type": "string"
+        },
+        "name": {
+          "description": "The well-known internationally recognized name for this region",
+          "type": "string"
+        },
+        "numCities": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "RegionDetails"
+    },
+    "RegionResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/RegionDetails"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "RegionResponse"
+    },
+    "RegionSummary": {
+      "properties": {
+        "countryCode": {
+          "description": "An ISO-3166 country code",
+          "type": "string"
+        },
+        "fipsCode": {
+          "type": "string"
+        },
+        "hascCode": {
+          "type": "string"
+        },
+        "isoCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RegionSummary"
+    },
+    "RegionsResponse": {
+      "properties": {
+        "data": {
+          "description": "A list of RegionSummaries",
+          "items": {
+            "$ref": "#/definitions/RegionSummary"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "description": "A list of WftErrors",
+          "items": {
+            "$ref": "#/definitions/WftError"
+          },
+          "type": "array"
+        },
+        "links": {
+          "description": "A list of Links",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        }
+      },
+      "type": "object",
+      "title": "RegionsResponse"
+    },
+    "WftError": {
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/WftErrorCode"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "WftError"
+    },
+    "WftErrorCode": {
+      "enum": [
+        "ACCESS_DENIED",
+        "ENTITY_NOT_FOUND",
+        "PARAM_INVALID",
+        "PARAMS_MUTUALLY_EXCLUSIVE"
+      ],
+      "type": "string",
+      "title": "WftErrorCode"
+    }
+  },
+  "actions": [
+    {
+      "id": "findCitiesUsingGET",
+      "title": "findCitiesUsingGET",
+      "description": "Get cities, filtering by optional criteria. If no criteria are set, you will get back all known cities with a population of at least 1000. (Currently over 115,000.) If countryCode is specified, the country info will be omitted in the response.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "namePrefix": {
+            "type": "string",
+            "description": "Only cities whose names start with this prefix"
+          },
+          "countryCodes": {
+            "type": "string",
+            "description": "Only cities in these countries (comma-delimited country codes)"
+          },
+          "excludedCountryCodes": {
+            "type": "string",
+            "description": "Only cities NOT in these countries (comma-delimited country codes)"
+          },
+          "minPopulation": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Only cities having at least this population"
+          },
+          "nearLocation": {
+            "type": "string",
+            "description": "Only cities near this location. Latitude/longitude in ISO-6709 format: ±DD.DDDD±DDD.DDDD"
+          },
+          "nearLocationRadius": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The location radius within which to find cities"
+          },
+          "nearLocationRadiusUnit": {
+            "type": "string",
+            "description": "The location radius unit of distance: MI | KM",
+            "default": "MI"
+          },
+          "includeDeleted": {
+            "type": "string",
+            "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+            "default": "NONE"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CitiesResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getCityUsingGET",
+      "title": "getCityUsingGET",
+      "description": "Get the details for a specific city, including location coordinates, population, and elevation above sea-level (if available).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The city id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CityResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "findNearbyCitiesUsingGET",
+      "title": "findNearbyCitiesUsingGET",
+      "description": "Get nearby cities",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "description": "cityId"
+          },
+          "minPopulation": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Only cities having at least this population"
+          },
+          "nearLocationRadius": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The location radius within which to find cities"
+          },
+          "nearLocationRadiusUnit": {
+            "type": "string",
+            "description": "The location radius unit of distance: MI | KM",
+            "default": "MI"
+          },
+          "includeDeleted": {
+            "type": "string",
+            "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+            "default": "NONE"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CitiesResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getCountriesUsingGET",
+      "title": "getCountriesUsingGET",
+      "description": "Get countries, filtering by optional criteria. If no criteria are set, you will get back all known countries.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "currencyCode": {
+            "type": "string",
+            "description": "Only countries supporting this currency"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CountriesResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getCountryUsingGET",
+      "title": "getCountryUsingGET",
+      "description": "Get the details for a specific country, including number of regions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "An ISO-3166 country code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "countryCode"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CountryResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getRegionsUsingGET",
+      "title": "getRegionsUsingGET",
+      "description": "Get all regions in a specific country. These could be states, provinces, districts, or otherwise major political divisions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "An ISO-3166 country code"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "countryCode"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RegionsResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getRegionUsingGET",
+      "title": "getRegionUsingGET",
+      "description": "Get the details of a specific country region, including number of cities.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "An ISO-3166 country code"
+          },
+          "regionCode": {
+            "type": "string",
+            "description": "An HASC, ISO-3166, or FIPS region code"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "countryCode",
+          "regionCode"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RegionResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "findRegionCitiesUsingGET",
+      "title": "findRegionCitiesUsingGET",
+      "description": "Get the cities in a specific country region. The country and region info is omitted in the response.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "An ISO-3166 country code"
+          },
+          "regionCode": {
+            "type": "string",
+            "description": "An HASC, ISO-3166, or FIPS region code"
+          },
+          "minPopulation": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Only cities having at least this population"
+          },
+          "includeDeleted": {
+            "type": "string",
+            "description": "Whether to include any cities marked deleted: ALL | SINCE_YESTERDAY | SINCE_LAST_WEEK | NONE",
+            "default": "NONE"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "countryCode",
+          "regionCode"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CitiesResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getCurrenciesUsingGET",
+      "title": "getCurrenciesUsingGET",
+      "description": "Get currencies, filtering by optional criteria. If no criteria are set, you will get back all known currencies.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "Only currencies supported by this country"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrenciesResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    },
+    {
+      "id": "getLocalesUsingGET",
+      "title": "getLocalesUsingGET",
+      "description": "Get all known locales",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The maximum number of results to retrieve",
+            "default": 10
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The zero-ary offset index into the results",
+            "default": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LocalesResponse"
+      },
+      "security": {
+        "mashape_geodb": {
+          "integration": "mashape_geodb"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "developer tools",
+    "location"
+  ]
+}

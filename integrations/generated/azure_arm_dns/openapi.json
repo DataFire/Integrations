@@ -354,6 +354,13 @@
             "type": "integer"
           },
           {
+            "description": "The suffix label of the record set name that has to be used to filter the record set enumerations. If this parameter is specified, Enumeration will return only records that end with .<recordSetNameSuffix>",
+            "in": "query",
+            "name": "$recordsetnamesuffix",
+            "required": false,
+            "type": "string"
+          },
+          {
             "$ref": "#/parameters/ApiVersionParameter"
           },
           {
@@ -430,6 +437,13 @@
             "name": "$top",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "The suffix label of the record set name that has to be used to filter the record set enumerations. If this parameter is specified, Enumeration will return only records that end with .<recordSetNameSuffix>",
+            "in": "query",
+            "name": "$recordsetnamesuffix",
+            "required": false,
+            "type": "string"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"

@@ -32,6 +32,9 @@
     }
   },
   "consumes": [],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/v1/districts": {
       "get": {
@@ -176,12 +179,6 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -225,10 +222,6 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -237,7 +230,7 @@
             }
           }
         },
-        "summary": "Returns a detailed record for one district district",
+        "summary": "Returns a detailed record for one district",
         "tags": [
           "Districts"
         ]
@@ -293,12 +286,6 @@
             "type": "string",
             "x-data-threescale-name": "app_keys"
           }
-        ],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
         ],
         "responses": {
           "200": {
@@ -372,10 +359,6 @@
             "type": "string",
             "x-data-threescale-name": "app_keys"
           }
-        ],
-        "produces": [
-          "application/json",
-          "text/json"
         ],
         "responses": {
           "200": {
@@ -584,12 +567,6 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -633,10 +610,6 @@
             "x-data-threescale-name": "app_keys"
           }
         ],
-        "produces": [
-          "application/json",
-          "text/json"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -661,7 +634,7 @@
           "type": "boolean"
         },
         "polylineCollection": {
-          "description": "Collection of one or more polylines that can be used to create the boundary on a map",
+          "description": "Collection of one or more polylines that can be used to create the boundary on a map. NOTE: this value is JSON encoded. Specifically, backslashes will be returned escaped (two backslashes). Make sure to decode the polyline before you use it",
           "items": {
             "$ref": "#/definitions/APIPolyline"
           },
@@ -1217,7 +1190,7 @@
           "type": "integer"
         },
         "polylineOverlayEncodedPoints": {
-          "description": "Polyline for use with Google Maps or other mapping software",
+          "description": "Polyline for use with Google Maps or other mapping software. NOTE: this value is JSON encoded. Specifically, backslashes will be returned escaped (two backslashes). Make sure to decode the polyline before you use it",
           "type": "string"
         }
       },

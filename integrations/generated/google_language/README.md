@@ -17,7 +17,7 @@ let google_language = require('@datafire/google_language').create({
   redirect_uri: "",
 });
 
-google_language.documents.annotateText({}).then(data => {
+google_language.documents.classifyText({}).then(data => {
   console.log(data);
 })
 ```
@@ -75,6 +75,31 @@ google_language.documents.analyzeEntities({}, context)
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 * access_token (string) - OAuth access token.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### documents.analyzeEntitySentiment
+Finds entities, similar to AnalyzeEntities in the text and analyzes
+sentiment associated with each entity and its mentions.
+
+
+```js
+google_language.documents.analyzeEntitySentiment({}, context)
+```
+
+#### Parameters
+* body (object) - The entity-level sentiment analysis request message.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### documents.analyzeSentiment
 Analyzes the sentiment of the provided text.
@@ -150,4 +175,28 @@ google_language.documents.annotateText({}, context)
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 * access_token (string) - OAuth access token.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### documents.classifyText
+Classifies a document into categories.
+
+
+```js
+google_language.documents.classifyText({}, context)
+```
+
+#### Parameters
+* body (object) - The document classification request message.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

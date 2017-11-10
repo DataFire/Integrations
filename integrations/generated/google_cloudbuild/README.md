@@ -173,6 +173,61 @@ google_cloudbuild.projects.builds.cancel({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
+### projects.builds.retry
+Creates a new build based on the given build.
+
+This API creates a new build using the original build request,  which may
+or may not result in an identical build.
+
+For triggered builds:
+
+* Triggered builds resolve to a precise revision, so a retry of a triggered
+build will result in a build that uses the same revision.
+
+For non-triggered builds that specify RepoSource:
+
+* If the original build built from the tip of a branch, the retried build
+will build from the tip of that branch, which may not be the same revision
+as the original build.
+* If the original build specified a commit sha or revision ID, the retried
+build will use the identical source.
+
+For builds that specify StorageSource:
+
+* If the original build pulled source from Cloud Storage without specifying
+the generation of the object, the new build will use the current object,
+which may be different from the original build source.
+* If the original build pulled source from Cloud Storage and specified the
+generation of the object, the new build will attempt to use the same
+object, which may or may not be available depending on the bucket's
+lifecycle management settings.
+
+
+```js
+google_cloudbuild.projects.builds.retry({
+  "id": "",
+  "projectId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - RetryBuildRequest specifies a build to retry.
+* id (string) **required** - Build ID of the original build.
+* projectId (string) **required** - ID of the project.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### projects.triggers.list
 Lists existing BuildTrigger.
 
@@ -321,20 +376,59 @@ google_cloudbuild.projects.triggers.patch({
 * access_token (string) - OAuth access token.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
-### operations.get
-Gets the latest state of a long-running operation.  Clients can use this
-method to poll the operation result at intervals as recommended by the API
-service.
+### projects.triggers.run
+Runs a BuildTrigger at a particular source revision.
 
 
 ```js
-google_cloudbuild.operations.get({
+google_cloudbuild.projects.triggers.run({
+  "projectId": "",
+  "triggerId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - RepoSource describes the location of the source in a Google Cloud Source
+* projectId (string) **required** - ID of the project.
+* triggerId (string) **required** - ID of the trigger.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### operations.list
+Lists operations that match the specified filter in the request. If the
+server doesn't support this method, it returns `UNIMPLEMENTED`.
+
+NOTE: the `name` binding allows API services to override the binding
+to use different resource name schemes, such as `users/*/operations`. To
+override the binding, API services can add a binding such as
+`"/v1/{name=users/*}/operations"` to their service configuration.
+For backwards compatibility, the default name includes the operations
+collection id, however overriding users must ensure the name binding
+is the parent resource, without the operations collection id.
+
+
+```js
+google_cloudbuild.operations.list({
   "name": ""
 }, context)
 ```
 
 #### Parameters
-* name (string) **required** - The name of the operation resource.
+* filter (string) - The standard list filter.
+* name (string) **required** - The name of the operation's parent resource.
+* pageSize (integer) - The standard list page size.
+* pageToken (string) - The standard list page token.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.

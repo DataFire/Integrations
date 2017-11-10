@@ -74,7 +74,7 @@ google_adexperiencereport.violatingSites.list({}, context)
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### sites.get
-Gets a summary of the ads rating of a site.
+Gets a summary of the ad experience rating of a site.
 
 
 ```js
@@ -84,7 +84,7 @@ google_adexperiencereport.sites.get({
 ```
 
 #### Parameters
-* name (string) **required** - The required site name. It should be a site property registered in Search
+* name (string) **required** - The required site name. It should be the site property whose ad experiences
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.

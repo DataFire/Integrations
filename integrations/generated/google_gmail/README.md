@@ -351,12 +351,12 @@ google_gmail.users.messages.list({
 ```
 
 #### Parameters
-* userId (string) **required** - The user's email address. The special value me can be used to indicate the authenticated user.
 * includeSpamTrash (boolean) - Include messages from SPAM and TRASH in the results.
 * labelIds (array) - Only return messages with labels that match all of the specified label IDs.
 * maxResults (integer) - Maximum number of messages to return.
 * pageToken (string) - Page token to retrieve a specific page of results in the list.
-* q (string) - Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid: is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
+* q (string) - Only return messages matching the specified query. Supports the same query format as the Gmail search box. For example, "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread". Parameter cannot be used when accessing the api using the gmail.metadata scope.
+* userId (string) **required** - The user's email address. The special value me can be used to indicate the authenticated user.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1431,32 +1431,4 @@ google_gmail.users.watch({
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
 * userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
-
-### buildMessage
-
-
-
-```js
-google_gmail.buildMessage({}, context)
-```
-
-#### Parameters
-* to (string)
-* from (string)
-* subject (string)
-* body (string)
-
-### sendMessage
-
-
-
-```js
-google_gmail.sendMessage({}, context)
-```
-
-#### Parameters
-* to (string)
-* from (string)
-* subject (string)
-* body (string)
 

@@ -103,7 +103,8 @@ google_sourcerepo.projects.repos.get({
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 
 ### projects.repos.list
-Returns all repos belonging to a project.
+Returns all repos belonging to a project. The sizes of the repos are
+not set by ListRepos.  To get the size of a repo, use GetRepo.
 
 
 ```js
@@ -114,6 +115,8 @@ google_sourcerepo.projects.repos.list({
 
 #### Parameters
 * name (string) **required** - The project ID whose repos should be listed. Values are of the form
+* pageSize (integer) - Maximum number of repositories to return; between 1 and 500.
+* pageToken (string) - Resume listing repositories where a prior ListReposResponse
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * callback (string) - JSONP
@@ -129,7 +132,7 @@ google_sourcerepo.projects.repos.list({
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 
 ### projects.repos.create
-Creates a repo in the given project with the given name..
+Creates a repo in the given project with the given name.
 
 If the named repository already exists, `CreateRepo` returns
 `ALREADY_EXISTS`.

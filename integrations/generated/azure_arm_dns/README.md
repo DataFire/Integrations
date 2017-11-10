@@ -133,6 +133,7 @@ azure_arm_dns.RecordSets_ListByDnsZone({
 * resourceGroupName (string) **required** - The name of the resource group.
 * zoneName (string) **required** - The name of the DNS zone (without a terminating dot).
 * $top (integer) - The maximum number of record sets to return. If not specified, returns up to 100 record sets.
+* $recordsetnamesuffix (string) - The suffix label of the record set name that has to be used to filter the record set enumerations. If this parameter is specified, Enumeration will return only records that end with .<recordSetNameSuffix>
 * api-version (string) **required** - Specifies the API version.
 * subscriptionId (string) **required** - Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
 
@@ -155,6 +156,7 @@ azure_arm_dns.RecordSets_ListByType({
 * zoneName (string) **required** - The name of the DNS zone (without a terminating dot).
 * recordType (string) **required** - The type of record sets to enumerate.
 * $top (integer) - The maximum number of record sets to return. If not specified, returns up to 100 record sets.
+* $recordsetnamesuffix (string) - The suffix label of the record set name that has to be used to filter the record set enumerations. If this parameter is specified, Enumeration will return only records that end with .<recordSetNameSuffix>
 * api-version (string) **required** - Specifies the API version.
 * subscriptionId (string) **required** - Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription.
 

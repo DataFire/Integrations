@@ -7051,23 +7051,17 @@
       "type": "object"
     },
     "CallList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/Call"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/Call"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "CallPage": {
       "description": "~",
@@ -7337,23 +7331,17 @@
       "type": "object"
     },
     "CallRecordingList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/CallRecording"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/CallRecording"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "CallTrackingConfig": {
       "description": "Call tracking configuration allows you track incoming calls, analyze, respond to customers using sms or voice replies. For more information see [call tracking page](https://www.callfire.com/products/call-tracking)",
@@ -7422,23 +7410,17 @@
       "type": "object"
     },
     "CallerIdList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/CallerId"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/CallerId"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "CallerIdVerificationRequest": {
       "description": "Request which is used to verify a new caller id number",
@@ -7486,6 +7468,7 @@
             "UPLOAD",
             "RECORDING",
             "ACTIVE",
+            "ACTIVE_SYSTEM",
             "FAILED",
             "ARCHIVED",
             "SCRUBBED"
@@ -8061,23 +8044,17 @@
       "type": "object"
     },
     "KeywordList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/Keyword"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/Keyword"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "KeywordPurchaseRequest": {
       "description": "Request object is used to purchase keywords",
@@ -8402,23 +8379,17 @@
       "type": "object"
     },
     "NumberList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/Number"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/Number"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "NumberOrder": {
       "description": "Represents an order created on the CallFire platform",
@@ -8671,23 +8642,17 @@
       "type": "object"
     },
     "ResourceIdList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/ResourceId"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/ResourceId"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "RetryConfig": {
       "description": "Retry configuration will help you to resend a call or text if it was not delivered first time",
@@ -9162,23 +9127,17 @@
       "type": "object"
     },
     "TextList": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/ItemList"
-        },
-        {
-          "properties": {
-            "items": {
-              "items": {
-                "$ref": "#/definitions/Text"
-              },
-              "type": "array"
-            }
+      "description": "~",
+      "properties": {
+        "items": {
+          "description": "~",
+          "items": {
+            "$ref": "#/definitions/Text"
           },
-          "type": "object"
+          "type": "array"
         }
-      ],
-      "description": "~"
+      },
+      "type": "object"
     },
     "TextPage": {
       "description": "~",
@@ -9489,5 +9448,6 @@
       },
       "type": "object"
     }
-  }
+  },
+  "x-sample-basepath": "https://raw.githubusercontent.com/CallFire/callfire-api-samples/master/2.0"
 }

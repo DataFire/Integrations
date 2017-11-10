@@ -62,8 +62,8 @@ google_tracing.projects.traces.spans.create({
 ```
 
 #### Parameters
-* body (object) - A span represents a single operation within a trace. Spans can be nested
-* name (string) **required** - The resource name of Span in the format
+* body (object) - A span represents a single operation within a trace. Spans can be
+* name (string) **required** - The resource name of the span in the following format:
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -94,7 +94,7 @@ google_tracing.projects.traces.batchWrite({
 
 #### Parameters
 * body (object) - The request message for the `BatchWriteSpans` method.
-* name (string) **required** - Name of the project where the spans belong to. Format is
+* name (string) **required** - Required. Name of the project where the spans belong. The format is
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -120,13 +120,13 @@ google_tracing.projects.traces.list({
 ```
 
 #### Parameters
-* endTime (string) - End of the time interval (inclusive) during which the trace data was
-* filter (string) - An optional filter for the request.
-* orderBy (string) - Field used to sort the returned traces. Optional.
-* pageSize (integer) - Maximum number of traces to return. If not specified or <= 0, the
-* pageToken (string) - Token identifying the page of results to return. If provided, use the
-* parent (string) **required** - ID of the Cloud project where the trace data is stored which is
-* startTime (string) - Start of the time interval (inclusive) during which the trace data was
+* endTime (string) - Optional. Do not return traces whose start time is later than this time.
+* filter (string) - Opional. Return only traces that match this
+* orderBy (string) - Optional. A single field used to sort the returned traces.
+* pageSize (integer) - Optional. The maximum number of results to return from this request.
+* pageToken (string) - Optional. If present, then retrieve the next batch of results from the
+* parent (string) **required** - Required. The project where the trace data is stored. The format
+* startTime (string) - Optional. Do not return traces whose end time is earlier than this time.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
@@ -152,8 +152,8 @@ google_tracing.projects.traces.listSpans({
 ```
 
 #### Parameters
-* pageToken (string) - Token identifying the page of results to return. If provided, use the
-* parent (string) **required** - ID of the trace for which to list child spans. Format is
+* pageToken (string) - Optional. If present, then retrieve the next batch of results from the
+* parent (string) **required** - Required: The resource name of the trace containing the spans to list.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.

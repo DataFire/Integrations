@@ -17,7 +17,7 @@ let google_classroom = require('@datafire/google_classroom').create({
   redirect_uri: "",
 });
 
-google_classroom.invitations.create({}).then(data => {
+google_classroom.registrations.create({}).then(data => {
   console.log(data);
 })
 ```
@@ -52,7 +52,8 @@ google_classroom.oauthRefresh(null, context)
 
 ### courses.list
 Returns a list of courses that the requesting user is permitted to view,
-restricted to those that match the request.
+restricted to those that match the request. Returned courses are ordered by
+creation time, with the most recently created coming first.
 
 This method returns the following error codes:
 
@@ -231,6 +232,237 @@ google_classroom.courses.aliases.delete({
 * bearer_token (string) - OAuth bearer token.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
+### courses.announcements.list
+Returns a list of announcements that the requester is permitted to view.
+
+Course students may only view `PUBLISHED` announcements. Course teachers
+and domain administrators may view all announcements.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access
+the requested course or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course does not exist.
+
+
+```js
+google_classroom.courses.announcements.list({
+  "courseId": ""
+}, context)
+```
+
+#### Parameters
+* announcementStates (array) - Restriction on the `state` of announcements returned.
+* courseId (string) **required** - Identifier of the course.
+* orderBy (string) - Optional sort ordering for results. A comma-separated list of fields with
+* pageSize (integer) - Maximum number of items to return. Zero or unspecified indicates that the
+* pageToken (string) - nextPageToken
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### courses.announcements.create
+Creates an announcement.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access the
+requested course, create announcements in the requested course, share a
+Drive attachment, or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course does not exist.
+* `FAILED_PRECONDITION` for the following request error:
+    * AttachmentNotVisible
+
+
+```js
+google_classroom.courses.announcements.create({
+  "courseId": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Announcement created by a teacher for students of the course
+* courseId (string) **required** - Identifier of the course.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### courses.announcements.delete
+Deletes an announcement.
+
+This request must be made by the Developer Console project of the
+[OAuth client ID](https://support.google.com/cloud/answer/6158849) used to
+create the corresponding announcement item.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting developer project did not create
+the corresponding announcement, if the requesting user is not permitted
+to delete the requested course or for access errors.
+* `FAILED_PRECONDITION` if the requested announcement has already been
+deleted.
+* `NOT_FOUND` if no course exists with the requested ID.
+
+
+```js
+google_classroom.courses.announcements.delete({
+  "courseId": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* courseId (string) **required** - Identifier of the course.
+* id (string) **required** - Identifier of the announcement to delete.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### courses.announcements.get
+Returns an announcement.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access the
+requested course or announcement, or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course or announcement does not exist.
+
+
+```js
+google_classroom.courses.announcements.get({
+  "courseId": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* courseId (string) **required** - Identifier of the course.
+* id (string) **required** - Identifier of the announcement.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### courses.announcements.patch
+Updates one or more fields of an announcement.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting developer project did not create
+the corresponding announcement or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `FAILED_PRECONDITION` if the requested announcement has already been
+deleted.
+* `NOT_FOUND` if the requested course or announcement does not exist
+
+
+```js
+google_classroom.courses.announcements.patch({
+  "courseId": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Announcement created by a teacher for students of the course
+* courseId (string) **required** - Identifier of the course.
+* id (string) **required** - Identifier of the announcement.
+* updateMask (string) - Mask that identifies which fields on the announcement to update.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### courses.announcements.modifyAssignees
+Modifies assignee mode and options of an announcement.
+
+Only a teacher of the course that contains the announcement may
+call this method.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access the
+requested course or course work or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course or course work does not exist.
+
+
+```js
+google_classroom.courses.announcements.modifyAssignees({
+  "courseId": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request to modify assignee mode and options of an announcement.
+* courseId (string) **required** - Identifier of the course.
+* id (string) **required** - Identifier of the announcement.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
 ### courses.courseWork.list
 Returns a list of course work that the requester is permitted to view.
 
@@ -341,12 +573,12 @@ google_classroom.courses.courseWork.studentSubmissions.list({
 
 #### Parameters
 * courseId (string) **required** - Identifier of the course.
-* courseWorkId (string) **required** - Identifer of the student work to request.
+* courseWorkId (string) **required** - Identifier of the student work to request.
+* late (string) - Requested lateness value. If specified, returned student submissions are
+* pageSize (integer) - Maximum number of items to return. Zero or unspecified indicates that the
+* pageToken (string) - nextPageToken
 * states (array) - Requested submission states. If specified, returned student submissions
 * userId (string) - Optional argument to restrict returned student work to those owned by the
-* pageSize (integer) - Maximum number of items to return. Zero or unspecified indicates that the
-* late (string) - Requested lateness value. If specified, returned student submissions are
-* pageToken (string) - nextPageToken
 * access_token (string) - OAuth access token.
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -428,11 +660,11 @@ google_classroom.courses.courseWork.studentSubmissions.patch({
 ```
 
 #### Parameters
+* body (object) - Student submission for course work.
 * courseId (string) **required** - Identifier of the course.
 * courseWorkId (string) **required** - Identifier of the course work.
 * id (string) **required** - Identifier of the student submission.
 * updateMask (string) - Mask that identifies which fields on the student submission to update.
-* body (object) - Student submission for course work.
 * access_token (string) - OAuth access token.
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -755,10 +987,10 @@ google_classroom.courses.courseWork.patch({
 ```
 
 #### Parameters
+* body (object) - Course work created by a teacher for students of the course.
 * courseId (string) **required** - Identifier of the course.
 * id (string) **required** - Identifier of the course work.
 * updateMask (string) - Mask that identifies which fields on the course work to update.
-* body (object) - Course work created by a teacher for students of the course.
 * access_token (string) - OAuth access token.
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -771,6 +1003,45 @@ google_classroom.courses.courseWork.patch({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### courses.courseWork.modifyAssignees
+Modifies assignee mode and options of a coursework.
+
+Only a teacher of the course that contains the coursework may
+call this method.
+
+This method returns the following error codes:
+
+* `PERMISSION_DENIED` if the requesting user is not permitted to access the
+requested course or course work or for access errors.
+* `INVALID_ARGUMENT` if the request is malformed.
+* `NOT_FOUND` if the requested course or course work does not exist.
+
+
+```js
+google_classroom.courses.courseWork.modifyAssignees({
+  "courseId": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request to modify assignee mode and options of a coursework.
+* courseId (string) **required** - Identifier of the course.
+* id (string) **required** - Identifier of the coursework.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### courses.students.list
@@ -1150,9 +1421,9 @@ google_classroom.courses.patch({
 ```
 
 #### Parameters
+* body (object) - A Course in Classroom.
 * id (string) **required** - Identifier of the course to update.
 * updateMask (string) - Mask that identifies which fields on the course to update.
-* body (object) - A Course in Classroom.
 * access_token (string) - OAuth access token.
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1373,6 +1644,87 @@ google_classroom.invitations.accept({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### registrations.create
+Creates a `Registration`, causing Classroom to start sending notifications
+from the provided `feed` to the provided `destination`.
+
+Returns the created `Registration`. Currently, this will be the same as
+the argument, but with server-assigned fields such as `expiry_time` and
+`id` filled in.
+
+Note that any value specified for the `expiry_time` or `id` fields will be
+ignored.
+
+While Classroom may validate the `destination` and return errors on a best
+effort basis, it is the caller's responsibility to ensure that it exists
+and that Classroom has permission to publish to it.
+
+This method may return the following error codes:
+
+* `PERMISSION_DENIED` if:
+    * the authenticated user does not have permission to receive
+      notifications from the requested field; or
+    * the credential provided does not include the appropriate scope for the
+      requested feed.
+    * another access error is encountered.
+* `INVALID_ARGUMENT` if:
+    * no `destination` is specified, or the specified `destination` is not
+      valid; or
+    * no `feed` is specified, or the specified `feed` is not valid.
+* `NOT_FOUND` if:
+    * the specified `feed` cannot be located, or the requesting user does not
+      have permission to determine whether or not it exists; or
+    * the specified `destination` cannot be located, or Classroom has not
+      been granted permission to publish to it.
+
+
+```js
+google_classroom.registrations.create({}, context)
+```
+
+#### Parameters
+* body (object) - An instruction to Classroom to send notifications from the `feed` to the
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### registrations.delete
+Deletes a `Registration`, causing Classroom to stop sending notifications
+for that `Registration`.
+
+
+```js
+google_classroom.registrations.delete({
+  "registrationId": ""
+}, context)
+```
+
+#### Parameters
+* registrationId (string) **required** - The `registration_id` of the `Registration` to be deleted.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### userProfiles.guardianInvitations.list

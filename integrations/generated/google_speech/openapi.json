@@ -17,10 +17,13 @@
     },
     "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Cloud Speech",
-    "version": "v1beta1",
+    "version": "v1",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "machine_learning"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -28,10 +31,10 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
-        "url": "https://speech.googleapis.com/$discovery/rest?version=v1beta1",
+        "url": "https://speech.googleapis.com/$discovery/rest?version=v1",
         "version": "v1"
       }
     ],
@@ -178,9 +181,9 @@
     }
   ],
   "paths": {
-    "/v1beta1/operations": {
+    "/v1/operations": {
       "get": {
-        "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding below allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`.",
+        "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`. To\noverride the binding, API services can add a binding such as\n`\"/v1/{name=users/*}/operations\"` to their service configuration.\nFor backwards compatibility, the default name includes the operations\ncollection id, however overriding users must ensure the name binding\nis the parent resource, without the operations collection id.",
         "operationId": "operations.list",
         "parameters": [
           {
@@ -190,15 +193,9 @@
             "type": "string"
           },
           {
-            "description": "The name of the operation collection.",
+            "description": "The name of the operation's parent resource.",
             "in": "query",
             "name": "name",
-            "type": "string"
-          },
-          {
-            "description": "The standard list page token.",
-            "in": "query",
-            "name": "pageToken",
             "type": "string"
           },
           {
@@ -206,6 +203,12 @@
             "in": "query",
             "name": "pageSize",
             "type": "integer"
+          },
+          {
+            "description": "The standard list page token.",
+            "in": "query",
+            "name": "pageToken",
+            "type": "string"
           }
         ],
         "responses": {
@@ -232,47 +235,47 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
-    "/v1beta1/operations/{name}": {
+    "/v1/operations/{name}": {
       "delete": {
         "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
         "operationId": "operations.delete",
@@ -345,92 +348,99 @@
       },
       "parameters": [
         {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ]
     },
-    "/v1beta1/operations/{name}:cancel": {
+    "/v1/operations/{name}:cancel": {
       "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
         "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
         "operationId": "operations.cancel",
         "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CancelOperationRequest"
+            }
+          },
           {
             "description": "The name of the operation resource to be cancelled.",
             "in": "path",
@@ -463,57 +473,57 @@
         ]
       }
     },
-    "/v1beta1/speech:asyncrecognize": {
+    "/v1/speech:longrunningrecognize": {
       "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
-        "description": "Performs asynchronous speech recognition: receive results via the\n[google.longrunning.Operations]\n(/speech/reference/rest/v1beta1/operations#Operation)\ninterface. Returns either an\n`Operation.error` or an `Operation.response` which contains\nan `AsyncRecognizeResponse` message.",
-        "operationId": "speech.asyncrecognize",
+        "description": "Performs asynchronous speech recognition: receive results via the\ngoogle.longrunning.Operations interface. Returns either an\n`Operation.error` or an `Operation.response` which contains\na `LongRunningRecognizeResponse` message.",
+        "operationId": "speech.longrunningrecognize",
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/AsyncRecognizeRequest"
+              "$ref": "#/definitions/LongRunningRecognizeRequest"
             }
           }
         ],
@@ -540,57 +550,57 @@
         ]
       }
     },
-    "/v1beta1/speech:syncrecognize": {
+    "/v1/speech:recognize": {
       "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
         {
           "$ref": "#/parameters/access_token"
         },
         {
-          "$ref": "#/parameters/key"
-        },
-        {
-          "$ref": "#/parameters/quotaUser"
-        },
-        {
-          "$ref": "#/parameters/pp"
-        },
-        {
-          "$ref": "#/parameters/oauth_token"
+          "$ref": "#/parameters/alt"
         },
         {
           "$ref": "#/parameters/bearer_token"
         },
         {
-          "$ref": "#/parameters/upload_protocol"
-        },
-        {
-          "$ref": "#/parameters/prettyPrint"
-        },
-        {
-          "$ref": "#/parameters/uploadType"
+          "$ref": "#/parameters/callback"
         },
         {
           "$ref": "#/parameters/fields"
         },
         {
-          "$ref": "#/parameters/$.xgafv"
+          "$ref": "#/parameters/key"
         },
         {
-          "$ref": "#/parameters/callback"
+          "$ref": "#/parameters/oauth_token"
         },
         {
-          "$ref": "#/parameters/alt"
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
         }
       ],
       "post": {
         "description": "Performs synchronous speech recognition: receive results after all audio\nhas been sent and processed.",
-        "operationId": "speech.syncrecognize",
+        "operationId": "speech.recognize",
         "parameters": [
           {
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/SyncRecognizeRequest"
+              "$ref": "#/definitions/RecognizeRequest"
             }
           }
         ],
@@ -598,7 +608,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/SyncRecognizeResponse"
+              "$ref": "#/definitions/RecognizeResponse"
             }
           }
         },
@@ -619,18 +629,9 @@
     }
   },
   "definitions": {
-    "AsyncRecognizeRequest": {
-      "description": "The top-level message sent by the client for the `AsyncRecognize` method.",
-      "properties": {
-        "audio": {
-          "$ref": "#/definitions/RecognitionAudio",
-          "description": "*Required* The audio data to be recognized."
-        },
-        "config": {
-          "$ref": "#/definitions/RecognitionConfig",
-          "description": "*Required* Provides information to the recognizer that specifies how to\nprocess the request."
-        }
-      },
+    "CancelOperationRequest": {
+      "description": "The request message for Operations.CancelOperation.",
+      "properties": {},
       "type": "object"
     },
     "Empty": {
@@ -655,11 +656,25 @@
       },
       "type": "object"
     },
+    "LongRunningRecognizeRequest": {
+      "description": "The top-level message sent by the client for the `LongRunningRecognize`\nmethod.",
+      "properties": {
+        "audio": {
+          "$ref": "#/definitions/RecognitionAudio",
+          "description": "*Required* The audio data to be recognized."
+        },
+        "config": {
+          "$ref": "#/definitions/RecognitionConfig",
+          "description": "*Required* Provides information to the recognizer that specifies how to\nprocess the request."
+        }
+      },
+      "type": "object"
+    },
     "Operation": {
       "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
       "properties": {
         "done": {
-          "description": "If the value is `false`, it means the operation is still in progress.\nIf true, the operation is completed, and either `error` or `response` is\navailable.",
+          "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
           "type": "boolean"
         },
         "error": {
@@ -705,6 +720,10 @@
     "RecognitionConfig": {
       "description": "Provides information to the recognizer that specifies how to process the\nrequest.",
       "properties": {
+        "enableWordTimeOffsets": {
+          "description": "*Optional* If `true`, the top result includes a list of words and\nthe start and end time offsets (timestamps) for those words. If\n`false`, no word-level time offset information is returned. The default is\n`false`.",
+          "type": "boolean"
+        },
         "encoding": {
           "description": "*Required* Encoding of audio data sent in all `RecognitionAudio` messages.",
           "enum": [
@@ -713,12 +732,14 @@
             "FLAC",
             "MULAW",
             "AMR",
-            "AMR_WB"
+            "AMR_WB",
+            "OGG_OPUS",
+            "SPEEX_WITH_HEADER_BYTE"
           ],
           "type": "string"
         },
         "languageCode": {
-          "description": "*Optional* The language of the supplied audio as a BCP-47 language tag.\nExample: \"en-GB\"  https://www.rfc-editor.org/rfc/bcp/bcp47.txt\nIf omitted, defaults to \"en-US\". See\n[Language Support](https://cloud.google.com/speech/docs/languages)\nfor a list of the currently supported language codes.",
+          "description": "*Required* The language of the supplied audio as a\n[BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.\nExample: \"en-US\".\nSee [Language Support](https://cloud.google.com/speech/docs/languages)\nfor a list of the currently supported language codes.",
           "type": "string"
         },
         "maxAlternatives": {
@@ -730,14 +751,44 @@
           "description": "*Optional* If set to `true`, the server will attempt to filter out\nprofanities, replacing all but the initial character in each filtered word\nwith asterisks, e.g. \"f***\". If set to `false` or omitted, profanities\nwon't be filtered out.",
           "type": "boolean"
         },
-        "sampleRate": {
+        "sampleRateHertz": {
           "description": "*Required* Sample rate in Hertz of the audio data sent in all\n`RecognitionAudio` messages. Valid values are: 8000-48000.\n16000 is optimal. For best results, set the sampling rate of the audio\nsource to 16000 Hz. If that's not possible, use the native sample rate of\nthe audio source (instead of re-sampling).",
           "format": "int32",
           "type": "integer"
         },
-        "speechContext": {
-          "$ref": "#/definitions/SpeechContext",
-          "description": "*Optional* A means to provide context to assist the speech recognition."
+        "speechContexts": {
+          "description": "*Optional* A means to provide context to assist the speech recognition.",
+          "items": {
+            "$ref": "#/definitions/SpeechContext"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RecognizeRequest": {
+      "description": "The top-level message sent by the client for the `Recognize` method.",
+      "properties": {
+        "audio": {
+          "$ref": "#/definitions/RecognitionAudio",
+          "description": "*Required* The audio data to be recognized."
+        },
+        "config": {
+          "$ref": "#/definitions/RecognitionConfig",
+          "description": "*Required* Provides information to the recognizer that specifies how to\nprocess the request."
+        }
+      },
+      "type": "object"
+    },
+    "RecognizeResponse": {
+      "description": "The only message returned to the client by the `Recognize` method. It\ncontains the result as zero or more sequential `SpeechRecognitionResult`\nmessages.",
+      "properties": {
+        "results": {
+          "description": "*Output-only* Sequential list of transcription results corresponding to\nsequential portions of audio.",
+          "items": {
+            "$ref": "#/definitions/SpeechRecognitionResult"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -766,6 +817,13 @@
         "transcript": {
           "description": "*Output-only* Transcript text representing the words that the user spoke.",
           "type": "string"
+        },
+        "words": {
+          "description": "*Output-only* A list of word-specific information for each recognized word.",
+          "items": {
+            "$ref": "#/definitions/WordInfo"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -774,17 +832,22 @@
       "description": "A speech recognition result corresponding to a portion of the audio.",
       "properties": {
         "alternatives": {
-          "description": "*Output-only* May contain one or more recognition hypotheses (up to the\nmaximum specified in `max_alternatives`).",
+          "description": "*Output-only* May contain one or more recognition hypotheses (up to the\nmaximum specified in `max_alternatives`).\nThese alternatives are ordered in terms of accuracy, with the top (first)\nalternative being the most probable, as ranked by the recognizer.",
           "items": {
             "$ref": "#/definitions/SpeechRecognitionAlternative"
           },
           "type": "array"
+        },
+        "channelTag": {
+          "description": "For multi-channel audio, this is the channel number corresponding to the\nrecognized result for the audio from that channel.\nFor audio_channel_count = N, its output values can range from '0' to 'N-1'.",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
     },
     "Status": {
-      "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` which can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting purpose.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
+      "description": "The `Status` type defines a logical error model that is suitable for different\nprogramming environments, including REST APIs and RPC APIs. It is used by\n[gRPC](https://github.com/grpc). The error model is designed to be:\n\n- Simple to use and understand for most users\n- Flexible enough to meet unexpected needs\n\n# Overview\n\nThe `Status` message contains three pieces of data: error code, error message,\nand error details. The error code should be an enum value of\ngoogle.rpc.Code, but it may accept additional error codes if needed.  The\nerror message should be a developer-facing English message that helps\ndevelopers *understand* and *resolve* the error. If a localized user-facing\nerror message is needed, put the localized message in the error details or\nlocalize it in the client. The optional error details may contain arbitrary\ninformation about the error. There is a predefined set of error detail types\nin the package `google.rpc` that can be used for common error conditions.\n\n# Language mapping\n\nThe `Status` message is the logical representation of the error model, but it\nis not necessarily the actual wire format. When the `Status` message is\nexposed in different client libraries and different wire protocols, it can be\nmapped differently. For example, it will likely be mapped to some exceptions\nin Java, but more likely mapped to some error codes in C.\n\n# Other uses\n\nThe error model and the `Status` message can be used in a variety of\nenvironments, either with or without APIs, to provide a\nconsistent developer experience across different environments.\n\nExample uses of this error model include:\n\n- Partial errors. If a service needs to return partial errors to the client,\n    it may embed the `Status` in the normal response to indicate the partial\n    errors.\n\n- Workflow errors. A typical workflow has multiple steps. Each step may\n    have a `Status` message for error reporting.\n\n- Batch operations. If a client uses batch request and batch response, the\n    `Status` message should be used directly inside batch response, one for\n    each error sub-response.\n\n- Asynchronous operations. If an API call embeds asynchronous operation\n    results in its response, the status of those operations should be\n    represented directly using the `Status` message.\n\n- Logging. If some API errors are stored in logs, the message `Status` could\n    be used directly after any stripping needed for security/privacy reasons.",
       "properties": {
         "code": {
           "description": "The status code, which should be an enum value of google.rpc.Code.",
@@ -792,7 +855,7 @@
           "type": "integer"
         },
         "details": {
-          "description": "A list of messages that carry the error details.  There will be a\ncommon set of message types for APIs to use.",
+          "description": "A list of messages that carry the error details.  There is a common set of\nmessage types for APIs to use.",
           "items": {
             "additionalProperties": {
               "description": "Properties of the object. Contains field @type with type URL."
@@ -808,29 +871,22 @@
       },
       "type": "object"
     },
-    "SyncRecognizeRequest": {
-      "description": "The top-level message sent by the client for the `SyncRecognize` method.",
+    "WordInfo": {
+      "description": "Word-specific information for recognized words. Word information is only\nincluded in the response when certain request parameters are set, such\nas `enable_word_time_offsets`.",
       "properties": {
-        "audio": {
-          "$ref": "#/definitions/RecognitionAudio",
-          "description": "*Required* The audio data to be recognized."
+        "endTime": {
+          "description": "*Output-only* Time offset relative to the beginning of the audio,\nand corresponding to the end of the spoken word.\nThis field is only set if `enable_word_time_offsets=true` and only\nin the top hypothesis.\nThis is an experimental feature and the accuracy of the time offset can\nvary.",
+          "format": "google-duration",
+          "type": "string"
         },
-        "config": {
-          "$ref": "#/definitions/RecognitionConfig",
-          "description": "*Required* Provides information to the recognizer that specifies how to\nprocess the request."
-        }
-      },
-      "type": "object"
-    },
-    "SyncRecognizeResponse": {
-      "description": "The only message returned to the client by `SyncRecognize`. method. It\ncontains the result as zero or more sequential `SpeechRecognitionResult`\nmessages.",
-      "properties": {
-        "results": {
-          "description": "*Output-only* Sequential list of transcription results corresponding to\nsequential portions of audio.",
-          "items": {
-            "$ref": "#/definitions/SpeechRecognitionResult"
-          },
-          "type": "array"
+        "startTime": {
+          "description": "*Output-only* Time offset relative to the beginning of the audio,\nand corresponding to the start of the spoken word.\nThis field is only set if `enable_word_time_offsets=true` and only\nin the top hypothesis.\nThis is an experimental feature and the accuracy of the time offset can\nvary.",
+          "format": "google-duration",
+          "type": "string"
+        },
+        "word": {
+          "description": "*Output-only* The word corresponding to this set of information.",
+          "type": "string"
         }
       },
       "type": "object"

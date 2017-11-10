@@ -173,6 +173,7 @@ amazonaws_rds.CopyDBSnapshot({
 #### Parameters
 * CopyTags (boolean)
 * KmsKeyId (string)
+* OptionGroupName (string)
 * PreSignedUrl (string)
 * SourceDBSnapshotIdentifier (string) **required**
 * SourceRegion (string)
@@ -296,6 +297,7 @@ amazonaws_rds.CreateDBInstance({
 * Domain (string)
 * DomainIAMRoleName (string)
 * EnableIAMDatabaseAuthentication (boolean)
+* EnablePerformanceInsights (boolean)
 * Engine (string) **required**
 * EngineVersion (string)
 * Iops (integer)
@@ -307,6 +309,7 @@ amazonaws_rds.CreateDBInstance({
 * MonitoringRoleArn (string)
 * MultiAZ (boolean)
 * OptionGroupName (string)
+* PerformanceInsightsKMSKeyId (string)
 * Port (integer)
 * PreferredBackupWindow (string)
 * PreferredMaintenanceWindow (string)
@@ -339,11 +342,13 @@ amazonaws_rds.CreateDBInstanceReadReplica({
 * DBInstanceIdentifier (string) **required**
 * DBSubnetGroupName (string)
 * EnableIAMDatabaseAuthentication (boolean)
+* EnablePerformanceInsights (boolean)
 * Iops (integer)
 * KmsKeyId (string)
 * MonitoringInterval (integer)
 * MonitoringRoleArn (string)
 * OptionGroupName (string)
+* PerformanceInsightsKMSKeyId (string)
 * Port (integer)
 * PreSignedUrl (string)
 * PubliclyAccessible (boolean)
@@ -1066,6 +1071,19 @@ amazonaws_rds.DescribeSourceRegions({}, context)
 * MaxRecords (integer)
 * RegionName (string)
 
+### DescribeValidDBInstanceModifications
+
+
+
+```js
+amazonaws_rds.DescribeValidDBInstanceModifications({
+  "DBInstanceIdentifier": ""
+}, context)
+```
+
+#### Parameters
+* DBInstanceIdentifier (string) **required**
+
 ### DownloadDBLogFilePortion
 
 
@@ -1194,6 +1212,7 @@ amazonaws_rds.ModifyDBInstance({
 * Domain (string)
 * DomainIAMRoleName (string)
 * EnableIAMDatabaseAuthentication (boolean)
+* EnablePerformanceInsights (boolean)
 * EngineVersion (string)
 * Iops (integer)
 * LicenseModel (string)
@@ -1203,6 +1222,7 @@ amazonaws_rds.ModifyDBInstance({
 * MultiAZ (boolean)
 * NewDBInstanceIdentifier (string)
 * OptionGroupName (string)
+* PerformanceInsightsKMSKeyId (string)
 * PreferredBackupWindow (string)
 * PreferredMaintenanceWindow (string)
 * PromotionTier (integer)
@@ -1240,6 +1260,7 @@ amazonaws_rds.ModifyDBSnapshot({
 #### Parameters
 * DBSnapshotIdentifier (string) **required**
 * EngineVersion (string)
+* OptionGroupName (string)
 
 ### ModifyDBSnapshotAttribute
 
@@ -1530,6 +1551,7 @@ amazonaws_rds.RestoreDBClusterToPointInTime({
 * OptionGroupName (string)
 * Port (integer)
 * RestoreToTime (string)
+* RestoreType (string)
 * SourceDBClusterIdentifier (string) **required**
 * Tags (array) - A list of tags.
 * UseLatestRestorableTime (boolean)
@@ -1623,4 +1645,31 @@ amazonaws_rds.RevokeDBSecurityGroupIngress({
 * EC2SecurityGroupId (string)
 * EC2SecurityGroupName (string)
 * EC2SecurityGroupOwnerId (string)
+
+### StartDBInstance
+
+
+
+```js
+amazonaws_rds.StartDBInstance({
+  "DBInstanceIdentifier": ""
+}, context)
+```
+
+#### Parameters
+* DBInstanceIdentifier (string) **required**
+
+### StopDBInstance
+
+
+
+```js
+amazonaws_rds.StopDBInstance({
+  "DBInstanceIdentifier": ""
+}, context)
+```
+
+#### Parameters
+* DBInstanceIdentifier (string) **required**
+* DBSnapshotIdentifier (string)
 

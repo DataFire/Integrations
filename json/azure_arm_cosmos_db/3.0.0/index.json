@@ -1,0 +1,999 @@
+{
+  "id": "azure_arm_cosmos_db",
+  "title": "Cosmos DB",
+  "description": "Azure Cosmos DB Database Service Resource Provider REST API",
+  "security": {
+    "azure_arm_cosmos_db": {
+      "integration": "azure_arm_cosmos_db",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "Impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cosmos_db.png"
+  },
+  "actionCount": 12,
+  "definitions": {
+    "ConsistencyPolicy": {
+      "description": "The consistency policy for the Cosmos DB database account.",
+      "properties": {
+        "defaultConsistencyLevel": {
+          "description": "The default consistency level and configuration settings of the Cosmos DB account.",
+          "enum": [
+            "Eventual",
+            "Session",
+            "BoundedStaleness",
+            "Strong",
+            "ConsistentPrefix"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "DefaultConsistencyLevel"
+          }
+        },
+        "maxIntervalInSeconds": {
+          "description": "When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 1 - 100. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.",
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maxStalenessPrefix": {
+          "description": "When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.",
+          "format": "int64",
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "defaultConsistencyLevel"
+      ],
+      "type": "object",
+      "title": "ConsistencyPolicy"
+    },
+    "DatabaseAccount": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "An Azure Cosmos DB database account.",
+      "properties": {
+        "kind": {
+          "default": "GlobalDocumentDB",
+          "description": "Indicates the type of database account. This can only be set at database account creation.",
+          "enum": [
+            "GlobalDocumentDB",
+            "MongoDB",
+            "Parse"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DatabaseAccountKind"
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/DatabaseAccountProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object",
+      "title": "DatabaseAccount"
+    },
+    "DatabaseAccountConnectionString": {
+      "description": "Connection string for the Cosmos DB account",
+      "properties": {
+        "connectionString": {
+          "description": "Value of the connection string",
+          "readOnly": true,
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the connection string",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "title": "DatabaseAccountConnectionString"
+    },
+    "DatabaseAccountCreateUpdateParameters": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Parameters to create and update Cosmos DB database accounts.",
+      "properties": {
+        "kind": {
+          "default": "GlobalDocumentDB",
+          "description": "Indicates the type of database account. This can only be set at database account creation.",
+          "enum": [
+            "GlobalDocumentDB",
+            "MongoDB",
+            "Parse"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "DatabaseAccountKind"
+          }
+        },
+        "properties": {
+          "$ref": "#/definitions/DatabaseAccountCreateUpdateProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object",
+      "title": "DatabaseAccountCreateUpdateParameters"
+    },
+    "DatabaseAccountCreateUpdateProperties": {
+      "description": "Properties to create and update Azure Cosmos DB database accounts.",
+      "properties": {
+        "consistencyPolicy": {
+          "$ref": "#/definitions/ConsistencyPolicy",
+          "description": "The consistency policy for the Cosmos DB account."
+        },
+        "databaseAccountOfferType": {
+          "$ref": "#/definitions/DatabaseAccountOfferType"
+        },
+        "enableAutomaticFailover": {
+          "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.",
+          "type": "boolean"
+        },
+        "ipRangeFilter": {
+          "$ref": "#/definitions/IPRangeFilter",
+          "description": "Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+        },
+        "locations": {
+          "description": "An array that contains the georeplication locations enabled for the Cosmos DB account.",
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "locations",
+        "databaseAccountOfferType"
+      ],
+      "type": "object",
+      "title": "DatabaseAccountCreateUpdateProperties"
+    },
+    "DatabaseAccountListConnectionStringsResult": {
+      "description": "The connection strings for the given database account.",
+      "properties": {
+        "connectionStrings": {
+          "description": "An array that contains the connection strings for the Cosmos DB account.",
+          "items": {
+            "$ref": "#/definitions/DatabaseAccountConnectionString"
+          },
+          "type": "array"
+        }
+      },
+      "title": "DatabaseAccountListConnectionStringsResult"
+    },
+    "DatabaseAccountListKeysResult": {
+      "description": "The access keys for the given database account.",
+      "properties": {
+        "primaryMasterKey": {
+          "description": "Base 64 encoded value of the primary read-write key.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult",
+          "x-ms-client-flatten": true
+        },
+        "secondaryMasterKey": {
+          "description": "Base 64 encoded value of the secondary read-write key.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "title": "DatabaseAccountListKeysResult"
+    },
+    "DatabaseAccountListReadOnlyKeysResult": {
+      "description": "The read-only access keys for the given database account.",
+      "properties": {
+        "primaryReadonlyMasterKey": {
+          "description": "Base 64 encoded value of the primary read-only key.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "secondaryReadonlyMasterKey": {
+          "description": "Base 64 encoded value of the secondary read-only key.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "title": "DatabaseAccountListReadOnlyKeysResult"
+    },
+    "DatabaseAccountOfferType": {
+      "description": "The offer type for the Cosmos DB database account.",
+      "enum": [
+        "Standard"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "DatabaseAccountOfferType"
+      },
+      "title": "DatabaseAccountOfferType"
+    },
+    "DatabaseAccountPatchParameters": {
+      "description": "Parameters for patching Azure Cosmos DB database account properties.",
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/Tags"
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "type": "object",
+      "title": "DatabaseAccountPatchParameters"
+    },
+    "DatabaseAccountProperties": {
+      "description": "Properties for the database account.",
+      "properties": {
+        "consistencyPolicy": {
+          "$ref": "#/definitions/ConsistencyPolicy",
+          "description": "The consistency policy for the Cosmos DB database account."
+        },
+        "databaseAccountOfferType": {
+          "$ref": "#/definitions/DatabaseAccountOfferType",
+          "description": "The offer type for the Cosmos DB database account. Default value: Standard.",
+          "readOnly": true
+        },
+        "documentEndpoint": {
+          "description": "The connection endpoint for the Cosmos DB database account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "enableAutomaticFailover": {
+          "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.",
+          "type": "boolean"
+        },
+        "failoverPolicies": {
+          "description": "An array that contains the regions ordered by their failover priorities.",
+          "items": {
+            "$ref": "#/definitions/FailoverPolicy"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "ipRangeFilter": {
+          "$ref": "#/definitions/IPRangeFilter",
+          "description": "Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState"
+        },
+        "readLocations": {
+          "description": "An array that contains of the read locations enabled for the Cosmos DB account.",
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "readOnly": true,
+          "type": "array"
+        },
+        "writeLocations": {
+          "description": "An array that contains the write location for the Cosmos DB account.",
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "DatabaseAccountProperties"
+    },
+    "DatabaseAccountRegenerateKeyParameters": {
+      "description": "Parameters to regenerate the keys within the database account.",
+      "properties": {
+        "keyKind": {
+          "description": "The access key to regenerate.",
+          "enum": [
+            "primary",
+            "secondary",
+            "primaryReadonly",
+            "secondaryReadonly"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "KeyKind"
+          }
+        }
+      },
+      "required": [
+        "keyKind"
+      ],
+      "type": "object",
+      "title": "DatabaseAccountRegenerateKeyParameters"
+    },
+    "DatabaseAccountsListResult": {
+      "description": "The List operation response, that contains the database accounts and their properties.",
+      "properties": {
+        "value": {
+          "description": "List of database account and their properties.",
+          "items": {
+            "$ref": "#/definitions/DatabaseAccount"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      },
+      "title": "DatabaseAccountsListResult"
+    },
+    "FailoverPolicies": {
+      "description": "The list of new failover policies for the failover priority change.",
+      "properties": {
+        "failoverPolicies": {
+          "description": "List of failover policies.",
+          "items": {
+            "$ref": "#/definitions/FailoverPolicy"
+          },
+          "type": "array"
+        }
+      },
+      "title": "FailoverPolicies"
+    },
+    "FailoverPolicy": {
+      "description": "The failover policy for a given region of a database account.",
+      "properties": {
+        "failoverPriority": {
+          "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "id": {
+          "description": "The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "locationName": {
+          "description": "The name of the region in which the database account exists.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "FailoverPolicy"
+    },
+    "IPRangeFilter": {
+      "description": "Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.",
+      "type": "string",
+      "title": "IPRangeFilter"
+    },
+    "Location": {
+      "description": "A region in which the Azure Cosmos DB database account is deployed.",
+      "properties": {
+        "documentEndpoint": {
+          "description": "The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/",
+          "readOnly": true,
+          "type": "string"
+        },
+        "failoverPriority": {
+          "description": "The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "id": {
+          "description": "The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "locationName": {
+          "description": "The name of the region.",
+          "type": "string"
+        },
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState"
+        }
+      },
+      "type": "object",
+      "title": "Location"
+    },
+    "ProvisioningState": {
+      "description": "The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation.",
+      "readOnly": true,
+      "type": "string",
+      "title": "ProvisioningState"
+    },
+    "Resource": {
+      "description": "A database account resource.",
+      "properties": {
+        "id": {
+          "description": "The unique resource identifier of the database account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource group to which the resource belongs.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the database account.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags"
+        },
+        "type": {
+          "description": "The type of Azure resource.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "type": "object",
+      "x-ms-azure-resource": true,
+      "title": "Resource"
+    },
+    "Tags": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
+      "type": "object",
+      "title": "Tags"
+    }
+  },
+  "actions": [
+    {
+      "id": "DatabaseAccounts_CheckNameExists",
+      "title": "DatabaseAccounts_CheckNameExists",
+      "description": "Checks that the Azure Cosmos DB account name already exists. A valid account name may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_List",
+      "title": "DatabaseAccounts_List",
+      "description": "Lists all the Azure Cosmos DB database accounts available under the subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountsListResult"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListByResourceGroup",
+      "title": "DatabaseAccounts_ListByResourceGroup",
+      "description": "Lists all the Azure Cosmos DB database accounts available under the given resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountsListResult"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_Delete",
+      "title": "DatabaseAccounts_Delete",
+      "description": "Deletes an existing Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_Get",
+      "title": "DatabaseAccounts_Get",
+      "description": "Retrieves the properties of an existing Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_Patch",
+      "title": "DatabaseAccounts_Patch",
+      "description": "Patches the properties of an existing Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "updateParameters": {
+            "$ref": "#/definitions/DatabaseAccountPatchParameters"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "updateParameters"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_CreateOrUpdate",
+      "title": "DatabaseAccounts_CreateOrUpdate",
+      "description": "Creates or updates an Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "createUpdateParameters": {
+            "$ref": "#/definitions/DatabaseAccountCreateUpdateParameters"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "createUpdateParameters"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_FailoverPriorityChange",
+      "title": "DatabaseAccounts_FailoverPriorityChange",
+      "description": "Changes the failover priority for the Azure Cosmos DB database account. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "failoverParameters": {
+            "$ref": "#/definitions/FailoverPolicies"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "failoverParameters"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListConnectionStrings",
+      "title": "DatabaseAccounts_ListConnectionStrings",
+      "description": "Lists the connection strings for the specified Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountListConnectionStringsResult"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListKeys",
+      "title": "DatabaseAccounts_ListKeys",
+      "description": "Lists the access keys for the specified Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountListKeysResult"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_ListReadOnlyKeys",
+      "title": "DatabaseAccounts_ListReadOnlyKeys",
+      "description": "Lists the read-only access keys for the specified Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult"
+      },
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    },
+    {
+      "id": "DatabaseAccounts_RegenerateKey",
+      "title": "DatabaseAccounts_RegenerateKey",
+      "description": "Regenerates an access key for the specified Azure Cosmos DB database account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure subscription ID."
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "Name of an Azure resource group.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "Cosmos DB database account name.",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
+          },
+          "keyToRegenerate": {
+            "$ref": "#/definitions/DatabaseAccountRegenerateKeyParameters"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "keyToRegenerate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cosmos_db": {
+          "integration": "azure_arm_cosmos_db"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

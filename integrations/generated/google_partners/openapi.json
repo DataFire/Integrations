@@ -28,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://partners.googleapis.com/$discovery/rest?version=v2",
@@ -2652,6 +2652,10 @@
           "format": "google-datetime",
           "type": "string"
         },
+        "internalCompanyId": {
+          "description": "The internal company ID.\nOnly available for a whitelisted set of api clients.",
+          "type": "string"
+        },
         "isPending": {
           "description": "The flag that indicates if the company is pending verification.",
           "type": "boolean"
@@ -2671,6 +2675,18 @@
         },
         "phoneNumber": {
           "description": "The phone number for the company's primary address.",
+          "type": "string"
+        },
+        "primaryAddress": {
+          "$ref": "#/definitions/Location",
+          "description": "The primary location of the company."
+        },
+        "primaryCountryCode": {
+          "description": "The primary country code of the company.",
+          "type": "string"
+        },
+        "primaryLanguageCode": {
+          "description": "The primary language code of the company.",
           "type": "string"
         },
         "resolvedTimestamp": {
@@ -3060,7 +3076,7 @@
       "type": "object"
     },
     "LatLng": {
-      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)\n\nThe code in logs/storage/validator/logs_validator_traits.cc treats this type\nas if it were annotated as ST_LOCATION.",
+      "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
       "properties": {
         "latitude": {
           "description": "The latitude in degrees. It must be in the range [-90.0, +90.0].",
@@ -3566,6 +3582,7 @@
             "SMB_VIEWED_VIDEO_ADS_CERTIFICATE",
             "SMB_VIEWED_SHOPPING_CERTIFICATE",
             "SMB_CLICKED_VIDEO_ADS_CERTIFICATE_HELP_ICON",
+            "SMB_VIEWED_DIGITAL_SALES_CERTIFICATE",
             "CLICKED_HELP_AT_BOTTOM",
             "CLICKED_HELP_AT_TOP",
             "CLIENT_ERROR",
@@ -3594,7 +3611,9 @@
             "AGENCY_CLICKED_INSIGHTS_DOWNLOAD_CONTENT",
             "AGENCY_PROGRESS_INSIGHTS_VIEW_CONTENT",
             "AGENCY_CLICKED_CANCEL_ACCEPT_TOS_BUTTON",
-            "SMB_ENTERED_WEBSITE_IN_CONTACT_PARTNER_FORM"
+            "SMB_ENTERED_WEBSITE_IN_CONTACT_PARTNER_FORM",
+            "AGENCY_SELECTED_OPT_IN_AFA_MIGRATION",
+            "AGENCY_SELECTED_OPT_OUT_AFA_MIGRATION"
           ],
           "type": "string"
         },
@@ -3935,6 +3954,10 @@
           "description": "The ID of the user.",
           "type": "string"
         },
+        "internalId": {
+          "description": "The internal user ID.\nOnly available for a whitelisted set of api clients.",
+          "type": "string"
+        },
         "lastAccessTime": {
           "description": "The most recent time the user interacted with the Partners site.\n@OutputOnly",
           "format": "google-datetime",
@@ -4034,6 +4057,10 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "migrateToAfa": {
+          "description": "Whether or not to migrate the user's exam data to Academy for Ads.",
+          "type": "boolean"
         },
         "phoneNumber": {
           "description": "The user's phone number.",

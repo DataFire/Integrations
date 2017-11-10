@@ -927,7 +927,11 @@
       "description": "RETS MLS Vendor Data",
       "properties": {
         "area": {
-          "description": "MLS Area. Generally a subdivision or community name.",
+          "description": "MLS Area major. The major marketing area name, as defined by the MLS or other non-governmental organization.",
+          "type": "string"
+        },
+        "areaMinor": {
+          "description": "MLS Area minor. The minor/sub marketing area name, as defined by the MLS or other non-governmental organization.",
           "type": "string"
         },
         "daysOnMarket": {
@@ -1169,7 +1173,27 @@
           "type": "string"
         },
         "subType": {
-          "description": "The sub-type of the listing, i.e. SingleFamilyResidential,\nCondo, etc. Or a list of Sub Types for Mobile, such as\nExpando, Manufactured, Modular, etc.\n",
+          "description": "A normalized representation of the listings sub-type.\n",
+          "enum": [
+            "Apartment",
+            "BoatSlip",
+            "SingleFamilyResidence",
+            "DeededParking",
+            "Cabin",
+            "Condominium",
+            "Duplex",
+            "ManufacturedHome",
+            "Quadruplex",
+            "StockCooperative",
+            "Townhouse",
+            "Timeshare",
+            "Triplex",
+            "ManufacturedOnLand"
+          ],
+          "type": "string"
+        },
+        "subTypeRaw": {
+          "description": "The raw text representation of the property sub type.\n",
           "type": "string"
         },
         "subdivision": {

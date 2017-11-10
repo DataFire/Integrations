@@ -31,10 +31,8 @@ google_customsearch.cse.list({
 ```
 
 #### Parameters
-* q (string) **required** - Query
 * c2coff (string) - Turns off the translation between zh-CN and zh-TW.
 * cr (string) - Country restrict(s).
-* cref (string) - The URL of a linked custom search engine
 * cx (string) - The custom search engine ID to scope this search query
 * dateRestrict (string) - Specifies all search results are from a time period
 * exactTerms (string) - Identifies a phrase that all documents in the search results must contain
@@ -55,6 +53,7 @@ google_customsearch.cse.list({
 * lr (string) - The language restriction for the search results
 * num (integer) - Number of search results to return
 * orTerms (string) - Provides additional search terms to check for in a document, where each document in the search results must contain at least one of the additional search terms
+* q (string) **required** - Query
 * relatedSite (string) - Specifies that all search results should be pages that are related to the specified URL
 * rights (string) - Filters based on licensing. Supported values include: cc_publicdomain, cc_attribute, cc_sharealike, cc_noncommercial, cc_nonderived and combinations of these.
 * safe (string) - Search safety level

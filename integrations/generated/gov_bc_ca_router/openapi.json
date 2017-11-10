@@ -16,7 +16,7 @@
       "name": "Copyright 2016 Province of British Columbia - Access only",
       "url": "http://www2.gov.bc.ca/gov/content/home/copyright"
     },
-    "termsOfService": "http://www.data.gov.bc.ca/local/dbc/docs/license/API_Terms_of_Use.pdf",
+    "termsOfService": "http://www2.gov.bc.ca/gov/content?id=D1EE0A405E584363B205CD4353E02C88",
     "title": "BC Route Planner",
     "version": "1.2.0",
     "x-apisguru-categories": [
@@ -66,22 +66,10 @@
       "name": "directions"
     },
     {
-      "name": "routes"
-    },
-    {
       "name": "route"
     },
     {
-      "name": "routing"
-    },
-    {
-      "name": "route planning"
-    },
-    {
-      "name": "shortest route"
-    },
-    {
-      "name": "fastest route"
+      "name": "distance"
     }
   ],
   "paths": {

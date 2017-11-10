@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apitore_url2textapis",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Url2Text APIs",
   "repository": {

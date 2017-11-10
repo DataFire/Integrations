@@ -36,6 +36,19 @@ zappiti.CheckZappitiService.post({
 #### Parameters
 * body (object) **required**
 
+### ConnectionDetails.post
+Get user's login details
+
+
+```js
+zappiti.ConnectionDetails.post({
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* body (object) **required**
+
 ### InstallZappitiService.post
 Open a popup that allow the user to install Zappiti Service, if not already installed
 

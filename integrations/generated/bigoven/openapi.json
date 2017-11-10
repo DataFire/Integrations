@@ -6,7 +6,7 @@
   "host": "api2.bigoven.com",
   "info": {
     "description": "#Documentation\r\n\r\nThis is the documentation for the partner endpoint of the BigOven Recipe and Grocery List API.\r\n\r\nThe update brings with it Swagger-based documentation. [Swagger](http://swagger.io) is an emerging standard for describing REST-based APIs, and with this Swagger-compliant endpoint (above), you can make ready-to-go interface libraries for your code via [swagger-codegen](https://github.com/swagger-api/swagger-codegen). For instance, it's easy to generate libraries for Node.js, Java, Ruby, ASP.NET MVC, jQuery, php and more!\r\n\r\nYou can also try out the endpoint calls with your own api_key right here on this page. Be sure to enter your api_key above to use the \"Try it out!\" buttons on this page.\r\n\r\n##Start Here\r\n\r\nDevelopers new to the BigOven API should start with this version, not with the legacy API. We'll be making improvements to this API over time, and doing only bug fixes on the v1 API.\r\n\r\n\r\n\r\nTo pretend you're a BigOven user (for instance, to get your recently viewed recipes or your grocery list), you need to pass in Basic Authentication information in the header, just as with the v1 API. We do now require that you make all calls via https. You need to pass your api_key in with every call, though this can now be done on the header (send a request header \"X-BigOven-API-Key\" set to your api_key value, e.g., Request[\"X-BigOven-API-Key\"]=\"your-key-here\".)\r\n\r\n##Migration Notes\r\n\r\nFor existing partners, we encourage you to [migrate](http://api2.bigoven.com), and while at this writing we have no hard-and-fast termination date for the v1 API, we strongly prefer that you migrate by January 1, 2017. While the changes aren't overly complex, there are several breaking changes, including refactoring of recipe search and results and removal of support for XML. This is not a simply plug-and-play replacement to the v1 API. With respect to an exclusive focus on JSON, the world has spoken, and it prefers JSON for REST-based API's. We've taken numerous steps to refactor the API to make it more REST-compliant. Note that this v2 API will be the preferred API from this point onward, so we encourage developers to migrate to this new format. We have put together some [migration notes](/web/documentation/migration-to-v2) that we encourage you to read carefully.\r\n\r\n##Photos\r\n\r\nSee our [photos documentation](http://api2.bigoven.com/web/documentation/recipe-images). \r\n\r\nFor more information on usage of this API, including features, pricing, rate limits, terms and conditions, please visit the [BigOven API website](http://api2.bigoven.com).",
-    "termsOfService": "Please see our [terms of service](http://api2.bigoven.com/web/documentation/termsofuse",
+    "termsOfService": "http://api2.bigoven.com/web/documentation/termsofuse",
     "title": "BigOven",
     "version": "partner",
     "x-apiClientRegistration": {
@@ -260,6 +260,24 @@
         ]
       }
     },
+    "/grocerylist/clearcheckedlines": {
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "GroceryList_GroceryListRemoveMarkedItems",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BigOven.Model.API2.GroceryList"
+            }
+          }
+        },
+        "tags": [
+          "GroceryList"
+        ]
+      }
+    },
     "/grocerylist/department": {
       "post": {
         "consumes": [
@@ -308,7 +326,6 @@
           "application/x-www-form-urlencoded"
         ],
         "deprecated": false,
-        "operationId": "GroceryList_Post",
         "parameters": [
           {
             "description": "name, quantity, unit, notes, department",
@@ -331,7 +348,8 @@
         "summary": "Add a single line item to the grocery list",
         "tags": [
           "GroceryList"
-        ]
+        ],
+        "operationId": "grocerylist.item.post"
       }
     },
     "/grocerylist/item/{guid}": {
@@ -402,6 +420,42 @@
         ]
       }
     },
+    "/grocerylist/line": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "parameters": [
+          {
+            "description": "name, quantity, unit, notes, department",
+            "in": "body",
+            "name": "newItem",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/API2.Controllers.GroceryListController.PostGroceryListAddLineRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BigOven.Model.ShoppingListLine"
+            }
+          }
+        },
+        "summary": "Add a single line item to the grocery list",
+        "tags": [
+          "GroceryList"
+        ],
+        "operationId": "grocerylist.line.post"
+      }
+    },
     "/grocerylist/recipe": {
       "post": {
         "consumes": [
@@ -469,6 +523,222 @@
         "summary": "Synchronize the grocery list.  Call this with a POST to /grocerylist/sync",
         "tags": [
           "GroceryList"
+        ]
+      }
+    },
+    "/image/avatar": {
+      "post": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Images_UploadUserAvatar",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/System.Object"
+            }
+          },
+          "400": {
+            "description": "if bad request (e.g., missing parameters)"
+          },
+          "401": {
+            "description": "if the user is unknown"
+          },
+          "415": {
+            "description": "if unsupported media type (e.g., bad JPG)"
+          }
+        },
+        "summary": "POST: /image/avatar\r\n             \r\n            Testing with Postman (validated 11/20/2015):\r\n            1) Remove the Content-Type header; add authentication information\r\n            2) On the request, click Body and choose \"form-data\", then add a line item with \"key\" column set to \"file\" and on the right,\r\n            change the type of the input from Text to File.  Browse and choose a JPG.",
+        "tags": [
+          "Images"
+        ]
+      }
+    },
+    "/me": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Me_Index",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        },
+        "tags": [
+          "Me"
+        ]
+      },
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        },
+        "tags": [
+          "Me"
+        ],
+        "operationId": "me.put"
+      }
+    },
+    "/me/personal": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "operationId": "Me_PutMePersonal",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/API2.Models.Personal"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        },
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/me/preferences": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "operationId": "Me_PutMePreferences",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/API2.Models.Preference"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        },
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/me/preferences/options": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Me_GetOptions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Controllers.MeController.PreferenceOptions"
+            }
+          }
+        },
+        "tags": [
+          "Me"
+        ]
+      }
+    },
+    "/me/profile": {
+      "put": {
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "deprecated": false,
+        "parameters": [
+          {
+            "in": "body",
+            "name": "req",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/API2.Models.Profile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        },
+        "tags": [
+          "Me"
+        ],
+        "operationId": "me.profile.put"
+      }
+    },
+    "/me/skinny": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Me_Skinny",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/API2.Models.BigOvenUser"
+            }
+          }
+        },
+        "tags": [
+          "Me"
         ]
       }
     },
@@ -937,6 +1207,33 @@
           }
         },
         "summary": "Return full Recipe detail. Returns 403 if the recipe is owned by someone else.",
+        "tags": [
+          "Recipe"
+        ]
+      }
+    },
+    "/recipe/{id}/zap": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "operationId": "Recipe_ZapRecipe",
+        "parameters": [
+          {
+            "format": "int32",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/System.Object"
+            }
+          }
+        },
         "tags": [
           "Recipe"
         ]
@@ -1739,6 +2036,13 @@
             "type": "string"
           },
           {
+            "description": "csv indicating integer values for up to 3 top-level categories -- valid values are 1...11 [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]",
+            "in": "query",
+            "name": "exclude_primarycat",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "A CSV representing up to 3 ingredients to include, e.g., tomatoes,corn%20%starch,chicken",
             "in": "query",
             "name": "include_ing",
@@ -1772,6 +2076,38 @@
             "name": "userset",
             "required": false,
             "type": "string"
+          },
+          {
+            "description": "Limit to yield of a given number size or greater. Note that cooks usually enter recipes by Servings, but sometimes they are posted by \"dozen\", etc. This parameter simply specifies the minimum number for that value entered in \"yield.\"",
+            "format": "double",
+            "in": "query",
+            "name": "servingsMin",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "description": "Optional. If supplied, will restrict results to recipes that can be made in {totalMins} or less. (Convert \"1 hour, 15 minutes\" to 75 before passing in.)",
+            "format": "int32",
+            "in": "query",
+            "name": "totalMins",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Optional. If supplied, will restrict results to recipes that can be made with {maxIngredients} ingredients or less",
+            "format": "int32",
+            "in": "query",
+            "name": "maxIngredients",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Optional. If supplied, will restrict results to recipes that have at least {minIngredients}",
+            "format": "int32",
+            "in": "query",
+            "name": "minIngredients",
+            "required": false,
+            "type": "integer"
           },
           {
             "description": "integer; results per page",
@@ -1892,6 +2228,13 @@
             "name": "champion",
             "required": false,
             "type": "integer"
+          },
+          {
+            "description": "optional, default is false. When set to true, BigOven will attempt to apply synonyms in search (e.g., excluding pork will also exclude bacon)",
+            "in": "query",
+            "name": "synonyms",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2017,6 +2360,14 @@
       },
       "type": "object"
     },
+    "API2.Controllers.GroceryListController.PostGroceryListAddLineRequest": {
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "API2.Controllers.GroceryListController.PostGroceryListRecipeRequest": {
       "properties": {
         "markAsPending": {
@@ -2072,6 +2423,9 @@
         "guid": {
           "type": "string"
         },
+        "ischecked": {
+          "type": "boolean"
+        },
         "name": {
           "type": "string"
         },
@@ -2098,6 +2452,36 @@
             "$ref": "#/definitions/BigOven.Model.API2.Photo"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Controllers.MeController.EatingStyle": {
+      "properties": {
+        "Options": {
+          "items": {
+            "$ref": "#/definitions/API2.Controllers.MeController.Option"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Controllers.MeController.Option": {
+      "properties": {
+        "Description": {
+          "type": "string"
+        },
+        "Key": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Controllers.MeController.PreferenceOptions": {
+      "properties": {
+        "EatingStyle": {
+          "$ref": "#/definitions/API2.Controllers.MeController.EatingStyle"
         }
       },
       "type": "object"
@@ -2228,6 +2612,145 @@
           "type": "string"
         },
         "item": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.Accounting": {
+      "properties": {
+        "CreditBalance": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "MemberSince": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "PremiumExpiryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UserLevel": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.BigOvenUser": {
+      "properties": {
+        "Accounting": {
+          "$ref": "#/definitions/API2.Models.Accounting"
+        },
+        "BOAuthToken": {
+          "type": "string"
+        },
+        "LastChangeLogID": {
+          "type": "string"
+        },
+        "Personal": {
+          "$ref": "#/definitions/API2.Models.Personal"
+        },
+        "Preferences": {
+          "$ref": "#/definitions/API2.Models.Preference"
+        },
+        "Profile": {
+          "$ref": "#/definitions/API2.Models.Profile"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.Counts": {
+      "properties": {
+        "AddedCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "FollowersCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "FollowingCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "PrivateRecipeCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "PublicRecipeCount": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "TotalRecipes": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.Location": {
+      "properties": {
+        "City": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "DMA": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.Personal": {
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "Location": {
+          "$ref": "#/definitions/API2.Models.Location"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.Preference": {
+      "properties": {
+        "EatingStyle": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "API2.Models.Profile": {
+      "properties": {
+        "AboutMe": {
+          "type": "string"
+        },
+        "Counts": {
+          "$ref": "#/definitions/API2.Models.Counts"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "FullName": {
+          "type": "string"
+        },
+        "HomeUrl": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "PhotoUrl": {
+          "type": "string"
+        },
+        "UserID": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "UserName": {
           "type": "string"
         }
       },

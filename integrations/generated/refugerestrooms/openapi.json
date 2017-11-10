@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
-    "http"
+    "https"
   ],
   "host": "www.refugerestrooms.org",
   "basePath": "/api",
@@ -20,7 +20,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "swagger",
         "url": "http://www.refugerestrooms.org/api/swagger_doc.json",

@@ -366,7 +366,7 @@ Get project status badge image
 
 ```js
 appveyor.getProjectStatusBadge({
-  "webhookId": ""
+  "statusBadgeId": ""
 }, context)
 ```
 
@@ -376,7 +376,7 @@ appveyor.getProjectStatusBadge({
 * passingText (string) - Text to show in badge when build is passing.
 * failingText (string) - Text to show in badge when build is failing.
 * pendingText (string) - Text to show in badge when build is pending.
-* webhookId (string) **required** - Project webhook ID (`webhookId` from `ProjectWithConfiguration`)
+* statusBadgeId (string) **required** - ID of the status badge (`statusBadgeId` from `ProjectWithConfiguration`).
 
 ### getProjectBranchStatusBadge
 Get project branch status badge image
@@ -384,7 +384,7 @@ Get project branch status badge image
 
 ```js
 appveyor.getProjectBranchStatusBadge({
-  "webhookId": "",
+  "statusBadgeId": "",
   "buildBranch": ""
 }, context)
 ```
@@ -395,7 +395,7 @@ appveyor.getProjectBranchStatusBadge({
 * passingText (string) - Text to show in badge when build is passing.
 * failingText (string) - Text to show in badge when build is failing.
 * pendingText (string) - Text to show in badge when build is pending.
-* webhookId (string) **required** - Project webhook ID (`webhookId` from `ProjectWithConfiguration`)
+* statusBadgeId (string) **required** - ID of the status badge (`statusBadgeId` from `ProjectWithConfiguration`).
 * buildBranch (string) **required** - Build Branch
 
 ### deleteProject

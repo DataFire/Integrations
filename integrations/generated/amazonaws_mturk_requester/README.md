@@ -76,13 +76,14 @@ amazonaws_mturk_requester.AssociateQualificationWithWorker({
 
 ```js
 amazonaws_mturk_requester.CreateAdditionalAssignmentsForHIT({
-  "HITId": ""
+  "HITId": "",
+  "NumberOfAdditionalAssignments": 0
 }, context)
 ```
 
 #### Parameters
 * HITId (string) **required**
-* NumberOfAdditionalAssignments (integer)
+* NumberOfAdditionalAssignments (integer) **required**
 * UniqueRequestToken (string)
 
 ### CreateHIT
@@ -113,7 +114,7 @@ amazonaws_mturk_requester.CreateHIT({
 * QualificationRequirements (array)
 * Question (string)
 * RequesterAnnotation (string)
-* Reward (string) **required** - A string representing a numeric value.
+* Reward (string) **required** - A string representing a currency amount.
 * Title (string) **required**
 * UniqueRequestToken (string)
 
@@ -136,7 +137,7 @@ amazonaws_mturk_requester.CreateHITType({
 * Description (string) **required**
 * Keywords (string)
 * QualificationRequirements (array)
-* Reward (string) **required** - A string representing a numeric value.
+* Reward (string) **required** - A string representing a currency amount.
 * Title (string) **required**
 
 ### CreateHITWithHITType
@@ -527,13 +528,14 @@ amazonaws_mturk_requester.NotifyWorkers({
 
 ```js
 amazonaws_mturk_requester.RejectAssignment({
-  "AssignmentId": ""
+  "AssignmentId": "",
+  "RequesterFeedback": ""
 }, context)
 ```
 
 #### Parameters
 * AssignmentId (string) **required**
-* RequesterFeedback (string)
+* RequesterFeedback (string) **required**
 
 ### RejectQualificationRequest
 
@@ -557,14 +559,15 @@ amazonaws_mturk_requester.RejectQualificationRequest({
 amazonaws_mturk_requester.SendBonus({
   "WorkerId": "",
   "BonusAmount": "",
-  "AssignmentId": ""
+  "AssignmentId": "",
+  "Reason": ""
 }, context)
 ```
 
 #### Parameters
 * AssignmentId (string) **required**
-* BonusAmount (string) **required** - A string representing a numeric value.
-* Reason (string)
+* BonusAmount (string) **required** - A string representing a currency amount.
+* Reason (string) **required**
 * UniqueRequestToken (string)
 * WorkerId (string) **required**
 
@@ -576,7 +579,9 @@ amazonaws_mturk_requester.SendBonus({
 amazonaws_mturk_requester.SendTestEventNotification({
   "Notification": {
     "Destination": "",
-    "Transport": ""
+    "Transport": "",
+    "Version": "",
+    "EventTypes": []
   },
   "TestEventType": ""
 }, context)
@@ -592,12 +597,13 @@ amazonaws_mturk_requester.SendTestEventNotification({
 
 ```js
 amazonaws_mturk_requester.UpdateExpirationForHIT({
-  "HITId": ""
+  "HITId": "",
+  "ExpireAt": ""
 }, context)
 ```
 
 #### Parameters
-* ExpireAt (string)
+* ExpireAt (string) **required**
 * HITId (string) **required**
 
 ### UpdateHITReviewStatus

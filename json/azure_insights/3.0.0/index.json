@@ -1,0 +1,171 @@
+{
+  "id": "azure_insights",
+  "title": "InsightsClient",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_insights.png"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "LocalizableString": {
+      "description": "The localizable string class.",
+      "properties": {
+        "localizedValue": {
+          "description": "the locale specific value.",
+          "type": "string"
+        },
+        "value": {
+          "description": "the invariant value.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "LocalizableString"
+    },
+    "Metric": {
+      "description": "A set of metric values in a time range.",
+      "properties": {
+        "data": {
+          "description": "Array of data points representing the metric values.",
+          "items": {
+            "$ref": "#/definitions/MetricValue"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "the id, resourceId, of the metric.",
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/LocalizableString",
+          "description": "the name and the display name of the metric, i.e. it is localizable string."
+        },
+        "type": {
+          "description": "the resource type of the metric resource.",
+          "type": "string"
+        },
+        "unit": {
+          "$ref": "#/definitions/Unit",
+          "description": "the unit of the metric."
+        }
+      },
+      "required": [
+        "name",
+        "unit",
+        "data"
+      ],
+      "title": "Metric"
+    },
+    "MetricCollection": {
+      "description": "The collection of metric value sets.",
+      "properties": {
+        "value": {
+          "description": "the value of the collection.",
+          "items": {
+            "$ref": "#/definitions/Metric"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "MetricCollection"
+    },
+    "MetricValue": {
+      "description": "Represents a metric value.",
+      "properties": {
+        "average": {
+          "description": "the average value in the time range.",
+          "format": "double",
+          "type": "number"
+        },
+        "count": {
+          "description": "the number of samples in the time range. Can be used to determine the number of values that contributed to the average value.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "maximum": {
+          "description": "the greatest value in the time range.",
+          "format": "double",
+          "type": "number"
+        },
+        "minimum": {
+          "description": "the least value in the time range.",
+          "format": "double",
+          "type": "number"
+        },
+        "timeStamp": {
+          "description": "the timestamp for the metric value in ISO 8601 format.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "total": {
+          "description": "the sum of all of the values in the time range.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "timeStamp"
+      ],
+      "title": "MetricValue"
+    },
+    "Unit": {
+      "description": "the unit of the metric.",
+      "enum": [
+        "Count",
+        "Bytes",
+        "Seconds",
+        "CountPerSecond",
+        "BytesPerSecond",
+        "Percent",
+        "MilliSeconds"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "Unit"
+      },
+      "title": "Unit"
+    }
+  },
+  "actions": [
+    {
+      "id": "Metrics_List",
+      "title": "Metrics_List",
+      "description": "**Lists the metric values for a resource**.<br>The **$filter** is used to reduce the set of metric data returned. Some common properties for this expression will be: name.value, aggregationType, startTime, endTime, timeGrain. The filter expression uses these properties with comparison operators (eg. eq, gt, lt) and multiple expressions can be combined with parentheses and 'and/or' operators.<br>Some example filter expressions are:<br>- $filter=(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2016-02-20 and endTime eq 2016-02-21 and timeGrain eq duration'PT1M',<br>- $filter=(name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2016-02-20 and endTime eq 2016-02-21 and timeGrain eq duration'PT1H',<br>- $filter=(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2016-02-20 and endTime eq 2016-02-21 and timeGrain eq duration'PT1M'.<br><br> >**NOTE**: When a metrics query comes in with multiple metrics, but with no aggregation types defined, the service will pick the Primary aggregation type of the first metrics to be used as the default aggregation type for all the metrics.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceUri": {
+            "type": "string",
+            "description": "The identifier of the resource."
+          },
+          "$filter": {
+            "type": "string",
+            "description": "Reduces the set of data collected. The syntax allowed depends on the operation. See the operation's description for details."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MetricCollection"
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

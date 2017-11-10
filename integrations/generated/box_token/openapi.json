@@ -312,7 +312,8 @@
             "file_version_retention",
             "legal_hold_policy",
             "legal_hold_policy_assignment",
-            "legal_hold"
+            "legal_hold",
+            "upload_session"
           ],
           "type": "string"
         }

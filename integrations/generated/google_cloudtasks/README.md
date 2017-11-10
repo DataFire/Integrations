@@ -562,7 +562,7 @@ google_cloudtasks.projects.locations.queues.tasks.list({
 ```
 
 #### Parameters
-* orderBy (string) - 
+* orderBy (string) - Sort order used for the query. The only fields supported for sorting
 * pageSize (integer) - Requested page size. Fewer tasks than requested might be returned.
 * pageToken (string) - A token identifying the page of results to return.
 * parent (string) **required** - Required.

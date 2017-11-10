@@ -41,6 +41,21 @@ azure_arm_analysisservices.Servers_List({
 * api-version (string) **required** - The client API version.
 * subscriptionId (string) **required** - A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
 
+### Servers_ListSkusForNew
+Lists eligible SKUs for Analysis Services resource provider.
+
+
+```js
+azure_arm_analysisservices.Servers_ListSkusForNew({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Parameters
+* api-version (string) **required** - The client API version.
+* subscriptionId (string) **required** - A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
 ### Servers_ListByResourceGroup
 Gets all the Analysis Services servers for the given resource group.
 
@@ -149,6 +164,25 @@ Resumes operation of the specified Analysis Services server instance.
 
 ```js
 azure_arm_analysisservices.Servers_Resume({
+  "resourceGroupName": "",
+  "serverName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
+```
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
+* serverName (string) **required** - The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.
+* api-version (string) **required** - The client API version.
+* subscriptionId (string) **required** - A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Servers_ListSkusForExisting
+Lists eligible SKUs for an Analysis Services resource.
+
+
+```js
+azure_arm_analysisservices.Servers_ListSkusForExisting({
   "resourceGroupName": "",
   "serverName": "",
   "api-version": "",

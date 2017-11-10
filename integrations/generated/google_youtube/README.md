@@ -233,8 +233,9 @@ google_youtube.channelBanners.insert({}, context)
 ```
 
 #### Parameters
-* onBehalfOfContentOwner (string) - Note: This parameter is intended exclusively for YouTube content partners.
 * body (object) - A channel banner returned as the response to a channel_banner.insert call.
+* channelId (string) - The channelId parameter identifies the YouTube channel to which the banner is uploaded. The channelId parameter was introduced as a required parameter in May 2017. As this was a backward-incompatible change, channelBanners.insert requests that do not specify this parameter will not return an error until six months have passed from the time that the parameter was introduced. Please see the API Terms of Service for the official policy regarding backward incompatible changes and the API revision history for the exact date that the parameter was introduced.
+* onBehalfOfContentOwner (string) - Note: This parameter is intended exclusively for YouTube content partners.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -1458,10 +1459,10 @@ google_youtube.superChatEvents.list({
 ```
 
 #### Parameters
-* part (string) **required** - The part parameter specifies the superChatEvent resource parts that the API response will include. Supported values are id and snippet.
 * hl (string) - The hl parameter instructs the API to retrieve localized resource metadata for a specific application language that the YouTube website supports. The parameter value must be a language code included in the list returned by the i18nLanguages.list method.
 * maxResults (integer) - The maxResults parameter specifies the maximum number of items that should be returned in the result set.
 * pageToken (string) - The pageToken parameter identifies a specific page in the result set that should be returned. In an API response, the nextPageToken and prevPageToken properties identify other pages that could be retrieved.
+* part (string) **required** - The part parameter specifies the superChatEvent resource parts that the API response will include. Supported values are id and snippet.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

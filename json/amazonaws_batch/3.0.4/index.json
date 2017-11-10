@@ -28,13 +28,17 @@
           "$ref": "#/definitions/Integer",
           "description": "The exit code for the job attempt. A non-zero exit code is considered a failure."
         },
+        "logStreamName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status."
+        },
         "reason": {
           "$ref": "#/definitions/String",
           "description": "A short (255 max characters) human-readable string to provide additional details about a running or stopped container."
         },
         "taskArn": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt."
+          "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the <code>STARTING</code> status."
         }
       },
       "type": "object",
@@ -118,7 +122,7 @@
       "properties": {
         "jobId": {
           "$ref": "#/definitions/String",
-          "description": "A list of up to 100 job IDs to cancel."
+          "description": "The AWS Batch job ID of the job to cancel."
         },
         "reason": {
           "$ref": "#/definitions/String",
@@ -250,11 +254,11 @@
         },
         "instanceRole": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment."
+          "description": "The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example, <code>ecsInstanceRole</code> or <code>arn:aws:iam::&lt;aws_account_id&gt;:instance-profile/ecsInstanceRole</code>. For more information, see <a href=\"http://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html\">Amazon ECS Instance Role</a> in the <i>AWS Batch User Guide</i>."
         },
         "instanceTypes": {
           "$ref": "#/definitions/StringList",
-          "description": "The instances types that may launched."
+          "description": "The instances types that may be launched. You can specify instance families to launch any instance type within those families (for example, <code>c4</code> or <code>p3</code>), or you can specify specific sizes within a family (such as <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick instance types (from the latest C, M, and R instance families) on the fly that match the demand of your job queues."
         },
         "maxvCpus": {
           "$ref": "#/definitions/Integer",
@@ -329,7 +333,7 @@
         },
         "environment": {
           "$ref": "#/definitions/EnvironmentVariables",
-          "description": "The environment variables to pass to a container."
+          "description": "<p>The environment variables to pass to a container.</p> <note> <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p> </note>"
         },
         "exitCode": {
           "$ref": "#/definitions/Integer",
@@ -342,6 +346,10 @@
         "jobRoleArn": {
           "$ref": "#/definitions/String",
           "description": "The Amazon Resource Name (ARN) associated with the job upon execution. "
+        },
+        "logStreamName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is <code>/aws/batch/job</code>. Each container attempt receives a log stream name when they reach the <code>RUNNING</code> status."
         },
         "memory": {
           "$ref": "#/definitions/Integer",
@@ -365,7 +373,7 @@
         },
         "taskArn": {
           "$ref": "#/definitions/String",
-          "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job."
+          "description": "The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job. Each container attempt receives a task ARN when they reach the <code>STARTING</code> status."
         },
         "ulimits": {
           "$ref": "#/definitions/Ulimits",
@@ -396,7 +404,7 @@
         },
         "environment": {
           "$ref": "#/definitions/EnvironmentVariables",
-          "description": "The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the job definition."
+          "description": "<p>The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the job definition.</p> <note> <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p> </note>"
         },
         "memory": {
           "$ref": "#/definitions/Integer",
@@ -419,7 +427,7 @@
         },
         "environment": {
           "$ref": "#/definitions/EnvironmentVariables",
-          "description": "<p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--env</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p> <important> <p>We do not recommend using plain text environment variables for sensitive information, such as credential data.</p> </important>"
+          "description": "<p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--env</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p> <important> <p>We do not recommend using plain text environment variables for sensitive information, such as credential data.</p> </important> <note> <p>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention is reserved for variables that are set by the AWS Batch service.</p> </note>"
         },
         "image": {
           "$ref": "#/definitions/String",
@@ -431,7 +439,7 @@
         },
         "memory": {
           "$ref": "#/definitions/Integer",
-          "description": "The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to <code>Memory</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--memory</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>."
+          "description": "The hard limit (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed. This parameter maps to <code>Memory</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--memory</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. You must specify at least 4 MiB of memory for a job."
         },
         "mountPoints": {
           "$ref": "#/definitions/MountPoints",
@@ -455,7 +463,7 @@
         },
         "vcpus": {
           "$ref": "#/definitions/Integer",
-          "description": "The number of vCPUs reserved for the container. This parameter maps to <code>CpuShares</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--cpu-shares</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares."
+          "description": "The number of vCPUs reserved for the container. This parameter maps to <code>CpuShares</code> in the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/\">Docker Remote API</a> and the <code>--cpu-shares</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least 1 vCPU."
         },
         "volumes": {
           "$ref": "#/definitions/Volumes",
@@ -504,7 +512,7 @@
       "properties": {
         "computeEnvironmentName": {
           "$ref": "#/definitions/String",
-          "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed."
+          "description": "The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed."
         },
         "computeResources": {
           "$ref": "#/definitions/ComputeResource",
@@ -512,7 +520,7 @@
         },
         "serviceRole": {
           "$ref": "#/definitions/String",
-          "description": "The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. "
+          "description": "<p>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.</p> <p>If your specified role has a path other than <code>/</code>, then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.</p> <note> <p>Depending on how you created your AWS Batch service role, its ARN may contain the <code>service-role</code> path prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN does not use the <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments.</p> </note>"
         },
         "state": {
           "$ref": "#/definitions/CEState",
@@ -562,7 +570,7 @@
           }
         ],
         "jobQueueName": "HighPriority",
-        "priority": 1,
+        "priority": 10,
         "state": "ENABLED"
       },
       "properties": {
@@ -576,7 +584,7 @@
         },
         "priority": {
           "$ref": "#/definitions/Integer",
-          "description": "The priority of the job queue. Job queues with a higher priority (or a lower integer value for the <code>priority</code> parameter) are evaluated first when associated with same compute environment. Priority is determined in ascending order, for example, a job queue with a priority value of <code>1</code> is given scheduling preference over a job queue with a priority value of <code>10</code>."
+          "description": "The priority of the job queue. Job queues with a higher priority (or a higher integer value for the <code>priority</code> parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of <code>10</code> is given scheduling preference over a job queue with a priority value of <code>1</code>."
         },
         "state": {
           "$ref": "#/definitions/JQState",
@@ -1245,7 +1253,7 @@
         },
         "jobStatus": {
           "$ref": "#/definitions/JobStatus",
-          "description": "The job status with which to filter jobs in the specified queue."
+          "description": "The job status with which to filter jobs in the specified queue. If you do not specify a status, only <code>RUNNING</code> jobs are returned."
         },
         "maxResults": {
           "$ref": "#/definitions/Integer",
@@ -1353,7 +1361,7 @@
         },
         "jobDefinitionName": {
           "$ref": "#/definitions/String",
-          "description": "The name of the job definition to register. "
+          "description": "The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed."
         },
         "parameters": {
           "$ref": "#/definitions/ParametersMap",
@@ -1388,7 +1396,7 @@
         },
         "jobDefinitionName": {
           "$ref": "#/definitions/String",
-          "description": "The name of the job definition. "
+          "description": "The name of the job definition."
         },
         "revision": {
           "$ref": "#/definitions/Integer",
@@ -1448,7 +1456,7 @@
         },
         "dependsOn": {
           "$ref": "#/definitions/JobDependencyList",
-          "description": "A list of job IDs on which this job depends. A job can depend upon a maximum of 100 jobs. "
+          "description": "A list of job IDs on which this job depends. A job can depend upon a maximum of 20 jobs. "
         },
         "jobDefinition": {
           "$ref": "#/definitions/String",
@@ -1456,7 +1464,7 @@
         },
         "jobName": {
           "$ref": "#/definitions/String",
-          "description": "<p>The name of the job. A name must be 1 to 128 characters in length.</p> <p>Pattern: ^[a-zA-Z0-9_]+$</p>"
+          "description": "The name of the job. The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. "
         },
         "jobQueue": {
           "$ref": "#/definitions/String",
@@ -1524,7 +1532,7 @@
       "properties": {
         "jobId": {
           "$ref": "#/definitions/String",
-          "description": "Job IDs to be terminated. Up to 100 jobs can be specified."
+          "description": "The AWS Batch job ID of the job to terminate."
         },
         "reason": {
           "$ref": "#/definitions/String",
@@ -1591,7 +1599,7 @@
         },
         "serviceRole": {
           "$ref": "#/definitions/String",
-          "description": "The name or full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to ECS, Auto Scaling, and EC2 on your behalf."
+          "description": "<p>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.</p> <p>If your specified role has a path other than <code>/</code>, then you must either specify the full role ARN (this is recommended) or prefix the role name with the path.</p> <note> <p>Depending on how you created your AWS Batch service role, its ARN may contain the <code>service-role</code> path prefix. When you only specify the name of the service role, AWS Batch assumes that your ARN does not use the <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments.</p> </note>"
         },
         "state": {
           "$ref": "#/definitions/CEState",
@@ -1638,7 +1646,7 @@
         },
         "priority": {
           "$ref": "#/definitions/Integer",
-          "description": "The priority of the job queue. Job queues with a higher priority (or a lower integer value for the <code>priority</code> parameter) are evaluated first when associated with same compute environment. Priority is determined in ascending order, for example, a job queue with a priority value of <code>1</code> is given scheduling preference over a job queue with a priority value of <code>10</code>."
+          "description": "The priority of the job queue. Job queues with a higher priority (or a higher integer value for the <code>priority</code> parameter) are evaluated first when associated with same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of <code>10</code> is given scheduling preference over a job queue with a priority value of <code>1</code>."
         },
         "state": {
           "$ref": "#/definitions/JQState",

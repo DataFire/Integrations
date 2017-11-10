@@ -12,7 +12,7 @@
     "description": "Giphy API",
     "termsOfService": "https://developers.giphy.com/",
     "title": "Giphy",
-    "version": "1",
+    "version": "1.0",
     "x-apisguru-categories": [
       "media"
     ],
@@ -25,7 +25,6 @@
     ],
     "x-preferred": true,
     "x-providerName": "giphy.com",
-    "x-unofficialSpec": true,
     "x-datafire": {
       "name": "giphy",
       "type": "openapi"

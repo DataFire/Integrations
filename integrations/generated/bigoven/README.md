@@ -137,6 +137,17 @@ bigoven.GroceryList_Get(null, context)
 #### Parameters
 *This action has no parameters*
 
+### GroceryList_GroceryListRemoveMarkedItems
+
+
+
+```js
+bigoven.GroceryList_GroceryListRemoveMarkedItems(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### GroceryList_Department
 Departmentalize a list of strings -- used for ad-hoc grocery list item addition
 
@@ -150,12 +161,12 @@ bigoven.GroceryList_Department({
 #### Parameters
 * model (object) **required**
 
-### GroceryList_Post
+### grocerylist.item.post
 Add a single line item to the grocery list
 
 
 ```js
-bigoven.GroceryList_Post({
+bigoven.grocerylist.item.post({
   "newItem": {}
 }, context)
 ```
@@ -191,6 +202,19 @@ bigoven.GroceryList_GroceryListItemGuid({
 * req (object) **required**
 * guid (string) **required**
 
+### grocerylist.line.post
+Add a single line item to the grocery list
+
+
+```js
+bigoven.grocerylist.line.post({
+  "newItem": {}
+}, context)
+```
+
+#### Parameters
+* newItem (object) **required**
+
 ### GroceryList_AddRecipe
 Add a Recipe to the grocery list.  In the request data, pass in recipeId, scale (scale=1.0 says to keep the recipe the same size as originally posted), markAsPending (true/false) to indicate that
             the lines in the recipe should be marked in a "pending" (unconfirmed by user) state.
@@ -217,6 +241,107 @@ bigoven.GroceryList_PostGroceryListSync({
 
 #### Parameters
 * req (object) **required**
+
+### Images_UploadUserAvatar
+POST: /image/avatar
+             
+            Testing with Postman (validated 11/20/2015):
+            1) Remove the Content-Type header; add authentication information
+            2) On the request, click Body and choose "form-data", then add a line item with "key" column set to "file" and on the right,
+            change the type of the input from Text to File.  Browse and choose a JPG.
+
+
+```js
+bigoven.Images_UploadUserAvatar(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### Me_Index
+
+
+
+```js
+bigoven.Me_Index(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### me.put
+
+
+
+```js
+bigoven.me.put({
+  "req": {}
+}, context)
+```
+
+#### Parameters
+* req (object) **required**
+
+### Me_PutMePersonal
+
+
+
+```js
+bigoven.Me_PutMePersonal({
+  "req": {}
+}, context)
+```
+
+#### Parameters
+* req (object) **required**
+
+### Me_PutMePreferences
+
+
+
+```js
+bigoven.Me_PutMePreferences({
+  "req": {}
+}, context)
+```
+
+#### Parameters
+* req (object) **required**
+
+### Me_GetOptions
+
+
+
+```js
+bigoven.Me_GetOptions(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### me.profile.put
+
+
+
+```js
+bigoven.me.profile.put({
+  "req": {}
+}, context)
+```
+
+#### Parameters
+* req (object) **required**
+
+### Me_Skinny
+
+
+
+```js
+bigoven.Me_Skinny(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
 
 ### Recipe_Post
 Add a new recipe
@@ -405,6 +530,19 @@ bigoven.Recipe_Get({
 #### Parameters
 * id (integer) **required** - the Recipe ID to retrieve
 * prefetch (boolean)
+
+### Recipe_ZapRecipe
+
+
+
+```js
+bigoven.Recipe_ZapRecipe({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required**
 
 ### Recipe_Feedback
 Feedback on a Recipe -- for internal BigOven editors
@@ -716,11 +854,16 @@ bigoven.Recipe_RecipeSearch({}, context)
 * include_cat (string) - integer of the subcategory you'd like to limit searches to (see the /recipe/categories endpoint for available id numbers). For instance, 58 is "Main Dish &gt; Casseroles".
 * exclude_cat (string) - like include_cat, set this to an integer to exclude a specific category
 * include_primarycat (string) - csv indicating up to three top-level categories -- valid values are [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]
+* exclude_primarycat (string) - csv indicating integer values for up to 3 top-level categories -- valid values are 1...11 [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]
 * include_ing (string) - A CSV representing up to 3 ingredients to include, e.g., tomatoes,corn%20%starch,chicken
 * exclude_ing (string) - A CSV representing up to 3 ingredients to exclude  (Powersearch-capable plan required)
 * cuisine (string) - Limit to a specific cuisine. Cooks can enter anything free-form, but the few dozen preconfigured values are Afghan,African,American,American-South,Asian,Australian,Brazilian,Cajun,Canadian,Caribbean,Chinese,Croatian,Cuban,Dessert,Eastern European,English,French,German,Greek,Hawaiian,Hungarian,India,Indian,Irish,Italian,Japanese,Jewish,Korean,Latin,Mediterranean,Mexican,Middle Eastern,Moroccan,Polish,Russian,Scandanavian,Seafood,Southern,Southwestern,Spanish,Tex-Mex,Thai,Vegan,Vegetarian,Vietnamese
 * db (string)
 * userset (string) - If set to a given username, it'll force the search to filter to just that username
+* servingsMin (number) - Limit to yield of a given number size or greater. Note that cooks usually enter recipes by Servings, but sometimes they are posted by "dozen", etc. This parameter simply specifies the minimum number for that value entered in "yield."
+* totalMins (integer) - Optional. If supplied, will restrict results to recipes that can be made in {totalMins} or less. (Convert "1 hour, 15 minutes" to 75 before passing in.)
+* maxIngredients (integer) - Optional. If supplied, will restrict results to recipes that can be made with {maxIngredients} ingredients or less
+* minIngredients (integer) - Optional. If supplied, will restrict results to recipes that have at least {minIngredients}
 * rpp (integer) - integer; results per page
 * pg (integer) - integer: the page number
 * vtn (integer) - when set to 1, limit to vegetarian (Powersearch-capable plan required)
@@ -736,6 +879,7 @@ bigoven.Recipe_RecipeSearch({}, context)
 * rmf (integer) - when set to 1, limit to red-meat free (Powersearch-capable plan required)
 * cps (integer) - when set to 1, recipe contains pasta, set to 0 means contains no pasta (Powersearch-capable plan required)
 * champion (integer) - optional. When set to 1, this will limit search results to "best of" recipes as determined by various internal editorial and programmatic algorithms. For the most comprehensive results, don't include this parameter.
+* synonyms (boolean) - optional, default is false. When set to true, BigOven will attempt to apply synonyms in search (e.g., excluding pork will also exclude bacon)
 
 ### Recipe_GetRandomRecipe
 Get a random, home-page-quality Recipe.

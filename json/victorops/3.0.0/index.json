@@ -1,0 +1,2741 @@
+{
+  "id": "victorops",
+  "title": "VictorOps",
+  "description": "This API allows you to interact with the VictorOps platform in various ways. Your account may be limited\nto a total number of API calls per month. Also, some of these API calls have rate limits.\n\nNOTE: In this documentation when creating a sample curl request (clicking the TRY IT OUT! button), in some API\nviewing interfaces, the '@' in an email address may be encoded. Please note that the REST endpoints will not\nprocess the encoded version. Make sure that the encoded character '%40' is changed to its unencoded form before\nsubmitting the curl request.\n",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/victorops.jpg"
+  },
+  "actionCount": 43,
+  "definitions": {
+    "AckOrResolveByUserRequest": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "userName"
+      ],
+      "type": "object",
+      "title": "AckOrResolveByUserRequest"
+    },
+    "AckOrResolveRequest": {
+      "properties": {
+        "incidentNames": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "userName",
+        "incidentNames"
+      ],
+      "type": "object",
+      "title": "AckOrResolveRequest"
+    },
+    "AckOrResolveResponse": {
+      "description": "The results of ack/resolve for each incident",
+      "properties": {
+        "results": {
+          "items": {
+            "$ref": "#/definitions/AckOrResolveResult"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "AckOrResolveResponse"
+    },
+    "AckOrResolveResult": {
+      "description": "The results of ack/resolve for a individual incident",
+      "properties": {
+        "cmdAccepted": {
+          "type": "boolean"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "incidentNumber": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AckOrResolveResult"
+    },
+    "AckUser": {
+      "description": "A JSON object with first/last name and email of the user that acknowledged the incident.",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "first": {
+          "type": "string"
+        },
+        "last": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AckUser"
+    },
+    "ActiveIncidentInfo": {
+      "description": "Incidents contain the following fields (all should be considered optional)",
+      "properties": {
+        "alertCount": {
+          "description": "The number of alerts received for this incident",
+          "type": "number"
+        },
+        "currentPhase": {
+          "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\".",
+          "type": "string"
+        },
+        "entityId": {
+          "description": "The unique identification of the entity being monitored that caused the incident",
+          "type": "string"
+        },
+        "host": {
+          "description": "The host on which the incident occurred",
+          "type": "string"
+        },
+        "incidentNumber": {
+          "description": "The VictorOps incident number",
+          "type": "string"
+        },
+        "lastAlertId": {
+          "description": "The unique id of the last alert for the incident",
+          "type": "string"
+        },
+        "lastAlertTime": {
+          "description": "The time of the last alert received for the incident",
+          "type": "string"
+        },
+        "pagedTeams": {
+          "description": "The teams that were paged for the incident",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pagedUsers": {
+          "description": "The users that were paged for the incident.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "service": {
+          "description": "The service name causing the incident (if any)",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "The time the incident started",
+          "type": "string"
+        },
+        "transitions": {
+          "description": "Transitions of the incident state over time",
+          "items": {
+            "$ref": "#/definitions/IncidentTransition"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ActiveIncidentInfo"
+    },
+    "ActiveIncidentList": {
+      "description": "The list of incidents in various states",
+      "properties": {
+        "incidents": {
+          "description": "The incident data",
+          "items": {
+            "$ref": "#/definitions/ActiveIncidentInfo"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ActiveIncidentList"
+    },
+    "AddTeamMemberPayload": {
+      "description": "The user information",
+      "properties": {
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "username"
+      ],
+      "type": "object",
+      "title": "AddTeamMemberPayload"
+    },
+    "AddTeamPayload": {
+      "description": "The team information",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "AddTeamPayload"
+    },
+    "AddTeamResponse": {
+      "description": "Some info about the team",
+      "properties": {
+        "_membersUrl": {
+          "type": "string"
+        },
+        "_selfUrl": {
+          "type": "string"
+        },
+        "isDefaultTeam": {
+          "type": "boolean"
+        },
+        "memberCount": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "AddTeamResponse"
+    },
+    "AddUserPayload": {
+      "description": "The user information",
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "expirationHours": {
+          "default": 24,
+          "description": "The validity duration for the invitatation/set password link sent to the added user.",
+          "type": "number"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "username",
+        "email"
+      ],
+      "type": "object",
+      "title": "AddUserPayload"
+    },
+    "AddUserResponse": {
+      "$ref": "#/definitions/V1User",
+      "title": "AddUserResponse"
+    },
+    "AlertBatchResponse": {
+      "description": "A collection of requested alerts",
+      "properties": {
+        "alerts": {
+          "items": {
+            "$ref": "#/definitions/GetAlertResponse"
+          },
+          "type": "array"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "requestSize": {
+          "type": "integer"
+        },
+        "responseSize": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "AlertBatchResponse"
+    },
+    "AlertId": {
+      "type": "string",
+      "title": "AlertId"
+    },
+    "AlertRequest": {
+      "properties": {
+        "alertId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alertId"
+      ],
+      "type": "object",
+      "title": "AlertRequest"
+    },
+    "AllOnCall": {
+      "properties": {
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/AllOnCallTeamsResource"
+          },
+          "type": "array"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AllOnCall"
+    },
+    "AllOnCallTeamsResource": {
+      "properties": {
+        "escalation_policy": {
+          "items": {
+            "$ref": "#/definitions/OnCallEscalationPolicyResource"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Team name",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Team slug",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AllOnCallTeamsResource"
+    },
+    "ContactDevice": {
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "deviceType": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ContactDevice"
+    },
+    "ContactDeviceAdd": {
+      "description": "The contact device",
+      "properties": {
+        "chat_escalation_sound": {
+          "type": "string"
+        },
+        "device_label": {
+          "type": "string"
+        },
+        "escalation_notification_sound": {
+          "type": "string"
+        },
+        "resolved_notification_sound": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ContactDeviceAdd"
+    },
+    "ContactEmailAdd": {
+      "description": "The contact email",
+      "properties": {
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "label",
+        "email"
+      ],
+      "type": "object",
+      "title": "ContactEmailAdd"
+    },
+    "ContactPhoneAdd": {
+      "description": "The contact phone",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "label",
+        "phone"
+      ],
+      "type": "object",
+      "title": "ContactPhoneAdd"
+    },
+    "CreateBatchAlertRequestPayload": {
+      "description": "A collection of IDs (uuid) for the alerts to be returned",
+      "properties": {
+        "alertIds": {
+          "items": {
+            "$ref": "#/definitions/AlertId"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CreateBatchAlertRequestPayload"
+    },
+    "CreateIncidentRequest": {
+      "properties": {
+        "details": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/IncidentTarget"
+          },
+          "type": "array"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "summary",
+        "details",
+        "userName",
+        "targets"
+      ],
+      "type": "object",
+      "title": "CreateIncidentRequest"
+    },
+    "CreatedIncident": {
+      "properties": {
+        "error": {
+          "description": "An error message",
+          "type": "string"
+        },
+        "incidentNumber": {
+          "description": "The VictorOps incident number",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CreatedIncident"
+    },
+    "DeleteUserPayload": {
+      "description": "The information about what to do with the deleted user",
+      "properties": {
+        "replacement": {
+          "description": "The user to take the place of the deleted user in escalations",
+          "type": "string"
+        }
+      },
+      "required": [
+        "replacement"
+      ],
+      "type": "object",
+      "title": "DeleteUserPayload"
+    },
+    "GetAlertResponse": {
+      "description": "Alert details. All fields should be considered optional.",
+      "properties": {
+        "ackAuthor": {
+          "description": "The user that acknowledged the incident.",
+          "type": "string"
+        },
+        "ackMsg": {
+          "description": "A user entered comment for the acknowledgment.",
+          "type": "string"
+        },
+        "entityDisplayName": {
+          "description": "Used within VictorOps to display a human-readable name for the entity.",
+          "type": "string"
+        },
+        "entityId": {
+          "description": "Identifies the entity (host, service, etc.) this alert was about.\n",
+          "type": "string"
+        },
+        "messageType": {
+          "description": "The type of alert; INFO, WARNING, ACKNOWLEDGEMENT, CRITICAL, RECOVERY\n",
+          "type": "string"
+        },
+        "monitoringTool": {
+          "description": "The name of the monitoring system software (eg. nagios, icinga, sensu, etc.)",
+          "type": "string"
+        },
+        "raw": {
+          "description": "The full, raw alert details JSON string (i.e. parse the string into a JSON object)\n",
+          "type": "string"
+        },
+        "stateMessage": {
+          "description": "Any additional status information from the alert item.",
+          "type": "string"
+        },
+        "stateStartTime": {
+          "description": "The time this entity entered its current state (seconds since epoch).",
+          "type": "number"
+        },
+        "timestamp": {
+          "description": "Timestamp of the alert in seconds since epoch.",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "GetAlertResponse"
+    },
+    "IncidentInfo": {
+      "description": "Incidents contain the following fields (all should be considered optional)",
+      "properties": {
+        "ackTime": {
+          "description": "The time of the last acknowledgment of the incident",
+          "type": "string"
+        },
+        "ackUser": {
+          "$ref": "#/definitions/AckUser"
+        },
+        "ackUserId": {
+          "description": "The VictorOps user id of the user that acknowledged the incident",
+          "type": "string"
+        },
+        "alertCount": {
+          "description": "The number of alerts received for this incident",
+          "type": "number"
+        },
+        "currentPhase": {
+          "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\".",
+          "type": "string"
+        },
+        "endTime": {
+          "description": "The time the incident ended",
+          "type": "string"
+        },
+        "entityDispName": {
+          "description": "The display name of the entity causing the incident",
+          "type": "string"
+        },
+        "entityId": {
+          "description": "The unique identification of the entity being monitored that caused the incident",
+          "type": "string"
+        },
+        "entityType": {
+          "description": "The type of entity causing the incident (host/service)",
+          "type": "string"
+        },
+        "host": {
+          "description": "The host on which the incident occurred",
+          "type": "string"
+        },
+        "incidentNumber": {
+          "description": "The VictorOps incident number",
+          "type": "string"
+        },
+        "lastAlertID": {
+          "description": "The unique id of the last alert for the incident",
+          "type": "string"
+        },
+        "lastAlertTime": {
+          "description": "The time of the last alert received for the incident",
+          "type": "string"
+        },
+        "service": {
+          "description": "The service name causing the incident (if any)",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "The time the incident started",
+          "type": "string"
+        },
+        "teams": {
+          "description": "The teams that were paged for the incident (comma separated).",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "IncidentInfo"
+    },
+    "IncidentList": {
+      "description": "The results of an incident history request",
+      "properties": {
+        "incidents": {
+          "description": "An array of incident objects matching the search",
+          "items": {
+            "$ref": "#/definitions/IncidentInfo"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "description": "The limit value passed in the request",
+          "type": "number"
+        },
+        "offset": {
+          "description": "The offset passed in the request",
+          "type": "number"
+        },
+        "total": {
+          "description": "The total number of incidents available for this search",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "IncidentList"
+    },
+    "IncidentTarget": {
+      "properties": {
+        "slug": {
+          "description": "User name or escalation policy slug",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of target",
+          "enum": [
+            "User",
+            "EscalationPolicy"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "slug"
+      ],
+      "type": "object",
+      "title": "IncidentTarget"
+    },
+    "IncidentTransition": {
+      "description": "A transition of incident state",
+      "properties": {
+        "alertId": {
+          "description": "The unique alert ID that caused the transition",
+          "type": "string"
+        },
+        "alertUrl": {
+          "description": "A URL to retrieve the details of the alert that caused the transition",
+          "type": "string"
+        },
+        "at": {
+          "description": "The time of the transition",
+          "type": "string"
+        },
+        "by": {
+          "description": "The user that caused the transition (if any)",
+          "type": "string"
+        },
+        "manually": {
+          "description": "If the incident transition was caused by a person",
+          "type": "boolean"
+        },
+        "message": {
+          "description": "The message entered by that user (if any)",
+          "type": "string"
+        },
+        "name": {
+          "description": "The transition name",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "IncidentTransition"
+    },
+    "ListRoutingKeysResponse": {
+      "description": "Info about routing keys in the org",
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "routingKeys": {
+          "items": {
+            "$ref": "#/definitions/RoutingKeyInfo"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ListRoutingKeysResponse"
+    },
+    "ListTeamMembersResponse": {
+      "description": "A list of members for the team",
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "_teamUrl": {
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "$ref": "#/definitions/TeamMember"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ListTeamMembersResponse"
+    },
+    "ListTeamResponse": {
+      "description": "Some info about teams in the org",
+      "items": {
+        "properties": {
+          "_membersUrl": {
+            "type": "string"
+          },
+          "_selfUrl": {
+            "type": "string"
+          },
+          "isDefaultTeam": {
+            "type": "boolean"
+          },
+          "memberCount": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "version": {
+            "type": "number"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ListTeamResponse"
+    },
+    "ListUserResponse": {
+      "description": "Some info about the user",
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "users": {
+          "items": {
+            "$ref": "#/definitions/V1User"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ListUserResponse"
+    },
+    "OnCallAndOverrides": {
+      "properties": {
+        "overrides": {
+          "items": {
+            "$ref": "#/definitions/TeamScheduleOverlayResource"
+          },
+          "type": "array"
+        },
+        "schedule": {
+          "items": {
+            "$ref": "#/definitions/TeamScheduleResource"
+          },
+          "type": "array"
+        },
+        "team": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OnCallAndOverrides"
+    },
+    "OnCallEscalationPolicyResource": {
+      "properties": {
+        "id": {
+          "description": "Team ID",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Team name",
+          "type": "string"
+        },
+        "slug": {
+          "description": "Team slug",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OnCallEscalationPolicyResource"
+    },
+    "OnCallInterval": {
+      "properties": {
+        "duration": {
+          "properties": {
+            "hours": {
+              "type": "number"
+            },
+            "minutes": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "off": {
+          "type": "string"
+        },
+        "on": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OnCallInterval"
+    },
+    "OnCallLog": {
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "teamSlug": {
+          "type": "string"
+        },
+        "userLogs": {
+          "items": {
+            "$ref": "#/definitions/UserLog"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "OnCallLog"
+    },
+    "PagingPolicy": {
+      "description": "Paging policy fields",
+      "properties": {
+        "contactType": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer"
+        },
+        "timeout": {
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "PagingPolicy"
+    },
+    "Policies": {
+      "description": "Paging policies accociated which this user",
+      "properties": {
+        "policies": {
+          "items": {
+            "$ref": "#/definitions/PagingPolicy"
+          },
+          "type": "array"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Policies"
+    },
+    "RelLink": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RelLink"
+    },
+    "RemoveTeamMemberPayload": {
+      "description": "The user information",
+      "properties": {
+        "replacement": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "replacement"
+      ],
+      "type": "object",
+      "title": "RemoveTeamMemberPayload"
+    },
+    "RoutingKeyInfo": {
+      "description": "Routing keys contain the following fields",
+      "properties": {
+        "isDefault": {
+          "type": "boolean"
+        },
+        "routingKey": {
+          "type": "string"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/definitions/RoutingKeyTarget"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "RoutingKeyInfo"
+    },
+    "RoutingKeyTarget": {
+      "description": "Routing key target",
+      "properties": {
+        "_teamUrl": {
+          "type": "string"
+        },
+        "policyName": {
+          "type": "string"
+        },
+        "policySlug": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RoutingKeyTarget"
+    },
+    "TakeRequest": {
+      "properties": {
+        "fromUser": {
+          "type": "string"
+        },
+        "toUser": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fromUser",
+        "toUser"
+      ],
+      "type": "object",
+      "title": "TakeRequest"
+    },
+    "TakeResult": {
+      "properties": {
+        "result": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "TakeResult"
+    },
+    "TeamMember": {
+      "description": "Some info about the user",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "verified": {
+          "description": "Whether or not this user has set their password (will always be false)",
+          "type": "string"
+        },
+        "version": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "TeamMember"
+    },
+    "TeamScheduleOverlayResource": {
+      "properties": {
+        "end": {
+          "description": "The time the override is scheduled to end",
+          "type": "number"
+        },
+        "orig": {
+          "description": "The user scheduled on call (if any)",
+          "type": "string"
+        },
+        "over": {
+          "description": "The user overriding the scheduled on call user (if any)",
+          "type": "string"
+        },
+        "start": {
+          "description": "The time the override is scheduled to start",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "TeamScheduleOverlayResource"
+    },
+    "TeamScheduleResource": {
+      "properties": {
+        "oncall": {
+          "description": "The user scheduled on call (if any)",
+          "type": "string"
+        },
+        "overrideoncall": {
+          "description": "The user overriding the scheduled on call user (if any)",
+          "type": "string"
+        },
+        "policyType": {
+          "type": "string"
+        },
+        "rolls": {
+          "items": {
+            "$ref": "#/definitions/TeamScheduleRollResource"
+          },
+          "type": "array"
+        },
+        "rotationName": {
+          "type": "string"
+        },
+        "shiftName": {
+          "type": "string"
+        },
+        "shiftRoll": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "policyType",
+        "rolls"
+      ],
+      "type": "object",
+      "title": "TeamScheduleResource"
+    },
+    "TeamScheduleRollResource": {
+      "properties": {
+        "change": {
+          "description": "The time the period is scheduled to start",
+          "type": "number"
+        },
+        "isRoll": {
+          "type": "boolean"
+        },
+        "oncall": {
+          "description": "The user scheduled on call (if any)",
+          "type": "string"
+        },
+        "until": {
+          "description": "The time the period is scheduled to end",
+          "type": "number"
+        }
+      },
+      "required": [
+        "change",
+        "until",
+        "isRoll"
+      ],
+      "type": "object",
+      "title": "TeamScheduleRollResource"
+    },
+    "UserContact": {
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "deviceType": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "UserContact"
+    },
+    "UserLog": {
+      "properties": {
+        "adjustedTotal": {
+          "properties": {
+            "hours": {
+              "type": "number"
+            },
+            "minutes": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "log": {
+          "items": {
+            "$ref": "#/definitions/OnCallInterval"
+          },
+          "type": "array"
+        },
+        "total": {
+          "properties": {
+            "hours": {
+              "type": "number"
+            },
+            "minutes": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "UserLog"
+    },
+    "V1User": {
+      "description": "Some info about the user",
+      "properties": {
+        "_selfUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "passwordLastUpdated": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "verified": {
+          "description": "Whether or not this user has set their password (will always be false)",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "V1User"
+    }
+  },
+  "actions": [
+    {
+      "id": "api_public.v1.alerts.uuid.get",
+      "title": "api_public.v1.alerts.uuid.get",
+      "description": "Retrieve the details of an alert that was sent VictorOps by you.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "uuid": {
+            "type": "string",
+            "description": "The VictorOps uuid of the alert"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "uuid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetAlertResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.incidents.get",
+      "title": "api_public.v1.incidents.get",
+      "description": "Get a list of the currently open, acknowledged and recently resolved incidents.\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActiveIncidentList"
+      }
+    },
+    {
+      "id": "api_public.v1.incidents.post",
+      "title": "api_public.v1.incidents.post",
+      "description": "Create a new incident. This call replicates the function of our [manual incident creation process](https://help.victorops.com/knowledge-base/manual-incident-creation/). Monitoring tools and custom integrations should be configured using our [REST Endpoint](https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/). This API may be called a maximum of 6 times per minute.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/CreateIncidentRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreatedIncident"
+      }
+    },
+    {
+      "id": "api_public.v1.incidents.ack.patch",
+      "title": "api_public.v1.incidents.ack.patch",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/AckOrResolveRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AckOrResolveResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.incidents.byUser.ack.patch",
+      "title": "api_public.v1.incidents.byUser.ack.patch",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/AckOrResolveByUserRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AckOrResolveResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.incidents.byUser.resolve.patch",
+      "title": "api_public.v1.incidents.byUser.resolve.patch",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/AckOrResolveByUserRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AckOrResolveResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.incidents.resolve.patch",
+      "title": "api_public.v1.incidents.resolve.patch",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/AckOrResolveRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AckOrResolveResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.org.routing_keys.get",
+      "title": "api_public.v1.org.routing_keys.get",
+      "description": "Retrieves a list of routing keys and associated teams.\nThis API may be called a maximum of once a minute.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRoutingKeysResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.get",
+      "title": "api_public.v1.team.get",
+      "description": "Get a list of teams for your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTeamResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.post",
+      "title": "api_public.v1.team.post",
+      "description": "Add a team to your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/AddTeamPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTeamResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.team.delete",
+      "title": "api_public.v1.team.team.delete",
+      "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team to be deleted"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api_public.v1.team.team.get",
+      "title": "api_public.v1.team.team.get",
+      "description": "Get the information for the specified team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team to fetch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTeamResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.team.put",
+      "title": "api_public.v1.team.team.put",
+      "description": "Update the designated team\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team to be updated"
+          },
+          "body": {
+            "$ref": "#/definitions/AddTeamPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddTeamResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.team.members.get",
+      "title": "api_public.v1.team.team.members.get",
+      "description": "Get the members for the specified team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team to fetch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTeamMembersResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.team.members.post",
+      "title": "api_public.v1.team.team.members.post",
+      "description": "Add a team member to your team.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team to fetch"
+          },
+          "body": {
+            "$ref": "#/definitions/AddTeamMemberPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTeamMembersResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.team.team.members.user.delete",
+      "title": "api_public.v1.team.team.members.user.delete",
+      "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team to be deleted"
+          },
+          "user": {
+            "type": "string",
+            "description": "The team member username"
+          },
+          "body": {
+            "$ref": "#/definitions/RemoveTeamMemberPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team",
+          "user",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api_public.v1.team.team.oncall.schedule.get",
+      "title": "api_public.v1.team.team.oncall.schedule.get",
+      "description": "Get the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team 'slug'"
+          },
+          "daysForward": {
+            "type": "number",
+            "description": "Days to include in returned schedule (30 max)",
+            "maximum": 30,
+            "minimum": 0,
+            "default": 14
+          },
+          "daysSkip": {
+            "type": "number",
+            "description": "Days to skip before computing schedule to return (90 max)",
+            "maximum": 90,
+            "minimum": 0,
+            "default": 0
+          },
+          "step": {
+            "type": "number",
+            "description": "Step of escalation policy (3 max)",
+            "maximum": 3,
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OnCallAndOverrides"
+      }
+    },
+    {
+      "id": "api_public.v1.team.team.oncall.user.patch",
+      "title": "api_public.v1.team.team.oncall.user.patch",
+      "description": "Replaces a currently on-call user on the team with another.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/TakeRequest"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team 'slug'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body",
+          "team"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TakeResult"
+      }
+    },
+    {
+      "id": "api_public.v1.user.get",
+      "title": "api_public.v1.user.get",
+      "description": "Get a list of users for your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListUserResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.user.post",
+      "title": "api_public.v1.user.post",
+      "description": "Add a user to your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "body": {
+            "$ref": "#/definitions/AddUserPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddUserResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.delete",
+      "title": "api_public.v1.user.user.delete",
+      "description": "Remove a user from your organization.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user to be deleted"
+          },
+          "body": {
+            "$ref": "#/definitions/DeleteUserPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api_public.v1.user.user.get",
+      "title": "api_public.v1.user.user.get",
+      "description": "Get the information for the specified user.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user to fetch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddUserResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.put",
+      "title": "api_public.v1.user.user.put",
+      "description": "Update the designated user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user to be updated"
+          },
+          "body": {
+            "$ref": "#/definitions/AddUserPayload"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddUserResponse"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.get",
+      "title": "api_public.v1.user.user.contact_methods.get",
+      "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "devices": {
+            "items": {
+              "$ref": "#/definitions/ContactDevice"
+            },
+            "type": "array"
+          },
+          "emails": {
+            "items": {
+              "$ref": "#/definitions/UserContact"
+            },
+            "type": "array"
+          },
+          "phones": {
+            "items": {
+              "$ref": "#/definitions/UserContact"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.devices.get",
+      "title": "api_public.v1.user.user.contact_methods.devices.get",
+      "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ContactDevice"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.devices.contactId.delete",
+      "title": "api_public.v1.user.user.contact_methods.devices.contactId.delete",
+      "description": "Delete a contact device for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ContactDevice"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.devices.contactId.get",
+      "title": "api_public.v1.user.user.contact_methods.devices.contactId.get",
+      "description": "Get the indicated contact device for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ContactDevice"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.devices.contactId.put",
+      "title": "api_public.v1.user.user.contact_methods.devices.contactId.put",
+      "description": "Update a contact device for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/ContactDeviceAdd"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ContactDevice"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.emails.get",
+      "title": "api_public.v1.user.user.contact_methods.emails.get",
+      "description": "Get the contact emails for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserContact"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.emails.post",
+      "title": "api_public.v1.user.user.contact_methods.emails.post",
+      "description": "Create a contact email for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "body": {
+            "$ref": "#/definitions/ContactEmailAdd"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserContact"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.emails.contactId.delete",
+      "title": "api_public.v1.user.user.contact_methods.emails.contactId.delete",
+      "description": "Delete the indicated contact email for the user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserContact"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.emails.contactId.get",
+      "title": "api_public.v1.user.user.contact_methods.emails.contactId.get",
+      "description": "Get the indicated contact email for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserContact"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.emails.contactId.put",
+      "title": "api_public.v1.user.user.contact_methods.emails.contactId.put",
+      "description": "Update the indicated contact email for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/ContactEmailAdd"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserContact"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.phones.get",
+      "title": "api_public.v1.user.user.contact_methods.phones.get",
+      "description": "Get the contact phones for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserContact"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.phones.post",
+      "title": "api_public.v1.user.user.contact_methods.phones.post",
+      "description": "Create a contact phone for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "body": {
+            "$ref": "#/definitions/ContactPhoneAdd"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserContact"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.phones.contactId.delete",
+      "title": "api_public.v1.user.user.contact_methods.phones.contactId.delete",
+      "description": "Delete the indicated contact phone for the user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserContact"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.phones.contactId.get",
+      "title": "api_public.v1.user.user.contact_methods.phones.contactId.get",
+      "description": "Get the indicated contact phone for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserContact"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.contact_methods.phones.contactId.put",
+      "title": "api_public.v1.user.user.contact_methods.phones.contactId.put",
+      "description": "Update the indicated contact phone for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "The unique contact identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/ContactPhoneAdd"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserContact"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.oncall.schedule.get",
+      "title": "api_public.v1.user.user.oncall.schedule.get",
+      "description": "Get the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          },
+          "daysForward": {
+            "type": "number",
+            "description": "Days to include in returned schedule (30 max)",
+            "maximum": 30,
+            "minimum": 0,
+            "default": 14
+          },
+          "daysSkip": {
+            "type": "number",
+            "description": "Days to skip before computing schedule to return (90 max)",
+            "maximum": 90,
+            "minimum": 0,
+            "default": 0
+          },
+          "step": {
+            "type": "number",
+            "description": "Step of escalation policy (3 max)",
+            "maximum": 3,
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OnCallAndOverrides"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_public.v1.user.user.policies.get",
+      "title": "api_public.v1.user.user.policies.get",
+      "description": "Get paging policies for a user\n\nThis API may be called a maximum of 15 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "user": {
+            "type": "string",
+            "description": "The VictorOps user ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Policies"
+      }
+    },
+    {
+      "id": "api_reporting.v1.incidents.get",
+      "title": "api_reporting.v1.incidents.get",
+      "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.  This is historical\ndata, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "offset": {
+            "type": "number",
+            "description": "The offset within the set of matching incidents",
+            "default": 0
+          },
+          "limit": {
+            "type": "number",
+            "description": "The maximum number of matching incidents to return (100 max)",
+            "maximum": 100,
+            "default": 20
+          },
+          "entityId": {
+            "type": "string",
+            "description": "The entity ID involved  This is the unique identifier for the entity causing the incident."
+          },
+          "incidentNumber": {
+            "type": "string",
+            "description": "The incident number as shown in VictorOps Multiple values and ranges are allowed: 4,5,20:50\n"
+          },
+          "startedAfter": {
+            "type": "string",
+            "description": "Return incidents started after this timestamp Specify the timestamp in ISO8601 format"
+          },
+          "startedBefore": {
+            "type": "string",
+            "description": "Find incidents started before this timestamp  Specify the timestamp in ISO8601 format"
+          },
+          "host": {
+            "type": "string",
+            "description": "The host involved in the incident Multiple values can be separated with commas."
+          },
+          "service": {
+            "type": "string",
+            "description": "The service involved in the incident (if any) Multiple values can be separated with commas."
+          },
+          "currentPhase": {
+            "type": "string",
+            "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\". Multiple values can be separated with commas."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/IncidentList"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "api_reporting.v1.team.team.oncall.log.get",
+      "title": "api_reporting.v1.team.team.oncall.log.get",
+      "description": "Returns a log of user shift changes for the specified team. This is historical\ndata, and may be up to 15 minutes behind real-time log data.\n\nThis API may be called a maximum of 6 times per minute.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "team": {
+            "type": "string",
+            "description": "The VictorOps team 'slug'"
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Return shift changes occurring after this timestamp. The default is the start of the day at midnight. Specify the timestamp in ISO8601 format"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Return shift changes occurring before this timestamp. The default is the end of the day at 11:59:59. Specify the timestamp in ISO8601 format"
+          },
+          "userName": {
+            "type": "string",
+            "description": "The VictorOps user ID. Return shift changes occurring during the interval specified for this user. Without this parameter, all relevant users (with respect to the specified interval) are returned"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OnCallLog"
+      }
+    },
+    {
+      "id": "api_reporting.v2.incidents.get",
+      "title": "api_reporting.v2.incidents.get",
+      "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nUnless specified otherwise with the parameter currentPhase, the response will only contain resolved incidents.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-VO-Api-Id": {
+            "type": "string",
+            "description": "Your API ID"
+          },
+          "X-VO-Api-Key": {
+            "type": "string",
+            "description": "Your API Key"
+          },
+          "offset": {
+            "type": "number",
+            "description": "The offset within the set of matching incidents",
+            "default": 0
+          },
+          "limit": {
+            "type": "number",
+            "description": "The maximum number of matching incidents to return (100 max)",
+            "maximum": 100,
+            "default": 20
+          },
+          "entityId": {
+            "type": "string",
+            "description": "The entity ID involved  This is the unique identifier for the entity causing the incident."
+          },
+          "incidentNumber": {
+            "type": "string",
+            "description": "The incident number as shown in VictorOps Multiple values and ranges are allowed: 4,5,20:50\n"
+          },
+          "startedAfter": {
+            "type": "string",
+            "description": "Return incidents started after this timestamp Specify the timestamp in ISO8601 format"
+          },
+          "startedBefore": {
+            "type": "string",
+            "description": "Find incidents started before this timestamp  Specify the timestamp in ISO8601 format"
+          },
+          "host": {
+            "type": "string",
+            "description": "The host involved in the incident Multiple values can be separated with commas."
+          },
+          "service": {
+            "type": "string",
+            "description": "The service involved in the incident (if any) Multiple values can be separated with commas."
+          },
+          "currentPhase": {
+            "type": "string",
+            "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\". Multiple values can be separated with commas. By default, response contains only \"resolved\" incidents"
+          },
+          "routingKey": {
+            "type": "string",
+            "description": "The original routing of the incident"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActiveIncidentList"
+      }
+    }
+  ],
+  "tags": [
+    "developer tools"
+  ]
+}

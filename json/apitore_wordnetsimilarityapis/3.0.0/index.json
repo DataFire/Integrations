@@ -1,0 +1,386 @@
+{
+  "id": "apitore_wordnetsimilarityapis",
+  "title": "WordNet Similarity APIs",
+  "description": "Calculate word similarity.<BR />[Endpoint] https://api.apitore.com/api/47",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordnetsimilarityapis.jpg"
+  },
+  "actionCount": 8,
+  "definitions": {
+    "WordnetSimilarityResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "method": {
+          "description": "Method",
+          "type": "string"
+        },
+        "pos1": {
+          "description": "Pos1",
+          "type": "string"
+        },
+        "pos2": {
+          "description": "Pos2",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "similarity": {
+          "description": "Similarity",
+          "format": "double",
+          "type": "number"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "word1": {
+          "description": "Word1",
+          "type": "string"
+        },
+        "word2": {
+          "description": "Word2",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "method",
+        "processTime",
+        "similarity",
+        "startTime",
+        "word1",
+        "word2"
+      ],
+      "type": "object",
+      "title": "WordnetSimilarityResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "hirststongeUsingGET",
+      "title": "hirststongeUsingGET",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_1",
+      "title": "hirststongeUsingGET_1",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_2",
+      "title": "hirststongeUsingGET_2",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_3",
+      "title": "hirststongeUsingGET_3",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_4",
+      "title": "hirststongeUsingGET_4",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_5",
+      "title": "hirststongeUsingGET_5",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_6",
+      "title": "hirststongeUsingGET_6",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "hirststongeUsingGET_7",
+      "title": "hirststongeUsingGET_7",
+      "description": "WordNet similarity.  \nResponse  \n  Github: [wordnet-response](https://github.com/keigohtr/apitore-response-parent/tree/master/wordnet-response)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "Word1"
+          },
+          "pos1": {
+            "type": "string",
+            "description": "Part-of-speech1. [n:noun,v:verb,a:adjective,r:adverb]"
+          },
+          "word2": {
+            "type": "string",
+            "description": "Word2"
+          },
+          "pos2": {
+            "type": "string",
+            "description": "Part-of-speech2. [n:noun,v:verb,a:adjective,r:adverb]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordnetSimilarityResponseEntity"
+      }
+    }
+  ],
+  "tags": [
+    "text"
+  ]
+}

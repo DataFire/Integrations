@@ -19,6 +19,9 @@
     "termsOfService": "https://www.appveyor.com/terms-of-service/",
     "title": "AppVeyor",
     "version": "0.20170106.0",
+    "x-apisguru-categories": [
+      "developer_tools"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png"
     },
@@ -199,6 +202,14 @@
       "name": "startBuildId",
       "type": "integer"
     },
+    "statusBadgeId": {
+      "description": "ID of the status badge (`statusBadgeId` from `ProjectWithConfiguration`).",
+      "in": "path",
+      "minLength": 1,
+      "name": "statusBadgeId",
+      "required": true,
+      "type": "string"
+    },
     "svg": {
       "default": false,
       "description": "Return an SVG image instead of PNG?  Exclusive with `retina`.",
@@ -213,14 +224,6 @@
       "name": "userId",
       "required": true,
       "type": "integer"
-    },
-    "webhookId": {
-      "description": "Project webhook ID (`webhookId` from `ProjectWithConfiguration`)",
-      "in": "path",
-      "minLength": 1,
-      "name": "webhookId",
-      "required": true,
-      "type": "string"
     }
   },
   "responses": {
@@ -1429,7 +1432,7 @@
         }
       ]
     },
-    "/projects/status/{webhookId}": {
+    "/projects/status/{statusBadgeId}": {
       "get": {
         "externalDocs": {
           "url": "https://www.appveyor.com/docs/status-badges/"
@@ -1475,11 +1478,11 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/webhookId"
+          "$ref": "#/parameters/statusBadgeId"
         }
       ]
     },
-    "/projects/status/{webhookId}/branch/{buildBranch}": {
+    "/projects/status/{statusBadgeId}/branch/{buildBranch}": {
       "get": {
         "externalDocs": {
           "url": "https://www.appveyor.com/docs/status-badges/"
@@ -1525,7 +1528,7 @@
       },
       "parameters": [
         {
-          "$ref": "#/parameters/webhookId"
+          "$ref": "#/parameters/statusBadgeId"
         },
         {
           "$ref": "#/parameters/buildBranch"
@@ -3060,7 +3063,11 @@
     },
     "BuildCloudName": {
       "enum": [
-        "gce"
+        "gce",
+        "pro-vs2013",
+        "pro-win2016",
+        "pro-vs2017",
+        "ubuntu"
       ],
       "type": "string"
     },
@@ -3097,6 +3104,9 @@
             "messagesCount": {
               "minimum": 0,
               "type": "integer"
+            },
+            "osType": {
+              "$ref": "#/definitions/OSType"
             },
             "passedTestsCount": {
               "minimum": 0,
@@ -3221,6 +3231,9 @@
         },
         "name": {
           "$ref": "#/definitions/BuildWorkerImageName"
+        },
+        "osType": {
+          "$ref": "#/definitions/OSType"
         }
       },
       "required": [
@@ -3233,8 +3246,12 @@
       "enum": [
         "Previous Visual Studio 2013",
         "Previous Visual Studio 2015",
+        "Previous Visual Studio 2017",
+        "Ubuntu",
         "Visual Studio 2013",
         "Visual Studio 2015",
+        "Visual Studio 2017",
+        "Visual Studio 2017 Preview",
         "WMF 5"
       ],
       "type": "string"
@@ -4036,6 +4053,13 @@
       ],
       "type": "string"
     },
+    "OSType": {
+      "enum": [
+        "Ubuntu",
+        "Windows"
+      ],
+      "type": "string"
+    },
     "PermissionName": {
       "description": "Available permission names.  The names correspond to the following groups:\n#### AccountPermission\n- ManageApplicationAuthorizations\n- UpdateAccountDetails\n- UpdateBillingDetails\n#### BuildEnvironmentPermission\n- ConfigureBuildEnvironment\n#### EnvironmentsPermission\n- DeployToEnvironment\n- ManageEnvironments\n- UpdateEnvironmentSettings\n#### ProjectsPermission\n- ManageProjects\n- RunProjectBuild\n- UpdateProjectSettings\n#### RolesPermission\n- AddRole\n- DeleteRole\n- UpdateRoleDetails\n#### UserPermission\n- ConfigureApiKeys\n#### UsersPermission\n- AddUser\n- DeleteUser\n- UpdateUserDetails\n",
       "enum": [
@@ -4142,6 +4166,12 @@
               "$ref": "#/definitions/RepositoryProvider"
             },
             "rollingBuilds": {
+              "type": "boolean"
+            },
+            "rollingBuildsDoNotCancelRunningBuilds": {
+              "type": "boolean"
+            },
+            "saveBuildCacheInPullRequests": {
               "type": "boolean"
             },
             "securityDescriptor": {
@@ -4362,6 +4392,24 @@
         "doNotIncrementBuildNumberOnPullRequests": {
           "type": "boolean"
         },
+        "dotnetCsprojAssemblyVersionFormat": {
+          "type": "string"
+        },
+        "dotnetCsprojFile": {
+          "type": "string"
+        },
+        "dotnetCsprojFileVersionFormat": {
+          "type": "string"
+        },
+        "dotnetCsprojInformationalVersionFormat": {
+          "type": "string"
+        },
+        "dotnetCsprojPackageVersionFormat": {
+          "type": "string"
+        },
+        "dotnetCsprojVersionFormat": {
+          "type": "string"
+        },
         "environmentVariables": {
           "items": {
             "$ref": "#/definitions/StoredNameValue"
@@ -4389,6 +4437,12 @@
           },
           "type": "array"
         },
+        "hotFixScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
         "includeBranches": {
           "items": {
             "$ref": "#/definitions/StringValueObject"
@@ -4412,6 +4466,12 @@
         },
         "matrixAllowFailures": {
           "description": "Although the names and values are not enforced, the combinations which are meaningful are documented at https://www.appveyor.com/docs/build-configuration/#allow-failing-jobs",
+          "items": {
+            "$ref": "#/definitions/StoredNameValueMatrix"
+          },
+          "type": "array"
+        },
+        "matrixExclude": {
           "items": {
             "$ref": "#/definitions/StoredNameValueMatrix"
           },
@@ -4494,6 +4554,9 @@
           "type": "boolean"
         },
         "patchAssemblyInfo": {
+          "type": "boolean"
+        },
+        "patchDotnetCsproj": {
           "type": "boolean"
         },
         "platform": {
@@ -4876,9 +4939,16 @@
               "type": "string"
             },
             "scheduleCrontabExpression": {
+              "description": "Build schedule as an NCrontab Expression.  See https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression",
+              "externalDocs": {
+                "url": "https://appveyor-staging.azurewebsites.net/docs/build-configuration/#scheduled-builds"
+              },
               "type": "string"
             },
             "sshPublicKey": {
+              "type": "string"
+            },
+            "statusBadgeId": {
               "type": "string"
             },
             "versionFormat": {

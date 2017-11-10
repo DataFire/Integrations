@@ -1,0 +1,327 @@
+{
+  "id": "ritekit",
+  "title": "RiteKit",
+  "description": "RiteKit API is based on REST principles.\n\nAuthentication uses standard OAuth 2.0 process\n\n##Getting started\n\n1. Sign up for [RiteKit](https://ritekit.com/)\n\n1. Go to [developer dashboard](https://ritekit.com/developer/dashboard/)\n\n1. Click \"Create a token\" button to get your **Client ID** and **Client secret**\n\n1. Study the documentation below (for more info on oAuth go to http://oauth.net/)\n\n1. When you reach your free limit of calls per month, [upgrade to paid tiers](https://ritekit.com/developer/)\n\n## Options for authorizing API Calls\n\n#### A) Using Client ID directly\n\nYou can directly connect to our API using your **client ID** by sending it as a GET query parameter. This option is simple (no need for oAuth) but it should be used only in case the Client ID is not exposed publicly.\n\nGET  https://api.ritekit.com/v1/stats/basic/php?client_id=292c6912e7710c838347ae178b4a\n\n#### B) Using Access token (oAuth 2.0)\n\nOnce you have valid Access token, you can access our API by sending the token in the Authorization header bearer or as a query Access token. See the oAuth 2.0 section to learn how to get Access token and keep refreshing it.\n\nAuthorization: Bearer xxxx\n\nOr\n\nGET  https://api.ritekit.com/v1/stats/basic/php?access_token=292c6912e7710c838347ae178b4a\n\n## oAuth 2.0\n\n![oauthschema](https://cdn.ritekit.com/assets/media/1/oauth-simple.png)\n\n### Get Access Token\n\nUse your Client Credentials to get the token.\n\nPOST   https://ritekit.com/oauth/token\n\n           grant_type=client_credentials\n           &client_id=CLIENT_ID\n           &client_secret=CLIENT_SECRET\n           &scope=data\n\n- [required] grant_type - client_credentials\n\n- [required] client_id (CLIENT ID)\n\n- [required] client_secret (CLIENT SECRET)\n\n- [required] (always use scope=data)\n\n#### Response\n\n{\n        \"access_token\":292c6912e7710c838347ae178b4a,\n        \"token_type\":\"bearer\",\n        \"expires_in\": 3600,\n        \"refresh_token\":292c6912e7710c838347ae178b4a,\n    }\n\n### Refresh token\n\nEvery Access token has a lifetime. You can use Refresh token to request a new Access Token.\n\nPOST   https://ritekit.com/oauth/token\n\n           grant_type=refresh_token\n           &refresh_token=REFRESH_TOKEN\n           &client_id=CLIENT_ID\n           &scope=data\n\n- [required] grant_type - refresh_token\n\n- [required] refresh_token - (REFRESH TOKEN) the refresh token you got from the expired token\n\n- [required] client_id (CLIENT ID)\n\n- [required] client_secret (CLIENT SECRET)\n\n- [required] scope (always use scope=data)\n\n#### Response\n\n{\n        \"access_token\":292c6912e7710c838347ae178b4a,\n        \"token_type\":\"bearer\",\n        \"expires_in\": 3600,\n        \"refresh_token\":292c6912e7710c838347ae178b4a,\n    }",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ritekit.jpg"
+  },
+  "actionCount": 12,
+  "definitions": {
+    "Emojis": {
+      "title": "Emojis"
+    },
+    "Hashtags": {
+      "title": "Hashtags"
+    },
+    "Images": {
+      "title": "Images"
+    },
+    "Influencers": {
+      "title": "Influencers"
+    },
+    "Link_shortening": {
+      "title": "Link_shortening"
+    }
+  },
+  "actions": [
+    {
+      "id": "v1.emoji.auto_emojify.get",
+      "title": "v1.emoji.auto_emojify.get",
+      "description": "Returns text of the post with emoji added",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text of the post"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.emoji.suggestions.get",
+      "title": "v1.emoji.suggestions.get",
+      "description": "Returns list of emoji suggestions for a given text of the post",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text of the post"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.images.logo.get",
+      "title": "v1.images.logo.get",
+      "description": "Returns a company logo based on website domain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "URL of the company"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.images.quote.get",
+      "title": "v1.images.quote.get",
+      "description": "Returns URL of an image created from text according to given style parameters",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "quote": {
+            "type": "string",
+            "description": "Text of the quote"
+          },
+          "author": {
+            "type": "string",
+            "description": "Name of the author/source"
+          },
+          "fontSize": {
+            "type": "integer",
+            "description": "Font size for the quote (author font size is calculated automatically)"
+          },
+          "quoteFont": {
+            "type": "string",
+            "description": "Font-family used for quote text"
+          },
+          "quoteFontColor": {
+            "type": "string",
+            "description": "Font color of the quote text"
+          },
+          "authorFont": {
+            "type": "string",
+            "description": "Font-family used for author name"
+          },
+          "authorFontColor": {
+            "type": "string",
+            "description": "Font color of the author"
+          },
+          "enableHighlight": {
+            "type": "integer",
+            "description": "Enable highlight on quote text"
+          },
+          "highlightColor": {
+            "type": "string",
+            "description": "Color used for highlight"
+          },
+          "bgType": {
+            "type": "string",
+            "description": "Background type (gradient/solid)"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "description": "Background color for solid background type"
+          },
+          "gradientType": {
+            "type": "string",
+            "description": "Type of gradient background (linear/radial)"
+          },
+          "gradientColor1": {
+            "type": "string",
+            "description": "First color for gradient background type"
+          },
+          "gradientColor2": {
+            "type": "string",
+            "description": "Second color for gradient background type"
+          },
+          "brandLogo": {
+            "type": "string",
+            "description": "URL of the brand logo"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "quote",
+          "author",
+          "fontSize",
+          "quoteFont",
+          "quoteFontColor",
+          "authorFont",
+          "authorFontColor",
+          "enableHighlight",
+          "highlightColor",
+          "bgType",
+          "backgroundColor",
+          "gradientType",
+          "gradientColor1",
+          "gradientColor2",
+          "brandLogo"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.influencers.hashtag.hashtag.get",
+      "title": "v1.influencers.hashtag.hashtag.get",
+      "description": "Returns list of Twitter influencers for a given hashtag",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hashtag": {
+            "type": "string",
+            "description": "Hashtag without # mark"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "hashtag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.link.cta.get",
+      "title": "v1.link.cta.get",
+      "description": "Returns list of available CTA for current user. Requires each user to authenticate with RiteKit",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.link.short_link.get",
+      "title": "v1.link.short_link.get",
+      "description": "Returns a shorten link with a given CTA.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL"
+          },
+          "cta": {
+            "type": "integer",
+            "description": "cta id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "cta"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.search.trending.get",
+      "title": "v1.search.trending.get",
+      "description": "Returns list of hashtags currently trending on Twitter",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "green": {
+            "type": "boolean",
+            "description": "Restrict results only to green hashtags. Hides overused (red) hashtags."
+          },
+          "latin": {
+            "type": "boolean",
+            "description": "Restrict results only to hashtags with latin characters"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.stats.auto_hashtag_post_post.get",
+      "title": "v1.stats.auto_hashtag_post_post.get",
+      "description": "Returns auto-hashtagged text of the post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "type": "string",
+            "description": "Text of the post"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "post"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.stats.hashtag_suggestions.topic.get",
+      "title": "v1.stats.hashtag_suggestions.topic.get",
+      "description": "Returns list of hashtag suggestions and their real-time stats for a given topic",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "description": "Topic"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "topic"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.stats.history.hashtag.get",
+      "title": "v1.stats.history.hashtag.get",
+      "description": "Returns historical stats for a given hashtag from the last 30 days",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hashtag": {
+            "type": "string",
+            "description": "Hashtag without # mark"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "hashtag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.stats.multiple_hashtags.get",
+      "title": "v1.stats.multiple_hashtags.get",
+      "description": "Returns real-time stats for up to 100 hashtags (updated hourly).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "description": "Hashtag(s) without # mark"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tags"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "social"
+  ]
+}

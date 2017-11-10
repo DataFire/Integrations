@@ -1,8 +1,8 @@
 {
   "name": "@datafire/azure_arm_storsimple8000series",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
-  "description": "DataFire integration for StorSimpleSeries8000ManagementClient",
+  "description": "DataFire integration for StorSimple8000SeriesManagementClient",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"

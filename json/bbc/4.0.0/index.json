@@ -1,0 +1,6734 @@
+{
+  "id": "bbc",
+  "title": "Radio & Music Services",
+  "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by reliably providing the right blend of metadata needed by clients.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
+  },
+  "actionCount": 75,
+  "definitions": {
+    "AncestorSummary": {
+      "properties": {
+        "ancestor_type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "titles": {
+          "$ref": "#/definitions/AncestorTitles"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ancestor_type",
+        "id",
+        "images",
+        "titles",
+        "type"
+      ],
+      "type": "object",
+      "title": "AncestorSummary"
+    },
+    "AncestorTitles": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "type"
+      ],
+      "type": "object",
+      "title": "AncestorTitles"
+    },
+    "AvailableVersions": {
+      "properties": {
+        "available": {
+          "type": "string"
+        },
+        "available_from_date": {
+          "type": "string"
+        },
+        "available_to_date": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "has_guidance": {
+          "type": "boolean"
+        },
+        "media_set": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version_pid": {
+          "type": "string"
+        },
+        "version_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "available",
+        "available_from_date",
+        "available_to_date",
+        "duration",
+        "has_guidance",
+        "media_set",
+        "type",
+        "version_pid",
+        "version_type"
+      ],
+      "type": "object",
+      "title": "AvailableVersions"
+    },
+    "Body": {
+      "properties": {
+        "category_id": {
+          "type": "string"
+        },
+        "platform": {
+          "enum": [
+            "responsiveweb",
+            "app"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "category_id",
+        "platform"
+      ],
+      "type": "object",
+      "title": "Body"
+    },
+    "Body_1": {
+      "properties": {
+        "category_id": {
+          "type": "string"
+        },
+        "platform": {
+          "enum": [
+            "responsiveweb",
+            "app"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "category_id",
+        "platform"
+      ],
+      "type": "object",
+      "title": "Body_1"
+    },
+    "Body_2": {
+      "properties": {
+        "platform": {
+          "enum": [
+            "responsiveweb",
+            "app"
+          ],
+          "type": "string"
+        },
+        "service_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "service_id"
+      ],
+      "type": "object",
+      "title": "Body_2"
+    },
+    "Body_3": {
+      "properties": {
+        "platform": {
+          "enum": [
+            "responsiveweb",
+            "app"
+          ],
+          "type": "string"
+        },
+        "service_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "service_id"
+      ],
+      "type": "object",
+      "title": "Body_3"
+    },
+    "Body_4": {
+      "properties": {
+        "action": {
+          "enum": [
+            "started",
+            "ended",
+            "paused",
+            "heartbeat"
+          ],
+          "type": "string"
+        },
+        "elapsed_time": {
+          "type": "integer"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "resource_type": {
+          "enum": [
+            "episode",
+            "clip"
+          ],
+          "type": "string"
+        },
+        "version_pid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "elapsed_time",
+        "pid",
+        "resource_type",
+        "version_pid"
+      ],
+      "type": "object",
+      "title": "Body_4"
+    },
+    "BrandSummary": {
+      "properties": {
+        "available_versions": {
+          "items": {
+            "$ref": "#/definitions/AvailableVersions"
+          },
+          "type": "array"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "latest_available_episodes": {
+          "items": {
+            "$ref": "#/definitions/EpisodeSummary"
+          },
+          "type": "array"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "short_synopsis": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "total_available_episodes": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "brand_summary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "images",
+        "latest_available_episodes",
+        "network_summary",
+        "pid",
+        "short_synopsis",
+        "titles",
+        "total_available_episodes",
+        "type"
+      ],
+      "type": "object",
+      "title": "BrandSummary"
+    },
+    "Broadcast": {
+      "properties": {
+        "duration": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "string"
+        },
+        "is_audio_described": {
+          "type": "boolean"
+        },
+        "is_blanked": {
+          "type": "boolean"
+        },
+        "is_critical": {
+          "type": "boolean"
+        },
+        "is_live": {
+          "type": "boolean"
+        },
+        "is_repeat": {
+          "type": "boolean"
+        },
+        "is_webcast": {
+          "type": "boolean"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "programme": {
+          "$ref": "#/definitions/ProgrammeSummary"
+        },
+        "service_id": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version_pid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "duration",
+        "end",
+        "is_audio_described",
+        "is_blanked",
+        "is_critical",
+        "is_live",
+        "is_repeat",
+        "is_webcast",
+        "pid",
+        "service_id",
+        "start",
+        "type",
+        "version_pid"
+      ],
+      "type": "object",
+      "title": "Broadcast"
+    },
+    "BroadcastsResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/Broadcast"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "BroadcastsResponse"
+    },
+    "CategoriesResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/Category"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "CategoriesResponse"
+    },
+    "Category": {
+      "properties": {
+        "category_type": {
+          "type": "string"
+        },
+        "child_categories": {
+          "items": {
+            "$ref": "#/definitions/ChildCategory"
+          },
+          "type": "array"
+        },
+        "depth": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "pip_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url_key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category_type",
+        "child_categories",
+        "depth",
+        "id",
+        "pip_id",
+        "title",
+        "type",
+        "url_key"
+      ],
+      "type": "object",
+      "title": "Category"
+    },
+    "CategoryError": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "href",
+        "id",
+        "message",
+        "replied_at",
+        "status"
+      ],
+      "type": "object",
+      "title": "CategoryError"
+    },
+    "CategoryErrorResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/CategoryError"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "errors"
+      ],
+      "type": "object",
+      "title": "CategoryErrorResponse"
+    },
+    "CategorySummary": {
+      "properties": {
+        "category_type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category_type",
+        "id",
+        "key",
+        "title",
+        "type"
+      ],
+      "type": "object",
+      "title": "CategorySummary"
+    },
+    "ChildCategory": {
+      "properties": {
+        "category_type": {
+          "type": "string"
+        },
+        "child_categories": {
+          "items": {
+            "$ref": "#/definitions/ChildCategory"
+          },
+          "type": "array"
+        },
+        "depth": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "pip_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url_key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category_type",
+        "child_categories",
+        "depth",
+        "id",
+        "pip_id",
+        "title",
+        "type",
+        "url_key"
+      ],
+      "type": "object",
+      "title": "ChildCategory"
+    },
+    "ClipSummary": {
+      "properties": {
+        "ancestors": {
+          "items": {
+            "$ref": "#/definitions/AncestorSummary"
+          },
+          "type": "array"
+        },
+        "available_versions": {
+          "items": {
+            "$ref": "#/definitions/AvailableVersions"
+          },
+          "type": "array"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "short_synopsis": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "type": {
+          "enum": [
+            "clip_summary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ancestors",
+        "available_versions",
+        "images",
+        "media_type",
+        "network_summary",
+        "pid",
+        "release_date",
+        "short_synopsis",
+        "titles",
+        "type"
+      ],
+      "type": "object",
+      "title": "ClipSummary"
+    },
+    "Contact": {
+      "properties": {
+        "handle": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "service": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "handle",
+        "name",
+        "service",
+        "url"
+      ],
+      "type": "object",
+      "title": "Contact"
+    },
+    "DateRange": {
+      "properties": {
+        "end": {
+          "type": "string"
+        },
+        "start": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "end",
+        "start"
+      ],
+      "type": "object",
+      "title": "DateRange"
+    },
+    "DisplayModule": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "DisplayModule"
+    },
+    "Empty": {
+      "type": "object",
+      "x-nullable": true,
+      "title": "Empty"
+    },
+    "EpisodeSummary": {
+      "properties": {
+        "ancestors": {
+          "items": {
+            "$ref": "#/definitions/AncestorSummary"
+          },
+          "type": "array"
+        },
+        "available_versions": {
+          "items": {
+            "$ref": "#/definitions/AvailableVersions"
+          },
+          "type": "array"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "short_synopsis": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "type": {
+          "enum": [
+            "episode_summary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ancestors",
+        "available_versions",
+        "images",
+        "media_type",
+        "network_summary",
+        "pid",
+        "release_date",
+        "short_synopsis",
+        "titles",
+        "type"
+      ],
+      "type": "object",
+      "title": "EpisodeSummary"
+    },
+    "Error": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "href",
+        "id",
+        "message",
+        "replied_at"
+      ],
+      "type": "object",
+      "title": "Error"
+    },
+    "ErrorResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/Error"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "errors"
+      ],
+      "type": "object",
+      "title": "ErrorResponse"
+    },
+    "ExperienceResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/DisplayModule"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "data"
+      ],
+      "type": "object",
+      "title": "ExperienceResponse"
+    },
+    "ExternalPartner": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "type": "object",
+      "title": "ExternalPartner"
+    },
+    "Image": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "image_type": {
+          "type": "string"
+        },
+        "template_url": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "image_type",
+        "template_url",
+        "type"
+      ],
+      "type": "object",
+      "title": "Image"
+    },
+    "MetaData": {
+      "properties": {
+        "miscellaneous": {
+          "$ref": "#/definitions/Miscellaneous"
+        },
+        "origin": {
+          "$ref": "#/definitions/Origin"
+        },
+        "programme_type": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "miscellaneous",
+        "origin",
+        "programme_type",
+        "type"
+      ],
+      "type": "object",
+      "title": "MetaData"
+    },
+    "Miscellaneous": {
+      "properties": {
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "type": "object",
+      "title": "Miscellaneous"
+    },
+    "MusicExportError": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "message",
+        "replied_at",
+        "status"
+      ],
+      "type": "object",
+      "title": "MusicExportError"
+    },
+    "MusicExportErrorResponse": {
+      "properties": {
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/MusicExportError"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "errors",
+        "schema"
+      ],
+      "type": "object",
+      "title": "MusicExportErrorResponse"
+    },
+    "MusicExportJob": {
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "vendor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "created_at",
+        "id",
+        "job_id",
+        "status",
+        "vendor"
+      ],
+      "type": "object",
+      "title": "MusicExportJob"
+    },
+    "MusicExportPreferences": {
+      "properties": {
+        "access_expires_at": {
+          "type": "string"
+        },
+        "access_token": {
+          "type": "string"
+        },
+        "add_plus_export": {
+          "type": "boolean"
+        },
+        "authorization_code": {
+          "type": "string"
+        },
+        "last_export": {
+          "type": "string"
+        },
+        "legacy_state": {
+          "type": "string"
+        },
+        "partner_id": {
+          "type": "string"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "terms": {
+          "type": "boolean"
+        },
+        "vendor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "access_expires_at",
+        "access_token",
+        "add_plus_export",
+        "authorization_code",
+        "last_export",
+        "legacy_state",
+        "partner_id",
+        "refresh_token",
+        "terms",
+        "vendor"
+      ],
+      "type": "object",
+      "title": "MusicExportPreferences"
+    },
+    "MusicExportPreferencesResponse": {
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/MusicExportPreferences"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "method",
+        "replied_at",
+        "results",
+        "schema",
+        "total"
+      ],
+      "type": "object",
+      "title": "MusicExportPreferencesResponse"
+    },
+    "MusicExportSuccess": {
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "replied_at",
+        "schema"
+      ],
+      "type": "object",
+      "title": "MusicExportSuccess"
+    },
+    "MusicPopularityArtist": {
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "imagePid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "sortName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gid",
+        "id",
+        "imagePid",
+        "name",
+        "score",
+        "sortName"
+      ],
+      "type": "object",
+      "title": "MusicPopularityArtist"
+    },
+    "MusicPopularityArtists": {
+      "properties": {
+        "limit": {
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "repliedAt": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/MusicPopularityArtist"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "method",
+        "repliedAt",
+        "results",
+        "schema",
+        "total"
+      ],
+      "type": "object",
+      "title": "MusicPopularityArtists"
+    },
+    "MusicPopularityError": {
+      "properties": {
+        "errors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MusicPopularityError"
+    },
+    "MusicPopularityPlaylist": {
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "commentsEnabled": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "externalPartners": {
+          "items": {
+            "$ref": "#/definitions/ExternalPartner"
+          },
+          "type": "array"
+        },
+        "genre": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "imagePid": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "mood": {
+          "type": "string"
+        },
+        "oneOff": {
+          "type": "boolean"
+        },
+        "playlistPlaybackType": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "serviceId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "string"
+        },
+        "wideImagePid": {
+          "type": "string"
+        },
+        "wideImageUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "categories",
+        "commentsEnabled",
+        "description",
+        "externalPartners",
+        "genre",
+        "id",
+        "imagePid",
+        "imageUrl",
+        "kind",
+        "mood",
+        "oneOff",
+        "playlistPlaybackType",
+        "score",
+        "serviceId",
+        "title",
+        "updatedAt",
+        "visibility",
+        "wideImagePid",
+        "wideImageUrl"
+      ],
+      "type": "object",
+      "title": "MusicPopularityPlaylist"
+    },
+    "MusicPopularityPlaylists": {
+      "properties": {
+        "limit": {
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "repliedAt": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/MusicPopularityPlaylist"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "method",
+        "repliedAt",
+        "results",
+        "schema",
+        "total"
+      ],
+      "type": "object",
+      "title": "MusicPopularityPlaylists"
+    },
+    "MusicPopularityTrack": {
+      "properties": {
+        "album": {
+          "type": "string"
+        },
+        "artistGid": {
+          "type": "string"
+        },
+        "artistName": {
+          "type": "string"
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/definitions/MusicTrackArtist"
+          },
+          "type": "array"
+        },
+        "baseTitle": {
+          "type": "string"
+        },
+        "classical": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "mergedIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "preferredMultiplayRecordAudio": {
+          "$ref": "#/definitions/MusicRecordAudio"
+        },
+        "preferredRecordAudio": {
+          "$ref": "#/definitions/MusicRecordAudio"
+        },
+        "radioEdit": {
+          "type": "boolean"
+        },
+        "recordAudio": {
+          "items": {
+            "$ref": "#/definitions/MusicRecordAudio"
+          },
+          "type": "array"
+        },
+        "recordImageHref": {
+          "type": "string"
+        },
+        "recordImagePid": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "score"
+      ],
+      "type": "object",
+      "title": "MusicPopularityTrack"
+    },
+    "MusicPopularityTracks": {
+      "properties": {
+        "limit": {
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "repliedAt": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/MusicPopularityTrack"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "method",
+        "repliedAt",
+        "results",
+        "schema",
+        "total"
+      ],
+      "type": "object",
+      "title": "MusicPopularityTracks"
+    },
+    "MusicRecordAudio": {
+      "properties": {
+        "audioType": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "audioType",
+        "duration",
+        "identifier",
+        "resourceType"
+      ],
+      "type": "object",
+      "title": "MusicRecordAudio"
+    },
+    "MusicTrackArtist": {
+      "properties": {
+        "gid": {
+          "type": "string"
+        },
+        "imagePid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sortName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gid",
+        "imagePid",
+        "name",
+        "role",
+        "sortName"
+      ],
+      "type": "object",
+      "title": "MusicTrackArtist"
+    },
+    "Network": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "contacts": {
+          "items": {
+            "$ref": "#/definitions/Contact"
+          },
+          "type": "array"
+        },
+        "date_ranges": {
+          "items": {
+            "$ref": "#/definitions/DateRange"
+          },
+          "type": "array"
+        },
+        "group": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "international": {
+          "type": "boolean"
+        },
+        "key": {
+          "type": "string"
+        },
+        "preset": {
+          "type": "boolean"
+        },
+        "promoted_category_summaries": {
+          "items": {
+            "$ref": "#/definitions/CategorySummary"
+          },
+          "type": "array"
+        },
+        "services": {
+          "items": {
+            "$ref": "#/definitions/Service"
+          },
+          "type": "array"
+        },
+        "short_title": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "active",
+        "contacts",
+        "date_ranges",
+        "group",
+        "id",
+        "international",
+        "key",
+        "preset",
+        "services",
+        "short_title",
+        "sort",
+        "title",
+        "type"
+      ],
+      "type": "object",
+      "title": "Network"
+    },
+    "NetworkSummary": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "group": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/NetworkTitles"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "active",
+        "group",
+        "id",
+        "key",
+        "titles",
+        "type"
+      ],
+      "type": "object",
+      "title": "NetworkSummary"
+    },
+    "NetworkTitles": {
+      "properties": {
+        "long_title": {
+          "type": "string"
+        },
+        "short_title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "long_title",
+        "short_title",
+        "type"
+      ],
+      "type": "object",
+      "title": "NetworkTitles"
+    },
+    "NetworksResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/Network"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "NetworksResponse"
+    },
+    "Origin": {
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "title": "Origin"
+    },
+    "PersonalisedCategories": {
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "created",
+        "type"
+      ],
+      "type": "object",
+      "title": "PersonalisedCategories"
+    },
+    "PersonalisedCategoriesResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "total"
+      ],
+      "type": "object",
+      "title": "PersonalisedCategoriesResponse"
+    },
+    "PersonalisedMusicActivity": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "activity": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "data": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicData"
+          },
+          "type": "array"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "meta_data": {
+          "$ref": "#/definitions/PersonalisedMusicMetaData"
+        },
+        "type": {
+          "type": "string"
+        },
+        "urn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "activity",
+        "added_at",
+        "data",
+        "domain",
+        "id",
+        "meta_data",
+        "type",
+        "urn"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicActivity"
+    },
+    "PersonalisedMusicArtist": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicImage"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicArtist"
+    },
+    "PersonalisedMusicBatchRequest": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "meta_data": {
+          "$ref": "#/definitions/PersonalisedMusicMetaData"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "domain",
+        "id",
+        "type"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicBatchRequest"
+    },
+    "PersonalisedMusicClip": {
+      "properties": {
+        "contributors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "entityType": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "masterbrandMid": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "parentProgramme": {
+          "$ref": "#/definitions/PersonalisedMusicClipParentProgramme"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "synopsis": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "version": {
+          "$ref": "#/definitions/PersonalisedMusicVersion"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicClip"
+    },
+    "PersonalisedMusicClipParentProgramme": {
+      "properties": {
+        "entityType": {
+          "type": "string"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicClipParentProgramme"
+    },
+    "PersonalisedMusicData": {
+      "properties": {
+        "artist": {
+          "$ref": "#/definitions/PersonalisedMusicArtist"
+        },
+        "clip": {
+          "$ref": "#/definitions/PersonalisedMusicClip"
+        },
+        "genre": {
+          "$ref": "#/definitions/PersonalisedMusicGenre"
+        },
+        "playlist": {
+          "$ref": "#/definitions/PersonalisedMusicPlaylist"
+        },
+        "service": {
+          "$ref": "#/definitions/PersonalisedMusicService"
+        },
+        "track": {
+          "$ref": "#/definitions/PersonalisedMusicTrack"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicData"
+    },
+    "PersonalisedMusicError": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "message",
+        "replied_at",
+        "status"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicError"
+    },
+    "PersonalisedMusicErrorResponse": {
+      "properties": {
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicError"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "errors",
+        "schema"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicErrorResponse"
+    },
+    "PersonalisedMusicGenre": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicGenre"
+    },
+    "PersonalisedMusicImage": {
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicImage"
+    },
+    "PersonalisedMusicMetaData": {
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicMetaData"
+    },
+    "PersonalisedMusicPlaylist": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicImage"
+          },
+          "type": "array"
+        },
+        "playback_type": {
+          "type": "string"
+        },
+        "service_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "tracks": {
+          "$ref": "#/definitions/PersonalisedMusicTrack"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "version": {
+          "$ref": "#/definitions/PersonalisedMusicPlaylistVersion"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicPlaylist"
+    },
+    "PersonalisedMusicPlaylistVersion": {
+      "properties": {
+        "duration": {
+          "type": "string"
+        },
+        "expires_at": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "starts_at": {
+          "type": "string"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "warnings"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicPlaylistVersion"
+    },
+    "PersonalisedMusicRequest": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "meta_data": {
+          "$ref": "#/definitions/PersonalisedMusicMetaData"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicRequest"
+    },
+    "PersonalisedMusicResponse": {
+      "properties": {
+        "limit": {
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicActivity"
+          },
+          "type": "array"
+        },
+        "schema": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "limit",
+        "method",
+        "offset",
+        "replied_at",
+        "results",
+        "schema",
+        "total"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicResponse"
+    },
+    "PersonalisedMusicService": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicService"
+    },
+    "PersonalisedMusicSuccess": {
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "replied_at",
+        "schema"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicSuccess"
+    },
+    "PersonalisedMusicTrack": {
+      "properties": {
+        "contributions": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicTrackContribution"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicTrackImage"
+          },
+          "type": "array"
+        },
+        "media": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicTrackMedia"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version": {
+          "$ref": "#/definitions/PersonalisedMusicVersion"
+        }
+      },
+      "required": [
+        "contributions",
+        "id",
+        "images",
+        "media",
+        "title",
+        "type",
+        "version"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicTrack"
+    },
+    "PersonalisedMusicTrackContribution": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedMusicTrackImage"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "images",
+        "name",
+        "role"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicTrackContribution"
+    },
+    "PersonalisedMusicTrackImage": {
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "format",
+        "id",
+        "type"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicTrackImage"
+    },
+    "PersonalisedMusicTrackMedia": {
+      "properties": {
+        "duration": {
+          "type": "integer"
+        },
+        "format": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "duration",
+        "format",
+        "id",
+        "scope",
+        "source",
+        "type"
+      ],
+      "type": "object",
+      "title": "PersonalisedMusicTrackMedia"
+    },
+    "PersonalisedMusicVersion": {
+      "properties": {
+        "classical": {
+          "type": "boolean"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "radio": {
+          "type": "boolean"
+        },
+        "vpid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PersonalisedMusicVersion"
+    },
+    "PersonalisedNetworks": {
+      "properties": {
+        "created": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "created",
+        "type"
+      ],
+      "type": "object",
+      "title": "PersonalisedNetworks"
+    },
+    "PersonalisedNetworksResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedNetworks"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "PersonalisedNetworksResponse"
+    },
+    "PersonalisedRadioActivity": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "activity": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/ProgrammeSummary"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/MetaData"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uas_type": {
+          "type": "string"
+        },
+        "urn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "activity",
+        "added_at",
+        "data",
+        "domain",
+        "id",
+        "metadata",
+        "type",
+        "uas_type",
+        "urn"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioActivity"
+    },
+    "PersonalisedRadioBatchRequest": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/PersonalisedRadioMetaData"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioBatchRequest"
+    },
+    "PersonalisedRadioErrorResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedRadioErrorResponse_errors"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "errors"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioErrorResponse"
+    },
+    "PersonalisedRadioErrorResponse_errors": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "detail",
+        "href",
+        "id",
+        "status",
+        "timestamp",
+        "title"
+      ],
+      "title": "PersonalisedRadioErrorResponse_errors"
+    },
+    "PersonalisedRadioMetaData": {
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioMetaData"
+    },
+    "PersonalisedRadioRequest": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "added_at": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/PersonalisedRadioMetaData"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioRequest"
+    },
+    "PersonalisedRadioResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/PersonalisedRadioActivity"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "method",
+        "offset",
+        "replied_at",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioResponse"
+    },
+    "PersonalisedRadioSuccessResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "$schema",
+        "method",
+        "replied_at"
+      ],
+      "type": "object",
+      "title": "PersonalisedRadioSuccessResponse"
+    },
+    "PlayableItem": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "version_pid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PlayableItem"
+    },
+    "PlayspaceContainer": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "$ref": "#/definitions/PlayableItem"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PlayspaceContainer"
+    },
+    "Podcast": {
+      "properties": {
+        "category_summaries": {
+          "items": {
+            "$ref": "#/definitions/CategorySummary"
+          },
+          "type": "array"
+        },
+        "days_available": {
+          "type": "integer"
+        },
+        "entity_type": {
+          "type": "string"
+        },
+        "first_published_date": {
+          "type": "string"
+        },
+        "frequency": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "latest_available_episodes": {
+          "items": {
+            "$ref": "#/definitions/PodcastEpisodeSummary"
+          },
+          "type": "array"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "rss_url": {
+          "type": "string"
+        },
+        "synopses": {
+          "$ref": "#/definitions/PodcastSynopses"
+        },
+        "territory": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "total_available_episodes": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "category_summaries",
+        "days_available",
+        "entity_type",
+        "first_published_date",
+        "frequency",
+        "images",
+        "latest_available_episodes",
+        "network_summary",
+        "pid",
+        "rss_url",
+        "synopses",
+        "territory",
+        "titles",
+        "total_available_episodes",
+        "type",
+        "updated_at"
+      ],
+      "type": "object",
+      "title": "Podcast"
+    },
+    "PodcastEpisodeSummary": {
+      "properties": {
+        "asset_url": {
+          "type": "string"
+        },
+        "available_versions": {
+          "items": {
+            "$ref": "#/definitions/AvailableVersions"
+          },
+          "type": "array"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "media_type": {
+          "type": "string"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "release_date": {
+          "type": "string"
+        },
+        "short_synopsis": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_url",
+        "available_versions",
+        "images",
+        "media_type",
+        "network_summary",
+        "pid",
+        "release_date",
+        "short_synopsis",
+        "titles",
+        "type"
+      ],
+      "type": "object",
+      "title": "PodcastEpisodeSummary"
+    },
+    "PodcastEpisodesResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/PodcastEpisodeSummary"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "title": "PodcastEpisodesResponse"
+    },
+    "PodcastError": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "PodcastError"
+    },
+    "PodcastErrorResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/PodcastError"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "PodcastErrorResponse"
+    },
+    "PodcastSynopses": {
+      "properties": {
+        "long": {
+          "type": "string"
+        },
+        "medium": {
+          "type": "string"
+        },
+        "short": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "long",
+        "medium",
+        "short",
+        "type"
+      ],
+      "type": "object",
+      "title": "PodcastSynopses"
+    },
+    "PodcastsFeatured": {
+      "properties": {
+        "featured_podcasts": {
+          "items": {
+            "$ref": "#/definitions/Podcast"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PodcastsFeatured"
+    },
+    "PodcastsFeaturedResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/PodcastsFeatured"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "title": "PodcastsFeaturedResponse"
+    },
+    "PodcastsResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/Podcast"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "PodcastsResponse"
+    },
+    "PopularError": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "replied_at": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "href",
+        "id",
+        "message",
+        "replied_at",
+        "status"
+      ],
+      "type": "object",
+      "title": "PopularError"
+    },
+    "PopularErrorResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/PopularError"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "errors"
+      ],
+      "type": "object",
+      "title": "PopularErrorResponse"
+    },
+    "PopularItemSummary": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ProgrammeSummary"
+        },
+        "id": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "data",
+        "id",
+        "score",
+        "type"
+      ],
+      "type": "object",
+      "title": "PopularItemSummary"
+    },
+    "PopularResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/PopularItemSummary"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "PopularResponse"
+    },
+    "Programme": {
+      "properties": {
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "latest_available_episodes": {
+          "items": {
+            "$ref": "#/definitions/EpisodeSummary"
+          },
+          "type": "array"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "short_synopsis": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "total_available_episodes": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "brand_summary",
+            "series_summary",
+            "episode_summary",
+            "clip_summary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "images",
+        "network_summary",
+        "pid",
+        "short_synopsis",
+        "titles",
+        "type"
+      ],
+      "type": "object",
+      "title": "Programme"
+    },
+    "ProgrammeSummary": {
+      "properties": {
+        "pid": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "brand_summary",
+            "series_summary",
+            "episode_summary",
+            "clip_summary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "pid",
+        "type"
+      ],
+      "type": "object",
+      "title": "ProgrammeSummary"
+    },
+    "ProgrammeTitles": {
+      "properties": {
+        "display_title": {
+          "type": "string"
+        },
+        "entity_title": {
+          "type": "string"
+        },
+        "primary_title": {
+          "type": "string"
+        },
+        "secondary_title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "title": "ProgrammeTitles"
+    },
+    "ProgrammesResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/ProgrammeSummary"
+          },
+          "type": "array"
+        },
+        "total": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$schema",
+        "limit",
+        "offset",
+        "results",
+        "total"
+      ],
+      "type": "object",
+      "title": "ProgrammesResponse"
+    },
+    "RadioError": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "detail",
+        "href",
+        "id",
+        "status",
+        "timestamp",
+        "title"
+      ],
+      "type": "object",
+      "title": "RadioError"
+    },
+    "RadioErrorResponse": {
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "errors": {
+          "items": {
+            "$ref": "#/definitions/RadioError"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "$schema",
+        "errors"
+      ],
+      "type": "object",
+      "title": "RadioErrorResponse"
+    },
+    "SeriesSummary": {
+      "properties": {
+        "ancestors": {
+          "items": {
+            "$ref": "#/definitions/AncestorSummary"
+          },
+          "type": "array"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/Image"
+          },
+          "type": "array"
+        },
+        "latest_available_episodes": {
+          "items": {
+            "$ref": "#/definitions/EpisodeSummary"
+          },
+          "type": "array"
+        },
+        "network_summary": {
+          "$ref": "#/definitions/NetworkSummary"
+        },
+        "pid": {
+          "type": "string"
+        },
+        "short_synopsis": {
+          "type": "string"
+        },
+        "titles": {
+          "$ref": "#/definitions/ProgrammeTitles"
+        },
+        "total_available_episodes": {
+          "type": "integer"
+        },
+        "type": {
+          "enum": [
+            "series_summary"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "ancestors",
+        "images",
+        "latest_available_episodes",
+        "network_summary",
+        "pid",
+        "short_synopsis",
+        "titles",
+        "total_available_episodes",
+        "type"
+      ],
+      "type": "object",
+      "title": "SeriesSummary"
+    },
+    "Service": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "coverage": {
+          "type": "string"
+        },
+        "date_ranges": {
+          "items": {
+            "$ref": "#/definitions/DateRange"
+          },
+          "type": "array"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "default_language": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "short_title": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "active",
+        "coverage",
+        "date_ranges",
+        "default",
+        "default_language",
+        "id",
+        "region",
+        "short_title",
+        "title",
+        "type"
+      ],
+      "type": "object",
+      "title": "Service"
+    }
+  },
+  "actions": [
+    {
+      "id": "broadcasts.get",
+      "title": "broadcasts.get",
+      "description": "All broadcasts\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Filter by Service ID. E.g. bbc_radio_fourfm"
+          },
+          "date": {
+            "type": "string",
+            "description": "Filter by date. E.g. 2016-06-17"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by provided query. E.g. 'start_at' sorts in ascending order, and '-start_at' sorts in descending order",
+            "enum": [
+              "start_at",
+              "-start_at",
+              "end_at",
+              "-end_at"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BroadcastsResponse"
+      }
+    },
+    {
+      "id": "broadcasts.latest.get",
+      "title": "broadcasts.latest.get",
+      "description": "Broadcasts for the current day\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Filter by Service ID. E.g. bbc_radio_fourfm"
+          },
+          "on_air": {
+            "type": "string",
+            "description": "Filter what is on air. E.g. 'now' returns current programme being broadcasted.",
+            "enum": [
+              "now",
+              "previous",
+              "next"
+            ]
+          },
+          "next": {
+            "type": "string",
+            "description": "Filter what will be on air next in minutes. E.g. '240' returns programmes broadcasted in the next four hurs"
+          },
+          "previous": {
+            "type": "string",
+            "description": "Filter what was on air previously in minutes. E.g. '240' returns programmes broadcasted in the previous four hurs"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by provided query. E.g. 'start_at' sorts in ascending order, and '-start_at' sorts in descending order",
+            "enum": [
+              "start_at",
+              "-start_at",
+              "end_at",
+              "-end_at"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BroadcastsResponse"
+      }
+    },
+    {
+      "id": "getBroadcastByPid",
+      "title": "getBroadcastByPid",
+      "description": "Find broadcast by PID\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BroadcastsResponse"
+      }
+    },
+    {
+      "id": "categories.get",
+      "title": "categories.get",
+      "description": "Retrieve Categories\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "kind": {
+            "type": "string",
+            "description": "Filter by provided query. E.g. 'promoted' returns promoted categories",
+            "enum": [
+              "promoted"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CategoriesResponse"
+      }
+    },
+    {
+      "id": "categories.id.get",
+      "title": "categories.id.get",
+      "description": "Retrieve Categories by ID\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "id": {
+            "type": "string",
+            "description": "Retrieve information about the category. E.g. 'sport-football-europeanchampionship'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CategoriesResponse"
+      }
+    },
+    {
+      "id": "getCollectionMembers",
+      "title": "getCollectionMembers",
+      "description": "Episodes and Clips from Collection\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProgrammesResponse"
+      }
+    },
+    {
+      "id": "getExperienceHomepage",
+      "title": "getExperienceHomepage",
+      "description": "Homepage Experience\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExperienceResponse"
+      }
+    },
+    {
+      "id": "getMusicPopularArtists",
+      "title": "getMusicPopularArtists",
+      "description": "List of Most Popular artists from BBC Music.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "since": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given time period and now"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given 'since' and 'until' date params"
+          },
+          "decomposed": {
+            "type": "boolean",
+            "description": "In addition to the overall score, return a list of scores broken down by day N.B Must be used in conjunction with since and/or until and since is >= 31 days"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicPopularityArtists"
+      }
+    },
+    {
+      "id": "getMusicPopularArtistById",
+      "title": "getMusicPopularArtistById",
+      "description": "Popularity Artist By Id\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "since": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given time period and now"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given 'since' and 'until' date params"
+          },
+          "decomposed": {
+            "type": "boolean",
+            "description": "In addition to the overall score, return a list of scores broken down by day N.B Must be used in conjunction with since and/or until and since is >= 31 days"
+          },
+          "id": {
+            "type": "string",
+            "description": "MusicBrainz Id - Used to get single resource score"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicPopularityArtists"
+      }
+    },
+    {
+      "id": "getMusicPopularPlaylists",
+      "title": "getMusicPopularPlaylists",
+      "description": "List of Most Popular playlists from BBC Music.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "since": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given time period and now"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given 'since' and 'until' date params"
+          },
+          "decomposed": {
+            "type": "boolean",
+            "description": "In addition to the overall score, return a list of scores broken down by day N.B Must be used in conjunction with since and/or until and since is >= 31 days"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicPopularityPlaylists"
+      }
+    },
+    {
+      "id": "getMusicPopularPlaylistById",
+      "title": "getMusicPopularPlaylistById",
+      "description": "Popular playlist by Id\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "since": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given time period and now"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given 'since' and 'until' date params"
+          },
+          "decomposed": {
+            "type": "boolean",
+            "description": "In addition to the overall score, return a list of scores broken down by day N.B Must be used in conjunction with since and/or until and since is >= 31 days"
+          },
+          "id": {
+            "type": "string",
+            "description": "BBC Music Playlist Id - Used to get single resource score"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicPopularityPlaylists"
+      }
+    },
+    {
+      "id": "getMusicPopularTracks",
+      "title": "getMusicPopularTracks",
+      "description": "List of popular tracks for BBC Music. Filter by time, network, artist, playlist or programme.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "since": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given time period and now"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given 'since' and 'until' date params"
+          },
+          "network": {
+            "type": "string",
+            "description": "Return items with given Network ID"
+          },
+          "programme": {
+            "type": "string",
+            "description": "Items with given Programme Pid"
+          },
+          "artist": {
+            "type": "string",
+            "description": "MusicBrainz artist ID"
+          },
+          "decomposed": {
+            "type": "boolean",
+            "description": "In addition to the overall score, return a list of scores broken down by day N.B Must be used in conjunction with since and/or until and since is >= 31 days"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicPopularityTracks"
+      }
+    },
+    {
+      "id": "getMusicPopularTrackById",
+      "title": "getMusicPopularTrackById",
+      "description": "Popular Track for BBC Music\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "since": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given time period and now"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO 8601 Date yyyy-mm-dd.  Returns items between given 'since' and 'until' date params"
+          },
+          "network": {
+            "type": "string",
+            "description": "Return items with given Network ID"
+          },
+          "programme": {
+            "type": "string",
+            "description": "Items with given Programme Pid"
+          },
+          "artist": {
+            "type": "string",
+            "description": "MusicBrainz artist ID"
+          },
+          "decomposed": {
+            "type": "boolean",
+            "description": "In addition to the overall score, return a list of scores broken down by day N.B Must be used in conjunction with since and/or until and since is >= 31 days"
+          },
+          "id": {
+            "type": "string",
+            "description": "BBC Music Track Id - Used to get single resource score"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicPopularityTracks"
+      }
+    },
+    {
+      "id": "my.categories.follows.delete",
+      "title": "my.categories.follows.delete",
+      "description": "Unfollow category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "Body": {
+            "$ref": "#/definitions/Body_1"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "Body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "my.categories.follows.get",
+      "title": "my.categories.follows.get",
+      "description": "List of followed categories for a given user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedCategoriesResponse"
+      }
+    },
+    {
+      "id": "my.categories.follows.post",
+      "title": "my.categories.follows.post",
+      "description": "Follow category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "Body": {
+            "$ref": "#/definitions/Body"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "Body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getMusicExport",
+      "title": "getMusicExport",
+      "description": "Returns status of all previous third party export actions for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportJob"
+      }
+    },
+    {
+      "id": "getMusicExportJobs",
+      "title": "getMusicExportJobs",
+      "description": "All items associated to a users export request\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "over16": {
+            "type": "boolean",
+            "description": "Boolean age check"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Specify Vendor Jobs",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "over16"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportJob"
+      }
+    },
+    {
+      "id": "postMusicExportJob",
+      "title": "postMusicExportJob",
+      "description": "Create Export Job for a user\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "over16": {
+            "type": "boolean",
+            "description": "Boolean age check"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Specify Vendor Jobs",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/MusicExportJob"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "over16",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportSuccess"
+      }
+    },
+    {
+      "id": "getMusicExportTracks",
+      "title": "getMusicExportTracks",
+      "description": "Retrieves vendor and status specific tracks\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "over16": {
+            "type": "boolean",
+            "description": "Boolean age check"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Specify Vendor Tracks",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "description": "Specify Track status",
+            "enum": [
+              "failed",
+              "done",
+              "pending"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "over16"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportJob"
+      }
+    },
+    {
+      "id": "getPersonalisedMusicFavourites",
+      "title": "getPersonalisedMusicFavourites",
+      "description": "List of favourited tracks and clips for a given user for BBC Music.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "action": {
+            "type": "string",
+            "description": "Filters activities based on the type of action",
+            "enum": [
+              "favourited",
+              "unfavourited"
+            ]
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedMusicFavouritesBatch",
+      "title": "postPersonalisedMusicFavouritesBatch",
+      "description": "Add multiple tracks and/or clips to a BBC Music user's favourites.\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedMusicBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "putPersonalisedMusicFavouritesBatch",
+      "title": "putPersonalisedMusicFavouritesBatch",
+      "description": "Update tracks or clips from a BBC Music user favourites.\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedMusicBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "getPersonalisedMusicFavouritesByType",
+      "title": "getPersonalisedMusicFavouritesByType",
+      "description": "List of favourited tracks or clips for a given user for BBC Music.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music favourite types: Clips or Tracks",
+            "enum": [
+              "clips",
+              "tracks"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "description": "Filters activities based on the type of action",
+            "enum": [
+              "favourited",
+              "unfavourited"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "deletePersonalisedMusicFavouritesByTypeById",
+      "title": "deletePersonalisedMusicFavouritesByTypeById",
+      "description": "Delete track or clip from a BBC Music user favourites.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music favourite types: Clips or Tracks",
+            "enum": [
+              "clips",
+              "tracks"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Clip PID or Track ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "getPersonalisedMusicFavouritesByTypeById",
+      "title": "getPersonalisedMusicFavouritesByTypeById",
+      "description": "Check to see if a single track or clip entity is in a users favourites - determines UX of add button.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music favourite types: Clips or Tracks",
+            "enum": [
+              "clips",
+              "tracks"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Clip PID or Track ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedMusicFavouritesByTypeById",
+      "title": "postPersonalisedMusicFavouritesByTypeById",
+      "description": "Add track or clip to a BBC Music user favourites.\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music favourite types: Clips or Tracks",
+            "enum": [
+              "clips",
+              "tracks"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Clip PID or Track ID"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedMusicRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "putPersonalisedMusicFavouritesByTypeById",
+      "title": "putPersonalisedMusicFavouritesByTypeById",
+      "description": "Update tracks or clips from a BBC Music user favourites.\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music favourite types: Clips or Tracks",
+            "enum": [
+              "clips",
+              "tracks"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Clip PID or Track ID"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedMusicRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "getPersonalisedMusicFollows",
+      "title": "getPersonalisedMusicFollows",
+      "description": "List of followed networks, categories, artists, playlists and genres for a given user for BBC Music.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "action": {
+            "type": "string",
+            "description": "Filters activities based on the type of action",
+            "enum": [
+              "followed",
+              "unfollowed"
+            ]
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedMusicFollowsBatch",
+      "title": "postPersonalisedMusicFollowsBatch",
+      "description": "Add networks, categories, artists, playlists, networks, genres or services in a users follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "action": {
+            "type": "string",
+            "description": "Filters activities based on the type of action",
+            "enum": [
+              "followed",
+              "unfollowed"
+            ]
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedMusicBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "putPersonalisedMusicFollowsBatch",
+      "title": "putPersonalisedMusicFollowsBatch",
+      "description": "Update networks, categories, artists, playlists, networks, genres or services in a users follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "action": {
+            "type": "string",
+            "description": "Filters activities based on the type of action",
+            "enum": [
+              "followed",
+              "unfollowed"
+            ]
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedMusicBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "getPersonalisedMusicFollowsByType",
+      "title": "getPersonalisedMusicFollowsByType",
+      "description": "List of followed networks, categories, artists, playlists, networks, genres, categories or services for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music follows types: Playlists, Services, Genres & Artists",
+            "enum": [
+              "playlists",
+              "services",
+              "networks",
+              "genres",
+              "categories",
+              "artists"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "description": "Filters activities based on the type of action",
+            "enum": [
+              "followed",
+              "unfollowed"
+            ]
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "deletePersonalisedMusicFollowsByTypeById",
+      "title": "deletePersonalisedMusicFollowsByTypeById",
+      "description": "Remove a single network, category, artist, playlist, network, genre or service entity is in a users follows\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music follows types: Playlists, Services, Genres & Artists",
+            "enum": [
+              "playlists",
+              "services",
+              "networks",
+              "genres",
+              "categories",
+              "artists"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Playlists, Services, Networks, Genres, Categories or Artists ID"
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "getPersonalisedMusicFollowsByTypeById",
+      "title": "getPersonalisedMusicFollowsByTypeById",
+      "description": "Check to see if a single network, category, artist, playlist, network, genre or service entity is in a users follows - determines UX of add button.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music follows types: Playlists, Services, Genres & Artists",
+            "enum": [
+              "playlists",
+              "services",
+              "networks",
+              "genres",
+              "categories",
+              "artists"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Playlists, Services, Networks, Genres, Categories or Artists ID"
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedMusicFollowsByTypeById",
+      "title": "postPersonalisedMusicFollowsByTypeById",
+      "description": "Add a single network, category, artist, playlist, network, genre or service entity is in a users follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music follows types: Playlists, Services, Genres & Artists",
+            "enum": [
+              "playlists",
+              "services",
+              "networks",
+              "genres",
+              "categories",
+              "artists"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Playlists, Services, Networks, Genres, Categories or Artists ID"
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedMusicRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "putPersonalisedMusicFollowsByTypeById",
+      "title": "putPersonalisedMusicFollowsByTypeById",
+      "description": "Update a single network, category, artist, playlist, network, genre or service entity is in a users follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Music follows types: Playlists, Services, Genres & Artists",
+            "enum": [
+              "playlists",
+              "services",
+              "networks",
+              "genres",
+              "categories",
+              "artists"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Playlists, Services, Networks, Genres, Categories or Artists ID"
+          },
+          "music-data": {
+            "type": "boolean",
+            "description": "Omits music data from the response, defaults to true"
+          },
+          "music_context": {
+            "type": "string",
+            "description": "Specify context to be passed to Music API",
+            "enum": [
+              "events",
+              "ivote",
+              "music",
+              "musicplaylist",
+              "programmes",
+              "radio",
+              "unknown"
+            ]
+          },
+          "music_within_uk": {
+            "type": "boolean",
+            "description": "Specify location to be passed to Music API"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedMusicRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedMusicSuccess"
+      }
+    },
+    {
+      "id": "deleteMusicPreferencesExport",
+      "title": "deleteMusicPreferencesExport",
+      "description": "Remove export preferences (e.g. 3rd party vendors, partner id's) for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportSuccess"
+      }
+    },
+    {
+      "id": "getMusicPreferencesExport",
+      "title": "getMusicPreferencesExport",
+      "description": "Returns export preferences (e.g. 3rd party vendors, partner id's) for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportPreferencesResponse"
+      }
+    },
+    {
+      "id": "postMusicPreferencesExport",
+      "title": "postMusicPreferencesExport",
+      "description": "Create export preferences (e.g. 3rd party vendors, partner id's) for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "$ref": "#/definitions/MusicExportPreferences"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportSuccess"
+      }
+    },
+    {
+      "id": "deleteMusicPreferencesExportVendor",
+      "title": "deleteMusicPreferencesExportVendor",
+      "description": "Remove Vendor specific export preferences (e.g. 3rd party vendors, partner id's) for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Supported 3rd Party Vendor",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "vendor"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getMusicPreferencesExportVendor",
+      "title": "getMusicPreferencesExportVendor",
+      "description": "Returns vendor specific export preferences for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Supported 3rd Party Vendor",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "vendor"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MusicExportPreferencesResponse"
+      }
+    },
+    {
+      "id": "postMusicPreferencesExportVendor",
+      "title": "postMusicPreferencesExportVendor",
+      "description": "Create Vendor specific export preferences (e.g. 3rd party vendors, partner id's) for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Supported 3rd Party Vendor",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          },
+          "body": {
+            "$ref": "#/definitions/MusicExportPreferences"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "vendor",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putMusicPreferencesExportVendor",
+      "title": "putMusicPreferencesExportVendor",
+      "description": "Update vendor specific export preferences for a given BBC Music user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "vendor": {
+            "type": "string",
+            "description": "Supported 3rd Party Vendor",
+            "enum": [
+              "spotify",
+              "deezer",
+              "youtube",
+              "itunes"
+            ]
+          },
+          "body": {
+            "$ref": "#/definitions/MusicExportPreferences"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "vendor",
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "my.networks.follows.delete",
+      "title": "my.networks.follows.delete",
+      "description": "Unfollow network",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "Body": {
+            "$ref": "#/definitions/Body_3"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "Body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "my.networks.follows.get",
+      "title": "my.networks.follows.get",
+      "description": "List of followed networks for a given user.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedNetworksResponse"
+      }
+    },
+    {
+      "id": "my.networks.follows.post",
+      "title": "my.networks.follows.post",
+      "description": "Follow network",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "Body": {
+            "$ref": "#/definitions/Body_2"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "Body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "my.plays.post",
+      "title": "my.plays.post",
+      "description": "Write Play Event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "Body": {
+            "$ref": "#/definitions/Body_4"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "Body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "suggestContainer",
+      "title": "suggestContainer",
+      "description": "Suggested Playspace Container\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "previous_pid": {
+            "type": "string",
+            "description": "Clip or Episode PID of the previous or first content item in the Playspace stream."
+          },
+          "previous_container": {
+            "type": "string",
+            "description": "Container ID of the previous container in the Playspace stream."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "previous_pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PlayspaceContainer"
+      }
+    },
+    {
+      "id": "getContainer",
+      "title": "getContainer",
+      "description": "Playspace Container by ID\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "id": {
+            "type": "string",
+            "description": "Playspace Container ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PlayspaceContainer"
+      }
+    },
+    {
+      "id": "getRecommendations",
+      "title": "getRecommendations",
+      "description": "Recommended Programmes from the Audience Platforms' Recomendations Service\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "rights": {
+            "type": "string",
+            "description": "Only return available results for the web/mobile.",
+            "enum": [
+              "web",
+              "mobile"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-API-Key",
+          "rights"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProgrammesResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioFavourites",
+      "title": "getPersonalisedRadioFavourites",
+      "description": "List of favourited episodes and clips for a given user for iPlayer Radio.\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining data as a Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort order for Personalised Radio results",
+            "enum": [
+              "programme_titles",
+              "available_from_date",
+              "available_to_date"
+            ]
+          },
+          "show_all_activity": {
+            "type": "boolean",
+            "description": "Include items which have been 'soft' unfavourited in response. I.e items with UAS type of 'unfavourited'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedRadioBatch",
+      "title": "postPersonalisedRadioBatch",
+      "description": "Add User favourites\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedRadioBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "putPersonalisedRadioBatch",
+      "title": "putPersonalisedRadioBatch",
+      "description": "Update user favourites\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedRadioBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioFavouritesByType",
+      "title": "getPersonalisedRadioFavouritesByType",
+      "description": "List of followed 'clips' or 'episode' items for a given iPlayer Radio user\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining data as a Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio favourite types: Clips or Episodes",
+            "enum": [
+              "clips",
+              "episodes"
+            ]
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort order for Personalised Radio results",
+            "enum": [
+              "programme_titles",
+              "available_from_date",
+              "available_to_date"
+            ]
+          },
+          "show_all_activity": {
+            "type": "boolean",
+            "description": "Include items which have been 'soft' unfavourited in response. I.e items with UAS type of 'unfavourited'"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "deletePersonalisedRadioByActivityTypeById",
+      "title": "deletePersonalisedRadioByActivityTypeById",
+      "description": "Remove User favourite\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio favourite types: Clips or Episodes",
+            "enum": [
+              "clips",
+              "episodes"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioByActivityTypeById",
+      "title": "getPersonalisedRadioByActivityTypeById",
+      "description": "Check to see if a single clip or episode entity is in a users favourites - determines UX of add button.\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining data as a Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio favourite types: Clips or Episodes",
+            "enum": [
+              "clips",
+              "episodes"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "show_all_activity": {
+            "type": "boolean",
+            "description": "Include items which have been 'soft' unfavourited in response. I.e items with UAS type of 'unfavourited'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedRadioByActivityTypeById",
+      "title": "postPersonalisedRadioByActivityTypeById",
+      "description": "Add User favourite\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio favourite types: Clips or Episodes",
+            "enum": [
+              "clips",
+              "episodes"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedRadioRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "putPersonalisedRadioByActivityTypeById",
+      "title": "putPersonalisedRadioByActivityTypeById",
+      "description": "Update user favourite\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio favourite types: Clips or Episodes",
+            "enum": [
+              "clips",
+              "episodes"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedRadioRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioFollows",
+      "title": "getPersonalisedRadioFollows",
+      "description": "List of favourited brands and series for a given user for iPlayer Radio.\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining data as a Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort order for Personalised Radio results",
+            "enum": [
+              "programme_titles",
+              "available_from_date",
+              "available_to_date"
+            ]
+          },
+          "show_all_activity": {
+            "type": "boolean",
+            "description": "Include items which have been 'soft' unfollowed in response. I.e items with UAS type of 'unfollowed'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedRadioFollowsBatch",
+      "title": "postPersonalisedRadioFollowsBatch",
+      "description": "Add 'brand' or 'series' items to a users iPlayer Radio follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedRadioBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "putPersonalisedRadioFollowsBatch",
+      "title": "putPersonalisedRadioFollowsBatch",
+      "description": "Update 'brands' or 'series' items from a users iPlayer Radio follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "body": {
+            "items": {
+              "$ref": "#/definitions/PersonalisedRadioBatchRequest"
+            },
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioFollowsByType",
+      "title": "getPersonalisedRadioFollowsByType",
+      "description": "List of followed 'brand' or 'series' items for a given iPlayer Radio user\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining data as a Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio follows types: Brands or Series",
+            "enum": [
+              "brands",
+              "series"
+            ]
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort order for Personalised Radio results",
+            "enum": [
+              "programme_titles",
+              "available_from_date",
+              "available_to_date"
+            ]
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "show_all_activity": {
+            "type": "boolean",
+            "description": "Include items which have been 'soft' unfollowed in response. I.e items with UAS type of 'unfollowed'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "deletePersonalisedRadioFollowsByTypeById",
+      "title": "deletePersonalisedRadioFollowsByTypeById",
+      "description": "Remove 'brand' or 'series' items from a users iPlayer Radio follows\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio follows types: Brands or Series",
+            "enum": [
+              "brands",
+              "series"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioFollowsByTypeById",
+      "title": "getPersonalisedRadioFollowsByTypeById",
+      "description": "Check to see if a single brand or series entity is in a users follows - determines UX of add button.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio follows types: Brands or Series",
+            "enum": [
+              "brands",
+              "series"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "postPersonalisedRadioFollowsByTypeById",
+      "title": "postPersonalisedRadioFollowsByTypeById",
+      "description": "Add 'brand' or 'series' items from a users iPlayer Radio follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio follows types: Brands or Series",
+            "enum": [
+              "brands",
+              "series"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedRadioRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "putPersonalisedRadioFollowsByTypeById",
+      "title": "putPersonalisedRadioFollowsByTypeById",
+      "description": "Update 'brand' or 'series' items from a users iPlayer Radio follows\n\nN.B. Any HTML tags submitted in metadata will be removed\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Supported Radio follows types: Brands or Series",
+            "enum": [
+              "brands",
+              "series"
+            ]
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "body": {
+            "$ref": "#/definitions/PersonalisedRadioRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key",
+          "type",
+          "pid",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioSuccessResponse"
+      }
+    },
+    {
+      "id": "getPersonalisedRadioPlays",
+      "title": "getPersonalisedRadioPlays",
+      "description": "Returns mixed episode and clip plays for a given BBC iPlayer radio user.\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining data as a Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Bearer OAUTH_TOKEN",
+            "default": "Bearer OAUTH_TOKEN"
+          },
+          "X-Authentication-Provider": {
+            "type": "string",
+            "description": "Authentication type",
+            "default": "idv5"
+          },
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort order for Personalised Radio results",
+            "enum": [
+              "programme_titles",
+              "available_from_date",
+              "available_to_date"
+            ]
+          },
+          "show_all_activity": {
+            "type": "boolean",
+            "description": "Include expired/unavailable items"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "X-Authentication-Provider",
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PersonalisedRadioResponse"
+      }
+    },
+    {
+      "id": "getPodcasts",
+      "title": "getPodcasts",
+      "description": "Retrieve all Podcasts\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort order for Podcasts results",
+            "enum": [
+              "title",
+              "-title",
+              "available_from_date",
+              "-available_from_date"
+            ]
+          },
+          "network": {
+            "type": "string",
+            "description": "Network Master Brand ID (mid)"
+          },
+          "network_url_key": {
+            "type": "string",
+            "description": "Network URL key"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category ID"
+          },
+          "q": {
+            "type": "string",
+            "description": "Search query String"
+          },
+          "coverage": {
+            "type": "string",
+            "description": "Local, National or Regional Coverage",
+            "enum": [
+              "local",
+              "national",
+              "regional"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PodcastsResponse"
+      }
+    },
+    {
+      "id": "getPodcastsFeatured",
+      "title": "getPodcastsFeatured",
+      "description": "Retrieve featured podcasts\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PodcastsFeaturedResponse"
+      }
+    },
+    {
+      "id": "getPodcastByPid",
+      "title": "getPodcastByPid",
+      "description": "Retrieve data about the podcast with the supplied PID\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PodcastsResponse"
+      }
+    },
+    {
+      "id": "getPodcastEpisodes",
+      "title": "getPodcastEpisodes",
+      "description": "Retrieve all episodes for a specific podcast\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Paginated results offset"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Paginated results limit"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PodcastEpisodesResponse"
+      }
+    },
+    {
+      "id": "getRadioNetworks",
+      "title": "getRadioNetworks",
+      "description": "All iPlayer Radio networks - contains business logic for masterbrand and service relationships\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "preset": {
+            "type": "boolean",
+            "description": "Returns all networks needed for iPlayer Radio responsive web navigation"
+          },
+          "international": {
+            "type": "boolean",
+            "description": "Returns all networks available internationally"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NetworksResponse"
+      }
+    },
+    {
+      "id": "getPopularEpisodesClips",
+      "title": "getPopularEpisodesClips",
+      "description": "Retrieve Popular Episodes & Clips\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "type": {
+            "type": "string",
+            "description": "Programme type required. Accepts comma separated values",
+            "enum": [
+              "episode",
+              "clip",
+              "episode,clip"
+            ]
+          },
+          "distinct": {
+            "type": "string",
+            "description": "Filter by deduplication rule. E.g. 'tleo' returns programmes with distinct top level episode objects",
+            "enum": [
+              "tleo"
+            ]
+          },
+          "network": {
+            "type": "string",
+            "description": "Filter by network master brand ID (mid). Accepts comma separated values"
+          },
+          "network_url_key": {
+            "type": "string",
+            "description": "Filter by network URL key. Accepts comma separated values"
+          },
+          "category": {
+            "type": "string",
+            "description": "Filter by category. Accepts comma separated values"
+          },
+          "format": {
+            "type": "string",
+            "description": "Filter by format. Accepts comma separated values"
+          },
+          "group": {
+            "type": "string",
+            "description": "Filter by group. Accepts comma separated values",
+            "enum": [
+              "tv",
+              "radio",
+              "tv,radio"
+            ]
+          },
+          "media_type": {
+            "type": "string",
+            "description": "Filter by programme media type. Accepts comma separated values",
+            "enum": [
+              "audio",
+              "video",
+              "audio,video"
+            ]
+          },
+          "container": {
+            "type": "string",
+            "description": "Filter by container. Accepts any pid e.g. brand,series,episode"
+          },
+          "media_set": {
+            "type": "array",
+            "description": "Filter by media set name. Accepts comma separated combinations of the following: pc,mobile-download,android-download-high,apple-ios-download-high,mobile-cellular-main,mobile-phone-main,iptv-all",
+            "enum": [
+              "pc",
+              "mobile-download",
+              "android-download-high",
+              "apple-ios-download-high",
+              "mobile-cellular-main",
+              "mobile-phone-main",
+              "iptv-all"
+            ]
+          },
+          "q": {
+            "type": "string",
+            "description": "Search query String"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PopularResponse"
+      }
+    },
+    {
+      "id": "getRadioProgrammes",
+      "title": "getRadioProgrammes",
+      "description": "Provides a paginated list of programmes by PID (brand, series, episode and clip). Accepts various filters and sorting methods.\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining results as an array of Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "kind": {
+            "type": "string",
+            "description": "Filter by provided query. E.g. 'tleo' returns top level objects, ie. brands, orphaned series, and orphaned episodes",
+            "enum": [
+              "tleo"
+            ]
+          },
+          "network": {
+            "type": "string",
+            "description": "Filter by network master brand ID (mid). Accepts comma separated values"
+          },
+          "network_url_key": {
+            "type": "string",
+            "description": "Filter by network URL key. Accepts comma separated values"
+          },
+          "category": {
+            "type": "string",
+            "description": "Filter by category id. Accepts comma separated values. See /category endpoint below for the type of response provided"
+          },
+          "sort": {
+            "type": "string",
+            "description": "Sort by provided query. E.g. 'title' sorts in ascending order, and -title sorts in descending order",
+            "enum": [
+              "available_from_date",
+              "-available_from_date",
+              "title",
+              "-title"
+            ]
+          },
+          "container": {
+            "type": "string",
+            "description": "Filter by container. Accepts any brand or series pid"
+          },
+          "type": {
+            "type": "string",
+            "description": "Filter by programme type. Accepts comma separated values",
+            "enum": [
+              "brand",
+              "series",
+              "episode",
+              "clip",
+              "episode,clip"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProgrammesResponse"
+      }
+    },
+    {
+      "id": "getRadioProgrammesByPid",
+      "title": "getRadioProgrammesByPid",
+      "description": "Find programmes by PID (brand, series, episode and clip)\n\nN.B.  Swagger schemas cannot currently handle multiple combinations of object in an array i.e. a mix of Episode\nand Clip Summaries so we are defining results as an array of Programme Summary here.  This will be resolved in V3 with full support for\n anyOf https://www.openapis.org/blog/2017/01/24/a-new-year-a-new-specification\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-API-Key": {
+            "type": "string",
+            "description": "API_KEY"
+          },
+          "pid": {
+            "type": "string",
+            "description": "pid"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "X-API-Key",
+          "pid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProgrammesResponse"
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

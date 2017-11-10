@@ -321,6 +321,24 @@ amazonaws_ds.DescribeDirectories({}, context)
 * Limit (integer)
 * NextToken (string)
 
+### DescribeDomainControllers
+
+
+
+```js
+amazonaws_ds.DescribeDomainControllers({
+  "DirectoryId": ""
+}, context)
+```
+
+#### Parameters
+* Limit (string)
+* NextToken (string)
+* DirectoryId (string) **required**
+* DomainControllerIds (array)
+* Limit (integer)
+* NextToken (string)
+
 ### DescribeEventTopics
 
 
@@ -581,6 +599,21 @@ amazonaws_ds.UpdateConditionalForwarder({
 * DirectoryId (string) **required**
 * DnsIpAddrs (array) **required**
 * RemoteDomainName (string) **required**
+
+### UpdateNumberOfDomainControllers
+
+
+
+```js
+amazonaws_ds.UpdateNumberOfDomainControllers({
+  "DirectoryId": "",
+  "DesiredNumber": 0
+}, context)
+```
+
+#### Parameters
+* DesiredNumber (integer) **required**
+* DirectoryId (string) **required**
 
 ### UpdateRadius
 

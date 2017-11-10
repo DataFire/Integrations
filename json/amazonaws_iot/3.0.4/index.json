@@ -66,6 +66,10 @@
           "$ref": "#/definitions/S3Action",
           "description": "Write to an Amazon S3 bucket."
         },
+        "salesforce": {
+          "$ref": "#/definitions/SalesforceAction",
+          "description": "Send a message to a Salesforce IoT Cloud Input Stream."
+        },
         "sns": {
           "$ref": "#/definitions/SnsAction",
           "description": "Publish to an Amazon SNS topic."
@@ -128,7 +132,7 @@
       "properties": {
         "attributes": {
           "$ref": "#/definitions/Attributes",
-          "description": "<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p><code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})</code></p>"
+          "description": "<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}</code> </p>"
         },
         "merge": {
           "$ref": "#/definitions/Flag",
@@ -206,7 +210,7 @@
         },
         "status": {
           "$ref": "#/definitions/CACertificateStatus",
-          "description": "<p>The status of the CA certificate. </p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
+          "description": "<p>The status of the CA certificate.</p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
         }
       },
       "type": "object",
@@ -638,7 +642,7 @@
       "properties": {
         "attributePayload": {
           "$ref": "#/definitions/AttributePayload",
-          "description": "<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p><code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})</code></p>"
+          "description": "<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}</code> </p>"
         },
         "thingTypeName": {
           "$ref": "#/definitions/ThingTypeName",
@@ -766,7 +770,7 @@
       "title": "DeleteRegistrationCodeRequest"
     },
     "DeleteRegistrationCodeResponse": {
-      "description": "The output for the DeleteRegistrationCode operation. ",
+      "description": "The output for the DeleteRegistrationCode operation.",
       "properties": {},
       "type": "object",
       "title": "DeleteRegistrationCodeResponse"
@@ -921,7 +925,8 @@
       "description": "The output for the DescribeThingType operation.",
       "properties": {
         "thingTypeMetadata": {
-          "$ref": "#/definitions/ThingTypeMetadata"
+          "$ref": "#/definitions/ThingTypeMetadata",
+          "description": "The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated."
         },
         "thingTypeName": {
           "$ref": "#/definitions/ThingTypeName",
@@ -964,7 +969,7 @@
       "title": "DisableTopicRuleRequest"
     },
     "DynamoDBAction": {
-      "description": "<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p><code>\"hashKeyValue\": \"${topic(3)}\"</code></p> <p>The following field uses the timestamp:</p> <p><code>\"rangeKeyValue\": \"${timestamp()}\"</code></p>",
+      "description": "<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p> <code>\"hashKeyValue\": \"${topic(3)}\"</code> </p> <p>The following field uses the timestamp:</p> <p> <code>\"rangeKeyValue\": \"${timestamp()}\"</code> </p>",
       "properties": {
         "hashKeyField": {
           "$ref": "#/definitions/HashKeyField",
@@ -1021,7 +1026,7 @@
       "properties": {
         "putItem": {
           "$ref": "#/definitions/PutItemInput",
-          "description": "<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p><code>{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }</code></p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>"
+          "description": "<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p> <code>{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }</code> </p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>"
         },
         "roleArn": {
           "$ref": "#/definitions/AwsArn",
@@ -1951,7 +1956,8 @@
           "description": "The certificate data, in PEM format."
         },
         "status": {
-          "$ref": "#/definitions/CertificateStatus"
+          "$ref": "#/definitions/CertificateStatus",
+          "description": "The status of the register certificate request."
         }
       },
       "required": [
@@ -1992,6 +1998,12 @@
       },
       "type": "object",
       "title": "RegistrationCodeValidationException"
+    },
+    "RegistryMaxResults": {
+      "maximum": 250,
+      "minimum": 1,
+      "type": "integer",
+      "title": "RegistryMaxResults"
     },
     "RejectCertificateTransferRequest": {
       "description": "The input for the RejectCertificateTransfer operation.",
@@ -2114,6 +2126,36 @@
       "type": "string",
       "title": "SQL"
     },
+    "SalesforceAction": {
+      "description": "Describes an action to write a message to a Salesforce IoT Cloud Input Stream.",
+      "properties": {
+        "token": {
+          "$ref": "#/definitions/SalesforceToken",
+          "description": "The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream."
+        },
+        "url": {
+          "$ref": "#/definitions/SalesforceEndpoint",
+          "description": "The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream."
+        }
+      },
+      "required": [
+        "token",
+        "url"
+      ],
+      "type": "object",
+      "title": "SalesforceAction"
+    },
+    "SalesforceEndpoint": {
+      "maxLength": 2000,
+      "pattern": "https://ingestion-[a-zA-Z0-9]{1,12}\\.[a-zA-Z0-9]+\\.((sfdc-matrix\\.net)|(sfdcnow\\.com))/streams/\\w{1,20}/\\w{1,20}/event",
+      "type": "string",
+      "title": "SalesforceEndpoint"
+    },
+    "SalesforceToken": {
+      "minLength": 40,
+      "type": "string",
+      "title": "SalesforceToken"
+    },
     "SearchableAttributes": {
       "items": {
         "$ref": "#/definitions/AttributeName"
@@ -2169,7 +2211,7 @@
       "properties": {
         "messageFormat": {
           "$ref": "#/definitions/MessageFormat",
-          "description": "The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\"></a> refer to their official documentation."
+          "description": "The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation."
         },
         "roleArn": {
           "$ref": "#/definitions/AwsArn",
@@ -2293,7 +2335,8 @@
       "description": "The definition of the thing type, including thing type name and description.",
       "properties": {
         "thingTypeMetadata": {
-          "$ref": "#/definitions/ThingTypeMetadata"
+          "$ref": "#/definitions/ThingTypeMetadata",
+          "description": "The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated."
         },
         "thingTypeName": {
           "$ref": "#/definitions/ThingTypeName",
@@ -2579,7 +2622,7 @@
       "properties": {
         "attributePayload": {
           "$ref": "#/definitions/AttributePayload",
-          "description": "<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p><code>{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}})</code></p> <p>This data is used to add new attributes or update existing attributes.</p>"
+          "description": "<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}</code> </p> <p>This data is used to add new attributes or update existing attributes.</p>"
         },
         "expectedVersion": {
           "$ref": "#/definitions/OptionalVersion",
@@ -2612,7 +2655,7 @@
       "title": "Version"
     },
     "VersionConflictException": {
-      "description": "An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter. ",
+      "description": "An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.",
       "properties": {
         "message": {
           "$ref": "#/definitions/errorMessage",

@@ -278,23 +278,23 @@ smart_me.User_Get(null, context)
 #### Parameters
 *This action has no parameters*
 
-### VirtualMeterActive_Get
+### VirtualBillingMeterActive_Get
 Beta: Gets all active virtual meters.
 
 
 ```js
-smart_me.VirtualMeterActive_Get(null, context)
+smart_me.VirtualBillingMeterActive_Get(null, context)
 ```
 
 #### Parameters
 *This action has no parameters*
 
-### VirtualMeterActive_Post
+### VirtualBillingMeterActive_Post
 Beta: Virtual Meter API: Activates a Meter and add the Consumption to a Virtual Meter assosiated with the User.
 
 
 ```js
-smart_me.VirtualMeterActive_Post({
+smart_me.VirtualBillingMeterActive_Post({
   "meterToActivate": {}
 }, context)
 ```
@@ -302,12 +302,12 @@ smart_me.VirtualMeterActive_Post({
 #### Parameters
 * meterToActivate (object) **required** - Actives a virtual Meter
 
-### VirtualMeterDeactivate_Post
+### VirtualBillingMeterDeactivate_Post
 Beta: Virtual Meter API: Deactivates a Virtual Meter.
 
 
 ```js
-smart_me.VirtualMeterDeactivate_Post({
+smart_me.VirtualBillingMeterDeactivate_Post({
   "meterToDeactivate": {}
 }, context)
 ```
@@ -315,14 +315,36 @@ smart_me.VirtualMeterDeactivate_Post({
 #### Parameters
 * meterToDeactivate (object) **required** - Deactivates a virtual Meter
 
-### VirtualMeters_Get
+### VirtualBillingMeters_Get
 Beta: Gets all Meters available to activate as a Virtual Meter.
 
 
 ```js
-smart_me.VirtualMeters_Get(null, context)
+smart_me.VirtualBillingMeters_Get(null, context)
 ```
 
 #### Parameters
 *This action has no parameters*
+
+### VirtualMeterCalculateFormula_Get
+Calculates a virtual meter from a formula.
+            
+            A meter is coded as ID("METERID")
+            Ariphmetical operators:
+             ()  parentheses;  
+             +   plus (a + b); 
+             -  minus (a - b); 
+             *  multiplycation symbol (a * b); 
+             /  divide symbol (a / b); 
+            Example: (ID("63ac09cb-4e5f-4f3e-bd27-ad8c30bdfc0c") + ID("0209555e-9dc4-4e84-a166-a864488b4b12")) * 2
+
+
+```js
+smart_me.VirtualMeterCalculateFormula_Get({
+  "formula": ""
+}, context)
+```
+
+#### Parameters
+* formula (string) **required**
 

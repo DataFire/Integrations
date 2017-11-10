@@ -1,0 +1,480 @@
+{
+  "id": "rbaskets_in",
+  "title": "Request Baskets",
+  "description": "RESTful API of [Request Baskets](https://rbaskets.in) service.\n\nRequest Baskets is an open source project of a service to collect HTTP requests and inspect them via RESTful\nAPI or web UI.\n\nCheck out the [project page](https://github.com/darklynx/request-baskets) for more detailed description.\n",
+  "security": {
+    "rbaskets_in": {
+      "integration": "rbaskets_in",
+      "fields": {
+        "basket_token": "Basket assigned secure token"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rbaskets_in.svg"
+  },
+  "actionCount": 9,
+  "definitions": {
+    "Baskets": {
+      "properties": {
+        "count": {
+          "description": "Total number of baskets in the system; not present if query is applied",
+          "type": "integer"
+        },
+        "has_more": {
+          "description": "Indicates if there are more baskets to fetch",
+          "type": "boolean"
+        },
+        "names": {
+          "description": "Collection of basket names",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "names",
+        "has_more"
+      ],
+      "type": "object",
+      "title": "Baskets"
+    },
+    "Config": {
+      "properties": {
+        "capacity": {
+          "description": "Baskets capacity, defines maximum number of requests to store",
+          "type": "integer"
+        },
+        "expand_path": {
+          "description": "If set to `true` the forward URL path will be expanded when original HTTP request contains compound path.",
+          "type": "boolean"
+        },
+        "forward_url": {
+          "description": "URL to forward all incoming requests of the basket, `empty` value disables forwarding",
+          "type": "string"
+        },
+        "insecure_tls": {
+          "description": "If set to `true` the certificate verification will be disabled if forward URL indicates HTTPS scheme.\n**Warning:** enabling this feature has known security implications.\n",
+          "type": "boolean"
+        }
+      },
+      "type": "object",
+      "title": "Config"
+    },
+    "Headers": {
+      "additionalProperties": {
+        "description": "Collection of header values",
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "description": "Map of HTTP headers, key represents name, value is array of values",
+      "type": "object",
+      "title": "Headers"
+    },
+    "Request": {
+      "properties": {
+        "body": {
+          "description": "Content of request body",
+          "type": "string"
+        },
+        "content_length": {
+          "description": "Content lenght of request",
+          "type": "integer"
+        },
+        "date": {
+          "description": "Date and time of request in Unix time ms. format (number of miliseconds elapsed since January 1, 1970 UTC)",
+          "format": "int64",
+          "type": "integer"
+        },
+        "headers": {
+          "$ref": "#/definitions/Headers"
+        },
+        "method": {
+          "description": "HTTP methof of request",
+          "type": "string"
+        },
+        "path": {
+          "description": "URL path of request",
+          "type": "string"
+        },
+        "query": {
+          "description": "Query parameters of request",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Request"
+    },
+    "Requests": {
+      "properties": {
+        "count": {
+          "description": "Current number of collected requests hold by basket; not present if query is applied",
+          "type": "integer"
+        },
+        "has_more": {
+          "description": "Indicates if there are more requests collected by basket to fetch",
+          "type": "boolean"
+        },
+        "requests": {
+          "description": "Collection of collected requests",
+          "items": {
+            "$ref": "#/definitions/Request"
+          },
+          "type": "array"
+        },
+        "total_count": {
+          "description": "Total number of all requests passed through this basket; not present if query is applied",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requests",
+        "has_more"
+      ],
+      "type": "object",
+      "title": "Requests"
+    },
+    "Response": {
+      "properties": {
+        "body": {
+          "description": "Content of response body",
+          "type": "string"
+        },
+        "headers": {
+          "$ref": "#/definitions/Headers"
+        },
+        "is_template": {
+          "description": "If set to `true` the body is treated as [HTML template](https://golang.org/pkg/html/template) that accepts\ninput from request parameters.\n",
+          "type": "boolean"
+        },
+        "status": {
+          "description": "The HTTP status code to reply with",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "Response"
+    },
+    "Token": {
+      "properties": {
+        "token": {
+          "description": "Secure token to manage the basket, generated by system",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "type": "object",
+      "title": "Token"
+    }
+  },
+  "actions": [
+    {
+      "id": "baskets.get",
+      "title": "baskets.get",
+      "description": "Fetches a list of basket names managed by service. Require master token.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "max": {
+            "type": "integer",
+            "description": "Maximum number of basket names to return; default 20"
+          },
+          "skip": {
+            "type": "integer",
+            "description": "Number of basket names to skip; default 0"
+          },
+          "q": {
+            "type": "string",
+            "description": "Query string to filter result, only those basket names that match the query will be included in response"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Baskets"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.delete",
+      "title": "baskets.name.delete",
+      "description": "Permanently deletes this basket and all collected requests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.get",
+      "title": "baskets.name.get",
+      "description": "Retrieves configuration settings of this basket.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Config"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.post",
+      "title": "baskets.name.post",
+      "description": "Creates a new basket with this name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of new basket"
+          },
+          "config": {
+            "$ref": "#/definitions/Config"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.put",
+      "title": "baskets.name.put",
+      "description": "Updates configuration settings of this basket.\n\nSpecial configuration parameters for request forwarding:\n  * `insecure_tls` controls certificate verification when forwarding requests. Setting this parameter to `true`\n  allows to forward collected HTTP requests via HTTPS protocol even if the forward end-point is configured with\n  self-signed TLS/SSL certificate. **Warning:** enabling this feature has known security implications.\n  * `expand_path` changes the logic of constructing taget URL when forwarding requests. If this parameter is\n  set to `true` the forward URL path will be expanded when original HTTP request contains compound path. For\n  example, a basket with name **server1** is configured to forward all requests to `http://server1.intranet:8001/myservice`\n  and it has received an HTTP request like `GET http://baskets.example.com/server1/component/123/events?status=OK`\n  then depending on `expand_path` settings the request will be forwarded to:\n    * `true` => `GET http://server1.intranet:8001/myservice/component/123/events?status=OK`\n    * `false` => `GET http://server1.intranet:8001/myservice?status=OK`\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          },
+          "config": {
+            "$ref": "#/definitions/Config"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "config"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.requests.delete",
+      "title": "baskets.name.requests.delete",
+      "description": "Deletes all requests collected by this basket.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.requests.get",
+      "title": "baskets.name.requests.get",
+      "description": "Fetches collection of requests collected by this basket.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          },
+          "max": {
+            "type": "integer",
+            "description": "Maximum number of requests to return; default 20"
+          },
+          "skip": {
+            "type": "integer",
+            "description": "Number of requests to skip; default 0"
+          },
+          "q": {
+            "type": "string",
+            "description": "Query string to filter result, only requests that match the query will be included in response"
+          },
+          "in": {
+            "type": "string",
+            "description": "Defines what is taken into account when filtering is applied: `body` - search in content body of collected requests,\n`query` - search among query parameters of collected requests, `headers` - search among request header values,\n`any` - search anywhere; default `any`\n",
+            "enum": [
+              "any",
+              "body",
+              "query",
+              "headers"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Requests"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.responses.method.get",
+      "title": "baskets.name.responses.method.get",
+      "description": "Retrieves information about configured response of the basket. Service will reply with this response to any\nHTTP request sent to the basket with appropriate HTTP method.\n\nIf nothing is configured, the default response is HTTP 200 - OK with empty content.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          },
+          "method": {
+            "type": "string",
+            "description": "The HTTP method this response is configured for",
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "CONNECT",
+              "OPTIONS",
+              "TRACE"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "method"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Response"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    },
+    {
+      "id": "baskets.name.responses.method.put",
+      "title": "baskets.name.responses.method.put",
+      "description": "Allows to configure HTTP response of this basket. The service will reply with configured response to any HTTP\nrequest sent to the basket with appropriate HTTP method.\n\nIf nothing is configured, the default response is HTTP 200 - OK with empty content.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The basket name"
+          },
+          "method": {
+            "type": "string",
+            "description": "The HTTP method this response is configured for",
+            "enum": [
+              "GET",
+              "HEAD",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE",
+              "CONNECT",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "response": {
+            "$ref": "#/definitions/Response"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "method",
+          "response"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "developer tools",
+    "monitoring"
+  ]
+}

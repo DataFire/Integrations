@@ -17,11 +17,11 @@ apitore_sentimentapis.predictUsingGET({}).then(data => {
 ```
 
 ## Description
-Japanese sentiment analyzer.<BR />[Endpoint] https://api.apitore.com/api/11
+Japanese sentiment analyzer. (tokenized by SentencePiece)<BR />[Endpoint] https://api.apitore.com/api/39
 
 ## Actions
 ### predictUsingGET
-Sentiment Analysis, last update at 2016-10-16.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.sentiment.SentimentResponseEntity<BR />
+Sentiment Analysis, last update at 2017-4-29.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.sentiment.SentimentResponseEntity<BR />
 
 
 ```js

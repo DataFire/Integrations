@@ -15,7 +15,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.png"
   },
-  "actionCount": 49,
+  "actionCount": 60,
   "definitions": {
     "AddHeaderAction": {
       "description": "<p>When included in a receipt rule, this action adds a header to the received email.</p> <p>For information about adding a header using a receipt rule, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html\">Amazon SES Developer Guide</a>.</p>",
@@ -51,7 +51,8 @@
       "description": "Indicates that a resource could not be created because of a naming conflict.",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/RuleOrRuleSetName"
+          "$ref": "#/definitions/RuleOrRuleSetName",
+          "description": "Indicates that a resource could not be created because the resource name already exists."
         }
       },
       "type": "object",
@@ -178,11 +179,84 @@
       "type": "array",
       "title": "BouncedRecipientInfoList"
     },
+    "BulkEmailDestination": {
+      "description": "An array that contains one or more Destinations, as well as the tags and replacement data associated with each of those Destinations.",
+      "properties": {
+        "Destination": {
+          "$ref": "#/definitions/Destination"
+        },
+        "ReplacementTags": {
+          "$ref": "#/definitions/MessageTagList",
+          "description": "A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendBulkTemplatedEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events."
+        },
+        "ReplacementTemplateData": {
+          "$ref": "#/definitions/TemplateData",
+          "description": "A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template."
+        }
+      },
+      "required": [
+        "Destination"
+      ],
+      "type": "object",
+      "title": "BulkEmailDestination"
+    },
+    "BulkEmailDestinationList": {
+      "items": {
+        "$ref": "#/definitions/BulkEmailDestination"
+      },
+      "type": "array",
+      "title": "BulkEmailDestinationList"
+    },
+    "BulkEmailDestinationStatus": {
+      "description": "An object that contains the response from the <code>SendBulkTemplatedEmail</code> operation.",
+      "properties": {
+        "Error": {
+          "$ref": "#/definitions/Error",
+          "description": "A description of an error that prevented a message being sent using the <code>SendBulkTemplatedEmail</code> operation."
+        },
+        "MessageId": {
+          "$ref": "#/definitions/MessageId",
+          "description": "The unique message identifier returned from the <code>SendBulkTemplatedEmail</code> operation."
+        },
+        "Status": {
+          "$ref": "#/definitions/BulkEmailStatus",
+          "description": "<p>The status of a message sent using the <code>SendBulkTemplatedEmail</code> operation.</p> <p>Possible values for this parameter include:</p> <ul> <li> <p> <code>Success</code>: Amazon SES accepted the message, and will attempt to deliver it to the recipients.</p> </li> <li> <p> <code>MessageRejected</code>: The message was rejected because it contained a virus.</p> </li> <li> <p> <code>MailFromDomainNotVerified</code>: The sender's email address or domain was not verified.</p> </li> <li> <p> <code>ConfigurationSetDoesNotExist</code>: The configuration set you specified does not exist.</p> </li> <li> <p> <code>TemplateDoesNotExist</code>: The template you specified does not exist.</p> </li> <li> <p> <code>AccountSuspended</code>: Your account has been shut down because of issues related to your email sending practices.</p> </li> <li> <p> <code>AccountThrottled</code>: The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.</p> </li> <li> <p> <code>AccountDailyQuotaExceeded</code>: You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.</p> </li> <li> <p> <code>InvalidSendingPoolName</code>: The configuration set you specified refers to an IP pool that does not exist.</p> </li> <li> <p> <code>InvalidParameterValue</code>: One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.</p> </li> <li> <p> <code>TransientFailure</code>: Amazon SES was unable to process your request because of a temporary issue.</p> </li> <li> <p> <code>Failed</code>: Amazon SES was unable to process your request. See the error message for additional information.</p> </li> </ul>"
+        }
+      },
+      "type": "object",
+      "title": "BulkEmailDestinationStatus"
+    },
+    "BulkEmailDestinationStatusList": {
+      "items": {
+        "$ref": "#/definitions/BulkEmailDestinationStatus"
+      },
+      "type": "array",
+      "title": "BulkEmailDestinationStatusList"
+    },
+    "BulkEmailStatus": {
+      "enum": [
+        "Success",
+        "MessageRejected",
+        "MailFromDomainNotVerified",
+        "ConfigurationSetDoesNotExist",
+        "TemplateDoesNotExist",
+        "AccountSuspended",
+        "AccountThrottled",
+        "AccountDailyQuotaExceeded",
+        "InvalidSendingPoolName",
+        "InvalidParameterValue",
+        "TransientFailure",
+        "Failed"
+      ],
+      "type": "string",
+      "title": "BulkEmailStatus"
+    },
     "CannotDeleteException": {
       "description": "Indicates that the delete operation could not be completed.",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/RuleOrRuleSetName"
+          "$ref": "#/definitions/RuleOrRuleSetName",
+          "description": "Indicates that a resource could not be deleted because no resource with the specified name exists."
         }
       },
       "type": "object",
@@ -271,11 +345,11 @@
       "title": "CloudWatchDimensionConfigurations"
     },
     "ConfigurationSet": {
-      "description": "<p>The name of the configuration set.</p> <p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
+      "description": "<p>The name of the configuration set.</p> <p>Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html\">Using Amazon SES Configuration Sets</a> in the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/\">Amazon SES Developer Guide</a>.</p>",
       "properties": {
         "Name": {
           "$ref": "#/definitions/ConfigurationSetName",
-          "description": "<p>The name of the configuration set. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+          "description": "<p>The name of the configuration set. The name must meet the following requirements:</p> <ul> <li> <p>Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain 64 characters or fewer.</p> </li> </ul>"
         }
       },
       "required": [
@@ -288,7 +362,8 @@
       "description": "Indicates that the configuration set could not be created because of a naming conflict.",
       "properties": {
         "ConfigurationSetName": {
-          "$ref": "#/definitions/ConfigurationSetName"
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
         }
       },
       "type": "object",
@@ -296,7 +371,8 @@
     },
     "ConfigurationSetAttribute": {
       "enum": [
-        "eventDestinations"
+        "eventDestinations",
+        "trackingOptions"
       ],
       "type": "string",
       "title": "ConfigurationSetAttribute"
@@ -312,7 +388,8 @@
       "description": "Indicates that the configuration set does not exist.",
       "properties": {
         "ConfigurationSetName": {
-          "$ref": "#/definitions/ConfigurationSetName"
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
         }
       },
       "type": "object",
@@ -356,11 +433,11 @@
       "properties": {
         "ConfigurationSetName": {
           "$ref": "#/definitions/ConfigurationSetName",
-          "description": "The name of the configuration set to which to apply the event destination."
+          "description": "The name of the configuration set that the event destination should be associated with."
         },
         "EventDestination": {
           "$ref": "#/definitions/EventDestination",
-          "description": "An object that describes the AWS service to which Amazon SES will publish the email sending events associated with the specified configuration set."
+          "description": "An object that describes the AWS service that email sending event information will be published to."
         }
       },
       "required": [
@@ -395,6 +472,30 @@
       "properties": {},
       "type": "object",
       "title": "CreateConfigurationSetResponse"
+    },
+    "CreateConfigurationSetTrackingOptionsRequest": {
+      "description": "Represents a request to create an open and click tracking option object in a configuration set. ",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set that the tracking options should be associated with."
+        },
+        "TrackingOptions": {
+          "$ref": "#/definitions/TrackingOptions"
+        }
+      },
+      "required": [
+        "ConfigurationSetName",
+        "TrackingOptions"
+      ],
+      "type": "object",
+      "title": "CreateConfigurationSetTrackingOptionsRequest"
+    },
+    "CreateConfigurationSetTrackingOptionsResponse": {
+      "description": "An empty element returned on a successful request.",
+      "properties": {},
+      "type": "object",
+      "title": "CreateConfigurationSetTrackingOptionsResponse"
     },
     "CreateReceiptFilterRequest": {
       "description": "Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -456,7 +557,7 @@
         },
         "RuleSetName": {
           "$ref": "#/definitions/ReceiptRuleSetName",
-          "description": "The name of the rule set to which to add the rule."
+          "description": "The name of the rule set that the receipt rule will be added to."
         }
       },
       "required": [
@@ -495,6 +596,25 @@
       "type": "object",
       "title": "CreateReceiptRuleSetResponse"
     },
+    "CreateTemplateRequest": {
+      "description": "Represents a request to create an email template. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.",
+      "properties": {
+        "Template": {
+          "$ref": "#/definitions/Template",
+          "description": "The content of the email, composed of a subject line, an HTML part, and a text-only part."
+        }
+      },
+      "required": [
+        "Template"
+      ],
+      "type": "object",
+      "title": "CreateTemplateRequest"
+    },
+    "CreateTemplateResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateTemplateResponse"
+    },
     "CustomMailFromStatus": {
       "enum": [
         "Pending",
@@ -504,6 +624,10 @@
       ],
       "type": "string",
       "title": "CustomMailFromStatus"
+    },
+    "CustomRedirectDomain": {
+      "type": "string",
+      "title": "CustomRedirectDomain"
     },
     "DefaultDimensionValue": {
       "type": "string",
@@ -553,6 +677,26 @@
       "properties": {},
       "type": "object",
       "title": "DeleteConfigurationSetResponse"
+    },
+    "DeleteConfigurationSetTrackingOptionsRequest": {
+      "description": "Represents a request to delete open and click tracking options in a configuration set. ",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set from which you want to delete the tracking options."
+        }
+      },
+      "required": [
+        "ConfigurationSetName"
+      ],
+      "type": "object",
+      "title": "DeleteConfigurationSetTrackingOptionsRequest"
+    },
+    "DeleteConfigurationSetTrackingOptionsResponse": {
+      "description": "An empty element returned on a successful request.",
+      "properties": {},
+      "type": "object",
+      "title": "DeleteConfigurationSetTrackingOptionsResponse"
     },
     "DeleteIdentityPolicyRequest": {
       "description": "Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.",
@@ -681,6 +825,25 @@
       "type": "object",
       "title": "DeleteReceiptRuleSetResponse"
     },
+    "DeleteTemplateRequest": {
+      "description": "Represents a request to delete an email template. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the template to be deleted."
+        }
+      },
+      "required": [
+        "TemplateName"
+      ],
+      "type": "object",
+      "title": "DeleteTemplateRequest"
+    },
+    "DeleteTemplateResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTemplateResponse"
+    },
     "DeleteVerifiedEmailAddressRequest": {
       "description": "Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.",
       "example": {
@@ -770,6 +933,10 @@
         "EventDestinations": {
           "$ref": "#/definitions/EventDestinations",
           "description": "A list of event destinations associated with the configuration set. "
+        },
+        "TrackingOptions": {
+          "$ref": "#/definitions/TrackingOptions",
+          "description": "The name of the custom open and click tracking domain associated with the configuration set."
         }
       },
       "type": "object",
@@ -788,7 +955,7 @@
         },
         "RuleSetName": {
           "$ref": "#/definitions/ReceiptRuleSetName",
-          "description": "The name of the receipt rule set to which the receipt rule belongs."
+          "description": "The name of the receipt rule set that the receipt rule belongs to."
         }
       },
       "required": [
@@ -880,7 +1047,7 @@
       "title": "DescribeReceiptRuleSetResponse"
     },
     "Destination": {
-      "description": "<p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"http://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>",
+      "description": "<p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>",
       "properties": {
         "BccAddresses": {
           "$ref": "#/definitions/AddressList",
@@ -909,7 +1076,8 @@
     "DimensionValueSource": {
       "enum": [
         "messageTag",
-        "emailHeader"
+        "emailHeader",
+        "linkTag"
       ],
       "type": "string",
       "title": "DimensionValueSource"
@@ -952,8 +1120,12 @@
       "type": "boolean",
       "title": "Enabled"
     },
+    "Error": {
+      "type": "string",
+      "title": "Error"
+    },
     "EventDestination": {
-      "description": "<p>Contains information about the event destination to which the specified email sending events are published.</p> <note> <p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be either Amazon CloudWatch or Amazon Kinesis Firehose.</p> </note> <p>Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch or Amazon Kinesis Firehose. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
+      "description": "<p>Contains information about the event destination that the specified email sending events will be published to.</p> <note> <p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose or Amazon Simple Notification Service (Amazon SNS).</p> </note> <p>Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
       "properties": {
         "CloudWatchDestination": {
           "$ref": "#/definitions/CloudWatchDestination",
@@ -974,6 +1146,10 @@
         "Name": {
           "$ref": "#/definitions/EventDestinationName",
           "description": "<p>The name of the event destination. The name must:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>"
+        },
+        "SNSDestination": {
+          "$ref": "#/definitions/SNSDestination",
+          "description": "An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination."
         }
       },
       "required": [
@@ -987,10 +1163,12 @@
       "description": "Indicates that the event destination could not be created because of a naming conflict.",
       "properties": {
         "ConfigurationSetName": {
-          "$ref": "#/definitions/ConfigurationSetName"
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
         },
         "EventDestinationName": {
-          "$ref": "#/definitions/EventDestinationName"
+          "$ref": "#/definitions/EventDestinationName",
+          "description": "Indicates that the event destination does not exist."
         }
       },
       "type": "object",
@@ -1000,10 +1178,12 @@
       "description": "Indicates that the event destination does not exist.",
       "properties": {
         "ConfigurationSetName": {
-          "$ref": "#/definitions/ConfigurationSetName"
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
         },
         "EventDestinationName": {
-          "$ref": "#/definitions/EventDestinationName"
+          "$ref": "#/definitions/EventDestinationName",
+          "description": "Indicates that the event destination does not exist."
         }
       },
       "type": "object",
@@ -1026,7 +1206,10 @@
         "reject",
         "bounce",
         "complaint",
-        "delivery"
+        "delivery",
+        "open",
+        "click",
+        "renderingFailure"
       ],
       "type": "string",
       "title": "EventType"
@@ -1194,6 +1377,8 @@
         "NotificationAttributes": {
           "example.com": {
             "BounceTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+            "ComplaintTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+            "DeliveryTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
             "ForwardingEnabled": true,
             "HeadersInBounceNotificationsEnabled": false,
             "HeadersInComplaintNotificationsEnabled": false,
@@ -1358,6 +1543,28 @@
       "type": "object",
       "title": "GetSendStatisticsResponse"
     },
+    "GetTemplateRequest": {
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the template you want to retrieve."
+        }
+      },
+      "required": [
+        "TemplateName"
+      ],
+      "type": "object",
+      "title": "GetTemplateRequest"
+    },
+    "GetTemplateResponse": {
+      "properties": {
+        "Template": {
+          "$ref": "#/definitions/Template"
+        }
+      },
+      "type": "object",
+      "title": "GetTemplateResponse"
+    },
     "HeaderName": {
       "type": "string",
       "title": "HeaderName"
@@ -1365,6 +1572,10 @@
     "HeaderValue": {
       "type": "string",
       "title": "HeaderValue"
+    },
+    "HtmlPart": {
+      "type": "string",
+      "title": "HtmlPart"
     },
     "Identity": {
       "type": "string",
@@ -1495,10 +1706,12 @@
       "description": "Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.",
       "properties": {
         "ConfigurationSetName": {
-          "$ref": "#/definitions/ConfigurationSetName"
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
         },
         "EventDestinationName": {
-          "$ref": "#/definitions/EventDestinationName"
+          "$ref": "#/definitions/EventDestinationName",
+          "description": "Indicates that the event destination does not exist."
         }
       },
       "type": "object",
@@ -1514,10 +1727,12 @@
       "description": "Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.",
       "properties": {
         "ConfigurationSetName": {
-          "$ref": "#/definitions/ConfigurationSetName"
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
         },
         "EventDestinationName": {
-          "$ref": "#/definitions/EventDestinationName"
+          "$ref": "#/definitions/EventDestinationName",
+          "description": "Indicates that the event destination does not exist."
         }
       },
       "type": "object",
@@ -1527,7 +1742,8 @@
       "description": "Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.",
       "properties": {
         "FunctionArn": {
-          "$ref": "#/definitions/AmazonResourceName"
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "Indicates that the ARN of the function was not found."
         }
       },
       "type": "object",
@@ -1539,25 +1755,68 @@
       "type": "object",
       "title": "InvalidPolicyException"
     },
+    "InvalidRenderingParameterException": {
+      "description": "Indicates that one or more of the replacement values you provided is invalid. This error may occur when the TemplateData object contains invalid JSON.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName"
+        }
+      },
+      "type": "object",
+      "title": "InvalidRenderingParameterException"
+    },
     "InvalidS3ConfigurationException": {
       "description": "Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.",
       "properties": {
         "Bucket": {
-          "$ref": "#/definitions/S3BucketName"
+          "$ref": "#/definitions/S3BucketName",
+          "description": "Indicated that the S3 Bucket was not found."
         }
       },
       "type": "object",
       "title": "InvalidS3ConfigurationException"
     },
+    "InvalidSNSDestinationException": {
+      "description": "Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that the configuration set does not exist."
+        },
+        "EventDestinationName": {
+          "$ref": "#/definitions/EventDestinationName",
+          "description": "Indicates that the event destination does not exist."
+        }
+      },
+      "type": "object",
+      "title": "InvalidSNSDestinationException"
+    },
     "InvalidSnsTopicException": {
       "description": "Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.",
       "properties": {
         "Topic": {
-          "$ref": "#/definitions/AmazonResourceName"
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "Indicates that the topic does not exist."
         }
       },
       "type": "object",
       "title": "InvalidSnsTopicException"
+    },
+    "InvalidTemplateException": {
+      "description": "Indicates that a template could not be created because it contained invalid JSON.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName"
+        }
+      },
+      "type": "object",
+      "title": "InvalidTemplateException"
+    },
+    "InvalidTrackingOptionsException": {
+      "description": "<p>Indicates that the custom domain to be used for open and click tracking redirects is invalid. This error appears most often in the following situations:</p> <ul> <li> <p>When the tracking domain you specified is not verified in Amazon SES.</p> </li> <li> <p>When the tracking domain you specified is not a valid domain or subdomain.</p> </li> </ul>",
+      "properties": {},
+      "type": "object",
+      "title": "InvalidTrackingOptionsException"
     },
     "InvocationType": {
       "enum": [
@@ -1572,7 +1831,7 @@
       "properties": {
         "DeliveryStreamARN": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events."
+          "description": "The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to."
         },
         "IAMRoleARN": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -1799,6 +2058,34 @@
       "type": "object",
       "title": "ListReceiptRuleSetsResponse"
     },
+    "ListTemplatesRequest": {
+      "properties": {
+        "MaxItems": {
+          "$ref": "#/definitions/MaxItems",
+          "description": "The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use for pagination."
+        }
+      },
+      "type": "object",
+      "title": "ListTemplatesRequest"
+    },
+    "ListTemplatesResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token to use for pagination."
+        },
+        "TemplatesMetadata": {
+          "$ref": "#/definitions/TemplateMetadataList",
+          "description": "An array the contains the name of creation time stamp for each template in your Amazon SES account."
+        }
+      },
+      "type": "object",
+      "title": "ListTemplatesResponse"
+    },
     "ListVerifiedEmailAddressesResponse": {
       "description": "A list of email addresses that you have verified with Amazon SES under your AWS account.",
       "example": {
@@ -1944,6 +2231,16 @@
       "type": "string",
       "title": "MessageTagValue"
     },
+    "MissingRenderingAttributeException": {
+      "description": "Indicates that one or more of the replacement values for the specified template was not specified. Ensure that the TemplateData object contains references to all of the replacement tags in the specified template.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName"
+        }
+      },
+      "type": "object",
+      "title": "MissingRenderingAttributeException"
+    },
     "NextToken": {
       "type": "string",
       "title": "NextToken"
@@ -2019,7 +2316,7 @@
       "properties": {
         "Identity": {
           "$ref": "#/definitions/Identity",
-          "description": "<p>The identity to which the policy will apply. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To successfully call this API, you must own the identity.</p>"
+          "description": "<p>The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To successfully call this API, you must own the identity.</p>"
         },
         "Policy": {
           "$ref": "#/definitions/Policy",
@@ -2049,7 +2346,7 @@
       "properties": {
         "Data": {
           "$ref": "#/definitions/RawMessageData",
-          "description": "<p>The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding.</p> <p>The To:, CC:, and BCC: headers in the raw message can contain a group list.</p> <p>If you are using <code>SendRawEmail</code> with sending authorization, you can include X-headers in the raw message to specify the \"Source,\" \"From,\" and \"Return-Path\" addresses. For more information, see the documentation for <code>SendRawEmail</code>. </p> <important> <p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p> </important> <p>For more information, go to the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\">Amazon SES Developer Guide</a>. </p>"
+          "description": "<p>The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding.</p> <p>The To:, CC:, and BCC: headers in the raw message can contain a group list.</p> <p>If you are using <code>SendRawEmail</code> with sending authorization, you can include X-headers in the raw message to specify the \"Source,\" \"From,\" and \"Return-Path\" addresses. For more information, see the documentation for <code>SendRawEmail</code>. </p> <important> <p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p> </important> <p>For more information, go to the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html\">Amazon SES Developer Guide</a>.</p>"
         }
       },
       "required": [
@@ -2162,7 +2459,7 @@
       "title": "ReceiptIpFilter"
     },
     "ReceiptRule": {
-      "description": "<p>Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.</p> <p>Each receipt rule defines a set of email addresses or domains to which it applies. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.</p> <p>For information about setting up receipt rules, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html\">Amazon SES Developer Guide</a>.</p>",
+      "description": "<p>Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.</p> <p>Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.</p> <p>For information about setting up receipt rules, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html\">Amazon SES Developer Guide</a>.</p>",
       "properties": {
         "Actions": {
           "$ref": "#/definitions/ReceiptActionsList",
@@ -2178,11 +2475,11 @@
         },
         "Recipients": {
           "$ref": "#/definitions/RecipientsList",
-          "description": "The recipient domains and email addresses to which the receipt rule applies. If this field is not specified, this rule will match all recipients under all verified domains."
+          "description": "The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains."
         },
         "ScanEnabled": {
           "$ref": "#/definitions/Enabled",
-          "description": "If <code>true</code>, then messages to which this receipt rule applies are scanned for spam and viruses. The default value is <code>false</code>."
+          "description": "If <code>true</code>, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is <code>false</code>."
         },
         "TlsPolicy": {
           "$ref": "#/definitions/TlsPolicy",
@@ -2260,7 +2557,7 @@
         },
         "FinalRecipient": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The email address to which the message was ultimately delivered. This corresponds to the <code>Final-Recipient</code> in the DSN. If not specified, <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original bounced message.</p> <note> <p>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc 822;</code>, as described in <a href=\"https://tools.ietf.org/html/rfc3798\">RFC 3798</a>.</p> </note>"
+          "description": "<p>The email address that the message was ultimately delivered to. This corresponds to the <code>Final-Recipient</code> in the DSN. If not specified, <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original bounced message.</p> <note> <p>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc 822;</code>, as described in <a href=\"https://tools.ietf.org/html/rfc3798\">RFC 3798</a>.</p> </note>"
         },
         "LastAttemptDate": {
           "$ref": "#/definitions/LastAttemptDate",
@@ -2292,6 +2589,10 @@
     "RemoteMta": {
       "type": "string",
       "title": "RemoteMta"
+    },
+    "RenderedTemplate": {
+      "type": "string",
+      "title": "RenderedTemplate"
     },
     "ReorderReceiptRuleSetRequest": {
       "description": "Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -2333,7 +2634,8 @@
       "description": "Indicates that the provided receipt rule does not exist.",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/RuleOrRuleSetName"
+          "$ref": "#/definitions/RuleOrRuleSetName",
+          "description": "Indicates that the named receipt rule does not exist."
         }
       },
       "type": "object",
@@ -2347,7 +2649,8 @@
       "description": "Indicates that the provided receipt rule set does not exist.",
       "properties": {
         "Name": {
-          "$ref": "#/definitions/RuleOrRuleSetName"
+          "$ref": "#/definitions/RuleOrRuleSetName",
+          "description": "Indicates that the named receipt rule set does not exist."
         }
       },
       "type": "object",
@@ -2358,11 +2661,11 @@
       "properties": {
         "BucketName": {
           "$ref": "#/definitions/S3BucketName",
-          "description": "The name of the Amazon S3 bucket to which to save the received email."
+          "description": "The name of the Amazon S3 bucket that incoming email will be saved to."
         },
         "KmsKeyArn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "<p>The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:</p> <ul> <li> <p>To use the default master key, provide an ARN in the form of <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.</p> </li> <li> <p>To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p> </li> </ul> <p>For more information about key policies, see the <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\">AWS KMS Developer Guide</a>. If you do not specify a master key, Amazon SES will not encrypt your emails.</p> <important> <p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <a href=\"http://aws.amazon.com/sdk-for-java/\">AWS Java SDK</a> and <a href=\"http://aws.amazon.com/sdk-for-ruby/\">AWS Ruby SDK</a> only. For more information about client-side encryption using AWS KMS master keys, see the <a href=\"http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html\">Amazon S3 Developer Guide</a>.</p> </important>"
+          "description": "<p>The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:</p> <ul> <li> <p>To use the default master key, provide an ARN in the form of <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.</p> </li> <li> <p>To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES Developer Guide</a>.</p> </li> </ul> <p>For more information about key policies, see the <a href=\"http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html\">AWS KMS Developer Guide</a>. If you do not specify a master key, Amazon SES will not encrypt your emails.</p> <important> <p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <a href=\"http://aws.amazon.com/sdk-for-java/\">AWS Java SDK</a> and <a href=\"http://aws.amazon.com/sdk-for-ruby/\">AWS Ruby SDK</a> only. For more information about client-side encryption using AWS KMS master keys, see the <a href=\"AmazonS3/latest/dev/UsingClientSideEncryption.html\">Amazon S3 Developer Guide</a>.</p> </important>"
         },
         "ObjectKeyPrefix": {
           "$ref": "#/definitions/S3KeyPrefix",
@@ -2413,6 +2716,20 @@
       "type": "string",
       "title": "SNSActionEncoding"
     },
+    "SNSDestination": {
+      "description": "<p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p> <p>Event destinations, such as Amazon SNS, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.</p>",
+      "properties": {
+        "TopicARN": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href=\"http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Amazon SNS Developer Guide</a>."
+        }
+      },
+      "required": [
+        "TopicARN"
+      ],
+      "type": "object",
+      "title": "SNSDestination"
+    },
     "SendBounceRequest": {
       "description": "Represents a request to send a bounce message to the sender of an email you received through Amazon SES.",
       "properties": {
@@ -2459,6 +2776,75 @@
       },
       "type": "object",
       "title": "SendBounceResponse"
+    },
+    "SendBulkTemplatedEmailRequest": {
+      "description": "Represents a request to send a templated email to multiple destinations using Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set to use when you send an email using <code>SendBulkTemplatedEmail</code>."
+        },
+        "DefaultTags": {
+          "$ref": "#/definitions/MessageTagList",
+          "description": "A list of tags, in the form of name/value pairs, to apply to an email that you send to a destination using <code>SendBulkTemplatedEmail</code>."
+        },
+        "DefaultTemplateData": {
+          "$ref": "#/definitions/TemplateData",
+          "description": "<p>A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available.</p> <p>The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>"
+        },
+        "Destinations": {
+          "$ref": "#/definitions/BulkEmailDestinationList",
+          "description": "One or more <code>Destination</code> objects. All of the recipients in a <code>Destination</code> will receive the same version of the email. You can specify up to 50 <code>Destination</code> objects within a <code>Destinations</code> array."
+        },
+        "ReplyToAddresses": {
+          "$ref": "#/definitions/AddressList",
+          "description": "The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply."
+        },
+        "ReturnPath": {
+          "$ref": "#/definitions/Address",
+          "description": "The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. "
+        },
+        "ReturnPathArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"
+        },
+        "Source": {
+          "$ref": "#/definitions/Address",
+          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
+        },
+        "SourceArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"
+        },
+        "Template": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The template to use when sending this email."
+        },
+        "TemplateArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "The ARN of the template to use when sending this email."
+        }
+      },
+      "required": [
+        "Source",
+        "Template",
+        "Destinations"
+      ],
+      "type": "object",
+      "title": "SendBulkTemplatedEmailRequest"
+    },
+    "SendBulkTemplatedEmailResponse": {
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/BulkEmailDestinationStatusList",
+          "description": "The unique message identifier returned from the <code>SendBulkTemplatedEmail</code> action."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "SendBulkTemplatedEmailResponse"
     },
     "SendDataPoint": {
       "description": "Represents sending statistics data. Each <code>SendDataPoint</code> contains statistics for a 15-minute period of sending activity. ",
@@ -2548,19 +2934,19 @@
         },
         "ReturnPath": {
           "$ref": "#/definitions/Address",
-          "description": "The email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. "
+          "description": "The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. "
         },
         "ReturnPathArn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>. </p>"
+          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"
         },
         "Source": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"http://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
+          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
         },
         "SourceArn": {
           "$ref": "#/definitions/AmazonResourceName",
-          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>. </p>"
+          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"
         },
         "Tags": {
           "$ref": "#/definitions/MessageTagList",
@@ -2619,7 +3005,7 @@
         },
         "RawMessage": {
           "$ref": "#/definitions/RawMessage",
-          "description": "<p>The raw text of the message. The client is responsible for ensuring the following:</p> <ul> <li> <p>Message must contain a header and a body, separated by a blank line.</p> </li> <li> <p>All required header fields must be present.</p> </li> <li> <p>Each part of a multipart MIME message must be formatted properly.</p> </li> <li> <p>MIME content types must be among those supported by Amazon SES. For more information, go to the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html\">Amazon SES Developer Guide</a>.</p> </li> <li> <p>Must be base64-encoded.</p> </li> </ul>"
+          "description": "<p>The raw text of the message. The client is responsible for ensuring the following:</p> <ul> <li> <p>Message must contain a header and a body, separated by a blank line.</p> </li> <li> <p>All required header fields must be present.</p> </li> <li> <p>Each part of a multipart MIME message must be formatted properly.</p> </li> <li> <p>MIME content types must be among those supported by Amazon SES. For more information, go to the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html\">Amazon SES Developer Guide</a>.</p> </li> <li> <p>Must be base64-encoded.</p> </li> <li> <p>Per <a href=\"https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6\">RFC 5321</a>, the maximum length of each line of text, including the &lt;CRLF&gt;, must not exceed 1,000 characters.</p> </li> </ul>"
         },
         "ReturnPathArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -2627,7 +3013,7 @@
         },
         "Source": {
           "$ref": "#/definitions/Address",
-          "description": "<p>The identity's email address. If you do not provide a value for this parameter, you must specify a \"From\" address in the raw text of the message. (You can also specify both.)</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"http://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p> <note> <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any <i>Return-Path</i> header that you might include in the raw text of the message.</p> </note>"
+          "description": "<p>The identity's email address. If you do not provide a value for this parameter, you must specify a \"From\" address in the raw text of the message. (You can also specify both.)</p> <p> By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p> <note> <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.</p> </note>"
         },
         "SourceArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -2660,6 +3046,76 @@
       ],
       "type": "object",
       "title": "SendRawEmailResponse"
+    },
+    "SendTemplatedEmailRequest": {
+      "description": "Represents a request to send a templated email using Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html\">Amazon SES Developer Guide</a>.",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set to use when you send an email using <code>SendTemplatedEmail</code>."
+        },
+        "Destination": {
+          "$ref": "#/definitions/Destination",
+          "description": "The destination for this email, composed of To:, CC:, and BCC: fields. A Destination can include up to 50 recipients across these three fields."
+        },
+        "ReplyToAddresses": {
+          "$ref": "#/definitions/AddressList",
+          "description": "The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply."
+        },
+        "ReturnPath": {
+          "$ref": "#/definitions/Address",
+          "description": "The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. "
+        },
+        "ReturnPathArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"
+        },
+        "Source": {
+          "$ref": "#/definitions/Address",
+          "description": "<p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\">Amazon SES Developer Guide</a>.</p> <p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p> <p> In all cases, the email address must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>. For more information, see <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>. </p>"
+        },
+        "SourceArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "<p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p> <p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p> <p>For more information about sending authorization, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html\">Amazon SES Developer Guide</a>.</p>"
+        },
+        "Tags": {
+          "$ref": "#/definitions/MessageTagList",
+          "description": "A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events."
+        },
+        "Template": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The template to use when sending this email."
+        },
+        "TemplateArn": {
+          "$ref": "#/definitions/AmazonResourceName",
+          "description": "The ARN of the template to use when sending this email."
+        },
+        "TemplateData": {
+          "$ref": "#/definitions/TemplateData",
+          "description": "A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template."
+        }
+      },
+      "required": [
+        "Source",
+        "Destination",
+        "Template",
+        "TemplateData"
+      ],
+      "type": "object",
+      "title": "SendTemplatedEmailRequest"
+    },
+    "SendTemplatedEmailResponse": {
+      "properties": {
+        "MessageId": {
+          "$ref": "#/definitions/MessageId",
+          "description": "The unique message identifier returned from the <code>SendTemplatedEmail</code> action. "
+        }
+      },
+      "required": [
+        "MessageId"
+      ],
+      "type": "object",
+      "title": "SendTemplatedEmailResponse"
     },
     "SentLast24Hours": {
       "format": "double",
@@ -2885,7 +3341,7 @@
       "properties": {
         "Scope": {
           "$ref": "#/definitions/StopScope",
-          "description": "The scope to which the Stop action applies. That is, what is being stopped."
+          "description": "The name of the RuleSet that is being stopped."
         },
         "TopicArn": {
           "$ref": "#/definitions/AmazonResourceName",
@@ -2905,6 +3361,109 @@
       "type": "string",
       "title": "StopScope"
     },
+    "SubjectPart": {
+      "type": "string",
+      "title": "SubjectPart"
+    },
+    "Template": {
+      "description": "The content of the email, composed of a subject line, an HTML part, and a text-only part.",
+      "properties": {
+        "HtmlPart": {
+          "$ref": "#/definitions/HtmlPart",
+          "description": "The HTML body of the email."
+        },
+        "SubjectPart": {
+          "$ref": "#/definitions/SubjectPart",
+          "description": "The subject line of the email."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the template. You will refer to this name when you send email using the <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations."
+        },
+        "TextPart": {
+          "$ref": "#/definitions/TextPart",
+          "description": "The email body that will be visible to recipients whose email clients do not display HTML."
+        }
+      },
+      "required": [
+        "TemplateName"
+      ],
+      "type": "object",
+      "title": "Template"
+    },
+    "TemplateData": {
+      "maxLength": 262144,
+      "type": "string",
+      "title": "TemplateData"
+    },
+    "TemplateDoesNotExistException": {
+      "description": "Indicates that the Template object you specified does not exist in your Amazon SES account.",
+      "properties": {
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName"
+        }
+      },
+      "type": "object",
+      "title": "TemplateDoesNotExistException"
+    },
+    "TemplateMetadata": {
+      "description": "Information about an email template.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time and date the template was created."
+        },
+        "Name": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the template."
+        }
+      },
+      "type": "object",
+      "title": "TemplateMetadata"
+    },
+    "TemplateMetadataList": {
+      "items": {
+        "$ref": "#/definitions/TemplateMetadata"
+      },
+      "type": "array",
+      "title": "TemplateMetadataList"
+    },
+    "TemplateName": {
+      "type": "string",
+      "title": "TemplateName"
+    },
+    "TestRenderTemplateRequest": {
+      "properties": {
+        "TemplateData": {
+          "$ref": "#/definitions/TemplateData",
+          "description": "A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template."
+        },
+        "TemplateName": {
+          "$ref": "#/definitions/TemplateName",
+          "description": "The name of the template that you want to render."
+        }
+      },
+      "required": [
+        "TemplateName",
+        "TemplateData"
+      ],
+      "type": "object",
+      "title": "TestRenderTemplateRequest"
+    },
+    "TestRenderTemplateResponse": {
+      "properties": {
+        "RenderedTemplate": {
+          "$ref": "#/definitions/RenderedTemplate",
+          "description": "The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter."
+        }
+      },
+      "type": "object",
+      "title": "TestRenderTemplateResponse"
+    },
+    "TextPart": {
+      "type": "string",
+      "title": "TextPart"
+    },
     "Timestamp": {
       "format": "date-time",
       "type": "string",
@@ -2918,12 +3477,45 @@
       "type": "string",
       "title": "TlsPolicy"
     },
+    "TrackingOptions": {
+      "description": "<p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This domain captures open and click events generated by Amazon SES emails.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html\">Configuring Custom Domains to Handle Open and Click Tracking</a> in the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html\">Amazon SES Developer Guide</a>.</p>",
+      "properties": {
+        "CustomRedirectDomain": {
+          "$ref": "#/definitions/CustomRedirectDomain",
+          "description": "The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain."
+        }
+      },
+      "type": "object",
+      "title": "TrackingOptions"
+    },
+    "TrackingOptionsAlreadyExistsException": {
+      "description": "Indicates that the configuration set you specified already contains a TrackingOptions object.",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that a TrackingOptions object already exists in the specified configuration set."
+        }
+      },
+      "type": "object",
+      "title": "TrackingOptionsAlreadyExistsException"
+    },
+    "TrackingOptionsDoesNotExistException": {
+      "description": "Indicates that the TrackingOptions object you specified does not exist.",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "Indicates that a TrackingOptions object does not exist in the specified configuration set."
+        }
+      },
+      "type": "object",
+      "title": "TrackingOptionsDoesNotExistException"
+    },
     "UpdateConfigurationSetEventDestinationRequest": {
       "description": "Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html\">Amazon SES Developer Guide</a>.",
       "properties": {
         "ConfigurationSetName": {
           "$ref": "#/definitions/ConfigurationSetName",
-          "description": "The name of the configuration set that you want to update."
+          "description": "The name of the configuration set that contains the event destination that you want to update."
         },
         "EventDestination": {
           "$ref": "#/definitions/EventDestination",
@@ -2942,6 +3534,30 @@
       "properties": {},
       "type": "object",
       "title": "UpdateConfigurationSetEventDestinationResponse"
+    },
+    "UpdateConfigurationSetTrackingOptionsRequest": {
+      "description": "Represents a request to update the tracking options for a configuration set. ",
+      "properties": {
+        "ConfigurationSetName": {
+          "$ref": "#/definitions/ConfigurationSetName",
+          "description": "The name of the configuration set for which you want to update the custom tracking domain."
+        },
+        "TrackingOptions": {
+          "$ref": "#/definitions/TrackingOptions"
+        }
+      },
+      "required": [
+        "ConfigurationSetName",
+        "TrackingOptions"
+      ],
+      "type": "object",
+      "title": "UpdateConfigurationSetTrackingOptionsRequest"
+    },
+    "UpdateConfigurationSetTrackingOptionsResponse": {
+      "description": "An empty element returned on a successful request.",
+      "properties": {},
+      "type": "object",
+      "title": "UpdateConfigurationSetTrackingOptionsResponse"
     },
     "UpdateReceiptRuleRequest": {
       "description": "Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html\">Amazon SES Developer Guide</a>.",
@@ -2969,7 +3585,7 @@
         },
         "RuleSetName": {
           "$ref": "#/definitions/ReceiptRuleSetName",
-          "description": "The name of the receipt rule set to which the receipt rule belongs."
+          "description": "The name of the receipt rule set that the receipt rule belongs to."
         }
       },
       "required": [
@@ -2984,6 +3600,23 @@
       "properties": {},
       "type": "object",
       "title": "UpdateReceiptRuleResponse"
+    },
+    "UpdateTemplateRequest": {
+      "properties": {
+        "Template": {
+          "$ref": "#/definitions/Template"
+        }
+      },
+      "required": [
+        "Template"
+      ],
+      "type": "object",
+      "title": "UpdateTemplateRequest"
+    },
+    "UpdateTemplateResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateTemplateResponse"
     },
     "VerificationAttributes": {
       "items": {
@@ -3085,7 +3718,7 @@
       "properties": {
         "VerificationToken": {
           "$ref": "#/definitions/VerificationToken",
-          "description": "A TXT record that must be placed in the DNS settings for the domain, in order to complete domain verification."
+          "description": "<p>A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.</p> <p>As Amazon SES searches for the TXT record, the domain's verification status is \"Pending\". When Amazon SES detects the record, the domain's verification status changes to \"Success\". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to \"Failed.\" In that case, if you still want to verify the domain, you must restart the verification process from the beginning.</p>"
         }
       },
       "required": [
@@ -3221,6 +3854,28 @@
       }
     },
     {
+      "id": "CreateConfigurationSetTrackingOptions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateConfigurationSetTrackingOptionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateConfigurationSetTrackingOptionsResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "CreateReceiptFilter",
       "title": "",
       "description": "",
@@ -3287,6 +3942,28 @@
       }
     },
     {
+      "id": "CreateTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTemplateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateTemplateResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "DeleteConfigurationSet",
       "title": "",
       "description": "",
@@ -3323,6 +4000,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteConfigurationSetEventDestinationResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
+      "id": "DeleteConfigurationSetTrackingOptions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteConfigurationSetTrackingOptionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteConfigurationSetTrackingOptionsResponse"
       },
       "security": {
         "amazonaws_email": {
@@ -3433,6 +4132,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteReceiptRuleSetResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
+      "id": "DeleteTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTemplateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteTemplateResponse"
       },
       "security": {
         "amazonaws_email": {
@@ -3693,6 +4414,28 @@
       }
     },
     {
+      "id": "GetTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetTemplateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTemplateResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "ListConfigurationSets",
       "title": "",
       "description": "",
@@ -3810,6 +4553,28 @@
       }
     },
     {
+      "id": "ListTemplates",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTemplatesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTemplatesResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "ListVerifiedEmailAddresses",
       "title": "",
       "description": "",
@@ -3893,6 +4658,28 @@
       }
     },
     {
+      "id": "SendBulkTemplatedEmail",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SendBulkTemplatedEmailRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SendBulkTemplatedEmailResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "SendEmail",
       "title": "",
       "description": "",
@@ -3929,6 +4716,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendRawEmailResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
+      "id": "SendTemplatedEmail",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SendTemplatedEmailRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SendTemplatedEmailResponse"
       },
       "security": {
         "amazonaws_email": {
@@ -4091,6 +4900,28 @@
       }
     },
     {
+      "id": "TestRenderTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TestRenderTemplateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TestRenderTemplateResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "UpdateConfigurationSetEventDestination",
       "title": "",
       "description": "",
@@ -4113,6 +4944,28 @@
       }
     },
     {
+      "id": "UpdateConfigurationSetTrackingOptions",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateConfigurationSetTrackingOptionsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateConfigurationSetTrackingOptionsResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
       "id": "UpdateReceiptRule",
       "title": "",
       "description": "",
@@ -4127,6 +4980,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateReceiptRuleResponse"
+      },
+      "security": {
+        "amazonaws_email": {
+          "integration": "amazonaws_email"
+        }
+      }
+    },
+    {
+      "id": "UpdateTemplate",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateTemplateRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateTemplateResponse"
       },
       "security": {
         "amazonaws_email": {

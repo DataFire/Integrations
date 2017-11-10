@@ -1,6 +1,6 @@
 {
   "name": "@datafire/clarify",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Clarify",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/clarify.io/1.3.4/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/clarify.io/1.3.7/swagger.json",
     "type": "openapi"
   },
   "dependencies": {

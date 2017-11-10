@@ -62,8 +62,8 @@ google_pubsub.projects.topics.create({
 ```
 
 #### Parameters
-* name (string) **required** - The name of the topic. It must have the format
 * body (object) - A topic resource.
+* name (string) **required** - The name of the topic. It must have the format
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.

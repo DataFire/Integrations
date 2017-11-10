@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "iot.amazonaws.com",
@@ -184,54 +185,47 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "410": {
+          "481": {
             "description": "TransferAlreadyCompletedException",
             "schema": {
               "$ref": "#/definitions/TransferAlreadyCompletedException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "484": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "485": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "486": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -267,7 +261,7 @@
         }
       ],
       "post": {
-        "description": "Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field and public key. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.",
+        "description": "Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.",
         "operationId": "RegisterCACertificate",
         "parameters": [
           {
@@ -286,54 +280,59 @@
               "$ref": "#/definitions/RegisterCACertificateResponse"
             }
           },
-          "400": {
-            "description": "CertificateValidationException",
-            "schema": {
-              "$ref": "#/definitions/CertificateValidationException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "409": {
+          "480": {
             "description": "ResourceAlreadyExistsException",
             "schema": {
               "$ref": "#/definitions/ResourceAlreadyExistsException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "410": {
-            "description": "LimitExceededException",
+          "481": {
+            "description": "RegistrationCodeValidationException",
             "schema": {
-              "$ref": "#/definitions/LimitExceededException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/RegistrationCodeValidationException"
+            }
           },
-          "429": {
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
+            "description": "CertificateValidationException",
+            "schema": {
+              "$ref": "#/definitions/CertificateValidationException"
+            }
+          },
+          "484": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "485": {
+            "description": "LimitExceededException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/LimitExceededException"
+            }
           },
-          "503": {
+          "486": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "487": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "488": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -391,47 +390,41 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -457,40 +450,35 @@
               "$ref": "#/definitions/ListCACertificatesResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -555,7 +543,7 @@
         }
       ],
       "patch": {
-        "description": "<p>Cancels a pending transfer for the specified certificate.</p> <p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p> <p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>",
+        "description": "<p>Cancels a pending transfer for the specified certificate.</p> <p> <b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p> <p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>",
         "operationId": "CancelCertificateTransfer",
         "parameters": [
           {
@@ -577,54 +565,47 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "410": {
+          "481": {
             "description": "TransferAlreadyCompletedException",
             "schema": {
               "$ref": "#/definitions/TransferAlreadyCompletedException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "484": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "485": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "486": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -679,54 +660,59 @@
               "$ref": "#/definitions/RegisterCertificateResponse"
             }
           },
-          "400": {
+          "480": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "CertificateValidationException",
             "schema": {
               "$ref": "#/definitions/CertificateValidationException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "406": {
+          "483": {
             "description": "CertificateStateException",
             "schema": {
               "$ref": "#/definitions/CertificateStateException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "409": {
+          "484": {
             "description": "CertificateConflictException",
             "schema": {
               "$ref": "#/definitions/CertificateConflictException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "485": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "486": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "487": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "488": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -752,40 +738,35 @@
               "$ref": "#/definitions/ListCertificatesResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -846,40 +827,35 @@
               "$ref": "#/definitions/ListCertificatesByCAResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -934,40 +910,35 @@
               "$ref": "#/definitions/ListOutgoingCertificatesResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -1054,54 +1025,47 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "406": {
+          "481": {
             "description": "CertificateStateException",
             "schema": {
               "$ref": "#/definitions/CertificateStateException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "484": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "485": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "486": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -1127,26 +1091,23 @@
               "$ref": "#/definitions/DescribeEndpointResponse"
             }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
-            "description": "ThrottlingException",
-            "schema": {
-              "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
-          },
-          "500": {
+          "480": {
             "description": "InternalFailureException",
             "schema": {
               "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
           }
         }
       },
@@ -1211,7 +1172,7 @@
         }
       ],
       "post": {
-        "description": "<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p> <p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>",
+        "description": "<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p> <p> <b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>",
         "operationId": "CreateKeysAndCertificate",
         "parameters": [
           {
@@ -1230,40 +1191,35 @@
               "$ref": "#/definitions/CreateKeysAndCertificateResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -1315,26 +1271,23 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "500": {
+          "480": {
             "description": "InternalException",
             "schema": {
               "$ref": "#/definitions/InternalException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "503": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
           }
         }
       }
@@ -1360,40 +1313,35 @@
               "$ref": "#/definitions/ListPoliciesResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -1454,47 +1402,41 @@
               "$ref": "#/definitions/GetPolicyResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -1555,47 +1497,41 @@
               "$ref": "#/definitions/ListPolicyVersionsResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -1688,47 +1624,41 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -1754,47 +1684,41 @@
               "$ref": "#/definitions/ListPolicyPrincipalsResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -1849,47 +1773,41 @@
               "$ref": "#/definitions/ListPrincipalPoliciesResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -1947,47 +1865,41 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -2042,47 +1954,41 @@
               "$ref": "#/definitions/ListPrincipalThingsResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
-            "description": "ResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
           }
         }
       },
@@ -2137,40 +2043,35 @@
               "$ref": "#/definitions/GetRegistrationCodeResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "480": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "481": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "482": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
           }
         }
       },
@@ -2257,54 +2158,47 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "410": {
+          "481": {
             "description": "TransferAlreadyCompletedException",
             "schema": {
               "$ref": "#/definitions/TransferAlreadyCompletedException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "484": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "485": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "486": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -2330,26 +2224,23 @@
               "$ref": "#/definitions/ListTopicRulesResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "500": {
+          "480": {
             "description": "InternalException",
             "schema": {
               "$ref": "#/definitions/InternalException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "503": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
           }
         }
       },
@@ -2436,33 +2327,35 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
+          "480": {
+            "description": "SqlParseException",
             "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/SqlParseException"
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "500": {
+          "481": {
             "description": "InternalException",
             "schema": {
               "$ref": "#/definitions/InternalException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "503": {
+          "482": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           }
         }
       }
@@ -2520,33 +2413,29 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "500": {
+          "480": {
             "description": "InternalException",
             "schema": {
               "$ref": "#/definitions/InternalException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "503": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           }
         }
       }
@@ -2604,33 +2493,29 @@
           "200": {
             "description": "Success"
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "500": {
+          "480": {
             "description": "InternalException",
             "schema": {
               "$ref": "#/definitions/InternalException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "503": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "483": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           }
         }
       }
@@ -2656,40 +2541,35 @@
               "$ref": "#/definitions/ListThingTypesResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -2755,47 +2635,41 @@
               "$ref": "#/definitions/DescribeThingTypeResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -2890,47 +2764,41 @@
               "$ref": "#/definitions/DeprecateThingTypeResponse"
             }
           },
-          "400": {
-            "description": "InvalidRequestException",
-            "schema": {
-              "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
-          },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "480": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "481": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -2956,40 +2824,35 @@
               "$ref": "#/definitions/ListThingsResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       },
@@ -3079,54 +2942,47 @@
               "$ref": "#/definitions/UpdateThingResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
-            "description": "ResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
-          },
-          "409": {
+          "481": {
             "description": "VersionConflictException",
             "schema": {
               "$ref": "#/definitions/VersionConflictException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "482": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "483": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "484": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "485": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "486": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
           }
         }
       }
@@ -3158,47 +3014,41 @@
               "$ref": "#/definitions/ListThingPrincipalsResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
-            "description": "ResourceNotFoundException",
-            "schema": {
-              "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
-          },
-          "429": {
+          "481": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "482": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "483": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "484": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
           }
         }
       },
@@ -3288,61 +3138,53 @@
               "$ref": "#/definitions/TransferCertificateResponse"
             }
           },
-          "400": {
+          "480": {
             "description": "InvalidRequestException",
             "schema": {
               "$ref": "#/definitions/InvalidRequestException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "401": {
-            "description": "UnauthorizedException",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedException"
-            },
-            "x-aws-exception": true
-          },
-          "404": {
+          "481": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "406": {
+          "482": {
             "description": "CertificateStateException",
             "schema": {
               "$ref": "#/definitions/CertificateStateException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "409": {
+          "483": {
             "description": "TransferConflictException",
             "schema": {
               "$ref": "#/definitions/TransferConflictException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "429": {
+          "484": {
             "description": "ThrottlingException",
             "schema": {
               "$ref": "#/definitions/ThrottlingException"
-            },
-            "x-aws-exception": true
+            }
           },
-          "500": {
-            "description": "InternalFailureException",
+          "485": {
+            "description": "UnauthorizedException",
             "schema": {
-              "$ref": "#/definitions/InternalFailureException"
-            },
-            "x-aws-exception": true
+              "$ref": "#/definitions/UnauthorizedException"
+            }
           },
-          "503": {
+          "486": {
             "description": "ServiceUnavailableException",
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
-            },
-            "x-aws-exception": true
+            }
+          },
+          "487": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
           }
         }
       }
@@ -3397,6 +3239,10 @@
           "$ref": "#/definitions/S3Action",
           "description": "Write to an Amazon S3 bucket."
         },
+        "salesforce": {
+          "$ref": "#/definitions/SalesforceAction",
+          "description": "Send a message to a Salesforce IoT Cloud Input Stream."
+        },
         "sns": {
           "$ref": "#/definitions/SnsAction",
           "description": "Publish to an Amazon SNS topic."
@@ -3450,7 +3296,7 @@
       "properties": {
         "attributes": {
           "$ref": "#/definitions/Attributes",
-          "description": "<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p><code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})</code></p>"
+          "description": "<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}</code> </p>"
         },
         "merge": {
           "$ref": "#/definitions/Flag",
@@ -3519,7 +3365,7 @@
         },
         "status": {
           "$ref": "#/definitions/CACertificateStatus",
-          "description": "<p>The status of the CA certificate. </p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
+          "description": "<p>The status of the CA certificate.</p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>"
         }
       },
       "type": "object"
@@ -3923,7 +3769,7 @@
       "properties": {
         "attributePayload": {
           "$ref": "#/definitions/AttributePayload",
-          "description": "<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p><code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}})</code></p>"
+          "description": "<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}</code> </p>"
         },
         "thingTypeName": {
           "$ref": "#/definitions/ThingTypeName",
@@ -4036,7 +3882,7 @@
       "type": "object"
     },
     "DeleteRegistrationCodeResponse": {
-      "description": "The output for the DeleteRegistrationCode operation. ",
+      "description": "The output for the DeleteRegistrationCode operation.",
       "properties": {},
       "type": "object"
     },
@@ -4172,7 +4018,8 @@
       "description": "The output for the DescribeThingType operation.",
       "properties": {
         "thingTypeMetadata": {
-          "$ref": "#/definitions/ThingTypeMetadata"
+          "$ref": "#/definitions/ThingTypeMetadata",
+          "description": "The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated."
         },
         "thingTypeName": {
           "$ref": "#/definitions/ThingTypeName",
@@ -4209,7 +4056,7 @@
       "type": "object"
     },
     "DynamoDBAction": {
-      "description": "<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p><code>\"hashKeyValue\": \"${topic(3)}\"</code></p> <p>The following field uses the timestamp:</p> <p><code>\"rangeKeyValue\": \"${timestamp()}\"</code></p>",
+      "description": "<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p> <code>\"hashKeyValue\": \"${topic(3)}\"</code> </p> <p>The following field uses the timestamp:</p> <p> <code>\"rangeKeyValue\": \"${timestamp()}\"</code> </p>",
       "properties": {
         "hashKeyField": {
           "$ref": "#/definitions/HashKeyField",
@@ -4265,7 +4112,7 @@
       "properties": {
         "putItem": {
           "$ref": "#/definitions/PutItemInput",
-          "description": "<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p><code>{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }</code></p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>"
+          "description": "<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p> <code>{ \"dynamoDBv2\": { \"roleArn\": \"aws:iam:12341251:my-role\" \"putItem\": { \"tableName\": \"my-table\" } } }</code> </p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>"
         },
         "roleArn": {
           "$ref": "#/definitions/AwsArn",
@@ -5095,7 +4942,8 @@
           "description": "The certificate data, in PEM format."
         },
         "status": {
-          "$ref": "#/definitions/CertificateStatus"
+          "$ref": "#/definitions/CertificateStatus",
+          "description": "The status of the register certificate request."
         }
       },
       "required": [
@@ -5132,6 +4980,11 @@
         }
       },
       "type": "object"
+    },
+    "RegistryMaxResults": {
+      "maximum": 250,
+      "minimum": 1,
+      "type": "integer"
     },
     "RejectCertificateTransferRequest": {
       "description": "The input for the RejectCertificateTransfer operation.",
@@ -5244,6 +5097,33 @@
     "SQL": {
       "type": "string"
     },
+    "SalesforceAction": {
+      "description": "Describes an action to write a message to a Salesforce IoT Cloud Input Stream.",
+      "properties": {
+        "token": {
+          "$ref": "#/definitions/SalesforceToken",
+          "description": "The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream."
+        },
+        "url": {
+          "$ref": "#/definitions/SalesforceEndpoint",
+          "description": "The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream."
+        }
+      },
+      "required": [
+        "token",
+        "url"
+      ],
+      "type": "object"
+    },
+    "SalesforceEndpoint": {
+      "maxLength": 2000,
+      "pattern": "https://ingestion-[a-zA-Z0-9]{1,12}\\.[a-zA-Z0-9]+\\.((sfdc-matrix\\.net)|(sfdcnow\\.com))/streams/\\w{1,20}/\\w{1,20}/event",
+      "type": "string"
+    },
+    "SalesforceToken": {
+      "minLength": 40,
+      "type": "string"
+    },
     "SearchableAttributes": {
       "items": {
         "$ref": "#/definitions/AttributeName"
@@ -5292,7 +5172,7 @@
       "properties": {
         "messageFormat": {
           "$ref": "#/definitions/MessageFormat",
-          "description": "The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\"></a> refer to their official documentation."
+          "description": "The message format of the message to publish. Optional. Accepted values are \"JSON\" and \"RAW\". The default value of the attribute is \"RAW\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation."
         },
         "roleArn": {
           "$ref": "#/definitions/AwsArn",
@@ -5403,7 +5283,8 @@
       "description": "The definition of the thing type, including thing type name and description.",
       "properties": {
         "thingTypeMetadata": {
-          "$ref": "#/definitions/ThingTypeMetadata"
+          "$ref": "#/definitions/ThingTypeMetadata",
+          "description": "The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated."
         },
         "thingTypeName": {
           "$ref": "#/definitions/ThingTypeName",
@@ -5667,7 +5548,7 @@
       "properties": {
         "attributePayload": {
           "$ref": "#/definitions/AttributePayload",
-          "description": "<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p><code>{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}})</code></p> <p>This data is used to add new attributes or update existing attributes.</p>"
+          "description": "<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p> <code>{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}</code> </p> <p>This data is used to add new attributes or update existing attributes.</p>"
         },
         "expectedVersion": {
           "$ref": "#/definitions/OptionalVersion",
@@ -5696,7 +5577,7 @@
       "type": "integer"
     },
     "VersionConflictException": {
-      "description": "An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter. ",
+      "description": "An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.",
       "properties": {
         "message": {
           "$ref": "#/definitions/errorMessage",

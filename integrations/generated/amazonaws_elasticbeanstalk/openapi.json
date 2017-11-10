@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "elasticbeanstalk.amazonaws.com",
@@ -1913,6 +1914,77 @@
         }
       }
     },
+    "/#ListTagsForResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p> <p>Currently, Elastic Beanstalk only supports tagging Elastic Beanstalk environments.</p>",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagsDescriptionMessage"
+            }
+          },
+          "480": {
+            "description": "InsufficientPrivilegesException",
+            "schema": {
+              "$ref": "#/definitions/InsufficientPrivilegesException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceTypeNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceTypeNotSupportedException"
+            }
+          }
+        }
+      }
+    },
     "/#RebuildEnvironment": {
       "parameters": [
         {
@@ -2526,6 +2598,86 @@
         }
       }
     },
+    "/#UpdateTagsForResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code> for tags to add or update, and <code>TagsToRemove</code>.</p> <p>Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.</p>",
+        "operationId": "UpdateTagsForResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateTagsForResourceMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "InsufficientPrivilegesException",
+            "schema": {
+              "$ref": "#/definitions/InsufficientPrivilegesException"
+            }
+          },
+          "481": {
+            "description": "OperationInProgressException",
+            "schema": {
+              "$ref": "#/definitions/OperationInProgressException"
+            }
+          },
+          "482": {
+            "description": "TooManyTagsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyTagsException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceTypeNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/ResourceTypeNotSupportedException"
+            }
+          }
+        }
+      }
+    },
     "/#ValidateConfigurationSettings": {
       "parameters": [
         {
@@ -2916,7 +3068,7 @@
         },
         "NextToken": {
           "$ref": "#/definitions/Token",
-          "description": "For a paginated request, the token that you can pass in a subsequent request to get the next page."
+          "description": "In a paginated request, the token that you can pass in a subsequent request to get the next response page."
         }
       },
       "type": "object"
@@ -3333,7 +3485,7 @@
         },
         "PlatformArn": {
           "$ref": "#/definitions/PlatformArn",
-          "description": "The ARN of the custom platform."
+          "description": "The ARN of the platform."
         },
         "SolutionStackName": {
           "$ref": "#/definitions/SolutionStackName",
@@ -3382,7 +3534,7 @@
         },
         "PlatformArn": {
           "$ref": "#/definitions/PlatformArn",
-          "description": "The ARN of the custom platform."
+          "description": "The ARN of the platform."
         },
         "SolutionStackName": {
           "$ref": "#/definitions/SolutionStackName",
@@ -3623,7 +3775,7 @@
         },
         "EnvironmentName": {
           "$ref": "#/definitions/EnvironmentName",
-          "description": "<p>A unique name for the deployment environment. Used in the application URL.</p> <p>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p> <p>Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.</p>"
+          "description": "<p>A unique name for the deployment environment. Used in the application URL.</p> <p>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p> <p>Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.</p>"
         },
         "GroupName": {
           "$ref": "#/definitions/GroupName",
@@ -3639,7 +3791,7 @@
         },
         "PlatformArn": {
           "$ref": "#/definitions/PlatformArn",
-          "description": "The ARN of the custom platform."
+          "description": "The ARN of the platform."
         },
         "SolutionStackName": {
           "$ref": "#/definitions/SolutionStackName",
@@ -3879,7 +4031,7 @@
         },
         "DeploymentTime": {
           "$ref": "#/definitions/DeploymentTimestamp",
-          "description": "<p>For in-progress deployments, the time that the deloyment started.</p> <p>For completed deployments, the time that the deployment ended.</p>"
+          "description": "<p>For in-progress deployments, the time that the deployment started.</p> <p>For completed deployments, the time that the deployment ended.</p>"
         },
         "Status": {
           "$ref": "#/definitions/String",
@@ -3911,11 +4063,11 @@
         },
         "MaxRecords": {
           "$ref": "#/definitions/MaxRecords",
-          "description": "Specify a maximum number of application versions to paginate in the request."
+          "description": "<p>For a paginated request. Specify a maximum number of application versions to include in each response.</p> <p>If no <code>MaxRecords</code> is specified, all available application versions are retrieved in a single response.</p>"
         },
         "NextToken": {
           "$ref": "#/definitions/Token",
-          "description": "Specify a next token to retrieve the next page in a paginated request."
+          "description": "<p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>"
         },
         "VersionLabels": {
           "$ref": "#/definitions/VersionLabelsList",
@@ -4202,6 +4354,14 @@
           "$ref": "#/definitions/IncludeDeletedBackTo",
           "description": " If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. "
         },
+        "MaxRecords": {
+          "$ref": "#/definitions/MaxRecords",
+          "description": "<p>For a paginated request. Specify a maximum number of environments to include in each response.</p> <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "<p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>"
+        },
         "VersionLabel": {
           "$ref": "#/definitions/VersionLabel",
           "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version."
@@ -4398,6 +4558,9 @@
     "EndpointURL": {
       "type": "string"
     },
+    "EnvironmentArn": {
+      "type": "string"
+    },
     "EnvironmentDescription": {
       "description": "Describes the properties of an environment.",
       "example": {
@@ -4448,6 +4611,10 @@
           "$ref": "#/definitions/EndpointURL",
           "description": "For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance."
         },
+        "EnvironmentArn": {
+          "$ref": "#/definitions/EnvironmentArn",
+          "description": "The environment's Amazon Resource Name (ARN), which can be used in other API reuqests that require an ARN."
+        },
         "EnvironmentId": {
           "$ref": "#/definitions/EnvironmentId",
           "description": "The ID of this environment."
@@ -4470,7 +4637,7 @@
         },
         "PlatformArn": {
           "$ref": "#/definitions/PlatformArn",
-          "description": "The ARN of the custom platform."
+          "description": "The ARN of the platform."
         },
         "Resources": {
           "$ref": "#/definitions/EnvironmentResourcesDescription",
@@ -4534,6 +4701,10 @@
         "Environments": {
           "$ref": "#/definitions/EnvironmentDescriptionsList",
           "description": " Returns an <a>EnvironmentDescription</a> list. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/Token",
+          "description": "In a paginated request, the token that you can pass in a subsequent request to get the next response page."
         }
       },
       "type": "object"
@@ -4788,7 +4959,7 @@
         },
         "PlatformArn": {
           "$ref": "#/definitions/PlatformArn",
-          "description": "The ARN of the custom platform."
+          "description": "The ARN of the platform."
         },
         "RequestId": {
           "$ref": "#/definitions/RequestId",
@@ -5156,6 +5327,18 @@
           "description": "Detailed information about the platforms."
         }
       },
+      "type": "object"
+    },
+    "ListTagsForResourceMessage": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "<p>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</p> <p>Must be the ARN of an Elastic Beanstalk environment.</p>"
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
       "type": "object"
     },
     "Listener": {
@@ -5753,6 +5936,9 @@
     "RequestId": {
       "type": "string"
     },
+    "ResourceArn": {
+      "type": "string"
+    },
     "ResourceId": {
       "type": "string"
     },
@@ -5760,6 +5946,29 @@
       "maxLength": 256,
       "minLength": 1,
       "type": "string"
+    },
+    "ResourceNotFoundException": {
+      "description": "A resource doesn't exist for the specified Amazon Resource Name (ARN).",
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceTagsDescriptionMessage": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the resouce for which a tag list was requested."
+        },
+        "ResourceTags": {
+          "$ref": "#/definitions/TagList",
+          "description": "A list of tag key-value pairs."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTypeNotSupportedException": {
+      "description": "The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.",
+      "properties": {},
+      "type": "object"
     },
     "RestartAppServerMessage": {
       "description": "<p/>",
@@ -6092,6 +6301,18 @@
       "minLength": 1,
       "type": "string"
     },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
     "TagValue": {
       "maxLength": 256,
       "minLength": 1,
@@ -6176,6 +6397,11 @@
     },
     "TooManyPlatformsException": {
       "description": "You have exceeded the maximum number of allowed platforms associated with the account.",
+      "properties": {},
+      "type": "object"
+    },
+    "TooManyTagsException": {
+      "description": "<p>The number of tags in the resource would exceed the number of tags that each resource can have.</p> <p>To calculate this, the operation considers both the number of tags the resource already has and the tags this operation would add if it succeeded.</p>",
       "properties": {},
       "type": "object"
     },
@@ -6381,6 +6607,26 @@
           "description": "If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an <code>InvalidParameterValue</code> error. "
         }
       },
+      "type": "object"
+    },
+    "UpdateTagsForResourceMessage": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "<p>The Amazon Resource Name (ARN) of the resouce to be updated.</p> <p>Must be the ARN of an Elastic Beanstalk environment.</p>"
+        },
+        "TagsToAdd": {
+          "$ref": "#/definitions/TagList",
+          "description": "<p>A list of tags to add or update.</p> <p>If a key of an existing tag is added, the tag's value is updated.</p>"
+        },
+        "TagsToRemove": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "<p>A list of tag keys to remove.</p> <p>If a tag key doesn't exist, it is silently ignored.</p>"
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
       "type": "object"
     },
     "UserDefinedOption": {

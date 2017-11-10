@@ -1,0 +1,353 @@
+{
+  "id": "taxrates",
+  "title": "Taxrates.io",
+  "description": "Taxrates.io API - the successfully streamlined tax rates monitoring process. Use 'Expand operation' link on the right to see details. Start with authentication: get your token and generate authorization string. We recommend using [Postman](https://www.getpostman.com/) when discovering our API. Happy using!",
+  "security": {
+    "taxrates": {
+      "integration": "taxrates",
+      "fields": {
+        "Bearer": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taxrates.jpg"
+  },
+  "actionCount": 6,
+  "definitions": {
+    "Address": {
+      "properties": {
+        "apartment_number": {
+          "description": "Apartment number if any",
+          "type": "string"
+        },
+        "city": {
+          "description": "City name",
+          "type": "string"
+        },
+        "country": {
+          "description": "Country name",
+          "type": "string"
+        },
+        "postal_code": {
+          "description": "City zip code",
+          "type": "string"
+        },
+        "state": {
+          "description": "Province or state",
+          "type": "string"
+        },
+        "street": {
+          "description": "Street",
+          "type": "string"
+        },
+        "street_number": {
+          "description": "Street number",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Address"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fields": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Error"
+    },
+    "Rates": {
+      "properties": {
+        "country_name": {
+          "description": "The country name",
+          "type": "string"
+        },
+        "taxes": {
+          "items": {
+            "$ref": "#/definitions/Tax"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "Rates"
+    },
+    "Tax": {
+      "properties": {
+        "Country": {
+          "description": "The country name",
+          "type": "string"
+        },
+        "Type": {
+          "description": "The tax type",
+          "type": "string"
+        },
+        "data_name": {
+          "description": "The tax name and description (VAT, GST, PIT, CIT etc)",
+          "type": "string"
+        },
+        "data_value": {
+          "description": "The tax value in percents",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Tax"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauth.dialog.get",
+      "title": "oauth.dialog.get",
+      "description": "This is the second endpoint you have to hit. When you got your token here you can generate your Bearer authorization header. The header will be used to authorize every API call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name: api.taxrates.io"
+          },
+          "token": {
+            "type": "string",
+            "description": "The token you got from <<token>> endpoint"
+          },
+          "clientscope": {
+            "type": "string",
+            "description": "You have to use api_member as a scope."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "token",
+          "clientscope"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "Authorization": {
+            "description": "Bearer: __Your authorization key will appear here__",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "taxrates": {
+          "integration": "taxrates"
+        }
+      }
+    },
+    {
+      "id": "oauth.token.get",
+      "title": "oauth.token.get",
+      "description": "This the very first URL you must hit when you want to use taxrates.io API. When you got your Client ID key and Client Secret key you are able to use our API resources.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name: api.taxrates.io"
+          },
+          "clientid": {
+            "type": "string",
+            "description": "Your Client ID goes here. Check the dashboard if you do not know your Client ID."
+          },
+          "clientsecret": {
+            "type": "string",
+            "description": "Your Client Secret key goes here. Check the dashboard if you do not know your Client Secret key."
+          },
+          "clientscope": {
+            "type": "string",
+            "description": "You have to use api_member as a scope."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "clientid",
+          "clientsecret",
+          "clientscope"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "clientid": {
+            "description": "Your Client ID key",
+            "type": "string"
+          },
+          "domain": {
+            "description": "The domain you are operating",
+            "type": "string"
+          },
+          "token": {
+            "description": "Your token",
+            "type": "string"
+          },
+          "valid_to": {
+            "description": "The date until your token is valid",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "taxrates": {
+          "integration": "taxrates"
+        }
+      }
+    },
+    {
+      "id": "tax.byaddress.post",
+      "title": "tax.byaddress.post",
+      "description": "This endpoint returns tax rates for the country based on the address provided",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name: api.taxrates.io"
+          },
+          "address": {
+            "$ref": "#/definitions/Address"
+          },
+          "filter": {
+            "type": "string",
+            "description": "You can filter your taxes by one of following types: 'standard', 'reduced', 'second reduced', 'third reduced' and 'super reduced'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "address"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Rates"
+      },
+      "security": {
+        "taxrates": {
+          "integration": "taxrates"
+        }
+      }
+    },
+    {
+      "id": "tax.countrycode.get",
+      "title": "tax.countrycode.get",
+      "description": "This endpoint returns all available tax rates for selected country",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name: api.taxrates.io"
+          },
+          "country_code": {
+            "type": "string",
+            "description": "Country code alpha 2"
+          },
+          "filter": {
+            "type": "string",
+            "description": "You can filter your taxes by one of following types: 'standard', 'reduced', 'second reduced', 'third reduced' and 'super reduced'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "country_code"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Rates"
+      },
+      "security": {
+        "taxrates": {
+          "integration": "taxrates"
+        }
+      }
+    },
+    {
+      "id": "tax.ip.get",
+      "title": "tax.ip.get",
+      "description": "This endpoint will return tax rates for country discovered based on Customer's IP address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name: api.taxrates.io"
+          },
+          "ip": {
+            "type": "string",
+            "description": "Customer's IP address"
+          },
+          "filter": {
+            "type": "string",
+            "description": "You can filter your taxes by one of following types: 'standard', 'reduced', 'second reduced', 'third reduced' and 'super reduced'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "ip"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Rates"
+        },
+        "type": "array"
+      },
+      "security": {
+        "taxrates": {
+          "integration": "taxrates"
+        }
+      }
+    },
+    {
+      "id": "tax.rates.get",
+      "title": "tax.rates.get",
+      "description": "This method returns all tax rates configured on Member's account",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name: api.taxrates.io"
+          },
+          "filter": {
+            "type": "string",
+            "description": "You can filter your taxes by one of following types: 'standard', 'reduced', 'second reduced', 'third reduced' and 'super reduced'."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Rates"
+        },
+        "type": "array"
+      },
+      "security": {
+        "taxrates": {
+          "integration": "taxrates"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "financial"
+  ]
+}

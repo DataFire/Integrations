@@ -1,0 +1,1004 @@
+{
+  "id": "deutschebahn_flinkster",
+  "title": "Flinkster_API_NG",
+  "description": "This REST-API enables you to query for private transport sharing offers provided by companies and cities in Germany, Netherland and Austria. \nYou can search for informations about the rental stations (points or areas) where you can find the rentals by utilizing the /areas/ ressource. \nWith the help of the proximity search in the /bookingproposals/ URI you can request the availabilities of the rentalobjects for spontaneous or planed usage in the future. \n\nFeel free to browse through data by setting the parameter 'providernetwork' to the value: \n 1: Search for car sharing offers provided by the Flinkster platform (http://www.flinkster.de)\n2: Finding bike rental offers from Call a Bike (http://www.callabike.de) \n\nYou can find more details in the documentation section (Unfortunately only available in german language).\n\nHave lots of fun and we are lucky to take notice of your products or getting your feedback.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_flinkster.png"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "AddressJO": {
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "district": {
+          "type": "string"
+        },
+        "isoCountryCode": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AddressJO"
+    },
+    "AreaJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "address": {
+          "$ref": "#/definitions/AddressJO"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/definitions/GeometryJO"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "#/definitions/ProviderJO"
+        },
+        "providerAreaId": {
+          "type": "string"
+        },
+        "providerNetworkIds": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "STATION",
+            "OPERATIONAREA",
+            "PARKINGAREA",
+            "GASSTATION",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AreaJO"
+    },
+    "BookingProposalJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "area": {
+          "$ref": "#/definitions/AreaJO"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "distance": {
+          "format": "double",
+          "type": "number"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        "price": {
+          "$ref": "#/definitions/JsonCollectionPriceJO"
+        },
+        "rentalObject": {
+          "$ref": "#/definitions/RentalObjectJO"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "BookingProposalJO"
+    },
+    "CategoryJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "items": {
+            "$ref": "#/definitions/PriceJO"
+          },
+          "type": "array"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CategoryJO"
+    },
+    "Crs": {
+      "properties": {
+        "properties": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "name",
+            "link"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Crs"
+    },
+    "ErrorJO": {
+      "properties": {
+        "attributes": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "level": {
+          "enum": [
+            "INFO",
+            "WARNING",
+            "ERROR"
+          ],
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ErrorJO"
+    },
+    "Feature": {
+      "discriminator": "type",
+      "properties": {
+        "bbox": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "crs": {
+          "$ref": "#/definitions/Crs"
+        },
+        "geometry": {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        "id": {
+          "type": "string"
+        },
+        "properties": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "Feature"
+    },
+    "FeatureCollection": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        {
+          "properties": {
+            "features": {
+              "items": {
+                "$ref": "#/definitions/Feature"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "FeatureCollection"
+    },
+    "GeoJsonObject": {
+      "discriminator": "type",
+      "properties": {
+        "bbox": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "crs": {
+          "$ref": "#/definitions/Crs"
+        }
+      },
+      "type": "object",
+      "title": "GeoJsonObject"
+    },
+    "GeometryJO": {
+      "properties": {
+        "centroid": {
+          "$ref": "#/definitions/Point"
+        },
+        "position": {
+          "$ref": "#/definitions/GeoJsonObject"
+        }
+      },
+      "type": "object",
+      "title": "GeometryJO"
+    },
+    "JsonCollection": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "href": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/JsonObject"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "offset": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "size": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "JsonCollection"
+    },
+    "JsonCollectionPriceJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "href": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/PriceJO"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "offset": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "size": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "JsonCollectionPriceJO"
+    },
+    "JsonObject": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "JsonObject"
+    },
+    "LineString": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        {
+          "type": "object"
+        }
+      ],
+      "title": "LineString"
+    },
+    "LinkJO": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        },
+        "verb": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "LinkJO"
+    },
+    "LngLatAlt": {
+      "properties": {
+        "altitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "latitude": {
+          "format": "double",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "title": "LngLatAlt"
+    },
+    "MultiLineString": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        {
+          "properties": {
+            "coordinates": {
+              "items": {
+                "items": {
+                  "$ref": "#/definitions/LngLatAlt"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "MultiLineString"
+    },
+    "MultiPoint": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        {
+          "properties": {
+            "coordinates": {
+              "items": {
+                "$ref": "#/definitions/LngLatAlt"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "MultiPoint"
+    },
+    "MultiPolygon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        {
+          "properties": {
+            "coordinates": {
+              "items": {
+                "items": {
+                  "items": {
+                    "$ref": "#/definitions/LngLatAlt"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "MultiPolygon"
+    },
+    "Point": {
+      "discriminator": "type",
+      "properties": {
+        "bbox": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "coordinates": {
+          "$ref": "#/definitions/LngLatAlt"
+        },
+        "crs": {
+          "$ref": "#/definitions/Crs"
+        }
+      },
+      "type": "object",
+      "title": "Point"
+    },
+    "Polygon": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GeoJsonObject"
+        },
+        {
+          "properties": {
+            "coordinates": {
+              "items": {
+                "items": {
+                  "$ref": "#/definitions/LngLatAlt"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "title": "Polygon"
+    },
+    "PriceJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "grossamount": {
+          "format": "double",
+          "type": "number"
+        },
+        "href": {
+          "type": "string"
+        },
+        "interval": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "preferredprice": {
+          "default": false,
+          "type": "boolean"
+        },
+        "taxrate": {
+          "format": "double",
+          "type": "number"
+        },
+        "type": {
+          "enum": [
+            "TIME",
+            "DISTANCE"
+          ],
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PriceJO"
+    },
+    "ProviderJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ProviderJO"
+    },
+    "RentalObjectJO": {
+      "properties": {
+        "_links": {
+          "items": {
+            "$ref": "#/definitions/LinkJO"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "category": {
+          "$ref": "#/definitions/CategoryJO"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "#/definitions/ProviderJO"
+        },
+        "providerNetworkIds": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "providerRentalObjectId": {
+          "type": "string"
+        },
+        "rentalModel": {
+          "enum": [
+            "FREEFLOATING",
+            "FREEFLOATINGWITHSTATION",
+            "STATIONBASED",
+            "PARKINGAREA",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "VEHICLE",
+            "VEHICLEPOOL",
+            "BIKE",
+            "PEDELEC",
+            "UNKNOWN"
+          ],
+          "type": "string"
+        },
+        "uid": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "RentalObjectJO"
+    }
+  },
+  "actions": [
+    {
+      "id": "listAreas",
+      "title": "listAreas",
+      "description": "Search for areas (locations of rental objects) by criteria.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "format": "double"
+          },
+          "radius": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "providernetwork": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AreaJO"
+      }
+    },
+    {
+      "id": "getArea",
+      "title": "getArea",
+      "description": "Search for a specific area by UID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "areaUID": {
+            "type": "string",
+            "description": "The Area UID "
+          },
+          "expand": {
+            "type": "string",
+            "description": "Expand Provider"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "areaUID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AreaJO"
+      }
+    },
+    {
+      "id": "listBookingProposals",
+      "title": "listBookingProposals",
+      "description": "Here you can query all bookable Rental Objects with different Parameters (Time, Location,...)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "format": "double"
+          },
+          "radius": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "providernetwork": {
+            "type": "string"
+          },
+          "begin": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          },
+          "view": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RentalObjectJO"
+      }
+    },
+    {
+      "id": "getIndex",
+      "title": "getIndex",
+      "description": "Show Service index.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/JsonCollection"
+      }
+    },
+    {
+      "id": "listCategories",
+      "title": "listCategories",
+      "description": "Search for categorie.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "providernetworkUID": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "providernetworkUID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CategoryJO"
+      }
+    },
+    {
+      "id": "getCategory",
+      "title": "getCategory",
+      "description": "Search for categorie.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "providernetworkUID": {
+            "type": "string",
+            "description": "Provider Network UID"
+          },
+          "categoryUID": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "providernetworkUID",
+          "categoryUID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CategoryJO"
+      }
+    },
+    {
+      "id": "getPrices",
+      "title": "getPrices",
+      "description": "Prices of a rental object by query params. The params depend on the price determination strategy of the provider network.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "providernetworkUID": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "providernetworkUID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RentalObjectJO"
+      }
+    },
+    {
+      "id": "getRentalObject",
+      "title": "getRentalObject",
+      "description": "Get information about the Rental Object.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rentalObjectUID": {
+            "type": "string"
+          },
+          "providernetworkUID": {
+            "type": "string"
+          },
+          "expand": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rentalObjectUID",
+          "providernetworkUID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RentalObjectJO"
+      }
+    },
+    {
+      "id": "getProviderNetwork",
+      "title": "getProviderNetwork",
+      "description": "Get information about the ProviderNetworkResources.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "uid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RentalObjectJO"
+      }
+    },
+    {
+      "id": "getProvider",
+      "title": "getProvider",
+      "description": "Get information about the ProviderResourcesCtrl.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "uid"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RentalObjectJO"
+      }
+    }
+  ],
+  "tags": [
+    "transport",
+    "open data"
+  ]
+}

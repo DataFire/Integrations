@@ -172,13 +172,13 @@ amazonaws_directconnect.ConfirmConnection({
 
 ```js
 amazonaws_directconnect.ConfirmPrivateVirtualInterface({
-  "virtualInterfaceId": "",
-  "virtualGatewayId": ""
+  "virtualInterfaceId": ""
 }, context)
 ```
 
 #### Parameters
-* virtualGatewayId (string) **required** - <p>The ID of the virtual private gateway to a VPC. This only applies to private virtual interfaces.</p> <p>Example: vgw-123er56</p>
+* directConnectGatewayId (string) - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+* virtualGatewayId (string) - <p>The ID of the virtual private gateway to a VPC. This only applies to private virtual interfaces.</p> <p>Example: vgw-123er56</p>
 * virtualInterfaceId (string) **required** - <p>The ID of the virtual interface.</p> <p>Example: dxvif-123dfg56</p> <p>Default: None</p>
 
 ### ConfirmPublicVirtualInterface
@@ -223,6 +223,35 @@ amazonaws_directconnect.CreateConnection({
 * connectionName (string) **required** - <p>The name of the connection.</p> <p>Example: "<i>My Connection to AWS</i>"</p> <p>Default: None</p>
 * lagId (string) - <p>The ID of the LAG.</p> <p>Example: dxlag-fg5678gh</p>
 * location (string) **required** - <p>Where the connection is located.</p> <p>Example: EqSV5</p> <p>Default: None</p>
+
+### CreateDirectConnectGateway
+
+
+
+```js
+amazonaws_directconnect.CreateDirectConnectGateway({
+  "directConnectGatewayName": ""
+}, context)
+```
+
+#### Parameters
+* amazonSideAsn (integer)
+* directConnectGatewayName (string) **required** - <p>The name of the direct connect gateway.</p> <p>Example: "My direct connect gateway"</p> <p>Default: None</p>
+
+### CreateDirectConnectGatewayAssociation
+
+
+
+```js
+amazonaws_directconnect.CreateDirectConnectGatewayAssociation({
+  "directConnectGatewayId": "",
+  "virtualGatewayId": ""
+}, context)
+```
+
+#### Parameters
+* directConnectGatewayId (string) **required** - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+* virtualGatewayId (string) **required** - <p>The ID of the virtual private gateway to a VPC. This only applies to private virtual interfaces.</p> <p>Example: vgw-123er56</p>
 
 ### CreateInterconnect
 
@@ -272,8 +301,7 @@ amazonaws_directconnect.CreatePrivateVirtualInterface({
   "newPrivateVirtualInterface": {
     "virtualInterfaceName": "",
     "vlan": 0,
-    "asn": 0,
-    "virtualGatewayId": ""
+    "asn": 0
   }
 }, context)
 ```
@@ -326,6 +354,34 @@ amazonaws_directconnect.DeleteConnection({
 
 #### Parameters
 * connectionId (string) **required** - <p>The ID of the connection. This field is also used as the ID type for operations that use multiple connection types (LAG, interconnect, and/or connection).</p> <p>Example: dxcon-fg5678gh</p> <p>Default: None</p>
+
+### DeleteDirectConnectGateway
+
+
+
+```js
+amazonaws_directconnect.DeleteDirectConnectGateway({
+  "directConnectGatewayId": ""
+}, context)
+```
+
+#### Parameters
+* directConnectGatewayId (string) **required** - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+
+### DeleteDirectConnectGatewayAssociation
+
+
+
+```js
+amazonaws_directconnect.DeleteDirectConnectGatewayAssociation({
+  "directConnectGatewayId": "",
+  "virtualGatewayId": ""
+}, context)
+```
+
+#### Parameters
+* directConnectGatewayId (string) **required** - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+* virtualGatewayId (string) **required** - <p>The ID of the virtual private gateway to a VPC. This only applies to private virtual interfaces.</p> <p>Example: vgw-123er56</p>
 
 ### DeleteInterconnect
 
@@ -404,6 +460,47 @@ amazonaws_directconnect.DescribeConnectionsOnInterconnect({
 
 #### Parameters
 * interconnectId (string) **required** - <p>The ID of the interconnect.</p> <p>Example: dxcon-abc123</p>
+
+### DescribeDirectConnectGatewayAssociations
+
+
+
+```js
+amazonaws_directconnect.DescribeDirectConnectGatewayAssociations({}, context)
+```
+
+#### Parameters
+* directConnectGatewayId (string) - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+* maxResults (integer) - Maximum number of objects to return per page.
+* nextToken (string) - Token to retrieve the next page of the result.
+* virtualGatewayId (string) - <p>The ID of the virtual private gateway to a VPC. This only applies to private virtual interfaces.</p> <p>Example: vgw-123er56</p>
+
+### DescribeDirectConnectGatewayAttachments
+
+
+
+```js
+amazonaws_directconnect.DescribeDirectConnectGatewayAttachments({}, context)
+```
+
+#### Parameters
+* directConnectGatewayId (string) - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+* maxResults (integer) - Maximum number of objects to return per page.
+* nextToken (string) - Token to retrieve the next page of the result.
+* virtualInterfaceId (string) - <p>The ID of the virtual interface.</p> <p>Example: dxvif-123dfg56</p> <p>Default: None</p>
+
+### DescribeDirectConnectGateways
+
+
+
+```js
+amazonaws_directconnect.DescribeDirectConnectGateways({}, context)
+```
+
+#### Parameters
+* directConnectGatewayId (string) - <p>The ID of the direct connect gateway.</p> <p>Example: "abcd1234-dcba-5678-be23-cdef9876ab45"</p>
+* maxResults (integer) - Maximum number of objects to return per page.
+* nextToken (string) - Token to retrieve the next page of the result.
 
 ### DescribeHostedConnections
 

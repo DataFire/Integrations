@@ -9,7 +9,13 @@ npm install --save datafire @datafire/google_doubleclickbidmanager
 
 ```js
 let datafire = require('datafire');
-let google_doubleclickbidmanager = require('@datafire/google_doubleclickbidmanager').create();
+let google_doubleclickbidmanager = require('@datafire/google_doubleclickbidmanager').create({
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+});
 
 google_doubleclickbidmanager.sdf.download({}).then(data => {
   console.log(data);
@@ -20,6 +26,30 @@ google_doubleclickbidmanager.sdf.download({}).then(data => {
 API for viewing and managing your reports in DoubleClick Bid Manager.
 
 ## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
+
+
+```js
+google_doubleclickbidmanager.oauthCallback({
+  "code": ""
+}, context)
+```
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
+
+
+```js
+google_doubleclickbidmanager.oauthRefresh(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### lineitems.downloadlineitems
 Retrieves line items in CSV format.
 

@@ -217,6 +217,23 @@ amazonaws_inspector.DescribeRulesPackages({
 * locale (string)
 * rulesPackageArns (array) **required**
 
+### GetAssessmentReport
+
+
+
+```js
+amazonaws_inspector.GetAssessmentReport({
+  "assessmentRunArn": "",
+  "reportFileFormat": "",
+  "reportType": ""
+}, context)
+```
+
+#### Parameters
+* assessmentRunArn (string) **required**
+* reportFileFormat (string) **required**
+* reportType (string) **required**
+
 ### GetTelemetryMetadata
 
 
@@ -241,6 +258,8 @@ amazonaws_inspector.ListAssessmentRunAgents({
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * assessmentRunArn (string) **required**
 * filter (object) - Contains information about an Amazon Inspector agent. This data type is used as a request parameter in the <a>ListAssessmentRunAgents</a> action.
 * maxResults (integer)
@@ -255,6 +274,8 @@ amazonaws_inspector.ListAssessmentRuns({}, context)
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * assessmentTemplateArns (array)
 * filter (object) - Used as the request parameter in the <a>ListAssessmentRuns</a> action.
 * maxResults (integer)
@@ -269,6 +290,8 @@ amazonaws_inspector.ListAssessmentTargets({}, context)
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * filter (object) - Used as the request parameter in the <a>ListAssessmentTargets</a> action.
 * maxResults (integer)
 * nextToken (string)
@@ -282,6 +305,8 @@ amazonaws_inspector.ListAssessmentTemplates({}, context)
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * assessmentTargetArns (array)
 * filter (object) - Used as the request parameter in the <a>ListAssessmentTemplates</a> action.
 * maxResults (integer)
@@ -296,6 +321,8 @@ amazonaws_inspector.ListEventSubscriptions({}, context)
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * maxResults (integer)
 * nextToken (string)
 * resourceArn (string)
@@ -309,6 +336,8 @@ amazonaws_inspector.ListFindings({}, context)
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * assessmentRunArns (array)
 * filter (object) - This data type is used as a request parameter in the <a>ListFindings</a> action.
 * maxResults (integer)
@@ -323,6 +352,8 @@ amazonaws_inspector.ListRulesPackages({}, context)
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * maxResults (integer)
 * nextToken (string)
 
@@ -350,6 +381,8 @@ amazonaws_inspector.PreviewAgents({
 ```
 
 #### Parameters
+* maxResults (string)
+* nextToken (string)
 * maxResults (integer)
 * nextToken (string)
 * previewAgentsArn (string) **required**
@@ -422,6 +455,7 @@ amazonaws_inspector.StopAssessmentRun({
 
 #### Parameters
 * assessmentRunArn (string) **required**
+* stopAction (string)
 
 ### SubscribeToEvent
 

@@ -146,6 +146,7 @@ tfl_gov_uk.Journey_JourneyResults({
 * applyHtmlMarkup (boolean) - Flag to determine whether certain text (e.g. walking instructions) should be output with HTML tags or not.
 * useMultiModalCall (boolean) - A boolean to indicate whether or not to return 3 public transport journeys, a bus journey, a cycle hire journey, a personal cycle journey and a walking journey
 * walkingOptimization (boolean) - A boolean to indicate whether to optimize journeys using walking
+* taxiOnlyTrip (boolean) - A boolean to indicate whether to return one or more taxi journeys. Note, setting this to true will override "useMultiModalCall".
 
 ### Journey_Meta
 Gets a list of all of the available journey planner modes
@@ -159,7 +160,7 @@ tfl_gov_uk.Journey_Meta(null, context)
 *This action has no parameters*
 
 ### Line_MetaDisruptionCategories
-Gets a list of valid categories to filter disruptions
+Gets a list of valid disruption categories
 
 
 ```js
@@ -170,7 +171,7 @@ tfl_gov_uk.Line_MetaDisruptionCategories(null, context)
 *This action has no parameters*
 
 ### Line_MetaModes
-Gets a list of all of the valid modes to filter lines by
+Gets a list of valid modes
 
 
 ```js
@@ -203,7 +204,7 @@ tfl_gov_uk.Line_MetaSeverity(null, context)
 *This action has no parameters*
 
 ### Line_GetByMode
-Gets line specified by provided modes.
+Gets lines that serve the given modes.
 
 
 ```js
@@ -240,7 +241,7 @@ tfl_gov_uk.Line_RouteByMode({
 
 #### Parameters
 * modes (array) **required** - A comma-separated list of modes e.g. tube,dlr
-* serviceTypes (array) - A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
+* serviceTypes (array) - A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
 ### Line_StatusByMode
 Gets the line status of for all lines for the given modes
@@ -265,7 +266,7 @@ tfl_gov_uk.Line_Route({}, context)
 ```
 
 #### Parameters
-* serviceTypes (array) - A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
+* serviceTypes (array) - A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
 ### Line_Search
 Search for lines or routes matching the query string
@@ -280,7 +281,7 @@ tfl_gov_uk.Line_Search({
 #### Parameters
 * query (string) **required** - Search term e.g victoria
 * modes (array) - Optionally filter by the specified modes
-* serviceTypes (array) - A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
+* serviceTypes (array) - A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
 ### Line_StatusBySeverity
 Gets the line status for all lines with a given severity
@@ -297,7 +298,7 @@ tfl_gov_uk.Line_StatusBySeverity({
 * severity (integer) **required** - The level of severity (eg: a number from 0 to 14)
 
 ### Line_Get
-Gets line specified by the line id.
+Gets lines that match the specified line ids.
 
 
 ```js
@@ -309,37 +310,22 @@ tfl_gov_uk.Line_Get({
 #### Parameters
 * ids (array) **required** - A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids.
 
-### Line.ids.Arrivals.get
+### Line_Arrivals
 Get the list of arrival predictions for given line ids based at the given stop
 
 
 ```js
-tfl_gov_uk.Line.ids.Arrivals.get({
-  "stopPointId": "",
-  "ids": []
-}, context)
-```
-
-#### Parameters
-* stopPointId (string) **required** - Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)
-* ids (array) **required** - A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids.
-
-### Line.ids.Arrivals.stopPointId.get
-Get the list of arrival predictions for given line ids based at the given stop going in the procided direction
-
-
-```js
-tfl_gov_uk.Line.ids.Arrivals.stopPointId.get({
-  "stopPointId": "",
+tfl_gov_uk.Line_Arrivals({
   "ids": [],
-  "direction": ""
+  "stopPointId": ""
 }, context)
 ```
 
 #### Parameters
-* stopPointId (string) **required** - Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)
 * ids (array) **required** - A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids.
-* direction (string) **required** - The direction of travel. Can be inbound or outbound
+* stopPointId (string) **required** - Optional. Id of stop to get arrival predictions for (station naptan code e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)
+* direction (string) - Optional. The direction of travel. Can be inbound or outbound or all. If left blank, and destinationStopId is set, will default to all
+* destinationStationId (string) - Optional. Id of destination stop
 
 ### Line_Disruption
 Get disruptions for the given line ids
@@ -366,7 +352,7 @@ tfl_gov_uk.Line_LineRoutesByIds({
 
 #### Parameters
 * ids (array) **required** - A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids.
-* serviceTypes (array) - A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
+* serviceTypes (array) - A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
 ### Line_StatusByIds
 Gets the line status of for given line ids e.g Minor Delays
@@ -420,7 +406,7 @@ tfl_gov_uk.Line_RouteSequence({
 #### Parameters
 * id (string) **required** - A single line id e.g. victoria
 * direction (string) **required** - The direction of travel. Can be inbound or outbound.
-* serviceTypes (array) - A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
+* serviceTypes (array) - A comma seperated list of service types to filter on. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 * excludeCrowding (boolean) - That excludes crowding from line disruptions. Can be true or false.
 
 ### Line_StopPoints
@@ -494,6 +480,19 @@ tfl_gov_uk.Mode_Arrivals({
 * mode (string) **required** - A mode name e.g. tube, dlr
 * count (integer) - A number of arrivals to return for each stop, -1 to return all available.
 
+### Occupancy_GetBikePointsOccupancies
+Get the occupancy for bike points.
+
+
+```js
+tfl_gov_uk.Occupancy_GetBikePointsOccupancies({
+  "ids": []
+}, context)
+```
+
+#### Parameters
+* ids (array) **required**
+
 ### Occupancy.CarPark.get
 Gets the occupancy for all car parks that have occupancy data
 
@@ -517,6 +516,30 @@ tfl_gov_uk.Occupancy.CarPark.id.get({
 
 #### Parameters
 * id (string) **required**
+
+### Occupancy_GetAllChargeConnectorStatus
+Gets the occupancy for all charge connectors
+
+
+```js
+tfl_gov_uk.Occupancy_GetAllChargeConnectorStatus(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### Occupancy_GetChargeConnectorStatus
+Gets the occupancy for a charge connectors with a given id (sourceSystemPlaceId)
+
+
+```js
+tfl_gov_uk.Occupancy_GetChargeConnectorStatus({
+  "ids": []
+}, context)
+```
+
+#### Parameters
+* ids (array) **required**
 
 ### Place_GetByGeoBox
 Gets the places that lie within the bounding box defined by the lat/lon of its north-west and south-east corners. Optionally filters
@@ -580,6 +603,20 @@ tfl_gov_uk.Place_MetaPlaceTypes(null, context)
 #### Parameters
 *This action has no parameters*
 
+### Place_Search
+Gets all places that matches the given query
+
+
+```js
+tfl_gov_uk.Place_Search({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* name (string) **required** - The name of the place, you can use the /Place/Types/{types} endpoint to get a list of places for a given type including their names.
+* types (array) - A comma-separated list of the types to return. Max. approx 12 types.
+
 ### Place_GetByType
 Gets all places of a given type
 
@@ -609,7 +646,7 @@ tfl_gov_uk.Place_Get({
 * includeChildren (boolean) - Defaults to false. If true child places e.g. individual charging stations at a charge point while be included, otherwise just the URLs of any child places will be returned
 
 ### Place_GetAt
-Gets any {laces of the given type whose geography intersects the given latitude and longitude. In practice this means the Place
+Gets any places of the given type whose geography intersects the given latitude and longitude. In practice this means the Place
             must be polygonal e.g. a BoroughBoundary.
 
 
@@ -993,12 +1030,12 @@ tfl_gov_uk.StopPoint_GetByType({
 #### Parameters
 * types (array) **required** - A comma-separated list of the types to return. Max. approx. 12 types. 
 
-### StopPoint_Get
+### StopPoint.ids.get
 Gets a list of StopPoints corresponding to the given list of stop ids.
 
 
 ```js
-tfl_gov_uk.StopPoint_Get({
+tfl_gov_uk.StopPoint.ids.get({
   "ids": []
 }, context)
 ```
@@ -1099,6 +1136,34 @@ tfl_gov_uk.StopPoint_Route({
 * id (string) **required** - A stop point id (station naptan codes e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)
 * serviceTypes (array) - A comma-separated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
+### StopPoint.id.placeTypes.get
+Get a list of places corresponding to a given id and place types.
+
+
+```js
+tfl_gov_uk.StopPoint.id.placeTypes.get({
+  "id": "",
+  "placeTypes": []
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - A naptan id for a stop point (station naptan code e.g. 940GZZLUASL).
+* placeTypes (array) **required** - A comcomma-separated value representing the place types.
+
+### StopPoint_GetCarParksById
+Get car parks corresponding to the given stop point id.
+
+
+```js
+tfl_gov_uk.StopPoint_GetCarParksById({
+  "stopPointId": ""
+}, context)
+```
+
+#### Parameters
+* stopPointId (string) **required** - stopPointId is required to get the car parks.
+
 ### StopPoint_GetTaxiRanksByIds
 Gets a list of taxi ranks corresponding to the given stop point id.
 
@@ -1186,12 +1251,25 @@ tfl_gov_uk.TravelTime_GetOverlay({
 * direction (string) **required** - The direction of travel.
 * travelTimeInterval (integer) **required** - The total minutes between the travel time bands
 
-### Vehicle_GetVehicle
+### Vehicle_GetEmissionsSurchargeCompliance
 Gets the Emissions Surcharge compliance for the Vehicle
 
 
 ```js
-tfl_gov_uk.Vehicle_GetVehicle({
+tfl_gov_uk.Vehicle_GetEmissionsSurchargeCompliance({
+  "vrm": ""
+}, context)
+```
+
+#### Parameters
+* vrm (string) **required** - The Vehicle Registration Mark
+
+### Vehicle_GetUlezCompliance
+Gets the Ulez Surcharge compliance for the Vehicle
+
+
+```js
+tfl_gov_uk.Vehicle_GetUlezCompliance({
   "vrm": ""
 }, context)
 ```

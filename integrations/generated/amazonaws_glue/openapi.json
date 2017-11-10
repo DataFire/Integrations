@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "glue.amazonaws.com",
@@ -12,7 +13,7 @@
       "name": "Mike Ralphson",
       "url": "https://github.com/mermade/aws2openapi"
     },
-    "description": "Defines service operations used by the GlueFrontendService",
+    "description": "<fullname>AWS Glue</fullname> <p>Defines the public endpoint for the AWS Glue service.</p>",
     "license": {
       "name": "Apache 2.0 License",
       "url": "http://www.apache.org/licenses/"
@@ -511,6 +512,77 @@
             "description": "InternalServiceException",
             "schema": {
               "$ref": "#/definitions/InternalServiceException"
+            }
+          }
+        }
+      }
+    },
+    "/#BatchStopJobRun": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Stops a batch of job runs for a given job.",
+        "operationId": "BatchStopJobRun",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchStopJobRunRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchStopJobRunResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceException"
+            }
+          },
+          "482": {
+            "description": "OperationTimeoutException",
+            "schema": {
+              "$ref": "#/definitions/OperationTimeoutException"
             }
           }
         }
@@ -5940,12 +6012,15 @@
       "type": "object"
     },
     "Action": {
+      "description": "Defines an action to be initiated by a trigger.",
       "properties": {
         "Arguments": {
-          "$ref": "#/definitions/GenericMap"
+          "$ref": "#/definitions/GenericMap",
+          "description": "Arguments to be passed to the job."
         },
         "JobName": {
-          "$ref": "#/definitions/NameString"
+          "$ref": "#/definitions/NameString",
+          "description": "The name of a job to be executed."
         }
       },
       "type": "object"
@@ -6159,6 +6234,88 @@
       },
       "maxItems": 1000,
       "minItems": 0,
+      "type": "array"
+    },
+    "BatchStopJobRunError": {
+      "description": "Details about the job run and the error that occurred while trying to submit it for stopping.",
+      "properties": {
+        "ErrorDetail": {
+          "$ref": "#/definitions/ErrorDetail",
+          "description": "The details of the error that occurred."
+        },
+        "JobName": {
+          "$ref": "#/definitions/NameString",
+          "description": "The name of the job."
+        },
+        "JobRunId": {
+          "$ref": "#/definitions/IdString",
+          "description": "The job run Id."
+        }
+      },
+      "type": "object"
+    },
+    "BatchStopJobRunErrorList": {
+      "items": {
+        "$ref": "#/definitions/BatchStopJobRunError"
+      },
+      "type": "array"
+    },
+    "BatchStopJobRunJobRunIdList": {
+      "items": {
+        "$ref": "#/definitions/IdString"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "BatchStopJobRunRequest": {
+      "properties": {
+        "JobName": {
+          "$ref": "#/definitions/NameString",
+          "description": "The name of the job whose job runs are to be stopped."
+        },
+        "JobRunIds": {
+          "$ref": "#/definitions/BatchStopJobRunJobRunIdList",
+          "description": "A list of job run Ids of the given job to be stopped."
+        }
+      },
+      "required": [
+        "JobName",
+        "JobRunIds"
+      ],
+      "type": "object"
+    },
+    "BatchStopJobRunResponse": {
+      "properties": {
+        "Errors": {
+          "$ref": "#/definitions/BatchStopJobRunErrorList",
+          "description": "A list containing the job run Ids and details of the error that occurred for each job run while submitting to stop."
+        },
+        "SuccessfulSubmissions": {
+          "$ref": "#/definitions/BatchStopJobRunSuccessfulSubmissionList",
+          "description": "A list of job runs which are successfully submitted for stopping."
+        }
+      },
+      "type": "object"
+    },
+    "BatchStopJobRunSuccessfulSubmission": {
+      "description": "Details about the job run which is submitted successfully for stopping.",
+      "properties": {
+        "JobName": {
+          "$ref": "#/definitions/NameString",
+          "description": "The name of the job."
+        },
+        "JobRunId": {
+          "$ref": "#/definitions/IdString",
+          "description": "The job run Id."
+        }
+      },
+      "type": "object"
+    },
+    "BatchStopJobRunSuccessfulSubmissionList": {
+      "items": {
+        "$ref": "#/definitions/BatchStopJobRunSuccessfulSubmission"
+      },
       "type": "array"
     },
     "Boolean": {
@@ -6411,15 +6568,19 @@
       "type": "object"
     },
     "Condition": {
+      "description": "Defines a condition under which a trigger fires.",
       "properties": {
         "JobName": {
-          "$ref": "#/definitions/NameString"
+          "$ref": "#/definitions/NameString",
+          "description": "The name of the job in question."
         },
         "LogicalOperator": {
-          "$ref": "#/definitions/LogicalOperator"
+          "$ref": "#/definitions/LogicalOperator",
+          "description": "A logical operator."
         },
         "State": {
-          "$ref": "#/definitions/JobRunState"
+          "$ref": "#/definitions/JobRunState",
+          "description": "The condition state."
         }
       },
       "type": "object"
@@ -6439,7 +6600,7 @@
         },
         "ConnectionType": {
           "$ref": "#/definitions/ConnectionType",
-          "description": "The type of the connection."
+          "description": "The type of the connection. Currently, only JDBC is supported; SFTP is not supported."
         },
         "CreationTime": {
           "$ref": "#/definitions/Timestamp",
@@ -6481,7 +6642,7 @@
         },
         "ConnectionType": {
           "$ref": "#/definitions/ConnectionType",
-          "description": "The type of the connection."
+          "description": "The type of the connection. Currently, only JDBC is supported; SFTP is not supported."
         },
         "Description": {
           "$ref": "#/definitions/DescriptionString",
@@ -6561,7 +6722,7 @@
       "type": "object"
     },
     "Crawler": {
-      "description": "Specifies a crawler program that examines a data source and uses classifiers to try to its schema. If successful, the crawler records metatdata concerning the data source in the Data Catalog.",
+      "description": "Specifies a crawler program that examines a data source and uses classifiers to try to determine its schema. If successful, the crawler records metatdata concerning the data source in the Data Catalog.",
       "properties": {
         "Classifiers": {
           "$ref": "#/definitions/ClassifierNameList",
@@ -6597,7 +6758,7 @@
         },
         "Role": {
           "$ref": "#/definitions/RoleArn",
-          "description": "The ARN of an IAM role used to access customer resources such as data in S3."
+          "description": "The IAM role (or ARN of an IAM role) used to access customer resources such as data in S3."
         },
         "Schedule": {
           "$ref": "#/definitions/Schedule",
@@ -6789,11 +6950,11 @@
         },
         "Role": {
           "$ref": "#/definitions/RoleArn",
-          "description": "The AWS ARN of the IAM role used by the new <code>Crawler</code> to access customer resources."
+          "description": "The IAM role (or ARN of an IAM role) used by the new <code>Crawler</code> to access customer resources."
         },
         "Schedule": {
           "$ref": "#/definitions/CronExpression",
-          "description": "A cron expression that can be used as a Cloudwatch event (see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html\">CloudWatch Schedule Expression Syntax</a>. For example, to run every day at 12:15 UTC, specify: <code>cron(15 12 * * ? *)</code>."
+          "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         },
         "SchemaChangePolicy": {
           "$ref": "#/definitions/SchemaChangePolicy",
@@ -6852,11 +7013,11 @@
         },
         "ExtraPythonLibsS3Path": {
           "$ref": "#/definitions/GenericString",
-          "description": "Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint."
+          "description": "<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>"
         },
         "NumberOfNodes": {
           "$ref": "#/definitions/IntegerValue",
-          "description": "The number of nodes to use."
+          "description": "The number of AWS Glue Data Processing Units (DPUs) to allocate to this DevEndpoint."
         },
         "PublicKey": {
           "$ref": "#/definitions/GenericString",
@@ -6878,8 +7039,7 @@
       "required": [
         "EndpointName",
         "RoleArn",
-        "SecurityGroupIds",
-        "SubnetId"
+        "PublicKey"
       ],
       "type": "object"
     },
@@ -6903,7 +7063,7 @@
         },
         "ExtraPythonLibsS3Path": {
           "$ref": "#/definitions/GenericString",
-          "description": "Path to one or more Python libraries in an S3 bucket that will be loaded in your DevEndpoint."
+          "description": "Path(s) to one or more Python libraries in an S3 bucket that will be loaded in your DevEndpoint."
         },
         "FailureReason": {
           "$ref": "#/definitions/GenericString",
@@ -6911,7 +7071,7 @@
         },
         "NumberOfNodes": {
           "$ref": "#/definitions/IntegerValue",
-          "description": "The number of nodes in this DevEndpoint."
+          "description": "The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint."
         },
         "RoleArn": {
           "$ref": "#/definitions/RoleArn",
@@ -6936,6 +7096,10 @@
         "YarnEndpointAddress": {
           "$ref": "#/definitions/GenericString",
           "description": "The address of the YARN endpoint used by this DevEndpoint."
+        },
+        "ZeppelinRemoteSparkInterpreterPort": {
+          "$ref": "#/definitions/IntegerValue",
+          "description": "The Apache Zeppelin port for the remote Apache Spark interpreter."
         }
       },
       "type": "object"
@@ -6995,7 +7159,7 @@
         },
         "LogUri": {
           "$ref": "#/definitions/UriString",
-          "description": "Location of the logs for this job."
+          "description": "This field is reserved for future use."
         },
         "MaxRetries": {
           "$ref": "#/definitions/MaxRetries",
@@ -7123,7 +7287,7 @@
         },
         "Schedule": {
           "$ref": "#/definitions/GenericString",
-          "description": "A cron schedule expression for the new trigger."
+          "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         },
         "Type": {
           "$ref": "#/definitions/TriggerType",
@@ -7510,11 +7674,11 @@
         },
         "ExtraJarsS3Path": {
           "$ref": "#/definitions/GenericString",
-          "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint."
+          "description": "<p>Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.</p> <p>Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.</p>"
         },
         "ExtraPythonLibsS3Path": {
           "$ref": "#/definitions/GenericString",
-          "description": "Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint."
+          "description": "<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>"
         },
         "FailureReason": {
           "$ref": "#/definitions/GenericString",
@@ -7530,7 +7694,7 @@
         },
         "NumberOfNodes": {
           "$ref": "#/definitions/IntegerValue",
-          "description": "The number of nodes used by this DevEndpoint."
+          "description": "The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint."
         },
         "PublicAddress": {
           "$ref": "#/definitions/GenericString",
@@ -7563,6 +7727,10 @@
         "YarnEndpointAddress": {
           "$ref": "#/definitions/GenericString",
           "description": "The YARN endpoint address used by this DevEndpoint."
+        },
+        "ZeppelinRemoteSparkInterpreterPort": {
+          "$ref": "#/definitions/IntegerValue",
+          "description": "The Apache Zeppelin port for the remote Apache Spark interpreter."
         }
       },
       "type": "object"
@@ -7572,11 +7740,11 @@
       "properties": {
         "ExtraJarsS3Path": {
           "$ref": "#/definitions/GenericString",
-          "description": "Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint."
+          "description": "<p>Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.</p> <p>Please note that only pure Java/Scala libraries can currently be used on a DevEndpoint.</p>"
         },
         "ExtraPythonLibsS3Path": {
           "$ref": "#/definitions/GenericString",
-          "description": "Path to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint."
+          "description": "<p>Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma.</p> <p>Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <a href=\"http://pandas.pydata.org/\">pandas</a> Python data analysis library, are not yet supported.</p>"
         }
       },
       "type": "object"
@@ -7764,7 +7932,7 @@
       "properties": {
         "ConnectionType": {
           "$ref": "#/definitions/ConnectionType",
-          "description": "The type of connections to return."
+          "description": "The type of connections to return. Currently, only JDBC is supported; SFTP is not supported."
         },
         "MatchCriteria": {
           "$ref": "#/definitions/MatchCriteria",
@@ -8680,7 +8848,7 @@
         },
         "LogUri": {
           "$ref": "#/definitions/UriString",
-          "description": "Location of the logs for this job."
+          "description": "This field is reserved for future use."
         },
         "MaxRetries": {
           "$ref": "#/definitions/MaxRetries",
@@ -8850,7 +9018,7 @@
         },
         "LogUri": {
           "$ref": "#/definitions/UriString",
-          "description": "Location of the logs for this job."
+          "description": "This field is reserved for future use."
         },
         "MaxRetries": {
           "$ref": "#/definitions/MaxRetries",
@@ -9216,9 +9384,11 @@
       "type": "array"
     },
     "PartitionValueList": {
+      "description": "Contains a list of values defining partitions.",
       "properties": {
         "Values": {
-          "$ref": "#/definitions/ValueStringList"
+          "$ref": "#/definitions/ValueStringList",
+          "description": "The list of values."
         }
       },
       "required": [
@@ -9397,7 +9567,7 @@
       "properties": {
         "ScheduleExpression": {
           "$ref": "#/definitions/CronExpression",
-          "description": "A <code>cron</code> expression that can be used as a Cloudwatch event to schedule something (see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html\">CloudWatch Schedule Expression Syntax</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
+          "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         },
         "State": {
           "$ref": "#/definitions/ScheduleState",
@@ -9894,12 +10064,15 @@
       "type": "string"
     },
     "TableVersion": {
+      "description": "Specifies a version of a table.",
       "properties": {
         "Table": {
-          "$ref": "#/definitions/Table"
+          "$ref": "#/definitions/Table",
+          "description": "The table in question"
         },
         "VersionId": {
-          "$ref": "#/definitions/VersionString"
+          "$ref": "#/definitions/VersionString",
+          "description": "The ID value that identifies this table version."
         }
       },
       "type": "object"
@@ -9945,7 +10118,7 @@
         },
         "Schedule": {
           "$ref": "#/definitions/GenericString",
-          "description": "A cron schedule expression."
+          "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         },
         "State": {
           "$ref": "#/definitions/TriggerState",
@@ -10006,7 +10179,7 @@
         },
         "Schedule": {
           "$ref": "#/definitions/GenericString",
-          "description": "A cron expression specifying the schedule."
+          "description": "An updated <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         }
       },
       "type": "object"
@@ -10082,11 +10255,11 @@
         },
         "Role": {
           "$ref": "#/definitions/RoleArn",
-          "description": "The AWS ARN of the IAM role used by the new <code>Crawler</code> to access customer resources."
+          "description": "The IAM role (or ARN of an IAM role) used by the new <code>Crawler</code> to access customer resources."
         },
         "Schedule": {
           "$ref": "#/definitions/CronExpression",
-          "description": "A cron expression that can be used as a Cloudwatch event (see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html\">CloudWatch Schedule Expression Syntax</a>. For example, to run every day at 12:15 UTC, specify: <code>cron(15 12 * * ? *)</code>."
+          "description": "A <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         },
         "SchemaChangePolicy": {
           "$ref": "#/definitions/SchemaChangePolicy",
@@ -10118,7 +10291,7 @@
         },
         "Schedule": {
           "$ref": "#/definitions/CronExpression",
-          "description": "Cron expression of the updated schedule."
+          "description": "The updated <code>cron</code> expression used to specify the schedule (see <a href=\"http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15 UTC, you would specify: <code>cron(15 12 * * ? *)</code>."
         }
       },
       "required": [
@@ -10159,7 +10332,7 @@
       "properties": {
         "CustomLibraries": {
           "$ref": "#/definitions/DevEndpointCustomLibraries",
-          "description": "Custom Python or Java custom libraries to be loaded in the DevEndpoint."
+          "description": "Custom Python or Java libraries to be loaded in the DevEndpoint."
         },
         "EndpointName": {
           "$ref": "#/definitions/GenericString",
@@ -10168,6 +10341,10 @@
         "PublicKey": {
           "$ref": "#/definitions/GenericString",
           "description": "The public key for the DevEndpoint to use."
+        },
+        "UpdateEtlLibraries": {
+          "$ref": "#/definitions/BooleanValue",
+          "description": "True if the list of custom libraries to be loaded in the development endpoint needs to be updated, or False otherwise."
         }
       },
       "required": [

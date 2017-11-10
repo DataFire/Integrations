@@ -184,6 +184,39 @@ windows_arm_graphrbac.Applications_UpdatePasswordCredentials({
 * api-version (string) **required** - Client API version.
 * tenantID (string) **required** - The tenant ID.
 
+### Domains_List
+Gets a list of domains for the current tenant.
+
+
+```js
+windows_arm_graphrbac.Domains_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Parameters
+* $filter (string) - The filter to apply to the operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Domains_Get
+Gets a specific domain in the current tenant.
+
+
+```js
+windows_arm_graphrbac.Domains_Get({
+  "domainName": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
+```
+
+#### Parameters
+* domainName (string) **required** - name of the domain.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
 ### Objects_GetObjectsByObjectIds
 Gets AD group membership for the specified AD object IDs.
 

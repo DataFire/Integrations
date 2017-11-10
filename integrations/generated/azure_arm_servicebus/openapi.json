@@ -4027,7 +4027,7 @@
           "type": "boolean"
         },
         "enableSubscriptionPartitioning": {
-          "description": "Value that indicates whether partitioning is enabled or disabled.",
+          "description": "Value that indicates whether partitioning is enabled or disabled. NOTE: This property is unsupported, and may be deprecated.",
           "type": "boolean"
         },
         "entityAvailabilityStatus": {

@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "s3.amazonaws.com",
@@ -1303,6 +1304,73 @@
             "schema": {
               "$ref": "#/definitions/DeleteObjectsOutput"
             }
+          }
+        }
+      }
+    },
+    "/{Bucket}?encryption": {
+      "get": {
+        "description": "Returns the server-side encryption configuration of a bucket.",
+        "operationId": "GetBucketEncryption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBucketEncryptionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetBucketEncryptionOutput"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ]
+    },
+    "/{Bucket}?encryption#PutBucketEncryption": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/x-amz-security-token"
+        }
+      ],
+      "put": {
+        "description": "Creates a new server-side encryption configuration (or replaces an existing one, if present).",
+        "operationId": "PutBucketEncryption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutBucketEncryptionRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "Bucket",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -2627,10 +2695,16 @@
       "type": "object"
     },
     "AbortMultipartUploadOutput": {
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "AbortMultipartUploadRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "bigobject",
+        "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+      },
       "properties": {},
       "type": "object"
     },
@@ -2659,6 +2733,19 @@
           "$ref": "#/definitions/Owner"
         }
       },
+      "type": "object"
+    },
+    "AccessControlTranslation": {
+      "description": "Container for information regarding the access control for replicas.",
+      "properties": {
+        "Owner": {
+          "$ref": "#/definitions/OwnerOverride",
+          "description": "The override value for the owner of the replica object."
+        }
+      },
+      "required": [
+        "Owner"
+      ],
       "type": "object"
     },
     "AccountId": {
@@ -3008,6 +3095,12 @@
       }
     },
     "CompleteMultipartUploadOutput": {
+      "example": {
+        "Bucket": "acexamplebucket",
+        "ETag": "\"4d9031c7644d8081c2829f4ea23c55f7-2\"",
+        "Key": "bigobject",
+        "Location": "https://examplebucket.s3.amazonaws.com/bigobject"
+      },
       "properties": {
         "Bucket": {
           "$ref": "#/definitions/BucketName"
@@ -3026,6 +3119,23 @@
       "type": "object"
     },
     "CompleteMultipartUploadRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "bigobject",
+        "MultipartUpload": {
+          "Parts": [
+            {
+              "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
+              "PartNumber": "1"
+            },
+            {
+              "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
+              "PartNumber": "2"
+            }
+          ]
+        },
+        "UploadId": "7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+      },
       "properties": {
         "MultipartUpload": {
           "$ref": "#/definitions/CompletedMultipartUpload"
@@ -3079,6 +3189,9 @@
       },
       "type": "object"
     },
+    "ConfirmRemoveSelfBucketAccess": {
+      "type": "boolean"
+    },
     "ContentDisposition": {
       "type": "string"
     },
@@ -3101,6 +3214,12 @@
       "type": "string"
     },
     "CopyObjectOutput": {
+      "example": {
+        "CopyObjectResult": {
+          "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+          "LastModified": "2016-12-15T17:38:53.000Z"
+        }
+      },
       "properties": {
         "CopyObjectResult": {
           "$ref": "#/definitions/CopyObjectResult"
@@ -3109,6 +3228,11 @@
       "type": "object"
     },
     "CopyObjectRequest": {
+      "example": {
+        "Bucket": "destinationbucket",
+        "CopySource": "/sourcebucket/HappyFacejpg",
+        "Key": "HappyFaceCopyjpg"
+      },
       "properties": {},
       "type": "object"
     },
@@ -3180,10 +3304,16 @@
       "type": "object"
     },
     "CreateBucketOutput": {
+      "example": {
+        "Location": "/examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "CreateBucketRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {
         "CreateBucketConfiguration": {
           "$ref": "#/definitions/CreateBucketConfiguration"
@@ -3195,6 +3325,11 @@
       }
     },
     "CreateMultipartUploadOutput": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "largeobject",
+        "UploadId": "ibZBv_75gd9r8lH_gqXatLdxMVpAlj6ZQjEs.OwyF3953YdwbcQnMA2BLGn8Lx12fQNICtMw5KyteFeHw.Sjng--"
+      },
       "properties": {
         "Bucket": {
           "$ref": "#/definitions/BucketName",
@@ -3212,6 +3347,10 @@
       "type": "object"
     },
     "CreateMultipartUploadRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "largeobject"
+      },
       "properties": {},
       "type": "object"
     },
@@ -3249,6 +3388,13 @@
       "type": "object"
     },
     "DeleteBucketCorsRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteBucketEncryptionRequest": {
       "properties": {},
       "type": "object"
     },
@@ -3257,6 +3403,9 @@
       "type": "object"
     },
     "DeleteBucketLifecycleRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
@@ -3265,22 +3414,37 @@
       "type": "object"
     },
     "DeleteBucketPolicyRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteBucketReplicationRequest": {
+      "example": {
+        "Bucket": "example"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteBucketRequest": {
+      "example": {
+        "Bucket": "forrandall2"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteBucketTaggingRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteBucketWebsiteRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
@@ -3324,22 +3488,48 @@
       }
     },
     "DeleteObjectOutput": {
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "DeleteObjectRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "objectkey.jpg"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteObjectTaggingOutput": {
+      "example": {
+        "VersionId": "null"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteObjectTaggingRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "HappyFace.jpg"
+      },
       "properties": {},
       "type": "object"
     },
     "DeleteObjectsOutput": {
+      "example": {
+        "Deleted": [
+          {
+            "DeleteMarker": "true",
+            "DeleteMarkerVersionId": "A._w1z6EFiCF5uhtQMDal9JDkID9tQ7F",
+            "Key": "objectkey1"
+          },
+          {
+            "DeleteMarker": "true",
+            "DeleteMarkerVersionId": "iOd_ORxhkKe_e8G8_oSGxt2PjsCZKlkt",
+            "Key": "objectkey2"
+          }
+        ]
+      },
       "properties": {
         "Deleted": {
           "$ref": "#/definitions/DeletedObjects"
@@ -3351,6 +3541,20 @@
       "type": "object"
     },
     "DeleteObjectsRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Delete": {
+          "Objects": [
+            {
+              "Key": "objectkey1"
+            },
+            {
+              "Key": "objectkey2"
+            }
+          ],
+          "Quiet": false
+        }
+      },
       "properties": {
         "Delete": {
           "$ref": "#/definitions/Delete"
@@ -3394,10 +3598,23 @@
       "type": "string"
     },
     "Destination": {
+      "description": "Container for replication destination information.",
       "properties": {
+        "AccessControlTranslation": {
+          "$ref": "#/definitions/AccessControlTranslation",
+          "description": "Container for information regarding the access control for replicas."
+        },
+        "Account": {
+          "$ref": "#/definitions/AccountId",
+          "description": "Account ID of the destination bucket. Currently this is only being verified if Access Control Translation is enabled"
+        },
         "Bucket": {
           "$ref": "#/definitions/BucketName",
           "description": "Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule."
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/EncryptionConfiguration",
+          "description": "Container for information regarding encryption based configuration for replicas."
         },
         "StorageClass": {
           "$ref": "#/definitions/StorageClass",
@@ -3424,6 +3641,16 @@
         "url"
       ],
       "type": "string"
+    },
+    "EncryptionConfiguration": {
+      "description": "Container for information regarding encryption based configuration for replicas.",
+      "properties": {
+        "ReplicaKmsKeyID": {
+          "$ref": "#/definitions/ReplicaKmsKeyID",
+          "description": "The id of the KMS key used to encrypt the replica object."
+        }
+      },
+      "type": "object"
     },
     "Error": {
       "properties": {
@@ -3595,6 +3822,22 @@
       "type": "object"
     },
     "GetBucketCorsOutput": {
+      "example": {
+        "CORSRules": [
+          {
+            "AllowedHeaders": [
+              "Authorization"
+            ],
+            "AllowedMethods": [
+              "GET"
+            ],
+            "AllowedOrigins": [
+              "*"
+            ],
+            "MaxAgeSeconds": 3000
+          }
+        ]
+      },
       "properties": {
         "CORSRules": {
           "$ref": "#/definitions/CORSRules"
@@ -3603,6 +3846,21 @@
       "type": "object"
     },
     "GetBucketCorsRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "GetBucketEncryptionOutput": {
+      "properties": {
+        "ServerSideEncryptionConfiguration": {
+          "$ref": "#/definitions/ServerSideEncryptionConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "GetBucketEncryptionRequest": {
       "properties": {},
       "type": "object"
     },
@@ -3620,6 +3878,21 @@
       "type": "object"
     },
     "GetBucketLifecycleConfigurationOutput": {
+      "example": {
+        "Rules": [
+          {
+            "ID": "Rule for TaxDocs/",
+            "Prefix": "TaxDocs",
+            "Status": "Enabled",
+            "Transitions": [
+              {
+                "Days": 365,
+                "StorageClass": "STANDARD_IA"
+              }
+            ]
+          }
+        ]
+      },
       "properties": {
         "Rules": {
           "$ref": "#/definitions/LifecycleRules"
@@ -3628,10 +3901,25 @@
       "type": "object"
     },
     "GetBucketLifecycleConfigurationRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketLifecycleOutput": {
+      "example": {
+        "Rules": [
+          {
+            "Expiration": {
+              "Days": 1
+            },
+            "ID": "delete logs",
+            "Prefix": "123/",
+            "Status": "Enabled"
+          }
+        ]
+      },
       "properties": {
         "Rules": {
           "$ref": "#/definitions/Rules"
@@ -3640,10 +3928,16 @@
       "type": "object"
     },
     "GetBucketLifecycleRequest": {
+      "example": {
+        "Bucket": "acl1"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketLocationOutput": {
+      "example": {
+        "LocationConstraint": "us-west-2"
+      },
       "properties": {
         "LocationConstraint": {
           "$ref": "#/definitions/BucketLocationConstraint"
@@ -3652,6 +3946,9 @@
       "type": "object"
     },
     "GetBucketLocationRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
@@ -3681,10 +3978,16 @@
       "type": "object"
     },
     "GetBucketNotificationConfigurationRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketPolicyOutput": {
+      "example": {
+        "Policy": "{\"Version\":\"2008-10-17\",\"Id\":\"LogPolicy\",\"Statement\":[{\"Sid\":\"Enables the log delivery group to publish logs to your bucket \",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"111122223333\"},\"Action\":[\"s3:GetBucketAcl\",\"s3:GetObjectAcl\",\"s3:PutObject\"],\"Resource\":[\"arn:aws:s3:::policytest1/*\",\"arn:aws:s3:::policytest1\"]}]}"
+      },
       "properties": {
         "Policy": {
           "$ref": "#/definitions/Policy",
@@ -3694,10 +3997,28 @@
       "type": "object"
     },
     "GetBucketPolicyRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketReplicationOutput": {
+      "example": {
+        "ReplicationConfiguration": {
+          "Role": "arn:aws:iam::acct-id:role/example-role",
+          "Rules": [
+            {
+              "Destination": {
+                "Bucket": "arn:aws:s3:::destination-bucket"
+              },
+              "ID": "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
+              "Prefix": "Tax",
+              "Status": "Enabled"
+            }
+          ]
+        }
+      },
       "properties": {
         "ReplicationConfiguration": {
           "$ref": "#/definitions/ReplicationConfiguration"
@@ -3706,10 +4027,16 @@
       "type": "object"
     },
     "GetBucketReplicationRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketRequestPaymentOutput": {
+      "example": {
+        "Payer": "BucketOwner"
+      },
       "properties": {
         "Payer": {
           "$ref": "#/definitions/Payer",
@@ -3719,10 +4046,25 @@
       "type": "object"
     },
     "GetBucketRequestPaymentRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketTaggingOutput": {
+      "example": {
+        "TagSet": [
+          {
+            "Key": "key1",
+            "Value": "value1"
+          },
+          {
+            "Key": "key2",
+            "Value": "value2"
+          }
+        ]
+      },
       "properties": {
         "TagSet": {
           "$ref": "#/definitions/TagSet"
@@ -3734,10 +4076,17 @@
       "type": "object"
     },
     "GetBucketTaggingRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketVersioningOutput": {
+      "example": {
+        "MFADelete": "Disabled",
+        "Status": "Enabled"
+      },
       "properties": {
         "MFADelete": {
           "$ref": "#/definitions/MFADeleteStatus",
@@ -3751,10 +4100,21 @@
       "type": "object"
     },
     "GetBucketVersioningRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetBucketWebsiteOutput": {
+      "example": {
+        "ErrorDocument": {
+          "Key": "error.html"
+        },
+        "IndexDocument": {
+          "Suffix": "index.html"
+        }
+      },
       "properties": {
         "ErrorDocument": {
           "$ref": "#/definitions/ErrorDocument"
@@ -3772,10 +4132,53 @@
       "type": "object"
     },
     "GetBucketWebsiteRequest": {
+      "example": {
+        "Bucket": "examplebucket"
+      },
       "properties": {},
       "type": "object"
     },
     "GetObjectAclOutput": {
+      "example": {
+        "Grants": [
+          {
+            "Grantee": {
+              "DisplayName": "owner-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+              "Type": "CanonicalUser"
+            },
+            "Permission": "WRITE"
+          },
+          {
+            "Grantee": {
+              "DisplayName": "owner-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+              "Type": "CanonicalUser"
+            },
+            "Permission": "WRITE_ACP"
+          },
+          {
+            "Grantee": {
+              "DisplayName": "owner-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+              "Type": "CanonicalUser"
+            },
+            "Permission": "READ"
+          },
+          {
+            "Grantee": {
+              "DisplayName": "owner-display-name",
+              "ID": "852b113eexamplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc",
+              "Type": "CanonicalUser"
+            },
+            "Permission": "READ_ACP"
+          }
+        ],
+        "Owner": {
+          "DisplayName": "owner-display-name",
+          "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+        }
+      },
       "properties": {
         "Grants": {
           "$ref": "#/definitions/Grants",
@@ -3788,10 +4191,24 @@
       "type": "object"
     },
     "GetObjectAclRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "HappyFace.jpg"
+      },
       "properties": {},
       "type": "object"
     },
     "GetObjectOutput": {
+      "example": {
+        "AcceptRanges": "bytes",
+        "ContentLength": "10",
+        "ContentRange": "bytes 0-9/43",
+        "ContentType": "text/plain",
+        "ETag": "\"0d94420ffd0bc68cd3d152506b97a9cc\"",
+        "LastModified": "Thu, 09 Oct 2014 22:57:28 GMT",
+        "Metadata": {},
+        "VersionId": "null"
+      },
       "properties": {
         "Body": {
           "$ref": "#/definitions/Body",
@@ -3801,10 +4218,24 @@
       "type": "object"
     },
     "GetObjectRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "SampleFile.txt",
+        "Range": "bytes=0-9"
+      },
       "properties": {},
       "type": "object"
     },
     "GetObjectTaggingOutput": {
+      "example": {
+        "TagSet": [
+          {
+            "Key": "Key1",
+            "Value": "Value1"
+          }
+        ],
+        "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+      },
       "properties": {
         "TagSet": {
           "$ref": "#/definitions/TagSet"
@@ -3816,10 +4247,16 @@
       "type": "object"
     },
     "GetObjectTaggingRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "exampleobject",
+        "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+      },
       "properties": {},
       "type": "object"
     },
     "GetObjectTorrentOutput": {
+      "example": {},
       "properties": {
         "Body": {
           "$ref": "#/definitions/Body"
@@ -3828,6 +4265,10 @@
       "type": "object"
     },
     "GetObjectTorrentRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "HappyFace.jpg"
+      },
       "properties": {},
       "type": "object"
     },
@@ -3909,14 +4350,30 @@
       "type": "array"
     },
     "HeadBucketRequest": {
+      "example": {
+        "Bucket": "acl1"
+      },
       "properties": {},
       "type": "object"
     },
     "HeadObjectOutput": {
+      "example": {
+        "AcceptRanges": "bytes",
+        "ContentLength": "3191",
+        "ContentType": "image/jpeg",
+        "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+        "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+        "Metadata": {},
+        "VersionId": "null"
+      },
       "properties": {},
       "type": "object"
     },
     "HeadObjectRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "HappyFace.jpg"
+      },
       "properties": {},
       "type": "object"
     },
@@ -4036,6 +4493,20 @@
       ],
       "type": "object"
     },
+    "InventoryEncryption": {
+      "description": "Contains the type of server-side encryption used to encrypt the inventory results.",
+      "properties": {
+        "SSEKMS": {
+          "$ref": "#/definitions/SSEKMS",
+          "description": "Specifies the use of SSE-KMS to encrypt delievered Inventory reports."
+        },
+        "SSES3": {
+          "$ref": "#/definitions/SSES3",
+          "description": "Specifies the use of SSE-S3 to encrypt delievered Inventory reports."
+        }
+      },
+      "type": "object"
+    },
     "InventoryFilter": {
       "properties": {
         "Prefix": {
@@ -4078,7 +4549,8 @@
         "StorageClass",
         "ETag",
         "IsMultipartUploaded",
-        "ReplicationStatus"
+        "ReplicationStatus",
+        "EncryptionStatus"
       ],
       "type": "string"
     },
@@ -4097,6 +4569,10 @@
         "Bucket": {
           "$ref": "#/definitions/BucketName",
           "description": "The Amazon resource name (ARN) of the bucket where inventory results will be published."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/InventoryEncryption",
+          "description": "Contains the type of server-side encryption used to encrypt the inventory results."
         },
         "Format": {
           "$ref": "#/definitions/InventoryFormat",
@@ -4366,6 +4842,26 @@
       "type": "object"
     },
     "ListBucketsOutput": {
+      "example": {
+        "Buckets": [
+          {
+            "CreationDate": "2012-02-15T21: 03: 02.000Z",
+            "Name": "examplebucket"
+          },
+          {
+            "CreationDate": "2011-07-24T19: 33: 50.000Z",
+            "Name": "examplebucket2"
+          },
+          {
+            "CreationDate": "2010-12-17T00: 56: 49.000Z",
+            "Name": "examplebucket3"
+          }
+        ],
+        "Owner": {
+          "DisplayName": "own-display-name",
+          "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31"
+        }
+      },
       "properties": {
         "Buckets": {
           "$ref": "#/definitions/Buckets"
@@ -4377,6 +4873,45 @@
       "type": "object"
     },
     "ListMultipartUploadsOutput": {
+      "example": {
+        "Bucket": "acl1",
+        "IsTruncated": true,
+        "KeyMarker": "",
+        "MaxUploads": "2",
+        "NextKeyMarker": "someobjectkey",
+        "NextUploadIdMarker": "examplelo91lv1iwvWpvCiJWugw2xXLPAD7Z8cJyX9.WiIRgNrdG6Ldsn.9FtS63TCl1Uf5faTB.1U5Ckcbmdw--",
+        "UploadIdMarker": "",
+        "Uploads": [
+          {
+            "Initiated": "2014-05-01T05:40:58.000Z",
+            "Initiator": {
+              "DisplayName": "ownder-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "Key": "JavaFile",
+            "Owner": {
+              "DisplayName": "mohanataws",
+              "ID": "852b113e7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "StorageClass": "STANDARD",
+            "UploadId": "gZ30jIqlUa.CInXklLQtSMJITdUnoZ1Y5GACB5UckOtspm5zbDMCkPF_qkfZzMiFZ6dksmcnqxJyIBvQMG9X9Q--"
+          },
+          {
+            "Initiated": "2014-05-01T05:41:27.000Z",
+            "Initiator": {
+              "DisplayName": "ownder-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "Key": "JavaFile",
+            "Owner": {
+              "DisplayName": "ownder-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "StorageClass": "STANDARD",
+            "UploadId": "b7tZSqIlo91lv1iwvWpvCiJWugw2xXLPAD7Z8cJyX9.WiIRgNrdG6Ldsn.9FtS63TCl1Uf5faTB.1U5Ckcbmdw--"
+          }
+        ]
+      },
       "properties": {
         "Bucket": {
           "$ref": "#/definitions/BucketName",
@@ -4427,10 +4962,46 @@
       "type": "object"
     },
     "ListMultipartUploadsRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "KeyMarker": "nextkeyfrompreviousresponse",
+        "MaxUploads": "2",
+        "UploadIdMarker": "valuefrompreviousresponse"
+      },
       "properties": {},
       "type": "object"
     },
     "ListObjectVersionsOutput": {
+      "example": {
+        "Versions": [
+          {
+            "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+            "IsLatest": true,
+            "Key": "HappyFace.jpg",
+            "LastModified": "2016-12-15T01:19:41.000Z",
+            "Owner": {
+              "DisplayName": "owner-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "Size": 3191,
+            "StorageClass": "STANDARD",
+            "VersionId": "null"
+          },
+          {
+            "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+            "IsLatest": false,
+            "Key": "HappyFace.jpg",
+            "LastModified": "2016-12-13T00:58:26.000Z",
+            "Owner": {
+              "DisplayName": "owner-display-name",
+              "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "Size": 3191,
+            "StorageClass": "STANDARD",
+            "VersionId": "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
+          }
+        ]
+      },
       "properties": {
         "CommonPrefixes": {
           "$ref": "#/definitions/CommonPrefixList"
@@ -4480,10 +5051,41 @@
       "type": "object"
     },
     "ListObjectVersionsRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Prefix": "HappyFace.jpg"
+      },
       "properties": {},
       "type": "object"
     },
     "ListObjectsOutput": {
+      "example": {
+        "Contents": [
+          {
+            "ETag": "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
+            "Key": "example1.jpg",
+            "LastModified": "2014-11-21T19:40:05.000Z",
+            "Owner": {
+              "DisplayName": "myname",
+              "ID": "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "Size": 11,
+            "StorageClass": "STANDARD"
+          },
+          {
+            "ETag": "\"9c8af9a76df052144598c115ef33e511\"",
+            "Key": "example2.jpg",
+            "LastModified": "2013-11-15T01:10:49.000Z",
+            "Owner": {
+              "DisplayName": "myname",
+              "ID": "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+            },
+            "Size": 713193,
+            "StorageClass": "STANDARD"
+          }
+        ],
+        "NextMarker": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
+      },
       "properties": {
         "CommonPrefixes": {
           "$ref": "#/definitions/CommonPrefixList"
@@ -4522,10 +5124,38 @@
       "type": "object"
     },
     "ListObjectsRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "MaxKeys": "2"
+      },
       "properties": {},
       "type": "object"
     },
     "ListObjectsV2Output": {
+      "example": {
+        "Contents": [
+          {
+            "ETag": "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
+            "Key": "happyface.jpg",
+            "LastModified": "2014-11-21T19:40:05.000Z",
+            "Size": 11,
+            "StorageClass": "STANDARD"
+          },
+          {
+            "ETag": "\"becf17f89c30367a9a44495d62ed521a-1\"",
+            "Key": "test.jpg",
+            "LastModified": "2014-05-02T04:51:50.000Z",
+            "Size": 4192256,
+            "StorageClass": "STANDARD"
+          }
+        ],
+        "IsTruncated": true,
+        "KeyCount": "2",
+        "MaxKeys": "2",
+        "Name": "examplebucket",
+        "NextContinuationToken": "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
+        "Prefix": ""
+      },
       "properties": {
         "CommonPrefixes": {
           "$ref": "#/definitions/CommonPrefixList",
@@ -4579,10 +5209,39 @@
       "type": "object"
     },
     "ListObjectsV2Request": {
+      "example": {
+        "Bucket": "examplebucket",
+        "MaxKeys": "2"
+      },
       "properties": {},
       "type": "object"
     },
     "ListPartsOutput": {
+      "example": {
+        "Initiator": {
+          "DisplayName": "owner-display-name",
+          "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+        },
+        "Owner": {
+          "DisplayName": "owner-display-name",
+          "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+        },
+        "Parts": [
+          {
+            "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
+            "LastModified": "2016-12-16T00:11:42.000Z",
+            "PartNumber": "1",
+            "Size": 26246026
+          },
+          {
+            "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
+            "LastModified": "2016-12-16T00:15:01.000Z",
+            "PartNumber": "2",
+            "Size": 26246026
+          }
+        ],
+        "StorageClass": "STANDARD"
+      },
       "properties": {
         "Bucket": {
           "$ref": "#/definitions/BucketName",
@@ -4630,6 +5289,11 @@
       "type": "object"
     },
     "ListPartsRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "bigobject",
+        "UploadId": "example7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+      },
       "properties": {},
       "type": "object"
     },
@@ -4900,6 +5564,24 @@
       "type": "object"
     },
     "NotificationConfigurationDeprecated": {
+      "example": {
+        "QueueConfiguration": {
+          "Event": "s3:ObjectCreated:Put",
+          "Events": [
+            "s3:ObjectCreated:Put"
+          ],
+          "Id": "MDQ2OGQ4NDEtOTBmNi00YTM4LTk0NzYtZDIwN2I3NWQ1NjIx",
+          "Queue": "arn:aws:sqs:us-east-1:acct-id:S3ObjectCreatedEventQueue"
+        },
+        "TopicConfiguration": {
+          "Event": "s3:ObjectCreated:Copy",
+          "Events": [
+            "s3:ObjectCreated:Copy"
+          ],
+          "Id": "YTVkMWEzZGUtNTY1NS00ZmE2LWJjYjktMmRlY2QwODFkNTJi",
+          "Topic": "arn:aws:sns:us-east-1:acct-id:S3ObjectCreatedEventTopic"
+        }
+      },
       "properties": {
         "CloudFunctionConfiguration": {
           "$ref": "#/definitions/CloudFunctionConfiguration"
@@ -5082,6 +5764,12 @@
       },
       "type": "object"
     },
+    "OwnerOverride": {
+      "enum": [
+        "Destination"
+      ],
+      "type": "string"
+    },
     "Part": {
       "properties": {
         "ETag": {
@@ -5167,6 +5855,11 @@
       }
     },
     "PutBucketAclRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "GrantFullControl": "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
+        "GrantWrite": "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
+      },
       "properties": {
         "AccessControlPolicy": {
           "$ref": "#/definitions/AccessControlPolicy"
@@ -5193,6 +5886,43 @@
       }
     },
     "PutBucketCorsRequest": {
+      "example": {
+        "Bucket": "",
+        "CORSConfiguration": {
+          "CORSRules": [
+            {
+              "AllowedHeaders": [
+                "*"
+              ],
+              "AllowedMethods": [
+                "PUT",
+                "POST",
+                "DELETE"
+              ],
+              "AllowedOrigins": [
+                "http://www.example.com"
+              ],
+              "ExposeHeaders": [
+                "x-amz-server-side-encryption"
+              ],
+              "MaxAgeSeconds": 3000
+            },
+            {
+              "AllowedHeaders": [
+                "Authorization"
+              ],
+              "AllowedMethods": [
+                "GET"
+              ],
+              "AllowedOrigins": [
+                "*"
+              ],
+              "MaxAgeSeconds": 3000
+            }
+          ]
+        },
+        "ContentMD5": ""
+      },
       "properties": {
         "CORSConfiguration": {
           "$ref": "#/definitions/CORSConfiguration"
@@ -5200,6 +5930,20 @@
       },
       "required": [
         "CORSConfiguration"
+      ],
+      "type": "object",
+      "xml": {
+        "namespace": "http://s3.amazonaws.com/doc/2006-03-01/"
+      }
+    },
+    "PutBucketEncryptionRequest": {
+      "properties": {
+        "ServerSideEncryptionConfiguration": {
+          "$ref": "#/definitions/ServerSideEncryptionConfiguration"
+        }
+      },
+      "required": [
+        "ServerSideEncryptionConfiguration"
       ],
       "type": "object",
       "xml": {
@@ -5222,6 +5966,29 @@
       }
     },
     "PutBucketLifecycleConfigurationRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "Expiration": {
+                "Days": 3650
+              },
+              "Filter": {
+                "Prefix": "documents/"
+              },
+              "ID": "TestOnly",
+              "Status": "Enabled",
+              "Transitions": [
+                {
+                  "Days": 365,
+                  "StorageClass": "GLACIER"
+                }
+              ]
+            }
+          ]
+        }
+      },
       "properties": {
         "LifecycleConfiguration": {
           "$ref": "#/definitions/BucketLifecycleConfiguration"
@@ -5244,6 +6011,24 @@
       }
     },
     "PutBucketLoggingRequest": {
+      "example": {
+        "Bucket": "sourcebucket",
+        "BucketLoggingStatus": {
+          "LoggingEnabled": {
+            "TargetBucket": "targetbucket",
+            "TargetGrants": [
+              {
+                "Grantee": {
+                  "Type": "Group",
+                  "URI": "http://acs.amazonaws.com/groups/global/AllUsers"
+                },
+                "Permission": "READ"
+              }
+            ],
+            "TargetPrefix": "MyBucketLogs/"
+          }
+        }
+      },
       "properties": {
         "BucketLoggingStatus": {
           "$ref": "#/definitions/BucketLoggingStatus"
@@ -5273,6 +6058,19 @@
       }
     },
     "PutBucketNotificationConfigurationRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "NotificationConfiguration": {
+          "TopicConfigurations": [
+            {
+              "Events": [
+                "s3:ObjectCreated:*"
+              ],
+              "TopicArn": "arn:aws:sns:us-west-2:123456789012:s3-notification-topic"
+            }
+          ]
+        }
+      },
       "properties": {
         "NotificationConfiguration": {
           "$ref": "#/definitions/NotificationConfiguration"
@@ -5301,6 +6099,10 @@
       }
     },
     "PutBucketPolicyRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Policy": "{\"Version\": \"2012-10-17\", \"Statement\": [{ \"Sid\": \"id-1\",\"Effect\": \"Allow\",\"Principal\": {\"AWS\": \"arn:aws:iam::123456789012:root\"}, \"Action\": [ \"s3:PutObject\",\"s3:PutObjectAcl\"], \"Resource\": [\"arn:aws:s3:::acl3/*\" ] } ]}"
+      },
       "properties": {
         "Policy": {
           "$ref": "#/definitions/Policy",
@@ -5313,6 +6115,22 @@
       "type": "object"
     },
     "PutBucketReplicationRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "ReplicationConfiguration": {
+          "Role": "arn:aws:iam::123456789012:role/examplerole",
+          "Rules": [
+            {
+              "Destination": {
+                "Bucket": "arn:aws:s3:::destinationbucket",
+                "StorageClass": "STANDARD"
+              },
+              "Prefix": "",
+              "Status": "Enabled"
+            }
+          ]
+        }
+      },
       "properties": {
         "ReplicationConfiguration": {
           "$ref": "#/definitions/ReplicationConfiguration"
@@ -5327,6 +6145,12 @@
       }
     },
     "PutBucketRequestPaymentRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "RequestPaymentConfiguration": {
+          "Payer": "Requester"
+        }
+      },
       "properties": {
         "RequestPaymentConfiguration": {
           "$ref": "#/definitions/RequestPaymentConfiguration"
@@ -5341,6 +6165,21 @@
       }
     },
     "PutBucketTaggingRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Tagging": {
+          "TagSet": [
+            {
+              "Key": "Key1",
+              "Value": "Value1"
+            },
+            {
+              "Key": "Key2",
+              "Value": "Value2"
+            }
+          ]
+        }
+      },
       "properties": {
         "Tagging": {
           "$ref": "#/definitions/Tagging"
@@ -5355,6 +6194,13 @@
       }
     },
     "PutBucketVersioningRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "VersioningConfiguration": {
+          "MFADelete": "Disabled",
+          "Status": "Enabled"
+        }
+      },
       "properties": {
         "VersioningConfiguration": {
           "$ref": "#/definitions/VersioningConfiguration"
@@ -5369,6 +6215,18 @@
       }
     },
     "PutBucketWebsiteRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "ContentMD5": "",
+        "WebsiteConfiguration": {
+          "ErrorDocument": {
+            "Key": "error.html"
+          },
+          "IndexDocument": {
+            "Suffix": "index.html"
+          }
+        }
+      },
       "properties": {
         "WebsiteConfiguration": {
           "$ref": "#/definitions/WebsiteConfiguration"
@@ -5383,10 +6241,18 @@
       }
     },
     "PutObjectAclOutput": {
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "PutObjectAclRequest": {
+      "example": {
+        "AccessControlPolicy": {},
+        "Bucket": "examplebucket",
+        "GrantFullControl": "emailaddress=user1@example.com,emailaddress=user2@example.com",
+        "GrantRead": "uri=http://acs.amazonaws.com/groups/global/AllUsers",
+        "Key": "HappyFace.jpg"
+      },
       "properties": {
         "AccessControlPolicy": {
           "$ref": "#/definitions/AccessControlPolicy"
@@ -5398,10 +6264,22 @@
       }
     },
     "PutObjectOutput": {
+      "example": {
+        "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+        "ServerSideEncryption": "AES256",
+        "VersionId": "CG612hodqujkf8FaaNfp8U..FIhLROcp"
+      },
       "properties": {},
       "type": "object"
     },
     "PutObjectRequest": {
+      "example": {
+        "Body": "HappyFace.jpg",
+        "Bucket": "examplebucket",
+        "Key": "HappyFace.jpg",
+        "ServerSideEncryption": "AES256",
+        "StorageClass": "STANDARD_IA"
+      },
       "properties": {
         "Body": {
           "$ref": "#/definitions/Body",
@@ -5411,10 +6289,29 @@
       "type": "object"
     },
     "PutObjectTaggingOutput": {
+      "example": {
+        "VersionId": "null"
+      },
       "properties": {},
       "type": "object"
     },
     "PutObjectTaggingRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "HappyFace.jpg",
+        "Tagging": {
+          "TagSet": [
+            {
+              "Key": "Key3",
+              "Value": "Value3"
+            },
+            {
+              "Key": "Key4",
+              "Value": "Value4"
+            }
+          ]
+        }
+      },
       "properties": {
         "Tagging": {
           "$ref": "#/definitions/Tagging"
@@ -5533,6 +6430,9 @@
     "ReplaceKeyWith": {
       "type": "string"
     },
+    "ReplicaKmsKeyID": {
+      "type": "string"
+    },
     "ReplicationConfiguration": {
       "description": "Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.",
       "properties": {
@@ -5552,9 +6452,11 @@
       "type": "object"
     },
     "ReplicationRule": {
+      "description": "Container for information about a particular replication rule.",
       "properties": {
         "Destination": {
-          "$ref": "#/definitions/Destination"
+          "$ref": "#/definitions/Destination",
+          "description": "Container for replication destination information."
         },
         "ID": {
           "$ref": "#/definitions/ID",
@@ -5563,6 +6465,10 @@
         "Prefix": {
           "$ref": "#/definitions/Prefix",
           "description": "Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported."
+        },
+        "SourceSelectionCriteria": {
+          "$ref": "#/definitions/SourceSelectionCriteria",
+          "description": "Container for filters that define which source objects should be replicated."
         },
         "Status": {
           "$ref": "#/definitions/ReplicationRuleStatus",
@@ -5650,10 +6556,21 @@
       "type": "string"
     },
     "RestoreObjectOutput": {
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "RestoreObjectRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "Key": "archivedobjectkey",
+        "RestoreRequest": {
+          "Days": 1,
+          "GlacierJobParameters": {
+            "Tier": "Expedited"
+          }
+        }
+      },
       "properties": {
         "RestoreRequest": {
           "$ref": "#/definitions/RestoreRequest"
@@ -5769,9 +6686,27 @@
     "SSECustomerKeyMD5": {
       "type": "string"
     },
+    "SSEKMS": {
+      "description": "Specifies the use of SSE-KMS to encrypt delievered Inventory reports.",
+      "properties": {
+        "KeyId": {
+          "$ref": "#/definitions/SSEKMSKeyId",
+          "description": "Specifies the ID of the AWS Key Management Service (KMS) master encryption key to use for encrypting Inventory reports."
+        }
+      },
+      "required": [
+        "KeyId"
+      ],
+      "type": "object"
+    },
     "SSEKMSKeyId": {
       "format": "password",
       "type": "string"
+    },
+    "SSES3": {
+      "description": "Specifies the use of SSE-S3 to encrypt delievered Inventory reports.",
+      "properties": {},
+      "type": "object"
     },
     "ServerSideEncryption": {
       "enum": [
@@ -5780,8 +6715,87 @@
       ],
       "type": "string"
     },
+    "ServerSideEncryptionByDefault": {
+      "description": "Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.",
+      "properties": {
+        "KMSMasterKeyID": {
+          "$ref": "#/definitions/SSEKMSKeyId",
+          "description": "KMS master key ID to use for the default encryption. This parameter is allowed if SSEAlgorithm is aws:kms."
+        },
+        "SSEAlgorithm": {
+          "$ref": "#/definitions/ServerSideEncryption",
+          "description": "Server-side encryption algorithm to use for the default encryption."
+        }
+      },
+      "required": [
+        "SSEAlgorithm"
+      ],
+      "type": "object"
+    },
+    "ServerSideEncryptionConfiguration": {
+      "description": "Container for server-side encryption configuration rules. Currently S3 supports one rule only.",
+      "properties": {
+        "Rules": {
+          "$ref": "#/definitions/ServerSideEncryptionRules",
+          "description": "Container for information about a particular server-side encryption configuration rule."
+        }
+      },
+      "required": [
+        "Rules"
+      ],
+      "type": "object"
+    },
+    "ServerSideEncryptionRule": {
+      "description": "Container for information about a particular server-side encryption configuration rule.",
+      "properties": {
+        "ApplyServerSideEncryptionByDefault": {
+          "$ref": "#/definitions/ServerSideEncryptionByDefault",
+          "description": "Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied."
+        }
+      },
+      "type": "object"
+    },
+    "ServerSideEncryptionRules": {
+      "items": {
+        "$ref": "#/definitions/ServerSideEncryptionRule"
+      },
+      "type": "array",
+      "xml": {
+        "wrapped": false
+      }
+    },
     "Size": {
       "type": "integer"
+    },
+    "SourceSelectionCriteria": {
+      "description": "Container for filters that define which source objects should be replicated.",
+      "properties": {
+        "SseKmsEncryptedObjects": {
+          "$ref": "#/definitions/SseKmsEncryptedObjects",
+          "description": "Container for filter information of selection of KMS Encrypted S3 objects."
+        }
+      },
+      "type": "object"
+    },
+    "SseKmsEncryptedObjects": {
+      "description": "Container for filter information of selection of KMS Encrypted S3 objects.",
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/SseKmsEncryptedObjectsStatus",
+          "description": "The replication for KMS encrypted S3 objects is disabled if status is not Enabled."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object"
+    },
+    "SseKmsEncryptedObjectsStatus": {
+      "enum": [
+        "Enabled",
+        "Disabled"
+      ],
+      "type": "string"
     },
     "StartAfter": {
       "type": "string"
@@ -6013,6 +7027,12 @@
       "type": "string"
     },
     "UploadPartCopyOutput": {
+      "example": {
+        "CopyPartResult": {
+          "ETag": "\"b0c6f0e7e054ab8fa2536a2677f8734d\"",
+          "LastModified": "2016-12-29T21:24:43.000Z"
+        }
+      },
       "properties": {
         "CopyPartResult": {
           "$ref": "#/definitions/CopyPartResult"
@@ -6021,14 +7041,31 @@
       "type": "object"
     },
     "UploadPartCopyRequest": {
+      "example": {
+        "Bucket": "examplebucket",
+        "CopySource": "/bucketname/sourceobjectkey",
+        "Key": "examplelargeobject",
+        "PartNumber": "1",
+        "UploadId": "exampleuoh_10OhKhT7YukE9bjzTPRiuaCotmZM_pFngJFir9OZNrSr5cWa3cq3LZSUsfjI4FI7PkP91We7Nrw--"
+      },
       "properties": {},
       "type": "object"
     },
     "UploadPartOutput": {
+      "example": {
+        "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\""
+      },
       "properties": {},
       "type": "object"
     },
     "UploadPartRequest": {
+      "example": {
+        "Body": "fileToUpload",
+        "Bucket": "examplebucket",
+        "Key": "examplelargeobject",
+        "PartNumber": "1",
+        "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+      },
       "properties": {
         "Body": {
           "$ref": "#/definitions/Body",

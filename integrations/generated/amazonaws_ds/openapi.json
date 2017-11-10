@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "ds.amazonaws.com",
@@ -1637,6 +1638,109 @@
         }
       }
     },
+    "/#DescribeDomainControllers": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Provides information about any domain controllers in your directory.",
+        "operationId": "DescribeDomainControllers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDomainControllersRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "Limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDomainControllersResult"
+            }
+          },
+          "480": {
+            "description": "EntityDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/EntityDoesNotExistException"
+            }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "483": {
+            "description": "ClientException",
+            "schema": {
+              "$ref": "#/definitions/ClientException"
+            }
+          },
+          "484": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "485": {
+            "description": "UnsupportedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedOperationException"
+            }
+          }
+        }
+      }
+    },
     "/#DescribeEventTopics": {
       "parameters": [
         {
@@ -3083,6 +3187,101 @@
         }
       }
     },
+    "/#UpdateNumberOfDomainControllers": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Adds or removes domain controllers to or from the directory. Based on the difference between current value and new value (provided through this API call), domain controllers will be added or removed. It may take up to 45 minutes for any new domain controllers to become fully active once the requested number of domain controllers is updated. During this time, you cannot make another update request.",
+        "operationId": "UpdateNumberOfDomainControllers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateNumberOfDomainControllersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateNumberOfDomainControllersResult"
+            }
+          },
+          "480": {
+            "description": "EntityDoesNotExistException",
+            "schema": {
+              "$ref": "#/definitions/EntityDoesNotExistException"
+            }
+          },
+          "481": {
+            "description": "DirectoryUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/DirectoryUnavailableException"
+            }
+          },
+          "482": {
+            "description": "DomainControllerLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/DomainControllerLimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "UnsupportedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedOperationException"
+            }
+          },
+          "485": {
+            "description": "ClientException",
+            "schema": {
+              "$ref": "#/definitions/ClientException"
+            }
+          },
+          "486": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          }
+        }
+      }
+    },
     "/#UpdateRadius": {
       "parameters": [
         {
@@ -3677,7 +3876,8 @@
           "description": "The NetBIOS name for your domain. A short identifier for your domain, such as <code>CORP</code>. If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, <code>CORP</code> for the directory DNS <code>corp.example.com</code>. "
         },
         "VpcSettings": {
-          "$ref": "#/definitions/DirectoryVpcSettings"
+          "$ref": "#/definitions/DirectoryVpcSettings",
+          "description": "Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation."
         }
       },
       "required": [
@@ -3958,6 +4158,43 @@
       },
       "type": "object"
     },
+    "DescribeDomainControllersRequest": {
+      "properties": {
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "Identifier of the directory for which to retrieve the domain controller information."
+        },
+        "DomainControllerIds": {
+          "$ref": "#/definitions/DomainControllerIds",
+          "description": "A list of identifiers for the domain controllers whose information will be provided."
+        },
+        "Limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of items to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <i>DescribeDomainControllers.NextToken</i> value from a previous call to <a>DescribeDomainControllers</a>. Pass null if this is the first call. "
+        }
+      },
+      "required": [
+        "DirectoryId"
+      ],
+      "type": "object"
+    },
+    "DescribeDomainControllersResult": {
+      "properties": {
+        "DomainControllers": {
+          "$ref": "#/definitions/DomainControllers",
+          "description": "List of the <a>DomainController</a> objects that were retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <a>DescribeDomainControllers</a> retrieve the next set of items."
+        }
+      },
+      "type": "object"
+    },
     "DescribeEventTopicsRequest": {
       "description": "Describes event topics.",
       "properties": {
@@ -4060,6 +4297,10 @@
       "pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]*$",
       "type": "string"
     },
+    "DesiredNumberOfDomainControllers": {
+      "minimum": 2,
+      "type": "integer"
+    },
     "DirectoryConnectSettings": {
       "description": "Contains information for the <a>ConnectDirectory</a> operation when an AD Connector directory is being created.",
       "properties": {
@@ -4136,6 +4377,10 @@
         "Description": {
           "$ref": "#/definitions/Description",
           "description": "The textual description for the directory."
+        },
+        "DesiredNumberOfDomainControllers": {
+          "$ref": "#/definitions/DesiredNumberOfDomainControllers",
+          "description": "The desired number of domain controllers in the directory if the directory is Microsoft AD."
         },
         "DirectoryId": {
           "$ref": "#/definitions/DirectoryId",
@@ -4406,6 +4651,95 @@
     "DnsIpAddrs": {
       "items": {
         "$ref": "#/definitions/IpAddr"
+      },
+      "type": "array"
+    },
+    "DomainController": {
+      "description": "Contains information about the domain controllers for a specified directory.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/AvailabilityZone",
+          "description": "The Availability Zone where the domain controller is located."
+        },
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "Identifier of the directory where the domain controller resides."
+        },
+        "DnsIpAddr": {
+          "$ref": "#/definitions/IpAddr",
+          "description": "The IP address of the domain controller."
+        },
+        "DomainControllerId": {
+          "$ref": "#/definitions/DomainControllerId",
+          "description": "Identifies a specific domain controller in the directory."
+        },
+        "LaunchTime": {
+          "$ref": "#/definitions/LaunchTime",
+          "description": "Specifies when the domain controller was created."
+        },
+        "Status": {
+          "$ref": "#/definitions/DomainControllerStatus",
+          "description": "The status of the domain controller."
+        },
+        "StatusLastUpdatedDateTime": {
+          "$ref": "#/definitions/LastUpdatedDateTime",
+          "description": "The date and time that the status was last updated."
+        },
+        "StatusReason": {
+          "$ref": "#/definitions/DomainControllerStatusReason",
+          "description": "A description of the domain controller state."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "Identifier of the subnet in the VPC that contains the domain controller."
+        },
+        "VpcId": {
+          "$ref": "#/definitions/VpcId",
+          "description": "The identifier of the VPC that contains the domain controller."
+        }
+      },
+      "type": "object"
+    },
+    "DomainControllerId": {
+      "pattern": "^dc-[0-9a-f]{10}$",
+      "type": "string"
+    },
+    "DomainControllerIds": {
+      "items": {
+        "$ref": "#/definitions/DomainControllerId"
+      },
+      "type": "array"
+    },
+    "DomainControllerLimitExceededException": {
+      "description": "The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        },
+        "RequestId": {
+          "$ref": "#/definitions/RequestId"
+        }
+      },
+      "type": "object"
+    },
+    "DomainControllerStatus": {
+      "enum": [
+        "Creating",
+        "Active",
+        "Impaired",
+        "Restoring",
+        "Deleting",
+        "Deleted",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "DomainControllerStatusReason": {
+      "type": "string"
+    },
+    "DomainControllers": {
+      "items": {
+        "$ref": "#/definitions/DomainController"
       },
       "type": "array"
     },
@@ -5479,6 +5813,27 @@
     },
     "UpdateConditionalForwarderResult": {
       "description": "The result of an UpdateConditionalForwarder request.",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateNumberOfDomainControllersRequest": {
+      "properties": {
+        "DesiredNumber": {
+          "$ref": "#/definitions/DesiredNumberOfDomainControllers",
+          "description": "The number of domain controllers desired in the directory."
+        },
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "Identifier of the directory to which the domain controllers will be added or removed."
+        }
+      },
+      "required": [
+        "DirectoryId",
+        "DesiredNumber"
+      ],
+      "type": "object"
+    },
+    "UpdateNumberOfDomainControllersResult": {
       "properties": {},
       "type": "object"
     },

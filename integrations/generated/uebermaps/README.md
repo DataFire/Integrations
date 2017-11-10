@@ -508,6 +508,30 @@ uebermaps.respots.id.get({
 #### Parameters
 * id (integer) **required** - Id of respot
 
+### share.map.id.get
+Get secret access token of an uebermap with access set to 'Secret link'. Pass the 'token' on every request you make to access this uebermap and its resources. F.e. token=1-x_gqu7eLBe3uKoAGAGXy
+
+
+```js
+uebermaps.share.map.id.get({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required** - Id of map
+
+### spots.get
+List your own spots.
+
+
+```js
+uebermaps.spots.get({}, context)
+```
+
+#### Parameters
+* order (string) - Order of spots
+
 ### spots.search.get
 Search spots
 

@@ -17,7 +17,7 @@ let flat = require('@datafire/flat').create({
   redirect_uri: "",
 });
 
-flat.getGroupScores({}).then(data => {
+flat.createOrganizationUser({}).then(data => {
   console.log(data);
 })
 ```
@@ -69,6 +69,319 @@ flat.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
+### listClasses
+List the classes available for the current user
+
+
+```js
+flat.listClasses({}, context)
+```
+
+#### Parameters
+* state (string) - Filter the classes by state
+
+### createClass
+Classrooms on Flat allow you to create activities with assignments and post content to a specific group.
+
+When creating a class, Flat automatically creates two groups: one for the teachers of the course, one for the students. The creator of this class is automatically added to the teachers group.
+
+If the classsroom is synchronized with another application like Google Classroom, some of the meta information will automatically be updated.
+
+You can add users to this class using `POST /classes/{class}/users/{user}`, they will automatically added to the group based on their role on Flat. Users can also enroll themselves to this class using `POST /classes/enroll/{enrollmentCode}` and the `enrollmentCode` returned in the `ClassDetails` response.
+
+
+
+```js
+flat.createClass({
+  "body": {
+    "name": ""
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Creation of a classroom
+
+### enrollClass
+Use this method to join a class using an enrollment code given one of the teacher of this class. This code is also available in the `ClassDetails` returned to the teachers when creating the class or listing / fetching a specific class.
+
+Flat will automatically add the user to the corresponding class group based on this role in the organization.
+
+
+
+```js
+flat.enrollClass({
+  "enrollmentCode": ""
+}, context)
+```
+
+#### Parameters
+* enrollmentCode (string) **required** - The enrollment code, available to the teacher in `ClassDetails`
+
+### getClass
+Get the details of a single class
+
+
+```js
+flat.getClass({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+
+### updateClass
+Update the meta information of the class
+
+
+
+```js
+flat.updateClass({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* body (object) - Update of a classroom
+
+### activateClass
+Mark the class as `active`. This is mainly used for classes synchronized from Clever that are initially with an `inactive` state and hidden in the UI.
+
+
+
+```js
+flat.activateClass({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+
+### unarchiveClass
+Mark the class as `active`. When this course is synchronized with another app, like Google Classroom, this state will be automatically be updated.
+
+
+
+```js
+flat.unarchiveClass({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+
+### archiveClass
+Mark the class as `archived`. When this course is synchronized with another app, like Google Classroom, this state will be automatically be updated.
+
+
+
+```js
+flat.archiveClass({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+
+### listAssignments
+Assignments listing
+
+
+```js
+flat.listAssignments({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+
+### createAssignment
+Use this method as a teacher to create and post a new assignment to a class.
+
+If the class is synchronized with Google Classroom, the assignment will be automatically posted to your Classroom course.
+
+
+
+```js
+flat.createAssignment({
+  "class": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* body (object) - Assignment creation details
+
+### copyAssignment
+Copy an assignment to a specified class.
+
+If the original assignment has a due date in the past, this new assingment will be created without a due date.
+
+If the new class is synchronized with an external app (e.g. Google Classroom), the copied assignment will also be posted on the external app.
+
+
+
+```js
+flat.copyAssignment({
+  "class": "",
+  "assignment": "",
+  "body": {
+    "classroom": ""
+  }
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* assignment (string) **required** - Unique identifier of the assignment
+* body (object) **required** - Assignment copy operation
+
+### getSubmissions
+List the students' submissions
+
+
+```js
+flat.getSubmissions({
+  "class": "",
+  "assignment": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* assignment (string) **required** - Unique identifier of the assignment
+
+### createSubmission
+Use this method as a student to create, update and submit a submission related to an assignment. Students can only set `attachments`, `studentComment` and `submit`.
+
+Teachers can use `PUT /classes/{class}/assignments/{assignment}/submissions/{submission}` to update a submission by id.
+
+
+
+```js
+flat.createSubmission({
+  "class": "",
+  "assignment": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* assignment (string) **required** - Unique identifier of the assignment
+* body (object) **required** - Assignment Submission creation
+
+### getSubmission
+Get a student submission
+
+
+```js
+flat.getSubmission({
+  "class": "",
+  "assignment": "",
+  "submission": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* assignment (string) **required** - Unique identifier of the assignment
+* submission (string) **required** - Unique identifier of the submission
+
+### editSubmission
+Use this method as a teacher to update the different submission and give feedback.
+Teachers can only set `returnFeedback`
+
+
+
+```js
+flat.editSubmission({
+  "class": "",
+  "assignment": "",
+  "submission": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* assignment (string) **required** - Unique identifier of the assignment
+* submission (string) **required** - Unique identifier of the submission
+* body (object) **required** - Assignment Submission creation
+
+### listClassStudentSubmissions
+Use this method as a teacher to list all the assignment submissions sent by a student of the class
+
+
+
+```js
+flat.listClassStudentSubmissions({
+  "class": "",
+  "user": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* user (string) **required** - Unique identifier of the user
+
+### deleteClassUser
+This method can be used by a teacher to remove a user from the class, or by a student to leave the classroom.
+
+Warning: Removing a user from the class will remove the associated resources, including the submissions and feedback related to these submissions.
+
+
+
+```js
+flat.deleteClassUser({
+  "class": "",
+  "user": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* user (string) **required** - Unique identifier of the user
+
+### addClassUser
+This method can be used by a teacher of the class to enroll another Flat user into the class.
+
+Only users that are part of your Organization can be enrolled in a class of this same Organization.
+
+When enrolling a user in the class, Flat will automatically add this user to the corresponding Class group, based on this role in the Organization.
+
+
+
+```js
+flat.addClassUser({
+  "class": "",
+  "user": ""
+}, context)
+```
+
+#### Parameters
+* class (string) **required** - Unique identifier of the class
+* user (string) **required** - Unique identifier of the user
+
+### getGroupDetails
+Get group information
+
+
+```js
+flat.getGroupDetails({
+  "group": ""
+}, context)
+```
+
+#### Parameters
+* group (string) **required** - Unique identifier of a Flat group
+
 ### getGroupScores
 Get the list of scores shared with a group.
 
@@ -81,8 +394,21 @@ flat.getGroupScores({
 ```
 
 #### Parameters
-* group (string) **required** - Unique identifier of the group
+* group (string) **required** - Unique identifier of a Flat group
 * parent (string) - Filter the score forked from the score id `parent`
+
+### listGroupUsers
+List group's users
+
+
+```js
+flat.listGroupUsers({
+  "group": ""
+}, context)
+```
+
+#### Parameters
+* group (string) **required** - Unique identifier of a Flat group
 
 ### getAuthenticatedUser
 Get details about the current authenticated User.
@@ -95,6 +421,147 @@ flat.getAuthenticatedUser(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+### listOrganizationInvitations
+List the organization invitations
+
+
+```js
+flat.listOrganizationInvitations({}, context)
+```
+
+#### Parameters
+* role (string) - Filter users by role
+* limit (integer) - This is the maximum number of objects that may be returned
+* next (string) - An opaque string cursor to fetch the next page of data.
+* previous (string) - An opaque string cursor to fetch the previous page of data.
+
+### createOrganizationInvitation
+This method creates and sends invitation for teachers and admins.
+
+Invitations can only be used by new Flat users or users who are not part of the organization yet.
+
+If the email of the user is already associated to a user of your organization, the API will simply update the role of the existing user and won't send an invitation. In this case, the property `usedBy` will be directly filled with the uniquer identifier of the corresponding user.
+
+
+
+```js
+flat.createOrganizationInvitation({}, context)
+```
+
+#### Parameters
+* body (object) - The parameters to create an organization invitation
+
+### removeOrganizationInvitation
+Remove an organization invitation
+
+
+```js
+flat.removeOrganizationInvitation({
+  "invitation": ""
+}, context)
+```
+
+#### Parameters
+* invitation (string) **required** - Unique identifier of the invitation
+
+### listLtiCredentials
+List LTI 1.x credentials
+
+
+```js
+flat.listLtiCredentials(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### createLtiCredentials
+Flat for Education is a Certified LTI Provider. You can use these API methods to automate the creation of LTI credentials. You can read more about our LTI implementation, supported components and LTI Endpoints in our [Developer Documentation](https://flat.io/developers/docs/lti/).
+
+
+
+```js
+flat.createLtiCredentials({
+  "body": {
+    "name": "",
+    "lms": ""
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Creation of a couple of LTI 1.x OAuth credentials
+
+### revokeLtiCredentials
+Revoke LTI 1.x credentials
+
+
+```js
+flat.revokeLtiCredentials({
+  "credentials": ""
+}, context)
+```
+
+#### Parameters
+* credentials (string) **required** - Credentials unique identifier
+
+### listOrganizationUsers
+List the organization users
+
+
+```js
+flat.listOrganizationUsers({}, context)
+```
+
+#### Parameters
+* role (string) - Filter users by role
+* limit (integer) - This is the maximum number of objects that may be returned
+* next (string) - An opaque string cursor to fetch the next page of data.
+* previous (string) - An opaque string cursor to fetch the previous page of data.
+
+### createOrganizationUser
+Create a new user account
+
+
+```js
+flat.createOrganizationUser({}, context)
+```
+
+#### Parameters
+* body (object) - User creation
+
+### removeOrganizationUser
+This operation removes an account from Flat and its data, including:
+* The music scores created by this user (documents, history, comments, collaboration information)
+* Education related data (assignments and classroom information)
+
+
+
+```js
+flat.removeOrganizationUser({
+  "user": ""
+}, context)
+```
+
+#### Parameters
+* user (string) **required** - Unique identifier of the Flat account
+* convertToIndividual (boolean) - If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io.
+
+### updateOrganizationUser
+Update account information
+
+
+```js
+flat.updateOrganizationUser({
+  "user": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* user (string) **required** - Unique identifier of the Flat account
+* body (object) **required** - User update as an organization admin
 
 ### createScore
 Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`) or a MIDI (`audio/midi`) file to create the new Flat document.
@@ -429,6 +896,99 @@ flat.getScoreRevisionData({
 * format (string) **required** - The format of the file you will retrieve
 * onlyCached (boolean) - Only return files already generated and cached in Flat's production
 * parts (string) - An optional a set of parts to be exported. This parameter must be
+
+### getScoreSubmissions
+This API call will list the different assignments submissions where the score is attached. This method can be used by anyone that are part of the organization and have at least read access to the document.
+
+
+
+```js
+flat.getScoreSubmissions({
+  "score": ""
+}, context)
+```
+
+#### Parameters
+* score (string) **required** - Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+
+### listScoreTracks
+List the audio or video tracks linked to a score
+
+
+```js
+flat.listScoreTracks({
+  "score": ""
+}, context)
+```
+
+#### Parameters
+* score (string) **required** - Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+* sharingKey (string) - This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+
+### addScoreTrack
+Use this method to add new track to the score. This track can then be played on flat.io or in an embedded score.
+This API method support medias hosted on SoundCloud, YouTube and Vimeo.
+
+
+
+```js
+flat.addScoreTrack({
+  "score": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* score (string) **required** - Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+* body (object) **required** - Creation of a new track. This one must contain the URL of the track or the corresponding file
+
+### deleteScoreTrack
+Remove an audio or video track linked to the score
+
+
+```js
+flat.deleteScoreTrack({
+  "score": "",
+  "track": ""
+}, context)
+```
+
+#### Parameters
+* score (string) **required** - Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+* track (string) **required** - Unique identifier of a score audio track
+
+### getScoreTrack
+Retrieve the details of an audio or video track linked to a score
+
+
+```js
+flat.getScoreTrack({
+  "score": "",
+  "track": ""
+}, context)
+```
+
+#### Parameters
+* score (string) **required** - Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+* sharingKey (string) - This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.
+* track (string) **required** - Unique identifier of a score audio track
+
+### updateScoreTrack
+Update an audio or video track linked to a score
+
+
+```js
+flat.updateScoreTrack({
+  "score": "",
+  "track": "",
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* score (string) **required** - Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).
+* track (string) **required** - Unique identifier of a score audio track
+* body (object) **required** - Update an existing track.
 
 ### getUser
 Get a public profile of a Flat User.

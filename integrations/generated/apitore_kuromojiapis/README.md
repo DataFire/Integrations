@@ -35,6 +35,23 @@ apitore_kuromojiapis.tokenizeUsingGET_1({
 * access_token (string) **required** - Access Token
 * text (string) **required** - Text [up to 400 characters]
 
+### tokenizeUsingPOST_1
+Kuromoji IPADIC NEologd dictionary.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response">kuromoji-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity<BR />
+
+
+```js
+apitore_kuromojiapis.tokenizeUsingPOST_1({
+  "access_token": "",
+  "req": {
+    "texts": []
+  }
+}, context)
+```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* req (object) **required**
+
 ### tokenizeUsingGET
 Kuromoji IPADIC dictionary.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response">kuromoji-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity<BR />
 
@@ -49,4 +66,21 @@ apitore_kuromojiapis.tokenizeUsingGET({
 #### Parameters
 * access_token (string) **required** - Access Token
 * text (string) **required** - Text [up to 400 characters]
+
+### tokenizeUsingPOST
+Kuromoji IPADIC dictionary.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/kuromoji-response">kuromoji-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.kuromoji.TokenResponseEntity<BR />
+
+
+```js
+apitore_kuromojiapis.tokenizeUsingPOST({
+  "access_token": "",
+  "req": {
+    "texts": []
+  }
+}, context)
+```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* req (object) **required**
 

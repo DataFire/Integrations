@@ -1,0 +1,393 @@
+{
+  "id": "nativeads",
+  "title": "Native Ads Publisher",
+  "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.\n",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nativeads.png"
+  },
+  "actionCount": 4,
+  "definitions": {
+    "authResponse": {
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "title": "authResponse"
+    },
+    "modelError": {
+      "properties": {
+        "errors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "modelError"
+    },
+    "reportsDailyItem": {
+      "properties": {
+        "clicks": {
+          "type": "string"
+        },
+        "cpc": {
+          "type": "string"
+        },
+        "ctr": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "earnings": {
+          "type": "string"
+        },
+        "impressions": {
+          "type": "string"
+        },
+        "net_ecpm": {
+          "type": "string"
+        },
+        "rpm": {
+          "type": "string"
+        }
+      },
+      "title": "reportsDailyItem"
+    },
+    "reportsDailyResponse": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/reportsDailyItem",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "total_count": {
+          "type": "integer"
+        },
+        "totals": {
+          "$ref": "#/definitions/totals",
+          "type": "object"
+        }
+      },
+      "title": "reportsDailyResponse"
+    },
+    "reportsWebsiteItem": {
+      "properties": {
+        "clicks": {
+          "type": "string"
+        },
+        "cpc": {
+          "type": "string"
+        },
+        "ctr": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "earnings": {
+          "type": "string"
+        },
+        "impressions": {
+          "type": "string"
+        },
+        "net_ecpm": {
+          "type": "string"
+        },
+        "rpm": {
+          "type": "string"
+        }
+      },
+      "title": "reportsWebsiteItem"
+    },
+    "reportsWebsiteResponse": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/reportsWebsiteItem",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "total_count": {
+          "type": "integer"
+        },
+        "totals": {
+          "$ref": "#/definitions/totals",
+          "type": "object"
+        }
+      },
+      "title": "reportsWebsiteResponse"
+    },
+    "reportsWidgetItem": {
+      "properties": {
+        "campaign": {
+          "description": "widget name",
+          "type": "string"
+        },
+        "campaign_id": {
+          "description": "widget id",
+          "type": "string"
+        },
+        "clicks": {
+          "type": "string"
+        },
+        "cpc": {
+          "type": "string"
+        },
+        "ctr": {
+          "type": "string"
+        },
+        "earnings": {
+          "type": "string"
+        },
+        "impressions": {
+          "type": "string"
+        },
+        "net_ecpm": {
+          "type": "string"
+        },
+        "rpm": {
+          "type": "string"
+        }
+      },
+      "title": "reportsWidgetItem"
+    },
+    "reportsWidgetResponse": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/reportsWidgetItem",
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "total_count": {
+          "type": "integer"
+        },
+        "totals": {
+          "$ref": "#/definitions/totals",
+          "type": "object"
+        }
+      },
+      "title": "reportsWidgetResponse"
+    },
+    "totals": {
+      "properties": {
+        "total_clicks": {
+          "type": "string"
+        },
+        "total_cpc": {
+          "type": "string"
+        },
+        "total_ctr": {
+          "type": "string"
+        },
+        "total_earnings": {
+          "type": "string"
+        },
+        "total_impressions": {
+          "type": "string"
+        },
+        "total_net_ecpm": {
+          "type": "string"
+        },
+        "total_rpm": {
+          "type": "string"
+        }
+      },
+      "title": "totals"
+    }
+  },
+  "actions": [
+    {
+      "id": "auth.default.login.post",
+      "title": "auth.default.login.post",
+      "description": "Returns Native Ads Publisher API token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Native Ads Publisher username"
+          },
+          "password": {
+            "type": "string",
+            "description": "Native Ads Publisher password"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/authResponse"
+      }
+    },
+    {
+      "id": "publisher.reports.daily.get",
+      "title": "publisher.reports.daily.get",
+      "description": "Returns publisher statistics split by date",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Native Ads Publisher API authentication token"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "description": "start date in format YYYY-MM-DD"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "description": "end date in format YYYY-MM-DD"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "maximum number of results per page",
+            "default": 100
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page number",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "startDate",
+          "endDate",
+          "limit",
+          "page"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/reportsDailyResponse"
+      }
+    },
+    {
+      "id": "publisher.reports.website.get",
+      "title": "publisher.reports.website.get",
+      "description": "Returns publisher statistics split by website",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Native Ads Publisher API authentication token"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "description": "start date in format YYYY-MM-DD"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "description": "end date in format YYYY-MM-DD"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "maximum number of results per page",
+            "default": 100
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page number",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "startDate",
+          "endDate",
+          "limit",
+          "page"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/reportsWebsiteResponse"
+      }
+    },
+    {
+      "id": "publisher.reports.widget.get",
+      "title": "publisher.reports.widget.get",
+      "description": "Returns publisher statistics split by widget",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Native Ads Publisher API authentication token"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "description": "start date in format YYYY-MM-DD"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "description": "end date in format YYYY-MM-DD"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "maximum number of results per page",
+            "default": 100
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page number",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "startDate",
+          "endDate",
+          "limit",
+          "page"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/reportsWidgetResponse"
+      }
+    }
+  ],
+  "tags": [
+    "marketing"
+  ]
+}

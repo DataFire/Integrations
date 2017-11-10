@@ -28,6 +28,17 @@ Circuit REST API to interact with the Circuit system.
 [Learn more about the Circuit Development Community](https://www.circuit.com/web/developers/home)
 
 ## Actions
+### alexaRequest
+
+
+
+```js
+circuitsandbox.alexaRequest(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### getConversations
 Gets a list of conversations and communities the authenticated user participates in.
 
@@ -575,6 +586,7 @@ circuitsandbox.setUserPresence({
 #### Parameters
 * state (string) **required** - The user's presence.
 * dndUntil (string) - Timestamp until the DND state of the user is active. This field is mandatory when the state is set to DND.
+* clearDND (boolean) - not available
 * statusMessage (string) - An optional status message that is displayed instead of the location
 
 ### getProfile
@@ -627,4 +639,112 @@ circuitsandbox.getUserPresence({
 
 #### Parameters
 * id (string) **required** - The unique ID or the email address of the user to fetch.
+
+### removeWebHooks
+Unregisters all webHooks of the authenticated user
+
+
+```js
+circuitsandbox.removeWebHooks(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### getWebHook
+Gets the list of webHooks registered for this user or API.
+
+
+```js
+circuitsandbox.getWebHook(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### addWebHook
+Registers the webHook with the given filter and callback URL.
+
+
+```js
+circuitsandbox.addWebHook({
+  "url": "",
+  "filter": []
+}, context)
+```
+
+#### Parameters
+* url (string) **required** - WebHook callback URL. Currently only HTTP is supported
+* filter (array) **required** - A filter for WebHooks that checks for a list of configured events. This filter will use a regular expression to determine if it is interested in the events or not. The event itself is converted into a string of format AREA.EVENT. Examples: CONVERSATION.CREATE / USER.UPDATE
+
+### addPresenceWebHook
+Registers a webHook that has a presence filter with the given URL and userIds. There is a maximum number of userIds allowed
+
+
+```js
+circuitsandbox.addPresenceWebHook({
+  "url": "",
+  "userIds": []
+}, context)
+```
+
+#### Parameters
+* url (string) **required** - WebHook callback URL. Currently only HTTP is supported
+* userIds (array) **required** - not available
+
+### updatePresenceWebHook
+Updates a registration of a webHook that has a presence filter. The update can be performed either on the URL and/or the userIds. The new userIds, if any, will override any existing userIds.
+
+
+```js
+circuitsandbox.updatePresenceWebHook({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The unique ID of the webHook to update
+* url (string) - WebHook callback URL. Currently only HTTP is supported
+* userIds (array) - not available
+
+### removeWebHook
+Unregisters the webHook with the given ID.
+
+
+```js
+circuitsandbox.removeWebHook({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The unique ID of the webHook to remove
+
+### getWebHookById
+Gets the registered webHook with the given ID.
+
+
+```js
+circuitsandbox.getWebHookById({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The unique ID of the webHook to fetch
+
+### updateWebHook
+Updates a webHook registration with the given filter and callback URL.
+
+
+```js
+circuitsandbox.updateWebHook({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The unique ID of the webHook to update
+* url (string) - WebHook callback URL. Currently only HTTP is supported
+* filter (array) - A filter for WebHooks that checks for a list of configured events. This filter will use a regular expression to determine if it is interested in the events or not. The event itself is converted into a string of format AREA.EVENT. Examples: CONVERSATION.CREATE / USER.UPDATE
 

@@ -17,7 +17,7 @@ let google_speech = require('@datafire/google_speech').create({
   redirect_uri: "",
 });
 
-google_speech.speech.syncrecognize({}).then(data => {
+google_speech.speech.recognize({}).then(data => {
   console.log(data);
 })
 ```
@@ -54,8 +54,13 @@ google_speech.oauthRefresh(null, context)
 Lists operations that match the specified filter in the request. If the
 server doesn't support this method, it returns `UNIMPLEMENTED`.
 
-NOTE: the `name` binding below allows API services to override the binding
-to use different resource name schemes, such as `users/*/operations`.
+NOTE: the `name` binding allows API services to override the binding
+to use different resource name schemes, such as `users/*/operations`. To
+override the binding, API services can add a binding such as
+`"/v1/{name=users/*}/operations"` to their service configuration.
+For backwards compatibility, the default name includes the operations
+collection id, however overriding users must ensure the name binding
+is the parent resource, without the operations collection id.
 
 
 ```js
@@ -64,22 +69,22 @@ google_speech.operations.list({}, context)
 
 #### Parameters
 * filter (string) - The standard list filter.
-* name (string) - The name of the operation collection.
-* pageToken (string) - The standard list page token.
+* name (string) - The name of the operation's parent resource.
 * pageSize (integer) - The standard list page size.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
+* pageToken (string) - The standard list page token.
 * $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
+* access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### operations.delete
 Deletes a long-running operation. This method indicates that the client is
@@ -96,19 +101,19 @@ google_speech.operations.delete({
 
 #### Parameters
 * name (string) **required** - The name of the operation resource to be deleted.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
 * $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
+* access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### operations.get
 Gets the latest state of a long-running operation.  Clients can use this
@@ -124,19 +129,19 @@ google_speech.operations.get({
 
 #### Parameters
 * name (string) **required** - The name of the operation resource.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
 * $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
+* access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### operations.cancel
 Starts asynchronous cancellation on a long-running operation.  The server
@@ -158,72 +163,71 @@ google_speech.operations.cancel({
 ```
 
 #### Parameters
+* body (object) - The request message for Operations.CancelOperation.
 * name (string) **required** - The name of the operation resource to be cancelled.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
 * $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
+* access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### speech.asyncrecognize
+### speech.longrunningrecognize
 Performs asynchronous speech recognition: receive results via the
-[google.longrunning.Operations]
-(/speech/reference/rest/v1beta1/operations#Operation)
-interface. Returns either an
+google.longrunning.Operations interface. Returns either an
 `Operation.error` or an `Operation.response` which contains
-an `AsyncRecognizeResponse` message.
+a `LongRunningRecognizeResponse` message.
 
 
 ```js
-google_speech.speech.asyncrecognize({}, context)
+google_speech.speech.longrunningrecognize({}, context)
 ```
 
 #### Parameters
-* body (object) - The top-level message sent by the client for the `AsyncRecognize` method.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
+* body (object) - The top-level message sent by the client for the `LongRunningRecognize`
 * $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
+* access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### speech.syncrecognize
+### speech.recognize
 Performs synchronous speech recognition: receive results after all audio
 has been sent and processed.
 
 
 ```js
-google_speech.speech.syncrecognize({}, context)
+google_speech.speech.recognize({}, context)
 ```
 
 #### Parameters
-* body (object) - The top-level message sent by the client for the `SyncRecognize` method.
-* access_token (string) - OAuth access token.
-* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
-* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
-* pp (boolean) - Pretty-print response.
-* oauth_token (string) - OAuth 2.0 token for the current user.
-* bearer_token (string) - OAuth bearer token.
-* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
-* prettyPrint (boolean) - Returns response with indentations and line breaks.
-* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
-* fields (string) - Selector specifying which fields to include in a partial response.
+* body (object) - The top-level message sent by the client for the `Recognize` method.
 * $.xgafv (string) - V1 error format.
-* callback (string) - JSONP
+* access_token (string) - OAuth access token.
 * alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

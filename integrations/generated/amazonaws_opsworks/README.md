@@ -734,6 +734,21 @@ amazonaws_opsworks.GrantAccess({
 * InstanceId (string) **required**
 * ValidForInMinutes (integer)
 
+### ListTags
+
+
+
+```js
+amazonaws_opsworks.ListTags({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* ResourceArn (string) **required**
+
 ### RebootInstance
 
 
@@ -929,6 +944,21 @@ amazonaws_opsworks.StopStack({
 #### Parameters
 * StackId (string) **required**
 
+### TagResource
+
+
+
+```js
+amazonaws_opsworks.TagResource({
+  "ResourceArn": "",
+  "Tags": []
+}, context)
+```
+
+#### Parameters
+* ResourceArn (string) **required**
+* Tags (array) **required**
+
 ### UnassignInstance
 
 
@@ -954,6 +984,21 @@ amazonaws_opsworks.UnassignVolume({
 
 #### Parameters
 * VolumeId (string) **required**
+
+### UntagResource
+
+
+
+```js
+amazonaws_opsworks.UntagResource({
+  "ResourceArn": "",
+  "TagKeys": []
+}, context)
+```
+
+#### Parameters
+* ResourceArn (string) **required**
+* TagKeys (array) **required**
 
 ### UpdateApp
 

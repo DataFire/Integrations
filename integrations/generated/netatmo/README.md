@@ -144,6 +144,17 @@ netatmo.geteventsuntil({
 * home_id (string) **required** - ID of the Home you're interested in
 * event_id (string) **required** - Your request will retrieve all the events until this one
 
+### gethomecoachsdata
+The method gethomecoachsdata Returns data from a user Healthy Home Coach Station (measures and device specific data).
+
+
+```js
+netatmo.gethomecoachsdata({}, context)
+```
+
+#### Parameters
+* device_id (string) - Id of the device you want to retrieve information of
+
 ### gethomedata
 Returns information about users homes and cameras.
 

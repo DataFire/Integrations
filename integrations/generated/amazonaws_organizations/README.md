@@ -315,7 +315,10 @@ amazonaws_organizations.EnablePolicyType({
 
 ```js
 amazonaws_organizations.InviteAccountToOrganization({
-  "Target": {}
+  "Target": {
+    "Id": "",
+    "Type": ""
+  }
 }, context)
 ```
 

@@ -21,6 +21,9 @@
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "backend"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -28,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://firebaserules.googleapis.com/$discovery/rest?version=v1",
@@ -317,6 +320,56 @@
           "$ref": "#/parameters/uploadType"
         }
       ],
+      "patch": {
+        "description": "Update a `Release` via PATCH.\n\nOnly updates to the `ruleset_name` and `test_suite_name` fields will be\nhonored. `Release` rename is not supported. To create a `Release` use the\nCreateRelease method.",
+        "operationId": "projects.releases.patch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateReleaseRequest"
+            }
+          },
+          {
+            "description": "Resource name for the project which owns this `Release`.\n\nFormat: `projects/{project_id}`",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Release"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      },
       "put": {
         "description": "Update a `Release`.\n\nOnly updates to the `ruleset_name` and `test_suite_name` fields will be\nhonored. `Release` rename is not supported. To create a `Release` use the\nCreateRelease method.",
         "operationId": "projects.releases.update",
@@ -692,6 +745,111 @@
         ]
       }
     },
+    "/v1/{name}:getExecutable": {
+      "get": {
+        "description": "Get the `Release` executable to use when enforcing rules.",
+        "operationId": "projects.releases.getExecutable",
+        "parameters": [
+          {
+            "description": "The requested runtime executable version.\nDefaults to FIREBASE_RULES_EXECUTABLE_V1",
+            "enum": [
+              "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED",
+              "FIREBASE_RULES_EXECUTABLE_V1",
+              "FIREBASE_RULES_EXECUTABLE_V2"
+            ],
+            "in": "query",
+            "name": "executableVersion",
+            "type": "string"
+          },
+          {
+            "description": "Resource name of the `Release`.\n\nFormat: `projects/{project_id}/releases/{release_id}`",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string",
+            "x-reservedExpansion": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/GetReleaseExecutableResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/firebase"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase"
+            ]
+          },
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/firebase.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/firebase.readonly"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ]
+    },
     "/v1/{name}:test": {
       "parameters": [
         {
@@ -795,6 +953,19 @@
     }
   },
   "definitions": {
+    "Arg": {
+      "description": "Arg matchers for the mock function.",
+      "properties": {
+        "anyValue": {
+          "$ref": "#/definitions/Empty",
+          "description": "Argument matches any value provided."
+        },
+        "exactValue": {
+          "description": "Argument exactly matches value provided."
+        }
+      },
+      "type": "object"
+    },
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
       "properties": {},
@@ -829,6 +1000,65 @@
         },
         "function": {
           "description": "Name of the function invoked.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FunctionMock": {
+      "description": "Mock function definition.\n\nMocks must refer to a function declared by the target service. The type of\nthe function args and result will be inferred at test time. If either the\narg or result values are not compatible with function type declaration, the\nrequest will be considered invalid.\n\nMore than one `FunctionMock` may be provided for a given function name so\nlong as the `Arg` matchers are distinct. There may be only one function\nfor a given overload where all `Arg` values are `Arg.any_value`.",
+      "properties": {
+        "args": {
+          "description": "The list of `Arg` values to match. The order in which the arguments are\nprovided is the order in which they must appear in the function\ninvocation.",
+          "items": {
+            "$ref": "#/definitions/Arg"
+          },
+          "type": "array"
+        },
+        "function": {
+          "description": "The name of the function.\n\nThe function name must match one provided by a service declaration.",
+          "type": "string"
+        },
+        "result": {
+          "$ref": "#/definitions/Result",
+          "description": "The mock result of the function call."
+        }
+      },
+      "type": "object"
+    },
+    "GetReleaseExecutableResponse": {
+      "description": "The response for FirebaseRulesService.GetReleaseExecutable",
+      "properties": {
+        "executable": {
+          "description": "Executable view of the `Ruleset` referenced by the `Release`.",
+          "format": "byte",
+          "type": "string"
+        },
+        "executableVersion": {
+          "description": "The Rules runtime version of the executable.",
+          "enum": [
+            "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED",
+            "FIREBASE_RULES_EXECUTABLE_V1",
+            "FIREBASE_RULES_EXECUTABLE_V2"
+          ],
+          "type": "string"
+        },
+        "language": {
+          "description": "`Language` used to generate the executable bytes.",
+          "enum": [
+            "LANGUAGE_UNSPECIFIED",
+            "FIREBASE_RULES",
+            "EVENT_FLOW_TRIGGERS"
+          ],
+          "type": "string"
+        },
+        "rulesetName": {
+          "description": "`Ruleset` name associated with the `Release` executable.",
+          "type": "string"
+        },
+        "updateTime": {
+          "description": "Timestamp for the most recent `Release.update_time`.",
+          "format": "google-datetime",
           "type": "string"
         }
       },
@@ -916,6 +1146,19 @@
       },
       "type": "object"
     },
+    "Result": {
+      "description": "Possible result values from the function mock invocation.",
+      "properties": {
+        "undefined": {
+          "$ref": "#/definitions/Empty",
+          "description": "The result is undefined, meaning the result could not be computed."
+        },
+        "value": {
+          "description": "The result is an actual value. The type of the value must match that\nof the type declared by the service."
+        }
+      },
+      "type": "object"
+    },
     "Ruleset": {
       "description": "`Ruleset` is an immutable copy of `Source` with a globally unique identifier\nand a creation time.",
       "properties": {
@@ -968,6 +1211,34 @@
       },
       "type": "object"
     },
+    "TestCase": {
+      "description": "`TestCase` messages provide the request context and an expectation as to\nwhether the given context will be allowed or denied. Test cases may specify\nthe `request`, `resource`, and `function_mocks` to mock a function call to\na service-provided function.\n\nThe `request` object represents context present at request-time.\n\nThe `resource` is the value of the target resource as it appears in\npersistent storage before the request is executed.",
+      "properties": {
+        "expectation": {
+          "description": "Test expectation.",
+          "enum": [
+            "EXPECTATION_UNSPECIFIED",
+            "ALLOW",
+            "DENY"
+          ],
+          "type": "string"
+        },
+        "functionMocks": {
+          "description": "Optional function mocks for service-defined functions. If not set, any\nservice defined function is expected to return an error, which may or may\nnot influence the test outcome.",
+          "items": {
+            "$ref": "#/definitions/FunctionMock"
+          },
+          "type": "array"
+        },
+        "request": {
+          "description": "Request context.\n\nThe exact format of the request context is service-dependent. See the\nappropriate service documentation for information about the supported\nfields and types on the request. Minimally, all services support the\nfollowing fields and types:\n\nRequest field  | Type\n---------------|-----------------\nauth.uid       | `string`\nauth.token     | `map<string, string>`\nheaders        | `map<string, string>`\nmethod         | `string`\nparams         | `map<string, string>`\npath           | `string`\ntime           | `google.protobuf.Timestamp`\n\nIf the request value is not well-formed for the service, the request will\nbe rejected as an invalid argument."
+        },
+        "resource": {
+          "description": "Optional resource value as it appears in persistent storage before the\nrequest is fulfilled.\n\nThe resource type depends on the `request.path` value."
+        }
+      },
+      "type": "object"
+    },
     "TestResult": {
       "description": "Test result message containing the state of the test as well as a\ndescription and source position for test failures.",
       "properties": {
@@ -1007,6 +1278,10 @@
         "source": {
           "$ref": "#/definitions/Source",
           "description": "Optional `Source` to be checked for correctness.\n\nThis field must not be set when the resource name refers to a `Ruleset`."
+        },
+        "testSuite": {
+          "$ref": "#/definitions/TestSuite",
+          "description": "Inline `TestSuite` to run."
         }
       },
       "type": "object"
@@ -1027,6 +1302,34 @@
             "$ref": "#/definitions/TestResult"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "TestSuite": {
+      "description": "`TestSuite` is a collection of `TestCase` instances that validate the logical\ncorrectness of a `Ruleset`. The `TestSuite` may be referenced in-line within\na `TestRuleset` invocation or as part of a `Release` object as a pre-release\ncheck.",
+      "properties": {
+        "testCases": {
+          "description": "Collection of test cases associated with the `TestSuite`.",
+          "items": {
+            "$ref": "#/definitions/TestCase"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateReleaseRequest": {
+      "description": "The request for FirebaseRulesService.UpdateReleasePatch.",
+      "properties": {
+        "release": {
+          "$ref": "#/definitions/Release",
+          "description": "`Release` to update."
+        },
+        "updateMask": {
+          "description": "Specifies which fields to update.",
+          "format": "google-fieldmask",
+          "type": "string"
         }
       },
       "type": "object"

@@ -17,7 +17,7 @@ let google_identitytoolkit = require('@datafire/google_identitytoolkit').create(
   redirect_uri: "",
 });
 
-google_identitytoolkit.relyingparty.verifyPassword({}).then(data => {
+google_identitytoolkit.relyingparty.verifyPhoneNumber({}).then(data => {
   console.log(data);
 })
 ```
@@ -96,6 +96,24 @@ google_identitytoolkit.relyingparty.downloadAccount({}, context)
 
 #### Parameters
 * body (object) - Request to download user account in batch.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### relyingparty.emailLinkSignin
+Reset password for a user.
+
+
+```js
+google_identitytoolkit.relyingparty.emailLinkSignin({}, context)
+```
+
+#### Parameters
+* body (object) - Request to sign in with email.
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -203,6 +221,24 @@ google_identitytoolkit.relyingparty.resetPassword({}, context)
 
 #### Parameters
 * body (object) - Request to reset the password.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### relyingparty.sendVerificationCode
+Send SMS verification code.
+
+
+```js
+google_identitytoolkit.relyingparty.sendVerificationCode({}, context)
+```
+
+#### Parameters
+* body (object) - Request for Identitytoolkit-SendVerificationCode
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
@@ -347,6 +383,24 @@ google_identitytoolkit.relyingparty.verifyPassword({}, context)
 
 #### Parameters
 * body (object) - Request to verify the password.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### relyingparty.verifyPhoneNumber
+Verifies ownership of a phone number and creates/updates the user account accordingly.
+
+
+```js
+google_identitytoolkit.relyingparty.verifyPhoneNumber({}, context)
+```
+
+#### Parameters
+* body (object) - Request for Identitytoolkit-VerifyPhoneNumber
 * alt (string) - Data format for the response.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.

@@ -1,0 +1,507 @@
+{
+  "id": "wmata_rail_station",
+  "title": "Rail Station Information",
+  "description": "Rail line and station information, including locations, fares, times, and parking.",
+  "security": {
+    "wmata_rail_station": {
+      "integration": "wmata_rail_station",
+      "fields": {
+        "apiKeyHeader": "API key",
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wmata_rail_station.jpg"
+  },
+  "actionCount": 16,
+  "actions": [
+    {
+      "id": "Lines.get",
+      "title": "Lines.get",
+      "description": "#### Description\n\nReturns information about all rail lines.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nLines\n\nArray containing line information ([Line](#Line)).\n\n\n\n\n\n\n\nLine Elements\n\n\n\n\n\n\n\nDisplayName\n\nFull name of line color.\n\n\n\n\n\nEndStationCode\n\nEnd station code. For example, will be E10 (Greenbelt) for the Green Line, B11 (Glenmont) for the Red Line, etc. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nInternalDestination1\n\nIntermediate terminal station code. During normal service, some trains on some lines might end their trip prior to the StartStationCode or EndStationCode. A good example is on the Red Line where some trains stop at A11 (Grosvenor) or B08 (Silver Spring). Empty string if not defined.\n\n\n\n\n\nInternalDestination2\n\nSimilar to InternalDestination1.\n\n\n\n\n\nLineCode\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV).\n\n\n\n\n\nStartStationCode\n\nStart station code. For example, will be F11 (Branch Avenue) for the Green Line, A15 (Shady Grove) for the Red Line, etc. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "Path.get",
+      "title": "Path.get",
+      "description": "#### Description\n\nReturns a set of ordered stations and distances between two stations on the _same line_.\n\nNote that this method is not suitable on its own as a pathfinding solution between stations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nPath\n\nArray containing path details ([MetroPathItem](#MetroPathItem))\n\n\n\n\n\n\n\nMetroPathItem Elements\n\n\n\n\n\n\n\nDistanceToPrev\n\nDistance in feet to the previous station in the list.\n\n\n\n\n\nLineCode\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV) this station's platform is on.\n\n\n\n\n\nSeqNum\n\nOrdered sequence number.\n\n\n\n\n\nStationCode\n\nStation code for this station. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationName\n\nFull name for this station, as shown on the WMATA website.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FromStationCode": {
+            "type": "string",
+            "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "N06"
+            ],
+            "default": "N06"
+          },
+          "ToStationCode": {
+            "type": "string",
+            "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "G05"
+            ],
+            "default": "G05"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "FromStationCode",
+          "ToStationCode"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "SrcStationToDstStationInfo.get",
+      "title": "SrcStationToDstStationInfo.get",
+      "description": "#### Description\n\nReturns a distance, fare information, and estimated travel time between any two stations, including those on different lines. Omit both parameters to retrieve data for all stations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStationToStationInfos\n\nArray containing station to station information ([StationToStationInfo](#StationToStationInfo)).\n\n\n\n\n\n\n\nStationToStationInfo Elements\n\n\n\n\n\n\n\nCompositeMiles\n\nDistance in miles from the source to destination station.\n\n\n\n\n\nDestinationStation\n\nDestination station code. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nRailFare\n\nStructure containing [fare](#RailFare) information.\n\n\n\n\n\nRailTime\n\nEstimated travel time (schedule time) in minutes between the source and destination station. This is not correlated to minutes (Min) in Real-Time Rail Predictions.\n\n\n\n\n\nSourceStation\n\nOrigin station code. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n\n\nRailFare Elements\n\n\n\n\n\n\n\nOffPeakTime\n\nFare during off-peak times (times other than the ones described below).\n\n\n\n\n\nPeakTime\n\nFare during peak times (weekdays from opening to 9:30 AM and 3-7 PM, and weekends from midnight to closing).\n\n\n\n\n\nSeniorDisabled\n\nReduced fare for [senior citizens or people with disabilities](http://www.wmata.com/fares/reduced.cfm).\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "FromStationCode": {
+            "type": "string",
+            "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "E10"
+            ],
+            "default": "E10"
+          },
+          "ToStationCode": {
+            "type": "string",
+            "description": "Station code for the destination station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "J03"
+            ],
+            "default": "J03"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "StationEntrances.get",
+      "title": "StationEntrances.get",
+      "description": "#### Description\n\nReturns a list of nearby station entrances based on latitude, longitude, and radius (meters). Omit search parameters to return all station entrances.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nEntrances\n\nArray containing detailed information about station entrances ([StationEntrance](#StationEntrance)).\n\n\n\n\n\n\n\nStationEntrance Elements\n\n\n\n\n\n\n\nDescription\n\nAdditional information for the entrance, if available. Currently available data usually shows the same value as the Name element.\n\n\n\n\n\nID\n\nDeprecated.\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nName of the entrance (usually the station name and nearest intersection).\n\n\n\n\n\nStationCode1\n\nThe station code associated with this entrance. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationCode2\n\nFor stations containing multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center), the other station code.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Lat": {
+            "type": "number",
+            "description": "Center point Latitude, required if Longitude and Radius are specified.",
+            "enum": [
+              "38.8978168"
+            ]
+          },
+          "Lon": {
+            "type": "number",
+            "description": "Center point Longitude, required if Latitude and Radius are specified.",
+            "enum": [
+              "-77.0404246"
+            ]
+          },
+          "Radius": {
+            "type": "number",
+            "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified.",
+            "enum": [
+              "500"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "StationInfo.get",
+      "title": "StationInfo.get",
+      "description": "#### Description\n\nReturns station location and address information based on a given StationCode.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nAddress\n\nStructure describing [address](#Address) information.\n\n\n\n\n\nCode\n\nStation code. Repeated from input.\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLineCode1\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV) served by this station.\n\n\n\n\n\nLineCode2\n\nAdditional line served by this station. This is often the case when stations have multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center).\n\n\n\n\n\nLineCode3\n\nSimilar to function as LineCodeX.\n\n\n\n\n\nLineCode4\n\nSimilar to function as LineCodeX. Currently not in use.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStation name.\n\n\n\n\n\nStationTogether1\n\nFor stations with multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center), the additional StationCode will be listed here.\n\n\n\n\n\nStationTogether2\n\nSimilar in function to StationTogether2\\. Currently not in use.\n\n\n\n\n\n\n\nAddress Elements\n\n\n\n\n\n\n\nCity\n\nCity.\n\n\n\n\n\nState\n\nState (abbreviated).\n\n\n\n\n\nStreet\n\nStreet address (for GPS use).\n\n\n\n\n\nZip\n\nZip code.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "A01"
+            ],
+            "default": "A01"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StationCode"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "StationParking.get",
+      "title": "StationParking.get",
+      "description": "#### Description\n\nReturns parking information at a station based on a given StationCode. Omit the StationCode to return parking information for all stations.\n\nIf a station has no parking, the StationsParking element will contain no child elements.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStationsParking\n\nArray containing station parking information ([StationParking](#StationParking)).\n\n\n\n\n\n\n\nStationParking Elements\n\n\n\n\n\n\n\nCode\n\nStation code. Useful when returning parking information for all stations. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nNotes\n\nWhen not NULL, provides additional parking resources such as nearby lots.\n\n\n\n\n\nAllDayParking\n\nStructure describing [all-day parking](#AllDayParking) options.\n\n\n\n\n\nShortTermParking\n\nStructure describing [short-term parking](#ShortTermParking) options.\n\n\n\n\n\n\n\nAllDayParking Elements\n\n\n\n\n\n\n\nTotalCount\n\nNumber of all-day parking spots available at a station.\n\n\n\n\n\nRiderCost\n\nAll-day cost per day for Metro riders. NULL when no all-day spots are available. For most stations, this value is identical to the NonRiderCost.  \n\nFor cases where the NonRiderCost is different, the lower cost per day requires a valid rail trip using a SmarTrip® card originating from a station other than the one where the patron parked. To receive this lower rate, patrons must pay for their parking with the same SmarTrip® card used to enter/exit Metrorail, and must exit the parking lot within two hours of exiting Metrorail.\n\n\n\n\n\nNonRiderCost\n\nAll-day cost per day for non-Metro riders. NULL when no all-day spots are available.\n\n\n\n\n\n\n\nShortTermParking Elements\n\n\n\n\n\n\n\nTotalCount\n\nNumber of short-term parking spots available at a station (parking meters).\n\n\n\n\n\nNotes\n\nMisc. information relating to short-term parking. NULL when no short-term spots are available.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "E08",
+              "F06"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "StationTimes.get",
+      "title": "StationTimes.get",
+      "description": "#### Description\n\nReturns opening and scheduled first/last train times based on a given StationCode. Omit the StationCode to return timing information for all stations.\n\nNote that for stations with multiple platforms (e.g.: Metro Center, L'Enfant Plaza, etc.), a distinct call is required for each StationCode to retrieve the full set of train times at such stations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStationTimes\n\nArray containing station timing information ([StationTime](#StationTime)).\n\n\n\n\n\n\n\nStationTime Elements\n\n\n\n\n\n\n\nCode\n\nStation code for this station. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationName\n\nFull name of the station.\n\n\n\n\n\n*Day Elements\n\nContainer elements containing timing information based on [day of the week.](#dow)\n\n\n\n\n\n\n\nMonday/Tuesday/Wednesday/etc. Elements\n\n\n\n\n\n\n\nOpeningTime\n\nStation opening time. Format is HH:mm.\n\n\n\n\n\nFirstTrains\n\nStructure containing [first train](#first) information.\n\n\n\n\n\nLastTrains\n\nStructure containing [last train](#last) information.\n\n\n\n\n\n\n\nFirstTrains Elements\n\n\n\n\n\n\n\nTime\n\nFirst train leaves the station at this time. Format is HH:mm.\n\n\n\n\n\nDestinationStation\n\nStation code for the train's destination. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n\n\nLastTrains Elements\n\n\n\n\n\n\n\nTime\n\nLast train leaves the station at this time. Format is HH:mm. Note that when the time is AM, it signifies the next day. For example, a value of 02:30 under a Saturday element means the last train leaves on Sunday at 2:30 AM.\n\n\n\n\n\nDestinationStation\n\nStation code for the train's destination. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "E10"
+            ],
+            "default": "E10"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "Stations.get",
+      "title": "Stations.get",
+      "description": "#### Description\n\nReturns a list of station location and address information based on a given LineCode. Omit the LineCode to return all stations. The response is an array of objects identical to those returned in the Station Information method.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStations\n\nArray containing station information ([Station](#Station)).\n\n\n\n\n\n\n\nStation Elements\n\n\n\n\n\n\n\nAddress\n\nStructure describing [address](#Address) information.\n\n\n\n\n\nCode\n\nStation code. Repeated from input.\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLineCode1\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV) served by this station.\n\n\n\n\n\nLineCode2\n\nAdditional line served by this station. This is often the case when stations have multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center).\n\n\n\n\n\nLineCode3\n\nSimilar to function as LineCodeX.\n\n\n\n\n\nLineCode4\n\nSimilar to function as LineCodeX. Currently not in use.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStation name.\n\n\n\n\n\nStationTogether1\n\nFor stations with multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center), the additional StationCode will be listed here.\n\n\n\n\n\nStationTogether2\n\nSimilar in function to StationTogether2\\. Currently not in use.\n\n\n\n\n\n\n\nAddress Elements\n\n\n\n\n\n\n\nCity\n\nCity.\n\n\n\n\n\nState\n\nState (abbreviated).\n\n\n\n\n\nStreet\n\nStreet address (for GPS use).\n\n\n\n\n\nZip\n\nZip code.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "LineCode": {
+            "type": "string",
+            "description": "Two-letter line code abbreviation:\n\n<ul>\n<li>RD - Red</li>\n<li>YL - Yellow</li>\n<li>GR - Green</li>\n<li>BL - Blue</li>\n<li>OR - Orange</li>\n<li>SV - Silver</li>\n</ul>",
+            "enum": [
+              "RD",
+              "YL",
+              "GR",
+              "BL",
+              "OR",
+              "SV"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jLines.get",
+      "title": "json.jLines.get",
+      "description": "#### Description\n\nReturns information about all rail lines.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nLines\n\nArray containing line information ([Line](#Line)).\n\n\n\n\n\n\n\nLine Elements\n\n\n\n\n\n\n\nDisplayName\n\nFull name of line color.\n\n\n\n\n\nEndStationCode\n\nEnd station code. For example, will be E10 (Greenbelt) for the Green Line, B11 (Glenmont) for the Red Line, etc. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nInternalDestination1\n\nIntermediate terminal station code. During normal service, some trains on some lines might end their trip prior to the StartStationCode or EndStationCode. A good example is on the Red Line where some trains stop at A11 (Grosvenor) or B08 (Silver Spring). Empty string if not defined.\n\n\n\n\n\nInternalDestination2\n\nSimilar to InternalDestination1.\n\n\n\n\n\nLineCode\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV).\n\n\n\n\n\nStartStationCode\n\nStart station code. For example, will be F11 (Branch Avenue) for the Green Line, A15 (Shady Grove) for the Red Line, etc. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jPath.get",
+      "title": "json.jPath.get",
+      "description": "#### Description\n\nReturns a set of ordered stations and distances between two stations on the _same line_.\n\nNote that this method is not suitable on its own as a pathfinding solution between stations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nPath\n\nArray containing path details ([MetroPathItem](#MetroPathItem))\n\n\n\n\n\n\n\nMetroPathItem Elements\n\n\n\n\n\n\n\nDistanceToPrev\n\nDistance in feet to the previous station in the list.\n\n\n\n\n\nLineCode\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV) this station's platform is on.\n\n\n\n\n\nSeqNum\n\nOrdered sequence number.\n\n\n\n\n\nStationCode\n\nStation code for this station. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationName\n\nFull name for this station, as shown on the WMATA website.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "FromStationCode": {
+            "type": "string",
+            "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "N06"
+            ],
+            "default": "N06"
+          },
+          "ToStationCode": {
+            "type": "string",
+            "description": "Station code for the destination station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "G05"
+            ],
+            "default": "G05"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "FromStationCode",
+          "ToStationCode"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jSrcStationToDstStationInfo.get",
+      "title": "json.jSrcStationToDstStationInfo.get",
+      "description": "#### Description\n\nReturns a distance, fare information, and estimated travel time between any two stations, including those on different lines. Omit both parameters to retrieve data for all stations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStationToStationInfos\n\nArray containing station to station information ([StationToStationInfo](#StationToStationInfo)).\n\n\n\n\n\n\n\nStationToStationInfo Elements\n\n\n\n\n\n\n\nCompositeMiles\n\nDistance in miles from the source to destination station.\n\n\n\n\n\nDestinationStation\n\nDestination station code. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nRailFare\n\nStructure containing [fare](#RailFare) information.\n\n\n\n\n\nRailTime\n\nEstimated travel time (schedule time) in minutes between the source and destination station. This is not correlated to minutes (Min) in Real-Time Rail Predictions.\n\n\n\n\n\nSourceStation\n\nOrigin station code. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n\n\nRailFare Elements\n\n\n\n\n\n\n\nOffPeakTime\n\nFare during off-peak times (times other than the ones described below).\n\n\n\n\n\nPeakTime\n\nFare during peak times (weekdays from opening to 9:30 AM and 3-7 PM, and weekends from midnight to closing).\n\n\n\n\n\nSeniorDisabled\n\nReduced fare for [senior citizens or people with disabilities](http://www.wmata.com/fares/reduced.cfm).\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "FromStationCode": {
+            "type": "string",
+            "description": "Station code for the origin station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "E10"
+            ],
+            "default": "E10"
+          },
+          "ToStationCode": {
+            "type": "string",
+            "description": "Station code for the destination station.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "J03"
+            ],
+            "default": "J03"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jStationEntrances.get",
+      "title": "json.jStationEntrances.get",
+      "description": "#### Description\n\nReturns a list of nearby station entrances based on latitude, longitude, and radius (meters). Omit search parameters to return all station entrances.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nEntrances\n\nArray containing detailed information about station entrances ([StationEntrance](#StationEntrance)).\n\n\n\n\n\n\n\nStationEntrance Elements\n\n\n\n\n\n\n\nDescription\n\nAdditional information for the entrance, if available. Currently available data usually shows the same value as the Name element.\n\n\n\n\n\nID\n\nDeprecated.\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nName of the entrance (usually the station name and nearest intersection).\n\n\n\n\n\nStationCode1\n\nThe station code associated with this entrance. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationCode2\n\nFor stations containing multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center), the other station code.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Lat": {
+            "type": "number",
+            "description": "Center point Latitude, required if Longitude and Radius are specified.",
+            "enum": [
+              "38.8978168"
+            ]
+          },
+          "Lon": {
+            "type": "number",
+            "description": "Center point Longitude, required if Latitude and Radius are specified.",
+            "enum": [
+              "-77.0404246"
+            ]
+          },
+          "Radius": {
+            "type": "number",
+            "description": "Radius (meters) to include in the search area, required if Latitude and Longitude are specified.",
+            "enum": [
+              "500"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jStationInfo.get",
+      "title": "json.jStationInfo.get",
+      "description": "#### Description\n\nReturns station location and address information based on a given StationCode.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nAddress\n\nStructure describing [address](#Address) information.\n\n\n\n\n\nCode\n\nStation code. Repeated from input.\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLineCode1\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV) served by this station.\n\n\n\n\n\nLineCode2\n\nAdditional line served by this station. This is often the case when stations have multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center).\n\n\n\n\n\nLineCode3\n\nSimilar to function as LineCodeX.\n\n\n\n\n\nLineCode4\n\nSimilar to function as LineCodeX. Currently not in use.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStation name.\n\n\n\n\n\nStationTogether1\n\nFor stations with multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center), the additional StationCode will be listed here.\n\n\n\n\n\nStationTogether2\n\nSimilar in function to StationTogether2\\. Currently not in use.\n\n\n\n\n\n\n\nAddress Elements\n\n\n\n\n\n\n\nCity\n\nCity.\n\n\n\n\n\nState\n\nState (abbreviated).\n\n\n\n\n\nStreet\n\nStreet address (for GPS use).\n\n\n\n\n\nZip\n\nZip code.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "A01"
+            ],
+            "default": "A01"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "StationCode"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jStationParking.get",
+      "title": "json.jStationParking.get",
+      "description": "#### Description\n\nReturns parking information at a station based on a given StationCode. Omit the StationCode to return parking information for all stations.\n\nIf a station has no parking, the StationsParking element will contain no child elements.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStationsParking\n\nArray containing station parking information ([StationParking](#StationParking)).\n\n\n\n\n\n\n\nStationParking Elements\n\n\n\n\n\n\n\nCode\n\nStation code. Useful when returning parking information for all stations. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nNotes\n\nWhen not NULL, provides additional parking resources such as nearby lots.\n\n\n\n\n\nAllDayParking\n\nStructure describing [all-day parking](#AllDayParking) options.\n\n\n\n\n\nShortTermParking\n\nStructure describing [short-term parking](#ShortTermParking) options.\n\n\n\n\n\n\n\nAllDayParking Elements\n\n\n\n\n\n\n\nTotalCount\n\nNumber of all-day parking spots available at a station.\n\n\n\n\n\nRiderCost\n\nAll-day cost per day for Metro riders. NULL when no all-day spots are available. For most stations, this value is identical to the NonRiderCost.  \n\nFor cases where the NonRiderCost is different, the lower cost per day requires a valid rail trip using a SmarTrip® card originating from a station other than the one where the patron parked. To receive this lower rate, patrons must pay for their parking with the same SmarTrip® card used to enter/exit Metrorail, and must exit the parking lot within two hours of exiting Metrorail.\n\n\n\n\n\nNonRiderCost\n\nAll-day cost per day for non-Metro riders. NULL when no all-day spots are available.\n\n\n\n\n\n\n\nShortTermParking Elements\n\n\n\n\n\n\n\nTotalCount\n\nNumber of short-term parking spots available at a station (parking meters).\n\n\n\n\n\nNotes\n\nMisc. information relating to short-term parking. NULL when no short-term spots are available.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "E08",
+              "F06"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jStationTimes.get",
+      "title": "json.jStationTimes.get",
+      "description": "#### Description\n\nReturns opening and scheduled first/last train times based on a given StationCode. Omit the StationCode to return timing information for all stations.\n\nNote that for stations with multiple platforms (e.g.: Metro Center, L'Enfant Plaza, etc.), a distinct call is required for each StationCode to retrieve the full set of train times at such stations.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStationTimes\n\nArray containing station timing information ([StationTime](#StationTime)).\n\n\n\n\n\n\n\nStationTime Elements\n\n\n\n\n\n\n\nCode\n\nStation code for this station. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\nStationName\n\nFull name of the station.\n\n\n\n\n\n*Day Elements\n\nContainer elements containing timing information based on [day of the week.](#dow)\n\n\n\n\n\n\n\nMonday/Tuesday/Wednesday/etc. Elements\n\n\n\n\n\n\n\nOpeningTime\n\nStation opening time. Format is HH:mm.\n\n\n\n\n\nFirstTrains\n\nStructure containing [first train](#first) information.\n\n\n\n\n\nLastTrains\n\nStructure containing [last train](#last) information.\n\n\n\n\n\n\n\nFirstTrains Elements\n\n\n\n\n\n\n\nTime\n\nFirst train leaves the station at this time. Format is HH:mm.\n\n\n\n\n\nDestinationStation\n\nStation code for the train's destination. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n\n\nLastTrains Elements\n\n\n\n\n\n\n\nTime\n\nLast train leaves the station at this time. Format is HH:mm. Note that when the time is AM, it signifies the next day. For example, a value of 02:30 under a Saturday element means the last train leaves on Sunday at 2:30 AM.\n\n\n\n\n\nDestinationStation\n\nStation code for the train's destination. Use this value in other rail-related APIs to retrieve data about a station.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "StationCode": {
+            "type": "string",
+            "description": "Station code.  Use the Station List method to return a list of all station codes.",
+            "enum": [
+              "E10"
+            ],
+            "default": "E10"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    },
+    {
+      "id": "json.jStations.get",
+      "title": "json.jStations.get",
+      "description": "#### Description\n\nReturns a list of station location and address information based on a given LineCode. Omit the LineCode to return all stations. The response is an array of objects identical to those returned in the Station Information method.\n\n#### Response Elements\n\n\n\n\n\n\n\nElement\n\nDescription\n\n\n\n\n\n\n\n\n\nStations\n\nArray containing station information ([Station](#Station)).\n\n\n\n\n\n\n\nStation Elements\n\n\n\n\n\n\n\nAddress\n\nStructure describing [address](#Address) information.\n\n\n\n\n\nCode\n\nStation code. Repeated from input.\n\n\n\n\n\nLat\n\nLatitude.\n\n\n\n\n\nLineCode1\n\nTwo-letter abbreviation for the line (e.g.: RD, BL, YL, OR, GR, or SV) served by this station.\n\n\n\n\n\nLineCode2\n\nAdditional line served by this station. This is often the case when stations have multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center).\n\n\n\n\n\nLineCode3\n\nSimilar to function as LineCodeX.\n\n\n\n\n\nLineCode4\n\nSimilar to function as LineCodeX. Currently not in use.\n\n\n\n\n\nLon\n\nLongitude.\n\n\n\n\n\nName\n\nStation name.\n\n\n\n\n\nStationTogether1\n\nFor stations with multiple platforms (e.g.: Gallery Place, Fort Totten, L'Enfant Plaza, and Metro Center), the additional StationCode will be listed here.\n\n\n\n\n\nStationTogether2\n\nSimilar in function to StationTogether2\\. Currently not in use.\n\n\n\n\n\n\n\nAddress Elements\n\n\n\n\n\n\n\nCity\n\nCity.\n\n\n\n\n\nState\n\nState (abbreviated).\n\n\n\n\n\nStreet\n\nStreet address (for GPS use).\n\n\n\n\n\nZip\n\nZip code.\n\n\n\n\n\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "LineCode": {
+            "type": "string",
+            "description": "Two-letter line code abbreviation:\n\n<ul>\n<li>RD - Red</li>\n<li>YL - Yellow</li>\n<li>GR - Green</li>\n<li>BL - Blue</li>\n<li>OR - Orange</li>\n<li>SV - Silver</li>\n</ul>",
+            "enum": [
+              "RD",
+              "YL",
+              "GR",
+              "BL",
+              "OR",
+              "SV"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "wmata_rail_station": {
+          "integration": "wmata_rail_station"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "transport"
+  ]
+}

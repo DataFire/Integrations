@@ -8,9 +8,9 @@
   "info": {
     "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
     "title": "Zappiti Player",
-    "version": "4.14.170",
+    "version": "4.15.174",
     "x-apisguru-categories": [
-      "entertainment"
+      "media"
     ],
     "x-logo": {
       "backgroundColor": "#FFFFFF",
@@ -65,6 +65,33 @@
         "operationId": "CheckZappitiService.post"
       }
     },
+    "/ConnectionDetails": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConnectionDetailsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ConnectionDetailsResult",
+            "schema": {
+              "$ref": "#/definitions/ConnectionDetailsResult"
+            }
+          }
+        },
+        "summary": "Get user's login details",
+        "tags": [
+          "General"
+        ],
+        "operationId": "ConnectionDetails.post"
+      }
+    },
     "/InstallZappitiService": {
       "post": {
         "description": "",
@@ -115,7 +142,7 @@
         },
         "summary": "Get server status",
         "tags": [
-          "Other"
+          "General"
         ],
         "operationId": "IsAlive.post"
       }
@@ -219,6 +246,48 @@
       "properties": {
         "ErrorCode": {
           "$ref": "#/definitions/ErrorCode"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionDetailsRequest": {
+      "properties": {
+        "ApiKey": {
+          "description": "Client API Key",
+          "format": "uuid",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionDetailsResult": {
+      "properties": {
+        "AuthKey": {
+          "description": "User's Authentification key",
+          "format": "uuid",
+          "type": "string"
+        },
+        "Collection": {
+          "description": "User's collection id",
+          "format": "string",
+          "type": "string"
+        },
+        "Email": {
+          "description": "User's email used for the collection",
+          "format": "string",
+          "type": "string"
+        },
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "ServerIp": {
+          "description": "Server's IP",
+          "format": "string",
+          "type": "string"
+        },
+        "ServerPort": {
+          "description": "Port used by the server",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -390,9 +459,9 @@
   },
   "x-servers": [
     {
-      "url": "http://{ip-address}:8990/",
+      "url": "http://{ip_address}:8990/",
       "variables": {
-        "ip-address": {
+        "ip_address": {
           "default": "192.168.1.5"
         }
       }

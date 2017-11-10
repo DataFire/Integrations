@@ -1,0 +1,1126 @@
+{
+  "id": "cambase",
+  "title": "Cambase.io",
+  "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date source of model hardware information available via a public API.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cambase.jpg"
+  },
+  "actionCount": 17,
+  "actions": [
+    {
+      "id": "api.v1.models.json.get",
+      "title": "api.v1.models.json.get",
+      "description": "Fetches all Models",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "order": {
+            "type": "string",
+            "description": "Sort order"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.models.json.post",
+      "title": "api.v1.models.json.post",
+      "description": "Creates a new Model",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "model[model]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "model[shape]": {
+            "type": "string",
+            "description": "Shape"
+          },
+          "model[resolution]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "model[onvif]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "model[psia]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "model[ptz]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "model[infrared]": {
+            "type": "string",
+            "description": "Infrared"
+          },
+          "model[varifocal]": {
+            "type": "string",
+            "description": "Varifocal"
+          },
+          "model[sd_card]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "model[upnp]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "model[audio_in]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "model[audio_out]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "model[default_username]": {
+            "type": "string",
+            "description": "Default Username"
+          },
+          "model[default_password]": {
+            "type": "string",
+            "description": "Default Password"
+          },
+          "model[jpeg_url]": {
+            "type": "string",
+            "description": "JPEG URL"
+          },
+          "model[h264_url]": {
+            "type": "string",
+            "description": "H264 URL"
+          },
+          "model[mjpeg_url]": {
+            "type": "string",
+            "description": "MJPEG URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "vendor_id",
+          "model[model]"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.models.search.json.get",
+      "title": "api.v1.models.search.json.get",
+      "description": "Searches all Models",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "q[model_cont]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "q[manufacturer_name_cont]": {
+            "type": "string",
+            "description": "Vendor"
+          },
+          "q[shape_eq]": {
+            "type": "string",
+            "description": "Shape"
+          },
+          "q[resolution_eq]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "q[onvif_true]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "q[psia_true]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "q[ptz_true]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "q[infrared_true]": {
+            "type": "string",
+            "description": "Infrared"
+          },
+          "q[varifocal_true]": {
+            "type": "string",
+            "description": "Varifocal"
+          },
+          "q[sd_card_true]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "q[upnp_true]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "q[audio_in_true]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "q[audio_out_true]": {
+            "type": "string",
+            "description": "Audio Out"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.models.id.json.get",
+      "title": "api.v1.models.id.json.get",
+      "description": "Fetches a single Model",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Model ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.models.id.json.patch",
+      "title": "api.v1.models.id.json.patch",
+      "description": "Updates an existing Model",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Model ID"
+          },
+          "vendor_id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "model[model]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "model[shape]": {
+            "type": "string",
+            "description": "Shape"
+          },
+          "model[resolution]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "model[onvif]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "model[psia]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "model[ptz]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "model[infrared]": {
+            "type": "string",
+            "description": "Infrared"
+          },
+          "model[varifocal]": {
+            "type": "string",
+            "description": "Varifocal"
+          },
+          "model[sd_card]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "model[upnp]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "model[audio_in]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "model[audio_out]": {
+            "type": "string",
+            "description": "Audio Out"
+          },
+          "model[default_username]": {
+            "type": "string",
+            "description": "Default Username"
+          },
+          "model[default_password]": {
+            "type": "string",
+            "description": "Default Password"
+          },
+          "model[jpeg_url]": {
+            "type": "string",
+            "description": "JPEG URL"
+          },
+          "model[h264_url]": {
+            "type": "string",
+            "description": "H264 URL"
+          },
+          "model[mjpeg_url]": {
+            "type": "string",
+            "description": "MJPEG URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.models.id.json.put",
+      "title": "api.v1.models.id.json.put",
+      "description": "Updates an existing Model",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Model ID"
+          },
+          "vendor_id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "model[model]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "model[shape]": {
+            "type": "string",
+            "description": "Shape"
+          },
+          "model[resolution]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "model[onvif]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "model[psia]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "model[ptz]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "model[infrared]": {
+            "type": "string",
+            "description": "Infrared"
+          },
+          "model[varifocal]": {
+            "type": "string",
+            "description": "Varifocal"
+          },
+          "model[sd_card]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "model[upnp]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "model[audio_in]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "model[audio_out]": {
+            "type": "string",
+            "description": "Audio Out"
+          },
+          "model[default_username]": {
+            "type": "string",
+            "description": "Default Username"
+          },
+          "model[default_password]": {
+            "type": "string",
+            "description": "Default Password"
+          },
+          "model[jpeg_url]": {
+            "type": "string",
+            "description": "JPEG URL"
+          },
+          "model[h264_url]": {
+            "type": "string",
+            "description": "H264 URL"
+          },
+          "model[mjpeg_url]": {
+            "type": "string",
+            "description": "MJPEG URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.recorders.json.get",
+      "title": "api.v1.recorders.json.get",
+      "description": "Fetches all Recorders",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "order": {
+            "type": "string",
+            "description": "Sort order"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.recorders.json.post",
+      "title": "api.v1.recorders.json.post",
+      "description": "Creates a new Recorder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vendor_id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "recorder[model]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "recorder[name]": {
+            "type": "string",
+            "description": "Name"
+          },
+          "recorder[recorder_type]": {
+            "type": "string",
+            "description": "Type"
+          },
+          "recorder[resolution]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "recorder[onvif]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "recorder[psia]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "recorder[ptz]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "recorder[discontinued]": {
+            "type": "string",
+            "description": "Discontinued"
+          },
+          "recorder[support_3rdparty]": {
+            "type": "string",
+            "description": "3rd pparty Camera Support"
+          },
+          "recorder[sd_card]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "recorder[upnp]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "recorder[hot_swap]": {
+            "type": "string",
+            "description": "Hot Swap"
+          },
+          "recorder[hdmi]": {
+            "type": "string",
+            "description": "HDMI Support"
+          },
+          "recorder[digital_io]": {
+            "type": "string",
+            "description": "Digital I/O"
+          },
+          "recorder[audio_in]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "recorder[audio_out]": {
+            "type": "string",
+            "description": "Audio Out"
+          },
+          "recorder[input_channels]": {
+            "type": "string",
+            "description": "Input Channels"
+          },
+          "recorder[playback_channels]": {
+            "type": "string",
+            "description": "Playback Channels"
+          },
+          "recorder[usb]": {
+            "type": "string",
+            "description": "USB Ports"
+          },
+          "recorder[sdhc]": {
+            "type": "string",
+            "description": "SD Card (GB)"
+          },
+          "recorder[mobile_access]": {
+            "type": "string",
+            "description": "Mobile Access"
+          },
+          "recorder[alarms]": {
+            "type": "string",
+            "description": "Alarms"
+          },
+          "recorder[raid_support]": {
+            "type": "string",
+            "description": "Raid Support"
+          },
+          "recorder[storage]": {
+            "type": "string",
+            "description": "Internal Storage"
+          },
+          "recorder[additional_information]": {
+            "type": "string",
+            "description": "Additional Information"
+          },
+          "recorder[default_username]": {
+            "type": "string",
+            "description": "Default Username"
+          },
+          "recorder[default_password]": {
+            "type": "string",
+            "description": "Default Password"
+          },
+          "recorder[jpeg_url]": {
+            "type": "string",
+            "description": "JPEG URL"
+          },
+          "recorder[h264_url]": {
+            "type": "string",
+            "description": "H264 URL"
+          },
+          "recorder[mjpeg_url]": {
+            "type": "string",
+            "description": "MJPEG URL"
+          },
+          "recorder[official_url]": {
+            "type": "string",
+            "description": "Official URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "vendor_id",
+          "recorder[model]",
+          "recorder[name]",
+          "recorder[recorder_type]"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.recorders.search.json.get",
+      "title": "api.v1.recorders.search.json.get",
+      "description": "Searches all Recorders",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "q[model_cont]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "q[vendor_name_cont]": {
+            "type": "string",
+            "description": "Vendor"
+          },
+          "q[sdhc_eq]": {
+            "type": "string",
+            "description": "SD Card (GB)"
+          },
+          "q[type_eq]": {
+            "type": "string",
+            "description": "Type"
+          },
+          "q[resolution_eq]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "q[input_channels_eq]": {
+            "type": "string",
+            "description": "Input Channels"
+          },
+          "q[playback_channels_eq]": {
+            "type": "string",
+            "description": "Playback Channels"
+          },
+          "q[onvif_true]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "q[psia_true]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "q[ptz_true]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "q[sd_card_true]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "q[upnp_true]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "q[audio_in_true]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "q[audio_out_true]": {
+            "type": "string",
+            "description": "Audio Out"
+          },
+          "q[hdmi_true]": {
+            "type": "string",
+            "description": "HDMI Support"
+          },
+          "q[hot_swap_true]": {
+            "type": "string",
+            "description": "Hot Swap"
+          },
+          "q[support_3rdparty_true]": {
+            "type": "string",
+            "description": "3rd pparty Camera Support"
+          },
+          "q[digital_io_true]": {
+            "type": "string",
+            "description": "Digital I/O"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.recorders.id.json.get",
+      "title": "api.v1.recorders.id.json.get",
+      "description": "Fetches a single Recorder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Recorder ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.recorders.id.json.patch",
+      "title": "api.v1.recorders.id.json.patch",
+      "description": "Updates an existing Recorder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Recorder ID"
+          },
+          "vendor_id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "recorder[model]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "recorder[name]": {
+            "type": "string",
+            "description": "Name"
+          },
+          "recorder[recorder_type]": {
+            "type": "string",
+            "description": "Type"
+          },
+          "recorder[resolution]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "recorder[onvif]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "recorder[psia]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "recorder[ptz]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "recorder[discontinued]": {
+            "type": "string",
+            "description": "Discontinued"
+          },
+          "recorder[support_3rdparty]": {
+            "type": "string",
+            "description": "3rd pparty Camera Support"
+          },
+          "recorder[sd_card]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "recorder[upnp]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "recorder[hot_swap]": {
+            "type": "string",
+            "description": "Hot Swap"
+          },
+          "recorder[hdmi]": {
+            "type": "string",
+            "description": "HDMI Support"
+          },
+          "recorder[digital_io]": {
+            "type": "string",
+            "description": "Digital I/O"
+          },
+          "recorder[audio_in]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "recorder[audio_out]": {
+            "type": "string",
+            "description": "Audio Out"
+          },
+          "recorder[input_channels]": {
+            "type": "string",
+            "description": "Input Channels"
+          },
+          "recorder[playback_channels]": {
+            "type": "string",
+            "description": "Playback Channels"
+          },
+          "recorder[usb]": {
+            "type": "string",
+            "description": "USB Ports"
+          },
+          "recorder[sdhc]": {
+            "type": "string",
+            "description": "SD Card (GB)"
+          },
+          "recorder[mobile_access]": {
+            "type": "string",
+            "description": "Mobile Access"
+          },
+          "recorder[alarms]": {
+            "type": "string",
+            "description": "Alarms"
+          },
+          "recorder[raid_support]": {
+            "type": "string",
+            "description": "Raid Support"
+          },
+          "recorder[storage]": {
+            "type": "string",
+            "description": "Internal Storage"
+          },
+          "recorder[additional_information]": {
+            "type": "string",
+            "description": "Additional Information"
+          },
+          "recorder[default_username]": {
+            "type": "string",
+            "description": "Default Username"
+          },
+          "recorder[default_password]": {
+            "type": "string",
+            "description": "Default Password"
+          },
+          "recorder[jpeg_url]": {
+            "type": "string",
+            "description": "JPEG URL"
+          },
+          "recorder[h264_url]": {
+            "type": "string",
+            "description": "H264 URL"
+          },
+          "recorder[mjpeg_url]": {
+            "type": "string",
+            "description": "MJPEG URL"
+          },
+          "recorder[official_url]": {
+            "type": "string",
+            "description": "Official URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id",
+          "recorder[model]",
+          "recorder[name]",
+          "recorder[recorder_type]"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.recorders.id.json.put",
+      "title": "api.v1.recorders.id.json.put",
+      "description": "Updates an existing Recorder",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Recorder ID"
+          },
+          "vendor_id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "recorder[model]": {
+            "type": "string",
+            "description": "Model"
+          },
+          "recorder[name]": {
+            "type": "string",
+            "description": "Name"
+          },
+          "recorder[recorder_type]": {
+            "type": "string",
+            "description": "Type"
+          },
+          "recorder[resolution]": {
+            "type": "string",
+            "description": "Resolution"
+          },
+          "recorder[onvif]": {
+            "type": "string",
+            "description": "ONVIF"
+          },
+          "recorder[psia]": {
+            "type": "string",
+            "description": "PSIA"
+          },
+          "recorder[ptz]": {
+            "type": "string",
+            "description": "PTZ"
+          },
+          "recorder[discontinued]": {
+            "type": "string",
+            "description": "Discontinued"
+          },
+          "recorder[support_3rdparty]": {
+            "type": "string",
+            "description": "3rd pparty Camera Support"
+          },
+          "recorder[sd_card]": {
+            "type": "string",
+            "description": "SD Card"
+          },
+          "recorder[upnp]": {
+            "type": "string",
+            "description": "UPnP"
+          },
+          "recorder[hot_swap]": {
+            "type": "string",
+            "description": "Hot Swap"
+          },
+          "recorder[hdmi]": {
+            "type": "string",
+            "description": "HDMI Support"
+          },
+          "recorder[digital_io]": {
+            "type": "string",
+            "description": "Digital I/O"
+          },
+          "recorder[audio_in]": {
+            "type": "string",
+            "description": "Audio In"
+          },
+          "recorder[audio_out]": {
+            "type": "string",
+            "description": "Audio Out"
+          },
+          "recorder[input_channels]": {
+            "type": "string",
+            "description": "Input Channels"
+          },
+          "recorder[playback_channels]": {
+            "type": "string",
+            "description": "Playback Channels"
+          },
+          "recorder[usb]": {
+            "type": "string",
+            "description": "USB Ports"
+          },
+          "recorder[sdhc]": {
+            "type": "string",
+            "description": "SD Card (GB)"
+          },
+          "recorder[mobile_access]": {
+            "type": "string",
+            "description": "Mobile Access"
+          },
+          "recorder[alarms]": {
+            "type": "string",
+            "description": "Alarms"
+          },
+          "recorder[raid_support]": {
+            "type": "string",
+            "description": "Raid Support"
+          },
+          "recorder[storage]": {
+            "type": "string",
+            "description": "Internal Storage"
+          },
+          "recorder[additional_information]": {
+            "type": "string",
+            "description": "Additional Information"
+          },
+          "recorder[default_username]": {
+            "type": "string",
+            "description": "Default Username"
+          },
+          "recorder[default_password]": {
+            "type": "string",
+            "description": "Default Password"
+          },
+          "recorder[jpeg_url]": {
+            "type": "string",
+            "description": "JPEG URL"
+          },
+          "recorder[h264_url]": {
+            "type": "string",
+            "description": "H264 URL"
+          },
+          "recorder[mjpeg_url]": {
+            "type": "string",
+            "description": "MJPEG URL"
+          },
+          "recorder[official_url]": {
+            "type": "string",
+            "description": "Official URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id",
+          "recorder[model]",
+          "recorder[name]",
+          "recorder[recorder_type]"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.vendors.json.get",
+      "title": "api.v1.vendors.json.get",
+      "description": "Fetches all Vendors",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "order": {
+            "type": "string",
+            "description": "Sort order"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.vendors.json.post",
+      "title": "api.v1.vendors.json.post",
+      "description": "Creates a new Vendor",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vendor[name]": {
+            "type": "string",
+            "description": "Name"
+          },
+          "vendor[info]": {
+            "type": "string",
+            "description": "Info."
+          },
+          "vendor[url]": {
+            "type": "string",
+            "description": "Website"
+          },
+          "vendor[mac]": {
+            "type": "string",
+            "description": "MAC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "vendor[name]"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.vendors.id.json.get",
+      "title": "api.v1.vendors.id.json.get",
+      "description": "Fetches a single Vendor",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "order": {
+            "type": "string",
+            "description": "Sort order"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.vendors.id.json.patch",
+      "title": "api.v1.vendors.id.json.patch",
+      "description": "Updates an existing Vendor",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "vendor[name]": {
+            "type": "string",
+            "description": "Name"
+          },
+          "vendor[info]": {
+            "type": "string",
+            "description": "Info."
+          },
+          "vendor[url]": {
+            "type": "string",
+            "description": "Website"
+          },
+          "vendor[mac]": {
+            "type": "string",
+            "description": "MAC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.vendors.id.json.put",
+      "title": "api.v1.vendors.id.json.put",
+      "description": "Updates an existing Vendor",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Vendor ID"
+          },
+          "vendor[name]": {
+            "type": "string",
+            "description": "Name"
+          },
+          "vendor[info]": {
+            "type": "string",
+            "description": "Info."
+          },
+          "vendor[url]": {
+            "type": "string",
+            "description": "Website"
+          },
+          "vendor[mac]": {
+            "type": "string",
+            "description": "MAC"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": []
+}

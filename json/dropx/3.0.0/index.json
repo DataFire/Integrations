@@ -1,0 +1,195 @@
+{
+  "id": "dropx",
+  "title": "DropX",
+  "description": "dropX.io API provides programmatic access to the e-commerce intelligence data.",
+  "security": {
+    "dropx": {
+      "integration": "dropx",
+      "fields": {
+        "api_key": "authentication header should be in header"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dropx.svg"
+  },
+  "actionCount": 7,
+  "actions": [
+    {
+      "id": "products.get",
+      "title": "products.get",
+      "description": "Returns product details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pids": {
+            "type": "string",
+            "description": "search array of ids"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pids"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    },
+    {
+      "id": "products.link_search.get",
+      "title": "products.link_search.get",
+      "description": "Returns list of e-commerce product that are close to the one provided -- one from each provider",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL must be a url encoded value"
+          },
+          "providers": {
+            "type": "string",
+            "description": "A valid e commerce website link(eg. www.flipkart.com or http://www.amazon.in) by a ',' seperated values to filter response by required e-commerce providers"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    },
+    {
+      "id": "products.link_search_v2.get",
+      "title": "products.link_search_v2.get",
+      "description": "Returns list of e-commerce product that are close to the one provided -- one from each provider",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL must be a url encoded value"
+          },
+          "providers": {
+            "type": "string",
+            "description": "A valid e commerce website link(eg. www.flipkart.com or http://www.amazon.in) by a ',' seperated values to filter response by required e-commerce providers"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    },
+    {
+      "id": "products.search.get",
+      "title": "products.search.get",
+      "description": "Returns one unique result from every provider that dropx.io tracks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "search terms giving any title of products that are sold online"
+          },
+          "providers": {
+            "type": "string",
+            "description": "A valid e commerce website link(eg. www.flipkart.com or http://www.amazon.in) by a ',' seperated values to filter response by required e-commerce providers"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    },
+    {
+      "id": "products.search_v2.get",
+      "title": "products.search_v2.get",
+      "description": "Returns one unique result from every provider that dropx.io tracks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "search terms giving any title of products that are sold online"
+          },
+          "providers": {
+            "type": "string",
+            "description": "A valid e commerce website link(eg. www.flipkart.com or http://www.amazon.in) by a ',' seperated values to filter response by required e-commerce providers"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    },
+    {
+      "id": "products.title_search.get",
+      "title": "products.title_search.get",
+      "description": "Returns list of product ids",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "search terms giving any title of products that are sold online"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    },
+    {
+      "id": "users.usage.get",
+      "title": "users.usage.get",
+      "description": "Returns API request consumption details.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "dropx": {
+          "integration": "dropx"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "ecommerce"
+  ]
+}

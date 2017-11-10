@@ -1,0 +1,615 @@
+{
+  "id": "dataatwork",
+  "title": "Open Skills",
+  "description": "A complete and standard data store for canonical and emerging skills, knowledge, abilities, tools, technolgies, and how they relate to jobs.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/dataatwork.jpg"
+  },
+  "actionCount": 13,
+  "definitions": {
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "Error"
+    },
+    "Job": {
+      "properties": {
+        "normalized_job_title": {
+          "description": "Normalized job title",
+          "type": "string"
+        },
+        "parent_uuid": {
+          "description": "UUID for the job's parent job category",
+          "type": "string"
+        },
+        "title": {
+          "description": "Job title",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the job",
+          "type": "string"
+        }
+      },
+      "title": "Job"
+    },
+    "JobRelatedJob": {
+      "properties": {
+        "parent_uuid": {
+          "description": "Universally Unique Identifier for the job's canonical job title",
+          "type": "string"
+        },
+        "title": {
+          "description": "Job title",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the job",
+          "type": "string"
+        }
+      },
+      "title": "JobRelatedJob"
+    },
+    "JobRelatedJobs": {
+      "properties": {
+        "related_job_titles": {
+          "items": {
+            "$ref": "#/definitions/JobRelatedJob"
+          },
+          "type": "array"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the job",
+          "type": "string"
+        }
+      },
+      "title": "JobRelatedJobs"
+    },
+    "JobSkill": {
+      "properties": {
+        "importance": {
+          "description": "O*NET importance score indicating how important skill is to job.",
+          "type": "number"
+        },
+        "job_title": {
+          "description": "Job title",
+          "type": "string"
+        },
+        "job_uuid": {
+          "description": "Universally Unique Identifier for the job",
+          "type": "string"
+        },
+        "level": {
+          "description": "O*NET level score indicating the skill level required for the job.",
+          "type": "number"
+        },
+        "normalized_job_title": {
+          "description": "Normalized job title",
+          "type": "string"
+        }
+      },
+      "title": "JobSkill"
+    },
+    "JobSkills": {
+      "properties": {
+        "job_title": {
+          "description": "Title of the job associated with the UUID",
+          "type": "string"
+        },
+        "job_uuid": {
+          "description": "Universally Unique Identifier for the job",
+          "type": "string"
+        },
+        "normalized_job_title": {
+          "description": "Normalized title of the job associated with the UUID",
+          "type": "string"
+        },
+        "skills": {
+          "items": {
+            "$ref": "#/definitions/SkillJob"
+          },
+          "type": "array"
+        }
+      },
+      "title": "JobSkills"
+    },
+    "Jobs": {
+      "items": {
+        "$ref": "#/definitions/Job"
+      },
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/PageLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "array",
+      "title": "Jobs"
+    },
+    "NormalizedJob": {
+      "properties": {
+        "parent_uuid": {
+          "description": "Universal Unique Identifier for the canonical job title",
+          "type": "string"
+        },
+        "relevance_score": {
+          "description": "Relevance score for job title.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Job title for the synonymous job title",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the synonymous job title",
+          "type": "string"
+        }
+      },
+      "title": "NormalizedJob"
+    },
+    "NormalizedJobs": {
+      "items": {
+        "$ref": "#/definitions/NormalizedJob"
+      },
+      "type": "array",
+      "title": "NormalizedJobs"
+    },
+    "NormalizedSkill": {
+      "properties": {
+        "skill_name": {
+          "description": "Canonical skill name",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the canonical skill name",
+          "type": "string"
+        }
+      },
+      "title": "NormalizedSkill"
+    },
+    "NormalizedSkills": {
+      "items": {
+        "$ref": "#/definitions/NormalizedSkill"
+      },
+      "type": "array",
+      "title": "NormalizedSkills"
+    },
+    "PageLink": {
+      "properties": {
+        "href": {
+          "description": "Link URI",
+          "type": "string"
+        },
+        "rel": {
+          "description": "Link descriptor (e.g. self, first, prev, next, last)",
+          "type": "string"
+        }
+      },
+      "title": "PageLink"
+    },
+    "Skill": {
+      "properties": {
+        "name": {
+          "description": "Skill name",
+          "type": "string"
+        },
+        "normalized_skill_name": {
+          "description": "Normalized skill name",
+          "type": "string"
+        },
+        "onet_element_id": {
+          "description": "O*NET Element Identifier",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the skill",
+          "type": "string"
+        }
+      },
+      "title": "Skill"
+    },
+    "SkillJob": {
+      "properties": {
+        "description": {
+          "description": "Description of the skill",
+          "type": "string"
+        },
+        "importance": {
+          "description": "O*NET importance score",
+          "type": "number"
+        },
+        "level": {
+          "description": "O*NET level score",
+          "type": "number"
+        },
+        "normalized_skill_name": {
+          "description": "Normalized skill name",
+          "type": "string"
+        },
+        "skill_name": {
+          "description": "Name of the skill",
+          "type": "string"
+        },
+        "skill_uuid": {
+          "description": "Universally Unique Identifier for the skill",
+          "type": "string"
+        }
+      },
+      "title": "SkillJob"
+    },
+    "SkillJobs": {
+      "properties": {
+        "jobs": {
+          "items": {
+            "$ref": "#/definitions/JobSkill"
+          },
+          "type": "array"
+        },
+        "normalized_job_title": {
+          "description": "Normalized title of the job associated with the UUID",
+          "type": "string"
+        },
+        "skill_name": {
+          "description": "Title of the job associated with the UUID",
+          "type": "string"
+        },
+        "skill_uuid": {
+          "description": "Universally Unique Identifier for the job",
+          "type": "string"
+        }
+      },
+      "title": "SkillJobs"
+    },
+    "SkillRelatedSkill": {
+      "properties": {
+        "skill_name": {
+          "description": "Skill name",
+          "type": "string"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the skill",
+          "type": "string"
+        }
+      },
+      "title": "SkillRelatedSkill"
+    },
+    "SkillRelatedSkills": {
+      "properties": {
+        "related_skill_name": {
+          "items": {
+            "$ref": "#/definitions/SkillRelatedSkill"
+          },
+          "type": "array"
+        },
+        "uuid": {
+          "description": "Universally Unique Identifier for the skills",
+          "type": "string"
+        }
+      },
+      "title": "SkillRelatedSkills"
+    },
+    "Skills": {
+      "items": {
+        "$ref": "#/definitions/Skill"
+      },
+      "properties": {
+        "links": {
+          "items": {
+            "$ref": "#/definitions/PageLink"
+          },
+          "type": "array"
+        }
+      },
+      "type": "array",
+      "title": "Skills"
+    }
+  },
+  "actions": [
+    {
+      "id": "jobs.get",
+      "title": "jobs.get",
+      "description": "Retrieves the names, descriptions, and UUIDs of all job titles.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Pagination offset. Default is 0."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of items per page. Default is 20 and cannot exceed 500."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Jobs"
+      }
+    },
+    {
+      "id": "jobs.autocomplete.get",
+      "title": "jobs.autocomplete.get",
+      "description": "Retrieves the names, descriptions, and UUIDs of all job titles matching a given search criteria.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "begins_with": {
+            "type": "string",
+            "description": "Find job titles beginning with the given text fragment"
+          },
+          "contains": {
+            "type": "string",
+            "description": "Find job titles containing the given text fragment"
+          },
+          "ends_with": {
+            "type": "string",
+            "description": "Find job titles ending with the given text fragment"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Jobs"
+      }
+    },
+    {
+      "id": "jobs.normalize.get",
+      "title": "jobs.normalize.get",
+      "description": "Retrieves the canonical job title for a synonymous job title",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "job_title": {
+            "type": "string",
+            "description": "Find the canonical job title(s) for jobs matching the given text fragment"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximumn number of job title synonyms to return. Default is 1 and cannot exceed 10."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "job_title"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NormalizedJobs"
+      }
+    },
+    {
+      "id": "jobs.unusual_titles.get",
+      "title": "jobs.unusual_titles.get",
+      "description": "Retrieves a list of unusual job titles and the UUIDs of their canonical jobs.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/NormalizedJobs"
+      }
+    },
+    {
+      "id": "jobs.id.get",
+      "title": "jobs.id.get",
+      "description": "Retrieves the name, description, and UUID of a job by specifying its O*NET SOC Code or UUID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The O*NET SOC Code or UUID of the job title to retrieve"
+          },
+          "fips": {
+            "type": "string",
+            "description": "The FIPS Code of a Core-Based Statistical Area. Only return the job if present in this area"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Job"
+      }
+    },
+    {
+      "id": "jobs.id.related_jobs.get",
+      "title": "jobs.id.related_jobs.get",
+      "description": "Retrieves a collection of jobs associated with a specified job.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The UUID of the job to retrieve related jobs for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JobRelatedJobs"
+      }
+    },
+    {
+      "id": "jobs.id.related_skills.get",
+      "title": "jobs.id.related_skills.get",
+      "description": "Retrieves a collection of skills associated with a specified job.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The UUID of the job to retrieve skills for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JobSkills"
+      }
+    },
+    {
+      "id": "skills.get",
+      "title": "skills.get",
+      "description": "Retrieve the names, descriptions, and UUIDs of all skills.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "description": "Pagination offset. Default is 0."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of items per page. Default is 20 and cannot exceed 500."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Skills"
+      }
+    },
+    {
+      "id": "skills.autocomplete.get",
+      "title": "skills.autocomplete.get",
+      "description": "Retrieves the names, descriptions, and UUIDs of all skills matching a given search criteria.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "begins_with": {
+            "type": "string",
+            "description": "Find skill names beginning with the given text fragment"
+          },
+          "contains": {
+            "type": "string",
+            "description": "Find skill names containing the given text fragment"
+          },
+          "ends_with": {
+            "type": "string",
+            "description": "Find skill names ending with the given text fragment"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SkillJobs"
+      }
+    },
+    {
+      "id": "skills.normalize.get",
+      "title": "skills.normalize.get",
+      "description": "Retrieves the canonical skill name for a synonymous skill name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "skill_name": {
+            "type": "string",
+            "description": "Find the canonical skill name(s) for skills matching the given text fragment"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "skill_name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NormalizedSkills"
+      }
+    },
+    {
+      "id": "skills.id.get",
+      "title": "skills.id.get",
+      "description": "Retrieves the name, description, and UUID of a job by specifying its UUID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The UUID of the skill name to retrieve"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Skill"
+      }
+    },
+    {
+      "id": "skills.id.related_jobs.get",
+      "title": "skills.id.related_jobs.get",
+      "description": "Retrieves a collection of jobs associated with a specified skill.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The UUID of the skill to retrieve jobs for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SkillJobs"
+      }
+    },
+    {
+      "id": "skills.id.related_skills.get",
+      "title": "skills.id.related_skills.get",
+      "description": "Retrieves a collection of skills associated with a specified skill.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The UUID of the skill to retrieve related skills for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SkillRelatedSkills"
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

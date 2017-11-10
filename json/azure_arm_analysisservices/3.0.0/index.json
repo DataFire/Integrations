@@ -1,0 +1,728 @@
+{
+  "id": "azure_arm_analysisservices",
+  "title": "AzureAnalysisServices",
+  "description": "The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers",
+  "security": {
+    "azure_arm_analysisservices": {
+      "integration": "azure_arm_analysisservices",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_analysisservices.png"
+  },
+  "actionCount": 10,
+  "definitions": {
+    "AnalysisServicesServer": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Represents an instance of an Analysis Services resource.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/AnalysisServicesServerProperties",
+          "description": "Properties of the provision operation request.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object",
+      "title": "AnalysisServicesServer"
+    },
+    "AnalysisServicesServerMutableProperties": {
+      "description": "An object that represents a set of mutable Analysis Services resource properties.",
+      "properties": {
+        "asAdministrators": {
+          "$ref": "#/definitions/ServerAdministrators",
+          "description": "A collection of AS server administrators"
+        },
+        "backupBlobContainerUri": {
+          "description": "The container URI of backup blob.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "AnalysisServicesServerMutableProperties"
+    },
+    "AnalysisServicesServerProperties": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AnalysisServicesServerMutableProperties"
+        }
+      ],
+      "description": "Properties of Analysis Services resource.",
+      "properties": {
+        "provisioningState": {
+          "description": "The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.",
+          "enum": [
+            "Deleting",
+            "Succeeded",
+            "Failed",
+            "Paused",
+            "Suspended",
+            "Provisioning",
+            "Updating",
+            "Suspending",
+            "Pausing",
+            "Resuming",
+            "Preparing",
+            "Scaling"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "ProvisioningState"
+          }
+        },
+        "serverFullName": {
+          "description": "The full name of the Analysis Services resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "state": {
+          "description": "The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.",
+          "enum": [
+            "Deleting",
+            "Succeeded",
+            "Failed",
+            "Paused",
+            "Suspended",
+            "Provisioning",
+            "Updating",
+            "Suspending",
+            "Pausing",
+            "Resuming",
+            "Preparing",
+            "Scaling"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "State"
+          }
+        }
+      },
+      "type": "object",
+      "title": "AnalysisServicesServerProperties"
+    },
+    "AnalysisServicesServerUpdateParameters": {
+      "description": "Provision request specification",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/AnalysisServicesServerMutableProperties",
+          "description": "Properties of the provision operation request.",
+          "x-ms-client-flatten": true
+        },
+        "sku": {
+          "$ref": "#/definitions/ResourceSku",
+          "description": "The SKU of the Analysis Services resource."
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value pairs of additional provisioning properties.",
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "AnalysisServicesServerUpdateParameters"
+    },
+    "AnalysisServicesServers": {
+      "description": "An array of Analysis Services resources.",
+      "properties": {
+        "value": {
+          "description": "An array of Analysis Services resources.",
+          "items": {
+            "$ref": "#/definitions/AnalysisServicesServer"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object",
+      "title": "AnalysisServicesServers"
+    },
+    "Resource": {
+      "description": "Represents an instance of an Analysis Services resource.",
+      "properties": {
+        "id": {
+          "description": "An identifier that represents the Analysis Services resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "Location of the Analysis Services resource.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the Analysis Services resource.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "sku": {
+          "$ref": "#/definitions/ResourceSku",
+          "description": "The SKU of the Analysis Services resource."
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Key-value pairs of additional resource provisioning properties.",
+          "type": "object"
+        },
+        "type": {
+          "description": "The type of the Analysis Services resource.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "sku"
+      ],
+      "type": "object",
+      "x-ms-azure-resource": true,
+      "title": "Resource"
+    },
+    "ResourceSku": {
+      "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource.",
+      "properties": {
+        "name": {
+          "description": "Name of the SKU level.",
+          "type": "string"
+        },
+        "tier": {
+          "description": "The name of the Azure pricing tier to which the SKU applies.",
+          "enum": [
+            "Development",
+            "Basic",
+            "Standard"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "SkuTier"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object",
+      "title": "ResourceSku"
+    },
+    "ServerAdministrators": {
+      "description": "An array of administrator user identities",
+      "properties": {
+        "members": {
+          "description": "An array of administrator user identities.",
+          "items": {
+            "description": "The UPN of the user. For example: johnsmith@contoso.com.",
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "ServerAdministrators"
+    },
+    "SkuDetailsForExistingResource": {
+      "description": "An object that represents SKU details for existing resources",
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/ResourceSku",
+          "description": "The SKU in SKU details for existing resources."
+        }
+      },
+      "type": "object",
+      "title": "SkuDetailsForExistingResource"
+    },
+    "SkuEnumerationForExistingResourceResult": {
+      "description": "An object that represents enumerating SKUs for existing resources",
+      "properties": {
+        "value": {
+          "description": "The collection of available SKUs for existing resources",
+          "items": {
+            "$ref": "#/definitions/SkuDetailsForExistingResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "SkuEnumerationForExistingResourceResult"
+    },
+    "SkuEnumerationForNewResourceResult": {
+      "description": "An object that represents enumerating SKUs for new resources",
+      "properties": {
+        "value": {
+          "description": "The collection of available SKUs for new resources",
+          "items": {
+            "$ref": "#/definitions/ResourceSku"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "SkuEnumerationForNewResourceResult"
+    }
+  },
+  "actions": [
+    {
+      "id": "Servers_List",
+      "title": "Servers_List",
+      "description": "Lists all the Analysis Services servers for the given subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AnalysisServicesServers"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_ListSkusForNew",
+      "title": "Servers_ListSkusForNew",
+      "description": "Lists eligible SKUs for Analysis Services resource provider.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SkuEnumerationForNewResourceResult"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_ListByResourceGroup",
+      "title": "Servers_ListByResourceGroup",
+      "description": "Gets all the Analysis Services servers for the given resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AnalysisServicesServers"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_Delete",
+      "title": "Servers_Delete",
+      "description": "Deletes the specified Analysis Services server.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_GetDetails",
+      "title": "Servers_GetDetails",
+      "description": "Gets details about the specified Analysis Services server.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AnalysisServicesServer"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_Update",
+      "title": "Servers_Update",
+      "description": "Updates the current state of the specified Analysis Services server.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "serverUpdateParameters": {
+            "$ref": "#/definitions/AnalysisServicesServerUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "serverUpdateParameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AnalysisServicesServer"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_Create",
+      "title": "Servers_Create",
+      "description": "Provisions the specified Analysis Services server based on the configuration specified in the request.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "serverParameters": {
+            "$ref": "#/definitions/AnalysisServicesServer"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "serverParameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AnalysisServicesServer"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_Resume",
+      "title": "Servers_Resume",
+      "description": "Resumes operation of the specified Analysis Services server instance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_ListSkusForExisting",
+      "title": "Servers_ListSkusForExisting",
+      "description": "Lists eligible SKUs for an Analysis Services resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SkuEnumerationForExistingResourceResult"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    },
+    {
+      "id": "Servers_Suspend",
+      "title": "Servers_Suspend",
+      "description": "Supends operation of the specified Analysis Services server instance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "maxLength": 90,
+            "minLength": 1
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
+            "pattern": "^[a-z][a-z0-9]*$",
+            "maxLength": 63,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The client API version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

@@ -578,6 +578,21 @@ amazonaws_lightsail.PeerVpc({}, context)
 #### Parameters
 *This action has no parameters*
 
+### PutInstancePublicPorts
+
+
+
+```js
+amazonaws_lightsail.PutInstancePublicPorts({
+  "portInfos": [],
+  "instanceName": ""
+}, context)
+```
+
+#### Parameters
+* instanceName (string) **required**
+* portInfos (array) **required**
+
 ### RebootInstance
 
 

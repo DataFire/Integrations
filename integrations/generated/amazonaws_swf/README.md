@@ -36,10 +36,10 @@ amazonaws_swf.CountClosedWorkflowExecutions({
 
 #### Parameters
 * closeStatusFilter (object) - Used to filter the closed workflow executions in visibility APIs by their close status.
-* closeTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code>
+* closeTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code> 
 * domain (string) **required**
 * executionFilter (object) - Used to filter the workflow executions in visibility APIs by their <code>workflowId</code>.
-* startTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code>
+* startTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code> 
 * tagFilter (object) - Used to filter the workflow executions in visibility APIs based on a tag.
 * typeFilter (object) - Used to filter workflow execution query results by type. Each parameter, if specified, defines a rule that must be satisfied by each returned result.
 
@@ -59,7 +59,7 @@ amazonaws_swf.CountOpenWorkflowExecutions({
 #### Parameters
 * domain (string) **required**
 * executionFilter (object) - Used to filter the workflow executions in visibility APIs by their <code>workflowId</code>.
-* startTimeFilter (object) **required** - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code>
+* startTimeFilter (object) **required** - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code> 
 * tagFilter (object) - Used to filter the workflow executions in visibility APIs based on a tag.
 * typeFilter (object) - Used to filter workflow execution query results by type. Each parameter, if specified, defines a rule that must be satisfied by each returned result.
 
@@ -271,13 +271,13 @@ amazonaws_swf.ListClosedWorkflowExecutions({
 * maximumPageSize (string)
 * nextPageToken (string)
 * closeStatusFilter (object) - Used to filter the closed workflow executions in visibility APIs by their close status.
-* closeTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code>
+* closeTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code> 
 * domain (string) **required**
 * executionFilter (object) - Used to filter the workflow executions in visibility APIs by their <code>workflowId</code>.
 * maximumPageSize (integer)
 * nextPageToken (string)
 * reverseOrder (boolean)
-* startTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code>
+* startTimeFilter (object) - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code> 
 * tagFilter (object) - Used to filter the workflow executions in visibility APIs based on a tag.
 * typeFilter (object) - Used to filter workflow execution query results by type. Each parameter, if specified, defines a rule that must be satisfied by each returned result.
 
@@ -320,7 +320,7 @@ amazonaws_swf.ListOpenWorkflowExecutions({
 * maximumPageSize (integer)
 * nextPageToken (string)
 * reverseOrder (boolean)
-* startTimeFilter (object) **required** - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code>
+* startTimeFilter (object) **required** - Used to filter the workflow executions in visibility APIs by various time-based rules. Each parameter, if specified, defines a rule that must be satisfied by each returned query result. The parameter values are in the <a href="https://en.wikipedia.org/wiki/Unix_time">Unix Time format</a>. For example: <code>"oldestDate": 1325376070.</code> 
 * tagFilter (object) - Used to filter the workflow executions in visibility APIs based on a tag.
 * typeFilter (object) - Used to filter workflow execution query results by type. Each parameter, if specified, defines a rule that must be satisfied by each returned result.
 

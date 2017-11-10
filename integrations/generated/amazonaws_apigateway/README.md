@@ -271,6 +271,30 @@ amazonaws_apigateway.UpdateDocumentationVersion({}, context)
 * docVersion (string)
 * patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
 
+### GetGatewayResponses
+
+
+
+```js
+amazonaws_apigateway.GetGatewayResponses({}, context)
+```
+
+#### Parameters
+* restapiId (string)
+
+### UpdateGatewayResponse
+
+
+
+```js
+amazonaws_apigateway.UpdateGatewayResponse({}, context)
+```
+
+#### Parameters
+* restapiId (string)
+* responseType (string)
+* patchOperations (array) - A list of operations describing the updates to apply to the specified resource. The patches are applied in the order specified in the list.
+
 ### GetModels
 
 

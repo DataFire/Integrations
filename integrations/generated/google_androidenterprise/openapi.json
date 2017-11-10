@@ -28,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/androidenterprise/v1/rest",
@@ -714,6 +714,106 @@
             "description": "Successful response",
             "schema": {
               "$ref": "#/definitions/EnterpriseAccount"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ]
+          }
+        ],
+        "tags": [
+          "enterprises"
+        ]
+      }
+    },
+    "/enterprises/{enterpriseId}/androidDevicePolicyConfig": {
+      "get": {
+        "description": "Returns the Android Device Policy config resource.",
+        "operationId": "enterprises.getAndroidDevicePolicyConfig",
+        "parameters": [
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AndroidDevicePolicyConfig"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ]
+          }
+        ],
+        "tags": [
+          "enterprises"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/userIp"
+        }
+      ],
+      "put": {
+        "description": "Sets the Android Device Policy config resource. EMM may use this method to enable or disable Android Device Policy support for the specified enterprise. To learn more about managing devices and apps with Android Device Policy, see the Android Management API.",
+        "operationId": "enterprises.setAndroidDevicePolicyConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AndroidDevicePolicyConfig"
+            }
+          },
+          {
+            "description": "The ID of the enterprise.",
+            "in": "path",
+            "name": "enterpriseId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AndroidDevicePolicyConfig"
             }
           }
         },
@@ -1518,7 +1618,7 @@
         }
       ],
       "post": {
-        "description": "Sends a test push notification to validate the EMM integration with the Google Cloud Pub/Sub service for this enterprise.",
+        "description": "Sends a test notification to validate the EMM integration with the Google Cloud Pub/Sub service for this enterprise.",
         "operationId": "enterprises.sendTestPushNotification",
         "parameters": [
           {
@@ -4812,6 +4912,21 @@
       },
       "type": "object"
     },
+    "AndroidDevicePolicyConfig": {
+      "description": "The Android Device Policy configuration of an enterprise.",
+      "properties": {
+        "kind": {
+          "default": "androidenterprise#androidDevicePolicyConfig",
+          "description": "Identifies what kind of resource this is. Value: the fixed string \"androidenterprise#androidDevicePolicyConfig\".",
+          "type": "string"
+        },
+        "state": {
+          "description": "The state of Android Device Policy. \"enabled\" indicates that Android Device Policy is enabled for the enterprise and the EMM is allowed to manage devices with Android Device Policy, while \"disabled\" means that it cannot.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AppRestrictionsSchema": {
       "description": "Represents the list of app restrictions available to be pre-configured for the product.",
       "properties": {
@@ -4930,6 +5045,10 @@
     "AppVersion": {
       "description": "This represents a single version of the app.",
       "properties": {
+        "track": {
+          "description": "The track that this app was published in. For example if track is \"alpha\", this is an alpha version of the app.",
+          "type": "string"
+        },
         "versionCode": {
           "description": "Unique increasing identifier for the app version.",
           "format": "int32",
@@ -5138,7 +5257,7 @@
       "type": "object"
     },
     "GroupLicense": {
-      "description": "A group license object indicates a product that an enterprise admin has approved for use in the enterprise. The product may be free or paid. For free products, a group license object is created in these cases: if the enterprise admin approves a product in Google Play, if the product is added to a collection, or if an entitlement for the product is created for a user via the API. For paid products, a group license object is only created as part of the first bulk purchase of that product in Google Play by the enterprise admin.\n\nThe API can be used to query group licenses; the available information includes the total number of licenses purchased (for paid products) and the total number of licenses that have been provisioned, that is, the total number of user entitlements in existence for the product.\n\nGroup license objects are never deleted. If, for example, a free app is added to a collection and then removed, the group license will remain, allowing the enterprise admin to keep track of any remaining entitlements. An enterprise admin may indicate they are no longer interested in the group license by marking it as unapproved in Google Play.",
+      "description": "Group license objects allow you to keep track of licenses (called entitlements) for both free and paid apps. For a free app, a group license is created when an enterprise admin first approves the product in Google Play or when the first entitlement for the product is created for a user via the API. For a paid app, a group license object is only created when an enterprise admin purchases the product in Google Play for the first time.\n\nUse the API to query group licenses. A Grouplicenses resource includes the total number of licenses purchased (paid apps only) and the total number of licenses currently in use. In other words, the total number of Entitlements that exist for the product.\n\nOnly one group license object is created per product and group license objects are never deleted. If a product is unapproved, its group license remains. This allows enterprise admins to keep track of any remaining entitlements for the product.",
       "properties": {
         "acquisitionKind": {
           "description": "How this group license was acquired. \"bulkPurchase\" means that this Grouplicenses resource was created because the enterprise purchased licenses for this product; otherwise, the value is \"free\" (for free products).",
@@ -5162,6 +5281,10 @@
           "description": "The number of purchased licenses (possibly in multiple purchases). If this field is omitted, then there is no limit on the number of licenses that can be provisioned (for example, if the acquisition kind is \"free\").",
           "format": "int32",
           "type": "integer"
+        },
+        "permissions": {
+          "description": "The permission approval status of the product. This field is only set if the product is approved. Possible states are: \n- \"currentApproved\", the current set of permissions is approved, but additional permissions will require the administrator to reapprove the product (If the product was approved without specifying the approved permissions setting, then this is the default behavior.), \n- \"needsReapproval\", the product has unapproved permissions. No additional product licenses can be assigned until the product is reapproved, \n- \"allCurrentAndFutureApproved\", the current permissions are approved and any future permission updates will be automatically approved without administrator review.",
+          "type": "string"
         },
         "productId": {
           "description": "The ID of the product that the license is for. For example, \"app:com.google.android.gm\".",
@@ -5469,6 +5592,10 @@
           "$ref": "#/definitions/NewPermissionsEvent",
           "description": "Notifications about new app permissions."
         },
+        "notificationType": {
+          "description": "Type of the notification.",
+          "type": "string"
+        },
         "productApprovalEvent": {
           "$ref": "#/definitions/ProductApprovalEvent",
           "description": "Notifications about changes to a product's approval status."
@@ -5551,7 +5678,7 @@
       "description": "A Products resource represents an app in the Google Play store that is available to at least some users in the enterprise. (Some apps are restricted to a single enterprise, and no information about them is made available outside that enterprise.)\n\nThe information provided for each product (localized name, icon, link to the full Google Play details page) is intended to allow a basic representation of the product within an EMM user interface.",
       "properties": {
         "appVersion": {
-          "description": "App versions currently available for this product. The returned list contains only public versions. Alpha and beta versions are not included.",
+          "description": "App versions currently available for this product.",
           "items": {
             "$ref": "#/definitions/AppVersion"
           },
@@ -5560,6 +5687,13 @@
         "authorName": {
           "description": "The name of the author of the product (for example, the app developer).",
           "type": "string"
+        },
+        "availableTracks": {
+          "description": "The tracks that are visible to the enterprise.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
         "detailsUrl": {
           "description": "A link to the (consumer) Google Play details page for the product.",
@@ -5589,6 +5723,10 @@
         "requiresContainerApp": {
           "description": "Deprecated.",
           "type": "boolean"
+        },
+        "signingCertificate": {
+          "$ref": "#/definitions/ProductSigningCertificate",
+          "description": "The certificate used to sign this product."
         },
         "smallIconUrl": {
           "description": "A link to a smaller image that can be used as an icon for the product. This image is suitable for use at up to 128px x 128px.",
@@ -5685,8 +5823,45 @@
           "type": "array"
         },
         "productSetBehavior": {
-          "description": "The interpretation of this product set. \"unknown\" should never be sent and is ignored if received. \"whitelist\" means that the user is entitled to access the product set. \"includeAll\" means that all products are accessible, including products that are approved, products with revoked approval, and products that have never been approved. \"allApproved\" means that the user is entitled to access all products that are approved for the enterprise. If the value is \"allApproved\" or \"includeAll\", the productId field is ignored. If no value is provided, it is interpreted as \"whitelist\" for backwards compatibility.",
+          "description": "The interpretation of this product set. \"unknown\" should never be sent and is ignored if received. \"whitelist\" means that the user is entitled to access the product set. \"includeAll\" means that all products are accessible, including products that are approved, products with revoked approval, and products that have never been approved. \"allApproved\" means that the user is entitled to access all products that are approved for the enterprise. If the value is \"allApproved\" or \"includeAll\", the productId field is ignored. If no value is provided, it is interpreted as \"whitelist\" for backwards compatibility. Further \"allApproved\" or \"includeAll\" does not enable automatic visibility of \"alpha\" or \"beta\" tracks for Android app. Use ProductVisibility to enable \"alpha\" or \"beta\" tracks per user.",
           "type": "string"
+        },
+        "productVisibility": {
+          "description": "Additional list of product IDs making up the product set. Unlike the productID array, in this list It's possible to specify which tracks (alpha, beta, production) of a product are visible to the user. See ProductVisibility and its fields for more information. Specifying the same product ID both here and in the productId array is not allowed and it will result in an error.",
+          "items": {
+            "$ref": "#/definitions/ProductVisibility"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ProductSigningCertificate": {
+      "properties": {
+        "certificateHashSha1": {
+          "description": "The base64 urlsafe encoded SHA1 hash of the certificate. (This field is deprecated in favor of SHA2-256. It should not be used and may be removed at any time.)",
+          "type": "string"
+        },
+        "certificateHashSha256": {
+          "description": "The base64 urlsafe encoded SHA2-256 hash of the certificate.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProductVisibility": {
+      "description": "A product to be made visible to a user.",
+      "properties": {
+        "productId": {
+          "description": "The product ID to make visible to the user. Required for each item in the productVisibility list.",
+          "type": "string"
+        },
+        "tracks": {
+          "description": "Grants visibility to the specified track(s) of the product to the user. The track available to the user is based on the following order of preference: alpha, beta, production. For example, if an app has a prod version, a beta version and an alpha version and the enterprise has been granted visibility to both the alpha and beta tracks, if tracks is {\"beta\", \"production\"} the user will be able to install the app and they will get the beta version of the app. If there are no app versions in the specified track adding the \"alpha\" and \"beta\" values to the list of tracks will have no effect. Note that the enterprise requires access to alpha and/or beta tracks before users can be granted visibility to apps in those tracks.\n\nThe allowed sets are: {} (considered equivalent to {\"production\"}) {\"production\"} {\"beta\", \"production\"} {\"alpha\", \"beta\", \"production\"} The order of elements is not relevant. Any other set of tracks will be rejected with an error.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -5696,6 +5871,10 @@
         "approvalUrlInfo": {
           "$ref": "#/definitions/ApprovalUrlInfo",
           "description": "The approval URL that was shown to the user. Only the permissions shown to the user with that URL will be accepted, which may not be the product's entire set of permissions. For example, the URL may only display new permissions from an update after the product was approved, or not include new permissions if the product was updated since the URL was generated."
+        },
+        "approvedPermissions": {
+          "description": "Sets how new permission requests for the product are handled. \"allPermissions\" automatically approves all current and future permissions for the product. \"currentPermissionsOnly\" approves the current set of permissions for the product, but any future permissions added through updates will require manual reapproval. If not specified, only the current set of permissions will be approved.",
+          "type": "string"
         }
       },
       "type": "object"

@@ -1637,7 +1637,7 @@
           "type": "string"
         },
         "startTimeUtc": {
-          "description": "The start time of the Job.",
+          "description": "The start time of the job.",
           "format": "date-time-rfc1123",
           "readOnly": true,
           "type": "string"
@@ -1790,6 +1790,7 @@
       "type": "object"
     },
     "Resource": {
+      "description": "The common properties of an Azure resource.",
       "properties": {
         "id": {
           "description": "The resource identifier.",

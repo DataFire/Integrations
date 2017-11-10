@@ -214,7 +214,7 @@
       "name": "Checkout Pages"
     },
     {
-      "description": "Contacts belong to Customers. A Customer can have many contacts.\nSome contacts are associated to Invoices, Payment Cards, Subscriptions\nand Transactions.\n",
+      "description": "Contacts are Customer's address book.\nAll contact information used in Invoices, Subscriptions, Transacions, etc is enlisted here. Hovewer, changing a Contact won't change corresponding contact information in related resources\n",
       "name": "Contacts"
     },
     {
@@ -294,7 +294,7 @@
       "name": "Payment Cards"
     },
     {
-      "description": "Payment tokens are used to reduce the scope of PCI DSS compliance.  A payment\ntoken can be made using a different authentication scheme (refer to the public key\nauthentication scheme in the Authentication section), which allows you to\ncreate a payment tokeng directly from the browser, bypassing the need to send\nsensitive cardholder info to your servers.  We recommend using this with our\nRebilly.js library, which helps you wire a form into this API resource and create\npayment tokens.\n",
+      "description": "Payment tokens are used to reduce the scope of PCI DSS compliance.  A payment\ntoken can be made using a different authentication scheme (refer to the public key\nauthentication scheme in the Authentication section), which allows you to\ncreate a payment token directly from the browser, bypassing the need to send\nsensitive cardholder info to your servers.  We recommend using this with our\nRebilly.js library, which helps you wire a form into this API resource and create\npayment tokens.\n",
       "name": "Payment Tokens"
     },
     {
@@ -829,8 +829,7 @@
             "$ref": "#/responses/NotFound"
           },
           "422": {
-            "$ref": "#/responses/InvalidDataError",
-            "description": "Invalid data was sent"
+            "$ref": "#/responses/InvalidDataError"
           }
         },
         "summary": "Create or update api key with predefined ID",
@@ -1594,7 +1593,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$bankAccountForm = new Rebilly\\Entities\\BankAccount();\n$bankAccountForm->setCustomerId('customerId');\n$bankAccountForm->setContactId('contactId');\n$bankAccountForm->setRoutingNumber('0123456');\n$bankAccountForm->setAccountNumber('0123456');\n$bankAccountForm->setAccountType('checking');\n\ntry {\n    $bankAccount = $client->bankAccounts()->create($bankAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$bankAccountForm = new Rebilly\\Entities\\BankAccount();\n$bankAccountForm->setCustomerId('customerId');\n$bankAccountForm->setRoutingNumber('0123456');\n$bankAccountForm->setAccountNumber('0123456');\n$bankAccountForm->setAccountType('checking');\n$bankAccountForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $bankAccount = $client->bankAccounts()->create($bankAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "bank_accounts.post"
@@ -1722,7 +1721,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$bankAccountForm = new Rebilly\\Entities\\BankAccount();\n$bankAccountForm->setCustomerId('customerId');\n$bankAccountForm->setContactId('contactId');\n$bankAccountForm->setRoutingNumber('0123456');\n$bankAccountForm->setAccountNumber('0123456');\n$bankAccountForm->setAccountType('checking');\n\ntry {\n    $bankAccount = $client->customers()->update('bankAccountId', $bankAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$bankAccountForm = new Rebilly\\Entities\\BankAccount();\n$bankAccountForm->setCustomerId('customerId');\n$bankAccountForm->setRoutingNumber('0123456');\n$bankAccountForm->setAccountNumber('0123456');\n$bankAccountForm->setAccountType('checking');\n$bankAccountForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $bankAccount = $client->customers()->create($bankAccountForm, 'bankAccountId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "bank_accounts.id.put"
@@ -2038,7 +2037,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$blacklistForm = new Rebilly\\Entities\\Blacklist();\n$blacklistForm->setType($blacklistForm::TYPE_EMAIL);\n$blacklistForm->setValue('test@test.com');\n$blacklistForm->setExpiredTime('2025-01-01 05:00:00');\n\ntry {\n    $blacklist = $client->blacklists()->update('blacklistId', $blacklistForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$blacklistForm = new Rebilly\\Entities\\Blacklist();\n$blacklistForm->setType($blacklistForm::TYPE_EMAIL);\n$blacklistForm->setValue('test@test.com');\n$blacklistForm->setExpiredTime('2025-01-01 05:00:00');\n\ntry {\n    $blacklist = $client->blacklists()->create($blacklistForm, 'blacklistId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "blacklists.id.put"
@@ -2431,13 +2430,49 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$contactForm = new Rebilly\\Entities\\Contact();\n$contactForm->setFirstName('Sherlock');\n$contactForm->setLastName('Holmes');\n$contactForm->setOrganization('TestOrganization');\n\ntry {\n    $contact = $client->contacts()->create($contactForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$contactForm = new Rebilly\\Entities\\Contact();\n$contactForm->setFirstName('Sherlock');\n$contactForm->setLastName('Holmes');\n$contactForm->setOrganization('TestOrganization');\n$contactForm->setEmails(\n    [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ]\n);\n$contactForm->setPhoneNumbers(\n    [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ]\n);\n\ntry {\n    $contact = $client->contacts()->create($contactForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "contacts.post"
       }
     },
     "/contacts/{id}": {
+      "delete": {
+        "description": "Delete a contact with predefined identifier string\n",
+        "responses": {
+          "204": {
+            "description": "Contact was deleted",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "402": {
+            "description": "Contact cannot be deleted"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Delete a contact",
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "contacts.id.delete"
+      },
       "get": {
         "description": "Retrieve a contact with specified identifier string\n",
         "responses": {
@@ -2539,7 +2574,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$contactForm = new Rebilly\\Entities\\Contact();\n$contactForm->setFirstName('Sherlock');\n$contactForm->setLastName('Holmes');\n$contactForm->setOrganization('TestOrganization');\n\ntry {\n    $contact = $client->contacts()->update('contactId', $contactForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$contactForm = new Rebilly\\Entities\\Contact();\n$contactForm->setFirstName('Sherlock');\n$contactForm->setLastName('Holmes');\n$contactForm->setOrganization('TestOrganization');\n$contactForm->setEmails(\n    [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ]\n);\n$contactForm->setPhoneNumbers(\n    [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ]\n);\n\ntry {\n    $contact = $client->contacts()->update('contactId', $contactForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "contacts.id.put"
@@ -2671,7 +2706,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$couponForm = new Rebilly\\Entities\\Coupons\\Coupon();\n\n$discountArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Discount::TYPE_FIXED,\n    'currency' => 'USD',\n    'amount' => 1.99,\n];\n\n$discountForm = new Rebilly\\Entities\\Coupons\\Discount($discountArray);\n$couponForm->setDiscount($discountForm);\n\n$restrictionArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Restriction::TYPE_DISCOUNTS_PER_REDEMPTION,\n    'quantity' => 2,\n];\n\n$restrictionForm = new Rebilly\\Entities\\Coupons\\Restriction([\n    $restrictionArray,\n]);\n\n$couponForm->setRestrictions($restrictionForm);\n\ntry {\n    $coupon = $client->coupons()->create($couponForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$couponForm = new Rebilly\\Entities\\Coupons\\Coupon();\n\n$discountArray = [\n    'currency' => 'USD',\n    'amount' => 1.99,\n];\n\n$discountForm = new \\Rebilly\\Entities\\Coupons\\Discounts\\Fixed($discountArray);\n$couponForm->setDiscount($discountForm);\n// Coupon can be used right now\n$couponForm->setIssuedTime(date('Y-m-d H:i:s'));\n\n$restrictionArray = [\n    'quantity' => 2,\n];\n\n$restrictionForm = new Rebilly\\Entities\\Coupons\\Restrictions\\DiscountsPerRedemption($restrictionArray);\n\n$couponForm->setRestrictions([$restrictionForm]);\n\ntry {\n    $coupon = $client->coupons()->create($couponForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "coupons.post"
@@ -3006,6 +3041,73 @@
           }
         ],
         "operationId": "coupons.redemptionCode.put"
+      }
+    },
+    "/coupons/{redemptionCode}/expiration": {
+      "parameters": [
+        {
+          "description": "The Coupon's redemption code",
+          "in": "path",
+          "name": "redemptionCode",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "description": "Set a coupon's expiry time with the specified redemption code.\nThe expiredTime of a coupon must be greater than its issuedTime.\nThis cannot be performed on expired coupons.\n",
+        "parameters": [
+          {
+            "description": "Coupon resource",
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CouponExpiration"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Coupon expiration was successfully set",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Coupon"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/responses/Conflict",
+            "description": "The coupon is already expired and has been redeemed, unable to reschedule expiration"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "schema": {
+              "$ref": "#/definitions/InvalidError"
+            }
+          }
+        },
+        "summary": "Set a coupon's expiration time.",
+        "tags": [
+          "Coupons"
+        ],
+        "operationId": "coupons.redemptionCode.expiration.post"
       }
     },
     "/credential-hashes/emails": {
@@ -3494,6 +3596,24 @@
           },
           {
             "$ref": "#/parameters/collectionOffset"
+          },
+          {
+            "collectionFormat": "csv",
+            "description": "The collection items sort field and order (prefix with \"-\" for descending sort).",
+            "in": "query",
+            "items": {
+              "enum": [
+                "createdTime",
+                "-createdTime",
+                "handledTime",
+                "-handledTime",
+                "scheduledTime",
+                "-scheduledTime"
+              ],
+              "type": "string"
+            },
+            "name": "sort",
+            "type": "array"
           }
         ],
         "responses": {
@@ -4060,7 +4180,7 @@
             "customers",
             "payment-cards",
             "subscriptions",
-            "payments",
+            "transactions",
             "websites",
             "contacts",
             "products"
@@ -4167,7 +4287,7 @@
             "customers",
             "payment-cards",
             "subscriptions",
-            "payments",
+            "transactions",
             "websites",
             "contacts",
             "products"
@@ -4426,7 +4546,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$customerForm = new Rebilly\\Entities\\Customer();\n$customerForm->setFirstName('Sherlock');\n$customerForm->setLastName('Holmes');\n$customerForm->setEmail('sherlock.holmes@gmail.com');\n\ntry {\n    $customer = $client->customers()->create($customerForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$customerForm = new Rebilly\\Entities\\Customer();\n$customerForm->setPrimaryAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $customer = $client->customers()->create($customerForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "customers.post"
@@ -4548,7 +4668,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$customerForm = new Rebilly\\Entities\\Customer();\n$customerForm->setFirstName('Sherlock');\n$customerForm->setLastName('Holmes');\n$customerForm->setEmail('sherlock.holmes@gmail.com');\n\ntry {\n    $customer = $client->customers()->update('myCustomerId', $customerForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$customerForm = new Rebilly\\Entities\\Customer();\n$customerForm->setPrimaryAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $customer = $client->customers()->update('myCustomerId', $customerForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "customers.id.put"
@@ -6275,7 +6395,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$invoiceForm = new Rebilly\\Entities\\Invoice();\n$invoiceForm->setCustomerId('customerId');\n$invoiceForm->setWebsiteId('websiteId');\n$invoiceForm->setCurrency('USD');\n\ntry {\n    $invoice = $client->invoices()->create($invoiceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "<?\n$invoiceForm = new Rebilly\\Entities\\Invoice();\n$invoiceForm->setCustomerId('customerId');\n$invoiceForm->setWebsiteId('websiteId');\n$invoiceForm->setCurrency('USD');\n$invoiceForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $invoice = $client->invoices()->create($invoiceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "invoices.post"
@@ -6420,7 +6540,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$invoiceForm = new Rebilly\\Entities\\Invoice();\n$invoiceForm->setCustomerId('customerId');\n$invoiceForm->setWebsiteId('websiteId');\n$invoiceForm->setCurrency('USD');\n\ntry {\n    $invoice = $client->invoices()->update('invoiceId', $invoiceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "<?\n$invoiceForm = new Rebilly\\Entities\\Invoice();\n$invoiceForm->setCustomerId('customerId');\n$invoiceForm->setWebsiteId('websiteId');\n$invoiceForm->setCurrency('USD');\n$invoiceForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $invoice = $client->invoices()->update('invoiceId', $invoiceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "invoices.id.put"
@@ -6645,7 +6765,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$invoiceItemForm = new Rebilly\\Entities\\InvoiceItem();\n$invoiceItemForm->setType($invoiceItemForm::TYPE_DEBIT);\n$invoiceItemForm->setUnitPrice(0.99);\n$invoiceItemForm->setQuantity(5);\n\ntry {\n    $invoiceItem = $client->invoiceItems()->create('invoiceId', $invoiceItemForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$invoiceItemForm = new Rebilly\\Entities\\InvoiceItem();\n$invoiceItemForm->setType($invoiceItemForm::TYPE_DEBIT);\n$invoiceItemForm->setUnitPrice(0.99);\n$invoiceItemForm->setQuantity(5);\n\ntry {\n    $invoiceItem = $client->invoiceItems()->create($invoiceItemForm, 'invoiceId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "invoices.id.items.post"
@@ -8301,7 +8421,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$paymentCardForm = new Rebilly\\Entities\\PaymentCard();\n$paymentCardForm->setCustomerId('customerId');\n$paymentCardForm->setPan('4111111111111111');\n$paymentCardForm->setExpYear(2025);\n$paymentCardForm->setExpMonth(8);\n$paymentCardForm->setBillingContactId('contactId');\n\ntry {\n    $paymentCard = $client->paymentCards()->create($paymentCardForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$paymentCardForm = new Rebilly\\Entities\\PaymentCard();\n$paymentCardForm->setCustomerId('customerId');\n$paymentCardForm->setPan('4111111111111111');\n$paymentCardForm->setExpYear(2025);\n$paymentCardForm->setExpMonth(8);\n$paymentCardForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $paymentCard = $client->paymentCards()->create($paymentCardForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "payment_cards.post"
@@ -8463,6 +8583,65 @@
           "$ref": "#/parameters/resourceId"
         }
       ],
+      "patch": {
+        "description": "Update a payment card's cvv value with predefined identifier string\n",
+        "parameters": [
+          {
+            "description": "Payment card",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "cvv": {
+                  "description": "Card's cvv (card verification value).",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gateway Account was updated",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PaymentCard"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "schema": {
+              "$ref": "#/definitions/InvalidError"
+            }
+          }
+        },
+        "summary": "Update a payment card's cvv value with predefined ID",
+        "tags": [
+          "Payment Cards"
+        ],
+        "operationId": "payment_cards.id.patch"
+      },
       "put": {
         "parameters": [
           {
@@ -8500,7 +8679,7 @@
             "$ref": "#/responses/AccessForbidden"
           },
           "409": {
-            "description": "Payment card exist and cannot be updated",
+            "description": "Payment card already exists and cannot be updated",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -8516,7 +8695,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$paymentCardForm = new Rebilly\\Entities\\PaymentCard();\n$paymentCardForm->setCustomerId('customerId');\n$paymentCardForm->setPan('4111111111111111');\n$paymentCardForm->setExpYear(2025);\n$paymentCardForm->setExpMonth(8);\n$paymentCardForm->setBillingContactId('contactId');\n\ntry {\n    $paymentCard = $client->paymentCards()->update('paymentCardId', $paymentCardForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$paymentCardForm = new Rebilly\\Entities\\PaymentCard();\n$paymentCardForm->setCustomerId('customerId');\n$paymentCardForm->setPan('4111111111111111');\n$paymentCardForm->setExpYear(2025);\n$paymentCardForm->setExpMonth(8);\n$paymentCardForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $paymentCard = $client->paymentCards()->create($paymentCardForm, 'paymentCardId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "payment_cards.id.put"
@@ -8922,6 +9101,300 @@
           }
         ],
         "operationId": "payments.id.put"
+      }
+    },
+    "/paypal-accounts": {
+      "get": {
+        "description": "Retrieve a list of PayPal Accounts\n",
+        "parameters": [
+          {
+            "$ref": "#/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/parameters/collectionOffset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of PayPal Accounts was retrieved successfully",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/PayPalAccount"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          }
+        },
+        "summary": "Retrieve a list of PayPal accounts",
+        "tags": [
+          "PayPal Accounts"
+        ],
+        "operationId": "paypal_accounts.get"
+      },
+      "post": {
+        "description": "Create a PayPal Account\n",
+        "parameters": [
+          {
+            "description": "PayPalAccount resource",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PayPal Account was created",
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "schema": {
+              "$ref": "#/definitions/InvalidError"
+            }
+          }
+        },
+        "summary": "Create a PayPal Account",
+        "tags": [
+          "PayPal Accounts"
+        ],
+        "operationId": "paypal_accounts.post"
+      }
+    },
+    "/paypal-accounts/{id}": {
+      "get": {
+        "description": "Retrieve a PayPal Account with specified identifier string\n",
+        "responses": {
+          "200": {
+            "description": "PayPal Account was retrieved successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Retrieve a PayPal Account",
+        "tags": [
+          "PayPal Accounts"
+        ],
+        "operationId": "paypal_accounts.id.get"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ],
+      "put": {
+        "parameters": [
+          {
+            "description": "PayPal Account",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PayPal Account was created",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "409": {
+            "description": "PayPal Account exist and cannot be updated",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "422": {
+            "$ref": "#/responses/InvalidDataError"
+          }
+        },
+        "summary": "Create a PayPal account with predefined ID",
+        "tags": [
+          "PayPal Accounts"
+        ],
+        "operationId": "paypal_accounts.id.put"
+      }
+    },
+    "/paypal-accounts/{id}/activation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "description": "Activate a PayPal Account\n",
+        "parameters": [
+          {
+            "description": "PayPal Account resource",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "amount": {
+                  "default": 1,
+                  "description": "The amount to authorize",
+                  "format": "double",
+                  "type": "number"
+                },
+                "currency": {
+                  "description": "Currency (three letter code)",
+                  "type": "string"
+                },
+                "gatewayAccountId": {
+                  "description": "The Gateway Account ID which use to send transactions",
+                  "type": "string"
+                },
+                "redirectURLs": {
+                  "description": "Redirect URLs",
+                  "type": "object"
+                },
+                "websiteId": {
+                  "description": "The Website ID",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "websiteId",
+                "currency"
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Activate successful",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "schema": {
+              "$ref": "#/definitions/InvalidError"
+            }
+          }
+        },
+        "summary": "Activate a PayPal Account",
+        "tags": [
+          "PayPal Accounts"
+        ],
+        "operationId": "paypal_accounts.id.activation.post"
+      }
+    },
+    "/paypal-accounts/{id}/deactivation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "description": "Deactivate a PayPal Account\n",
+        "responses": {
+          "201": {
+            "description": "Deactivate successful",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/PayPalAccount"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "schema": {
+              "$ref": "#/definitions/InvalidError"
+            }
+          }
+        },
+        "summary": "Deactivate a PayPal Account",
+        "tags": [
+          "PayPal Accounts"
+        ],
+        "operationId": "paypal_accounts.id.deactivation.post"
       }
     },
     "/plans": {
@@ -9697,6 +10170,93 @@
         "operationId": "profile.put"
       }
     },
+    "/profile/password": {
+      "post": {
+        "description": "Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.\n",
+        "parameters": [
+          {
+            "description": "currentPassword and newPassword",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdatePassword"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Password updated successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/responses/InvalidDataError"
+          }
+        },
+        "summary": "Updates user's password with the specified newPassword",
+        "tags": [
+          "Profile"
+        ],
+        "operationId": "profile.password.post"
+      }
+    },
+    "/profile/totp-reset": {
+      "post": {
+        "description": "Reset (renew) totpSecret\n",
+        "responses": {
+          "201": {
+            "description": "totpSecret reset (renewed) successfully",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Profile"
+            }
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Reset (renew) totpSecret",
+        "tags": [
+          "Profile"
+        ],
+        "operationId": "profile.totp_reset.post"
+      }
+    },
     "/queue/custom-events": {
       "get": {
         "description": "Retrieve a list of scheduled custom events\n",
@@ -10034,55 +10594,6 @@
           "Payments"
         ],
         "operationId": "queue.payments.id.put"
-      }
-    },
-    "/queue/payments/{id}/cancel": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/resourceId"
-        }
-      ],
-      "post": {
-        "description": "Cancel a scheduled payment with specified identifier string\n",
-        "responses": {
-          "201": {
-            "description": "Successful cancel the payment",
-            "headers": {
-              "Rate-Limit-Limit": {
-                "description": "The number of allowed requests in the current period",
-                "type": "integer"
-              },
-              "Rate-Limit-Remaining": {
-                "description": "The number of remaining requests in the current period",
-                "type": "integer"
-              },
-              "Rate-Limit-Reset": {
-                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
-                "type": "string"
-              }
-            },
-            "schema": {
-              "$ref": "#/definitions/Payment"
-            }
-          },
-          "401": {
-            "$ref": "#/responses/AccessForbidden"
-          },
-          "404": {
-            "$ref": "#/responses/NotFound"
-          }
-        },
-        "summary": "Cancel a scheduled payment",
-        "tags": [
-          "Payments"
-        ],
-        "x-code-samples": [
-          {
-            "lang": "PHP",
-            "source": "try {\n    $payment = $client->payments()->cancel('paymentId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
-          }
-        ],
-        "operationId": "queue.payments.id.cancel.post"
       }
     },
     "/sessions": {
@@ -10900,7 +11411,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$subscriptionForm = new Rebilly\\Entities\\Subscription();\n$subscriptionForm->setCustomerId('customerId');\n$subscriptionForm->setWebsiteId('websiteId');\n$subscriptionForm->setPlanId('planId');\n\ntry {\n    $subscription = $client->subscriptions()->create($subscriptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$subscriptionForm = new Rebilly\\Entities\\Subscription();\n$subscriptionForm->setCustomerId('customerId');\n$subscriptionForm->setWebsiteId('websiteId');\n$subscriptionForm->setPlanId('planId');\n$subscriptionForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $subscription = $client->subscriptions()->create($subscriptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "subscriptions.post"
@@ -11028,7 +11539,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$subscriptionForm = new Rebilly\\Entities\\Subscription();\n$subscriptionForm->setCustomerId('customerId');\n$subscriptionForm->setWebsiteId('websiteId');\n$subscriptionForm->setPlanId('planId');\n\ntry {\n    $subscription = $client->subscriptions()->update('subscriptionId', $subscriptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$subscriptionForm = new Rebilly\\Entities\\Subscription();\n$subscriptionForm->setCustomerId('customerId');\n$subscriptionForm->setWebsiteId('websiteId');\n$subscriptionForm->setPlanId('planId');\n$subscriptionForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\ntry {\n    $subscription = $client->subscriptions()->update('subscriptionId', $subscriptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "subscriptions.id.put"
@@ -11496,7 +12007,7 @@
         "x-code-samples": [
           {
             "lang": "PHP",
-            "source": "$paymentCardTokenForm = new Rebilly\\Entities\\PaymentCardToken();\n$paymentCardTokenForm->setFirstName('John');\n$paymentCardTokenForm->setLastName('Doe');\n$paymentCardTokenForm->setMethod(Rebilly\\Entities\\PaymentMethod::METHOD_PAYMENT_CARD);\n\n$paymentInstrumentForm = new Entities\\PaymentInstruments\\PaymentCardPaymentInstrument();\n$paymentInstrumentForm->setPan('4111111111111111');\n$paymentInstrumentForm->setExpYear(2025);\n$paymentInstrumentForm->setExpMonth(8);\n$paymentInstrumentForm->setCvv(123);\n\n$paymentCardTokenForm->setPaymentInstrument($paymentInstrumentForm);\n\ntry {\n    $paymentCardToken = $client->paymentCardTokens()->create($paymentCardTokenForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+            "source": "$paymentCardTokenForm = new Rebilly\\Entities\\PaymentCardToken();\n$paymentCardTokenForm->setBillingAddress([\n    'firstName' => 'John',\n    'lastName' => 'Doe',\n    'organization' => 'Test LTD',\n    'address' => 'Test street 5',\n    'address2' => 'Test house 5',\n    'city' => 'New York',\n    'region' => 'Long Island',\n    'country' => 'US',\n    'postalCode' => '123456',\n    'emails' => [\n        [\n            'label' => 'main',\n            'value' => 'johndoe@testemail.com',\n            'primary' => true,\n        ],\n        [\n            'label' => 'secondary',\n            'value' => 'otheremail@testemail.com',\n        ],\n    ],\n    'phoneNumbers' => [\n        [\n            'label' => 'work',\n            'value' => '+123456789',\n            'primary' => true,\n        ],\n        [\n            'label' => 'home',\n            'value' => '+9874654321',\n        ],\n    ],\n]);\n\n$paymentInstrumentForm = new Entities\\PaymentInstruments\\PaymentCardPaymentInstrument();\n$paymentInstrumentForm->setPan('4111111111111111');\n$paymentInstrumentForm->setExpYear(2025);\n$paymentInstrumentForm->setExpMonth(8);\n$paymentInstrumentForm->setCvv(123);\n\n$paymentCardTokenForm->setPaymentInstrument($paymentInstrumentForm);\n\ntry {\n    $paymentCardToken = $client->paymentCardTokens()->create($paymentCardTokenForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
         ],
         "operationId": "tokens.post"
@@ -11891,6 +12402,142 @@
         }
       ]
     },
+    "/tracking/webhooks": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/collectionLimit"
+          },
+          {
+            "$ref": "#/parameters/collectionOffset"
+          },
+          {
+            "$ref": "#/parameters/collectionSort"
+          },
+          {
+            "$ref": "#/parameters/collectionFilter"
+          },
+          {
+            "$ref": "#/parameters/collectionCriteria"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tracking webhook notifications was retrieved successfully",
+            "headers": {
+              "Pagination-Limit": {
+                "description": "Items per page limit",
+                "type": "integer"
+              },
+              "Pagination-Offset": {
+                "description": "Pagination offset",
+                "type": "integer"
+              },
+              "Pagination-Total": {
+                "description": "Total items count",
+                "type": "integer"
+              },
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/WebhookTracking"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          }
+        },
+        "summary": "Retrieve a list of tracking webhook notifications",
+        "tags": [
+          "Tracking"
+        ],
+        "operationId": "tracking.webhooks.get"
+      }
+    },
+    "/tracking/webhooks/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Tracking webhook notification was retrieved successfully",
+            "schema": {
+              "$ref": "#/definitions/WebhookTracking"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Retrieve a tracking webhook notification with specified identifier string",
+        "tags": [
+          "Tracking"
+        ],
+        "operationId": "tracking.webhooks.id.get"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ]
+    },
+    "/tracking/webhooks/{id}/history": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Webhook tracking related attempts were retrieved successfully.",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/WebhookTracking"
+              },
+              "type": "array"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          }
+        },
+        "summary": "Retrieve related webhook attempts for specified webhook tracking.",
+        "tags": [
+          "Tracking"
+        ],
+        "operationId": "tracking.webhooks.id.history.get"
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ]
+    },
     "/tracking/website-webhooks": {
       "get": {
         "parameters": [
@@ -11990,6 +12637,12 @@
             "$ref": "#/parameters/collectionFilter"
           },
           {
+            "$ref": "#/parameters/collectionQuery"
+          },
+          {
+            "$ref": "#/parameters/collectionCriteria"
+          },
+          {
             "$ref": "#/parameters/collectionSort"
           },
           {
@@ -12046,6 +12699,9 @@
           },
           "401": {
             "$ref": "#/responses/AccessForbidden"
+          },
+          "422": {
+            "$ref": "#/responses/InvalidDataError"
           }
         },
         "summary": "Retrieve a list of transactions",
@@ -12109,6 +12765,55 @@
           "$ref": "#/parameters/resourceId"
         }
       ]
+    },
+    "/transactions/{id}/cancel": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ],
+      "post": {
+        "description": "Cancel a scheduled transaction. Once handled a transaction cannot be canceled",
+        "responses": {
+          "201": {
+            "description": "Successful cancel the payment",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Transaction"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Cancel a pending or suspended transaction",
+        "tags": [
+          "Transactions"
+        ],
+        "x-code-samples": [
+          {
+            "lang": "PHP",
+            "source": "try {\n    $payment = $client->transactions()->cancel('transactionId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
+          }
+        ],
+        "operationId": "transactions.id.cancel.post"
+      }
     },
     "/transactions/{id}/gateway-logs": {
       "get": {
@@ -12702,8 +13407,7 @@
             "$ref": "#/responses/NotFound"
           },
           "422": {
-            "$ref": "#/responses/InvalidDataError",
-            "description": "Invalid data was sent"
+            "$ref": "#/responses/InvalidDataError"
           }
         },
         "summary": "Create or update user with predefined ID",
@@ -12766,8 +13470,7 @@
             "$ref": "#/responses/NotFound"
           },
           "422": {
-            "$ref": "#/responses/InvalidDataError",
-            "description": "Invalid data was sent"
+            "$ref": "#/responses/InvalidDataError"
           }
         },
         "summary": "Updates user's password with the specified newPassword",
@@ -13501,6 +14204,9 @@
                 "password"
               ],
               "type": "object"
+            },
+            "mpi": {
+              "$ref": "#/definitions/A1GatewayMpis"
             }
           },
           "required": [
@@ -13510,6 +14216,26 @@
         }
       ],
       "description": "A1Gateway config"
+    },
+    "A1GatewayMpis": {
+      "description": "A1Gateway Mpis",
+      "discriminator": "name",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MpiName"
+            }
+          ],
+          "enum": [
+            "Other"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "AcquirerName": {
       "description": "Acquirer name",
@@ -13542,10 +14268,13 @@
         "FundSend",
         "GlobalCollect",
         "Global East",
+        "Gpaysafe",
         "Heartland",
         "HSBC",
         "iCheque",
         "Ilixium",
+        "Intuit",
+        "Jeton",
         "Masapay",
         "Merrick",
         "Mission Valley Bank",
@@ -13556,7 +14285,7 @@
         "Other",
         "Panda Bank",
         "PayPal",
-        "PayR",
+        "Payr",
         "Payvision",
         "Peoples Trust Company",
         "Privatbank",
@@ -13564,6 +14293,7 @@
         "RBS WorldPay",
         "RealTime",
         "RebillyProcessor",
+        "SMSVoucher",
         "State Bank of Mauritius",
         "Stripe",
         "TBI",
@@ -13756,22 +14486,29 @@
           "type": "string"
         },
         "requestHeaders": {
-          "description": "Request headers array",
-          "items": {
+          "additionalProperties": {
             "type": "string"
           },
-          "type": "array"
+          "example": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "User-Agent": "Mozilla/5.0"
+          },
+          "type": "object"
         },
         "response": {
           "description": "Response JSON-string",
           "type": "string"
         },
         "responseHeaders": {
-          "description": "Response headers array",
-          "items": {
+          "additionalProperties": {
             "type": "string"
           },
-          "type": "array"
+          "example": {
+            "Rate-Limit-Limit": 5000,
+            "Rate-Limit-Remaining": 4999,
+            "Rate-Limit-Reset": "Mon, 31 Jul 2017 04:16:00 +0000"
+          },
+          "type": "object"
         },
         "status": {
           "description": "HTTP response code",
@@ -13846,7 +14583,7 @@
         "rel": {
           "description": "The link type",
           "enum": [
-            "approval_url"
+            "approvalUrl"
           ],
           "type": "string"
         }
@@ -14108,17 +14845,17 @@
           "description": "Banks's Account type. Required if bank account is not created from Token",
           "type": "string"
         },
+        "address": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactObject"
+            }
+          ],
+          "description": "The Address. Required if bank account is not created from Token"
+        },
         "bankName": {
           "description": "Bank's name.",
           "type": "string"
-        },
-        "contactId": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/ResourceId"
-            }
-          ],
-          "description": "The Contact ID. Required if bank account is not created from Token"
         },
         "createdTime": {
           "allOf": [
@@ -14362,6 +15099,26 @@
         }
       ],
       "description": "BraintreePayments Gateway config"
+    },
+    "CancelUrlLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/NewLink"
+        }
+      ],
+      "properties": {
+        "rel": {
+          "description": "The link type",
+          "enum": [
+            "cancelUrl"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "rel"
+      ],
+      "type": "object"
     },
     "CardinalCommerce": {
       "allOf": [
@@ -14741,6 +15498,9 @@
           ],
           "description": "The contact customer ID"
         },
+        "emails": {
+          "$ref": "#/definitions/ContactEmails"
+        },
         "firstName": {
           "description": "The contact first name",
           "type": "string"
@@ -14754,6 +15514,11 @@
           "description": "The contact identifier string",
           "readOnly": true
         },
+        "isOutdated": {
+          "description": "Is contact outdated",
+          "readOnly": true,
+          "type": "boolean"
+        },
         "lastName": {
           "description": "The contact last name",
           "type": "string"
@@ -14762,9 +15527,8 @@
           "description": "The contact organization",
           "type": "string"
         },
-        "phoneNumber": {
-          "description": "The contact phone number",
-          "type": "string"
+        "phoneNumbers": {
+          "$ref": "#/definitions/ContactPhoneNumbers"
         },
         "postalCode": {
           "description": "The contact postal code",
@@ -14787,6 +15551,31 @@
       },
       "type": "object"
     },
+    "ContactEmails": {
+      "description": "The contact emails",
+      "items": {
+        "properties": {
+          "label": {
+            "description": "The email label",
+            "type": "string"
+          },
+          "primary": {
+            "description": "True if email is primary",
+            "type": "boolean"
+          },
+          "value": {
+            "description": "The email value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
     "ContactLink": {
       "allOf": [
         {
@@ -14806,6 +15595,84 @@
         "rel"
       ],
       "type": "object"
+    },
+    "ContactObject": {
+      "properties": {
+        "address": {
+          "description": "The contact street address",
+          "maxLength": 60,
+          "type": "string"
+        },
+        "address2": {
+          "description": "The contact street address (second line)",
+          "maxLength": 60,
+          "type": "string"
+        },
+        "city": {
+          "description": "The contact city",
+          "maxLength": 45,
+          "type": "string"
+        },
+        "country": {
+          "description": "The contact country ISO Alpha-2 code",
+          "pattern": "^[A-Z]{2}$",
+          "type": "string"
+        },
+        "emails": {
+          "$ref": "#/definitions/ContactEmails"
+        },
+        "firstName": {
+          "description": "The contact first name",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "The contact last name",
+          "type": "string"
+        },
+        "organization": {
+          "description": "The contact organization",
+          "type": "string"
+        },
+        "phoneNumbers": {
+          "$ref": "#/definitions/ContactPhoneNumbers"
+        },
+        "postalCode": {
+          "description": "The contact postal code",
+          "maxLength": 10,
+          "type": "string"
+        },
+        "region": {
+          "description": "The contact region (state)",
+          "maxLength": 45,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ContactPhoneNumbers": {
+      "description": "The contact phone numbers",
+      "items": {
+        "properties": {
+          "label": {
+            "description": "The phone label",
+            "type": "string"
+          },
+          "primary": {
+            "description": "True if phone is primary",
+            "type": "boolean"
+          },
+          "value": {
+            "description": "The phone value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
     },
     "Coupon": {
       "description": "Coupons and Discounts",
@@ -14895,6 +15762,19 @@
       ],
       "type": "object"
     },
+    "CouponExpiration": {
+      "properties": {
+        "expiredTime": {
+          "description": "The coupon's expiry time, must be greater than the issued time. Null or empty string will immediately expire the coupon.",
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "expiredTime"
+      ],
+      "type": "object"
+    },
     "CouponRedemption": {
       "description": "Coupons redemption log",
       "properties": {
@@ -14965,30 +15845,26 @@
       "type": "object"
     },
     "CouponRestriction": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/GenericRestriction"
-        },
-        {
-          "properties": {
-            "type": {
-              "description": "Coupon's restriction type",
-              "enum": [
-                "discounts-per-redemption",
-                "redemptions-per-customer",
-                "restrict-to-invoices",
-                "restrict-to-plans",
-                "restrict-to-subscriptions",
-                "minimum-order-amount",
-                "total-redemptions"
-              ],
-              "type": "string"
-            }
-          },
-          "type": "object"
-        }
-      ],
       "description": "Coupon restrictions",
+      "discriminator": "type",
+      "properties": {
+        "type": {
+          "description": "Coupon's restriction type",
+          "enum": [
+            "discounts-per-redemption",
+            "minimum-order-amount",
+            "redemptions-per-customer",
+            "restrict-to-invoices",
+            "restrict-to-plans",
+            "restrict-to-subscriptions",
+            "total-redemptions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
       "type": "object"
     },
     "Credential": {
@@ -15099,8 +15975,13 @@
           "enum": [
             "subscription-ended",
             "subscription-trial-ended",
+            "subscription-renewed",
             "payment-card-expired",
-            "invoice-past-due"
+            "invoice-past-due",
+            "invoice-issued",
+            "invoice-voided",
+            "invoice-paid",
+            "invoice-abandoned"
           ],
           "type": "string"
         },
@@ -15173,6 +16054,10 @@
           "description": "The custom field description",
           "type": "string"
         },
+        "isUsed": {
+          "description": "A flag to represent that the custom field is used on a record of the resource.",
+          "type": "boolean"
+        },
         "name": {
           "description": "The name of the custom field",
           "type": "string"
@@ -15233,16 +16118,6 @@
         "defaultPaymentInstrument": {
           "$ref": "#/definitions/PaymentInstrument"
         },
-        "email": {
-          "description": "The customer email",
-          "format": "email",
-          "maxLength": 100,
-          "type": "string"
-        },
-        "firstName": {
-          "description": "The customer first name",
-          "type": "string"
-        },
         "id": {
           "allOf": [
             {
@@ -15252,14 +16127,8 @@
           "description": "The customer identifier string",
           "readOnly": true
         },
-        "ipAddress": {
-          "description": "The customer IP",
-          "format": "ipv4",
-          "type": "string"
-        },
-        "lastName": {
-          "description": "The customer last name",
-          "type": "string"
+        "primaryAddress": {
+          "$ref": "#/definitions/ContactObject"
         },
         "updatedTime": {
           "allOf": [
@@ -15369,7 +16238,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "DayOfWeek": {
       "enum": [
@@ -15777,61 +16647,25 @@
       },
       "type": "object"
     },
-    "EMerchantPay": {
+    "DisputeLink": {
       "allOf": [
         {
-          "$ref": "#/definitions/GatewayAccount"
-        },
-        {
-          "properties": {
-            "gatewayConfig": {
-              "properties": {
-                "apiKey": {
-                  "description": "EMerchantPay Gateway api key",
-                  "format": "password",
-                  "type": "string"
-                },
-                "clientId": {
-                  "description": "EMerchantPay Gateway client ID",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "clientId",
-                "apiKey"
-              ],
-              "type": "object"
-            },
-            "mpi": {
-              "$ref": "#/definitions/EMerchantPayMpis"
-            }
-          },
-          "required": [
-            "gatewayConfig"
-          ],
-          "type": "object"
+          "$ref": "#/definitions/NewLink"
         }
       ],
-      "description": "EMerchantPay Gateway config"
-    },
-    "EMerchantPayMpis": {
-      "description": "EMerchantPay Mpis",
-      "discriminator": "name",
       "properties": {
-        "name": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/MpiName"
-            }
-          ],
+        "rel": {
+          "description": "The link type",
           "enum": [
-            "Other"
-          ]
+            "dispute"
+          ],
+          "type": "string"
         }
       },
       "required": [
-        "name"
-      ]
+        "rel"
+      ],
+      "type": "object"
     },
     "Email": {
       "properties": {
@@ -15920,9 +16754,12 @@
         "dispute-created",
         "gateway-account-requested",
         "transaction-processed",
+        "subscription-activated",
         "subscription-canceled",
+        "subscription-created",
         "subscription-renewed",
         "payment-card-expired",
+        "invoice-past-due",
         "payment-declined",
         "transaction-process-requested",
         "risk-score-changed"
@@ -15937,10 +16774,13 @@
           "items": [
             {
               "$ref": "#/definitions/SelfLink"
+            },
+            {
+              "$ref": "#/definitions/PermalinkLink"
             }
           ],
-          "maxItems": 1,
-          "minItems": 1,
+          "maxItems": 2,
+          "minItems": 2,
           "readOnly": true,
           "type": "array"
         },
@@ -16177,6 +17017,9 @@
                 "accountId"
               ],
               "type": "object"
+            },
+            "mpi": {
+              "$ref": "#/definitions/GETMpis"
             }
           },
           "required": [
@@ -16186,6 +17029,26 @@
         }
       ],
       "description": "GET Gateway config"
+    },
+    "GETMpis": {
+      "description": "GET Mpis",
+      "discriminator": "name",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MpiName"
+            }
+          ],
+          "enum": [
+            "Other"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "GatewayAccount": {
       "discriminator": "gatewayName",
@@ -16277,14 +17140,13 @@
           "type": "integer"
         },
         "method": {
-          "$ref": "#/definitions/Method",
-          "description": "Payment Method"
+          "$ref": "#/definitions/Method"
         },
         "monthlyLimit": {
           "description": "Monthly Limit",
           "format": "double",
           "minimum": 0,
-          "type": "integer"
+          "type": "number"
         },
         "organizationId": {
           "allOf": [
@@ -16412,24 +17274,28 @@
         "Credorax",
         "DataCash",
         "Dengi",
-        "EMerchantPay",
+        "eMerchantPay",
         "Flexepin",
         "FundSend",
         "Forte",
         "GET",
         "GlobalCollect",
         "GlobalOne",
+        "Gpaysafe",
         "iCheque",
         "Ilixium",
+        "Intuit",
         "JetPay",
+        "Jeton",
         "Moneris",
         "NMI",
         "OchaPay",
         "Optimal",
         "PandaGateway",
         "Payeezy",
+        "Payflow",
         "PayPal",
-        "PayR",
+        "Payr",
         "Payvision",
         "Plugnpay",
         "Realex",
@@ -16438,6 +17304,7 @@
         "Redsys",
         "RPN",
         "Sagepay",
+        "SMSVoucher",
         "Stripe",
         "UPayCard",
         "USAePay",
@@ -16448,17 +17315,6 @@
         "Worldpay"
       ],
       "type": "string"
-    },
-    "GenericRestriction": {
-      "description": "All restriction",
-      "discriminator": "type",
-      "properties": {
-        "type": {
-          "description": "Restriction type",
-          "type": "string"
-        }
-      },
-      "type": "object"
     },
     "GlobalCollect": {
       "allOf": [
@@ -16531,7 +17387,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "GlobalOne": {
       "allOf": [
@@ -16666,6 +17523,34 @@
       ],
       "type": "string"
     },
+    "Gpaysafe": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "properties": {
+                "apiKey": {
+                  "description": "Gpaysafe apiKey",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "apiKey"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Gpaysafe Gateway config"
+    },
     "Ilixium": {
       "allOf": [
         {
@@ -16733,7 +17618,42 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
+    },
+    "Intuit": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "properties": {
+                "clientId": {
+                  "description": "The Intuit client_id key",
+                  "type": "string"
+                },
+                "clientSecret": {
+                  "description": "The Intuit client_secret key",
+                  "format": "password",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clientId",
+                "clientSecret"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Intuit Gateway config"
     },
     "InvalidError": {
       "allOf": [
@@ -16768,12 +17688,6 @@
               "$ref": "#/definitions/WebsiteLink"
             },
             {
-              "$ref": "#/definitions/BillingContactLink"
-            },
-            {
-              "$ref": "#/definitions/DeliveryContactLink"
-            },
-            {
               "$ref": "#/definitions/OrganizationLink"
             },
             {
@@ -16799,21 +17713,18 @@
           "readOnly": true,
           "type": "number"
         },
-        "billingContactId": {
+        "billingAddress": {
           "allOf": [
             {
-              "$ref": "#/definitions/ResourceId"
+              "$ref": "#/definitions/ContactObject"
             }
           ],
-          "description": "Invoice's billing contact ID"
+          "description": "Invoice's billing address"
         },
-        "closedTime": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/ServerTimestamp"
-            }
-          ],
-          "description": "Invoice closed time"
+        "collectionPeriod": {
+          "description": "Collection Period - difference between paidTime and issuedTime in days.",
+          "readOnly": true,
+          "type": "integer"
         },
         "createdTime": {
           "allOf": [
@@ -16835,13 +17746,18 @@
           ],
           "description": "The customer's ID"
         },
-        "deliveryContactId": {
+        "delinquentCollectionPeriod": {
+          "description": "Delinquent Collection Period - difference between paidTime and dueTime in days.",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "deliveryAddress": {
           "allOf": [
             {
-              "$ref": "#/definitions/ResourceId"
+              "$ref": "#/definitions/ContactObject"
             }
           ],
-          "description": "Invoice's delivery contact ID"
+          "description": "Invoice's delivery address"
         },
         "discounts": {
           "description": "Discounts applied",
@@ -16852,6 +17768,7 @@
               }
             ]
           },
+          "readOnly": true,
           "type": "array"
         },
         "dueTime": {
@@ -16900,11 +17817,41 @@
           "description": "The organization's ID",
           "readOnly": true
         },
+        "paidTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "Invoice paid time"
+        },
         "shippingAmount": {
           "description": "The Invoice's shipping amount",
           "format": "double",
           "readOnly": true,
           "type": "number"
+        },
+        "status": {
+          "description": "Invoice status.",
+          "enum": [
+            "draft",
+            "issued",
+            "past-due",
+            "paid",
+            "abandoned",
+            "voided"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "subscriptionId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ],
+          "description": "The related Subscription's ID if available, otherwise null",
+          "readOnly": true
         },
         "taxes": {
           "description": "Taxes applied to this invoice",
@@ -16917,6 +17864,14 @@
           },
           "readOnly": true,
           "type": "array"
+        },
+        "updatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "Invoice updated time"
         },
         "voidedTime": {
           "allOf": [
@@ -17123,6 +18078,34 @@
       ],
       "description": "JetPay Gateway config"
     },
+    "Jeton": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "properties": {
+                "apiKey": {
+                  "description": "Jeton apiKey",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "apiKey"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Jeton Gateway config"
+    },
     "Layout": {
       "properties": {
         "_links": {
@@ -17147,9 +18130,6 @@
             }
           ],
           "description": "Layout created time"
-        },
-        "customFields": {
-          "$ref": "#/definitions/ResourceCustomFields"
         },
         "id": {
           "allOf": [
@@ -17209,6 +18189,9 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "planId"
+      ],
       "type": "object"
     },
     "LeadSource": {
@@ -17396,15 +18379,18 @@
       "description": "The payment method",
       "enum": [
         "ach",
-        "Alipay",
         "cash",
-        "china-unionpay",
         "payment-card",
         "paypal",
+        "Alipay",
+        "China UnionPay",
+        "Flexepin",
+        "Gpaysafe",
+        "Jeton",
         "OchaPay",
+        "SMSVoucher",
         "UPayCard",
-        "WeChat Pay",
-        "Flexepin"
+        "WeChat Pay"
       ],
       "type": "string"
     },
@@ -17480,6 +18466,9 @@
                 "password"
               ],
               "type": "object"
+            },
+            "mpi": {
+              "$ref": "#/definitions/NMIMpis"
             }
           },
           "required": [
@@ -17489,6 +18478,26 @@
         }
       ],
       "description": "NMI Gateway config"
+    },
+    "NMIMpis": {
+      "description": "NMI Mpis",
+      "discriminator": "name",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MpiName"
+            }
+          ],
+          "enum": [
+            "Other"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "NewLink": {
       "properties": {
@@ -17744,7 +18753,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "Organization": {
       "properties": {
@@ -17846,7 +18856,16 @@
     "Other": {
       "allOf": [
         {
-          "$ref": "#/definitions/EMerchantPayMpis"
+          "$ref": "#/definitions/A1GatewayMpis"
+        },
+        {
+          "$ref": "#/definitions/eMerchantPayMpis"
+        },
+        {
+          "$ref": "#/definitions/GETMpis"
+        },
+        {
+          "$ref": "#/definitions/NMIMpis"
         },
         {
           "$ref": "#/definitions/PayvisionMpis"
@@ -17956,39 +18975,93 @@
       ],
       "description": "PayPal Gateway config"
     },
-    "PayR": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/GatewayAccount"
-        },
-        {
-          "properties": {
-            "gatewayConfig": {
-              "properties": {
-                "clientId": {
-                  "description": "PayR Gateway client ID",
-                  "type": "string"
-                },
-                "secretWord": {
-                  "description": "PayR Gateway secret word",
-                  "format": "password",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "clientId",
-                "secretWord"
-              ],
-              "type": "object"
+    "PayPalAccount": {
+      "properties": {
+        "_links": {
+          "description": "The links related to resource",
+          "items": [
+            {
+              "$ref": "#/definitions/SelfLink"
+            },
+            {
+              "$ref": "#/definitions/CustomerLink"
+            },
+            {
+              "$ref": "#/definitions/ContactLink"
+            },
+            {
+              "$ref": "#/definitions/ApprovalUrlLink"
             }
-          },
-          "required": [
-            "gatewayConfig"
           ],
-          "type": "object"
+          "maxItems": 4,
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+        "billingAddress": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactObject"
+            }
+          ],
+          "description": "The Customer's Billing Address."
+        },
+        "createdTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "PayPal Account created time"
+        },
+        "customFields": {
+          "$ref": "#/definitions/ResourceCustomFields"
+        },
+        "customerId": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ],
+          "description": "The Customer's ID."
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ],
+          "description": "The PayPal identifier string",
+          "readOnly": true
+        },
+        "status": {
+          "description": "PayPal Account status",
+          "enum": [
+            "inactive",
+            "active",
+            "deactivated"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "updatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "PayPal Account updated time"
+        },
+        "username": {
+          "description": "PayPal username.",
+          "type": "string"
         }
+      },
+      "required": [
+        "customerId",
+        "billingAddress"
       ],
-      "description": "PayR Gateway config"
+      "type": "object"
     },
     "Payeezy": {
       "allOf": [
@@ -18035,6 +19108,46 @@
       ],
       "description": "Payeezy Gateway config"
     },
+    "Payflow": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "description": "Payflow credentials object",
+              "properties": {
+                "password": {
+                  "description": "The password you defined while registering for the account.",
+                  "format": "password",
+                  "type": "string"
+                },
+                "user": {
+                  "description": "If you set up one or more additional users on the account, this value is the ID of the user authorized to process transactions. If, however, you have not set up additional users, USER has the same value as VENDOR",
+                  "type": "string"
+                },
+                "vendor": {
+                  "description": "Your merchant login ID created when you registered for the account.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "user",
+                "vendor",
+                "password"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Payflow config"
+    },
     "Payment": {
       "properties": {
         "_links": {
@@ -18064,11 +19177,15 @@
         "amount": {
           "description": "The payment amount",
           "format": "double",
-          "type": "integer"
+          "type": "number"
         },
-        "billingContactId": {
-          "description": "Billing Contact ID",
-          "type": "string"
+        "billingAddress": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactObject"
+            }
+          ],
+          "description": "Billing Address"
         },
         "createdBy": {
           "description": "The process that created this payment",
@@ -18149,6 +19266,14 @@
           "readOnly": true,
           "type": "integer"
         },
+        "riskMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RiskMetadata"
+            }
+          ],
+          "description": "Risk metadata"
+        },
         "scheduledTime": {
           "description": "The time the payment is scheduled for collection",
           "format": "date-time",
@@ -18227,13 +19352,13 @@
           "readOnly": true,
           "type": "string"
         },
-        "billingContactId": {
+        "billingAddress": {
           "allOf": [
             {
-              "$ref": "#/definitions/ResourceId"
+              "$ref": "#/definitions/ContactObject"
             }
           ],
-          "description": "The Billing Contact ID. Required if card is creating not from Token"
+          "description": "The Billing Address. Required if card is creating not from Token"
         },
         "bin": {
           "description": "The card's bin (the PAN's first 6 digits)",
@@ -18500,28 +19625,16 @@
           "readOnly": true,
           "type": "array"
         },
-        "address": {
-          "description": "Customer's billing address 1",
-          "type": "string"
-        },
-        "address2": {
-          "description": "Customer's billing address 2",
-          "type": "string"
-        },
-        "city": {
-          "description": "Billing address city",
-          "type": "string"
-        },
-        "country": {
-          "description": "Billing country - Two letter code",
-          "type": "string"
+        "billingAddress": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactObject"
+            }
+          ],
+          "description": "The Address. Required if bank account is not created from Token"
         },
         "fingerprint": {
           "description": "Device fingerprint hash",
-          "type": "string"
-        },
-        "firstName": {
-          "description": "First name on payment card",
           "type": "string"
         },
         "id": {
@@ -18533,35 +19646,16 @@
           "description": "The token identifier string",
           "readOnly": true
         },
-        "lastName": {
-          "description": "Last name on payment card",
-          "type": "string"
-        },
         "method": {
-          "$ref": "#/definitions/Method",
-          "description": "Payment Method"
+          "$ref": "#/definitions/Method"
         },
         "paymentInstrument": {
           "$ref": "#/definitions/PaymentTokenInstrument"
-        },
-        "phoneNumber": {
-          "description": "Phone number",
-          "type": "string"
-        },
-        "postalCode": {
-          "description": "Billing postal code",
-          "type": "string"
-        },
-        "region": {
-          "description": "Billing region",
-          "type": "string"
         }
       },
       "required": [
         "method",
-        "paymentInstrument",
-        "firstName",
-        "lastName"
+        "paymentInstrument"
       ],
       "type": "object"
     },
@@ -18603,6 +19697,40 @@
       },
       "type": "object"
     },
+    "Payr": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "properties": {
+                "clientId": {
+                  "description": "Payr Gateway client ID",
+                  "type": "string"
+                },
+                "secretWord": {
+                  "description": "Payr Gateway secret word",
+                  "format": "password",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clientId",
+                "secretWord"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Payr Gateway config"
+    },
     "Payvision": {
       "allOf": [
         {
@@ -18632,9 +19760,9 @@
               },
               "required": [
                 "memberId",
+                "memberGuid",
                 "avs",
-                "delay",
-                "memberGuid"
+                "delay"
               ],
               "type": "object"
             },
@@ -18677,7 +19805,28 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
+    },
+    "PermalinkLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/NewLink"
+        }
+      ],
+      "properties": {
+        "rel": {
+          "description": "The link type",
+          "enum": [
+            "permalink"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "rel"
+      ],
+      "type": "object"
     },
     "Plan": {
       "properties": {
@@ -19200,33 +20349,65 @@
       "allOf": [
         {
           "$ref": "#/definitions/GatewayAccount"
-        }
-      ],
-      "description": "RebillyProcessor Gateway config"
-    },
-    "RedemptionRestriction": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/GenericRestriction"
         },
         {
           "properties": {
-            "type": {
-              "description": "Redemption's additional restriction type",
-              "enum": [
-                "discounts-per-redemption",
-                "restrict-to-invoices",
-                "restrict-to-plans",
-                "restrict-to-subscriptions",
-                "minimum-order-amount"
-              ],
-              "type": "string"
+            "mpi": {
+              "$ref": "#/definitions/RebillyProcessorMpis"
             }
           },
           "type": "object"
         }
       ],
+      "description": "RebillyProcessor Gateway config"
+    },
+    "RebillyProcessorMpi": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RebillyProcessorMpis"
+        }
+      ],
+      "description": "RebillyProcessor Integrated"
+    },
+    "RebillyProcessorMpis": {
+      "description": "RebillyProcessorMpis Mpis",
+      "discriminator": "name",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MpiName"
+            }
+          ],
+          "enum": [
+            "RebillySandboxMpi"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "RedemptionRestriction": {
       "description": "Redemption restrictions",
+      "discriminator": "type",
+      "properties": {
+        "type": {
+          "description": "Redemption's additional restriction type",
+          "enum": [
+            "discounts-per-redemption",
+            "minimum-order-amount",
+            "restrict-to-invoices",
+            "restrict-to-plans",
+            "restrict-to-subscriptions"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
       "type": "object"
     },
     "RedirectUrls": {
@@ -19291,6 +20472,26 @@
         }
       ],
       "description": "Redsys Gateway config"
+    },
+    "RefundUrlLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/NewLink"
+        }
+      ],
+      "properties": {
+        "rel": {
+          "description": "The link type",
+          "enum": [
+            "refundUrl"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "rel"
+      ],
+      "type": "object"
     },
     "ResetPassword": {
       "properties": {
@@ -19377,6 +20578,108 @@
       "required": [
         "rel"
       ],
+      "type": "object"
+    },
+    "RiskMetadata": {
+      "properties": {
+        "accuracyRadius": {
+          "description": "Accuracy radius for specified ipAddress (kilometers)",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "city": {
+          "description": "City for specified ipAddress",
+          "example": "New York",
+          "readOnly": true,
+          "type": "string"
+        },
+        "country": {
+          "description": "Country ISO Alpha-2 code for specified ipAddress",
+          "example": "US",
+          "maxLength": 2,
+          "readOnly": true,
+          "type": "string"
+        },
+        "distance": {
+          "description": "Distance between IP Address and Billing Address geolocation (kilometers)",
+          "readOnly": true,
+          "type": "integer"
+        },
+        "fingerprint": {
+          "description": "The fingerprint",
+          "type": "string"
+        },
+        "httpHeaders": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "HTTP headers",
+          "example": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "User-Agent": "Mozilla/5.0"
+          },
+          "type": "object"
+        },
+        "ipAddress": {
+          "description": "The customer's IP",
+          "format": "ipv4",
+          "type": "string"
+        },
+        "isHosting": {
+          "description": "True if customer's ip address is related to hosting",
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isProxy": {
+          "description": "True if customer's ip address is related to proxy",
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isTor": {
+          "description": "True if customer's ip address is related to TOR",
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isVpn": {
+          "description": "True if customer's ip address is related to VPN",
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "isp": {
+          "description": "Internet Service Provider name, if available",
+          "readOnly": true,
+          "type": "string"
+        },
+        "latitude": {
+          "description": "Latitude for specified ipAddress",
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        },
+        "longitude": {
+          "description": "Longitude for specified ipAddress",
+          "format": "double",
+          "readOnly": true,
+          "type": "number"
+        },
+        "postalCode": {
+          "description": "Postal code for specified ipAddress",
+          "maxLength": 10,
+          "readOnly": true,
+          "type": "string"
+        },
+        "timeZone": {
+          "description": "Time zone for specified ipAddress",
+          "example": "America/New_York",
+          "readOnly": true,
+          "type": "string"
+        },
+        "vpnServiceName": {
+          "description": "VPN service name, if available",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Rule": {
@@ -19550,6 +20853,34 @@
         "rel"
       ],
       "type": "object"
+    },
+    "SMSVoucher": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "properties": {
+                "AppId": {
+                  "description": "SMSVoucher AppId",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "AppId"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "SMSVoucher Gateway config"
     },
     "Sagepay": {
       "allOf": [
@@ -20021,13 +21352,13 @@
           "description": "Autopay determines if a payment attempt will be automatic",
           "type": "boolean"
         },
-        "billingContactId": {
+        "billingAddress": {
           "allOf": [
             {
-              "$ref": "#/definitions/ResourceId"
+              "$ref": "#/definitions/ContactObject"
             }
           ],
-          "description": "Unique id for each billing contact"
+          "description": "Billing address"
         },
         "cancelCategory": {
           "description": "Cancel category",
@@ -20091,13 +21422,13 @@
           ],
           "description": "Unique id for each customer"
         },
-        "deliveryContactId": {
+        "deliveryAddress": {
           "allOf": [
             {
-              "$ref": "#/definitions/ResourceId"
+              "$ref": "#/definitions/ContactObject"
             }
           ],
-          "description": "Unique id for each delivery contact"
+          "description": "Delivery address"
         },
         "endTime": {
           "allOf": [
@@ -20150,6 +21481,14 @@
           "description": "Subscription renewal time",
           "format": "date-time",
           "type": "string"
+        },
+        "riskMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RiskMetadata"
+            }
+          ],
+          "description": "Risk metadata"
         },
         "startTime": {
           "description": "Subscription start time",
@@ -20655,9 +21994,21 @@
             },
             {
               "$ref": "#/definitions/LeadSourceLink"
+            },
+            {
+              "$ref": "#/definitions/ApprovalUrlLink"
+            },
+            {
+              "$ref": "#/definitions/CancelUrlLink"
+            },
+            {
+              "$ref": "#/definitions/RefundUrlLink"
+            },
+            {
+              "$ref": "#/definitions/DisputeLink"
             }
           ],
-          "maxItems": 9,
+          "maxItems": 13,
           "minItems": 1,
           "readOnly": true,
           "type": "array"
@@ -20673,13 +22024,13 @@
           "readOnly": true,
           "type": "number"
         },
-        "billingContactId": {
+        "billingAddress": {
           "allOf": [
             {
-              "$ref": "#/definitions/ResourceId"
+              "$ref": "#/definitions/ContactObject"
             }
           ],
-          "description": "Billing Contact ID"
+          "description": "Billing Address"
         },
         "bin": {
           "description": "Payment Card BIN",
@@ -20886,6 +22237,11 @@
           "readOnly": true,
           "type": "array"
         },
+        "isDisputed": {
+          "description": "True if transaction is disputed",
+          "readOnly": true,
+          "type": "boolean"
+        },
         "isRebill": {
           "readOnly": true,
           "type": "boolean"
@@ -20953,6 +22309,14 @@
           "description": "The position in the sequence of retries",
           "readOnly": true,
           "type": "integer"
+        },
+        "riskMetadata": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/RiskMetadata"
+            }
+          ],
+          "description": "Risk metadata"
         },
         "riskScore": {
           "description": "The transactions's risk score",
@@ -21421,6 +22785,7 @@
               "layouts",
               "lead-sources",
               "lists",
+              "matched-rules",
               "notes",
               "oct-batch",
               "organizations",
@@ -21510,7 +22875,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "Walpay": {
       "allOf": [
@@ -21566,7 +22932,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "Webhook": {
       "properties": {
@@ -21679,6 +23046,102 @@
         "name",
         "value"
       ],
+      "type": "object"
+    },
+    "WebhookTracking": {
+      "description": "Webhook Tracking Requests.",
+      "properties": {
+        "_links": {
+          "description": "The links related to resource",
+          "items": [
+            {
+              "$ref": "#/definitions/SelfLink"
+            }
+          ],
+          "maxItems": 1,
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+        "attempt": {
+          "description": "The Webhook's attempt number",
+          "type": "integer"
+        },
+        "createdTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "The log created time"
+        },
+        "eventType": {
+          "$ref": "#/definitions/EventType"
+        },
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "HTTP headers which were used to send webhook",
+          "example": {
+            "My-Header": "Cool-Value"
+          },
+          "type": "object"
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ]
+        },
+        "initiatedTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "Initiated time"
+        },
+        "method": {
+          "description": "HTTP method which was used to send webhook",
+          "example": "POST",
+          "type": "string"
+        },
+        "payload": {
+          "description": "Webhook's payload",
+          "type": "string"
+        },
+        "responseBody": {
+          "description": "Response body received",
+          "type": "string"
+        },
+        "responseCode": {
+          "description": "HTTP code response",
+          "type": "integer"
+        },
+        "sentTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "Sent time"
+        },
+        "source": {
+          "description": "The Webhook's source",
+          "enum": [
+            "webhooks",
+            "rules"
+          ],
+          "type": "string"
+        },
+        "url": {
+          "description": "Url where webhook was sent",
+          "type": "string"
+        }
+      },
+      "readOnly": true,
       "type": "object"
     },
     "Website": {
@@ -21884,7 +23347,7 @@
           "properties": {
             "gatewayConfig": {
               "properties": {
-                "businessCaseSignature": {
+                "businessSignature": {
                   "description": "Wirecard Gateway merchant business case signature",
                   "format": "password",
                   "type": "string"
@@ -21906,7 +23369,7 @@
               "required": [
                 "merchantUsername",
                 "merchantPassword",
-                "businessCaseSignature",
+                "businessSignature",
                 "delay"
               ],
               "type": "object"
@@ -21948,7 +23411,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "Worldpay": {
       "allOf": [
@@ -22005,7 +23469,8 @@
       },
       "required": [
         "name"
-      ]
+      ],
+      "type": "object"
     },
     "ach": {
       "allOf": [
@@ -22038,6 +23503,23 @@
         }
       ],
       "description": "ACH payment instrument object"
+    },
+    "add-risk-score": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RuleAction"
+        },
+        {
+          "description": "Add risk score",
+          "properties": {
+            "score": {
+              "default": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ]
     },
     "and": {
       "allOf": [
@@ -22332,7 +23814,10 @@
     "discounts-per-redemption": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {
@@ -22348,6 +23833,63 @@
         }
       ],
       "description": "discounts-per-redemption restrictions"
+    },
+    "eMerchantPay": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/GatewayAccount"
+        },
+        {
+          "properties": {
+            "gatewayConfig": {
+              "properties": {
+                "apiKey": {
+                  "description": "eMerchantPay Gateway api key",
+                  "format": "password",
+                  "type": "string"
+                },
+                "clientId": {
+                  "description": "eMerchantPay Gateway client ID",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "clientId",
+                "apiKey"
+              ],
+              "type": "object"
+            },
+            "mpi": {
+              "$ref": "#/definitions/eMerchantPayMpis"
+            }
+          },
+          "required": [
+            "gatewayConfig"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "eMerchantPay Gateway config"
+    },
+    "eMerchantPayMpis": {
+      "description": "eMerchantPay Mpis",
+      "discriminator": "name",
+      "properties": {
+        "name": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/MpiName"
+            }
+          ],
+          "enum": [
+            "Other"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "equals": {
       "allOf": [
@@ -22634,7 +24176,10 @@
     "minimum-order-amount": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {
@@ -22869,7 +24414,10 @@
     "redemptions-per-customer": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {
@@ -22889,7 +24437,10 @@
     "restrict-to-invoices": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {
@@ -22912,7 +24463,10 @@
     "restrict-to-plans": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {
@@ -22935,7 +24489,10 @@
     "restrict-to-subscriptions": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {
@@ -23016,7 +24573,10 @@
     "total-redemptions": {
       "allOf": [
         {
-          "$ref": "#/definitions/GenericRestriction"
+          "$ref": "#/definitions/CouponRestriction"
+        },
+        {
+          "$ref": "#/definitions/RedemptionRestriction"
         },
         {
           "properties": {

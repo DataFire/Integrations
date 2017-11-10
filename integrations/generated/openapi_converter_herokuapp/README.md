@@ -38,11 +38,13 @@ Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL
 
 
 ```js
-openapi_converter_herokuapp.convertUrl(null, context)
+openapi_converter_herokuapp.convertUrl({
+  "url": ""
+}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
+* url (string) **required** - The URL to retrieve the OpenAPI 2.0 definition from
 
 ### convert
 Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x 

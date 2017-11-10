@@ -152,6 +152,19 @@ motaword.createProject({
 * styleguides[] (string) - Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls.
 * glossaries[] (string) - Optional. Only one glossary is supported at the moment.
 
+### deleteProject
+Delete(cancel) a project.
+
+
+```js
+motaword.deleteProject({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required** - Project ID
+
 ### getProject
 Get single project
 
@@ -183,6 +196,35 @@ motaword.updateProject({
 * target_languages[] (array) **required**
 * callback_url (string) - Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
 * custom (array) - Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced.
+
+### triggerCallback
+Trigger a call to your callback URL related to this project.
+
+
+```js
+motaword.triggerCallback({
+  "id": 0,
+  "actionType": ""
+}, context)
+```
+
+#### Parameters
+* id (integer) **required** - Project ID
+* actionType (string) **required** - Callback type
+
+### cancelProject
+Cancel your translation project
+
+
+```js
+motaword.cancelProject({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required** - Project ID
+* reason (string) - Cancellation reason
 
 ### download
 Download the latest translation package. You must have given a /package call beforehand and wait until the packaging status is 'completed'.
@@ -284,6 +326,21 @@ motaword.getProgress({
 
 #### Parameters
 * id (integer) **required** - Project ID
+
+### submitProjectReports
+Submit reports for a project
+
+
+```js
+motaword.submitProjectReports({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required** - Project ID
+* activity_type (string) - Activity Type
+* message (string) - Report Message
 
 ### getActivities
 Get a list of realtime activities on the project, such as translation suggestion and translation approval.
@@ -389,6 +446,7 @@ motaword.createDocument({
 #### Parameters
 * projectId (integer) **required** - Project ID
 * documents[] (string) **required** - You can add as many files as you want in documents[] parameter.
+* schemes[] (string) - JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
 
 ### deleteDocument
 Delete the document
@@ -427,15 +485,15 @@ Update the document. File name and contents will replaced with the new one.
 ```js
 motaword.updateDocument({
   "projectId": 0,
-  "documentId": 0,
-  "documents": ""
+  "documentId": 0
 }, context)
 ```
 
 #### Parameters
 * projectId (integer) **required** - Project ID
 * documentId (integer) **required** - Document ID
-* documents (string) **required** - Single file data. The name is plural to provide a consistent naming convention.
+* documents (string) - Single file data. The name is plural to provide a consistent naming convention.
+* schemes (string) - JSON string. If your documents have a scheme, as in cases of CSV files, use the same array index keys for `schemes` parameter to specify their schemes. See `Document Schemes` title in the API documentation.
 
 ### downloadDocument
 Download a document
@@ -600,12 +658,12 @@ motaword.getStyleGuide({
 * projectId (integer) **required** - Project ID
 * styleGuideId (integer) **required** - Style Guide ID
 
-### updteStyleGuide
+### updateStyleGuide
 Update the style guide. File name and contents will replaced with the new one.
 
 
 ```js
-motaword.updteStyleGuide({
+motaword.updateStyleGuide({
   "projectId": 0,
   "styleGuideId": 0,
   "styleguides": ""

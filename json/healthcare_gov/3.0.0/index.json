@@ -1,0 +1,1153 @@
+{
+  "id": "healthcare_gov",
+  "title": "Healthcare",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/healthcare_gov.png"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "articlesList": {
+      "properties": {
+        "articles": {
+          "items": {
+            "properties": {
+              "bite": {
+                "type": "string"
+              },
+              "categories": {
+                "items": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "content": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              },
+              "featured": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "layout": {
+                "type": "string"
+              },
+              "meta-description": {
+                "type": "string"
+              },
+              "meta-title": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "published": {
+                "type": "boolean"
+              },
+              "related": {
+                "items": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "seo-keywords": {
+                "type": "string"
+              },
+              "sort": {
+                "type": "number"
+              },
+              "tags": {
+                "items": {
+                  "items": {},
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "title": {
+                "type": "string"
+              },
+              "title-short": {
+                "type": "string"
+              },
+              "topics": {
+                "items": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "articlesList"
+    },
+    "blogList": {
+      "properties": {
+        "blog": {
+          "items": {
+            "items": {
+              "properties": {
+                "categories": {
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "lang": {
+                  "type": "string"
+                },
+                "layout": {
+                  "type": "string"
+                },
+                "meta-description": {
+                  "type": "string"
+                },
+                "meta-title": {
+                  "type": "string"
+                },
+                "published": {
+                  "type": "boolean"
+                },
+                "seo-keywords": {
+                  "type": "string"
+                },
+                "sort": {
+                  "type": "number"
+                },
+                "tags": {
+                  "items": {
+                    "items": {},
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "topics": {
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "blogList"
+    },
+    "blogPage": {
+      "properties": {
+        "categories": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "content": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "string"
+        },
+        "meta-description": {
+          "type": "string"
+        },
+        "meta-title": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "published": {
+          "type": "boolean"
+        },
+        "seo-keywords": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "number"
+        },
+        "tags": {
+          "items": {
+            "items": {},
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "topics": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "blogPage"
+    },
+    "glossaryList": {
+      "properties": {
+        "glossary": {
+          "items": {
+            "properties": {
+              "categories": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "content": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "layout": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "published": {
+                "type": "boolean"
+              },
+              "sort": {
+                "type": "number"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "glossaryList"
+    },
+    "glossaryPage": {
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "content": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "published": {
+          "type": "boolean"
+        },
+        "sort": {
+          "type": "number"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "glossaryPage"
+    },
+    "page": {
+      "properties": {
+        "categories": {
+          "items": {
+            "items": {},
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "content": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "experience": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "published": {
+          "type": "boolean"
+        },
+        "sort": {
+          "type": "number"
+        },
+        "tags": {
+          "items": {
+            "items": {},
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "page"
+    },
+    "questionPage": {
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "content": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "published": {
+          "type": "boolean"
+        },
+        "sort": {
+          "type": "number"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "questionPage"
+    },
+    "questionsList": {
+      "properties": {
+        "questions": {
+          "items": {
+            "properties": {
+              "categories": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "content": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "published": {
+                "type": "boolean"
+              },
+              "sort": {
+                "type": "number"
+              },
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "questionsList"
+    },
+    "statePage": {
+      "properties": {
+        "categories": {
+          "items": {
+            "items": {},
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "content": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "number"
+        },
+        "stateurl": {
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "statePage"
+    },
+    "statesList": {
+      "properties": {
+        "states": {
+          "items": {
+            "items": {
+              "properties": {
+                "categories": {
+                  "items": {
+                    "items": {},
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "excerpt": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "lang": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "sort": {
+                  "type": "number"
+                },
+                "stateurl": {
+                  "type": "string"
+                },
+                "tags": {
+                  "items": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "type": "array"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "statesList"
+    },
+    "topicsList": {
+      "properties": {
+        "topics": {
+          "items": {
+            "properties": {
+              "articleorder": {
+                "items": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "categories": {
+                "items": {
+                  "items": {},
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "content": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "excerpt": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "layout": {
+                "type": "string"
+              },
+              "meta-description": {
+                "type": "string"
+              },
+              "meta-title": {
+                "type": "string"
+              },
+              "order": {
+                "type": "number"
+              },
+              "path": {
+                "type": "string"
+              },
+              "published": {
+                "type": "boolean"
+              },
+              "sort": {
+                "type": "number"
+              },
+              "tags": {
+                "items": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "topicsList"
+    }
+  },
+  "actions": [
+    {
+      "id": "api.articlesmediaTypeExtension.get",
+      "title": "api.articlesmediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/articlesList"
+      }
+    },
+    {
+      "id": "api.blogmediaTypeExtension.get",
+      "title": "api.blogmediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/blogList"
+      }
+    },
+    {
+      "id": "api.glossarymediaTypeExtension.get",
+      "title": "api.glossarymediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/glossaryList"
+      }
+    },
+    {
+      "id": "api.questionsmediaTypeExtension.get",
+      "title": "api.questionsmediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/questionsList"
+      }
+    },
+    {
+      "id": "api.statesmediaTypeExtension.get",
+      "title": "api.statesmediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/statesList"
+      }
+    },
+    {
+      "id": "api.topicsmediaTypeExtension.get",
+      "title": "api.topicsmediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/topicsList"
+      }
+    },
+    {
+      "id": "blog.pageNamemediaTypeExtension.get",
+      "title": "blog.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/blogPage"
+      }
+    },
+    {
+      "id": "es.blog.pageNamemediaTypeExtension.get",
+      "title": "es.blog.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/blogPage"
+      }
+    },
+    {
+      "id": "es.glossary.pageNamemediaTypeExtension.get",
+      "title": "es.glossary.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/glossaryPage"
+      }
+    },
+    {
+      "id": "es.question.pageNamemediaTypeExtension.get",
+      "title": "es.question.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/questionPage"
+      }
+    },
+    {
+      "id": "es.pageNamemediaTypeExtension.get",
+      "title": "es.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/page"
+      }
+    },
+    {
+      "id": "es.stateNamemediaTypeExtension.get",
+      "title": "es.stateNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "stateName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "stateName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/statePage"
+      }
+    },
+    {
+      "id": "glossary.pageNamemediaTypeExtension.get",
+      "title": "glossary.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/glossaryPage"
+      }
+    },
+    {
+      "id": "question.pageNamemediaTypeExtension.get",
+      "title": "question.pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/questionPage"
+      }
+    },
+    {
+      "id": "pageNamemediaTypeExtension.get",
+      "title": "pageNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "pageName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "pageName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/page"
+      }
+    },
+    {
+      "id": "stateNamemediaTypeExtension.get",
+      "title": "stateNamemediaTypeExtension.get",
+      "description": "Returns pages content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mediaTypeExtension": {
+            "type": "string",
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ]
+          },
+          "stateName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "mediaTypeExtension",
+          "stateName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/statePage"
+      }
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "apitore_newsfeedsapis",
+  "title": "News feeds APIs",
+  "description": "Various news feeds.<BR />[Endpoint] https://api.apitore.com/api/34",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_newsfeedsapis.jpg"
+  },
+  "actionCount": 1,
+  "definitions": {
+    "FeedEntryEntity": {
+      "properties": {
+        "author": {
+          "description": "Author",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "link": {
+          "description": "Link",
+          "type": "string"
+        },
+        "pubDate": {
+          "description": "Published Date",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sourceLink": {
+          "description": "Source Link",
+          "type": "string"
+        },
+        "sourceTitle": {
+          "description": "Source Title",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "link",
+        "pubDate",
+        "sourceLink",
+        "sourceTitle",
+        "title"
+      ],
+      "type": "object",
+      "title": "FeedEntryEntity"
+    },
+    "FeedResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/FeedEntryEntity"
+          },
+          "type": "array"
+        },
+        "lastUpdatedAt": {
+          "description": "Last Updated At",
+          "format": "int64",
+          "type": "integer"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Num",
+          "format": "int32",
+          "type": "integer"
+        },
+        "page": {
+          "description": "Input page num",
+          "format": "int32",
+          "type": "integer"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "lastUpdatedAt",
+        "log",
+        "num",
+        "page",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object",
+      "title": "FeedResponseEntity"
+    }
+  },
+  "actions": [
+    {
+      "id": "feedUsingGET_6",
+      "title": "feedUsingGET_6",
+      "description": "News feeds.  \nResponse  \n  Github: [rome-response](https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response)  \n  Class: com.apitore.banana.response.org.rome.FeedResponseEntity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page number [page x 10 feeds]",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeedResponseEntity"
+      }
+    }
+  ],
+  "tags": []
+}

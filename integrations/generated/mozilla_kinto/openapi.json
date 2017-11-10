@@ -7,7 +7,7 @@
   "basePath": "/v1",
   "info": {
     "title": "kinto",
-    "version": "1.15",
+    "version": "1.17",
     "x-apisguru-categories": [
       "cloud"
     ],
@@ -89,7 +89,7 @@
         "operationId": "get_openapi_spec",
         "responses": {
           "200": {
-            "description": "Return an OpenAPI description og the running instance.",
+            "description": "Return an OpenAPI description of the running instance.",
             "schema": {
               "additionalProperties": {},
               "title": "SchemaNode",
@@ -2665,6 +2665,7 @@
                 "data": {
                   "items": {
                     "additionalProperties": {},
+                    "default": {},
                     "properties": {
                       "members": {
                         "items": {
@@ -2674,9 +2675,6 @@
                         "type": "array"
                       }
                     },
-                    "required": [
-                      "members"
-                    ],
                     "type": "object"
                   },
                   "type": "array"
@@ -2971,6 +2969,7 @@
               "properties": {
                 "data": {
                   "additionalProperties": {},
+                  "default": {},
                   "properties": {
                     "members": {
                       "items": {
@@ -2980,9 +2979,6 @@
                       "type": "array"
                     }
                   },
-                  "required": [
-                    "members"
-                  ],
                   "type": "object"
                 },
                 "permissions": {
@@ -3006,9 +3002,6 @@
                   "type": "object"
                 }
               },
-              "required": [
-                "data"
-              ],
               "title": "RecordSchema",
               "type": "object"
             }

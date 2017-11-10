@@ -15,7 +15,7 @@ let amazonaws_kinesisanalytics = require('@datafire/amazonaws_kinesisanalytics')
   region: "",
 });
 
-amazonaws_kinesisanalytics.AddApplicationInput({}).then(data => {
+amazonaws_kinesisanalytics.AddApplicationCloudWatchLoggingOption({}).then(data => {
   console.log(data);
 })
 ```
@@ -24,6 +24,26 @@ amazonaws_kinesisanalytics.AddApplicationInput({}).then(data => {
 
 
 ## Actions
+### AddApplicationCloudWatchLoggingOption
+
+
+
+```js
+amazonaws_kinesisanalytics.AddApplicationCloudWatchLoggingOption({
+  "ApplicationName": "",
+  "CurrentApplicationVersionId": 0,
+  "CloudWatchLoggingOption": {
+    "LogStreamARN": "",
+    "RoleARN": ""
+  }
+}, context)
+```
+
+#### Parameters
+* ApplicationName (string) **required**
+* CloudWatchLoggingOption (object) **required** - Provides a description of CloudWatch logging options, including the log stream Amazon Resource Name (ARN) and the role ARN.
+* CurrentApplicationVersionId (integer) **required**
+
 ### AddApplicationInput
 
 
@@ -49,6 +69,30 @@ amazonaws_kinesisanalytics.AddApplicationInput({
 * CurrentApplicationVersionId (integer) **required**
 * Input (object) **required** - When you configure the application input, you specify the streaming source, the in-application stream name that is created, and the mapping between the two. For more information, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>. 
 
+### AddApplicationInputProcessingConfiguration
+
+
+
+```js
+amazonaws_kinesisanalytics.AddApplicationInputProcessingConfiguration({
+  "ApplicationName": "",
+  "CurrentApplicationVersionId": 0,
+  "InputId": "",
+  "InputProcessingConfiguration": {
+    "InputLambdaProcessor": {
+      "ResourceARN": "",
+      "RoleARN": ""
+    }
+  }
+}, context)
+```
+
+#### Parameters
+* ApplicationName (string) **required**
+* CurrentApplicationVersionId (integer) **required**
+* InputId (string) **required**
+* InputProcessingConfiguration (object) **required** - Provides a description of a processor that is used to preprocess the records in the stream prior to being processed by your application code. Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
+
 ### AddApplicationOutput
 
 
@@ -67,7 +111,7 @@ amazonaws_kinesisanalytics.AddApplicationOutput({
 #### Parameters
 * ApplicationName (string) **required**
 * CurrentApplicationVersionId (integer) **required**
-* Output (object) **required** - <p> Describes application output configuration in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream. </p> <p/> <p>You can configure your application to write output to up to five destinations.</p>
+* Output (object) **required** - <p> Describes application output configuration in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery stream. </p> <p/> <p>For limits on how many destinations an application can write and other limitations, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>. </p>
 
 ### AddApplicationReferenceDataSource
 
@@ -108,6 +152,7 @@ amazonaws_kinesisanalytics.CreateApplication({
 * ApplicationCode (string)
 * ApplicationDescription (string)
 * ApplicationName (string) **required**
+* CloudWatchLoggingOptions (array)
 * Inputs (array)
 * Outputs (array)
 
@@ -125,6 +170,40 @@ amazonaws_kinesisanalytics.DeleteApplication({
 #### Parameters
 * ApplicationName (string) **required**
 * CreateTimestamp (string) **required**
+
+### DeleteApplicationCloudWatchLoggingOption
+
+
+
+```js
+amazonaws_kinesisanalytics.DeleteApplicationCloudWatchLoggingOption({
+  "ApplicationName": "",
+  "CurrentApplicationVersionId": 0,
+  "CloudWatchLoggingOptionId": ""
+}, context)
+```
+
+#### Parameters
+* ApplicationName (string) **required**
+* CloudWatchLoggingOptionId (string) **required**
+* CurrentApplicationVersionId (integer) **required**
+
+### DeleteApplicationInputProcessingConfiguration
+
+
+
+```js
+amazonaws_kinesisanalytics.DeleteApplicationInputProcessingConfiguration({
+  "ApplicationName": "",
+  "CurrentApplicationVersionId": 0,
+  "InputId": ""
+}, context)
+```
+
+#### Parameters
+* ApplicationName (string) **required**
+* CurrentApplicationVersionId (integer) **required**
+* InputId (string) **required**
 
 ### DeleteApplicationOutput
 
@@ -178,17 +257,15 @@ amazonaws_kinesisanalytics.DescribeApplication({
 
 
 ```js
-amazonaws_kinesisanalytics.DiscoverInputSchema({
-  "ResourceARN": "",
-  "RoleARN": "",
-  "InputStartingPositionConfiguration": {}
-}, context)
+amazonaws_kinesisanalytics.DiscoverInputSchema({}, context)
 ```
 
 #### Parameters
-* InputStartingPositionConfiguration (object) **required** - Describes the point at which the application reads from the streaming source.
-* ResourceARN (string) **required**
-* RoleARN (string) **required**
+* InputProcessingConfiguration (object) - Provides a description of a processor that is used to preprocess the records in the stream prior to being processed by your application code. Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
+* InputStartingPositionConfiguration (object) - Describes the point at which the application reads from the streaming source.
+* ResourceARN (string)
+* RoleARN (string)
+* S3Configuration (object)
 
 ### ListApplications
 
@@ -244,6 +321,6 @@ amazonaws_kinesisanalytics.UpdateApplication({
 
 #### Parameters
 * ApplicationName (string) **required**
-* ApplicationUpdate (object) **required** - Describes updates to apply to an existing Kinesis Analytics application.
+* ApplicationUpdate (object) **required** - Describes updates to apply to an existing Amazon Kinesis Analytics application.
 * CurrentApplicationVersionId (integer) **required**
 

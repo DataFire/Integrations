@@ -1,0 +1,1507 @@
+{
+  "id": "clarify",
+  "title": "Clarify",
+  "description": "The API to Search and Understand Audio & Video Data.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#65A8B5",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clarify.png"
+  },
+  "actionCount": 21,
+  "definitions": {
+    "Bundle": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Bundle",
+          "type": "string"
+        },
+        "_embedded": {
+          "$ref": "#/definitions/object",
+          "description": "Embedded objects, keyed by link relation"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, clarify:metadata, clarify:tracks)"
+        },
+        "created": {
+          "description": "Date the bundle was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "external_id": {
+          "description": "A string that can refer to an item in an external system. Up to 128 characters.",
+          "type": "string"
+        },
+        "id": {
+          "description": "id of the bundle",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the bundle. Up to 128 characters.",
+          "type": "string"
+        },
+        "notify_url": {
+          "description": "URL for notifications on this bundle",
+          "type": "string"
+        },
+        "updated": {
+          "description": "Date the bundle was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "version": {
+          "description": "Object version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "created",
+        "id",
+        "updated",
+        "version"
+      ],
+      "title": "Bundle"
+    },
+    "BundleReport": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "BundleRport",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self)"
+        },
+        "bundle_count": {
+          "description": "Total number of bundles in report",
+          "type": "integer"
+        },
+        "filter": {
+          "description": "Filter expression used to limit bundles in report",
+          "type": "string"
+        },
+        "generated": {
+          "description": "Date the report was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "interval": {
+          "description": "Interval of periods Up to 128 characters.",
+          "type": "string"
+        },
+        "periods": {
+          "description": "Data for interval period",
+          "items": {
+            "$ref": "#/definitions/ReportPeriod"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "Type of report Up to 128 characters.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "bundle_count",
+        "generated",
+        "periods"
+      ],
+      "title": "BundleReport"
+    },
+    "Collection": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Collection",
+          "type": "string"
+        },
+        "_embedded": {
+          "$ref": "#/definitions/object",
+          "description": "Embedded objects, keyed by link relation"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (items, first, last, next, prev)"
+        },
+        "limit": {
+          "description": "Maximum number of items requested",
+          "type": "integer"
+        },
+        "total": {
+          "description": "Total number of items available",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "limit",
+        "total"
+      ],
+      "title": "Collection"
+    },
+    "Insight": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Class name of Insight",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent, clarify:bundle)"
+        },
+        "bundle_id": {
+          "description": "id of the bundle",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date the insight was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/object",
+          "description": "Bundle insight data values (only present for some insights)"
+        },
+        "id": {
+          "description": "id of the insight",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the insight",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of insight: ready, pending, queued, processing, error",
+          "type": "string"
+        },
+        "track_data": {
+          "description": "Array of objects containing insight data values per track, with array indexes matching the tracks array",
+          "items": {},
+          "type": "array"
+        },
+        "updated": {
+          "description": "Date the insight was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "bundle_id",
+        "created",
+        "id",
+        "name",
+        "status",
+        "updated"
+      ],
+      "title": "Insight"
+    },
+    "Insights": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Insights",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent, [insight:*])"
+        },
+        "bundle_id": {
+          "description": "id of the bundle",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date the insights was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "updated": {
+          "description": "Date the insights was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "bundle_id",
+        "created",
+        "updated"
+      ],
+      "title": "Insights"
+    },
+    "ItemResult": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "score": {
+          "description": "Relevance of the item according to the search criteria. A value between 0 and 1",
+          "type": "number"
+        },
+        "term_results": {
+          "description": "Results of each search term for the item. Indexes match the search_terms array",
+          "items": {
+            "$ref": "#/definitions/TermResult"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "score",
+        "term_results"
+      ],
+      "title": "ItemResult"
+    },
+    "MatchHit": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "end": {
+          "description": "For \"text\" matches, the index of the character in the string immediately after the matched term (exclusive.) For \"audio\" matches, the end time in seconds where the word was spoken",
+          "type": "number"
+        },
+        "start": {
+          "description": "For \"text\" matches, the index of the character in the string. For \"array\" matches, the index of the value in the array. For \"audio\" matches, the start time in seconds where the word was spoken",
+          "type": "number"
+        }
+      },
+      "required": [
+        "start"
+      ],
+      "title": "MatchHit"
+    },
+    "Metadata": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Metadata",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent)"
+        },
+        "bundle_id": {
+          "description": "id of the bundle",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date the metadata was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/object",
+          "description": "User-defined JSON metadata for the bundle"
+        },
+        "updated": {
+          "description": "Date the metadata was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "version": {
+          "description": "Object version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "bundle_id",
+        "created",
+        "data",
+        "updated",
+        "version"
+      ],
+      "title": "Metadata"
+    },
+    "Ref": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Ref",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent)"
+        }
+      },
+      "required": [
+        "_class",
+        "_links"
+      ],
+      "title": "Ref"
+    },
+    "Ref_(of_Bundle)": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Ref",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, clarify:metadata, clarify:tracks, clarify:tracks (if track created))"
+        },
+        "id": {
+          "description": "id of the bundle",
+          "type": "string"
+        },
+        "track_id": {
+          "description": "id of created track (if a track was created)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "id"
+      ],
+      "title": "Ref_(of_Bundle)"
+    },
+    "Ref_(of_Track)": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Ref",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent, clarify:bundle)"
+        },
+        "id": {
+          "description": "id of the track",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "id"
+      ],
+      "title": "Ref_(of_Track)"
+    },
+    "ReportPeriod": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "bundle": {
+          "$ref": "#/definitions/ReportPeriodBundle"
+        },
+        "start": {
+          "description": "Start date and time of the period ex. \"2018-01-01T00:00:00Z\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start"
+      ],
+      "title": "ReportPeriod"
+    },
+    "ReportPeriodBundle": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "count": {
+          "description": "Number of bundles in the period",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "count"
+      ],
+      "title": "ReportPeriodBundle"
+    },
+    "SearchCollection": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "SearchCollection",
+          "type": "string"
+        },
+        "_embedded": {
+          "$ref": "#/definitions/object",
+          "description": "Embedded objects, keyed by link relation"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (items, first, next, prev)"
+        },
+        "item_results": {
+          "description": "Search results per item. Indexes match the items array.",
+          "items": {
+            "$ref": "#/definitions/ItemResult"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "description": "Maximum number of items requested",
+          "type": "integer"
+        },
+        "search_terms": {
+          "description": "Terms in the search",
+          "items": {
+            "$ref": "#/definitions/SearchTerm"
+          },
+          "type": "array"
+        },
+        "total": {
+          "description": "Total number of items available",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "item_results",
+        "limit",
+        "search_terms",
+        "total"
+      ],
+      "title": "SearchCollection"
+    },
+    "SearchTerm": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "term": {
+          "description": "A term from the query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "term"
+      ],
+      "title": "SearchTerm"
+    },
+    "TermMatch": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "field": {
+          "description": "For \"text\" or \"array\" match types, specifies the metadata field that contains the match",
+          "type": "string"
+        },
+        "hits": {
+          "description": "Array listing exactly where the search term was found in a metadata field or audio",
+          "items": {
+            "$ref": "#/definitions/MatchHit"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "Type of match: \"text\", \"array\", or \"audio\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "hits",
+        "type"
+      ],
+      "title": "TermMatch"
+    },
+    "TermResult": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "matches": {
+          "description": "Array of locations where the search term was found in the bundle",
+          "items": {
+            "$ref": "#/definitions/TermMatch"
+          },
+          "type": "array"
+        },
+        "score": {
+          "description": "Score for the search term in the item. A value between 0 and 1",
+          "type": "number"
+        }
+      },
+      "required": [
+        "matches",
+        "score"
+      ],
+      "title": "TermResult"
+    },
+    "Track": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Track",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent, bundle)"
+        },
+        "audio_channel": {
+          "description": "The audio channel used for the track ( \"\" | left | right). Empty string means all channels of audio in the media file are used for the track",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "type": "string"
+        },
+        "audio_language": {
+          "description": "Language of the audio in the track. An RFC5646 language code or empty string. (Ex. en-US)",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date the track was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "duration": {
+          "description": "Number of seconds of media. Automatically determined",
+          "type": "number"
+        },
+        "fetch_response_code": {
+          "description": "HTTP response code returned from requesting the media_url",
+          "type": "integer"
+        },
+        "fetch_response_message": {
+          "description": "If media request fails, a message describing the failure",
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the track",
+          "type": "string"
+        },
+        "label": {
+          "description": "Label for the track. Up to 128 characters.",
+          "type": "string"
+        },
+        "media_code": {
+          "description": "Status code returned from verifying the media",
+          "type": "integer"
+        },
+        "media_message": {
+          "description": "If media is invalid, a message describing the problem",
+          "type": "string"
+        },
+        "media_size": {
+          "description": "Number of bytes in the media. Automatically determined",
+          "type": "integer"
+        },
+        "media_url": {
+          "type": "string"
+        },
+        "mime_type": {
+          "description": "Mime type. This is automatically determined from the media",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "Start time of media, an offset in seconds from the start time of the bundle",
+          "type": "number"
+        },
+        "status": {
+          "description": "Status of track: ready, pending, queued, processing, error",
+          "type": "string"
+        },
+        "track": {
+          "description": "Track index in the Tracks array",
+          "type": "integer"
+        },
+        "updated": {
+          "description": "Date the track was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "audio_channel",
+        "audio_language",
+        "created",
+        "duration",
+        "fetch_response_code",
+        "id",
+        "media_code",
+        "media_size",
+        "media_url",
+        "start_time",
+        "status",
+        "track",
+        "updated"
+      ],
+      "title": "Track"
+    },
+    "Track_(array_item)": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "audio_channel": {
+          "description": "The audio channel used for the track ( \"\" | left | right). Empty string means all channels of audio in the media file are used for the track",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "type": "string"
+        },
+        "audio_language": {
+          "description": "Language of the audio in the track. An RFC5646 language code or empty string. (Ex. en-US)",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date the track was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "duration": {
+          "description": "Number of seconds of media. Automatically determined",
+          "type": "number"
+        },
+        "fetch_response_code": {
+          "description": "HTTP response code returned from requesting the media_url",
+          "type": "integer"
+        },
+        "fetch_response_message": {
+          "description": "If media request fails, a message describing the failure",
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of the track",
+          "type": "string"
+        },
+        "label": {
+          "description": "Label for the track. Up to 128 characters.",
+          "type": "string"
+        },
+        "media_code": {
+          "description": "Status code returned from verifying the media",
+          "type": "integer"
+        },
+        "media_message": {
+          "description": "If media is invalid, a message describing the problem",
+          "type": "string"
+        },
+        "media_size": {
+          "description": "Number of bytes in the media. Automatically determined",
+          "type": "integer"
+        },
+        "media_url": {
+          "type": "string"
+        },
+        "mime_type": {
+          "description": "Mime type. This is automatically determined from the media",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "Start time of media, an offset in seconds from the start time of the bundle",
+          "type": "number"
+        },
+        "status": {
+          "description": "Status of track: ready, pending, queued, processing, error",
+          "type": "string"
+        },
+        "track": {
+          "description": "Track index in the Tracks array",
+          "type": "integer"
+        },
+        "updated": {
+          "description": "Date the track was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "audio_channel",
+        "audio_language",
+        "created",
+        "duration",
+        "fetch_response_code",
+        "id",
+        "media_code",
+        "media_size",
+        "media_url",
+        "start_time",
+        "status",
+        "track",
+        "updated"
+      ],
+      "title": "Track_(array_item)"
+    },
+    "Tracks": {
+      "$ref": "#/definitions/object",
+      "properties": {
+        "_class": {
+          "description": "Tracks",
+          "type": "string"
+        },
+        "_links": {
+          "$ref": "#/definitions/object",
+          "description": "HAL hyper links, keyed by relation (self, parent)"
+        },
+        "bundle_id": {
+          "description": "id of the bundle",
+          "type": "string"
+        },
+        "created": {
+          "description": "Date the tracks was created, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "status": {
+          "description": "Summary status of tracks: ready, pending, queued, processing, error",
+          "type": "string"
+        },
+        "tracks": {
+          "description": "Array of tracks",
+          "items": {
+            "$ref": "#/definitions/Track_(array_item)"
+          },
+          "type": "array"
+        },
+        "updated": {
+          "description": "Date the tracks was updated, ex. \"2014-02-25T14:23:45Z\"",
+          "type": "string"
+        },
+        "version": {
+          "description": "Object version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "_class",
+        "_links",
+        "bundle_id",
+        "created",
+        "status",
+        "tracks",
+        "updated",
+        "version"
+      ],
+      "title": "Tracks"
+    },
+    "object": {
+      "type": "object",
+      "title": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "v1.bundles.get",
+      "title": "v1.bundles.get",
+      "description": "Gets the list of bundles. Links to each item are in the _links with link relation **items**.  \n\nAfter getting the initial list, use the **first**, **last**, **next**, **prev** link relations to get more bundles in the list. Note that **next** will not be available at the end of the list and **prev** will not be available at the start of the list. If the results are exactly one page neither **prev** nor **next** will be available.  \n\nThe **embed** parameter specifies link relations to embed in the results. The models for the specified link relations will be in an array in the embedded object with the link relation as the key. For example, if you do embed=items, _embedded will contain a property **items** whose value is the array of bundle models. For link relations that are curies (ex. \"clarify:metadata\"), you may simply use the base name (ex. \"metadata\").",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "limit results to specified number of bundles. Default is 10. Max 100.",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "embed": {
+            "type": "string",
+            "description": "list of link relations to embed in the result collection. Zero or more of: items, tracks, metadata, insights. List is space or comma separated single string or an array of strings"
+          },
+          "iterator": {
+            "type": "string",
+            "description": "optional opaque value, automatically provided in next/prev links, or literal \"first\", \"last\""
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collection"
+      }
+    },
+    {
+      "id": "v1.bundles.post",
+      "title": "v1.bundles.post",
+      "description": "Create a new bundle with the specified name, media url, and optional JSON metadata.  \n\n**name** can be any string you wish to associate with the bundle.  \n\n**media_url** must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.  \n\n**audio_channel** is used to specify audio channels if the media is a stereo file. A value of _left_ or _right_ signifies that only the specified channel will be used. If no value or an empty string is specified for **audio_channel**, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks, with **audio_channel** set to _left_ and _right_ in each track respectively. If your stereo file is simply a recording made with a stereo microphone, **audio_channel** should be set to an empty string (or not be specified.) If you have audio channels as separate media files, after creating the bundle with one **media_url**, POST another **media_url** to /bundles/{bundle_id}/tracks.  \n\n**audio_language** can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see [http://tools.ietf.org/html/rfc5646](http://tools.ietf.org/html/rfc5646)). Supported languages: en-US, en-UK, es, fr.  \n\n**label** is a short name for the track.  \n\n**metadata** is a single-level JSON object of your own definition, containing key-values that can be searched and filtered on. Metadata can be used to hold text such as names, titles, descriptions and values for segregating bundles, for example by user, topic, folder name etc. The keys (property names) can be up to 64 characters and must contain only alphanumeric characters and underscore (but not start with underscore) and must not be a reserved name. Reserved names are \"true\", \"false\", and \"null\". Values can be strings, numbers, boolean true/false, date-times represented as a string in ISO 8601 format (ex. \"2014-02-25T14:23:45.000Z\"), or an array of these primitive types. Strings can be up to 2000 characters and strings in arrays can be up to 128 characters each. Nested objects are not allowed. Metadata can contain up to 50 key-value pairs up to a total JSON size of 4000 characters.  \n\n**start_time** a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.  \n\n**parts_pending** a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.  \n\n**external_id** is an optional parameter that can be used to logically link a bundle to an item in an external system. The **external_id** can be whatever you use to identify items in your own database.  \n\n**notify_url** is a webhook. It must be a publicly accessible url (http or https) on your server to which notifications for the bundle will be POSTed. There are three types of notifications: Track Notifications, Insight Notifications and Bundle Notifications. For more information on the content of notifications and when they are sent, see the [notification docs page](http://docs.clarify.io/overview/#notifications).  \n\nIf a track was created along with the budle, the link relation **clarify:track** will be included with a link to the new track.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the bundle. Up to 128 characters."
+          },
+          "media_url": {
+            "type": "string",
+            "description": "URL of a media (audio or video) file for this bundle. Up to 2083 characters."
+          },
+          "audio_channel": {
+            "type": "string",
+            "description": "The audio channel to use for the track ( \"\" | left | right ). Default is empty string which means all channels of audio in the media file are used for the track.",
+            "enum": [
+              "left",
+              "right"
+            ]
+          },
+          "audio_language": {
+            "type": "string",
+            "description": "Language of the audio in the track, specified with an RFC5646 code.",
+            "enum": [
+              "en-US",
+              "en-UK",
+              "es",
+              "fr"
+            ]
+          },
+          "start_time": {
+            "type": "number",
+            "description": "Time offset in seconds that the media starts relative to the bundle. Default is 0."
+          },
+          "parts_pending": {
+            "type": "boolean",
+            "description": "Set to true if more media parts will be added to the track. Default is false."
+          },
+          "label": {
+            "type": "string",
+            "description": "Label for the track (if media_url is specified.) Up to 128 characters."
+          },
+          "metadata": {
+            "type": "string",
+            "description": "User-defined JSON data associated with the bundle. Must be valid JSON, up to 4000 characters."
+          },
+          "notify_url": {
+            "type": "string",
+            "description": "URL for notifications on this bundle. Up to 2083 characters."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "A string that can refer to an item in an external system. Up to 128 characters."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Ref_(of_Bundle)"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.delete",
+      "title": "v1.bundles.bundle_id.delete",
+      "description": "Delete a bundle and its related metadata and tracks. This will only delete media stored on Clarify systems and not delete the source media on remote systems.<br/><br/>Successful response will be a HTTP code 204 with an empty body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.bundles.bundle_id.get",
+      "title": "v1.bundles.bundle_id.get",
+      "description": "Get a bundle that has previously been created.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "embed": {
+            "type": "string",
+            "description": "list of link relations to embed in the result bundle. Zero or more of: tracks, metadata, insights. List is space or comma separated single string or an array of strings"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Bundle"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.put",
+      "title": "v1.bundles.bundle_id.put",
+      "description": "Update a bundle. To update the tracks, media, or metadata of a bundle, use the tracks and metadata endpoints.  \n\n**name** can be any string you wish to associate with the bundle.  \n\n**external_id** is an optional parameter that can be used to logically link a bundle to an item in an external system. The **external_id** can be whatever you use to identify items in your own database.  \n\n**notify_url** is a webhook. It must be a publicly accessible url (http or https) on your server to which notifications for the bundle will be POSTed. There are three types of notifications: Track Notifications, Insight Notifications and Bundle Notifications. For more information on the content of notifications and when they are sent, see the [notification docs page](http://docs.clarify.io/overview/#notifications).  \n\nIf **version** is specified, the bundle will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the bundle will always be updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the bundle. Up to 128 characters."
+          },
+          "notify_url": {
+            "type": "string",
+            "description": "URL for notifications on this bundle. Up to 2083 characters."
+          },
+          "external_id": {
+            "type": "string",
+            "description": "A string that can refer to an item in an external system. Up to 128 characters."
+          },
+          "version": {
+            "type": "integer",
+            "description": "Object version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Ref_(of_Bundle)"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.insights.get",
+      "title": "v1.bundles.bundle_id.insights.get",
+      "description": "Gets the insights for a bundle.  \n\nURLs of the available insights for the bundle are in the _links object, with the link relations (keys) of the format **insight:insight_name**.  \n\nDocumentation on the insights available and the data returned can be found at [http://docs.clarify.io/insights/](http://docs.clarify.io/insights/)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Insights"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.insights.post",
+      "title": "v1.bundles.bundle_id.insights.post",
+      "description": "Request an insight to be run on a bundle. Note that most insights are set to automatically run on all bundles so you commonly won't need to call this endpoint except to request transcripts. To configure which insights are automatically run for an app, visit the [Clarify Developer Portal](https://developer.clarify.io).  \n\nInsights that are not configured to autorun can be requested to run on an individual bundle using this endpoint. The following insights can be requested:  \n\n**transcript_r9** - High-accuracy transcript of the speech in audio media.  \n\nTranscripts will produced on the mixed audio of all tracks in the bundle and are charged per minute (rounded up for partial minutes), based on the duration of the longest track. If the request has already been made, this method has no effect other than to return the existing insight.  \n\nTranscripts will typically take about 48 hours. When the transcript is ready, an InsightNotification webhook will be POSTed to the bundle **notify_url**.  \n\nFor more information see [Human Transcripts Quick Start](http://docs.clarify.io/quickstarts/human-transcripts.html \"human transcripts\").  \n\n**captions_r9** - High-accuracy captions of the speech in video media.  \n\nCaptions will be generated on the first track in the bundle. and are charged per minute (rounded up for partial minutes), based on the duration of the media. See the [pricing page](http://clarify.io/pricing \"pricing\"). If the request has already been made, this method has no effect other than to return the existing insight.  \n\nCaptions will typically take about 72 hours. When the captions are ready, an InsightNotification webhook will be POSTed to the bundle **notify_url**.  \n\nFor more information see [Captions Quick Start](http://docs.clarify.io/quickstarts/closed-captions.html \"captions\").  \n\n**spoken_keywords** - Spoken words of interest found in audio media. **Note:** Normally spoken_keywords is set to autorun so you do not need to run it explicitly.  \n\n**spoken_topics** - Topics spoken about in the audio media.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "insight": {
+            "type": "string",
+            "description": "name of the insight: transcript_r9, captions_r9, spoken_keywords, spoken_topics, spoken_words",
+            "enum": [
+              "transcript_r9",
+              "captions_r9",
+              "spoken_keywords",
+              "spoken_topics",
+              "spoken_words"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "insight"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Insight"
+      }
+    },
+    {
+      "id": "v1bundlesbundle_idinsightsinsight_id",
+      "title": "v1bundlesbundle_idinsightsinsight_id",
+      "description": "Gets a particular insight for a bundle. Typically, you will hit this endpoint from a link contained in a response to **/v1/bundles/{bundle_id}/insights**  \n\nThe insight response may contain a **data** object containing insight-specific data and/or an array of objects called **track_data**, where the array indexes correspond to the tracks in the bundle. Each object in the array contains the **track_id**, **track_label** and insight-specific data related to that insight. For example, in the **spoken_words** insight, the **track_data** objects contain the field **word_count** which is the number of spoken words found in the track.  \n\nDocumentation on the insights available and the data returned can be found at [http://docs.clarify.io/insights/](http://docs.clarify.io/insights/)  \n\nInsights that contain data in different file formats (such as for video captions) will have one or more link relations in the _links array for the corresponding data. Note that the href URLs in these links have a limited lifespan and should not be stored locally.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "insight_id": {
+            "type": "string",
+            "description": "id of an insight"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "insight_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Insight"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.metadata.delete",
+      "title": "v1.bundles.bundle_id.metadata.delete",
+      "description": "Delete the metadata of a bundle and set data to {} (empty object.) This is functionally equivalent to an update metadata request with data set to {}.<br/><br/>Successful response will be a HTTP code 204 with an empty body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.bundles.bundle_id.metadata.get",
+      "title": "v1.bundles.bundle_id.metadata.get",
+      "description": "Gets the metadata for a bundle.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.metadata.put",
+      "title": "v1.bundles.bundle_id.metadata.put",
+      "description": "Update the metadata for a bundle.  \n\nThe metadata is a single-level JSON object of your own definition, containing key-values that can be searched and filtered on. Metadata can be used to hold text such as names, titles, descriptions and values for segregating bundles, for example by user, topic, folder name etc. The keys (property names) can be up to 64 characters and must contain only alphanumeric characters and underscore (but not start with underscore) and must not be a reserved name. Reserved names are \"true\", \"false\", and \"null\". Values can be strings, numbers, boolean true/false, date-times represented as a string in ISO 8601 format (ex. \"2014-02-25T14:23:45.000Z\"), or an array of these primitive types. Strings can be up to 2000 characters and strings in arrays can be up to 128 characters each. Nested objects are not allowed. Metadata can contain up to 50 key-value pairs up to a total JSON size of 4000 characters.  \n\nTo clear the metadata for a bundle, send **data**={}.  \n\nIf **version** specified, the metadata will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict will be returned. If version not specified, the metadata will always be updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "data": {
+            "type": "string",
+            "description": "User-defined JSON data associated with the bundle. Must be valid JSON, up to 4000 characters."
+          },
+          "version": {
+            "type": "integer",
+            "description": "Object version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "data"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Ref"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.delete",
+      "title": "v1.bundles.bundle_id.tracks.delete",
+      "description": "Delete tracks of a bundle. This will only delete media stored on Clarify systems and not delete the source media on remote systems.<br/><br/>Successful response will be a HTTP code 204 with an empty body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.get",
+      "title": "v1.bundles.bundle_id.tracks.get",
+      "description": "Gets the array of tracks for a bundle. This includes the specification of the media and the status of fetching and processing it.  \n\nMedia for tracks is fetched asynchronously. Until media has been retrieved, a track's **duration** and **size** will both be set to -1.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tracks"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.post",
+      "title": "v1.bundles.bundle_id.tracks.post",
+      "description": "Add a new track to a bundle. This will insert or append a new track in the tracks array or return an error if the maximum number of tracks (12) has been reached or the track number specifies an invalid index.  \n\nOnce all media parts have been added to a track it is immutable, meaning it cannot be modified. If you wish to modify a track, simply add a new one and delete the existing one.  \n\n**label** is a short name for the track.  \n\n**media_url** must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.  \n\n**audio_channel** is used to specify audio channels if the media is a stereo file. A value of _left_ or _right_ signifies that only the specified channel will be used. If no value or an empty string is specified for **audio_channel**, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks with **audio_channel** to be _left_ and _right_. If your stereo file is simply a recording made with a stereo microphone, **audio_channel** should be set to an empty string (or not be specified.)  \n\n**audio_language** can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see [http://tools.ietf.org/html/rfc5646](http://tools.ietf.org/html/rfc5646)). Supported languages: en-US, en-UK, es, fr.  \n\n**start_time** a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.  \n\n**parts_pending** a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.  \n\n**track** is the index in the tracks array where the new track will be added. Track numbers start at 0\\. If this parameter is not specified the new track will always be appended to the end of the array. If the track specified is greater than the last index of the array + 1, an error will be returned.  \n\nIf **version** specified, the track will only be added if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "label": {
+            "type": "string",
+            "description": "Label for the track. Up to 128 characters."
+          },
+          "media_url": {
+            "type": "string",
+            "description": "URL of a media file for this bundle. Up to 2083 characters."
+          },
+          "audio_channel": {
+            "type": "string",
+            "description": "The audio channel to use for the track ( \"\" | left | right ). Default is empty string which means all channels of audio in the media file are used for the track.",
+            "enum": [
+              "left",
+              "right"
+            ]
+          },
+          "audio_language": {
+            "type": "string",
+            "description": "Language of the audio in the track, specified with an RFC5646 code.",
+            "enum": [
+              "en-US",
+              "en-UK",
+              "es",
+              "fr"
+            ]
+          },
+          "start_time": {
+            "type": "number",
+            "description": "Time offset in seconds that the media starts relative to the bundle. Default is 0."
+          },
+          "parts_pending": {
+            "type": "boolean",
+            "description": "Set to true if more media parts will be added to the track. Default is false."
+          },
+          "track": {
+            "type": "integer",
+            "description": "Track number specifies the index of the new track in the tracks array. An integer from 0 to 11. If not specified, the new track is appended to the array.",
+            "maximum": 11
+          },
+          "version": {
+            "type": "integer",
+            "description": "Object version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "media_url"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Ref_(of_Track)"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.put",
+      "title": "v1.bundles.bundle_id.tracks.put",
+      "description": "Update tracks for a bundle.  \n\n**parts_complete** a boolean `true` or false. If true, any tracks in the PENDING state will be queued for processing and no more media parts may be added to the tracks. Default is false.  \n\nIf **version** specified, the track will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "parts_complete": {
+            "type": "boolean",
+            "description": "Set to true if media parts in all tracks are complete. Default is false."
+          },
+          "version": {
+            "type": "integer",
+            "description": "Object version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "parts_complete"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Ref"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.track_id.delete",
+      "title": "v1.bundles.bundle_id.tracks.track_id.delete",
+      "description": "Delete a track of a bundle. This will only delete media stored on Clarify systems and not delete the source media on remote systems.<br/><br/>Successful response will be a HTTP code 204 with an empty body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "track_id": {
+            "type": "string",
+            "description": "id of a track"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "track_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.track_id.get",
+      "title": "v1.bundles.bundle_id.tracks.track_id.get",
+      "description": "Gets a single track in a bundle. This includes the specification of the media and the status of fetching and processing it.  \n\nMedia for a track is fetched asynchronously. Until media has been retrieved, a track's **duration** and **size** will both be set to -1.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "track_id": {
+            "type": "string",
+            "description": "id of a track"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "track_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Track"
+      }
+    },
+    {
+      "id": "v1.bundles.bundle_id.tracks.track_id.put",
+      "title": "v1.bundles.bundle_id.tracks.track_id.put",
+      "description": "Add media to an existing track of a bundle. This can only be called on a track that currently has no media set or has parts pending.  \n\nOnce all media parts have been added to a track it is immutable, meaning it cannot be modified. If you wish to modify a track, simply add a new one and delete the existing one.  \n\n**media_url** must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.  \n\n**audio_channel** is used to specify audio channels if the media is a stereo file. A value of _left_ or _right_ signifies that only the specified channel will be used. If no value or an empty string is specified for **audio_channel**, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks with **audio_channel** to be _left_ and _right_. If your stereo file is simply a recording made with a stereo microphone, **audio_channel** should be set to an empty string (or not be specified.)  \n\n**audio_language** can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see [http://tools.ietf.org/html/rfc5646](http://tools.ietf.org/html/rfc5646)). Supported languages: en-US, en-UK, es, fr.  \n\n**start_time** a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.  \n\n**parts_pending** a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.  \n\nIf **version** specified, the track will only be added if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bundle_id": {
+            "type": "string",
+            "description": "id of a bundle"
+          },
+          "track_id": {
+            "type": "string",
+            "description": "id of a track"
+          },
+          "media_url": {
+            "type": "string",
+            "description": "URL of a media file for this bundle. Up to 2083 characters."
+          },
+          "audio_channel": {
+            "type": "string",
+            "description": "The audio channel to use for the track ( \"\" | left | right ). Default is empty string which means all channels of audio in the media file are used for the track.",
+            "enum": [
+              "left",
+              "right"
+            ]
+          },
+          "audio_language": {
+            "type": "string",
+            "description": "Language of the audio in the track, specified with an RFC5646 code.",
+            "enum": [
+              "en-US",
+              "en-UK",
+              "es",
+              "fr"
+            ]
+          },
+          "start_time": {
+            "type": "number",
+            "description": "Time offset in seconds that the media starts relative to the bundle. Default is 0."
+          },
+          "parts_pending": {
+            "type": "boolean",
+            "description": "Set to true if more media parts will be added to the track. Default is false."
+          },
+          "version": {
+            "type": "integer",
+            "description": "Object version."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "track_id",
+          "media_url"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Ref_(of_Track)"
+      }
+    },
+    {
+      "id": "v1reportsscores",
+      "title": "v1reportsscores",
+      "description": "Analyzes bundle content over a series of time periods grouped by the value of **group_field** metadata field and generates a report of top scores.  \n\n**interval** specifies the duration of each time period in the report. For example, you can generate a report that gives monthly statistics. If there are no bundles for a given period, that period will not be present in the report.  \n\n**score_field** specifies a bundle, insights, or metadata field to use as a score. The scores will be averaged across the group and listed in descending order.  \n\n**group_field** specifies a metadata field by which to group statistics. Typically the field will represent a user or team id to get a report of the scores for the top users or teams.  \n\n**filter** is used to limit the bundles in the report according to specific criteria based on metadata and bundle values. A report filter behaves in the same way as a search filter. It uses an expression syntax similar to Javascript boolean expressions. An expression is made up of zero or more terms joined by logical operators with each term having a field, a comparison operator, and a literal value. Parentheses can be used to logically group terms.  \n\nA filter term is of the form: **_`field-name comparison-operator literal-value`_** where:  \n\n**_`field-name`_** is a metadata field or `bundle.name`, `bundle.id`, `bundle.external_id`, `bundle.created`, or `bundle.updated`.  \n\n**_`comparison-operator`_** is `==`, ``, `=`, or `!=`  \n\n**_`literal-value`_** is a number (integer or decimal), boolean `_true_` or `_false_`, or a string with either double quotes (`\"`) or single quotes (`'`).  \n\nLogical operators between terms (and groups of terms) can be `&&` (logical AND), `||` (logical OR). A logical NOT is `!` and can be placed before a term (or group of terms.)\n\nAn example filter expression (assuming you have used metadata fields category and tag):  \n\n`category==\"music\" && (tag == \"soft\" || tag == \"smooth\") && tag != \"jazz\" && bundle.created > \"2014-03-15T00:00:00.0Z\"`\n\n**language** parameter specifies the language to use for analyzing the report. This value is only relevant for language-related insight data. Supported languages: en, en-UK, en-US, es, fr.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "interval": {
+            "type": "string",
+            "description": "Duration of report periods. Default is month.",
+            "enum": [
+              "year",
+              "quarter",
+              "month",
+              "week",
+              "day",
+              "hour"
+            ]
+          },
+          "score_field": {
+            "type": "string",
+            "description": "A bundle/metadata field to use as a score. Ex. insights.spoken_words.listener_score."
+          },
+          "group_field": {
+            "type": "string",
+            "description": "A metadata field by which to group scores, typically a user or team id field."
+          },
+          "filter": {
+            "type": "string",
+            "description": "filter expression, typically programmatically generated based on input controls and data segregation rules etc. Up to 500 characters."
+          },
+          "language": {
+            "type": "string",
+            "description": "Language to search in, specified with an RFC5646 code. Default is \"en\"",
+            "enum": [
+              "en",
+              "en-UK",
+              "en-US",
+              "es",
+              "fr"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "interval",
+          "score_field",
+          "group_field"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BundleReport"
+      }
+    },
+    {
+      "id": "v1reportstrends",
+      "title": "v1reportstrends",
+      "description": "Analyzes bundle content over a series of time periods and generates a trend report.  \n\n**interval** specifies the duration of each time period in the report. For example, you can generate a report that gives monthly statistics. If there are no bundles for a given period, that period will not be present in the report.  \n\n**content** specifies the content type to analyze and include in the report. These can include tracks and insights. Multiple values can be specified to generate a rich report. If **content** is not specified, only bundle counts are included in the report.  \n\n**filter** is used to limit the bundles in the report according to specific criteria based on metadata and bundle values. A report filter behaves in the same way as a search filter. It uses an expression syntax similar to Javascript boolean expressions. An expression is made up of zero or more terms joined by logical operators with each term having a field, a comparison operator, and a literal value. Parentheses can be used to logically group terms.  \n\nA filter term is of the form: **_`field-name comparison-operator literal-value`_** where:  \n\n**_`field-name`_** is a metadata field or `bundle.name`, `bundle.id`, `bundle.external_id`, `bundle.created`, or `bundle.updated`.  \n\n**_`comparison-operator`_** is `==`, ``, `=`, or `!=`  \n\n**_`literal-value`_** is a number (integer or decimal), boolean `_true_` or `_false_`, or a string with either double quotes (`\"`) or single quotes (`'`).  \n\nLogical operators between terms (and groups of terms) can be `&&` (logical AND), `||` (logical OR). A logical NOT is `!` and can be placed before a term (or group of terms.)\n\nAn example filter expression (assuming you have used metadata fields category and tag):  \n\n`category==\"music\" && (tag == \"soft\" || tag == \"smooth\") && tag != \"jazz\" && bundle.created > \"2014-03-15T00:00:00.0Z\"`\n\n**language** parameter specifies the language to use for analyzing the report. This value is only relevant for language-related insight data. Supported languages: en, en-UK, en-US, es, fr.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "interval": {
+            "type": "string",
+            "description": "Duration of report periods. Default is month.",
+            "enum": [
+              "year",
+              "quarter",
+              "month",
+              "week",
+              "day",
+              "hour"
+            ]
+          },
+          "content": {
+            "type": "string",
+            "description": "Content reported in each period. Zero or more of tracks, spoken_words, spoken_keywords. List is space or comma separated single string or an array of strings."
+          },
+          "filter": {
+            "type": "string",
+            "description": "filter expression, typically programmatically generated based on input controls and data segregation rules etc. Up to 500 characters."
+          },
+          "language": {
+            "type": "string",
+            "description": "Language to search in, specified with an RFC5646 code. Default is \"en\"",
+            "enum": [
+              "en",
+              "en-UK",
+              "en-US",
+              "es",
+              "fr"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "interval"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BundleReport"
+      }
+    },
+    {
+      "id": "v1search",
+      "title": "v1search",
+      "description": "Searches the bundles and returns a list of matching bundles, along with what matched and where for each bundle.  \n\n**query** is used to search for text in the audio and metadata. It uses a simple query language similar to Google. At its simplest, it can be a space separated list of words (ex. `open voice`) which will find all bundles matching all the words. To search for a phrase, put it in quotes (ex. `\"open source\"`) You can exclude bundles that contain a word by putting a minus (hyphen) in front of the word (ex. `-opaque`) To search for one word or another, use `OR` (in uppercase) between the words (ex. `pizza OR pasta`). As an alternative to `OR`, you can use `**|**` (pipe character). A full query could look something like: `restaurant \"little italy\" pizza OR pasta -mushrooms`  \n\n**query_fields** is used to specify what data in a bundle the query will search. It can contain one or more of _insights.spoken_words_, metadata fields, and/or bundle fields. Multiple values can be either an array of strings or a comma or space separated single string. By default (if the **query_fields** param is not included in a request or is a single empty string) all data will be searched.  \n\n\n\n\n\n\n\n**query_fields**\n\n**Bundle data searched**\n\n\n\n\n\n\n\n*\n\nall data\n\nThis is the default value.\n\n\n\n\n\ninsights.spoken_words\n\n_[spoken words]_\n\nAll audio tracks are searched.\n\n\n\n\n\n_fieldname_\n\nmetadata._fieldname_\n\nYour custom metadata field. Wildcard metadata.* searches all metadata fields.\n\n\n\n\n\nbundle._fieldname_\n\nbundle._fieldname_\n\nThe searchable bundle fieldnames are name, id, external_id, created and updated. Wildcard bundle.* searches all bundle fields\n\n\n\n\n\n\n\nAs an example, suppose you have metadata fields **name** and **description** that you would like to search and other metadata fields you don't want to search. You also want to search the audio words, so you could specify **query_fields** = \"insights.spoken_words, name, description\".  \n\n**filter** is used to limit the search results according to specific criteria based on metadata and bundle values. It uses an expression syntax similar to Javascript boolean expressions. An expression is made up of zero or more terms joined by logical operators with each term having a field, a comparison operator, and a literal value. Parentheses can be used to logically group terms.  \n\nA filter term is of the form: **_`field-name comparison-operator literal-value`_** where:  \n\n**_`field-name`_** is a metadata field or `bundle.name`, `bundle.id`, `bundle.external_id`, `bundle.created`, or `bundle.updated`.  \n\n**_`comparison-operator`_** is `==`, ``, `=`, or `!=`  \n\n**_`literal-value`_** is a number (integer or decimal), boolean `_true_` or `_false_`, or a string with either double quotes (`\"`) or single quotes (`'`).  \n\nLogical operators between terms (and groups of terms) can be `&&` (logical AND), `||` (logical OR). A logical NOT is `!` and can be placed before a term (or group of terms.)\n\nAn example filter expression (assuming you have used metadata fields category and tag):  \n\n`category==\"music\" && (tag == \"soft\" || tag == \"smooth\") && tag != \"jazz\" && bundle.created > \"2014-03-15T00:00:00.0Z\"`\n\n**language** parameter specifies the language of the words in the search query. This value is used for word-stemming etc. while searching text. Regardless of what you set for this parameter, all your bundles will be searched, no matter what language content they contain. Supported languages: en, en-UK, en-US, es, fr.  \n\nAfter getting the initial list, use the **first**, **next**, **prev** link relations to get more bundles in the list. Note that **next** will not be available at the end of the list and **prev** will not be available at the start of the list. A maximum of **limit** items will be returned. If the results are exactly one page neither **prev** nor **next** will be available.  \n\nThe **embed** parameter specifies link relations to embed in the results. For link relations that are curies (ex. \"clarify:metadata\"), you may simply use the base name (ex. \"metadata\").",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "search terms, typically as typed into a search field. Up to 120 characters."
+          },
+          "query_fields": {
+            "type": "string",
+            "description": "list of insights, metadata, and bundle fields to search with the query. Use insights.spoken_words for searching audio, metadata.* for all metadata fields, bundle.* for all bundle fields, * for audio and all fields. Default is insights.spoken_words and metadata.*. List is space or comma separated single string or an array of strings. If single string, up to 1024 characters."
+          },
+          "filter": {
+            "type": "string",
+            "description": "filter expression, typically programmatically generated based on input controls and data segregation rules etc. Up to 500 characters."
+          },
+          "language": {
+            "type": "string",
+            "description": "Language to search in, specified with an RFC5646 code. Default is \"en\"",
+            "enum": [
+              "en",
+              "en-UK",
+              "en-US",
+              "es",
+              "fr"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit results to specified number of bundles. Default is 10. Max 100.",
+            "maximum": 100,
+            "minimum": 1
+          },
+          "embed": {
+            "type": "string",
+            "description": "list of link relations to embed in the result collection. Zero or more of: items, tracks, metadata, insights. List is space or comma separated single string or an array of strings"
+          },
+          "iterator": {
+            "type": "string",
+            "description": "opaque value, automatically provided in next/prev links"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchCollection"
+      }
+    }
+  ],
+  "tags": [
+    "search"
+  ]
+}

@@ -1,0 +1,1008 @@
+{
+  "id": "citrix_scim",
+  "title": "SCIM",
+  "description": "The SCIM API lets you manage users in your organization. You can then automate the provisioning of product licenses for these users, and they can use your company's Single Sign-On solution through an Identity Provider.",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#5F6166",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_scim.png"
+  },
+  "actionCount": 17,
+  "definitions": {
+    "AuthenticationSchemes": {
+      "description": "Specifies supported Authentication Scheme properties",
+      "properties": {
+        "description": {
+          "description": "The description of the Authentication Scheme",
+          "type": "string"
+        },
+        "documentationUrl": {
+          "description": "A HTTP addressable URL pointing to the Authentication Scheme's usage documentation",
+          "type": "string"
+        },
+        "name": {
+          "description": "The common authentication scheme name, e.g. HTTP Basic",
+          "type": "string"
+        },
+        "specUrl": {
+          "description": "A HTTP addressable URL pointing to the Authentication Scheme's specification",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "specUrl",
+        "documentationUrl"
+      ],
+      "title": "AuthenticationSchemes"
+    },
+    "Bulk": {
+      "description": "Specifies BULK configuration options",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "Bulk"
+    },
+    "ChangePassword": {
+      "description": "Specifies Change Password configuration options",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "ChangePassword"
+    },
+    "Etag": {
+      "description": "Specifies Etag configuration options",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "Etag"
+    },
+    "Filter": {
+      "description": "Specifies FILTER options",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "Filter"
+    },
+    "Group": {
+      "description": "Describes a group belonging to an organization",
+      "properties": {
+        "displayName": {
+          "description": "The group's display name",
+          "type": "string"
+        },
+        "id": {
+          "description": "The group's unique key",
+          "type": "string"
+        },
+        "members": {
+          "description": "An array of members",
+          "items": {
+            "$ref": "#/definitions/Member"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/GroupMetadata",
+          "description": "Group metadata"
+        }
+      },
+      "required": [
+        "meta",
+        "id",
+        "displayName"
+      ],
+      "title": "Group"
+    },
+    "GroupCollection": {
+      "description": "Class describing a collection of groups",
+      "properties": {
+        "resources": {
+          "description": "An array of groups",
+          "items": {
+            "$ref": "#/definitions/Group"
+          },
+          "type": "array"
+        },
+        "totalResults": {
+          "description": "The number of groups in the collection",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "resources",
+        "totalResults"
+      ],
+      "title": "GroupCollection"
+    },
+    "GroupDefinition": {
+      "description": "Describes the group to create",
+      "properties": {
+        "displayName": {
+          "description": "The group's display name",
+          "type": "string"
+        },
+        "members": {
+          "description": "An array of members",
+          "items": {
+            "$ref": "#/definitions/Member"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "displayName"
+      ],
+      "title": "GroupDefinition"
+    },
+    "GroupMetadata": {
+      "description": "Group metadata",
+      "properties": {
+        "created": {
+          "description": "The date and time the group was created",
+          "format": "date-time",
+          "type": "string"
+        },
+        "location": {
+          "description": "The URL where the group can be accessed",
+          "type": "string"
+        }
+      },
+      "required": [
+        "created",
+        "location"
+      ],
+      "title": "GroupMetadata"
+    },
+    "Member": {
+      "description": "A member of a group. This can be a group or an user",
+      "properties": {
+        "type": {
+          "description": "The type of member",
+          "enum": [
+            "group",
+            "user"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "description": "Depending on the member type this is a groupKey or an userKey",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "Member"
+    },
+    "Patch": {
+      "description": "Specifies PATCH configuration options",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "Patch"
+    },
+    "ResourceSchema": {
+      "description": "Describes the attributes and metadata constituting a resource such as a user.",
+      "properties": {
+        "attributes": {
+          "description": "The resource's attributes",
+          "items": {
+            "$ref": "#/definitions/SchemaAttribute"
+          },
+          "type": "array"
+        },
+        "description": {
+          "description": "The resource's description",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "The resource's HTTP addressable endpoint relative to the base URL, e.g. /Users.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The resource's id, e.g. urn:scim:schemas:core:1.0:User",
+          "type": "string"
+        },
+        "name": {
+          "description": "The resource's name, e.g. \"User\"",
+          "type": "string"
+        },
+        "schema": {
+          "description": "The resource's associated schema, e.g. urn:scim:schemas:core:1.0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "schema",
+        "endpoint",
+        "attributes"
+      ],
+      "title": "ResourceSchema"
+    },
+    "SchemaAttribute": {
+      "description": "Describes a resource attribute",
+      "properties": {
+        "caseExact": {
+          "description": "Indicates whether the attribute is case sensitive",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "The attribute's description",
+          "type": "string"
+        },
+        "multiValued": {
+          "description": "Indicates whether the attribute can have multiple values",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The attribute's name",
+          "type": "string"
+        },
+        "readOnly": {
+          "description": "Indicates whether the attribute is mutable",
+          "type": "boolean"
+        },
+        "required": {
+          "description": "Indicates whether the attribute is required",
+          "type": "boolean"
+        },
+        "schema": {
+          "description": "The attribute's associated scheme, e.g. urn:scim:schemas:core:1.0",
+          "type": "string"
+        },
+        "subAttributes": {
+          "description": "The attribute's potential sub-attributes",
+          "items": {
+            "$ref": "#/definitions/SchemaSubAttribute"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "The attribute's data type, e.g. String",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "multiValued",
+        "description",
+        "schema",
+        "readOnly",
+        "required",
+        "caseExact"
+      ],
+      "title": "SchemaAttribute"
+    },
+    "SchemaSubAttribute": {
+      "description": "Describes the sub-attribute of a resource attribute",
+      "properties": {
+        "caseExact": {
+          "description": "Indicates whether the attribute is case sensitive",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "The attribute's description",
+          "type": "string"
+        },
+        "name": {
+          "description": "The attribute's name",
+          "type": "string"
+        },
+        "readOnly": {
+          "description": "Indicates whether the attribute is mutable",
+          "type": "boolean"
+        },
+        "required": {
+          "description": "Indicates whether the attribute is required",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "The attribute's data type, e.g. String",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "description",
+        "readOnly",
+        "required",
+        "caseExact"
+      ],
+      "title": "SchemaSubAttribute"
+    },
+    "ServiceProviderConfigs": {
+      "description": "Represents the Service Provider's configuration",
+      "properties": {
+        "authenticationSchemes": {
+          "$ref": "#/definitions/AuthenticationSchemes",
+          "description": "Specifies whether the XML data format is supported"
+        },
+        "bulk": {
+          "$ref": "#/definitions/Bulk",
+          "description": "Specifies BULK configuration options"
+        },
+        "changePassword": {
+          "$ref": "#/definitions/ChangePassword",
+          "description": "Specifies Change Password configuration options"
+        },
+        "documentationUrl": {
+          "description": "An HTTP addressable URL pointing to the Service Provider's help documentation",
+          "type": "string"
+        },
+        "etag": {
+          "$ref": "#/definitions/Etag",
+          "description": "Specifies Etag configuration options"
+        },
+        "filter": {
+          "$ref": "#/definitions/Filter",
+          "description": "Specifies FILTER options"
+        },
+        "patch": {
+          "$ref": "#/definitions/Patch",
+          "description": "Specifies PATCH configuration options"
+        },
+        "sort": {
+          "$ref": "#/definitions/Sort",
+          "description": "Specifies Sort configuration options"
+        },
+        "xmlDataFormat": {
+          "$ref": "#/definitions/XmlDataFormat",
+          "description": "Specifies supported Authentication Scheme properties"
+        }
+      },
+      "required": [
+        "documentationUrl",
+        "patch",
+        "bulk",
+        "filter",
+        "changePassword",
+        "sort",
+        "etag",
+        "authenticationSchemes",
+        "xmlDataFormat"
+      ],
+      "title": "ServiceProviderConfigs"
+    },
+    "Sort": {
+      "description": "Specifies Sort configuration options",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "Sort"
+    },
+    "User": {
+      "description": "Describes a user belonging to an organization",
+      "properties": {
+        "displayName": {
+          "description": "The user's display name",
+          "type": "string"
+        },
+        "id": {
+          "description": "The user's unique key",
+          "type": "string"
+        },
+        "locale": {
+          "description": "The user's language settings",
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/definitions/UserMetadata",
+          "description": "User metadata"
+        },
+        "name": {
+          "$ref": "#/definitions/UserFullName",
+          "description": "The user's full name"
+        },
+        "timezone": {
+          "description": "The user's time zone",
+          "type": "string"
+        },
+        "userName": {
+          "description": "The user's username, usually their email address",
+          "type": "string"
+        }
+      },
+      "required": [
+        "displayName",
+        "id",
+        "locale",
+        "meta",
+        "name",
+        "timezone",
+        "userName"
+      ],
+      "title": "User"
+    },
+    "UserCollection": {
+      "description": "Class describing a collection of users",
+      "properties": {
+        "resources": {
+          "description": "The list of users",
+          "items": {
+            "$ref": "#/definitions/User"
+          },
+          "type": "array"
+        },
+        "totalResults": {
+          "description": "The number of users in the collection",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "resources",
+        "totalResults"
+      ],
+      "title": "UserCollection"
+    },
+    "UserDefinition": {
+      "description": "Describes a new user",
+      "properties": {
+        "displayName": {
+          "description": "The user's display name",
+          "type": "string"
+        },
+        "locale": {
+          "description": "The user's language settings",
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/UserFullName",
+          "description": "The user's full name"
+        },
+        "password": {
+          "description": "The user's password",
+          "type": "string"
+        },
+        "timezone": {
+          "description": "The user's time zone",
+          "type": "string"
+        },
+        "userName": {
+          "description": "The user's username, usually their email address",
+          "type": "string"
+        }
+      },
+      "title": "UserDefinition"
+    },
+    "UserFullName": {
+      "description": "The full name of the user",
+      "properties": {
+        "familyName": {
+          "description": "The user's surname",
+          "type": "string"
+        },
+        "givenName": {
+          "description": "The user's first name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "familyName",
+        "givenName"
+      ],
+      "title": "UserFullName"
+    },
+    "UserMetadata": {
+      "description": "User metadata",
+      "properties": {
+        "created": {
+          "description": "The date and time the user was created",
+          "format": "date-time",
+          "type": "string"
+        },
+        "location": {
+          "description": "The URL where the user can be accessed",
+          "type": "string"
+        }
+      },
+      "required": [
+        "created",
+        "location"
+      ],
+      "title": "UserMetadata"
+    },
+    "XmlDataFormat": {
+      "description": "Specifies whether the XML data format is supported",
+      "properties": {
+        "supported": {
+          "description": "Specifies whether the operation is supported",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "supported"
+      ],
+      "title": "XmlDataFormat"
+    }
+  },
+  "actions": [
+    {
+      "id": "getGroups",
+      "title": "getGroups",
+      "description": "Queries multiple group identities in the organization domain. Filtering, sorting and pagination are available. This call requires the role ROLE_ORG_READ.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "filter": {
+            "type": "string",
+            "description": " Without a filter, all groups are returned. The filter parameter must be a properly formed SCIM filter using the operator \"eq\" (equals), \"sw\" (starts with), or \"co\" (contains). The filter works for the displayName attribute. Sorting and pagination are supported. For example, GET /Groups?filter=displayName%20eq%20%22Engineering%22&sortBy=displayName&sortOrder=ascending&count=50&startIndex=51"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GroupCollection"
+      }
+    },
+    {
+      "id": "createGroup",
+      "title": "createGroup",
+      "description": "Creates a new organization group and adds it to the user domain. Member groups and member users must be in the organization. This call requires the role ROLE_ORG_WRITE.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "body": {
+            "$ref": "#/definitions/GroupDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Group"
+      }
+    },
+    {
+      "id": "deleteGroup",
+      "title": "deleteGroup",
+      "description": "Deletes a group from the organization (but not from the account). The group must be in the organization. This call requires the role ROLE_ORG_WRITE.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "groupKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the group to query. The group must be in the organization domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGroup",
+      "title": "getGroup",
+      "description": "Queries group details in the organization domain. This call requires the role ROLE_ORG_READ.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "groupKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the group to query. The group must be in the organization domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Group"
+      }
+    },
+    {
+      "id": "updateGroup",
+      "title": "updateGroup",
+      "description": "Updates one or more values of an existing group without sending the full definition. Member groups and member users must be in the organization. This call requires the role ROLE_ORG_WRITE.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "groupKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the group to query. The group must be in the organization domain"
+          },
+          "body": {
+            "$ref": "#/definitions/GroupDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Group"
+      }
+    },
+    {
+      "id": "replaceGroup",
+      "title": "replaceGroup",
+      "description": "Updates an existing group. The request must include the full group definition. To modify one or more values without sending the full definition, see \"Update Group\". Member groups and member users must be in the organization. This call requires the role ROLE_ORG_WRITE.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "groupKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the group to query. The group must be in the organization domain"
+          },
+          "body": {
+            "$ref": "#/definitions/GroupDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Group"
+      }
+    },
+    {
+      "id": "getUserSchema",
+      "title": "getUserSchema",
+      "description": "Queries the user schema. The user schema is defined in SCIM Core Schema (http://www.simplecloud.info/specs/draft-scim-core-schema-01.html#resource-schema).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ResourceSchema"
+      }
+    },
+    {
+      "id": "getServiceProviderConfigs",
+      "title": "getServiceProviderConfigs",
+      "description": "Queries service provider configurations. The service provider configurations are defined in SCIM Core Schema (http://www.simplecloud.info/specs/draft-scim-core-schema-01.html#anchor6). This call returns a description, a documentationURL, name, and specURL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServiceProviderConfigs"
+      }
+    },
+    {
+      "id": "getUsers",
+      "title": "getUsers",
+      "description": "Queries multiple user identities in the organization domain. Filtering is available.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "filter": {
+            "type": "string",
+            "description": " Without a filter, all users in a user domain are returned. The filter parameter must be a properly formed SCIM filter using either the operator eq (equals) or the operator sw (starts with). The filter works for userName, displayName, name.givenName, and name.familyName attributes. For example, /Users?filter=name.familyName%20eq%20%%22Smith%22"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserCollection"
+      }
+    },
+    {
+      "id": "createUsers",
+      "title": "createUsers",
+      "description": "Creates a new organization user and adds them to the user domain. The user email domain must match an existing organization email domain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "body": {
+            "$ref": "#/definitions/UserDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "getMe",
+      "title": "getMe",
+      "description": "Queries the identity of the current authenticated user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "updateMe",
+      "title": "updateMe",
+      "description": "Changes a limited set (or all if you choose) of the current authenticated user's data. The updated user email domain must be an existing organization email domain. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "body": {
+            "$ref": "#/definitions/UserDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "replaceMe",
+      "title": "replaceMe",
+      "description": "Changes the current authenticated user's displayName, locale, timezone, username and password. The request must include the full user definition (to modify one or more values without sending the full definition, see Update User). The replaced user email domain must be an existing organization email domain. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "body": {
+            "$ref": "#/definitions/UserDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "deleteUser",
+      "title": "deleteUser",
+      "description": "Deletes a user from the organization (but not from the account).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "userKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the user to query. The user must be in the organization domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUser",
+      "title": "getUser",
+      "description": "Queries user identity in the organization domain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "userKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the user to query. The user must be in the organization domain"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "updateUser",
+      "title": "updateUser",
+      "description": "Changes a limited set (or all if you choose) of the user's data. The updated user email domain must be an existing organization email domain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "userKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the user to query. The user must be in the organization domain"
+          },
+          "body": {
+            "$ref": "#/definitions/UserDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "replaceUser",
+      "title": "replaceUser",
+      "description": "Changes an existing user's displayName, locale, timezone, username and password. The request must include the full user definition (to modify one or more values without sending the full definition, see Update User). The replaced user email domain must be an existing organization email domain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
+          },
+          "userKey": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The key of the user to query. The user must be in the organization domain"
+          },
+          "body": {
+            "$ref": "#/definitions/UserDefinition"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    }
+  ],
+  "tags": []
+}

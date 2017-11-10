@@ -1,0 +1,557 @@
+{
+  "id": "cisco",
+  "title": "Cisco PSIRT openVuln",
+  "description": "The Cisco Product Security Incident Response Team (PSIRT) openVuln API is a RESTful API that allows customers to obtain Cisco Security Vulnerability information in different machine-consumable formats. APIs are important for customers because they allow their technical staff and programmers to build tools that help them do their job more effectively (in this case, to keep up with security vulnerability information).\nFor more information about the Cisco PSIRT openVuln API visit https://developer.cisco.com/site/PSIRT/discover/overview\n\nFor detail steps on how to use the API go to:https://developer.cisco.com/site/PSIRT/get-started/getting-started.gsp\n\nThis is a beta release of a swagger YAML for the Cisco PSIRT openVuln API\n\nTo access the API sign in with your Cisco CCO account at http://apiconsole.cisco.com and register an application\nto recieve a client_id and a client_secret\n\nYou can then get your token using curl or any other method you prefer.\n\n'curl -s -k -H \"Content-Type: application/x-www-form-urlencoded\" -X POST -d \"client_id=<your_client_id>\" -d \"client_secret=<your_client_secret>\" -d \"grant_type=client_credentials\" https://cloudsso.cisco.com/as/token.oauth2'\n\nYou will receive an access token as demonstrated in the following example:\n '{\"access_token\":\"I7omWtBDAieSiUX3shOxNJfuy4J6\",\"token_type\":\"Bearer\",\"expires_in\":3599}'\n\nIn Swagger, click on Change Authentication\n\nenter the text \"I7omWtBDAieSiUX3shOxNJfuy4J6\" (which is the token you received)\n\nthen click on \"Try this operation\"\n",
+  "security": {
+    "cisco": {
+      "integration": "cisco",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://cloudsso.cisco.com/as/token.oauth2",
+        "flow": "implicit",
+        "scopes": {
+          "read:cvrf": "read cvrf files",
+          "read:oval": "read oval files"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "actionCount": 19,
+  "actions": [
+    {
+      "id": "security.advisories.cvrf.advisory.advisory_id.get",
+      "title": "security.advisories.cvrf.advisory.advisory_id.get",
+      "description": "Used to obtain an advisory in CVRF format for a given advisory ID `advisory_id` (i.e., cisco-sa-20150819-pcp)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "advisory_id": {
+            "type": "string",
+            "format": "cisco-sa-XXX",
+            "description": "advisory ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "advisory_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.all.get",
+      "title": "security.advisories.cvrf.all.get",
+      "description": "Used to obtain all advisories in Common Vulnerability Reporting Format (CVRF). For more information about CVRF go to https://communities.cisco.com/docs/DOC-63156 . By default the output is in JSON. To obtain the output in XML use the .xml extension. For example, /advisories/cvrf/all.xml\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.cve.cve_id.get",
+      "title": "security.advisories.cvrf.cve.cve_id.get",
+      "description": "Used to obtain an advisory in CVRF format for a given Common Vulnerability Enumerator (CVE). The `cve_id` format is CVE-YYYY-NNNN. For more information about CVE visit http://cve.mitre.org/\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cve_id": {
+            "type": "string",
+            "format": "CVE-YYYY-NNNN",
+            "description": "CVE Identifier (i.e., CVE-YYYY-NNNN)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cve_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.latest.number.get",
+      "title": "security.advisories.cvrf.latest.number.get",
+      "description": "Used to obtain all the latest security advisories in CVRF format given an absolute number. For instance, the latest 10 or latest 5.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "number",
+            "description": "An absolute number to obtain the latest security advisories."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.product.get",
+      "title": "security.advisories.cvrf.product.get",
+      "description": "Used to obtain all the advisories that affects the given product name.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string",
+            "format": "string",
+            "description": "An product name to obtain security advisories that matches given product name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "product"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.severity.severity.get",
+      "title": "security.advisories.cvrf.severity.severity.get",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in CVRF format.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "format": "enum",
+            "description": "Critical, High, Medium, Low",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "severity"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.severity.severity.firstpublished.get",
+      "title": "security.advisories.cvrf.severity.severity.firstpublished.get",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in CVRF format and additionally filter based of firstpublished start date and enddate\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "format": "enum",
+            "description": "Used to obtain all advisories that have a security impact rating of critical",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.severity.severity.lastpublished.get",
+      "title": "security.advisories.cvrf.severity.severity.lastpublished.get",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in CVRF format.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "format": "enum",
+            "description": "Used to obtain all advisories that have a security impact rating of critical",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.cvrf.year.year.get",
+      "title": "security.advisories.cvrf.year.year.get",
+      "description": "Used to obtain all security advisories that have were orginally published in a specific year `YYYY`.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "string",
+            "format": "YYYY",
+            "description": "The four digit year."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "year"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.ios.get",
+      "title": "security.advisories.ios.get",
+      "description": "Used to obtain all advisories that affects the given ios version\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "format": "string",
+            "description": "IOS version to obtain security advisories"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.iosxe.get",
+      "title": "security.advisories.iosxe.get",
+      "description": "Used to obtain all advisories that affects the given ios version\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "format": "string",
+            "description": "IOS version to obtain security advisories"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.advisory.advisory_id.get",
+      "title": "security.advisories.oval.advisory.advisory_id.get",
+      "description": "Used to obtain OVAL definitions for a given advisory ID `advisory_id` (i.e., cisco-sa-20150819-pcp)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "advisory_id": {
+            "type": "string",
+            "format": "cisco-sa-XXX",
+            "description": "advisory ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "advisory_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.all.get",
+      "title": "security.advisories.oval.all.get",
+      "description": "Used to obtain all Open Vulnerability and Assessment Language (OVAL) definitions available for Cisco security vulnerabilities. For more information about OVAL go to https://communities.cisco.com/docs/DOC-63158 . By default the output is in JSON. To obtain the output in XML use the .xml extension. For example, /advisories/oval/all.xml\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.cve.cve_id.get",
+      "title": "security.advisories.oval.cve.cve_id.get",
+      "description": "Used to obtain OVAL definitions for a given CVE Identifier. The `cve_id` format is CVE-YYYY-NNNN.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cve_id": {
+            "type": "string",
+            "format": "CVE-YYYY-NNNN",
+            "description": "CVE Identifier (i.e., CVE-YYYY-NNNN)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cve_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.latest.number.get",
+      "title": "security.advisories.oval.latest.number.get",
+      "description": "Used to obtain all the latest OVAL definitions given an absolute number. For instance, the latest 10 or latest 5.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "number",
+            "description": "The latest OVAL definitions (absolute number)."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.product.get",
+      "title": "security.advisories.oval.product.get",
+      "description": "Used to obtain all the oval advisories that affects the given product name.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "string",
+            "format": "string",
+            "description": "An product name to obtain security advisories that matches given product name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "product"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.severity.severity.get",
+      "title": "security.advisories.oval.severity.severity.get",
+      "description": "Used to obtain all OVAL definitions for a given security impact rating (critical, high, medium, or low).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "format": "enum",
+            "description": "Used to obtain all OVAL definitions for advisories that have a security impact rating of critical",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "severity"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.severity.severity.firstpublished.get",
+      "title": "security.advisories.oval.severity.severity.firstpublished.get",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in OVAL format.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "format": "enum",
+            "description": "Critical, High, Medium, Low",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    },
+    {
+      "id": "security.advisories.oval.severity.severity.lastpublished.get",
+      "title": "security.advisories.oval.severity.severity.lastpublished.get",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in OVAL format.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "type": "string",
+            "format": "enum",
+            "description": "Critical, High, Medium, Low",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "cisco": {
+          "integration": "cisco"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "security"
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "workdocs.amazonaws.com",
@@ -131,6 +132,89 @@
     }
   },
   "paths": {
+    "/api/v1/activities": {
+      "get": {
+        "description": "Describes the user activities in a specified time period.",
+        "operationId": "DescribeActivities",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeActivitiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeActivitiesResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/api/v1/documents": {
       "parameters": [
         {
@@ -234,6 +318,18 @@
             "schema": {
               "$ref": "#/definitions/ServiceUnavailableException"
             }
+          },
+          "489": {
+            "description": "DraftUploadOutOfSyncException",
+            "schema": {
+              "$ref": "#/definitions/DraftUploadOutOfSyncException"
+            }
+          },
+          "490": {
+            "description": "ResourceAlreadyCheckedOutException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyCheckedOutException"
+            }
           }
         }
       }
@@ -269,7 +365,7 @@
         }
       ],
       "patch": {
-        "description": "Updates the specified attributes of the specified document. The user must have access to both the document and its parent folder, if applicable.",
+        "description": "Updates the specified attributes of a document. The user must have access to both the document and its parent folder, if applicable.",
         "operationId": "UpdateDocument",
         "parameters": [
           {
@@ -662,6 +758,324 @@
         }
       }
     },
+    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Adds a new comment to the specified document version.",
+        "operationId": "CreateComment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCommentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "VersionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCommentResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "DocumentLockedForCommentsException",
+            "schema": {
+              "$ref": "#/definitions/DocumentLockedForCommentsException"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}": {
+      "delete": {
+        "description": "Deletes the specified comment from the document version.",
+        "operationId": "DeleteComment",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCommentRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "VersionId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "CommentId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "DocumentLockedForCommentsException",
+            "schema": {
+              "$ref": "#/definitions/DocumentLockedForCommentsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments": {
+      "get": {
+        "description": "List all the comments for the specified document version.",
+        "operationId": "DescribeComments",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeCommentsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "DocumentId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "VersionId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeCommentsResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "483": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/api/v1/folders": {
       "parameters": [
         {
@@ -875,7 +1289,7 @@
     },
     "/api/v1/folders/{FolderId}/contents": {
       "get": {
-        "description": "<p>Describes the contents of the specified folder, including its documents and sub-folders.</p> <p>By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.</p>",
+        "description": "<p>Describes the contents of the specified folder, including its documents and subfolders.</p> <p>By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.</p>",
         "operationId": "DescribeFolderContents",
         "parameters": [
           {
@@ -1071,6 +1485,172 @@
         }
       ]
     },
+    "/api/v1/me": {
+      "get": {
+        "description": "Retrieves details of the current user for whom the authentication token was generated. This is not a valid action for SigV4 (administrative API) clients.",
+        "operationId": "GetCurrentUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetCurrentUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCurrentUserResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/api/v1/me/root": {
+      "get": {
+        "description": "Describes the current user's special folders; the <code>RootFolder</code> and the <code>RecyleBin</code>. <code>RootFolder</code> is the root of user's files and folders and <code>RecyleBin</code> is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.",
+        "operationId": "DescribeRootFolders",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRootFoldersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRootFoldersResponse"
+            }
+          },
+          "480": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
     "/api/v1/organizations/{OrganizationId}/subscriptions": {
       "get": {
         "description": "Lists the specified notification subscriptions.",
@@ -1200,6 +1780,190 @@
             "description": "ProhibitedStateException",
             "schema": {
               "$ref": "#/definitions/ProhibitedStateException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/api/v1/resources/{ResourceId}/customMetadata": {
+      "delete": {
+        "description": "Deletes custom metadata from the specified resource.",
+        "operationId": "DeleteCustomMetadata",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteCustomMetadataRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteCustomMetadataResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "ProhibitedStateException",
+            "schema": {
+              "$ref": "#/definitions/ProhibitedStateException"
+            }
+          },
+          "484": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/api/v1/resources/{ResourceId}/labels": {
+      "delete": {
+        "description": "Deletes the specified list of labels from a resource.",
+        "operationId": "DeleteLabels",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLabelsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ResourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLabelsResponse"
+            }
+          },
+          "480": {
+            "description": "EntityNotExistsException",
+            "schema": {
+              "$ref": "#/definitions/EntityNotExistsException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedOperationException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedOperationException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedResourceAccessException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedResourceAccessException"
+            }
+          },
+          "483": {
+            "description": "FailedDependencyException",
+            "schema": {
+              "$ref": "#/definitions/FailedDependencyException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
             }
           }
         }
@@ -1703,6 +2467,80 @@
       },
       "type": "object"
     },
+    "Activity": {
+      "description": "Describes the activity information.",
+      "properties": {
+        "CommentMetadata": {
+          "$ref": "#/definitions/CommentMetadata",
+          "description": "Metadata of the commenting activity. This is an optional field and is filled for commenting activities."
+        },
+        "Initiator": {
+          "$ref": "#/definitions/UserMetadata",
+          "description": "The user who performed the action."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the organization."
+        },
+        "OriginalParent": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The original parent of the resource. This is an optional field and is filled for move activities."
+        },
+        "Participants": {
+          "$ref": "#/definitions/Participants",
+          "description": "The list of users or groups impacted by this action. This is an optional field and is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED."
+        },
+        "ResourceMetadata": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The metadata of the resource involved in the user action."
+        },
+        "TimeStamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The timestamp when the action was performed."
+        },
+        "Type": {
+          "$ref": "#/definitions/ActivityType",
+          "description": "The activity type."
+        }
+      },
+      "type": "object"
+    },
+    "ActivityType": {
+      "enum": [
+        "DOCUMENT_CHECKED_IN",
+        "DOCUMENT_CHECKED_OUT",
+        "DOCUMENT_RENAMED",
+        "DOCUMENT_VERSION_UPLOADED",
+        "DOCUMENT_VERSION_DELETED",
+        "DOCUMENT_RECYCLED",
+        "DOCUMENT_RESTORED",
+        "DOCUMENT_REVERTED",
+        "DOCUMENT_SHARED",
+        "DOCUMENT_UNSHARED",
+        "DOCUMENT_SHARE_PERMISSION_CHANGED",
+        "DOCUMENT_SHAREABLE_LINK_CREATED",
+        "DOCUMENT_SHAREABLE_LINK_REMOVED",
+        "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+        "DOCUMENT_MOVED",
+        "DOCUMENT_COMMENT_ADDED",
+        "DOCUMENT_COMMENT_DELETED",
+        "DOCUMENT_ANNOTATION_ADDED",
+        "DOCUMENT_ANNOTATION_DELETED",
+        "FOLDER_CREATED",
+        "FOLDER_DELETED",
+        "FOLDER_RENAMED",
+        "FOLDER_RECYCLED",
+        "FOLDER_RESTORED",
+        "FOLDER_SHARED",
+        "FOLDER_UNSHARED",
+        "FOLDER_SHARE_PERMISSION_CHANGED",
+        "FOLDER_SHAREABLE_LINK_CREATED",
+        "FOLDER_SHAREABLE_LINK_REMOVED",
+        "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+        "FOLDER_MOVED"
+      ],
+      "type": "string"
+    },
     "AddResourcePermissionsRequest": {
       "properties": {
         "Principals": {
@@ -1724,6 +2562,117 @@
       },
       "type": "object"
     },
+    "AuthenticationHeaderType": {
+      "format": "password",
+      "maxLength": 8199,
+      "minLength": 1,
+      "type": "string"
+    },
+    "BooleanType": {
+      "type": "boolean"
+    },
+    "Comment": {
+      "description": "Describes a comment.",
+      "properties": {
+        "CommentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the comment."
+        },
+        "Contributor": {
+          "$ref": "#/definitions/User",
+          "description": "The details of the user who made the comment."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time that the comment was created."
+        },
+        "ParentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the parent comment."
+        },
+        "RecipientId": {
+          "$ref": "#/definitions/IdType",
+          "description": "If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to."
+        },
+        "Status": {
+          "$ref": "#/definitions/CommentStatusType",
+          "description": "The status of the comment."
+        },
+        "Text": {
+          "$ref": "#/definitions/CommentTextType",
+          "description": "The text of the comment."
+        },
+        "ThreadId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the root comment in the thread."
+        },
+        "Visibility": {
+          "$ref": "#/definitions/CommentVisibilityType",
+          "description": "The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors."
+        }
+      },
+      "required": [
+        "CommentId"
+      ],
+      "type": "object"
+    },
+    "CommentIdType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+-.@]+",
+      "type": "string"
+    },
+    "CommentList": {
+      "items": {
+        "$ref": "#/definitions/Comment"
+      },
+      "type": "array"
+    },
+    "CommentMetadata": {
+      "description": "Describes the metadata of a comment.",
+      "properties": {
+        "CommentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the comment."
+        },
+        "CommentStatus": {
+          "$ref": "#/definitions/CommentStatusType"
+        },
+        "Contributor": {
+          "$ref": "#/definitions/User",
+          "description": "The user who made the comment."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType"
+        },
+        "RecipientId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user being replied to."
+        }
+      },
+      "type": "object"
+    },
+    "CommentStatusType": {
+      "enum": [
+        "DRAFT",
+        "PUBLISHED",
+        "DELETED"
+      ],
+      "type": "string"
+    },
+    "CommentTextType": {
+      "format": "password",
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CommentVisibilityType": {
+      "enum": [
+        "PUBLIC",
+        "PRIVATE"
+      ],
+      "type": "string"
+    },
     "ConcurrentModificationException": {
       "description": "The resource hierarchy is changing.",
       "properties": {
@@ -1731,6 +2680,59 @@
           "$ref": "#/definitions/ErrorMessageType"
         }
       },
+      "type": "object"
+    },
+    "CreateCommentRequest": {
+      "properties": {
+        "NotifyCollaborators": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Set this parameter to TRUE to send an email out to the document collaborators after the comment is created."
+        },
+        "ParentId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the parent comment."
+        },
+        "Text": {
+          "$ref": "#/definitions/CommentTextType",
+          "description": "The text of the comment."
+        },
+        "ThreadId": {
+          "$ref": "#/definitions/CommentIdType",
+          "description": "The ID of the root comment in the thread."
+        },
+        "Visibility": {
+          "$ref": "#/definitions/CommentVisibilityType",
+          "description": "The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors."
+        }
+      },
+      "required": [
+        "Text"
+      ],
+      "type": "object"
+    },
+    "CreateCommentResponse": {
+      "properties": {
+        "Comment": {
+          "$ref": "#/definitions/Comment",
+          "description": "The comment that has been created."
+        }
+      },
+      "type": "object"
+    },
+    "CreateCustomMetadataRequest": {
+      "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "Custom metadata in the form of name-value pairs."
+        }
+      },
+      "required": [
+        "CustomMetadata"
+      ],
+      "type": "object"
+    },
+    "CreateCustomMetadataResponse": {
+      "properties": {},
       "type": "object"
     },
     "CreateFolderRequest": {
@@ -1756,6 +2758,22 @@
           "description": "The metadata of the folder."
         }
       },
+      "type": "object"
+    },
+    "CreateLabelsRequest": {
+      "properties": {
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "List of labels to add to the resource."
+        }
+      },
+      "required": [
+        "Labels"
+      ],
+      "type": "object"
+    },
+    "CreateLabelsResponse": {
+      "properties": {},
       "type": "object"
     },
     "CreateNotificationSubscriptionRequest": {
@@ -1791,6 +2809,10 @@
     },
     "CreateUserRequest": {
       "properties": {
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The email address of the user."
+        },
         "GivenName": {
           "$ref": "#/definitions/UserAttributeValueType",
           "description": "The given name of the user."
@@ -1837,12 +2859,68 @@
       },
       "type": "object"
     },
+    "CustomMetadataKeyList": {
+      "items": {
+        "$ref": "#/definitions/CustomMetadataKeyType"
+      },
+      "maxItems": 8,
+      "type": "array"
+    },
+    "CustomMetadataKeyType": {
+      "maxLength": 56,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string"
+    },
+    "CustomMetadataLimitExceededException": {
+      "description": "The limit has been reached on the number of custom properties for the specified resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "CustomMetadataMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/CustomMetadataKeyType"
+          },
+          "value": {
+            "$ref": "#/definitions/CustomMetadataValueType"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "type": "array"
+    },
+    "CustomMetadataValueType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string"
+    },
     "DeactivateUserRequest": {
       "properties": {},
       "type": "object"
     },
     "DeactivatingLastSystemUserException": {
       "description": "The last user in the organization is being deactivated.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteCommentRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteCustomMetadataRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteCustomMetadataResponse": {
       "properties": {},
       "type": "object"
     },
@@ -1858,12 +2936,54 @@
       "properties": {},
       "type": "object"
     },
+    "DeleteLabelsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteLabelsResponse": {
+      "properties": {},
+      "type": "object"
+    },
     "DeleteNotificationSubscriptionRequest": {
       "properties": {},
       "type": "object"
     },
     "DeleteUserRequest": {
       "properties": {},
+      "type": "object"
+    },
+    "DescribeActivitiesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeActivitiesResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/MarkerType",
+          "description": "The marker for the next set of results."
+        },
+        "UserActivities": {
+          "$ref": "#/definitions/UserActivities",
+          "description": "The list of activities for the specified user and time period."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeCommentsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeCommentsResponse": {
+      "properties": {
+        "Comments": {
+          "$ref": "#/definitions/CommentList",
+          "description": "The list of comments for the specified document version."
+        },
+        "Marker": {
+          "$ref": "#/definitions/MarkerType",
+          "description": "The marker for the next set of results. This marker was received from a previous call."
+        }
+      },
       "type": "object"
     },
     "DescribeDocumentVersionsRequest": {
@@ -1895,7 +3015,7 @@
         },
         "Folders": {
           "$ref": "#/definitions/FolderMetadataList",
-          "description": "The sub-folders in the specified folder."
+          "description": "The subfolders in the specified folder."
         },
         "Marker": {
           "$ref": "#/definitions/PageMarkerType",
@@ -1938,6 +3058,23 @@
       },
       "type": "object"
     },
+    "DescribeRootFoldersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeRootFoldersResponse": {
+      "properties": {
+        "Folders": {
+          "$ref": "#/definitions/FolderMetadataList",
+          "description": "The user's special folders."
+        },
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker for the next set of results."
+        }
+      },
+      "type": "object"
+    },
     "DescribeUsersRequest": {
       "properties": {},
       "type": "object"
@@ -1964,6 +3101,15 @@
       "minLength": 1,
       "type": "string"
     },
+    "DocumentLockedForCommentsException": {
+      "description": "This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
     "DocumentMetadata": {
       "description": "Describes the document.",
       "properties": {
@@ -1978,6 +3124,10 @@
         "Id": {
           "$ref": "#/definitions/ResourceIdType",
           "description": "The ID of the document."
+        },
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "List of labels on the document."
         },
         "LatestVersionMetadata": {
           "$ref": "#/definitions/DocumentVersionMetadata",
@@ -2130,6 +3280,15 @@
       ],
       "type": "string"
     },
+    "DraftUploadOutOfSyncException": {
+      "description": "This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
     "EmailAddressType": {
       "maxLength": 256,
       "minLength": 1,
@@ -2204,6 +3363,14 @@
           "$ref": "#/definitions/ResourceIdType",
           "description": "The ID of the folder."
         },
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "List of labels on the folder."
+        },
+        "LatestVersionSize": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the latest version of the folder metadata."
+        },
         "ModifiedTimestamp": {
           "$ref": "#/definitions/TimestampType",
           "description": "The time when the folder was updated."
@@ -2223,6 +3390,10 @@
         "Signature": {
           "$ref": "#/definitions/HashType",
           "description": "The unique identifier created from the subfolders and documents of the folder."
+        },
+        "Size": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the folder metadata."
         }
       },
       "type": "object"
@@ -2232,6 +3403,19 @@
         "$ref": "#/definitions/FolderMetadata"
       },
       "type": "array"
+    },
+    "GetCurrentUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetCurrentUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "Metadata of the user."
+        }
+      },
+      "type": "object"
     },
     "GetDocumentPathRequest": {
       "properties": {},
@@ -2252,9 +3436,13 @@
     },
     "GetDocumentResponse": {
       "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "The custom metadata on the document."
+        },
         "Metadata": {
           "$ref": "#/definitions/DocumentMetadata",
-          "description": "The document object."
+          "description": "The metadata details of the document."
         }
       },
       "type": "object"
@@ -2265,6 +3453,10 @@
     },
     "GetDocumentVersionResponse": {
       "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "The custom metadata on the document version."
+        },
         "Metadata": {
           "$ref": "#/definitions/DocumentVersionMetadata",
           "description": "The version metadata."
@@ -2291,12 +3483,39 @@
     },
     "GetFolderResponse": {
       "properties": {
+        "CustomMetadata": {
+          "$ref": "#/definitions/CustomMetadataMap",
+          "description": "The custom metadata on the folder."
+        },
         "Metadata": {
           "$ref": "#/definitions/FolderMetadata",
           "description": "The metadata of the folder."
         }
       },
       "type": "object"
+    },
+    "GroupMetadata": {
+      "description": "Describes the metadata of a user group.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user group."
+        },
+        "Name": {
+          "$ref": "#/definitions/GroupNameType",
+          "description": "The name of the group."
+        }
+      },
+      "type": "object"
+    },
+    "GroupMetadataList": {
+      "items": {
+        "$ref": "#/definitions/GroupMetadata"
+      },
+      "type": "array"
+    },
+    "GroupNameType": {
+      "type": "string"
     },
     "HashType": {
       "maxLength": 128,
@@ -2397,8 +3616,21 @@
       },
       "type": "object"
     },
+    "Label": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._+-/=][a-zA-Z0-9 ._+-/=]*",
+      "type": "string"
+    },
+    "Labels": {
+      "items": {
+        "$ref": "#/definitions/Label"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
     "LimitExceededException": {
-      "description": "You've exceeded the maximum of 100,000 folders under the parent folder.",
+      "description": "The maximum of 100,000 folders under the parent folder has been exceeded.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ErrorMessageType"
@@ -2427,6 +3659,12 @@
       ],
       "type": "string"
     },
+    "MarkerType": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "[\\u0000-\\u00FF]+",
+      "type": "string"
+    },
     "MessageType": {
       "format": "password",
       "maxLength": 2048,
@@ -2450,6 +3688,20 @@
       "maxLength": 2048,
       "minLength": 1,
       "type": "string"
+    },
+    "Participants": {
+      "description": "Describes the users and/or user groups.",
+      "properties": {
+        "Groups": {
+          "$ref": "#/definitions/GroupMetadataList",
+          "description": "The list of user groups."
+        },
+        "Users": {
+          "$ref": "#/definitions/UserMetadataList",
+          "description": "The list of users."
+        }
+      },
+      "type": "object"
     },
     "PasswordType": {
       "format": "password",
@@ -2533,11 +3785,54 @@
       "properties": {},
       "type": "object"
     },
+    "ResourceAlreadyCheckedOutException": {
+      "description": "The resource is already checked out.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
     "ResourceIdType": {
       "maxLength": 128,
       "minLength": 1,
       "pattern": "[\\w+-.@]+",
       "type": "string"
+    },
+    "ResourceMetadata": {
+      "description": "Describes the metadata of a resource.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the resource."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the resource."
+        },
+        "OriginalName": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The original name of the resource prior to a rename operation."
+        },
+        "Owner": {
+          "$ref": "#/definitions/UserMetadata",
+          "description": "The owner of the resource."
+        },
+        "ParentId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The parent ID of the resource before a rename operation."
+        },
+        "Type": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The type of resource."
+        },
+        "VersionId": {
+          "$ref": "#/definitions/DocumentVersionIdType",
+          "description": "The version ID of the resource. This is an optional field and is filled for action on document version."
+        }
+      },
+      "type": "object"
     },
     "ResourceNameType": {
       "maxLength": 255,
@@ -2588,6 +3883,13 @@
         "RESTORING",
         "RECYCLING",
         "RECYCLED"
+      ],
+      "type": "string"
+    },
+    "ResourceType": {
+      "enum": [
+        "FOLDER",
+        "DOCUMENT"
       ],
       "type": "string"
     },
@@ -2798,6 +4100,15 @@
       "format": "date-time",
       "type": "string"
     },
+    "TooManyLabelsException": {
+      "description": "The limit has been reached on the number of labels for the specified resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
     "TooManySubscriptionsException": {
       "description": "You've reached the limit on the number of subscriptions for the WorkDocs instance.",
       "properties": {
@@ -2988,6 +4299,12 @@
       },
       "type": "object"
     },
+    "UserActivities": {
+      "items": {
+        "$ref": "#/definitions/Activity"
+      },
+      "type": "array"
+    },
     "UserAttributeValueType": {
       "maxLength": 64,
       "minLength": 1,
@@ -3005,6 +4322,38 @@
       "minLength": 1,
       "pattern": "[&\\w+-.@, ]+",
       "type": "string"
+    },
+    "UserMetadata": {
+      "description": "Describes the metadata of the user.",
+      "properties": {
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The email address of the user."
+        },
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user before a rename operation."
+        },
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The username of the user."
+        }
+      },
+      "type": "object"
+    },
+    "UserMetadataList": {
+      "items": {
+        "$ref": "#/definitions/UserMetadata"
+      },
+      "type": "array"
     },
     "UserSortType": {
       "enum": [
@@ -3048,7 +4397,7 @@
     "UsernameType": {
       "maxLength": 256,
       "minLength": 1,
-      "pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
+      "pattern": "[\\w\\-+.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
       "type": "string"
     }
   }

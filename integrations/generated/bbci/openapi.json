@@ -35,7 +35,7 @@
     ],
     "x-preferred": true,
     "x-providerName": "bbci.co.uk",
-    "x-release": "442",
+    "x-release": "1.0.0-334",
     "x-schema-id": "https://ibl.api.bbci.co.uk/ibl/v1/schema/ibl.json",
     "x-unofficialSpec": true,
     "x-datafire": {
@@ -108,7 +108,7 @@
       "default": 4,
       "description": "The depth to return child entities.",
       "in": "query",
-      "maximum": 5,
+      "maximum": 4,
       "minimum": 1,
       "name": "initial_child_count",
       "required": true,
@@ -1519,6 +1519,9 @@
               "availability": {
                 "additionalProperties": false,
                 "properties": {
+                  "accurate_start": {
+                    "type": "string"
+                  },
                   "end": {
                     "type": "string"
                   },
@@ -1768,6 +1771,9 @@
         "parent_position": {
           "type": "number"
         },
+        "preview_id": {
+          "type": "string"
+        },
         "promoted": {
           "type": "boolean"
         },
@@ -1859,6 +1865,9 @@
             "medium": {
               "type": "string"
             },
+            "preview": {
+              "type": "string"
+            },
             "small": {
               "type": "string"
             }
@@ -1893,6 +1902,9 @@
                   "availability": {
                     "additionalProperties": false,
                     "properties": {
+                      "accurate_start": {
+                        "type": "string"
+                      },
                       "end": {
                         "type": "string"
                       },
@@ -3355,6 +3367,9 @@
         "availability": {
           "additionalProperties": false,
           "properties": {
+            "accurate_start": {
+              "type": "string"
+            },
             "end": {
               "type": "string"
             },

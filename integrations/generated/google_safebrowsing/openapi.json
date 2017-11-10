@@ -31,7 +31,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://safebrowsing.googleapis.com/$discovery/rest?version=v4",
@@ -805,7 +805,16 @@
             "MALWARE",
             "SOCIAL_ENGINEERING",
             "UNWANTED_SOFTWARE",
-            "POTENTIALLY_HARMFUL_APPLICATION"
+            "POTENTIALLY_HARMFUL_APPLICATION",
+            "SOCIAL_ENGINEERING_INTERNAL",
+            "API_ABUSE",
+            "MALICIOUS_BINARY",
+            "CSD_WHITELIST",
+            "CSD_DOWNLOAD_WHITELIST",
+            "CLIENT_INCIDENT",
+            "CLIENT_INCIDENT_WHITELIST",
+            "APK_MALWARE_OFFLINE",
+            "SUBRESOURCE_FILTER"
           ],
           "type": "string"
         }
@@ -882,7 +891,16 @@
             "MALWARE",
             "SOCIAL_ENGINEERING",
             "UNWANTED_SOFTWARE",
-            "POTENTIALLY_HARMFUL_APPLICATION"
+            "POTENTIALLY_HARMFUL_APPLICATION",
+            "SOCIAL_ENGINEERING_INTERNAL",
+            "API_ABUSE",
+            "MALICIOUS_BINARY",
+            "CSD_WHITELIST",
+            "CSD_DOWNLOAD_WHITELIST",
+            "CLIENT_INCIDENT",
+            "CLIENT_INCIDENT_WHITELIST",
+            "APK_MALWARE_OFFLINE",
+            "SUBRESOURCE_FILTER"
           ],
           "type": "string"
         }
@@ -1077,7 +1095,16 @@
               "MALWARE",
               "SOCIAL_ENGINEERING",
               "UNWANTED_SOFTWARE",
-              "POTENTIALLY_HARMFUL_APPLICATION"
+              "POTENTIALLY_HARMFUL_APPLICATION",
+              "SOCIAL_ENGINEERING_INTERNAL",
+              "API_ABUSE",
+              "MALICIOUS_BINARY",
+              "CSD_WHITELIST",
+              "CSD_DOWNLOAD_WHITELIST",
+              "CLIENT_INCIDENT",
+              "CLIENT_INCIDENT_WHITELIST",
+              "APK_MALWARE_OFFLINE",
+              "SUBRESOURCE_FILTER"
             ],
             "type": "string"
           },
@@ -1124,7 +1151,16 @@
             "MALWARE",
             "SOCIAL_ENGINEERING",
             "UNWANTED_SOFTWARE",
-            "POTENTIALLY_HARMFUL_APPLICATION"
+            "POTENTIALLY_HARMFUL_APPLICATION",
+            "SOCIAL_ENGINEERING_INTERNAL",
+            "API_ABUSE",
+            "MALICIOUS_BINARY",
+            "CSD_WHITELIST",
+            "CSD_DOWNLOAD_WHITELIST",
+            "CLIENT_INCIDENT",
+            "CLIENT_INCIDENT_WHITELIST",
+            "APK_MALWARE_OFFLINE",
+            "SUBRESOURCE_FILTER"
           ],
           "type": "string"
         }
@@ -1182,7 +1218,16 @@
             "MALWARE",
             "SOCIAL_ENGINEERING",
             "UNWANTED_SOFTWARE",
-            "POTENTIALLY_HARMFUL_APPLICATION"
+            "POTENTIALLY_HARMFUL_APPLICATION",
+            "SOCIAL_ENGINEERING_INTERNAL",
+            "API_ABUSE",
+            "MALICIOUS_BINARY",
+            "CSD_WHITELIST",
+            "CSD_DOWNLOAD_WHITELIST",
+            "CLIENT_INCIDENT",
+            "CLIENT_INCIDENT_WHITELIST",
+            "APK_MALWARE_OFFLINE",
+            "SUBRESOURCE_FILTER"
           ],
           "type": "string"
         }

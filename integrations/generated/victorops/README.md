@@ -11,7 +11,7 @@ npm install --save datafire @datafire/victorops
 let datafire = require('datafire');
 let victorops = require('@datafire/victorops').create();
 
-victorops.api_public.v1.alerts.batch.post({}).then(data => {
+victorops.api_public.v1.alerts.uuid.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -27,26 +27,6 @@ submitting the curl request.
 
 
 ## Actions
-### api_public.v1.alerts.batch.post
-Retrieve the details of multiple alerts that were sent VictorOps by you.
-
-This API may be called a maximum of 6 times per minute.
-
-
-
-```js
-victorops.api_public.v1.alerts.batch.post({
-  "X-VO-Api-Id": "",
-  "X-VO-Api-Key": "",
-  "body": {}
-}, context)
-```
-
-#### Parameters
-* X-VO-Api-Id (string) **required** - Your API ID
-* X-VO-Api-Key (string) **required** - Your API Key
-* body (object) **required** - A collection of IDs (uuid) for the alerts to be returned
-
 ### api_public.v1.alerts.uuid.get
 Retrieve the details of an alert that was sent VictorOps by you.
 
@@ -88,10 +68,10 @@ victorops.api_public.v1.incidents.get({
 Create a new incident.
 
 This call replicates the function of our
-<a href="https://help.victorops.com/knowledge-base/manual-incident-creation/">manual incident creation process</a>
+<a href="https://help.victorops.com/knowledge-base/manual-incident-creation/">manual incident creation process</a>.
 Monitoring tools and custom integrations
 should be configured using our
-<a href="https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/">REST Endpoint</a>
+<a href="https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/">REST Endpoint</a>.
 
 This API may be called a maximum of 6 times per minute.
 
@@ -204,6 +184,22 @@ victorops.api_public.v1.incidents.resolve.patch({
 * X-VO-Api-Id (string) **required** - Your API ID
 * X-VO-Api-Key (string) **required** - Your API Key
 * body (object) **required**
+
+### api_public.v1.org.routing_keys.get
+Retrieves a list of routing keys and associated teams.
+This API may be called a maximum of once a minute.
+
+
+```js
+victorops.api_public.v1.org.routing_keys.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": ""
+}, context)
+```
+
+#### Parameters
+* X-VO-Api-Id (string) **required** - Your API ID
+* X-VO-Api-Key (string) **required** - Your API Key
 
 ### api_public.v1.team.get
 Get a list of teams for your organization.
@@ -904,6 +900,26 @@ victorops.api_public.v1.user.user.oncall.schedule.get({
 * daysSkip (number) - Days to skip before computing schedule to return (90 max)
 * step (number) - Step of escalation policy (3 max)
 
+### api_public.v1.user.user.policies.get
+Get paging policies for a user
+
+This API may be called a maximum of 15 times per minute.
+
+
+
+```js
+victorops.api_public.v1.user.user.policies.get({
+  "X-VO-Api-Id": "",
+  "X-VO-Api-Key": "",
+  "user": ""
+}, context)
+```
+
+#### Parameters
+* X-VO-Api-Id (string) **required** - Your API ID
+* X-VO-Api-Key (string) **required** - Your API Key
+* user (string) **required** - The VictorOps user ID
+
 ### api_reporting.v1.incidents.get
 Retrieve incident history for your company, searching over date ranges and with filtering options.  This is historical
 data, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.
@@ -973,6 +989,8 @@ Incident requests are paginated with a offset and limit query string parameters.
 
 The default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.
 
+Unless specified otherwise with the parameter currentPhase, the response will only contain resolved incidents.
+
 On return, the total number of records available for that query will be returned in the payload as 'total'.
 
 
@@ -995,6 +1013,6 @@ victorops.api_reporting.v2.incidents.get({
 * startedBefore (string) - Find incidents started before this timestamp  Specify the timestamp in ISO8601 format
 * host (string) - The host involved in the incident Multiple values can be separated with commas.
 * service (string) - The service involved in the incident (if any) Multiple values can be separated with commas.
-* currentPhase (string) - The current phase of the incident "resolved", "triggered" or "acknowledged". Multiple values can be separated with commas.
+* currentPhase (string) - The current phase of the incident "resolved", "triggered" or "acknowledged". Multiple values can be separated with commas. By default, response contains only "resolved" incidents
 * routingKey (string) - The original routing of the incident
 

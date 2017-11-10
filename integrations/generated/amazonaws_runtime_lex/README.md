@@ -61,5 +61,6 @@ amazonaws_runtime_lex.PostText({
 * botAlias (string) **required**
 * userId (string) **required**
 * inputText (string) **required**
+* requestAttributes (array)
 * sessionAttributes (array)
 

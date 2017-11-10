@@ -11,16 +11,14 @@
       "url": "https://google.com"
     },
     "description": "Accesses a Google App Engine Pull Task Queue over REST.",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "TaskQueue",
     "version": "v1beta2",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
     },
+    "x-apisguru-categories": [
+      "backend"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
@@ -28,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/taskqueue/v1beta2/rest",
@@ -49,23 +47,12 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/taskqueue": "Manage your Tasks and Taskqueues",
         "https://www.googleapis.com/auth/taskqueue.consumer": "Consume Tasks from your Taskqueues"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/taskqueue": "Manage your Tasks and Taskqueues",
-        "https://www.googleapis.com/auth/taskqueue.consumer": "Consume Tasks from your Taskqueues"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -176,16 +163,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -250,16 +231,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -329,16 +304,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -429,16 +398,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -484,16 +447,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -540,16 +497,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -631,16 +582,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }
@@ -699,16 +644,10 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/taskqueue"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/taskqueue"
             ]
           },
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/taskqueue.consumer"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/taskqueue.consumer"
             ]
           }

@@ -28,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://adexperiencereport.googleapis.com/$discovery/rest?version=v1",
@@ -248,11 +248,11 @@
     },
     "/v1/{name}": {
       "get": {
-        "description": "Gets a summary of the ads rating of a site.",
+        "description": "Gets a summary of the ad experience rating of a site.",
         "operationId": "sites.get",
         "parameters": [
           {
-            "description": "The required site name. It should be a site property registered in Search\nConsole. The server will return an error of BAD_REQUEST if this field is\nnot filled in.",
+            "description": "The required site name. It should be the site property whose ad experiences\nmay have been reviewed, and it should be URL-encoded. For example,\nsites/https%3A%2F%2Fwww.google.com. The server will return an error of\nBAD_REQUEST if this field is not filled in. Note that if the site property\nis not yet verified in Search Console, the reportUrl field returned by the\nAPI will lead to the verification page, prompting the user to go through\nthat process before they can gain access to the Ad Experience Report.",
             "in": "path",
             "name": "name",
             "required": true,
@@ -327,7 +327,7 @@
   },
   "definitions": {
     "PlatformSummary": {
-      "description": "Summary of the ads rating of a site for a specific platform.",
+      "description": "Summary of the ad experience rating of a site for a specific platform.",
       "properties": {
         "betterAdsStatus": {
           "description": "The status of the site reviewed for the Better Ads Standards.",
@@ -335,15 +335,6 @@
             "UNKNOWN",
             "PASSING",
             "WARNING",
-            "FAILING"
-          ],
-          "type": "string"
-        },
-        "egregiousStatus": {
-          "description": "The status of the site reviewed for egregious ads.",
-          "enum": [
-            "UNKNOWN",
-            "PASSING",
             "FAILING"
           ],
           "type": "string"

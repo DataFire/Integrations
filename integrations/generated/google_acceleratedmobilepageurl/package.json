@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google_acceleratedmobilepageurl",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for Accelerated Mobile Pages (AMP) URL",
   "repository": {

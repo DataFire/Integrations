@@ -14,7 +14,7 @@ let traccar = require('@datafire/traccar').create({
   password: "",
 });
 
-traccar.users.notifications.get({}).then(data => {
+traccar.users.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -23,23 +23,27 @@ traccar.users.notifications.get({}).then(data => {
 Open Source GPS Tracking Platform
 
 ## Actions
-### attributes.aliases.get
-Without params, it returns a list of AttributeAlias from all the user's Devices
+### attributes.computed.get
+Without params, it returns a list of Attributes the user has access to
 
 
 ```js
-traccar.attributes.aliases.get({}, context)
+traccar.attributes.computed.get({}, context)
 ```
 
 #### Parameters
-* deviceId (integer) - Standard users can use this only with _userId_s, they have access to
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
+* deviceId (integer) - Standard users can use this only with _deviceId_s, they have access to
+* groupId (integer) - Standard users can use this only with _groupId_s, they have access to
+* refresh (boolean)
 
-### attributes.aliases.post
-Set an AttributeAlias
+### attributes.computed.post
+Create an Attribute
 
 
 ```js
-traccar.attributes.aliases.post({
+traccar.attributes.computed.post({
   "body": null
 }, context)
 ```
@@ -47,12 +51,12 @@ traccar.attributes.aliases.post({
 #### Parameters
 * body (undefined) **required**
 
-### attributes.aliases.id.delete
-Delete an AttributeAlias
+### attributes.computed.id.delete
+Delete an Attribute
 
 
 ```js
-traccar.attributes.aliases.id.delete({
+traccar.attributes.computed.id.delete({
   "id": 0
 }, context)
 ```
@@ -60,12 +64,12 @@ traccar.attributes.aliases.id.delete({
 #### Parameters
 * id (integer) **required**
 
-### attributes.aliases.id.put
-Update an AttributeAlias
+### attributes.computed.id.put
+Update an Attribute
 
 
 ```js
-traccar.attributes.aliases.id.put({
+traccar.attributes.computed.id.put({
   "id": 0,
   "body": null
 }, context)
@@ -128,8 +132,23 @@ traccar.calendars.id.put({
 * id (integer) **required**
 * body (undefined) **required**
 
+### commands.get
+Without params, it returns a list of Drivers the user has access to
+
+
+```js
+traccar.commands.get({}, context)
+```
+
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
+* deviceId (integer) - Standard users can use this only with _deviceId_s, they have access to
+* groupId (integer) - Standard users can use this only with _groupId_s, they have access to
+* refresh (boolean)
+
 ### commands.post
-Dispatch commands to device
+Create a Saved Command
 
 
 ```js
@@ -141,18 +160,69 @@ traccar.commands.post({
 #### Parameters
 * body (undefined) **required**
 
-### commandtypes.get
-Fetch a list of available Commands for the Device
+### commands.send.get
+Return a list of saved commands linked to Device and its groups, filtered by current Device protocol support
 
 
 ```js
-traccar.commandtypes.get({
-  "deviceId": 0
+traccar.commands.send.get({}, context)
+```
+
+#### Parameters
+* deviceId (integer) - Standard users can use this only with _deviceId_s, they have access to
+
+### commands.send.post
+Dispatch a new command or Saved Command if _body.id_ set
+
+
+```js
+traccar.commands.send.post({
+  "body": null
 }, context)
 ```
 
 #### Parameters
-* deviceId (integer) **required**
+* body (undefined) **required**
+
+### commands.types.get
+Fetch a list of available Commands for the Device or all possible Commands if Device ommited
+
+
+```js
+traccar.commands.types.get({}, context)
+```
+
+#### Parameters
+* deviceId (integer)
+* textChannel (boolean)
+
+### commands.id.delete
+Delete a Saved Command
+
+
+```js
+traccar.commands.id.delete({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required**
+
+### commands.id.put
+Update a Saved Command
+
+
+```js
+traccar.commands.id.put({
+  "id": 0,
+  "body": null
+}, context)
+```
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
 
 ### devices.get
 Without any params, returns a list of the user's devices
@@ -165,6 +235,8 @@ traccar.devices.get({}, context)
 #### Parameters
 * all (boolean) - Can only be used by admins or managers to fetch all entities
 * userId (integer) - Standard users can use this only with their own _userId_
+* id (integer) - To fetch one or more devices. Multiple params can be passed like `id=31&id=42`
+* uniqueId (string) - To fetch one or more devices. Multiple params can be passed like `uniqueId=333331&uniqieId=44442`
 
 ### devices.post
 Create a Device
@@ -179,34 +251,8 @@ traccar.devices.post({
 #### Parameters
 * body (undefined) **required**
 
-### devices.geofences.delete
-Remove a Geofence from a Device
-
-
-```js
-traccar.devices.geofences.delete({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### devices.geofences.post
-Link a Geofence to a Device
-
-
-```js
-traccar.devices.geofences.post({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
 ### devices.id.delete
-Update a Device
+Delete a Device
 
 
 ```js
@@ -248,6 +294,62 @@ traccar.devices.id.distance.put({
 * id (integer) **required**
 * body (undefined) **required**
 
+### drivers.get
+Without params, it returns a list of Drivers the user has access to
+
+
+```js
+traccar.drivers.get({}, context)
+```
+
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
+* deviceId (integer) - Standard users can use this only with _deviceId_s, they have access to
+* groupId (integer) - Standard users can use this only with _groupId_s, they have access to
+* refresh (boolean)
+
+### drivers.post
+Create a Driver
+
+
+```js
+traccar.drivers.post({
+  "body": null
+}, context)
+```
+
+#### Parameters
+* body (undefined) **required**
+
+### drivers.id.delete
+Delete a Driver
+
+
+```js
+traccar.drivers.id.delete({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required**
+
+### drivers.id.put
+Update a Driver
+
+
+```js
+traccar.drivers.id.put({
+  "id": 0,
+  "body": null
+}, context)
+```
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
 ### events.id.get
 
 
@@ -272,8 +374,8 @@ traccar.geofences.get({}, context)
 #### Parameters
 * all (boolean) - Can only be used by admins or managers to fetch all entities
 * userId (integer) - Standard users can use this only with their own _userId_
-* groupId (integer)
-* deviceId (integer) - Standard users can use this only with _userId_s, they have access to
+* deviceId (integer) - Standard users can use this only with _deviceId_s, they have access to
+* groupId (integer) - Standard users can use this only with _groupId_s, they have access to
 * refresh (boolean)
 
 ### geofences.post
@@ -342,32 +444,6 @@ traccar.groups.post({
 #### Parameters
 * body (undefined) **required**
 
-### groups.geofences.delete
-Remove a Geofence from a Group
-
-
-```js
-traccar.groups.geofences.delete({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### groups.geofences.post
-Link a Geofence to a Group
-
-
-```js
-traccar.groups.geofences.post({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
 ### groups.id.delete
 Delete a Group
 
@@ -396,12 +472,27 @@ traccar.groups.id.put({
 * id (integer) **required**
 * body (undefined) **required**
 
-### permissions.calendars.delete
-Remove a Calendar from a User
+### notifications.get
+Without params, it returns a list of Notifications the user has access to
 
 
 ```js
-traccar.permissions.calendars.delete({
+traccar.notifications.get({}, context)
+```
+
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
+* deviceId (integer) - Standard users can use this only with _deviceId_s, they have access to
+* groupId (integer) - Standard users can use this only with _groupId_s, they have access to
+* refresh (boolean)
+
+### notifications.post
+Create a Notification
+
+
+```js
+traccar.notifications.post({
   "body": null
 }, context)
 ```
@@ -409,122 +500,81 @@ traccar.permissions.calendars.delete({
 #### Parameters
 * body (undefined) **required**
 
-### permissions.calendars.post
-Link a Calendar to a User
+### notifications.test.post
+Send test notification to current user via Email and SMS
 
 
 ```js
-traccar.permissions.calendars.post({
+traccar.notifications.test.post(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### notifications.types.get
+Fetch a list of available Notification types
+
+
+```js
+traccar.notifications.types.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### notifications.id.delete
+Delete a Notification
+
+
+```js
+traccar.notifications.id.delete({
+  "id": 0
+}, context)
+```
+
+#### Parameters
+* id (integer) **required**
+
+### notifications.id.put
+Update a Notification
+
+
+```js
+traccar.notifications.id.put({
+  "id": 0,
   "body": null
 }, context)
 ```
 
 #### Parameters
+* id (integer) **required**
 * body (undefined) **required**
 
-### permissions.devices.delete
-Remove a Device from a User
+### permissions.delete
+Unlink an Object from another Object
 
 
 ```js
-traccar.permissions.devices.delete({
+traccar.permissions.delete({
   "body": null
 }, context)
 ```
 
 #### Parameters
-* body (undefined) **required**
+* body (undefined) **required** - This is a permission map that contain two object indexes. It is used to link/unlink objects. Order is important. Example: { deviceId:8, geofenceId: 16 }
 
-### permissions.devices.post
-Link a Device to a User
+### permissions.post
+Link an Object to another Object
 
 
 ```js
-traccar.permissions.devices.post({
+traccar.permissions.post({
   "body": null
 }, context)
 ```
 
 #### Parameters
-* body (undefined) **required**
-
-### permissions.geofences.delete
-Remove a Geofence from a User
-
-
-```js
-traccar.permissions.geofences.delete({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### permissions.geofences.post
-Link a Geofence to a User
-
-
-```js
-traccar.permissions.geofences.post({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### permissions.groups.delete
-Remove a Group from a User
-
-
-```js
-traccar.permissions.groups.delete({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### permissions.groups.post
-Link a Group to a User
-
-
-```js
-traccar.permissions.groups.post({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### permissions.users.delete
-Remove a User from a manager User
-
-
-```js
-traccar.permissions.users.delete({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### permissions.users.post
-Link a User to a manager User
-
-
-```js
-traccar.permissions.users.post({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
+* body (undefined) **required** - This is a permission map that contain two object indexes. It is used to link/unlink objects. Order is important. Example: { deviceId:8, geofenceId: 16 }
 
 ### positions.get
 Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_
@@ -564,6 +614,23 @@ At least one _deviceId_ or one _groupId_ must be passed
 
 ```js
 traccar.reports.route.get({
+  "from": "",
+  "to": ""
+}, context)
+```
+
+#### Parameters
+* deviceId (array)
+* groupId (array)
+* from (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+
+### reports.stops.get
+At least one _deviceId_ or one _groupId_ must be passed
+
+
+```js
+traccar.reports.stops.get({
   "from": "",
   "to": ""
 }, context)
@@ -702,31 +769,6 @@ Create a User
 
 ```js
 traccar.users.post({
-  "body": null
-}, context)
-```
-
-#### Parameters
-* body (undefined) **required**
-
-### users.notifications.get
-Without params, it returns a list of the user's enabled Notifications
-
-
-```js
-traccar.users.notifications.get({}, context)
-```
-
-#### Parameters
-* all (boolean) - To fetch a list of all available Notifications
-* userId (integer) - Standard users can use this only with their own _userId_
-
-### users.notifications.post
-Set or unset a Notification
-
-
-```js
-traccar.users.notifications.post({
   "body": null
 }, context)
 ```

@@ -13,7 +13,7 @@ let nytimes_times_tags = require('@datafire/nytimes_times_tags').create({
   apikey: "",
 });
 
-nytimes_times_tags.timestags.json.get({}).then(data => {
+nytimes_times_tags.timestags.get({}).then(data => {
   console.log(data);
 })
 ```
@@ -22,12 +22,12 @@ nytimes_times_tags.timestags.json.get({}).then(data => {
 With the TimesTags API, you can mine the riches of the New York Times tag set. The TimesTags service matches your query to the controlled vocabularies that fuel NYTimes.com metadata. You supply a string of characters, and the service returns a ranked list of suggested terms.
 
 ## Actions
-### timestags.json.get
+### timestags.get
 
 
 
 ```js
-nytimes_times_tags.timestags.json.get({
+nytimes_times_tags.timestags.get({
   "query": ""
 }, context)
 ```

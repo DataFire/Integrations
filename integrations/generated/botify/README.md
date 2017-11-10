@@ -170,6 +170,23 @@ botify.getPageRankLost({
 * project_slug (string) **required** - Project's identifier
 * analysis_slug (string) **required** - Analysis' identifier
 
+### getKeywordsStats
+List clicks and impressions per day
+
+
+```js
+botify.getKeywordsStats({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
+```
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
 ### getSitemapsReport
 Get global information of the sitemaps found (sitemaps indexes, invalid sitemaps urls, etc.)
 
@@ -400,6 +417,25 @@ botify.getUrlsExportStatus({
 * project_slug (string) **required** - Project's identifier
 * analysis_slug (string) **required** - Analysis' identifier
 * url_export_id (string) **required** - Url Export ID
+
+### getUrlHTML
+Gets the HTML of an URL for an analysis
+
+
+```js
+botify.getUrlHTML({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "url": ""
+}, context)
+```
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+* url (string) **required** - (Urlencoded) Searched URL
 
 ### getUrlsSuggestedFilters
 Return most frequent segments (= suggested patterns in the previous version) for a Botify Query.

@@ -776,7 +776,7 @@ is paginated. Follow the 'next' link in the response to navigate to the
 next page of commits. As with other paginated resources, do not
 construct your own links.
 
-When the include and exclude parameters are more than ca fit in a
+When the include and exclude parameters are more than can fit in a
 query string, clients can use a `x-www-form-urlencoded` POST instead.
 
 
@@ -846,7 +846,7 @@ is paginated. Follow the 'next' link in the response to navigate to the
 next page of commits. As with other paginated resources, do not
 construct your own links.
 
-When the include and exclude parameters are more than ca fit in a
+When the include and exclude parameters are more than can fit in a
 query string, clients can use a `x-www-form-urlencoded` POST instead.
 
 
@@ -2517,6 +2517,26 @@ bitbucket.repositories.username.repo_slug.refs.tags.name.get({
 #### Parameters
 * username (string) **required**
 * name (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.src.node.path.get
+
+
+
+```js
+bitbucket.repositories.username.repo_slug.src.node.path.get({
+  "username": "",
+  "node": "",
+  "path": "",
+  "repo_slug": ""
+}, context)
+```
+
+#### Parameters
+* format (string) - Instead of returning the file's contents, return the (json) meta data for it.
+* username (string) **required**
+* node (string) **required**
+* path (string) **required**
 * repo_slug (string) **required**
 
 ### repositories.username.repo_slug.versions.get

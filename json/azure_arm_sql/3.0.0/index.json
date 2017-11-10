@@ -1,0 +1,313 @@
+{
+  "id": "azure_arm_sql",
+  "title": "SqlManagementClient",
+  "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities.",
+  "security": {
+    "azure_arm_sql": {
+      "integration": "azure_arm_sql",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
+  },
+  "actionCount": 3,
+  "definitions": {
+    "Advisor": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "Database Advisor.",
+      "properties": {
+        "kind": {
+          "description": "Resource kind.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/AdvisorProperties",
+          "description": "Resource properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object",
+      "title": "Advisor"
+    },
+    "AdvisorListResult": {
+      "description": "Represents the response to a list advisors request.",
+      "properties": {
+        "value": {
+          "description": "The list of advisors.",
+          "items": {
+            "$ref": "#/definitions/Advisor"
+          },
+          "type": "array"
+        }
+      },
+      "title": "AdvisorListResult"
+    },
+    "AdvisorProperties": {
+      "description": "Properties for a Database, Server or Elastic Pool Advisor.",
+      "properties": {
+        "advisorStatus": {
+          "description": "Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.",
+          "enum": [
+            "GA",
+            "PublicPreview",
+            "LimitedPublicPreview",
+            "PrivatePreview"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "AdvisorStatus"
+          }
+        },
+        "autoExecuteValue": {
+          "description": "Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'",
+          "enum": [
+            "Enabled",
+            "Disabled",
+            "Default"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "AutoExecuteStatus"
+          }
+        },
+        "lastChecked": {
+          "description": "Gets the time when the current resource was analyzed for recommendations by this advisor.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "recommendationsStatus": {
+          "description": "Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "autoExecuteValue"
+      ],
+      "type": "object",
+      "title": "AdvisorProperties"
+    },
+    "ProxyResource": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "ARM proxy resource.",
+      "properties": {},
+      "type": "object",
+      "title": "ProxyResource"
+    },
+    "Resource": {
+      "description": "ARM resource.",
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "Resource type.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-ms-azure-resource": true,
+      "title": "Resource"
+    }
+  },
+  "actions": [
+    {
+      "id": "Databases_ListAdvisors",
+      "title": "Databases_ListAdvisors",
+      "description": "Returns a list of database advisors.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal."
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the server."
+          },
+          "databaseName": {
+            "type": "string",
+            "description": "The name of the database."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription ID that identifies an Azure subscription."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for the request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "databaseName",
+          "subscriptionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdvisorListResult"
+      },
+      "security": {
+        "azure_arm_sql": {
+          "integration": "azure_arm_sql"
+        }
+      }
+    },
+    {
+      "id": "Databases_GetAdvisor",
+      "title": "Databases_GetAdvisor",
+      "description": "Returns details of a Database Advisor.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal."
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the server."
+          },
+          "databaseName": {
+            "type": "string",
+            "description": "The name of the database."
+          },
+          "advisorName": {
+            "type": "string",
+            "description": "The name of the Database Advisor."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription ID that identifies an Azure subscription."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for the request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "databaseName",
+          "advisorName",
+          "subscriptionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advisor"
+      },
+      "security": {
+        "azure_arm_sql": {
+          "integration": "azure_arm_sql"
+        }
+      }
+    },
+    {
+      "id": "Databases_CreateOrUpdateAdvisor",
+      "title": "Databases_CreateOrUpdateAdvisor",
+      "description": "Creates or updates a database advisor.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal."
+          },
+          "serverName": {
+            "type": "string",
+            "description": "The name of the server."
+          },
+          "databaseName": {
+            "type": "string",
+            "description": "The name of the database."
+          },
+          "advisorName": {
+            "type": "string",
+            "description": "The name of the Database Advisor."
+          },
+          "parameters": {
+            "$ref": "#/definitions/Advisor"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription ID that identifies an Azure subscription."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The API version to use for the request."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "serverName",
+          "databaseName",
+          "advisorName",
+          "parameters",
+          "subscriptionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Advisor"
+      },
+      "security": {
+        "azure_arm_sql": {
+          "integration": "azure_arm_sql"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "enterprise",
+    "azure"
+  ]
+}

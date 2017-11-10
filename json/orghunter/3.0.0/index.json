@@ -1,0 +1,184 @@
+{
+  "id": "orghunter",
+  "title": "OrgHunter",
+  "description": "Get the latest IRS data and most up to date charity information for your website or application",
+  "security": {
+    "orghunter": {
+      "integration": "orghunter",
+      "fields": {
+        "user_key": "Your API access key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/orghunter.png"
+  },
+  "actionCount": 6,
+  "actions": [
+    {
+      "id": "v1.categories.post",
+      "title": "v1.categories.post",
+      "description": "This operation provides a list of categories.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
+    },
+    {
+      "id": "v1.charitybasic.post",
+      "title": "v1.charitybasic.post",
+      "description": "This operation detail data.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ein": {
+            "type": "string",
+            "description": "ein (Employer Identification Number)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
+    },
+    {
+      "id": "v1.charityfinancial.post",
+      "title": "v1.charityfinancial.post",
+      "description": "This operation detail data.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ein": {
+            "type": "string",
+            "description": "ein (Employer Identification Number)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
+    },
+    {
+      "id": "v1.charitygeolocation.post",
+      "title": "v1.charitygeolocation.post",
+      "description": "This operation detail data.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ein": {
+            "type": "string",
+            "description": "ein (Employer Identification Number)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
+    },
+    {
+      "id": "v1.charitypremium.post",
+      "title": "v1.charitypremium.post",
+      "description": "This operation detail data.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ein": {
+            "type": "string",
+            "description": "ein (Employer Identification Number)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
+    },
+    {
+      "id": "v1.charitysearch.post",
+      "title": "v1.charitysearch.post",
+      "description": "This operation provides summary data.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "ein": {
+            "type": "string",
+            "description": "Employer Identification Number (EIN)"
+          },
+          "searchTerm": {
+            "type": "string",
+            "description": "Charity Name or Keyword. Example: humane society or cancer"
+          },
+          "city": {
+            "type": "string",
+            "description": "City Name. Example: Miami"
+          },
+          "state": {
+            "type": "string",
+            "description": "State Name - Two letter state abbreviation"
+          },
+          "zipCode": {
+            "type": "string",
+            "description": "Zipcode Value - 5 digit zipcode value"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category Value Selected from Categories API"
+          },
+          "eligible": {
+            "type": "string",
+            "description": "eligible=1 will return only organizations that are tax deductible and in good standing with the IRS"
+          },
+          "start": {
+            "type": "string",
+            "description": "Record Set Start Position"
+          },
+          "rows": {
+            "type": "string",
+            "description": "Records Per Page. Default Value = 20"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

@@ -130,6 +130,7 @@ europeana_eu.getSingleRecordJson({
 * profile (string) - profile
 * wskey (string) **required** - wskey
 * callback (string) - callback
+* hierarchytimeout (integer) - hierarchytimeout
 
 ### getSingleRecordJsonLD
 get single record in JSON LD format

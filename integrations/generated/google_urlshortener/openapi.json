@@ -11,11 +11,6 @@
       "url": "https://google.com"
     },
     "description": "Lets you create, inspect, and manage goo.gl short URLs",
-    "license": {
-      "name": "Creative Commons Attribution 3.0",
-      "url": "http://creativecommons.org/licenses/by/3.0/"
-    },
-    "termsOfService": "https://developers.google.com/terms/",
     "title": "URL Shortener",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -31,7 +26,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest",
@@ -52,21 +47,11 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 implicit authentication",
+      "description": "Oauth 2.0 authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/urlshortener": "Manage your goo.gl short URLs"
       },
-      "type": "oauth2"
-    },
-    "Oauth2c": {
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 accessCode authentication",
-      "flow": "accessCode",
-      "scopes": {
-        "https://www.googleapis.com/auth/urlshortener": "Manage your goo.gl short URLs"
-      },
-      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -171,9 +156,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/urlshortener"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/urlshortener"
             ]
           }
         ],
@@ -228,9 +210,6 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/urlshortener"
-            ],
-            "Oauth2c": [
-              "https://www.googleapis.com/auth/urlshortener"
             ]
           }
         ],
@@ -272,9 +251,6 @@
         "security": [
           {
             "Oauth2": [
-              "https://www.googleapis.com/auth/urlshortener"
-            ],
-            "Oauth2c": [
               "https://www.googleapis.com/auth/urlshortener"
             ]
           }

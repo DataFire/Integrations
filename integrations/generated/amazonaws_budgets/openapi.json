@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "budgets.amazonaws.com",
@@ -1045,6 +1046,12 @@
             "schema": {
               "$ref": "#/definitions/NotFoundException"
             }
+          },
+          "483": {
+            "description": "DuplicateRecordException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateRecordException"
+            }
           }
         }
       }
@@ -1116,6 +1123,12 @@
             "schema": {
               "$ref": "#/definitions/NotFoundException"
             }
+          },
+          "483": {
+            "description": "DuplicateRecordException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateRecordException"
+            }
           }
         }
       }
@@ -1167,16 +1180,17 @@
       "type": "object"
     },
     "BudgetName": {
-      "description": "A string represents the budget name. No \":\" character is allowed.",
+      "description": "A string represents the budget name. No \":\" and \"\\\" character is allowed.",
       "maxLength": 100,
-      "pattern": "[^:]+",
+      "pattern": "[^:\\\\]+",
       "type": "string"
     },
     "BudgetType": {
-      "description": "The type of a budget. Can be COST or USAGE.",
+      "description": "The type of a budget. It should be COST, USAGE, or RI_UTILIZATION.",
       "enum": [
         "USAGE",
-        "COST"
+        "COST",
+        "RI_UTILIZATION"
       ],
       "type": "string"
     },
@@ -1188,7 +1202,7 @@
       "type": "array"
     },
     "CalculatedSpend": {
-      "description": "A structure holds the actual and forecasted spend for a budget.",
+      "description": "A structure that holds the actual and forecasted spend for a budget.",
       "properties": {
         "ActualSpend": {
           "$ref": "#/definitions/Spend"
@@ -1212,7 +1226,7 @@
       "type": "string"
     },
     "CostFilters": {
-      "description": "A map represents the cost filters applied to the budget.",
+      "description": "A map that represents the cost filters applied to the budget.",
       "items": {
         "properties": {
           "key": {
@@ -1604,7 +1618,7 @@
       "type": "object"
     },
     "MaxResults": {
-      "description": "An integer to represent how many entries should a pagianted response contains. Maxium is set to 100.",
+      "description": "An integer to represent how many entries a paginated response contains. Maximum is set to 100.",
       "maximum": 100,
       "minimum": 1,
       "type": "integer"
@@ -1629,6 +1643,9 @@
         },
         "Threshold": {
           "$ref": "#/definitions/NotificationThreshold"
+        },
+        "ThresholdType": {
+          "$ref": "#/definitions/ThresholdType"
         }
       },
       "required": [
@@ -1639,9 +1656,9 @@
       "type": "object"
     },
     "NotificationThreshold": {
-      "description": "The threshold of the a notification. It should be a number between 0 and 100.",
+      "description": "The threshold of a notification. It should be a number between 0 and 1,000,000,000.",
       "format": "double",
-      "maximum": 300,
+      "maximum": 1000000000,
       "minimum": 0.1,
       "type": "number"
     },
@@ -1690,13 +1707,13 @@
       "type": "string"
     },
     "Spend": {
-      "description": "A structure represent either a cost spend or usage spend. Contains an amount and a unit.",
+      "description": "A structure that represents either a cost spend or usage spend. Contains an amount and a unit.",
       "properties": {
         "Amount": {
           "$ref": "#/definitions/NumericValue"
         },
         "Unit": {
-          "$ref": "#/definitions/GenericString"
+          "$ref": "#/definitions/UnitValue"
         }
       },
       "required": [
@@ -1738,8 +1755,16 @@
       ],
       "type": "string"
     },
+    "ThresholdType": {
+      "description": "The type of threshold for a notification. It can be PERCENTAGE or ABSOLUTE_VALUE.",
+      "enum": [
+        "PERCENTAGE",
+        "ABSOLUTE_VALUE"
+      ],
+      "type": "string"
+    },
     "TimePeriod": {
-      "description": "A time period indicated the start date and end date of a budget.",
+      "description": "A time period indicating the start date and end date of a budget.",
       "properties": {
         "End": {
           "$ref": "#/definitions/GenericTimestamp"
@@ -1755,12 +1780,18 @@
       "type": "object"
     },
     "TimeUnit": {
-      "description": "The time unit of the budget. e.g. weekly, monthly, etc.",
+      "description": "The time unit of the budget. e.g. MONTHLY, QUARTERLY, etc.",
       "enum": [
+        "DAILY",
         "MONTHLY",
         "QUARTERLY",
         "ANNUALLY"
       ],
+      "type": "string"
+    },
+    "UnitValue": {
+      "description": "A string to represent budget spend unit. It should be not null and not empty.",
+      "minLength": 1,
       "type": "string"
     },
     "UpdateBudgetRequest": {

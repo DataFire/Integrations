@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "lightsail.amazonaws.com",
@@ -3392,7 +3393,7 @@
         }
       ],
       "post": {
-        "description": "Returns a list of all valid regions for Amazon Lightsail.",
+        "description": "Returns a list of all valid regions for Amazon Lightsail. Use the <code>include availability zones</code> parameter to also return the availability zones in a region.",
         "operationId": "GetRegions",
         "parameters": [
           {
@@ -3979,6 +3980,101 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/PeerVpcResult"
+            }
+          },
+          "480": {
+            "description": "ServiceException",
+            "schema": {
+              "$ref": "#/definitions/ServiceException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "OperationFailureException",
+            "schema": {
+              "$ref": "#/definitions/OperationFailureException"
+            }
+          },
+          "484": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "485": {
+            "description": "AccountSetupInProgressException",
+            "schema": {
+              "$ref": "#/definitions/AccountSetupInProgressException"
+            }
+          },
+          "486": {
+            "description": "UnauthenticatedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthenticatedException"
+            }
+          }
+        }
+      }
+    },
+    "/#PutInstancePublicPorts": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Sets the specified open ports for an Amazon Lightsail instance, and closes all ports for every protocol not included in the current request.",
+        "operationId": "PutInstancePublicPorts",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutInstancePublicPortsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutInstancePublicPortsResult"
             }
           },
           "480": {
@@ -4697,7 +4793,7 @@
         },
         "zoneName": {
           "$ref": "#/definitions/NonEmptyString",
-          "description": "The name of the Availability Zone."
+          "description": "The name of the Availability Zone. The format is <code>us-east-1a</code> (case-sensitive)."
         }
       },
       "type": "object"
@@ -4736,11 +4832,15 @@
         },
         "minPower": {
           "$ref": "#/definitions/integer",
-          "description": "The minimum machine size required to run this blueprint. <code>0</code> indicates that the blueprint runs on all instances."
+          "description": "The minimum bundle power required to run this blueprint. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500. <code>0</code> indicates that the blueprint runs on all instance sizes. "
         },
         "name": {
           "$ref": "#/definitions/ResourceName",
           "description": "The friendly name of the blueprint (e.g., <code>Amazon Linux</code>)."
+        },
+        "platform": {
+          "$ref": "#/definitions/InstancePlatform",
+          "description": "The operating system platform (either Linux/Unix-based or Windows Server-based) of the blueprint."
         },
         "productUrl": {
           "$ref": "#/definitions/string",
@@ -4803,7 +4903,7 @@
         },
         "power": {
           "$ref": "#/definitions/integer",
-          "description": "The power of the bundle (e.g., <code>500</code>)."
+          "description": "A numeric value that represents the power of the bundle (e.g., <code>500</code>). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500."
         },
         "price": {
           "$ref": "#/definitions/float",
@@ -4812,6 +4912,10 @@
         "ramSizeInGb": {
           "$ref": "#/definitions/float",
           "description": "The amount of RAM in GB (e.g., <code>2.0</code>)."
+        },
+        "supportedPlatforms": {
+          "$ref": "#/definitions/InstancePlatformList",
+          "description": "The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a <code>WINDOWS</code> bundle on a blueprint that supports the <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a <code>LINUX_UNIX</code> bundle."
         },
         "transferPerMonthInGb": {
           "$ref": "#/definitions/integer",
@@ -4929,7 +5033,7 @@
       "properties": {
         "availabilityZone": {
           "$ref": "#/definitions/string",
-          "description": "The Availability Zone where you want to create your instances. Use the following formatting: <code>us-east-1a</code> (case sensitive)."
+          "description": "The Availability Zone where you want to create your instances. Use the following formatting: <code>us-east-1a</code> (case sensitive). You can get a list of availability zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include availability zones</code> parameter to your request."
         },
         "bundleId": {
           "$ref": "#/definitions/NonEmptyString",
@@ -4973,7 +5077,7 @@
       "properties": {
         "availabilityZone": {
           "$ref": "#/definitions/string",
-          "description": "The Availability Zone in which to create your instance. Use the following format: <code>us-east-1a</code> (case sensitive)."
+          "description": "The Availability Zone in which to create your instance. Use the following format: <code>us-east-1a</code> (case sensitive). You can get a list of availability zones by using the <a href=\"http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html\">get regions</a> operation. Be sure to add the <code>include availability zones</code> parameter to your request."
         },
         "blueprintId": {
           "$ref": "#/definitions/NonEmptyString",
@@ -4985,7 +5089,7 @@
         },
         "customImageName": {
           "$ref": "#/definitions/ResourceName",
-          "description": "The name for your custom image."
+          "description": "<p>(Deprecated) The name for your custom image.</p> <note> <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now deprecated.</p> </note>"
         },
         "instanceNames": {
           "$ref": "#/definitions/StringList",
@@ -4997,7 +5101,7 @@
         },
         "userData": {
           "$ref": "#/definitions/string",
-          "description": "<p>A launch script you can create that configures a server with additional user data. For example, you might want to run <code>apt-get –y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps\">Dev Guide</a>.</p> </note>"
+          "description": "<p>A launch script you can create that configures a server with additional user data. For example, you might want to run <code>apt-get –y update</code>.</p> <note> <p>Depending on the machine image you choose, the command to get software on your instance varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>, and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image\">Dev Guide</a>.</p> </note>"
         }
       },
       "required": [
@@ -5573,7 +5677,7 @@
     "GetInstancePortStatesResult": {
       "properties": {
         "portStates": {
-          "$ref": "#/definitions/PortStateList",
+          "$ref": "#/definitions/InstancePortStateList",
           "description": "Information about the port states resulting from your request."
         }
       },
@@ -5770,7 +5874,11 @@
       "properties": {
         "nextPageCount": {
           "$ref": "#/definitions/string",
-          "description": "Returns the number of pages of results that remain."
+          "description": "<p>(Deprecated) Returns the number of pages of results that remain.</p> <note> <p>In releases prior to June 12, 2017, this parameter returned <code>null</code> by the API. It is now deprecated, and the API returns the <code>nextPageToken</code> parameter instead.</p> </note>"
+        },
+        "nextPageToken": {
+          "$ref": "#/definitions/string",
+          "description": "An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list."
         },
         "operations": {
           "$ref": "#/definitions/OperationList",
@@ -5987,7 +6095,11 @@
         },
         "password": {
           "$ref": "#/definitions/string",
-          "description": "For RDP access, the temporary password of the Amazon EC2 instance."
+          "description": "<p>For RDP access, the password for your Amazon Lightsail instance. Password will be an empty string if the password for your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.</p> <note> <p>If you create an instance using any key pair other than the default (<code>LightsailDefaultKeyPair</code>), <code>password</code> will always be an empty string.</p> <p>If you change the Administrator password on the instance, Lightsail will continue to return the original password value. When accessing the instance using RDP, you need to manually enter the Administrator password after changing it from the default.</p> </note>"
+        },
+        "passwordData": {
+          "$ref": "#/definitions/PasswordData",
+          "description": "For a Windows Server-based instance, an object with the data you can use to retrieve your password. This is only needed if <code>password</code> is empty and the instance is not new (and therefore the password is not ready yet). When you create an instance, it can take up to 15 minutes for the instance to be ready."
         },
         "privateKey": {
           "$ref": "#/definitions/string",
@@ -6060,6 +6172,19 @@
       },
       "type": "object"
     },
+    "InstancePlatform": {
+      "enum": [
+        "LINUX_UNIX",
+        "WINDOWS"
+      ],
+      "type": "string"
+    },
+    "InstancePlatformList": {
+      "items": {
+        "$ref": "#/definitions/InstancePlatform"
+      },
+      "type": "array"
+    },
     "InstancePortInfo": {
       "description": "Describes information about the instance ports.",
       "properties": {
@@ -6085,7 +6210,7 @@
         },
         "protocol": {
           "$ref": "#/definitions/NetworkProtocol",
-          "description": "The protocol. "
+          "description": "<p>The protocol being used. Can be one of the following.</p> <ul> <li> <p> <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.</p> </li> <li> <p> <code>all</code> - All transport layer protocol types. For more general information, see <a href=\"https://en.wikipedia.org/wiki/Transport_layer\">Transport layer</a> on Wikipedia.</p> </li> <li> <p> <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.</p> </li> </ul>"
         },
         "toPort": {
           "$ref": "#/definitions/Port",
@@ -6097,6 +6222,34 @@
     "InstancePortInfoList": {
       "items": {
         "$ref": "#/definitions/InstancePortInfo"
+      },
+      "type": "array"
+    },
+    "InstancePortState": {
+      "description": "Describes the port state.",
+      "properties": {
+        "fromPort": {
+          "$ref": "#/definitions/Port",
+          "description": "The first port in the range."
+        },
+        "protocol": {
+          "$ref": "#/definitions/NetworkProtocol",
+          "description": "<p>The protocol being used. Can be one of the following.</p> <ul> <li> <p> <code>tcp</code> - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.</p> </li> <li> <p> <code>all</code> - All transport layer protocol types. For more general information, see <a href=\"https://en.wikipedia.org/wiki/Transport_layer\">Transport layer</a> on Wikipedia.</p> </li> <li> <p> <code>udp</code> - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.</p> </li> </ul>"
+        },
+        "state": {
+          "$ref": "#/definitions/PortState",
+          "description": "Specifies whether the instance port is <code>open</code> or <code>closed</code>."
+        },
+        "toPort": {
+          "$ref": "#/definitions/Port",
+          "description": "The last port in the range."
+        }
+      },
+      "type": "object"
+    },
+    "InstancePortStateList": {
+      "items": {
+        "$ref": "#/definitions/InstancePortState"
       },
       "type": "array"
     },
@@ -6187,7 +6340,7 @@
       "type": "object"
     },
     "InvalidInputException": {
-      "description": "Lightsail throws this exception when user input does not conform to the validation rules of an input field.",
+      "description": "<p>Lightsail throws this exception when user input does not conform to the validation rules of an input field.</p> <note> <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please set your Region configuration to us-east-1 to create, view, or edit these resources.</p> </note>",
       "properties": {
         "code": {
           "$ref": "#/definitions/string"
@@ -6523,6 +6676,7 @@
         "StartInstance",
         "RebootInstance",
         "OpenInstancePublicPorts",
+        "PutInstancePublicPorts",
         "CloseInstancePublicPorts",
         "AllocateStaticIp",
         "ReleaseStaticIp",
@@ -6537,6 +6691,20 @@
         "CreateInstancesFromSnapshot"
       ],
       "type": "string"
+    },
+    "PasswordData": {
+      "description": "The password data for the Windows Server-based instance, including the ciphertext and the key pair name.",
+      "properties": {
+        "ciphertext": {
+          "$ref": "#/definitions/string",
+          "description": "<p>The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.</p> <note> <p>If you use the default key pair (<code>LightsailDefaultKeyPair</code>), the decrypted password will be available in the password field.</p> <p>If you are using a custom key pair, you need to use your own means of decryption.</p> <p>If you change the Administrator password on the instance, Lightsail will continue to return the original ciphertext value. When accessing the instance using RDP, you need to manually enter the Administrator password after changing it from the default.</p> </note>"
+        },
+        "keyPairName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "<p>The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (<code>LightsailDefaultKeyPair</code>).</p> <p>If you are using a custom key pair, you need to use your own means of decrypting your password using the <code>ciphertext</code>. Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.</p>"
+        }
+      },
+      "type": "object"
     },
     "PeerVpcRequest": {
       "properties": {},
@@ -6581,6 +6749,12 @@
       },
       "type": "object"
     },
+    "PortInfoList": {
+      "items": {
+        "$ref": "#/definitions/PortInfo"
+      },
+      "type": "array"
+    },
     "PortState": {
       "enum": [
         "open",
@@ -6588,11 +6762,31 @@
       ],
       "type": "string"
     },
-    "PortStateList": {
-      "items": {
-        "$ref": "#/definitions/PortState"
+    "PutInstancePublicPortsRequest": {
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The Lightsail instance name of the public port(s) you are setting."
+        },
+        "portInfos": {
+          "$ref": "#/definitions/PortInfoList",
+          "description": "Specifies information about the public port(s)."
+        }
       },
-      "type": "array"
+      "required": [
+        "portInfos",
+        "instanceName"
+      ],
+      "type": "object"
+    },
+    "PutInstancePublicPortsResult": {
+      "properties": {
+        "operation": {
+          "$ref": "#/definitions/Operation",
+          "description": "Describes metadata about the operation you just executed."
+        }
+      },
+      "type": "object"
     },
     "RebootInstanceRequest": {
       "properties": {
@@ -6620,7 +6814,7 @@
       "properties": {
         "availabilityZones": {
           "$ref": "#/definitions/AvailabilityZoneList",
-          "description": "The Availability Zones."
+          "description": "The Availability Zones. Follows the format <code>us-east-1a</code> (case-sensitive)."
         },
         "continentCode": {
           "$ref": "#/definitions/string",
@@ -6650,6 +6844,7 @@
     "RegionName": {
       "enum": [
         "us-east-1",
+        "us-east-2",
         "us-west-1",
         "us-west-2",
         "eu-west-1",
@@ -6688,7 +6883,7 @@
       "properties": {
         "availabilityZone": {
           "$ref": "#/definitions/string",
-          "description": "The Availability Zone."
+          "description": "The Availability Zone. Follows the format <code>us-east-1a</code> (case-sensitive)."
         },
         "regionName": {
           "$ref": "#/definitions/RegionName",

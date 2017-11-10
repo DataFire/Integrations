@@ -23,7 +23,7 @@ google_script.scripts.run({}).then(data => {
 ```
 
 ## Description
-Executes Google Apps Script projects.
+An API for managing and executing Google Apps Script projects.
 
 ## Actions
 ### oauthCallback
@@ -69,8 +69,8 @@ google_script.scripts.run({
 ```
 
 #### Parameters
-* scriptId (string) **required** - The project key of the script to be executed. To find the project key, open
 * body (object) - A request to run the function in a script. The script is identified by the
+* scriptId (string) **required** - The script ID of the script to be executed. To find the script ID, open
 * quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 * pp (boolean) - Pretty-print response.
 * oauth_token (string) - OAuth 2.0 token for the current user.

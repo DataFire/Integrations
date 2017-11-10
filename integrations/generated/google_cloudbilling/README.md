@@ -17,7 +17,7 @@ let google_cloudbilling = require('@datafire/google_cloudbilling').create({
   redirect_uri: "",
 });
 
-google_cloudbilling.billingAccounts.list({}).then(data => {
+google_cloudbilling.services.list({}).then(data => {
   console.log(data);
 })
 ```
@@ -75,6 +75,31 @@ google_cloudbilling.billingAccounts.list({}, context)
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### services.list
+Lists all public cloud services.
+
+
+```js
+google_cloudbilling.services.list({}, context)
+```
+
+#### Parameters
+* pageSize (integer) - Requested page size. Defaults to 5000.
+* pageToken (string) - A token identifying a page of results to return. This should be a
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### billingAccounts.get
@@ -219,5 +244,36 @@ google_cloudbilling.billingAccounts.projects.list({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### services.skus.list
+Lists all publicly available SKUs for a given cloud service.
+
+
+```js
+google_cloudbilling.services.skus.list({
+  "parent": ""
+}, context)
+```
+
+#### Parameters
+* currencyCode (string) - The ISO 4217 currency code for the pricing info in the response proto.
+* endTime (string) - Optional exclusive end time of the time range for which the pricing
+* pageSize (integer) - Requested page size. Defaults to 5000.
+* pageToken (string) - A token identifying a page of results to return. This should be a
+* parent (string) **required** - The name of the service.
+* startTime (string) - Optional inclusive start time of the time range for which the pricing
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

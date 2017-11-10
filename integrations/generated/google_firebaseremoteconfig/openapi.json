@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Firebase Remote Config API allows the 3P clients to manage Remote Config conditions and parameters for Firebase applications.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Firebase Remote Config",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -251,7 +256,7 @@
   },
   "definitions": {
     "RemoteConfig": {
-      "description": "*\nThe RemoteConfig consists of a list of conditions (which can be\nthought of as named \"if\" statements) and a map of parameters (parameter key\nto a stucture containing an optional default value, as well as a optional\nsubmap of (condition name to value when that condition is true).",
+      "description": "*\nThe RemoteConfig consists of a list of conditions (which can be\nthought of as named \"if\" statements) and a map of parameters (parameter key\nto a structure containing an optional default value, as well as a optional\nsubmap of (condition name to value when that condition is true).",
       "properties": {
         "conditions": {
           "description": "The list of named conditions. The order *does* affect the semantics.\nThe condition_name values of these entries must be unique.\n\nThe resolved value of a config parameter P is determined as follow:\n* Let Y be the set of values from the submap of P that refer to conditions\n  that evaluate to <code>true</code>.\n* If Y is non empty, the value is taken from the specific submap in Y whose\n  condition_name is the earliest in this condition list.\n* Else, if P has a default value option (condition_name is empty) then\n  the value is taken from that option.\n* Else, parameter P has no value and is omitted from the config result.\n\nExample: parameter key \"p1\", default value \"v1\", submap specified as\n{\"c1\": v2, \"c2\": v3} where \"c1\" and \"c2\" are names of conditions in the\ncondition list (where \"c1\" in this example appears before \"c2\").  The\nvalue of p1 would be v2 as long as c1 is true.  Otherwise, if c2 is true,\np1 would evaluate to v3, and if c1 and c2 are both false, p1 would evaluate\nto v1.  If no default value was specified, and c1 and c2 were both false,\nno value for p1 would be generated.",
@@ -273,6 +278,10 @@
     "RemoteConfigCondition": {
       "description": "A single RemoteConfig Condition.  A list of these (because order matters) are\npart of a single RemoteConfig template.",
       "properties": {
+        "description": {
+          "description": "Optional.\nA description for this Condition. Length must be less than or equal to\n100 characters (or more precisely, unicode code points, which is defined in\njava/com/google/wireless/android/config/ConstsExporter.java).\nA description may contain any Unicode characters",
+          "type": "string"
+        },
         "expression": {
           "description": "Required.",
           "type": "string"
@@ -315,6 +324,10 @@
         "defaultValue": {
           "$ref": "#/definitions/RemoteConfigParameterValue",
           "description": "Optional - value to set the parameter to, when none of the named conditions\nevaluate to <code>true</code>."
+        },
+        "description": {
+          "description": "Optional.\nA description for this Parameter. Length must be less than or equal to\n100 characters (or more precisely, unicode code points, which is defined in\njava/com/google/wireless/android/config/ConstsExporter.java).\nA description may contain any Unicode characters",
+          "type": "string"
         }
       },
       "type": "object"

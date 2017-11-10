@@ -215,25 +215,20 @@ google_storagetransfer.transferOperations.delete({
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
-### transferOperations.list
-Lists operations that match the specified filter in the request. If the
-server doesn't support this method, it returns `UNIMPLEMENTED`.
-
-NOTE: the `name` binding below allows API services to override the binding
-to use different resource name schemes, such as `users/*/operations`.
+### transferOperations.get
+Gets the latest state of a long-running operation.  Clients can use this
+method to poll the operation result at intervals as recommended by the API
+service.
 
 
 ```js
-google_storagetransfer.transferOperations.list({
+google_storagetransfer.transferOperations.get({
   "name": ""
 }, context)
 ```
 
 #### Parameters
-* filter (string) - A list of query parameters specified as JSON text in the form of {\"project_id\" : \"my_project_id\", \"job_names\" : [\"jobid1\", \"jobid2\",...], \"operation_names\" : [\"opid1\", \"opid2\",...], \"transfer_statuses\":[\"status1\", \"status2\",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values, they must be specified with array notation. `job_names`, `operation_names`, and `transfer_statuses` are optional.
-* name (string) **required** - The value `transferOperations`.
-* pageSize (integer) - The list page size. The max allowed value is 256.
-* pageToken (string) - The list page token.
+* name (string) **required** - The name of the operation resource.
 * $.xgafv (string) - V1 error format.
 * access_token (string) - OAuth access token.
 * alt (string) - Data format for response.

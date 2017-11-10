@@ -137,6 +137,35 @@ google_spanner.projects.instances.databases.updateDdl({
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 
+### projects.instances.databases.sessions.list
+Lists all sessions in a given database.
+
+
+```js
+google_spanner.projects.instances.databases.sessions.list({
+  "database": ""
+}, context)
+```
+
+#### Parameters
+* database (string) **required** - Required. The database in which to list sessions.
+* filter (string) - An expression for filtering the results of the request. Filter rules are
+* pageSize (integer) - Number of sessions to be returned in the response. If 0 or less, defaults
+* pageToken (string) - If non-empty, `page_token` should contain a
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+
 ### projects.instances.databases.sessions.create
 Creates a new session. A session can be used to perform
 transactions that read and/or modify data in a Cloud Spanner database.
@@ -166,6 +195,7 @@ google_spanner.projects.instances.databases.sessions.create({
 ```
 
 #### Parameters
+* body (object) - The request for CreateSession.
 * database (string) **required** - Required. The database in which the new session is created.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").

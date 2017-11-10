@@ -1701,7 +1701,8 @@
       },
       "required": [
         "isAdmin",
-        "certificateCommonName"
+        "certificateCommonName",
+        "certificateIssuerThumbprint"
       ]
     },
     "ClientCertificateThumbprint": {
@@ -1999,6 +2000,10 @@
         "reverseProxyCertificate": {
           "$ref": "#/definitions/CertificateDescription",
           "description": "Certificate for the reverse proxy"
+        },
+        "upgradeDescription": {
+          "$ref": "#/definitions/ClusterUpgradePolicy",
+          "description": "The policy to use when upgrading the cluster."
         },
         "upgradeMode": {
           "description": "Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not",

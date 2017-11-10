@@ -81,11 +81,11 @@ bungie.CommunityContent.GetCommunityLiveStatuses({
 ```
 
 #### Parameters
-* modeHash (integer) - The hash of the Activity Mode for which streams should be retrieved.  Don't pass it in or pass 0 to not filter by mode.
+* modeHash (integer) - The hash of the Activity Mode for which streams should be retrieved. Don't pass it in or pass 0 to not filter by mode.
 * page (integer) **required** - Zero based page.
 * partnershipType (integer) **required** - The type of partnership for which the status should be returned.
 * sort (integer) **required** - The sort mode.
-* streamLocale (string) - The locale for streams you'd like to see.  Don't pass this to fall back on your BNet locale.  Pass 'ALL' to not filter by locale.
+* streamLocale (string) - The locale for streams you'd like to see. Don't pass this to fall back on your BNet locale. Pass 'ALL' to not filter by locale.
 
 ### CommunityContent.GetCommunityLiveStatusesForClanmates
 Returns info about community members who are live streaming in your clans.
@@ -120,7 +120,7 @@ bungie.CommunityContent.GetFeaturedCommunityLiveStatuses({
 * page (integer) **required** - Zero based page.
 * partnershipType (integer) **required** - The type of partnership for which the status should be returned.
 * sort (integer) **required** - The sort mode.
-* streamLocale (string) - The locale for streams you'd like to see.  Don't pass this to fall back on your BNet locale.  Pass 'ALL' to not filter by locale.
+* streamLocale (string) - The locale for streams you'd like to see. Don't pass this to fall back on your BNet locale. Pass 'ALL' to not filter by locale.
 
 ### CommunityContent.GetCommunityLiveStatusesForFriends
 Returns info about community members who are live streaming among your friends.
@@ -157,7 +157,7 @@ bungie.CommunityContent.GetStreamingStatusForMember({
 * partnershipType (integer) **required** - The type of partnership for which info will be extracted.
 
 ### Destiny2.ActivateTalentNode
-Activate a Talent Node.  Chill out, everyone: we haven't decided yet whether this will be able to activate nodes with costs, but if we do it will require special scope permission for an application attempting to do so.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.  PREVIEW: This service is not actually implemented yet, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
+Activate a Talent Node. Chill out, everyone: we haven't decided yet whether this will be able to activate nodes with costs, but if we do it will require special scope permission for an application attempting to do so. You must have a valid Destiny Account, and either be in a social space, in orbit, or offline. PREVIEW: This service is not actually implemented yet, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
 
 
 ```js
@@ -168,7 +168,7 @@ bungie.Destiny2.ActivateTalentNode(null, context)
 *This action has no parameters*
 
 ### Destiny2.EquipItem
-Equip an item.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.
+Equip an item. You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.
 
 
 ```js
@@ -179,7 +179,7 @@ bungie.Destiny2.EquipItem(null, context)
 *This action has no parameters*
 
 ### Destiny2.EquipItems
-Equip a list of items by itemInstanceIds.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.  Any items not found on your character will be ignored.
+Equip a list of items by itemInstanceIds. You must have a valid Destiny Account, and either be in a social space, in orbit, or offline. Any items not found on your character will be ignored.
 
 
 ```js
@@ -190,7 +190,7 @@ bungie.Destiny2.EquipItems(null, context)
 *This action has no parameters*
 
 ### Destiny2.InsertSocketPlug
-Insert a plug into a socketed item.  I know how it sounds, but I assure you it's much more G-rated than you might be guessing.  We haven't decided yet whether this will be able to insert plugs that have side effects, but if we do it will require special scope permission for an application attempting to do so.  You must have a valid Destiny Account, and either be in a social space, in orbit, or offline.  PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
+Insert a plug into a socketed item. I know how it sounds, but I assure you it's much more G-rated than you might be guessing. We haven't decided yet whether this will be able to insert plugs that have side effects, but if we do it will require special scope permission for an application attempting to do so. You must have a valid Destiny Account, and either be in a social space, in orbit, or offline. PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
 
 
 ```js
@@ -201,7 +201,7 @@ bungie.Destiny2.InsertSocketPlug(null, context)
 *This action has no parameters*
 
 ### Destiny2.SetItemLockState
-Set the Lock State for an instanced item.  You must have a valid Destiny Account.
+Set the Lock State for an instanced item. You must have a valid Destiny Account.
 
 
 ```js
@@ -212,7 +212,7 @@ bungie.Destiny2.SetItemLockState(null, context)
 *This action has no parameters*
 
 ### Destiny2.TransferItem
-Transfer an item to/from your vault.  You must have a valid Destiny account.  You must also pass BOTH a reference AND an instance ID if it's an instanced item.  itshappening.gif
+Transfer an item to/from your vault. You must have a valid Destiny account. You must also pass BOTH a reference AND an instance ID if it's an instanced item. itshappening.gif
 
 
 ```js
@@ -236,7 +236,7 @@ bungie.Destiny2.SearchDestinyEntities({
 #### Parameters
 * page (integer) - Page number to return, starting with 0.
 * searchTerm (string) **required** - The string to use when searching for Destiny entities.
-* type (string) **required** - The type of entity for whom you would like results.  These correspond to the entity's definition contract name.  For instance, if you are looking for items, this property should be 'DestinyInventoryItemDefinition'.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is tentatively in final form, but there may be bugs that prevent desirable operation.
+* type (string) **required** - The type of entity for whom you would like results. These correspond to the entity's definition contract name. For instance, if you are looking for items, this property should be 'DestinyInventoryItemDefinition'. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is tentatively in final form, but there may be bugs that prevent desirable operation.
 
 ### Destiny2.GetClanWeeklyRewardState
 Returns information on the weekly clan rewards and if the clan has earned them or not. Note that this will always report rewards as not redeemed.
@@ -261,6 +261,21 @@ bungie.Destiny2.GetDestinyManifest(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+### Destiny2.GetDestinyEntityDefinition
+Returns the static definition of an entity of the given Type and hash identifier. Examine the API Documentation for the Type Names of entities that have their own definitions. Note that the return type will always *inherit from* DestinyDefinition, but the specific type returned will be the requested entity type if it can be found. Please don't use this as a chatty alternative to the Manifest database if you require large sets of data, but for simple and one-off accesses this should be handy.
+
+
+```js
+bungie.Destiny2.GetDestinyEntityDefinition({
+  "entityType": "",
+  "hashIdentifier": 0
+}, context)
+```
+
+#### Parameters
+* entityType (string) **required** - The type of entity for whom you would like results. These correspond to the entity's definition contract name. For instance, if you are looking for items, this property should be 'DestinyInventoryItemDefinition'. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is tentatively in final form, but there may be bugs that prevent desirable operation.
+* hashIdentifier (integer) **required** - The hash identifier for the specific Entity you want returned.
 
 ### Destiny2.GetPublicMilestones
 Gets public information about currently available Milestones.
@@ -302,7 +317,7 @@ bungie.Destiny2.SearchDestinyPlayer({
 * membershipType (integer) **required** - A valid non-BungieNet membership type, or All.
 
 ### Destiny2.GetClanAggregateStats
-Gets aggregated stats for a clan using the same categories as the clan leaderboards.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets aggregated stats for a clan using the same categories as the clan leaderboards. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -327,7 +342,7 @@ bungie.Destiny2.GetHistoricalStatsDefinition(null, context)
 *This action has no parameters*
 
 ### Destiny2.GetClanLeaderboards
-Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -343,7 +358,7 @@ bungie.Destiny2.GetClanLeaderboards({
 * statid (string) - ID of stat to return rather than returning all Leaderboard stats.
 
 ### Destiny2.GetLeaderboardsForCharacter
-Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -376,7 +391,7 @@ bungie.Destiny2.GetPostGameCarnageReport({
 * activityId (integer) **required** - The ID of the activity whose PGCR is requested.
 
 ### Destiny2.GetHistoricalStats
-Gets historical stats for indicated character.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets historical stats for indicated character. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -389,7 +404,7 @@ bungie.Destiny2.GetHistoricalStats({
 
 #### Parameters
 * characterId (integer) **required** - The id of the character to retrieve. You can omit this character ID or set it to 0 to get aggregate stats across all characters.
-* dayend (string) - Last day to return when daily stats are requested.  Use the format YYYY-MM-DD.
+* dayend (string) - Last day to return when daily stats are requested. Use the format YYYY-MM-DD.
 * daystart (string) - First day to return when daily stats are requested. Use the format YYYY-MM-DD
 * destinyMembershipId (integer) **required** - The Destiny membershipId of the user to retrieve.
 * groups (array) - Group of stats to include, otherwise only general stats are returned. Comma separated list is allowed. Values: General, Weapons, Medals
@@ -398,7 +413,7 @@ bungie.Destiny2.GetHistoricalStats({
 * periodType (integer) - Indicates a specific period type to return. Optional. May be: Daily, AllTime, or Activity
 
 ### Destiny2.GetActivityHistory
-Gets activity history stats for indicated character.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets activity history stats for indicated character. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -418,7 +433,7 @@ bungie.Destiny2.GetActivityHistory({
 * page (integer) - Page number to return, starting with 0.
 
 ### Destiny2.GetDestinyAggregateActivityStats
-Gets all activities the character has participated in together with aggregate statistics for those activities.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets all activities the character has participated in together with aggregate statistics for those activities. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -435,7 +450,7 @@ bungie.Destiny2.GetDestinyAggregateActivityStats({
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 
 ### Destiny2.GetUniqueWeaponHistory
-Gets details about unique weapon usage, including all exotic weapons.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets details about unique weapon usage, including all exotic weapons. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -452,7 +467,7 @@ bungie.Destiny2.GetUniqueWeaponHistory({
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 
 ### Destiny2.GetHistoricalStatsForAccount
-Gets aggregate historical stats organized around each character for a given account.  PREVIEW: This endpoint is still in beta, and may experience rough edges.  The schema is in final form, but there may be bugs that prevent desirable operation.
+Gets aggregate historical stats organized around each character for a given account. PREVIEW: This endpoint is still in beta, and may experience rough edges. The schema is in final form, but there may be bugs that prevent desirable operation.
 
 
 ```js
@@ -464,11 +479,11 @@ bungie.Destiny2.GetHistoricalStatsForAccount({
 
 #### Parameters
 * destinyMembershipId (integer) **required** - The Destiny membershipId of the user to retrieve.
-* groups (array) - Groups of stats to include, otherwise only general stats are returned.  Comma separated list is allowed. Values: General, Weapons, Medals.
+* groups (array) - Groups of stats to include, otherwise only general stats are returned. Comma separated list is allowed. Values: General, Weapons, Medals.
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 
 ### Destiny2.GetLeaderboards
-Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus.  PREVIEW: This endpoint has not yet been implemented.  It is being returned for a preview of future functionality, and for public comment/suggestion/preparation.
+Gets leaderboards with the signed in user's friends and the supplied destinyMembershipId as the focus. PREVIEW: This endpoint has not yet been implemented. It is being returned for a preview of future functionality, and for public comment/suggestion/preparation.
 
 
 ```js
@@ -497,7 +512,7 @@ bungie.Destiny2.GetProfile({
 ```
 
 #### Parameters
-* components (array) - A comma separated list of components to return (as strings or numeric values).  See the DestinyComponentType enum for valid components to request.  You must request at least one component to receive results.
+* components (array) - A comma separated list of components to return (as strings or numeric values). See the DestinyComponentType enum for valid components to request. You must request at least one component to receive results.
 * destinyMembershipId (integer) **required** - Destiny membership ID.
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 
@@ -515,12 +530,12 @@ bungie.Destiny2.GetCharacter({
 
 #### Parameters
 * characterId (integer) **required** - ID of the character.
-* components (array) - A comma separated list of components to return (as strings or numeric values).  See the DestinyComponentType enum for valid components to request.  You must request at least one component to receive results.
+* components (array) - A comma separated list of components to return (as strings or numeric values). See the DestinyComponentType enum for valid components to request. You must request at least one component to receive results.
 * destinyMembershipId (integer) **required** - Destiny membership ID.
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 
 ### Destiny2.GetVendors
-Get currently available vendors.  PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
+Get currently available vendors. PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
 
 
 ```js
@@ -533,12 +548,12 @@ bungie.Destiny2.GetVendors({
 
 #### Parameters
 * characterId (integer) **required** - The Destiny Character ID of the character for whom we're getting vendor info.
-* components (array) - A comma separated list of components to return (as strings or numeric values).  See the DestinyComponentType enum for valid components to request.  You must request at least one component to receive results.
+* components (array) - A comma separated list of components to return (as strings or numeric values). See the DestinyComponentType enum for valid components to request. You must request at least one component to receive results.
 * destinyMembershipId (integer) **required** - Destiny membership ID of another user. You may be denied.
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 
 ### Destiny2.GetVendor
-Get the details of a specific Vendor.  PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
+Get the details of a specific Vendor. PREVIEW: This service is not yet active, but we are returning the planned schema of the endpoint for review, comment, and preparation for its eventual implementation.
 
 
 ```js
@@ -552,13 +567,13 @@ bungie.Destiny2.GetVendor({
 
 #### Parameters
 * characterId (integer) **required** - The Destiny Character ID of the character for whom we're getting vendor info.
-* components (array) - A comma separated list of components to return (as strings or numeric values).  See the DestinyComponentType enum for valid components to request.  You must request at least one component to receive results.
+* components (array) - A comma separated list of components to return (as strings or numeric values). See the DestinyComponentType enum for valid components to request. You must request at least one component to receive results.
 * destinyMembershipId (integer) **required** - Destiny membership ID of another user. You may be denied.
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
 * vendorHash (integer) **required** - The Hash identifier of the Vendor to be returned.
 
 ### Destiny2.GetItem
-Retrieve the details of an instanced Destiny Item.  An instanced Destiny item is one with an ItemInstanceId.  Non-instanced items, such as materials, have no useful instance-specific details and thus are not queryable here.
+Retrieve the details of an instanced Destiny Item. An instanced Destiny item is one with an ItemInstanceId. Non-instanced items, such as materials, have no useful instance-specific details and thus are not queryable here.
 
 
 ```js
@@ -570,7 +585,7 @@ bungie.Destiny2.GetItem({
 ```
 
 #### Parameters
-* components (array) - A comma separated list of components to return (as strings or numeric values).  See the DestinyComponentType enum for valid components to request.  You must request at least one component to receive results.
+* components (array) - A comma separated list of components to return (as strings or numeric values). See the DestinyComponentType enum for valid components to request. You must request at least one component to receive results.
 * destinyMembershipId (integer) **required** - The membership ID of the destiny profile.
 * itemInstanceId (integer) **required** - The Instance ID of the destiny item.
 * membershipType (integer) **required** - A valid non-BungieNet membership type.
@@ -749,7 +764,7 @@ bungie.Forum.ApproveFireteamThread({
 * topicId (integer) **required** - The post id of the recruitment topic to approve.
 
 ### Forum.JoinFireteamThread
-Allows a user to slot themselves into a recuritment thread fireteam slot. Returns the new state of the fireteam.
+Allows a user to slot themselves into a recruitment thread fireteam slot. Returns the new state of the fireteam.
 
 
 ```js
@@ -777,7 +792,7 @@ bungie.Forum.KickBanFireteamApplicant({
 * topicId (integer) **required** - The post id of the recruitment topic you wish to join.
 
 ### Forum.LeaveFireteamThread
-Allows a user to remove themselves from a recuritment thread fireteam slot. Returns the new state of the fireteam.
+Allows a user to remove themselves from a recruitment thread fireteam slot. Returns the new state of the fireteam.
 
 
 ```js
@@ -800,8 +815,507 @@ bungie.Forum.GetRecruitmentThreadSummaries(null, context)
 #### Parameters
 *This action has no parameters*
 
+### GroupV2.CreateGroup
+Create a new group.
+
+
+```js
+bungie.GroupV2.CreateGroup(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GroupV2.GetAvailableAvatars
+Returns a list of all available group avatars for the signed-in user.
+
+
+```js
+bungie.GroupV2.GetAvailableAvatars(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GroupV2.GetAvailableThemes
+Returns a list of all available group themes.
+
+
+```js
+bungie.GroupV2.GetAvailableThemes(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GroupV2.GetUserClanInviteSetting
+Gets the state of the user's clan invite preferences for a particular membership type - true if they wish to be invited to clans, false otherwise.
+
+
+```js
+bungie.GroupV2.GetUserClanInviteSetting({
+  "mType": 0
+}, context)
+```
+
+#### Parameters
+* mType (integer) **required** - The Destiny membership type of the account we wish to access settings.
+
+### GroupV2.GetGroupByName
+Get information about a specific group with the given name and type.
+
+
+```js
+bungie.GroupV2.GetGroupByName({
+  "groupName": "",
+  "groupType": 0
+}, context)
+```
+
+#### Parameters
+* groupName (string) **required** - Exact name of the group to find.
+* groupType (integer) **required** - Type of group to find.
+
+### GroupV2.GetRecommendedGroups
+Gets groups recommended for you based on the groups to whom those you follow belong.
+
+
+```js
+bungie.GroupV2.GetRecommendedGroups(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GroupV2.GroupSearch
+Search for Groups.
+
+
+```js
+bungie.GroupV2.GroupSearch(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GroupV2.SetUserClanInviteSetting
+Sets the state of the user's clan invite preferences - true if they wish to be invited to clans, false otherwise.
+
+
+```js
+bungie.GroupV2.SetUserClanInviteSetting({
+  "allowInvites": true,
+  "mType": 0
+}, context)
+```
+
+#### Parameters
+* allowInvites (boolean) **required** - True to allow invites of this user to clans, false otherwise.
+* mType (integer) **required** - The Destiny membership type of linked account we are manipulating.
+
+### GroupV2.GetPotentialGroupsForMember
+Get information about the groups that a given member has applied to or been invited to.
+
+
+```js
+bungie.GroupV2.GetPotentialGroupsForMember({
+  "filter": 0,
+  "groupType": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* filter (integer) **required** - Filter apply to list of potential joined groups.
+* groupType (integer) **required** - Type of group the supplied member applied.
+* membershipId (integer) **required** - Membership ID to for which to find applied groups.
+* membershipType (integer) **required** - Membership type of the supplied membership ID.
+
+### GroupV2.GetGroupsForMember
+Get information about the groups that a given member has joined.
+
+
+```js
+bungie.GroupV2.GetGroupsForMember({
+  "filter": 0,
+  "groupType": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* filter (integer) **required** - Filter apply to list of joined groups.
+* groupType (integer) **required** - Type of group the supplied member founded.
+* membershipId (integer) **required** - Membership ID to for which to find founded groups.
+* membershipType (integer) **required** - Membership type of the supplied membership ID.
+
+### GroupV2.GetGroup
+Get information about a specific group of the given ID.
+
+
+```js
+bungie.GroupV2.GetGroup({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Requested group's id.
+
+### GroupV2.AbdicateFoundership
+An administrative method to allow the founder of a group or clan to give up their position to another admin permanently.
+
+
+```js
+bungie.GroupV2.AbdicateFoundership({
+  "founderIdNew": 0,
+  "groupId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* founderIdNew (integer) **required** - The new founder for this group. Must already be a group admin.
+* groupId (integer) **required** - The target group id.
+* membershipType (integer) **required** - Membership type of the provided founderIdNew.
+
+### GroupV2.GetAdminsAndFounderOfGroup
+Get the list of members in a given group who are of admin level or higher.
+
+
+```js
+bungie.GroupV2.GetAdminsAndFounderOfGroup({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - The ID of the group.
+
+### GroupV2.GetBannedMembersOfGroup
+Get the list of banned members in a given group. Only accessible to group Admins and above. Not applicable to all groups. Check group features.
+
+
+```js
+bungie.GroupV2.GetBannedMembersOfGroup({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID whose banned members you are fetching
+
+### GroupV2.EditGroup
+Edit an existing group. You must have suitable permissions in the group to perform this operation. This latest revision will only edit the fields you pass in - pass null for properties you want to leave unaltered.
+
+
+```js
+bungie.GroupV2.EditGroup({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID of the group to edit.
+
+### GroupV2.EditClanBanner
+Edit an existing group's clan banner. You must have suitable permissions in the group to perform this operation. All fields are required.
+
+
+```js
+bungie.GroupV2.EditClanBanner({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID of the group to edit.
+
+### GroupV2.EditFounderOptions
+Edit group options only available to a founder. You must have suitable permissions in the group to perform this operation.
+
+
+```js
+bungie.GroupV2.EditFounderOptions({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID of the group to edit.
+
+### GroupV2.GetMembersOfGroup
+Get the list of members in a given group.
+
+
+```js
+bungie.GroupV2.GetMembersOfGroup({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - The ID of the group.
+* memberType (integer) - Filter out other member types. Use None for all members.
+* nameSearch (string) - The name fragment upon which a search should be executed for members with matching display or unique names.
+
+### GroupV2.RequestGroupMembership
+Request permission to join the given group.
+
+
+```js
+bungie.GroupV2.RequestGroupMembership({
+  "groupId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group you would like to join.
+* membershipType (integer) **required** - MembershipType of the account to use when joining.
+
+### GroupV2.ApproveAllPending
+Approve all of the pending users for the given group.
+
+
+```js
+bungie.GroupV2.ApproveAllPending({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+
+### GroupV2.ApprovePendingForList
+Approve all of the pending users for the given group.
+
+
+```js
+bungie.GroupV2.ApprovePendingForList({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+
+### GroupV2.DenyAllPending
+Deny all of the pending users for the given group.
+
+
+```js
+bungie.GroupV2.DenyAllPending({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+
+### GroupV2.DenyPendingForList
+Deny all of the pending users for the given group that match the passed-in .
+
+
+```js
+bungie.GroupV2.DenyPendingForList({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+
+### GroupV2.IndividualGroupInvite
+Invite a user to join this group.
+
+
+```js
+bungie.GroupV2.IndividualGroupInvite({
+  "groupId": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group you would like to join.
+* membershipId (integer) **required** - Membership id of the account being invited.
+* membershipType (integer) **required** - MembershipType of the account being invited.
+
+### GroupV2.IndividualGroupInviteCancel
+Cancels a pending invitation to join a group.
+
+
+```js
+bungie.GroupV2.IndividualGroupInviteCancel({
+  "groupId": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group you would like to join.
+* membershipId (integer) **required** - Membership id of the account being cancelled.
+* membershipType (integer) **required** - MembershipType of the account being cancelled.
+
+### GroupV2.GetInvitedIndividuals
+Get the list of users who have been invited into the group.
+
+
+```js
+bungie.GroupV2.GetInvitedIndividuals({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+
+### GroupV2.GetPendingMemberships
+Get the list of users who are awaiting a decision on their application to join a given group. Modified to include application info.
+
+
+```js
+bungie.GroupV2.GetPendingMemberships({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+
+### GroupV2.RescindGroupMembership
+Rescind your application to join the given group or leave the group if you are already a member..
+
+
+```js
+bungie.GroupV2.RescindGroupMembership({
+  "groupId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group.
+* membershipType (integer) **required** - MembershipType of the account to leave.
+
+### GroupV2.BanMember
+Bans the requested member from the requested group for the specified period of time.
+
+
+```js
+bungie.GroupV2.BanMember({
+  "groupId": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID that has the member to ban.
+* membershipId (integer) **required** - Membership ID of the member to ban from the group.
+* membershipType (integer) **required** - Membership type of the provided membership ID.
+
+### GroupV2.KickMember
+Kick a member from the given group, forcing them to reapply if they wish to re-join the group. You must have suitable permissions in the group to perform this operation.
+
+
+```js
+bungie.GroupV2.KickMember({
+  "groupId": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID to kick the user from.
+* membershipId (integer) **required** - Membership ID to kick.
+* membershipType (integer) **required** - Membership type of the provided membership ID.
+
+### GroupV2.EditGroupMembership
+Edit the membership type of a given member. You must have suitable permissions in the group to perform this operation.
+
+
+```js
+bungie.GroupV2.EditGroupMembership({
+  "groupId": 0,
+  "membershipId": 0,
+  "membershipType": 0,
+  "memberType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - ID of the group to which the member belongs.
+* membershipId (integer) **required** - Membership ID to modify.
+* membershipType (integer) **required** - Membership type of the provide membership ID.
+* memberType (integer) **required** - New membertype for the specified member.
+
+### GroupV2.UnbanMember
+Unbans the requested member, allowing them to re-apply for membership.
+
+
+```js
+bungie.GroupV2.UnbanMember({
+  "groupId": 0,
+  "membershipId": 0,
+  "membershipType": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required**
+* membershipId (integer) **required** - Membership ID of the member to unban from the group
+* membershipType (integer) **required** - Membership type of the provided membership ID.
+
+### GroupV2.GetGroupOptionalConversations
+Gets a list of available optional conversation channels and their settings.
+
+
+```js
+bungie.GroupV2.GetGroupOptionalConversations({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Requested group's id.
+
+### GroupV2.AddOptionalConversation
+Add a new optional conversation/chat channel. Requires admin permissions to the group.
+
+
+```js
+bungie.GroupV2.AddOptionalConversation({
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* groupId (integer) **required** - Group ID of the group to edit.
+
+### GroupV2.EditOptionalConversation
+Edit the settings of an optional conversation/chat channel. Requires admin permissions to the group.
+
+
+```js
+bungie.GroupV2.EditOptionalConversation({
+  "conversationId": 0,
+  "groupId": 0
+}, context)
+```
+
+#### Parameters
+* conversationId (integer) **required** - Conversation Id of the channel being edited.
+* groupId (integer) **required** - Group ID of the group to edit.
+
 ### Trending.GetTrendingCategories
-Returns trending items for Bungie.net, collapsed into the first page of items per category.  For pagination within a category, call GetTrendingCategory.
+Returns trending items for Bungie.net, collapsed into the first page of items per category. For pagination within a category, call GetTrendingCategory.
 
 
 ```js
@@ -827,7 +1341,7 @@ bungie.Trending.GetTrendingCategory({
 * pageNumber (integer) **required** - The page # of results to return.
 
 ### Trending.GetTrendingEntryDetail
-Returns the detailed results for a specific trending entry.  Note that trending entries are uniquely identified by a combination of *both* the TrendingEntryType *and* the identifier: the identifier alone is not guaranteed to be globally unique.
+Returns the detailed results for a specific trending entry. Note that trending entries are uniquely identified by a combination of *both* the TrendingEntryType *and* the identifier: the identifier alone is not guaranteed to be globally unique.
 
 
 ```js

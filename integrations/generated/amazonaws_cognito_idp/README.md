@@ -124,6 +124,21 @@ amazonaws_cognito_idp.AdminDeleteUserAttributes({
 * UserPoolId (string) **required**
 * Username (string) **required**
 
+### AdminDisableProviderForUser
+
+
+
+```js
+amazonaws_cognito_idp.AdminDisableProviderForUser({
+  "UserPoolId": "",
+  "User": {}
+}, context)
+```
+
+#### Parameters
+* User (object) **required** - A container for information about an identity provider for a user pool.
+* UserPoolId (string) **required**
+
 ### AdminDisableUser
 
 
@@ -220,6 +235,23 @@ amazonaws_cognito_idp.AdminInitiateAuth({
 * AuthParameters (array)
 * ClientId (string) **required**
 * ClientMetadata (array)
+* UserPoolId (string) **required**
+
+### AdminLinkProviderForUser
+
+
+
+```js
+amazonaws_cognito_idp.AdminLinkProviderForUser({
+  "UserPoolId": "",
+  "DestinationUser": {},
+  "SourceUser": {}
+}, context)
+```
+
+#### Parameters
+* DestinationUser (object) **required** - A container for information about an identity provider for a user pool.
+* SourceUser (object) **required** - A container for information about an identity provider for a user pool.
 * UserPoolId (string) **required**
 
 ### AdminListDevices
@@ -381,12 +413,13 @@ amazonaws_cognito_idp.AdminUserGlobalSignOut({
 ```js
 amazonaws_cognito_idp.ChangePassword({
   "PreviousPassword": "",
-  "ProposedPassword": ""
+  "ProposedPassword": "",
+  "AccessToken": ""
 }, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 * PreviousPassword (string) **required**
 * ProposedPassword (string) **required**
 
@@ -464,6 +497,45 @@ amazonaws_cognito_idp.CreateGroup({
 * RoleArn (string)
 * UserPoolId (string) **required**
 
+### CreateIdentityProvider
+
+
+
+```js
+amazonaws_cognito_idp.CreateIdentityProvider({
+  "UserPoolId": "",
+  "ProviderName": "",
+  "ProviderType": "",
+  "ProviderDetails": []
+}, context)
+```
+
+#### Parameters
+* AttributeMapping (array)
+* IdpIdentifiers (array)
+* ProviderDetails (array) **required**
+* ProviderName (string) **required**
+* ProviderType (string) **required**
+* UserPoolId (string) **required**
+
+### CreateResourceServer
+
+
+
+```js
+amazonaws_cognito_idp.CreateResourceServer({
+  "UserPoolId": "",
+  "Identifier": "",
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Identifier (string) **required**
+* Name (string) **required**
+* Scopes (array)
+* UserPoolId (string) **required**
+
 ### CreateUserImportJob
 
 
@@ -505,9 +577,11 @@ amazonaws_cognito_idp.CreateUserPool({
 * PoolName (string) **required**
 * Schema (array)
 * SmsAuthenticationMessage (string)
-* SmsConfiguration (object) - The SMS configuratoin type.
+* SmsConfiguration (object) - The SMS configuration type.
 * SmsVerificationMessage (string)
 * UserPoolTags (array)
+* UsernameAttributes (array)
+* VerificationMessageTemplate (object) - The template for verification messages.
 
 ### CreateUserPoolClient
 
@@ -521,13 +595,35 @@ amazonaws_cognito_idp.CreateUserPoolClient({
 ```
 
 #### Parameters
+* AllowedOAuthFlows (array)
+* AllowedOAuthFlowsUserPoolClient (boolean)
+* AllowedOAuthScopes (array)
+* CallbackURLs (array)
 * ClientName (string) **required**
+* DefaultRedirectURI (string)
 * ExplicitAuthFlows (array)
 * GenerateSecret (boolean)
+* LogoutURLs (array)
 * ReadAttributes (array)
 * RefreshTokenValidity (integer)
+* SupportedIdentityProviders (array)
 * UserPoolId (string) **required**
 * WriteAttributes (array)
+
+### CreateUserPoolDomain
+
+
+
+```js
+amazonaws_cognito_idp.CreateUserPoolDomain({
+  "Domain": "",
+  "UserPoolId": ""
+}, context)
+```
+
+#### Parameters
+* Domain (string) **required**
+* UserPoolId (string) **required**
 
 ### DeleteGroup
 
@@ -544,16 +640,48 @@ amazonaws_cognito_idp.DeleteGroup({
 * GroupName (string) **required**
 * UserPoolId (string) **required**
 
+### DeleteIdentityProvider
+
+
+
+```js
+amazonaws_cognito_idp.DeleteIdentityProvider({
+  "UserPoolId": "",
+  "ProviderName": ""
+}, context)
+```
+
+#### Parameters
+* ProviderName (string) **required**
+* UserPoolId (string) **required**
+
+### DeleteResourceServer
+
+
+
+```js
+amazonaws_cognito_idp.DeleteResourceServer({
+  "UserPoolId": "",
+  "Identifier": ""
+}, context)
+```
+
+#### Parameters
+* Identifier (string) **required**
+* UserPoolId (string) **required**
+
 ### DeleteUser
 
 
 
 ```js
-amazonaws_cognito_idp.DeleteUser({}, context)
+amazonaws_cognito_idp.DeleteUser({
+  "AccessToken": ""
+}, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 
 ### DeleteUserAttributes
 
@@ -561,12 +689,13 @@ amazonaws_cognito_idp.DeleteUser({}, context)
 
 ```js
 amazonaws_cognito_idp.DeleteUserAttributes({
-  "UserAttributeNames": []
+  "UserAttributeNames": [],
+  "AccessToken": ""
 }, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 * UserAttributeNames (array) **required**
 
 ### DeleteUserPool
@@ -595,6 +724,51 @@ amazonaws_cognito_idp.DeleteUserPoolClient({
 
 #### Parameters
 * ClientId (string) **required**
+* UserPoolId (string) **required**
+
+### DeleteUserPoolDomain
+
+
+
+```js
+amazonaws_cognito_idp.DeleteUserPoolDomain({
+  "Domain": "",
+  "UserPoolId": ""
+}, context)
+```
+
+#### Parameters
+* Domain (string) **required**
+* UserPoolId (string) **required**
+
+### DescribeIdentityProvider
+
+
+
+```js
+amazonaws_cognito_idp.DescribeIdentityProvider({
+  "UserPoolId": "",
+  "ProviderName": ""
+}, context)
+```
+
+#### Parameters
+* ProviderName (string) **required**
+* UserPoolId (string) **required**
+
+### DescribeResourceServer
+
+
+
+```js
+amazonaws_cognito_idp.DescribeResourceServer({
+  "UserPoolId": "",
+  "Identifier": ""
+}, context)
+```
+
+#### Parameters
+* Identifier (string) **required**
 * UserPoolId (string) **required**
 
 ### DescribeUserImportJob
@@ -639,6 +813,19 @@ amazonaws_cognito_idp.DescribeUserPoolClient({
 #### Parameters
 * ClientId (string) **required**
 * UserPoolId (string) **required**
+
+### DescribeUserPoolDomain
+
+
+
+```js
+amazonaws_cognito_idp.DescribeUserPoolDomain({
+  "Domain": ""
+}, context)
+```
+
+#### Parameters
+* Domain (string) **required**
 
 ### ForgetDevice
 
@@ -712,16 +899,47 @@ amazonaws_cognito_idp.GetGroup({
 * GroupName (string) **required**
 * UserPoolId (string) **required**
 
+### GetIdentityProviderByIdentifier
+
+
+
+```js
+amazonaws_cognito_idp.GetIdentityProviderByIdentifier({
+  "UserPoolId": "",
+  "IdpIdentifier": ""
+}, context)
+```
+
+#### Parameters
+* IdpIdentifier (string) **required**
+* UserPoolId (string) **required**
+
+### GetUICustomization
+
+
+
+```js
+amazonaws_cognito_idp.GetUICustomization({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Parameters
+* ClientId (string)
+* UserPoolId (string) **required**
+
 ### GetUser
 
 
 
 ```js
-amazonaws_cognito_idp.GetUser({}, context)
+amazonaws_cognito_idp.GetUser({
+  "AccessToken": ""
+}, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 
 ### GetUserAttributeVerificationCode
 
@@ -729,12 +947,13 @@ amazonaws_cognito_idp.GetUser({}, context)
 
 ```js
 amazonaws_cognito_idp.GetUserAttributeVerificationCode({
+  "AccessToken": "",
   "AttributeName": ""
 }, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 * AttributeName (string) **required**
 
 ### GlobalSignOut
@@ -742,11 +961,13 @@ amazonaws_cognito_idp.GetUserAttributeVerificationCode({
 
 
 ```js
-amazonaws_cognito_idp.GlobalSignOut({}, context)
+amazonaws_cognito_idp.GlobalSignOut({
+  "AccessToken": ""
+}, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 
 ### InitiateAuth
 
@@ -792,6 +1013,36 @@ amazonaws_cognito_idp.ListGroups({
 
 #### Parameters
 * Limit (integer)
+* NextToken (string)
+* UserPoolId (string) **required**
+
+### ListIdentityProviders
+
+
+
+```js
+amazonaws_cognito_idp.ListIdentityProviders({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
+* NextToken (string)
+* UserPoolId (string) **required**
+
+### ListResourceServers
+
+
+
+```js
+amazonaws_cognito_idp.ListResourceServers({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Parameters
+* MaxResults (integer)
 * NextToken (string)
 * UserPoolId (string) **required**
 
@@ -907,6 +1158,22 @@ amazonaws_cognito_idp.RespondToAuthChallenge({
 * ClientId (string) **required**
 * Session (string)
 
+### SetUICustomization
+
+
+
+```js
+amazonaws_cognito_idp.SetUICustomization({
+  "UserPoolId": ""
+}, context)
+```
+
+#### Parameters
+* CSS (string)
+* ClientId (string)
+* ImageFile (string)
+* UserPoolId (string) **required**
+
 ### SetUserSettings
 
 
@@ -1006,18 +1273,55 @@ amazonaws_cognito_idp.UpdateGroup({
 * RoleArn (string)
 * UserPoolId (string) **required**
 
+### UpdateIdentityProvider
+
+
+
+```js
+amazonaws_cognito_idp.UpdateIdentityProvider({
+  "UserPoolId": "",
+  "ProviderName": ""
+}, context)
+```
+
+#### Parameters
+* AttributeMapping (array)
+* IdpIdentifiers (array)
+* ProviderDetails (array)
+* ProviderName (string) **required**
+* UserPoolId (string) **required**
+
+### UpdateResourceServer
+
+
+
+```js
+amazonaws_cognito_idp.UpdateResourceServer({
+  "UserPoolId": "",
+  "Identifier": "",
+  "Name": ""
+}, context)
+```
+
+#### Parameters
+* Identifier (string) **required**
+* Name (string) **required**
+* Scopes (array)
+* UserPoolId (string) **required**
+
 ### UpdateUserAttributes
 
 
 
 ```js
 amazonaws_cognito_idp.UpdateUserAttributes({
-  "UserAttributes": []
+  "UserAttributes": [],
+  "AccessToken": ""
 }, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 * UserAttributes (array) **required**
 
 ### UpdateUserPool
@@ -1041,10 +1345,11 @@ amazonaws_cognito_idp.UpdateUserPool({
 * MfaConfiguration (string)
 * Policies (object) - The type of policy in a user pool.
 * SmsAuthenticationMessage (string)
-* SmsConfiguration (object) - The SMS configuratoin type.
+* SmsConfiguration (object) - The SMS configuration type.
 * SmsVerificationMessage (string)
 * UserPoolId (string) **required**
 * UserPoolTags (array)
+* VerificationMessageTemplate (object) - The template for verification messages.
 
 ### UpdateUserPoolClient
 
@@ -1058,11 +1363,18 @@ amazonaws_cognito_idp.UpdateUserPoolClient({
 ```
 
 #### Parameters
+* AllowedOAuthFlows (array)
+* AllowedOAuthFlowsUserPoolClient (boolean)
+* AllowedOAuthScopes (array)
+* CallbackURLs (array)
 * ClientId (string) **required**
 * ClientName (string)
+* DefaultRedirectURI (string)
 * ExplicitAuthFlows (array)
+* LogoutURLs (array)
 * ReadAttributes (array)
 * RefreshTokenValidity (integer)
+* SupportedIdentityProviders (array)
 * UserPoolId (string) **required**
 * WriteAttributes (array)
 
@@ -1072,13 +1384,14 @@ amazonaws_cognito_idp.UpdateUserPoolClient({
 
 ```js
 amazonaws_cognito_idp.VerifyUserAttribute({
+  "AccessToken": "",
   "AttributeName": "",
   "Code": ""
 }, context)
 ```
 
 #### Parameters
-* AccessToken (string)
+* AccessToken (string) **required**
 * AttributeName (string) **required**
 * Code (string) **required**
 

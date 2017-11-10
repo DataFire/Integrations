@@ -21,7 +21,7 @@ amazonaws_ecr.BatchCheckLayerAvailability({}).then(data => {
 ```
 
 ## Description
-Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry service. Customers can use the familiar Docker CLI to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry. Amazon ECR supports private Docker repositories with resource-based permissions using AWS IAM so that specific users or Amazon EC2 instances can access repositories and images. Developers can use the Docker CLI to author and manage images.
+Amazon EC2 Container Registry (Amazon ECR) is a managed Docker registry service. Customers can use the familiar Docker CLI to push, pull, and manage images. Amazon ECR provides a secure, scalable, and reliable registry. Amazon ECR supports private Docker repositories with resource-based permissions using IAM so that specific users or Amazon EC2 instances can access repositories and images. Developers can use the Docker CLI to author and manage images.
 
 ## Actions
 ### BatchCheckLayerAvailability
@@ -102,6 +102,20 @@ amazonaws_ecr.CreateRepository({
 ```
 
 #### Parameters
+* repositoryName (string) **required**
+
+### DeleteLifecyclePolicy
+
+
+
+```js
+amazonaws_ecr.DeleteLifecyclePolicy({
+  "repositoryName": ""
+}, context)
+```
+
+#### Parameters
+* registryId (string)
 * repositoryName (string) **required**
 
 ### DeleteRepository
@@ -196,6 +210,38 @@ amazonaws_ecr.GetDownloadUrlForLayer({
 * registryId (string)
 * repositoryName (string) **required**
 
+### GetLifecyclePolicy
+
+
+
+```js
+amazonaws_ecr.GetLifecyclePolicy({
+  "repositoryName": ""
+}, context)
+```
+
+#### Parameters
+* registryId (string)
+* repositoryName (string) **required**
+
+### GetLifecyclePolicyPreview
+
+
+
+```js
+amazonaws_ecr.GetLifecyclePolicyPreview({
+  "repositoryName": ""
+}, context)
+```
+
+#### Parameters
+* filter (object) - The filter for the lifecycle policy preview.
+* imageIds (array)
+* maxResults (integer)
+* nextToken (string)
+* registryId (string)
+* repositoryName (string) **required**
+
 ### GetRepositoryPolicy
 
 
@@ -260,6 +306,22 @@ amazonaws_ecr.PutImage({
 * registryId (string)
 * repositoryName (string) **required**
 
+### PutLifecyclePolicy
+
+
+
+```js
+amazonaws_ecr.PutLifecyclePolicy({
+  "repositoryName": "",
+  "lifecyclePolicyText": ""
+}, context)
+```
+
+#### Parameters
+* lifecyclePolicyText (string) **required**
+* registryId (string)
+* repositoryName (string) **required**
+
 ### SetRepositoryPolicy
 
 
@@ -274,6 +336,21 @@ amazonaws_ecr.SetRepositoryPolicy({
 #### Parameters
 * force (boolean)
 * policyText (string) **required**
+* registryId (string)
+* repositoryName (string) **required**
+
+### StartLifecyclePolicyPreview
+
+
+
+```js
+amazonaws_ecr.StartLifecyclePolicyPreview({
+  "repositoryName": ""
+}, context)
+```
+
+#### Parameters
+* lifecyclePolicyText (string)
 * registryId (string)
 * repositoryName (string) **required**
 

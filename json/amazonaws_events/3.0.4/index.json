@@ -16,8 +16,15 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpg"
   },
-  "actionCount": 12,
+  "actionCount": 15,
   "definitions": {
+    "Action": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "events:[a-zA-Z]+",
+      "type": "string",
+      "title": "Action"
+    },
     "Arn": {
       "maxLength": 1600,
       "minLength": 1,
@@ -47,6 +54,29 @@
       "type": "object",
       "title": "DeleteRuleRequest"
     },
+    "DescribeEventBusRequest": {
+      "properties": {},
+      "type": "object",
+      "title": "DescribeEventBusRequest"
+    },
+    "DescribeEventBusResponse": {
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the account permitted to write events to the current account."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the event bus. Currently, this is always <code>default</code>."
+        },
+        "Policy": {
+          "$ref": "#/definitions/String",
+          "description": "The policy that enables the external account to send events to your account."
+        }
+      },
+      "type": "object",
+      "title": "DescribeEventBusResponse"
+    },
     "DescribeRuleRequest": {
       "properties": {
         "Name": {
@@ -72,7 +102,7 @@
         },
         "EventPattern": {
           "$ref": "#/definitions/EventPattern",
-          "description": "The event pattern."
+          "description": "The event pattern. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html\">Events and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>."
         },
         "Name": {
           "$ref": "#/definitions/RuleName",
@@ -176,7 +206,7 @@
       "properties": {
         "InputPathsMap": {
           "$ref": "#/definitions/TransformerPaths",
-          "description": "Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path."
+          "description": "Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path. You must use JSON dot notation, not bracket notation."
         },
         "InputTemplate": {
           "$ref": "#/definitions/TransformerInput",
@@ -351,6 +381,19 @@
       "type": "string",
       "title": "NextToken"
     },
+    "PolicyLengthExceededException": {
+      "description": "The event bus policy is too long. For more information, see the limits.",
+      "properties": {},
+      "type": "object",
+      "title": "PolicyLengthExceededException"
+    },
+    "Principal": {
+      "maxLength": 12,
+      "minLength": 1,
+      "pattern": "(\\d{12}|\\*)",
+      "type": "string",
+      "title": "Principal"
+    },
     "PutEventsRequest": {
       "properties": {
         "Entries": {
@@ -440,6 +483,29 @@
       "type": "array",
       "title": "PutEventsResultEntryList"
     },
+    "PutPermissionRequest": {
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that you are enabling the other account to perform. Currently, this must be <code>events:PutEvents</code>."
+        },
+        "Principal": {
+          "$ref": "#/definitions/Principal",
+          "description": "<p>The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify \"*\" to permit any account to put events to your default event bus.</p> <p>If you specify \"*\", avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an <code>account</code> field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.</p>"
+        },
+        "StatementId": {
+          "$ref": "#/definitions/StatementId",
+          "description": "An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this <code>StatementId</code> when you run <a>RemovePermission</a>."
+        }
+      },
+      "required": [
+        "Action",
+        "Principal",
+        "StatementId"
+      ],
+      "type": "object",
+      "title": "PutPermissionRequest"
+    },
     "PutRuleRequest": {
       "properties": {
         "Description": {
@@ -448,7 +514,7 @@
         },
         "EventPattern": {
           "$ref": "#/definitions/EventPattern",
-          "description": "The event pattern."
+          "description": "The event pattern. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html\">Events and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>."
         },
         "Name": {
           "$ref": "#/definitions/RuleName",
@@ -460,7 +526,7 @@
         },
         "ScheduleExpression": {
           "$ref": "#/definitions/ScheduleExpression",
-          "description": "The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\"."
+          "description": "The scheduling expression. For example, \"cron(0 20 * * ? *)\" or \"rate(5 minutes)\"."
         },
         "State": {
           "$ref": "#/definitions/RuleState",
@@ -520,7 +586,7 @@
       "properties": {
         "ErrorCode": {
           "$ref": "#/definitions/ErrorCode",
-          "description": "The error code that indicates why the target addition failed."
+          "description": "The error code that indicates why the target addition failed. If the value is <code>ConcurrentModificationException</code>, too many requests were made at the same time."
         },
         "ErrorMessage": {
           "$ref": "#/definitions/ErrorMessage",
@@ -540,6 +606,19 @@
       },
       "type": "array",
       "title": "PutTargetsResultEntryList"
+    },
+    "RemovePermissionRequest": {
+      "properties": {
+        "StatementId": {
+          "$ref": "#/definitions/StatementId",
+          "description": "The statement ID corresponding to the account that is no longer allowed to put events to the default event bus."
+        }
+      },
+      "required": [
+        "StatementId"
+      ],
+      "type": "object",
+      "title": "RemovePermissionRequest"
     },
     "RemoveTargetsRequest": {
       "properties": {
@@ -578,7 +657,7 @@
       "properties": {
         "ErrorCode": {
           "$ref": "#/definitions/ErrorCode",
-          "description": "The error code that indicates why the target removal failed."
+          "description": "The error code that indicates why the target removal failed. If the value is <code>ConcurrentModificationException</code>, too many requests were made at the same time."
         },
         "ErrorMessage": {
           "$ref": "#/definitions/ErrorMessage",
@@ -600,7 +679,7 @@
       "title": "RemoveTargetsResultEntryList"
     },
     "ResourceNotFoundException": {
-      "description": "The rule does not exist.",
+      "description": "An entity that you specified does not exist.",
       "properties": {},
       "type": "object",
       "title": "ResourceNotFoundException"
@@ -624,7 +703,7 @@
         },
         "EventPattern": {
           "$ref": "#/definitions/EventPattern",
-          "description": "The event pattern of the rule."
+          "description": "The event pattern of the rule. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html\">Events and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>."
         },
         "Name": {
           "$ref": "#/definitions/RuleName",
@@ -755,6 +834,13 @@
       "type": "string",
       "title": "ScheduleExpression"
     },
+    "StatementId": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9-_]+",
+      "type": "string",
+      "title": "StatementId"
+    },
     "String": {
       "type": "string",
       "title": "String"
@@ -776,11 +862,11 @@
         },
         "Input": {
           "$ref": "#/definitions/TargetInput",
-          "description": "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation (JSON) Data Interchange Format</a>."
+          "description": "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. You must use JSON dot notation, not bracket notation. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation (JSON) Data Interchange Format</a>."
         },
         "InputPath": {
           "$ref": "#/definitions/TargetInputPath",
-          "description": "The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. For more information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>."
+          "description": "The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see <a href=\"http://goessner.net/articles/JsonPath/\">JSONPath</a>."
         },
         "InputTransformer": {
           "$ref": "#/definitions/InputTransformer",
@@ -860,7 +946,7 @@
         },
         "EventPattern": {
           "$ref": "#/definitions/EventPattern",
-          "description": "The event pattern."
+          "description": "The event pattern. For more information, see <a href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html\">Events and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>."
         }
       },
       "required": [
@@ -918,6 +1004,28 @@
         ]
       },
       "outputSchema": {},
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "DescribeEventBus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeEventBusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeEventBusResponse"
+      },
       "security": {
         "amazonaws_events": {
           "integration": "amazonaws_events"
@@ -1075,6 +1183,26 @@
       }
     },
     {
+      "id": "PutPermission",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/PutPermissionRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
       "id": "PutRule",
       "title": "",
       "description": "",
@@ -1112,6 +1240,26 @@
       "outputSchema": {
         "$ref": "#/definitions/PutTargetsResponse"
       },
+      "security": {
+        "amazonaws_events": {
+          "integration": "amazonaws_events"
+        }
+      }
+    },
+    {
+      "id": "RemovePermission",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/RemovePermissionRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
       "security": {
         "amazonaws_events": {
           "integration": "amazonaws_events"

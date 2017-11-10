@@ -1,0 +1,2056 @@
+{
+  "id": "openfintech",
+  "title": "OpenFinTech.io",
+  "description": "# Introduction [OpenFinTech.io](https://openfintech.io) is an open database that comprises of standardized primary data for FinTech industry.  \nIt contains such information as geolocation data (countries, cities, regions), organizations, currencies (national, digital, virtual, crypto), banks, digital exchangers, payment providers (PSP), payment methods, etc.  \nIt is created for communication of cross-integrated micro-services on \"one language\". This is achieved through standardization of entity identifiers that are used to exchange information among different services.  \n### UML UML Domain Model diagram you can find [here](https://api.openfintech.io/public_domain_model.png).  \n### Persistence Entities are updated not more than 1 time per day.  \n### Terms and Conditions This *OpenFinTech.io* is made available under the [Open Database License](http://opendatacommons.org/licenses/odbl/1.0/).  \nAny rights in individual contents of the database are licensed under the [Database Contents License](http://opendatacommons.org/licenses/dbcl/1.0/).  \n### Contacts For any questions, please email - info@openfintech.io  \nOr you can contact us at [Gitter](https://gitter.im/paymaxicom/openfintech.io)  \nPowered by [Paymaxi](https://www.paymaxi.com) # Get Started If you use [POSTMAN](https://www.getpostman.com) or similar program which can operate with swagger`s files - just [download](https://docs.openfintech.io) our spec and [import it](https://www.getpostman.com/docs/importing_swagger). Also you can try live [API demo](https://api.openfintech.io). ## Overview The OpenFinTech API is organized around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors.  \nAPI is based on [JSON API](http://jsonapi.org) standard. JSON is returned by all API responses, including errors, although our API libraries convert responses to appropriate language-specific objects.  \nJSON API requires use of the JSON API media type (`application/vnd.api+json`) for exchanging data.  \n### Additional Request Headers #### ACCEPT HEADER Your requests should always include the header: ```curl Accept: application/vnd.api+json ``` ## Authentication To use OpenFinTech API no needed authorization. ## Versioning When we make changes to the API, we release new, dated versions. The current version is **2017-08-24**. Read our [API upgrades guide]() to see our API changelog and to learn more about backwards compatibility. ## Pagination OpenFinTech APIs to retrieve lists of banks, currencies and other resources - paginated to **100** items by default. The pagination information will be included in the list API response under the node name `meta` - contains information about listed objects [`total` - contains information about total count of listed objects, `pages` - count of pages], `links` - contain links to navigate between pages [`first` - link to first page, `prev` - link to previous page, `next` - link to next page, `last` - link to last page].  \nBy default first page will be listed. For navigating through pages, use the page parameter (e.g. `page[number]`, `page[size]`).  \nThe `page[size]` parameter can be used to set the number of records that you want to receive in the response.  \nThe `page[number]` parameter can be used to set needed page number.  \nExample of response: ```json { \"meta\": { \"total\": 419, \"pages\": 42 }, \"links\": { \"first\": \"/v1/{path}?page[number]=1&page[size]=10\", \"prev\": \"/v1/{path}?page[number]=39&page[size]=10\", \"next\": \"/v1/{path}?page[number]=41&page[size]=10\", \"last\": \"/v1/{path}?page[number]=42&page[size]=10\" } ``` ### Sorting OpenFinTech\\`s API supported query parameter to sort result collection [e.g. `?sort=code`]. Information about available parameters may be found in the endpoint description. Positive parameter [e.g. `?sort=code`] points to ascending sorting, negative [e.g. `?sort=-code`] - to descending sorting. Also, supported multiple sorting parameters [e.g. `?sort=code, -name, id`, etc.] ```curl https://api.openfintech.io/v1/countries?sort=name,-area ``` ### Filtering Filtering provided by unique query key `filter[*filtering_condition*]`. Information about available parameters may be found in the endpoint description. ```curl https://api.openfintech.io/v1/countries?filter[region]=europe ``` ## Images OpenFinTech provides two types of images: icons and logos. To get one of those types you should to use next url pattern: ``` curl https://api.openfintech.io/v1/{path}/{id}/{icon/logo} ``` Also, images can be resized by adding next parameters: `h={height}&w={width}`. For example, you want to get organization icon with width equals to 20 pixels: ``` curl https://api.openfintech.io/v1/organizations/{id}/icon?w=20&h=20 ``` If argument height or width is missing API returns original image with real sizes. ## Errors API uses conventional HTTP response codes to indicate the success or failure of an API request. In general, codes in the `2xx` range indicate success, codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, etc.), and codes in the `5xx` range indicate an error with OpenFinTech's servers (these are rare). | Code | Description | |------|-------------| | 200 - OK | Everything worked as expected. | | 400 - Bad Request | The request was unacceptable, often due to missing a required parameter. | | 401 - Unauthorized | No valid API key provided. | | 402 - Request Failed | The parameters were valid but the request failed. | | 404 - Not Found | The requested resource doesn't exist. | | 409 - Conflict | The request conflicts with another request (perhaps due to using the same idempotent key). | | 429 - Too Many Requests | Too many requests hit the API too quickly. We recommend an exponential backoff of your requests. | | 500, 502, 503, 504 - Server Errors | Something went wrong on OpenFinTech's end. (These are rare.) |",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openfintech.jpg"
+  },
+  "actionCount": 16,
+  "definitions": {
+    "Bank": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/BankAttributes"
+        },
+        "id": {
+          "description": "Bank`s ID",
+          "example": "bnk_ROO9xUfcBUwOIsqI",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/BankRelationships"
+        },
+        "type": {
+          "example": "banks",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Bank"
+    },
+    "BankAttributes": {
+      "description": "Array of bank attributes",
+      "properties": {
+        "account_number": {
+          "type": "string"
+        },
+        "bank_code": {
+          "type": "string"
+        },
+        "bic": {
+          "type": "string"
+        },
+        "code": {
+          "description": "Bank`s code",
+          "example": "pat_kb_privatbank",
+          "type": "string"
+        },
+        "iban": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Bank`s name",
+          "example": "Test",
+          "type": "string"
+        },
+        "sort_code": {
+          "example": 305299,
+          "type": "string"
+        },
+        "status": {
+          "description": "Status [active, liquidated, problem, deleted]",
+          "example": "active",
+          "type": "string"
+        },
+        "vatin": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "BankAttributes"
+    },
+    "BankOrganization": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/BankOrganizationData"
+        },
+        "links": {
+          "$ref": "#/definitions/BankOrganizationLinks"
+        }
+      },
+      "type": "object",
+      "title": "BankOrganization"
+    },
+    "BankOrganizationData": {
+      "properties": {
+        "id": {
+          "description": "Organization`s ID",
+          "example": "org_qXJX8D9I5VCQjCOH",
+          "type": "string"
+        },
+        "type": {
+          "example": "organizations",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "BankOrganizationData"
+    },
+    "BankOrganizationLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/banks/bnk_ROO9xUfcBUwOIsqI/organization",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "BankOrganizationLinks"
+    },
+    "BankRelationships": {
+      "properties": {
+        "organization": {
+          "$ref": "#/definitions/BankOrganization"
+        }
+      },
+      "type": "object",
+      "title": "BankRelationships"
+    },
+    "BankResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Bank"
+        }
+      },
+      "type": "object",
+      "title": "BankResponse"
+    },
+    "BanksResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Bank"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "BanksResponse"
+    },
+    "CountriesResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Country"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "CountriesResponse"
+    },
+    "Country": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/CountryAttributes"
+        },
+        "id": {
+          "description": "Country`s ID",
+          "example": "UA",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/CountryRelationships"
+        },
+        "type": {
+          "example": "countries",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Country"
+    },
+    "CountryAttributes": {
+      "properties": {
+        "area": {
+          "description": "Countryâ€™s area (sq km)",
+          "example": 603700,
+          "type": "string"
+        },
+        "calling_codes": {
+          "description": "Array of country`s phone codes",
+          "example": [
+            380
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "capital": {
+          "description": "Countryâ€™s capital",
+          "example": "Kyiv",
+          "type": "string"
+        },
+        "code_alpha3": {
+          "description": "Country`s ISO alpha3 code",
+          "example": "UKR",
+          "type": "string"
+        },
+        "languages": {
+          "description": "Array of country`s languages",
+          "example": [
+            "uk"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Country`s name",
+          "example": "Ukraine",
+          "type": "string"
+        },
+        "native_name": {
+          "description": "Country`s nativ name",
+          "example": "Ð£ÐºÑ€Ð°Ñ—Ð½Ð°",
+          "type": "string"
+        },
+        "population": {
+          "description": "Countryâ€™s population",
+          "example": 42836922,
+          "type": "string"
+        },
+        "region": {
+          "description": "Countryâ€™s region:<br>\n\n  * Africa\n  * Americas\n  * Asia\n  * Europe\n  * Oceania\n  * Polar\n",
+          "example": "europe",
+          "type": "string"
+        },
+        "sub_region": {
+          "description": "Countryâ€™s sub region:<br>\n\n  * Northern Africa\n  * Southern Africa\n  * Western Africa\n  * Eastern Africa\n  * Middle Africa\n  * Northern America\n  * South America\n  * Central America\n  * Caribbean\n  * Southern Asia\n  * Western Asia\n  * Eastern Asia\n  * South-Eastern Asia\n  * Central Asia\n  * Northern Europe\n  * Southern Europe\n  * Western Europe\n  * Eastern Europe\n  * Polynesia\n  * Australia and New Zealand\n  * Micronesia\n  * Melanesia\n",
+          "example": "eastern_europe",
+          "type": "string"
+        },
+        "timezones": {
+          "description": "Array of country`s timezones (UTC)",
+          "example": [
+            "UTC+02:00"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "top_level_domains": {
+          "description": "Array of country`s domains",
+          "example": [
+            ".ua"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CountryAttributes"
+    },
+    "CountryRelationships": {
+      "properties": {
+        "translations": {
+          "$ref": "#/definitions/CountryTranslations"
+        }
+      },
+      "type": "object",
+      "title": "CountryRelationships"
+    },
+    "CountryResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Country"
+        }
+      },
+      "type": "object",
+      "title": "CountryResponse"
+    },
+    "CountryTranslations": {
+      "properties": {
+        "links": {
+          "$ref": "#/definitions/CountryTranslationsLinks"
+        }
+      },
+      "type": "object",
+      "title": "CountryTranslations"
+    },
+    "CountryTranslationsLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/countries/UA/translations",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CountryTranslationsLinks"
+    },
+    "CurrenciesResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Currency"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "CurrenciesResponse"
+    },
+    "Currency": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/CurrencyAttributes"
+        },
+        "id": {
+          "description": "Currency ID",
+          "example": "UAH",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/CurrencyRelationships"
+        },
+        "type": {
+          "example": "currencies",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Currency"
+    },
+    "CurrencyAttributes": {
+      "description": "Array of currencies attributes",
+      "properties": {
+        "category": {
+          "description": "Currency category",
+          "example": "others",
+          "type": "string"
+        },
+        "code": {
+          "description": "Currency system code",
+          "example": "UAH",
+          "type": "string"
+        },
+        "code_estandards_alpha": {
+          "example": "none",
+          "type": "string"
+        },
+        "code_iso_alpha3": {
+          "description": "Currency ISO code",
+          "example": "UAH",
+          "type": "string"
+        },
+        "code_iso_numeric3": {
+          "description": "Currency ISO numeric code",
+          "example": 980,
+          "type": "integer"
+        },
+        "code_json_alpha": {
+          "example": "none",
+          "type": "string"
+        },
+        "created": {
+          "description": "Created date in system (in Unixtime)",
+          "example": 1486051665,
+          "type": "string"
+        },
+        "currency_type": {
+          "description": "Type of currencies [national, digital, virtual, metal, energy]",
+          "example": "national",
+          "type": "string"
+        },
+        "decimal_e": {
+          "description": "Number of digits after the decimal separator",
+          "example": 2,
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "#/definitions/CurrencyAttributesIcon"
+        },
+        "issuer": {
+          "description": "Currency`s issuer",
+          "type": "string"
+        },
+        "name": {
+          "description": "Currency description",
+          "example": "Hryvnia",
+          "type": "string"
+        },
+        "native_symbol": {
+          "description": "Currencyâ€™s symbol. In general, only for nationals currencies",
+          "example": "â‚´",
+          "type": "string"
+        },
+        "symbol": {
+          "description": "Currencyâ€™s symbol. In general, only for nationals currencies",
+          "example": "â‚´",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyAttributes"
+    },
+    "CurrencyAttributesIcon": {
+      "description": "Links to currency icons",
+      "properties": {
+        "16": {
+          "description": "16x16 icon",
+          "example": "https://i.openfintech.io/currencies/UAH/icon_16.png",
+          "type": "string"
+        },
+        "32": {
+          "description": "32x32 icon",
+          "example": "https://i.openfintech.io/currencies/UAH/icon_32.png",
+          "type": "string"
+        },
+        "64": {
+          "description": "64x64 icon",
+          "example": "https://i.openfintech.io/currencies/UAH/icon_64.png",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyAttributesIcon"
+    },
+    "CurrencyCountries": {
+      "properties": {
+        "links": {
+          "$ref": "#/definitions/CurrencyCountryLinks"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyCountries"
+    },
+    "CurrencyCountryLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/currencies/UAH/countries",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyCountryLinks"
+    },
+    "CurrencyIssuer": {
+      "description": "Currency Issuer. 'Only for virtual currency'\n",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CurrencyIssuertData"
+        },
+        "links": {
+          "$ref": "#/definitions/CurrencyIssuerLinks"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyIssuer"
+    },
+    "CurrencyIssuerLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/currencies/UAH/issuer",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyIssuerLinks"
+    },
+    "CurrencyIssuerOrganization": {
+      "description": "Issuer.\n",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CurrencyIssuerOrganizationData"
+        },
+        "links": {
+          "$ref": "#/definitions/CurrencyIssuerOrganizationLinks"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyIssuerOrganization"
+    },
+    "CurrencyIssuerOrganizationData": {
+      "properties": {
+        "id": {
+          "description": "Issuer organization ID",
+          "type": "string"
+        },
+        "type": {
+          "example": "currencies",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyIssuerOrganizationData"
+    },
+    "CurrencyIssuerOrganizationLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/currencies/UAH/issuer_organization",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyIssuerOrganizationLinks"
+    },
+    "CurrencyIssuertData": {
+      "properties": {
+        "id": {
+          "description": "Issuer ID",
+          "type": "string"
+        },
+        "type": {
+          "example": "issuer",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyIssuertData"
+    },
+    "CurrencyParent": {
+      "description": "Parent currency. 'Only for virtual currency'\n",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/CurrencyParentData"
+        },
+        "links": {
+          "$ref": "#/definitions/CurrencyParentLinks"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyParent"
+    },
+    "CurrencyParentData": {
+      "properties": {
+        "id": {
+          "description": "Parent currency ID",
+          "example": "UAH",
+          "type": "string"
+        },
+        "type": {
+          "example": "currencies",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyParentData"
+    },
+    "CurrencyParentLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/currencies/UAH/parent",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyParentLinks"
+    },
+    "CurrencyRelationships": {
+      "properties": {
+        "countries": {
+          "$ref": "#/definitions/CurrencyCountries"
+        },
+        "issuer": {
+          "$ref": "#/definitions/CurrencyIssuer"
+        },
+        "issuer_organization": {
+          "$ref": "#/definitions/CurrencyIssuerOrganization"
+        },
+        "parent": {
+          "$ref": "#/definitions/CurrencyParent"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyRelationships"
+    },
+    "CurrencyResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Currency"
+        }
+      },
+      "type": "object",
+      "title": "CurrencyResponse"
+    },
+    "Exchanger": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/ExchangerAttributes"
+        },
+        "id": {
+          "description": "Exchanger`s ID",
+          "example": "exch_1oClKBr43J1xxxAa",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/ExchangerRelationships"
+        },
+        "type": {
+          "example": "exchangers",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Exchanger"
+    },
+    "ExchangerAttributes": {
+      "properties": {
+        "name": {
+          "description": "Exchanger`s name",
+          "example": "Xchange.cc",
+          "type": "string"
+        },
+        "rates_export_standard": {
+          "example": "estandard",
+          "type": "string"
+        },
+        "rates_export_url": {
+          "example": "https://xchange.cc/valuta.xml",
+          "type": "string"
+        },
+        "status": {
+          "description": "Exchanger`s status [active, blocked, deleted]",
+          "example": "active",
+          "type": "string"
+        },
+        "wmid": {
+          "description": "Exchanger`s WebMoney ID",
+          "example": 612345678901,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ExchangerAttributes"
+    },
+    "ExchangerOrganization": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/ExchangerOrganizationData"
+        },
+        "links": {
+          "$ref": "#/definitions/ExchangerOrganizationLinks"
+        }
+      },
+      "type": "object",
+      "title": "ExchangerOrganization"
+    },
+    "ExchangerOrganizationData": {
+      "properties": {
+        "id": {
+          "description": "Organization ID",
+          "example": "org_Dr5Wi728plQ0RPA5",
+          "type": "string"
+        },
+        "type": {
+          "example": "organizations",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ExchangerOrganizationData"
+    },
+    "ExchangerOrganizationLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/exchangers/exch_1oClKBr43J1xxxAa/organization",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "ExchangerOrganizationLinks"
+    },
+    "ExchangerRelationships": {
+      "properties": {
+        "organization": {
+          "$ref": "#/definitions/ExchangerOrganization"
+        }
+      },
+      "type": "object",
+      "title": "ExchangerRelationships"
+    },
+    "ExchangerResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Exchanger"
+        }
+      },
+      "type": "object",
+      "title": "ExchangerResponse"
+    },
+    "ExchangersResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Exchanger"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "ExchangersResponse"
+    },
+    "MerchantIndustriesResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/MerchantIndustry"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "MerchantIndustriesResponse"
+    },
+    "MerchantIndustry": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/MerchantIndustryAttributes"
+        },
+        "id": {
+          "description": "Merchant-industry`s ID",
+          "example": "merchind_Cukwq7LEFXiaRpkZ",
+          "type": "string"
+        },
+        "type": {
+          "example": "merchant-industries",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MerchantIndustry"
+    },
+    "MerchantIndustryAttributes": {
+      "description": "Array of Merchant-industry attributes",
+      "properties": {
+        "name": {
+          "description": "Merchant-industry`s name",
+          "example": "Airlines",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "MerchantIndustryAttributes"
+    },
+    "MerchantIndustryResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/MerchantIndustry"
+        }
+      },
+      "type": "object",
+      "title": "MerchantIndustryResponse"
+    },
+    "Organization": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/OrganizationAttributes"
+        },
+        "id": {
+          "description": "Organization`s ID",
+          "example": "org_RysJXOwKaGT5o1SZ",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/OrganizationRelationships"
+        },
+        "type": {
+          "example": "organizations",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Organization"
+    },
+    "OrganizationActive": {
+      "properties": {
+        "data": {
+          "example": "none",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/OrganizationActiveLinks"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationActive"
+    },
+    "OrganizationActiveLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/organizations/org_lK1mIKXO1kHOrTeJ/active_in_countries",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationActiveLinks"
+    },
+    "OrganizationAddress": {
+      "description": "Organization`s address",
+      "properties": {
+        "city": {
+          "example": "Kyiv",
+          "type": "string"
+        },
+        "country": {
+          "example": "Ukraine",
+          "type": "string"
+        },
+        "post_code": {
+          "example": 2184,
+          "type": "integer"
+        },
+        "region": {
+          "description": "Countryâ€™s region:<br>\n\n  * Africa\n  * Americas\n  * Asia\n  * Europe\n  * Oceania\n  * Polar\n",
+          "example": "Europe",
+          "type": "string"
+        },
+        "street": {
+          "example": "Obolonska nab",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationAddress"
+    },
+    "OrganizationAttributes": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/OrganizationAddress"
+        },
+        "blog": {
+          "description": "Organization`s blog",
+          "example": "none",
+          "type": "string"
+        },
+        "code": {
+          "description": "Organization`s code",
+          "example": "interkassa",
+          "type": "string"
+        },
+        "contacts": {
+          "$ref": "#/definitions/OrganizationContacts"
+        },
+        "description": {
+          "description": "Description",
+          "example": "Payment acceptance system",
+          "type": "string"
+        },
+        "icon": {
+          "$ref": "#/definitions/OrganizationAttributesIcon"
+        },
+        "industries": {
+          "description": "Industries",
+          "example": [
+            "psp"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "logo": {
+          "$ref": "#/definitions/OrganizationAttributesLogo"
+        },
+        "name": {
+          "description": "Organization`s name",
+          "example": "Interkassa",
+          "type": "string"
+        },
+        "site": {
+          "description": "Organization`s site",
+          "example": "https://www.interkassa.com",
+          "type": "string"
+        },
+        "social_profiles": {
+          "$ref": "#/definitions/OrganizationSocial"
+        },
+        "status": {
+          "description": "Organization`s status [active, liquidated, deleted]",
+          "example": "active",
+          "type": "string"
+        },
+        "wiki": {
+          "description": "Organization`s wiki",
+          "example": "https://www.interkassa.com/wiki/",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationAttributes"
+    },
+    "OrganizationAttributesIcon": {
+      "description": "Links to organization icons",
+      "properties": {
+        "16": {
+          "description": "16x16 icon",
+          "example": "https://i.openfintech.io/organizations/Interkassa/icon_16.png",
+          "type": "string"
+        },
+        "32": {
+          "description": "32x32 icon",
+          "example": "https://i.openfintech.io/organizations/Interkassa/icon_32.png",
+          "type": "string"
+        },
+        "64": {
+          "description": "64x64 icon",
+          "example": "https://i.openfintech.io/organizations/Interkassa/icon_64.png",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationAttributesIcon"
+    },
+    "OrganizationAttributesLogo": {
+      "description": "Links to organization logos",
+      "properties": {
+        "50": {
+          "description": "50x50 logo",
+          "example": "https://i.openfintech.io/organizations/Interkassa/logo_50.png",
+          "type": "string"
+        },
+        "100": {
+          "description": "100x100 logo",
+          "example": "https://i.openfintech.io/organizations/Interkassa/logo_100.png",
+          "type": "string"
+        },
+        "150": {
+          "description": "150x150 logo",
+          "example": "https://i.openfintech.io/organizations/Interkassa/logo_150.png",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationAttributesLogo"
+    },
+    "OrganizationContacts": {
+      "description": "Organization`s contacts",
+      "properties": {
+        "email": {
+          "example": "support@interkassa.com",
+          "type": "string"
+        },
+        "fax": {
+          "example": 1234,
+          "type": "string"
+        },
+        "phone": {
+          "example": 380445859331,
+          "type": "string"
+        },
+        "skype": {
+          "example": "skype.ik",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationContacts"
+    },
+    "OrganizationHq": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OrganizationHqData"
+        },
+        "links": {
+          "$ref": "#/definitions/OrganizationHqLinks"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationHq"
+    },
+    "OrganizationHqData": {
+      "properties": {
+        "id": {
+          "description": "HQ location",
+          "example": "UA",
+          "type": "string"
+        },
+        "type": {
+          "example": "countries",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationHqData"
+    },
+    "OrganizationHqLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/organizations/org_lK1mIKXO1kHOrTeJ/hq_in_country",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationHqLinks"
+    },
+    "OrganizationRelationships": {
+      "properties": {
+        "active_in_countries": {
+          "$ref": "#/definitions/OrganizationActive"
+        },
+        "hq_in_country": {
+          "$ref": "#/definitions/OrganizationHq"
+        },
+        "source_register_org": {
+          "$ref": "#/definitions/OrganizationSource"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationRelationships"
+    },
+    "OrganizationResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Organization"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationResponse"
+    },
+    "OrganizationSocial": {
+      "description": "Social profiles",
+      "properties": {
+        "facebook": {
+          "example": "none",
+          "type": "string"
+        },
+        "google_plus": {
+          "example": "none",
+          "type": "string"
+        },
+        "linked_in": {
+          "example": "none",
+          "type": "string"
+        },
+        "twitter": {
+          "example": "none",
+          "type": "string"
+        },
+        "vkontakte": {
+          "example": "none",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationSocial"
+    },
+    "OrganizationSource": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/OrganizationSourceData"
+        },
+        "links": {
+          "$ref": "#/definitions/OrganizationSourceLinks"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationSource"
+    },
+    "OrganizationSourceData": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationSourceData"
+    },
+    "OrganizationSourceLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/organizations/org_lK1mIKXO1kHOrTeJ/source_register_org",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationSourceLinks"
+    },
+    "OrganizationsResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Organization"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "OrganizationsResponse"
+    },
+    "PaymentMethod": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/PaymentMethodAttributes"
+        },
+        "id": {
+          "description": "Payment-methods`s ID",
+          "example": "paym_8NBX4V5fAEmqr3PO",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/PaymentMethodRelationships"
+        },
+        "type": {
+          "example": "payment-methods",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethod"
+    },
+    "PaymentMethodAttributes": {
+      "description": "Array of Payment-method attributes",
+      "properties": {
+        "category": {
+          "example": "wallet",
+          "type": "string"
+        },
+        "code": {
+          "description": "Payment-method`s code",
+          "example": "justpayewallet",
+          "type": "string"
+        },
+        "name": {
+          "description": "Payment-method`s name",
+          "example": "TOT Just Pay",
+          "type": "string"
+        },
+        "processor_name": {
+          "description": "Payment-method`s processor",
+          "example": "TOT Just Pay",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodAttributes"
+    },
+    "PaymentMethodCurrencies": {
+      "properties": {
+        "data": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/PaymentMethodCurrenciesLinks"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodCurrencies"
+    },
+    "PaymentMethodCurrenciesLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/payment-methods/pm_QcW80uZ5XefiQYwp/payment-processor",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodCurrenciesLinks"
+    },
+    "PaymentMethodProcessor": {
+      "description": "Payment-method issuer.",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PaymentMethodProcessorData"
+        },
+        "links": {
+          "$ref": "#/definitions/PaymentMethodProcessorLinks"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodProcessor"
+    },
+    "PaymentMethodProcessorData": {
+      "description": "Processor`s Data.",
+      "properties": {
+        "id": {
+          "description": "Processor`s id.",
+          "example": "ppr_zkqg6xJKCIoWjBB9",
+          "type": "string"
+        },
+        "type": {
+          "description": "Processor`s type.",
+          "example": "payment-method-issuer",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodProcessorData"
+    },
+    "PaymentMethodProcessorLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/payment-methods/paym_8NBX4V5fAEmqr3PO/payment-processor",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodProcessorLinks"
+    },
+    "PaymentMethodRelationships": {
+      "properties": {
+        "currencies": {
+          "$ref": "#/definitions/PaymentMethodCurrencies"
+        },
+        "payment-processor": {
+          "$ref": "#/definitions/PaymentMethodProcessor"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodRelationships"
+    },
+    "PaymentMethodResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PaymentMethod"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodResponse"
+    },
+    "PaymentMethodsResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/PaymentMethod"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "PaymentMethodsResponse"
+    },
+    "PaymentProvider": {
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/PaymentProviderAttributes"
+        },
+        "id": {
+          "description": "Payment-provider`s ID",
+          "example": "psp_f9VUSVUhsl7Rm0JD",
+          "type": "string"
+        },
+        "links": {
+          "$ref": "#/definitions/SelfLinks"
+        },
+        "relationships": {
+          "$ref": "#/definitions/PaymentProviderRelationships"
+        },
+        "type": {
+          "example": "payment-providers",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProvider"
+    },
+    "PaymentProviderAttributes": {
+      "description": "Array of Payment-provider attributes",
+      "properties": {
+        "code": {
+          "description": "Payment-provider`s code",
+          "example": "Interkassa",
+          "type": "string"
+        },
+        "features": {
+          "example": "[ \"multi_currency\" ]",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "description": "Payment-provider`s name",
+          "example": "interkassa",
+          "type": "string"
+        },
+        "sales_channels": {
+          "example": "[ \"e_commerce\" ]",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "types": {
+          "example": "[\n  \"aggregator\"\n]",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderAttributes"
+    },
+    "PaymentProviderOrganization": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PaymentProviderOrganizationData"
+        },
+        "links": {
+          "$ref": "#/definitions/PaymentProviderOrganizationLinks"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderOrganization"
+    },
+    "PaymentProviderOrganizationData": {
+      "properties": {
+        "id": {
+          "description": "Organization`s ID",
+          "example": "org_lK1mIKXO1kHOrTeJ",
+          "type": "string"
+        },
+        "type": {
+          "example": "organizations",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderOrganizationData"
+    },
+    "PaymentProviderOrganizationLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/payment-providers/psp_f9VUSVUhsl7Rm0JD/organization",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderOrganizationLinks"
+    },
+    "PaymentProviderPaymentMethods": {
+      "properties": {
+        "data": {
+          "example": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/PaymentProviderPaymentMethodsLinks"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderPaymentMethods"
+    },
+    "PaymentProviderPaymentMethodsLinks": {
+      "properties": {
+        "related": {
+          "example": "/v1/payment-providers/psp_f9VUSVUhsl7Rm0JD/payment-methods",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderPaymentMethodsLinks"
+    },
+    "PaymentProviderRelationships": {
+      "properties": {
+        "organization": {
+          "$ref": "#/definitions/PaymentProviderOrganization"
+        },
+        "payment-methods": {
+          "$ref": "#/definitions/PaymentProviderPaymentMethods"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderRelationships"
+    },
+    "PaymentProviderResponse": {
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PaymentProvider"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProviderResponse"
+    },
+    "PaymentProvidersResponse": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/PaymentProvider"
+          },
+          "type": "array"
+        },
+        "links": {
+          "$ref": "#/definitions/ResponseLinks"
+        },
+        "meta": {
+          "$ref": "#/definitions/ResponseMeta"
+        }
+      },
+      "type": "object",
+      "title": "PaymentProvidersResponse"
+    },
+    "ResponseLinks": {
+      "properties": {
+        "first": {
+          "description": "first page of query",
+          "example": "/v1/{path}?page[number]=1&page[size]=10",
+          "type": "string"
+        },
+        "last": {
+          "description": "last page of query",
+          "example": "/v1/{path}?page[number]=42&page[size]=10",
+          "type": "string"
+        },
+        "next": {
+          "description": "next page in query",
+          "example": "/v1/{path}?page[number]=41&page[size]=10",
+          "type": "string"
+        },
+        "prev": {
+          "description": "previous page in query",
+          "example": "/v1/{path}?page[number]=39&page[size]=10",
+          "type": "string"
+        }
+      },
+      "required": [
+        "first",
+        "last"
+      ],
+      "type": "object",
+      "title": "ResponseLinks"
+    },
+    "ResponseMeta": {
+      "properties": {
+        "pages": {
+          "description": "total pages",
+          "example": 42,
+          "type": "integer"
+        },
+        "total": {
+          "description": "total objects in query",
+          "example": 419,
+          "type": "integer"
+        }
+      },
+      "type": "object",
+      "title": "ResponseMeta"
+    },
+    "SelfLinks": {
+      "properties": {
+        "self": {
+          "example": "/v1/{path}/{id}",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "SelfLinks"
+    }
+  },
+  "actions": [
+    {
+      "id": "banks.get",
+      "title": "banks.get",
+      "description": "Returns list of banks. Each object contains general information about bank such as name and status, also information about bank details and related link to main organization.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[sort_code]": {
+            "type": "string",
+            "description": "Filtering by banks code."
+          },
+          "filter[code]": {
+            "type": "string",
+            "description": "Filtering by code."
+          },
+          "filter[status]": {
+            "type": "array",
+            "description": "Filtration by status.",
+            "uniqueItems": true
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| code | -code |\n| status | -status |\n| sort_code | -sort_code |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BanksResponse"
+      }
+    },
+    {
+      "id": "banks.id.get",
+      "title": "banks.id.get",
+      "description": "Returns bank with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BankResponse"
+      }
+    },
+    {
+      "id": "countries.get",
+      "title": "countries.get",
+      "description": "Returns all available countries.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[region]": {
+            "type": "array",
+            "description": "Filtration by region.",
+            "uniqueItems": true
+          },
+          "filter[sub_region]": {
+            "type": "array",
+            "description": "Filtration by sub region.",
+            "uniqueItems": true
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| area | -area |\n| population | -population |\n| region | -region |\n| sub_region | -sub_region |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CountriesResponse"
+      }
+    },
+    {
+      "id": "countries.id.get",
+      "title": "countries.id.get",
+      "description": "Returns country with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CountryResponse"
+      }
+    },
+    {
+      "id": "currencies.get",
+      "title": "currencies.get",
+      "description": "Returns all available currencies.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[search]": {
+            "type": "string",
+            "description": "Full text search with name, code, type, code_iso_alpha3, code_jsons_alpha, code_estandards_alpha, category."
+          },
+          "filter[code_iso_alpha3]": {
+            "type": "string",
+            "description": "Filtering by ISO code."
+          },
+          "filter[code_iso_numeric3]": {
+            "type": "integer",
+            "description": "Filtering by ISO number."
+          },
+          "filter[code_estandards_alpha]": {
+            "type": "string",
+            "description": "Filtering by estandards code."
+          },
+          "filter[currency_type]": {
+            "type": "array",
+            "description": "Filtration by currency type.",
+            "uniqueItems": true
+          },
+          "filter[category]": {
+            "type": "array",
+            "description": "Filtration by category.",
+            "uniqueItems": true
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| type | -type |\n| category | -category |\n| code | -code |\n| code_iso_alpha3 | -code_iso_alpha3 |\n| code_iso_numeric3 | -code_iso_numeric3 |\n| code_estandards_alpha | -code_estandards_alpha |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrenciesResponse"
+      }
+    },
+    {
+      "id": "currencies.id.get",
+      "title": "currencies.id.get",
+      "description": "Returns currency with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CurrencyResponse"
+      }
+    },
+    {
+      "id": "exchangers.get",
+      "title": "exchangers.get",
+      "description": "Returns list of exchange markets. Each object contains general information about exchanger such as name and status, also information about rates export and related link to main organization.<br>\nRates export standards is represented by:\n* [estandards](http://estandards.info)\n* [jsons](http://jsons.info)\n* ratex - our internal standard\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[name]": {
+            "type": "string",
+            "description": "Filtering by name."
+          },
+          "filter[status]": {
+            "type": "array",
+            "description": "Filtration by status.",
+            "uniqueItems": true
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| status | -status |\n| wmid | -wmid |\n| rate_type | -rate_type |\n| rates_export_standard | <nobr>-rates_export_standard</nobr> |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExchangersResponse"
+      }
+    },
+    {
+      "id": "exchangers.id.get",
+      "title": "exchangers.id.get",
+      "description": "Returns exchanger with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ExchangerResponse"
+      }
+    },
+    {
+      "id": "merchant_industries.get",
+      "title": "merchant_industries.get",
+      "description": "Returns all available merchant fields of activity.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[name]": {
+            "type": "string",
+            "description": "Filtering by name."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MerchantIndustriesResponse"
+      }
+    },
+    {
+      "id": "merchant_industries.id.get",
+      "title": "merchant_industries.id.get",
+      "description": "Returns merchant industry with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MerchantIndustryResponse"
+      }
+    },
+    {
+      "id": "organizations.get",
+      "title": "organizations.get",
+      "description": "This endpoint retrievs the list of organizations present in the system. The data displays general, public information, without reference to the type of activity (for example - name, address, contacts, etc.).\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[search]": {
+            "type": "string",
+            "description": "Full text search with id, name, code."
+          },
+          "filter[name]": {
+            "type": "string",
+            "description": "Filtering by name."
+          },
+          "filter[code]": {
+            "type": "string",
+            "description": "Filtering by code."
+          },
+          "filter[status]": {
+            "type": "array",
+            "description": "Filtration by status.",
+            "uniqueItems": true
+          },
+          "filter[industries]": {
+            "type": "string",
+            "description": "Filtering by industries."
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| code | -code |\n| status | -status |\n| description | -description |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OrganizationsResponse"
+      }
+    },
+    {
+      "id": "organizations.id.get",
+      "title": "organizations.id.get",
+      "description": "Returns organization with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/OrganizationResponse"
+      }
+    },
+    {
+      "id": "payment_methods.get",
+      "title": "payment_methods.get",
+      "description": "Returns list of payment methods. Each object contains information about payment method such as name and category, also related link to payment method issuer (which processing it).\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[search]": {
+            "type": "string",
+            "description": "Full text search with id, name, code, category."
+          },
+          "filter[name]": {
+            "type": "string",
+            "description": "Filtering by name."
+          },
+          "filter[code]": {
+            "type": "string",
+            "description": "Filtering by code."
+          },
+          "filter[processor_name]": {
+            "type": "string",
+            "description": "Filtering by processor_name."
+          },
+          "filter[category]": {
+            "type": "array",
+            "description": "Filtering by category.",
+            "uniqueItems": true
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| code | -code |\n| processor_name | -processor_name |\n| category | -category |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PaymentMethodsResponse"
+      }
+    },
+    {
+      "id": "payment_methods.id.get",
+      "title": "payment_methods.id.get",
+      "description": "Returns payment method with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PaymentMethodResponse"
+      }
+    },
+    {
+      "id": "payment_providers.get",
+      "title": "payment_providers.get",
+      "description": "A payment service provider (PSP) offers shops online services for accepting electronic payments by a variety of payment methods.<br> Endpoint returns list of PSPs. Each object contains: name, type, supported features and sales channels, also related link to available payment methods and main organization.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page[number]": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "page[size]": {
+            "type": "integer",
+            "description": "Page size.<br>*Default value: 100*\n"
+          },
+          "filter[search]": {
+            "type": "string",
+            "description": "Full text search with id, code, name."
+          },
+          "filter[name]": {
+            "type": "string",
+            "description": "Filtering by name."
+          },
+          "filter[code]": {
+            "type": "string",
+            "description": "Filtering by code."
+          },
+          "filter[types]": {
+            "type": "array",
+            "description": "Filtering by types.",
+            "uniqueItems": true
+          },
+          "filter[sales_channels]": {
+            "type": "array",
+            "description": "Filtering by sales channels.",
+            "uniqueItems": true
+          },
+          "filter[features]": {
+            "type": "array",
+            "description": "Filtering by features.",
+            "uniqueItems": true
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sort params:<br>\n\n| ASC | DESC |\n|-----|------|\n| name | -name |\n| code | -code |\n",
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PaymentProvidersResponse"
+      }
+    },
+    {
+      "id": "payment_providers.id.get",
+      "title": "payment_providers.id.get",
+      "description": "Returns payment provider with specific ID.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PaymentProviderResponse"
+      }
+    }
+  ],
+  "tags": [
+    "financial"
+  ]
+}

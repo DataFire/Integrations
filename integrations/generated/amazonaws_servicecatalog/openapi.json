@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "servicecatalog.amazonaws.com",
@@ -344,6 +345,160 @@
         }
       }
     },
+    "/#AssociateTagOptionWithResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Associate a TagOption identifier with a resource identifier.",
+        "operationId": "AssociateTagOptionWithResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateTagOptionWithResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateTagOptionWithResourceOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParametersException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParametersException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "DuplicateResourceException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateResourceException"
+            }
+          },
+          "485": {
+            "description": "InvalidStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidStateException"
+            }
+          }
+        }
+      }
+    },
+    "/#CopyProduct": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Copies the specified source product to the specified target product or a new product.</p> <p>You can copy the product to the same account or another account. You can copy the product to the same region or another region.</p> <p>This operation is performed asynchronously. To track the progress of the operation, use <a>DescribeCopyProductStatus</a>.</p>",
+        "operationId": "CopyProduct",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CopyProductInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CopyProductOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParametersException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParametersException"
+            }
+          }
+        }
+      }
+    },
     "/#CreateConstraint": {
       "parameters": [
         {
@@ -375,7 +530,7 @@
         }
       ],
       "post": {
-        "description": "Creates a new constraint.",
+        "description": "Creates a new constraint. For more information, see <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html\">Using Constraints</a>.",
         "operationId": "CreateConstraint",
         "parameters": [
           {
@@ -481,6 +636,12 @@
             "description": "LimitExceededException",
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
             }
           }
         }
@@ -618,6 +779,12 @@
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
             }
+          },
+          "482": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
           }
         }
       }
@@ -653,7 +820,7 @@
         }
       ],
       "post": {
-        "description": "Create a new provisioning artifact for the specified product. This operation will not work with a product that has been shared with you.",
+        "description": "Create a new provisioning artifact for the specified product. This operation does not work with a product that has been shared with you.",
         "operationId": "CreateProvisioningArtifact",
         "parameters": [
           {
@@ -682,6 +849,77 @@
             "description": "InvalidParametersException",
             "schema": {
               "$ref": "#/definitions/InvalidParametersException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateTagOption": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create a new TagOption.",
+        "operationId": "CreateTagOption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTagOptionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateTagOptionOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "DuplicateResourceException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateResourceException"
             }
           },
           "482": {
@@ -789,7 +1027,7 @@
         }
       ],
       "post": {
-        "description": "Deletes the specified portfolio. This operation will not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.",
+        "description": "Deletes the specified portfolio. This operation does not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.",
         "operationId": "DeletePortfolio",
         "parameters": [
           {
@@ -824,6 +1062,12 @@
             "description": "ResourceInUseException",
             "schema": {
               "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "483": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
             }
           }
         }
@@ -919,7 +1163,7 @@
         }
       ],
       "post": {
-        "description": "Deletes the specified product. This operation will not work with a product that has been shared with you or is associated with a portfolio. ",
+        "description": "Deletes the specified product. This operation does not work with a product that has been shared with you or is associated with a portfolio. ",
         "operationId": "DeleteProduct",
         "parameters": [
           {
@@ -954,6 +1198,12 @@
             "description": "InvalidParametersException",
             "schema": {
               "$ref": "#/definitions/InvalidParametersException"
+            }
+          },
+          "483": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
             }
           }
         }
@@ -990,7 +1240,7 @@
         }
       ],
       "post": {
-        "description": "Deletes the specified provisioning artifact. This operation will not work on a provisioning artifact associated with a product that has been shared with you, or on the last provisioning artifact associated with a product (a product must have at least one provisioning artifact).",
+        "description": "Deletes the specified provisioning artifact. This operation does not work on a provisioning artifact associated with a product that has been shared with you, or on the last provisioning artifact associated with a product (a product must have at least one provisioning artifact).",
         "operationId": "DeleteProvisioningArtifact",
         "parameters": [
           {
@@ -1078,6 +1328,65 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/DescribeConstraintOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeCopyProductStatus": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes the status of the specified copy product operation.",
+        "operationId": "DescribeCopyProductStatus",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeCopyProductStatusInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeCopyProductStatusOutput"
             }
           },
           "480": {
@@ -1337,6 +1646,65 @@
         }
       }
     },
+    "/#DescribeProvisionedProduct": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieve detailed information about the provisioned product.",
+        "operationId": "DescribeProvisionedProduct",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeProvisionedProductInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeProvisionedProductOutput"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
     "/#DescribeProvisioningArtifact": {
       "parameters": [
         {
@@ -1427,7 +1795,7 @@
         }
       ],
       "post": {
-        "description": "Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code> parameters available to call the <a>ProvisionProduct</a> operation for the specified product.",
+        "description": "<p>Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code> parameters available to call the <a>ProvisionProduct</a> operation for the specified product.</p> <p>If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to the <code>ProvisionProduct</code> operation, do not include conflicted TagOption keys as tags. Calls to <code>ProvisionProduct</code> with empty TagOption values cause the error \"Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i> \". Calls to <code>ProvisionProduct</code> with conflicted TagOption keys automatically tag the provisioned product with the conflicted keys with the value \"<code>sc-tagoption-conflict-portfolioId-productId</code>\".</p>",
         "operationId": "DescribeProvisioningParameters",
         "parameters": [
           {
@@ -1512,6 +1880,71 @@
             }
           },
           "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeTagOption": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a TagOption.",
+        "operationId": "DescribeTagOption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeTagOptionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeTagOptionOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
             "description": "ResourceNotFoundException",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundException"
@@ -1642,9 +2075,80 @@
             }
           },
           "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
             "description": "InvalidParametersException",
             "schema": {
               "$ref": "#/definitions/InvalidParametersException"
+            }
+          }
+        }
+      }
+    },
+    "/#DisassociateTagOptionFromResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates a TagOption from a resource.",
+        "operationId": "DisassociateTagOptionFromResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateTagOptionFromResourceInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateTagOptionFromResourceOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
             }
           }
         }
@@ -1691,6 +2195,20 @@
             "schema": {
               "$ref": "#/definitions/ListAcceptedPortfolioSharesInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1750,6 +2268,20 @@
             "schema": {
               "$ref": "#/definitions/ListConstraintsForPortfolioInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1815,6 +2347,20 @@
             "schema": {
               "$ref": "#/definitions/ListLaunchPathsInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1939,6 +2485,20 @@
             "schema": {
               "$ref": "#/definitions/ListPortfoliosInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1998,6 +2558,20 @@
             "schema": {
               "$ref": "#/definitions/ListPortfoliosForProductInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2063,6 +2637,20 @@
             "schema": {
               "$ref": "#/definitions/ListPrincipalsForPortfolioInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2211,6 +2799,170 @@
         }
       }
     },
+    "/#ListResourcesForTagOption": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists resources associated with a TagOption.",
+        "operationId": "ListResourcesForTagOption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListResourcesForTagOptionInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListResourcesForTagOptionOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidParametersException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParametersException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListTagOptions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists detailed TagOptions information.",
+        "operationId": "ListTagOptions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagOptionsInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagOptionsOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "InvalidParametersException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParametersException"
+            }
+          }
+        }
+      }
+    },
     "/#ProvisionProduct": {
       "parameters": [
         {
@@ -2242,7 +2994,7 @@
         }
       ],
       "post": {
-        "description": "<p>Requests a <i>Provision</i> of a specified product. A <i>ProvisionedProduct</i> is a resourced instance for a product. For example, provisioning a CloudFormation-template-backed product results in launching a CloudFormation stack and all the underlying resources that come with it. </p> <p>You can check the status of this request using the <a>DescribeRecord</a> operation.</p>",
+        "description": "<p>Requests a <i>provision</i> of a specified product. A <i>provisioned product</i> is a resourced instance for a product. For example, provisioning a CloudFormation-template-backed product results in launching a CloudFormation stack and all the underlying resources that come with it. </p> <p>You can check the status of this request using the <a>DescribeRecord</a> operation. The error \"Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>\" indicates that your request contains a tag which has a tag key but no corresponding tag value (value is empty or null). Your call may have included values returned from a <code>DescribeProvisioningParameters</code> call that resulted in a TagOption key with an empty list. This happens when TagOption keys are in conflict. For more information, see <a>DescribeProvisioningParameters</a>.</p>",
         "operationId": "ProvisionProduct",
         "parameters": [
           {
@@ -2441,6 +3193,20 @@
             "schema": {
               "$ref": "#/definitions/SearchProductsInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2500,6 +3266,20 @@
             "schema": {
               "$ref": "#/definitions/SearchProductsAsAdminInput"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "PageSize",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "PageToken",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -2679,7 +3459,7 @@
         }
       ],
       "post": {
-        "description": "Updates the specified portfolio's details. This operation will not work with a product that has been shared with you.",
+        "description": "Updates the specified portfolio's details. This operation does not work with a product that has been shared with you.",
         "operationId": "UpdatePortfolio",
         "parameters": [
           {
@@ -2714,6 +3494,12 @@
             "description": "LimitExceededException",
             "schema": {
               "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
             }
           }
         }
@@ -2779,6 +3565,12 @@
             "description": "InvalidParametersException",
             "schema": {
               "$ref": "#/definitions/InvalidParametersException"
+            }
+          },
+          "482": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
             }
           }
         }
@@ -2880,7 +3672,7 @@
         }
       ],
       "post": {
-        "description": "Updates an existing provisioning artifact's information. This operation will not work on a provisioning artifact associated with a product that has been shared with you.",
+        "description": "Updates an existing provisioning artifact's information. This operation does not work on a provisioning artifact associated with a product that has been shared with you.",
         "operationId": "UpdateProvisioningArtifact",
         "parameters": [
           {
@@ -2913,6 +3705,83 @@
           }
         }
       }
+    },
+    "/#UpdateTagOption": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates an existing TagOption.",
+        "operationId": "UpdateTagOption",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateTagOptionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateTagOptionOutput"
+            }
+          },
+          "480": {
+            "description": "TagOptionNotMigratedException",
+            "schema": {
+              "$ref": "#/definitions/TagOptionNotMigratedException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "DuplicateResourceException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateResourceException"
+            }
+          },
+          "483": {
+            "description": "InvalidParametersException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParametersException"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -2923,7 +3792,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -2997,7 +3866,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -3027,7 +3896,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -3049,6 +3918,27 @@
       "type": "object"
     },
     "AssociateProductWithPortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "AssociateTagOptionWithResourceInput": {
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "The resource identifier."
+        },
+        "TagOptionId": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "The TagOption identifier."
+        }
+      },
+      "required": [
+        "ResourceId",
+        "TagOptionId"
+      ],
+      "type": "object"
+    },
+    "AssociateTagOptionWithResourceOutput": {
       "properties": {},
       "type": "object"
     },
@@ -3115,11 +4005,77 @@
       "minLength": 1,
       "type": "string"
     },
+    "CopyOption": {
+      "enum": [
+        "CopyTags"
+      ],
+      "type": "string"
+    },
+    "CopyOptions": {
+      "items": {
+        "$ref": "#/definitions/CopyOption"
+      },
+      "type": "array"
+    },
+    "CopyProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
+        },
+        "CopyOptions": {
+          "$ref": "#/definitions/CopyOptions",
+          "description": "The copy options. If the value is <code>CopyTags</code>, the tags from the source product are copied to the target product."
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": " A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request. "
+        },
+        "SourceProductArn": {
+          "$ref": "#/definitions/ProductArn",
+          "description": "The Amazon Resource Name (ARN) of the source product."
+        },
+        "SourceProvisioningArtifactIdentifiers": {
+          "$ref": "#/definitions/SourceProvisioningArtifactProperties",
+          "description": "The IDs of the product versions to copy. By default, all provisioning artifacts are copied."
+        },
+        "TargetProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The ID of the target product. By default, a new product is created."
+        },
+        "TargetProductName": {
+          "$ref": "#/definitions/ProductViewName",
+          "description": "A name for the target product. The default is the name of the source product."
+        }
+      },
+      "required": [
+        "SourceProductArn",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CopyProductOutput": {
+      "properties": {
+        "CopyProductToken": {
+          "$ref": "#/definitions/Id",
+          "description": "A unique token to pass to <code>DescribeCopyProductStatus</code> to track the progress of the operation."
+        }
+      },
+      "type": "object"
+    },
+    "CopyProductStatus": {
+      "enum": [
+        "SUCCEEDED",
+        "IN_PROGRESS",
+        "FAILED"
+      ],
+      "type": "string"
+    },
     "CreateConstraintInput": {
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Description": {
           "$ref": "#/definitions/ConstraintDescription",
@@ -3127,11 +4083,11 @@
         },
         "IdempotencyToken": {
           "$ref": "#/definitions/IdempotencyToken",
-          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+          "description": "A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request."
         },
         "Parameters": {
           "$ref": "#/definitions/ConstraintParameters",
-          "description": "The constraint parameters."
+          "description": "<p>The constraint parameters. Expected values vary depending on which <b>Type</b> is specified. For more information, see the Examples section.</p> <p>For Type <code>LAUNCH</code>, the <code>RoleArn</code> property is required. </p> <p>For Type <code>NOTIFICATION</code>, the <code>NotificationArns</code> property is required.</p> <p>For Type <code>TEMPLATE</code>, the <code>Rules</code> property is required.</p>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -3143,7 +4099,7 @@
         },
         "Type": {
           "$ref": "#/definitions/ConstraintType",
-          "description": "The type of the constraint."
+          "description": "The type of the constraint. Case-sensitive valid values are: <code>LAUNCH</code>, <code>NOTIFICATION</code>, or <code>TEMPLATE</code>. "
         }
       },
       "required": [
@@ -3176,7 +4132,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Description": {
           "$ref": "#/definitions/PortfolioDescription",
@@ -3188,7 +4144,7 @@
         },
         "IdempotencyToken": {
           "$ref": "#/definitions/IdempotencyToken",
-          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+          "description": "A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request."
         },
         "ProviderName": {
           "$ref": "#/definitions/ProviderName",
@@ -3223,7 +4179,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "AccountId": {
           "$ref": "#/definitions/AccountId",
@@ -3248,7 +4204,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Description": {
           "$ref": "#/definitions/ProductViewShortDescription",
@@ -3260,7 +4216,7 @@
         },
         "IdempotencyToken": {
           "$ref": "#/definitions/IdempotencyToken",
-          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+          "description": "A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request."
         },
         "Name": {
           "$ref": "#/definitions/ProductViewName",
@@ -3325,11 +4281,11 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "IdempotencyToken": {
           "$ref": "#/definitions/IdempotencyToken",
-          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+          "description": "A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request."
         },
         "Parameters": {
           "$ref": "#/definitions/ProvisioningArtifactProperties",
@@ -3351,7 +4307,7 @@
       "properties": {
         "Info": {
           "$ref": "#/definitions/ProvisioningArtifactInfo",
-          "description": "Additional information about the provisioning artifact create request."
+          "description": "Additional information about the creation request for the provisioning artifact."
         },
         "ProvisioningArtifactDetail": {
           "$ref": "#/definitions/ProvisioningArtifactDetail",
@@ -3360,6 +4316,32 @@
         "Status": {
           "$ref": "#/definitions/Status",
           "description": "The status of the current request."
+        }
+      },
+      "type": "object"
+    },
+    "CreateTagOptionInput": {
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagOptionKey",
+          "description": "The TagOption key."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagOptionValue",
+          "description": "The TagOption value."
+        }
+      },
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "type": "object"
+    },
+    "CreateTagOptionOutput": {
+      "properties": {
+        "TagOptionDetail": {
+          "$ref": "#/definitions/TagOptionDetail",
+          "description": "The resulting detailed TagOption information."
         }
       },
       "type": "object"
@@ -3379,7 +4361,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3399,7 +4381,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3419,7 +4401,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "AccountId": {
           "$ref": "#/definitions/AccountId",
@@ -3444,7 +4426,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3464,7 +4446,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "ProductId": {
           "$ref": "#/definitions/Id",
@@ -3472,7 +4454,7 @@
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier of the provisioning artifact for the delete request."
+          "description": "The identifier of the provisioning artifact for the delete request. This is sometimes referred to as the product version."
         }
       },
       "required": [
@@ -3489,7 +4471,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3518,11 +4500,44 @@
       },
       "type": "object"
     },
+    "DescribeCopyProductStatusInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
+        },
+        "CopyProductToken": {
+          "$ref": "#/definitions/Id",
+          "description": "The token returned from the call to <code>CopyProduct</code> that initiated the operation."
+        }
+      },
+      "required": [
+        "CopyProductToken"
+      ],
+      "type": "object"
+    },
+    "DescribeCopyProductStatusOutput": {
+      "properties": {
+        "CopyProductStatus": {
+          "$ref": "#/definitions/CopyProductStatus",
+          "description": "The status of the copy product operation."
+        },
+        "StatusDetail": {
+          "$ref": "#/definitions/StatusDetail",
+          "description": "The status message."
+        },
+        "TargetProductId": {
+          "$ref": "#/definitions/Id",
+          "description": "The ID of the copied product."
+        }
+      },
+      "type": "object"
+    },
     "DescribePortfolioInput": {
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3540,6 +4555,10 @@
           "$ref": "#/definitions/PortfolioDetail",
           "description": "Detailed portfolio information."
         },
+        "TagOptions": {
+          "$ref": "#/definitions/TagOptionDetails",
+          "description": "TagOptions associated with the portfolio."
+        },
         "Tags": {
           "$ref": "#/definitions/Tags",
           "description": "Tags associated with the portfolio."
@@ -3551,7 +4570,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3569,6 +4588,14 @@
           "$ref": "#/definitions/ProductViewDetail",
           "description": "Detailed product view information."
         },
+        "ProvisioningArtifactSummaries": {
+          "$ref": "#/definitions/ProvisioningArtifactSummaries",
+          "description": "A list of provisioning artifact summaries for the product."
+        },
+        "TagOptions": {
+          "$ref": "#/definitions/TagOptionDetails",
+          "description": "List of TagOptions associated with the product."
+        },
         "Tags": {
           "$ref": "#/definitions/Tags",
           "description": "Tags associated with the product."
@@ -3580,7 +4607,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3609,7 +4636,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3634,11 +4661,36 @@
       },
       "type": "object"
     },
+    "DescribeProvisionedProductInput": {
+      "properties": {
+        "AcceptLanguage": {
+          "$ref": "#/definitions/AcceptLanguage",
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The provisioned product identifier."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeProvisionedProductOutput": {
+      "properties": {
+        "ProvisionedProductDetail": {
+          "$ref": "#/definitions/ProvisionedProductDetail",
+          "description": "Detailed provisioned product information."
+        }
+      },
+      "type": "object"
+    },
     "DescribeProvisioningArtifactInput": {
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "ProductId": {
           "$ref": "#/definitions/Id",
@@ -3646,7 +4698,11 @@
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier of the provisioning artifact."
+          "description": "The identifier of the provisioning artifact. This is sometimes referred to as the product version."
+        },
+        "Verbose": {
+          "$ref": "#/definitions/Verbose",
+          "description": "Enable a verbose level of details for the provisioning artifact."
         }
       },
       "required": [
@@ -3676,7 +4732,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PathId": {
           "$ref": "#/definitions/Id",
@@ -3688,7 +4744,7 @@
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The provisioning artifact identifier for this product."
+          "description": "The provisioning artifact identifier for this product. This is sometimes referred to as the product version."
         }
       },
       "required": [
@@ -3707,6 +4763,10 @@
           "$ref": "#/definitions/ProvisioningArtifactParameters",
           "description": "The list of parameters used to successfully provision the product. Each parameter includes a list of allowable values and additional metadata about each parameter."
         },
+        "TagOptions": {
+          "$ref": "#/definitions/TagOptionSummaries",
+          "description": "List of TagOptions associated with the provisioned provisioning parameters."
+        },
         "UsageInstructions": {
           "$ref": "#/definitions/UsageInstructions",
           "description": "Any additional metadata specifically related to the provisioning of the product. For example, see the <code>Version</code> field of the CloudFormation template."
@@ -3718,7 +4778,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Id": {
           "$ref": "#/definitions/Id",
@@ -3755,6 +4815,27 @@
       },
       "type": "object"
     },
+    "DescribeTagOptionInput": {
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "The identifier of the TagOption."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "DescribeTagOptionOutput": {
+      "properties": {
+        "TagOptionDetail": {
+          "$ref": "#/definitions/TagOptionDetail",
+          "description": "The resulting detailed TagOption information."
+        }
+      },
+      "type": "object"
+    },
     "Description": {
       "type": "string"
     },
@@ -3762,7 +4843,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -3787,7 +4868,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -3805,6 +4886,27 @@
       "type": "object"
     },
     "DisassociateProductFromPortfolioOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateTagOptionFromResourceInput": {
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/ResourceId",
+          "description": "Identifier of the resource from which to disassociate the TagOption."
+        },
+        "TagOptionId": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "Identifier of the TagOption to disassociate from the resource."
+        }
+      },
+      "required": [
+        "ResourceId",
+        "TagOptionId"
+      ],
+      "type": "object"
+    },
+    "DisassociateTagOptionFromResourceOutput": {
       "properties": {},
       "type": "object"
     },
@@ -3844,6 +4946,11 @@
     },
     "InvalidParametersException": {
       "description": "One or more parameters provided to the operation are invalid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidStateException": {
+      "description": "An attempt was made to modify a resource that is in an invalid state. Inspect the resource you are using for this operation to ensure that all resource states are valid before retrying the operation.",
       "properties": {},
       "type": "object"
     },
@@ -3887,7 +4994,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PageSize": {
           "$ref": "#/definitions/PageSize",
@@ -3917,7 +5024,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PageSize": {
           "$ref": "#/definitions/PageSize",
@@ -3958,7 +5065,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PageSize": {
           "$ref": "#/definitions/PageSize",
@@ -3970,7 +5077,7 @@
         },
         "ProductId": {
           "$ref": "#/definitions/Id",
-          "description": "The product identifier.. Identifies the product for which to retrieve <code>LaunchPathSummaries</code> information."
+          "description": "The product identifier. Identifies the product for which to retrieve <code>LaunchPathSummaries</code> information."
         }
       },
       "required": [
@@ -3995,7 +5102,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -4024,7 +5131,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PageSize": {
           "$ref": "#/definitions/PageSize",
@@ -4061,7 +5168,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PageSize": {
           "$ref": "#/definitions/PageSize",
@@ -4091,7 +5198,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PageSize": {
           "$ref": "#/definitions/PageSize",
@@ -4128,7 +5235,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "ProductId": {
           "$ref": "#/definitions/Id",
@@ -4157,7 +5264,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "AccessLevelFilter": {
           "$ref": "#/definitions/AccessLevelFilter",
@@ -4201,6 +5308,91 @@
         "Value": {
           "$ref": "#/definitions/SearchFilterValue",
           "description": "The filter value for <code>Key</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ListResourcesForTagOptionInput": {
+      "properties": {
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "Resource type."
+        },
+        "TagOptionId": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "Identifier of the TagOption."
+        }
+      },
+      "required": [
+        "TagOptionId"
+      ],
+      "type": "object"
+    },
+    "ListResourcesForTagOptionOutput": {
+      "properties": {
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "ResourceDetails": {
+          "$ref": "#/definitions/ResourceDetails",
+          "description": "The resulting detailed resource information."
+        }
+      },
+      "type": "object"
+    },
+    "ListTagOptionsFilters": {
+      "description": "The ListTagOptions filters.",
+      "properties": {
+        "Active": {
+          "$ref": "#/definitions/TagOptionActive",
+          "description": "The ListTagOptionsFilters active state."
+        },
+        "Key": {
+          "$ref": "#/definitions/TagOptionKey",
+          "description": "The ListTagOptionsFilters key."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagOptionValue",
+          "description": "The ListTagOptionsFilters value."
+        }
+      },
+      "type": "object"
+    },
+    "ListTagOptionsInput": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/ListTagOptionsFilters",
+          "description": "The list of filters with which to limit search results. If no search filters are specified, the output is all TagOptions. "
+        },
+        "PageSize": {
+          "$ref": "#/definitions/PageSize",
+          "description": "The maximum number of items to return in the results. If more results exist than fit in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in the response is non-null."
+        },
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ListTagOptionsOutput": {
+      "properties": {
+        "PageToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "The page token of the first page retrieved. If null, this retrieves the first page of size <code>PageSize</code>."
+        },
+        "TagOptionDetails": {
+          "$ref": "#/definitions/TagOptionDetails",
+          "description": "The resulting detailed TagOption information."
         }
       },
       "type": "object"
@@ -4255,7 +5447,7 @@
       "type": "string"
     },
     "ParameterValue": {
-      "maxLength": 1000,
+      "maxLength": 4096,
       "type": "string"
     },
     "PortfolioDescription": {
@@ -4337,6 +5529,12 @@
       },
       "type": "array"
     },
+    "ProductArn": {
+      "maxLength": 1224,
+      "minLength": 1,
+      "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+      "type": "string"
+    },
     "ProductSource": {
       "enum": [
         "ACCOUNT"
@@ -4345,7 +5543,8 @@
     },
     "ProductType": {
       "enum": [
-        "CLOUD_FORMATION_TEMPLATE"
+        "CLOUD_FORMATION_TEMPLATE",
+        "MARKETPLACE"
       ],
       "type": "string"
     },
@@ -4403,7 +5602,7 @@
         },
         "Status": {
           "$ref": "#/definitions/Status",
-          "description": "Current status of the product."
+          "description": "<p>Current status of the product.</p> <p> <code>AVAILABLE</code> - Product is available for use.</p> <p> <code>CREATING</code> - Creation of product started, not ready for use.</p> <p> <code>FAILED</code> - Action on product failed.</p>"
         }
       },
       "type": "object"
@@ -4421,7 +5620,8 @@
       "enum": [
         "FullTextSearch",
         "Owner",
-        "ProductType"
+        "ProductType",
+        "SourceProductId"
       ],
       "type": "string"
     },
@@ -4516,7 +5716,7 @@
         },
         "Type": {
           "$ref": "#/definitions/ProductType",
-          "description": "The product type. Contact the product administrator for the significance of this value."
+          "description": "The product type. Contact the product administrator for the significance of this value. If this value is <code>MARKETPLACE</code>, the product was created by AWS Marketplace."
         }
       },
       "type": "object"
@@ -4530,7 +5730,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "NotificationArns": {
           "$ref": "#/definitions/NotificationArns",
@@ -4554,7 +5754,7 @@
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The provisioning artifact identifier for this product."
+          "description": "The provisioning artifact identifier for this product. This is sometimes referred to as the product version."
         },
         "ProvisioningParameters": {
           "$ref": "#/definitions/ProvisioningParameters",
@@ -4599,7 +5799,7 @@
         },
         "IdempotencyToken": {
           "$ref": "#/definitions/IdempotencyToken",
-          "description": "A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request."
+          "description": "A token to disambiguate duplicate requests. You can use the same input in multiple requests, provided that you also specify a different idempotency token for each request."
         },
         "LastRecordId": {
           "$ref": "#/definitions/LastRequestId",
@@ -4610,8 +5810,8 @@
           "description": "The user-friendly name of the ProvisionedProduct object."
         },
         "Status": {
-          "$ref": "#/definitions/RecordStatus",
-          "description": "The current status of the ProvisionedProduct."
+          "$ref": "#/definitions/ProvisionedProductStatus",
+          "description": "<p>The current status of the ProvisionedProduct.</p> <p> <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent action request succeeded and completed.</p> <p> <code>UNDER_CHANGE</code> - Transitive state, operations performed may or may not have valid results. Wait for an <code>AVAILABLE</code> status before performing operations.</p> <p> <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version. </p> <p> <code>ERROR</code> - Something unexpected happened such that the provisioned product exists but the stack is not running. For example, CloudFormation received an invalid parameter value and could not launch the stack.</p>"
         },
         "StatusMessage": {
           "$ref": "#/definitions/ProvisionedProductStatusMessage",
@@ -4634,12 +5834,24 @@
       "type": "string"
     },
     "ProvisionedProductName": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
       "type": "string"
     },
     "ProvisionedProductNameOrArn": {
       "maxLength": 1224,
       "minLength": 1,
-      "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}|arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+      "pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}|arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+      "type": "string"
+    },
+    "ProvisionedProductStatus": {
+      "enum": [
+        "AVAILABLE",
+        "UNDER_CHANGE",
+        "TAINTED",
+        "ERROR"
+      ],
       "type": "string"
     },
     "ProvisionedProductStatusMessage": {
@@ -4661,7 +5873,7 @@
         },
         "Id": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier for the artifact."
+          "description": "The identifier for the artifact. This is sometimes referred to as the product version."
         },
         "Name": {
           "$ref": "#/definitions/ProvisioningArtifactName",
@@ -4690,7 +5902,7 @@
         },
         "Id": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier of the provisioning artifact."
+          "description": "The identifier of the provisioning artifact. This is sometimes referred to as the product version."
         },
         "Name": {
           "$ref": "#/definitions/ProvisioningArtifactName",
@@ -4698,7 +5910,7 @@
         },
         "Type": {
           "$ref": "#/definitions/ProvisioningArtifactType",
-          "description": "The type of the provisioning artifact."
+          "description": "<p>The type of the provisioning artifact. The following provisioning artifact types are used by AWS Marketplace products:</p> <p> <code>MARKETPLACE_AMI</code> - AMI products.</p> <p> <code>MARKETPLACE_CAR</code> - CAR (Cluster and AWS Resources) products.</p>"
         }
       },
       "type": "object"
@@ -4721,7 +5933,7 @@
         },
         "type": "object"
       },
-      "maxItems": 1,
+      "maxItems": 100,
       "minItems": 1,
       "type": "array"
     },
@@ -4771,7 +5983,7 @@
       "type": "array"
     },
     "ProvisioningArtifactProperties": {
-      "description": "Provisioning artifact properties.",
+      "description": "Provisioning artifact properties. For example request JSON, see <a>CreateProvisioningArtifact</a>.",
       "properties": {
         "Description": {
           "$ref": "#/definitions/ProvisioningArtifactDescription",
@@ -4779,7 +5991,7 @@
         },
         "Info": {
           "$ref": "#/definitions/ProvisioningArtifactInfo",
-          "description": "Additional information about the provisioning artifact properties."
+          "description": "Additional information about the provisioning artifact properties. When using this element in a request, you must specify <code>LoadTemplateFromURL</code>. For more information, see <a>CreateProvisioningArtifact</a>."
         },
         "Name": {
           "$ref": "#/definitions/ProvisioningArtifactName",
@@ -4787,7 +5999,7 @@
         },
         "Type": {
           "$ref": "#/definitions/ProvisioningArtifactType",
-          "description": "The type of the provisioning artifact properties."
+          "description": "<p>The type of the provisioning artifact properties. The following provisioning artifact property types are used by AWS Marketplace products:</p> <p> <code>MARKETPLACE_AMI</code> - AMI products.</p> <p> <code>MARKETPLACE_CAR</code> - CAR (Cluster and AWS Resources) products.</p>"
         }
       },
       "required": [
@@ -4795,9 +6007,52 @@
       ],
       "type": "object"
     },
+    "ProvisioningArtifactPropertyName": {
+      "enum": [
+        "Id"
+      ],
+      "type": "string"
+    },
+    "ProvisioningArtifactPropertyValue": {
+      "type": "string"
+    },
+    "ProvisioningArtifactSummaries": {
+      "items": {
+        "$ref": "#/definitions/ProvisioningArtifactSummary"
+      },
+      "type": "array"
+    },
+    "ProvisioningArtifactSummary": {
+      "description": "Stores summary information about a provisioning artifact.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/ProvisioningArtifactCreatedTime",
+          "description": "The UTC timestamp of the creation time."
+        },
+        "Description": {
+          "$ref": "#/definitions/ProvisioningArtifactDescription",
+          "description": "The description of the provisioning artifact."
+        },
+        "Id": {
+          "$ref": "#/definitions/Id",
+          "description": "The identifier of the provisioning artifact."
+        },
+        "Name": {
+          "$ref": "#/definitions/ProvisioningArtifactName",
+          "description": "The name of the provisioning artifact."
+        },
+        "ProvisioningArtifactMetadata": {
+          "$ref": "#/definitions/ProvisioningArtifactInfo",
+          "description": "The provisioning artifact metadata. This data is used with products created by AWS Marketplace."
+        }
+      },
+      "type": "object"
+    },
     "ProvisioningArtifactType": {
       "enum": [
-        "CLOUD_FORMATION_TEMPLATE"
+        "CLOUD_FORMATION_TEMPLATE",
+        "MARKETPLACE_AMI",
+        "MARKETPLACE_CAR"
       ],
       "type": "string"
     },
@@ -4808,7 +6063,7 @@
       "type": "array"
     },
     "ProvisioningParameter": {
-      "description": "The arameter key/value pairs used to provision a product.",
+      "description": "The parameter key-value pairs used to provision a product.",
       "properties": {
         "Key": {
           "$ref": "#/definitions/ParameterKey",
@@ -4856,7 +6111,7 @@
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The provisioning artifact identifier for this product."
+          "description": "The provisioning artifact identifier for this product. This is sometimes referred to as the product version."
         },
         "RecordErrors": {
           "$ref": "#/definitions/RecordErrors",
@@ -4876,7 +6131,7 @@
         },
         "Status": {
           "$ref": "#/definitions/RecordStatus",
-          "description": "The status of the ProvisionedProduct object."
+          "description": "<p>The status of the ProvisionedProduct object.</p> <p> <code>CREATED</code> - Request created but the operation has not yet started.</p> <p> <code>IN_PROGRESS</code> - The requested operation is in-progress.</p> <p> <code>IN_PROGRESS_IN_ERROR</code> - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback.</p> <p> <code>SUCCEEDED</code> - The requested operation has successfully completed.</p> <p> <code>FAILED</code> - The requested operation has completed but has failed. Investigate using the error messages returned.</p>"
         },
         "UpdatedTime": {
           "$ref": "#/definitions/UpdatedTime",
@@ -4937,9 +6192,11 @@
     },
     "RecordStatus": {
       "enum": [
+        "CREATED",
         "IN_PROGRESS",
+        "IN_PROGRESS_IN_ERROR",
         "SUCCEEDED",
-        "ERROR"
+        "FAILED"
       ],
       "type": "string"
     },
@@ -4983,7 +6240,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PortfolioId": {
           "$ref": "#/definitions/Id",
@@ -5004,6 +6261,57 @@
       "minLength": 1,
       "type": "string"
     },
+    "ResourceDetail": {
+      "description": "Detailed resource information.",
+      "properties": {
+        "ARN": {
+          "$ref": "#/definitions/ResourceDetailARN",
+          "description": "ARN of the resource."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/ResourceDetailCreatedTime",
+          "description": "Creation time of the resource."
+        },
+        "Description": {
+          "$ref": "#/definitions/ResourceDetailDescription",
+          "description": "Description of the resource."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceDetailId",
+          "description": "Identifier of the resource."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceDetailName",
+          "description": "Name of the resource."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceDetailARN": {
+      "type": "string"
+    },
+    "ResourceDetailCreatedTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ResourceDetailDescription": {
+      "type": "string"
+    },
+    "ResourceDetailId": {
+      "type": "string"
+    },
+    "ResourceDetailName": {
+      "type": "string"
+    },
+    "ResourceDetails": {
+      "items": {
+        "$ref": "#/definitions/ResourceDetail"
+      },
+      "type": "array"
+    },
+    "ResourceId": {
+      "type": "string"
+    },
     "ResourceInUseException": {
       "description": "The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.",
       "properties": {},
@@ -5014,11 +6322,14 @@
       "properties": {},
       "type": "object"
     },
+    "ResourceType": {
+      "type": "string"
+    },
     "ScanProvisionedProductsInput": {
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "AccessLevelFilter": {
           "$ref": "#/definitions/AccessLevelFilter",
@@ -5058,7 +6369,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Filters": {
           "$ref": "#/definitions/ProductViewFilters",
@@ -5108,7 +6419,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Filters": {
           "$ref": "#/definitions/ProductViewFilters",
@@ -5157,12 +6468,35 @@
       ],
       "type": "string"
     },
+    "SourceProvisioningArtifactProperties": {
+      "items": {
+        "$ref": "#/definitions/SourceProvisioningArtifactPropertiesMap"
+      },
+      "type": "array"
+    },
+    "SourceProvisioningArtifactPropertiesMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ProvisioningArtifactPropertyName"
+          },
+          "value": {
+            "$ref": "#/definitions/ProvisioningArtifactPropertyValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
     "Status": {
       "enum": [
         "AVAILABLE",
         "CREATING",
         "FAILED"
       ],
+      "type": "string"
+    },
+    "StatusDetail": {
       "type": "string"
     },
     "SupportDescription": {
@@ -5175,7 +6509,7 @@
       "type": "string"
     },
     "Tag": {
-      "description": "Key/value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.",
+      "description": "Key-value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.",
       "properties": {
         "Key": {
           "$ref": "#/definitions/TagKey",
@@ -5183,7 +6517,7 @@
         },
         "Value": {
           "$ref": "#/definitions/TagValue",
-          "description": "The esired value for this key."
+          "description": "The desired value for this key."
         }
       },
       "required": [
@@ -5204,6 +6538,85 @@
       },
       "type": "array"
     },
+    "TagOptionActive": {
+      "type": "boolean"
+    },
+    "TagOptionDetail": {
+      "description": "The TagOption details.",
+      "properties": {
+        "Active": {
+          "$ref": "#/definitions/TagOptionActive",
+          "description": "The TagOptionDetail active state."
+        },
+        "Id": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "The TagOptionDetail identifier."
+        },
+        "Key": {
+          "$ref": "#/definitions/TagOptionKey",
+          "description": "The TagOptionDetail key."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagOptionValue",
+          "description": "The TagOptionDetail value."
+        }
+      },
+      "type": "object"
+    },
+    "TagOptionDetails": {
+      "items": {
+        "$ref": "#/definitions/TagOptionDetail"
+      },
+      "type": "array"
+    },
+    "TagOptionId": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TagOptionKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagOptionNotMigratedException": {
+      "description": "An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Please use the AWS console to perform the migration process before retrying the operation.",
+      "properties": {},
+      "type": "object"
+    },
+    "TagOptionSummaries": {
+      "items": {
+        "$ref": "#/definitions/TagOptionSummary"
+      },
+      "type": "array"
+    },
+    "TagOptionSummary": {
+      "description": "The TagOption summary key-value pair.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagOptionKey",
+          "description": "The TagOptionSummary key."
+        },
+        "Values": {
+          "$ref": "#/definitions/TagOptionValues",
+          "description": "The TagOptionSummary value."
+        }
+      },
+      "type": "object"
+    },
+    "TagOptionValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagOptionValues": {
+      "items": {
+        "$ref": "#/definitions/TagOptionValue"
+      },
+      "type": "array"
+    },
     "TagValue": {
       "maxLength": 256,
       "minLength": 1,
@@ -5221,7 +6634,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "IgnoreErrors": {
           "$ref": "#/definitions/IgnoreErrors",
@@ -5229,11 +6642,11 @@
         },
         "ProvisionedProductId": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier of the ProvisionedProduct object to terminate. You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+          "description": "The identifier of the ProvisionedProduct object to terminate. Specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
         },
         "ProvisionedProductName": {
           "$ref": "#/definitions/ProvisionedProductNameOrArn",
-          "description": "The name of the ProvisionedProduct object to terminate. You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+          "description": "The name of the ProvisionedProduct object to terminate. Specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
         },
         "TerminateToken": {
           "$ref": "#/definitions/IdempotencyToken",
@@ -5258,7 +6671,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Description": {
           "$ref": "#/definitions/ConstraintDescription",
@@ -5295,7 +6708,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "AddTags": {
           "$ref": "#/definitions/AddTags",
@@ -5344,7 +6757,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "AddTags": {
           "$ref": "#/definitions/AddTags",
@@ -5409,7 +6822,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "PathId": {
           "$ref": "#/definitions/Id",
@@ -5421,15 +6834,15 @@
         },
         "ProvisionedProductId": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier of the ProvisionedProduct object to update. You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+          "description": "The identifier of the ProvisionedProduct object to update. Specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
         },
         "ProvisionedProductName": {
           "$ref": "#/definitions/ProvisionedProductNameOrArn",
-          "description": "The updated name of the ProvisionedProduct object . You must specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
+          "description": "The updated name of the ProvisionedProduct object. Specify either <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not both."
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The provisioning artifact identifier for this product."
+          "description": "The provisioning artifact identifier for this product. This is sometimes referred to as the product version."
         },
         "ProvisioningParameters": {
           "$ref": "#/definitions/UpdateProvisioningParameters",
@@ -5458,7 +6871,7 @@
       "properties": {
         "AcceptLanguage": {
           "$ref": "#/definitions/AcceptLanguage",
-          "description": "<p>The language code to use for this operation. Supported language codes are as follows:</p> <p>\"en\" (English)</p> <p>\"jp\" (Japanese)</p> <p>\"zh\" (Chinese)</p> <p>If no code is specified, \"en\" is used as the default.</p>"
+          "description": "<p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p> </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> - Chinese</p> </li> </ul>"
         },
         "Description": {
           "$ref": "#/definitions/ProvisioningArtifactDescription",
@@ -5474,7 +6887,7 @@
         },
         "ProvisioningArtifactId": {
           "$ref": "#/definitions/Id",
-          "description": "The identifier of the provisioning artifact for the update request."
+          "description": "The identifier of the provisioning artifact for the update request. This is sometimes referred to as the product version."
         }
       },
       "required": [
@@ -5501,7 +6914,7 @@
       "type": "object"
     },
     "UpdateProvisioningParameter": {
-      "description": "The parameter key/value pair used to update a ProvisionedProduct object. If <code>UsePreviousValue</code> is set to true, <code>Value</code> is ignored and the value for <code>Key</code> is kept as previously set (current value).",
+      "description": "The parameter key-value pair used to update a ProvisionedProduct object. If <code>UsePreviousValue</code> is set to true, <code>Value</code> is ignored and the value for <code>Key</code> is kept as previously set (current value).",
       "properties": {
         "Key": {
           "$ref": "#/definitions/ParameterKey",
@@ -5523,6 +6936,35 @@
         "$ref": "#/definitions/UpdateProvisioningParameter"
       },
       "type": "array"
+    },
+    "UpdateTagOptionInput": {
+      "properties": {
+        "Active": {
+          "$ref": "#/definitions/TagOptionActive",
+          "description": "The updated active state."
+        },
+        "Id": {
+          "$ref": "#/definitions/TagOptionId",
+          "description": "The identifier of the constraint to update."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagOptionValue",
+          "description": "The updated value."
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "type": "object"
+    },
+    "UpdateTagOptionOutput": {
+      "properties": {
+        "TagOptionDetail": {
+          "$ref": "#/definitions/TagOptionDetail",
+          "description": "The resulting detailed TagOption information."
+        }
+      },
+      "type": "object"
     },
     "UpdatedTime": {
       "format": "date-time",
@@ -5549,6 +6991,9 @@
       "type": "array"
     },
     "UsePreviousValue": {
+      "type": "boolean"
+    },
+    "Verbose": {
       "type": "boolean"
     }
   }

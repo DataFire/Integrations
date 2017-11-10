@@ -35,10 +35,21 @@
   },
   "securityDefinitions": {},
   "paths": {
-    "/api/articles.json": {
+    "/api/articles{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -50,13 +61,24 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "api.articles.json.get"
+        "operationId": "api.articlesmediaTypeExtension.get"
       }
     },
-    "/api/blog.json": {
+    "/api/blog{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -68,13 +90,24 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "api.blog.json.get"
+        "operationId": "api.blogmediaTypeExtension.get"
       }
     },
-    "/api/glossary.json": {
+    "/api/glossary{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -86,13 +119,24 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "api.glossary.json.get"
+        "operationId": "api.glossarymediaTypeExtension.get"
       }
     },
-    "/api/questions.json": {
+    "/api/questions{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -104,13 +148,24 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "api.questions.json.get"
+        "operationId": "api.questionsmediaTypeExtension.get"
       }
     },
-    "/api/states.json": {
+    "/api/states{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -122,13 +177,24 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "api.states.json.get"
+        "operationId": "api.statesmediaTypeExtension.get"
       }
     },
-    "/api/topics.json": {
+    "/api/topics{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
-        "parameters": [],
+        "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -140,13 +206,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "api.topics.json.get"
+        "operationId": "api.topicsmediaTypeExtension.get"
       }
     },
-    "/blog/{pageName}.json": {
+    "/blog/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -168,13 +244,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "blog.pageName.json.get"
+        "operationId": "blog.pageNamemediaTypeExtension.get"
       }
     },
-    "/es/blog/{pageName}.json": {
+    "/es/blog/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -196,13 +282,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "es.blog.pageName.json.get"
+        "operationId": "es.blog.pageNamemediaTypeExtension.get"
       }
     },
-    "/es/glossary/{pageName}.json": {
+    "/es/glossary/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -224,13 +320,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "es.glossary.pageName.json.get"
+        "operationId": "es.glossary.pageNamemediaTypeExtension.get"
       }
     },
-    "/es/question/{pageName}.json": {
+    "/es/question/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -249,13 +355,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "es.question.pageName.json.get"
+        "operationId": "es.question.pageNamemediaTypeExtension.get"
       }
     },
-    "/es/{pageName}.json": {
+    "/es/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -277,13 +393,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "es.pageName.json.get"
+        "operationId": "es.pageNamemediaTypeExtension.get"
       }
     },
-    "/es/{stateName}.json": {
+    "/es/{stateName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "stateName",
@@ -302,13 +428,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "es.stateName.json.get"
+        "operationId": "es.stateNamemediaTypeExtension.get"
       }
     },
-    "/glossary/{pageName}.json": {
+    "/glossary/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -330,13 +466,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "glossary.pageName.json.get"
+        "operationId": "glossary.pageNamemediaTypeExtension.get"
       }
     },
-    "/question/{pageName}.json": {
+    "/question/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -355,13 +501,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "question.pageName.json.get"
+        "operationId": "question.pageNamemediaTypeExtension.get"
       }
     },
-    "/{pageName}.json": {
+    "/{pageName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "pageName",
@@ -383,13 +539,23 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "pageName.json.get"
+        "operationId": "pageNamemediaTypeExtension.get"
       }
     },
-    "/{stateName}.json": {
+    "/{stateName}{mediaTypeExtension}": {
       "get": {
         "description": "Returns pages content.",
         "parameters": [
+          {
+            "description": "Omiting the param causes html to be returned.",
+            "enum": [
+              ".json"
+            ],
+            "in": "path",
+            "name": "mediaTypeExtension",
+            "required": true,
+            "type": "string"
+          },
           {
             "in": "path",
             "name": "stateName",
@@ -408,7 +574,7 @@
             "description": "Resource not found."
           }
         },
-        "operationId": "stateName.json.get"
+        "operationId": "stateNamemediaTypeExtension.get"
       }
     }
   },

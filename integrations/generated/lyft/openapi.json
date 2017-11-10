@@ -134,7 +134,10 @@
       "enum": [
         "lyft",
         "lyft_line",
-        "lyft_plus"
+        "lyft_plus",
+        "lyft_premier",
+        "lyft_lux",
+        "lyft_luxsuv"
       ],
       "in": "query",
       "name": "ride_type",
@@ -145,7 +148,10 @@
       "enum": [
         "lyft",
         "lyft_line",
-        "lyft_plus"
+        "lyft_plus",
+        "lyft_premier",
+        "lyft_lux",
+        "lyft_luxsuv"
       ],
       "in": "path",
       "name": "ride_type",
@@ -1134,12 +1140,36 @@
         }
       }
     },
+    "CurrentRideLocation": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LatLng"
+        },
+        {
+          "properties": {
+            "bearing": {
+              "description": "Bearing of the driver's car in degrees",
+              "format": "double",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "example": {
+        "bearing": 134.8789520264,
+        "lat": 37.776157,
+        "lng": -122.393817
+      },
+      "type": "object"
+    },
     "DriverDetail": {
       "example": {
         "first_name": "Joe",
         "image_url": "http://example.com/lyft.png",
         "phone_number": "+15554445000",
-        "rating": "4.9"
+        "rating": "4.9",
+        "user_id": "123456789"
       },
       "properties": {
         "first_name": {
@@ -1158,13 +1188,18 @@
         "rating": {
           "description": "The driver's rating based in 0-5 scale",
           "type": "string"
+        },
+        "user_id": {
+          "description": "The driver's id",
+          "type": "string"
         }
       },
       "required": [
         "first_name",
         "phone_number",
         "rating",
-        "image_url"
+        "image_url",
+        "user_id"
       ]
     },
     "ErrorDetail": {
@@ -1408,6 +1443,10 @@
           "description": "The first name of this user",
           "type": "string"
         },
+        "has_taken_a_ride": {
+          "description": "Indicates whether this user has taken at least one Lyft ride",
+          "type": "boolean"
+        },
         "id": {
           "description": "The unique ID of this user",
           "type": "string"
@@ -1420,7 +1459,8 @@
       "required": [
         "id",
         "first_name",
-        "last_name"
+        "last_name",
+        "has_taken_a_ride"
       ],
       "type": "object"
     },
@@ -1502,6 +1542,7 @@
     "RideDetail": {
       "description": "Detail information about a ride",
       "example": {
+        "beacon_color": "#FFFFFF",
         "destination": {
           "address": "987 Second St, Anytown, CA",
           "lat": 36.9453452,
@@ -1579,6 +1620,10 @@
         }
       },
       "properties": {
+        "beacon_color": {
+          "description": "Hex color code of the driver AMP device.",
+          "type": "string"
+        },
         "can_cancel": {
           "items": {
             "description": "The array of actors who may cancel the ride at this point",
@@ -1654,7 +1699,7 @@
         "location": {
           "allOf": [
             {
-              "$ref": "#/definitions/RideLocation"
+              "$ref": "#/definitions/CurrentRideLocation"
             }
           ],
           "description": "The *current* location info of the ride",
@@ -1689,6 +1734,10 @@
           ],
           "description": "The total price for the current ride",
           "type": "object"
+        },
+        "pricing_details_url": {
+          "description": "The web view showing the pricing structure for the geographic area where the ride was taken\n",
+          "type": "string"
         },
         "primetime_percentage": {
           "description": "The Prime Time percentage applied to the base price",
@@ -1925,6 +1974,10 @@
           },
           "type": "array"
         },
+        "error_uri": {
+          "description": "When a user must go through another flow before requesting a ride, this URI specifies which flow to use (e.g. an account challenge flow in a web view)",
+          "type": "string"
+        },
         "primetime_confirmation_token": {
           "description": "A token that confirms the user has accepted current Prime Time charges (Deprecated)",
           "type": "string"
@@ -1956,6 +2009,7 @@
         "pickedUp",
         "droppedOff",
         "canceled",
+        "scheduled",
         "unknown"
       ],
       "type": "string"
@@ -2039,7 +2093,10 @@
       "enum": [
         "lyft",
         "lyft_line",
-        "lyft_plus"
+        "lyft_plus",
+        "lyft_premier",
+        "lyft_lux",
+        "lyft_luxsuv"
       ],
       "type": "string"
     },
@@ -2049,6 +2106,9 @@
         "lyft",
         "lyft_line",
         "lyft_plus",
+        "lyft_premier",
+        "lyft_lux",
+        "lyft_luxsuv",
         "other"
       ],
       "type": "string"
@@ -2230,8 +2290,10 @@
         "color": "black",
         "image_url": "http://example.com/lyft.png",
         "license_plate": "AAAAAAA",
+        "license_plate_state": "CA",
         "make": "Audi",
-        "model": "A4"
+        "model": "A4",
+        "year": 2016
       },
       "properties": {
         "color": {

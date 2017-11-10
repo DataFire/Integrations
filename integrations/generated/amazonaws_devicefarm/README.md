@@ -93,10 +93,13 @@ amazonaws_devicefarm.CreateRemoteAccessSession({
 ```
 
 #### Parameters
+* clientId (string)
 * configuration (object) - Creates the configuration settings for a remote access session, including the device model and type.
 * deviceArn (string) **required**
 * name (string)
 * projectArn (string) **required**
+* remoteDebugEnabled (boolean)
+* sshPublicKey (string)
 
 ### CreateUpload
 

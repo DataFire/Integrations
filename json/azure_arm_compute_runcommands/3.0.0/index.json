@@ -1,0 +1,442 @@
+{
+  "id": "azure_arm_compute_runcommands",
+  "title": "RunCommandsClient",
+  "description": "The Run Commands Client.",
+  "security": {
+    "azure_arm_compute_runcommands": {
+      "integration": "azure_arm_compute_runcommands",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_runcommands.png"
+  },
+  "actionCount": 3,
+  "definitions": {
+    "ApiError": {
+      "description": "Api error.",
+      "properties": {
+        "code": {
+          "description": "The error code.",
+          "type": "string"
+        },
+        "details": {
+          "description": "The Api error details",
+          "items": {
+            "$ref": "#/definitions/ApiErrorBase"
+          },
+          "type": "array"
+        },
+        "innererror": {
+          "$ref": "#/definitions/InnerError",
+          "description": "The Api inner error"
+        },
+        "message": {
+          "description": "The error message.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error.",
+          "type": "string"
+        }
+      },
+      "title": "ApiError"
+    },
+    "ApiErrorBase": {
+      "description": "Api error base.",
+      "properties": {
+        "code": {
+          "description": "The error code.",
+          "type": "string"
+        },
+        "message": {
+          "description": "The error message.",
+          "type": "string"
+        },
+        "target": {
+          "description": "The target of the particular error.",
+          "type": "string"
+        }
+      },
+      "title": "ApiErrorBase"
+    },
+    "InnerError": {
+      "description": "Inner error details.",
+      "properties": {
+        "errordetail": {
+          "description": "The internal error message or exception dump.",
+          "type": "string"
+        },
+        "exceptiontype": {
+          "description": "The exception type.",
+          "type": "string"
+        }
+      },
+      "title": "InnerError"
+    },
+    "OperationStatusResponse": {
+      "description": "Operation status response",
+      "properties": {
+        "endTime": {
+          "description": "End time of the operation",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "error": {
+          "$ref": "#/definitions/ApiError",
+          "description": "Api error",
+          "readOnly": true
+        },
+        "name": {
+          "description": "Operation ID",
+          "readOnly": true,
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start time of the operation",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "status": {
+          "description": "Operation status",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "title": "OperationStatusResponse"
+    },
+    "RunCommandDocument": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/RunCommandDocumentBase"
+        }
+      ],
+      "description": "Describes the properties of a Run Command.",
+      "properties": {
+        "parameters": {
+          "description": "The parameters used by the script.",
+          "items": {
+            "$ref": "#/definitions/RunCommandParameterDefinition"
+          },
+          "type": "array"
+        },
+        "script": {
+          "description": "The script to be executed.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "script"
+      ],
+      "title": "RunCommandDocument"
+    },
+    "RunCommandDocumentBase": {
+      "description": "Describes the properties of a Run Command metadata.",
+      "properties": {
+        "$schema": {
+          "description": "The VM run command schema.",
+          "type": "string"
+        },
+        "description": {
+          "description": "The VM run command description.",
+          "type": "string"
+        },
+        "id": {
+          "description": "The VM run command id.",
+          "type": "string"
+        },
+        "label": {
+          "description": "The VM run command label.",
+          "type": "string"
+        },
+        "osType": {
+          "description": "The Operating System type.",
+          "enum": [
+            "Windows",
+            "Linux"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "OperatingSystemTypes"
+          }
+        }
+      },
+      "required": [
+        "$schema",
+        "id",
+        "osType",
+        "label",
+        "description"
+      ],
+      "title": "RunCommandDocumentBase"
+    },
+    "RunCommandInput": {
+      "description": "Capture Virtual Machine parameters.",
+      "properties": {
+        "commandId": {
+          "description": "The run command id.",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "The run command parameters.",
+          "items": {
+            "$ref": "#/definitions/RunCommandInputParameter"
+          },
+          "type": "array"
+        },
+        "script": {
+          "description": "Optional. The script to be executed.  When this value is given, the given script will override the default script of the command.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "commandId"
+      ],
+      "title": "RunCommandInput"
+    },
+    "RunCommandInputParameter": {
+      "description": "Describes the properties of a run command parameter.",
+      "properties": {
+        "name": {
+          "description": "The run command parameter name.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The run command parameter value.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "title": "RunCommandInputParameter"
+    },
+    "RunCommandListResult": {
+      "description": "The List Virtual Machine operation response.",
+      "properties": {
+        "nextLink": {
+          "description": "The uri to fetch the next page of run commands. Call ListNext() with this to fetch the next page of run commands.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The list of virtual machine run commands.",
+          "items": {
+            "$ref": "#/definitions/RunCommandDocumentBase"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "RunCommandListResult"
+    },
+    "RunCommandParameterDefinition": {
+      "description": "Describes the properties of a run command parameter.",
+      "properties": {
+        "defaultValue": {
+          "description": "The run command parameter default value.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The run command parameter name.",
+          "type": "string"
+        },
+        "required": {
+          "default": false,
+          "description": "The run command parameter required.",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "The run command parameter type.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "title": "RunCommandParameterDefinition"
+    },
+    "RunCommandResult": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/OperationStatusResponse"
+        }
+      ],
+      "description": "Run command operation response.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/RunCommandResultProperties",
+          "x-ms-client-flatten": true
+        }
+      },
+      "title": "RunCommandResult"
+    },
+    "RunCommandResultProperties": {
+      "description": "Compute-specific operation properties, including output",
+      "properties": {
+        "output": {
+          "description": "Operation output data (raw JSON)",
+          "type": "object"
+        }
+      },
+      "title": "RunCommandResultProperties"
+    }
+  },
+  "actions": [
+    {
+      "id": "VirtualMachineRunCommands_List",
+      "title": "VirtualMachineRunCommands_List",
+      "description": "Lists all available run commands for a subscription in a location.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "The location upon which run commands is queried.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RunCommandListResult"
+      },
+      "security": {
+        "azure_arm_compute_runcommands": {
+          "integration": "azure_arm_compute_runcommands"
+        }
+      }
+    },
+    {
+      "id": "VirtualMachineRunCommands_Get",
+      "title": "VirtualMachineRunCommands_Get",
+      "description": "Gets specific run command for a subscription in a location.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "The location upon which run commands is queried.",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          "commandId": {
+            "type": "string",
+            "description": "The command id."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "commandId",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RunCommandDocument"
+      },
+      "security": {
+        "azure_arm_compute_runcommands": {
+          "integration": "azure_arm_compute_runcommands"
+        }
+      }
+    },
+    {
+      "id": "VirtualMachines_RunCommand",
+      "title": "VirtualMachines_RunCommand",
+      "description": "Run command on the VM.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          "vmName": {
+            "type": "string",
+            "description": "The name of the virtual machine."
+          },
+          "parameters": {
+            "$ref": "#/definitions/RunCommandInput"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "vmName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RunCommandResult"
+      },
+      "security": {
+        "azure_arm_compute_runcommands": {
+          "integration": "azure_arm_compute_runcommands"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "cloud",
+    "azure"
+  ]
+}

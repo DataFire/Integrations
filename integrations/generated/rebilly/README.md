@@ -628,6 +628,20 @@ rebilly.contacts.post({
 #### Parameters
 * body (object) **required**
 
+### contacts.id.delete
+Delete a contact with predefined identifier string
+
+
+
+```js
+rebilly.contacts.id.delete({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
 ### contacts.id.get
 Retrieve a contact with specified identifier string
 
@@ -781,6 +795,23 @@ rebilly.coupons.redemptionCode.put({
 * body (object) **required** - Coupons and Discounts
 * redemptionCode (string) **required** - The Coupon's redemption code
 
+### coupons.redemptionCode.expiration.post
+Set a coupon's expiry time with the specified redemption code.
+The expiredTime of a coupon must be greater than its issuedTime.
+This cannot be performed on expired coupons.
+
+
+
+```js
+rebilly.coupons.redemptionCode.expiration.post({
+  "redemptionCode": ""
+}, context)
+```
+
+#### Parameters
+* body (object)
+* redemptionCode (string) **required** - The Coupon's redemption code
+
 ### credential_hashes.emails.post
 Create an email credential
 
@@ -932,6 +963,7 @@ rebilly.custom_events.get({}, context)
 #### Parameters
 * limit (integer) - The collection items limit
 * offset (integer) - The collection items offset
+* sort (array) - The collection items sort field and order (prefix with "-" for descending sort).
 
 ### custom_events.post
 Create a custom event
@@ -2316,6 +2348,22 @@ rebilly.payment_cards.id.get({
 #### Parameters
 * id (string) **required** - The resource identifier string
 
+### payment_cards.id.patch
+Update a payment card's cvv value with predefined identifier string
+
+
+
+```js
+rebilly.payment_cards.id.patch({
+  "body": {},
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
 ### payment_cards.id.put
 Create a payment card with predefined ID
 
@@ -2430,6 +2478,101 @@ rebilly.payments.id.put({
 
 #### Parameters
 * body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### paypal_accounts.get
+Retrieve a list of PayPal Accounts
+
+
+
+```js
+rebilly.paypal_accounts.get({}, context)
+```
+
+#### Parameters
+* limit (integer) - The collection items limit
+* offset (integer) - The collection items offset
+
+### paypal_accounts.post
+Create a PayPal Account
+
+
+
+```js
+rebilly.paypal_accounts.post({
+  "body": {
+    "customerId": null,
+    "billingAddress": null
+  }
+}, context)
+```
+
+#### Parameters
+* body (object) **required**
+
+### paypal_accounts.id.get
+Retrieve a PayPal Account with specified identifier string
+
+
+
+```js
+rebilly.paypal_accounts.id.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### paypal_accounts.id.put
+Create a PayPal account with predefined ID
+
+
+```js
+rebilly.paypal_accounts.id.put({
+  "body": {
+    "customerId": null,
+    "billingAddress": null
+  },
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### paypal_accounts.id.activation.post
+Activate a PayPal Account
+
+
+
+```js
+rebilly.paypal_accounts.id.activation.post({
+  "body": {
+    "websiteId": "",
+    "currency": ""
+  },
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### paypal_accounts.id.deactivation.post
+Deactivate a PayPal Account
+
+
+
+```js
+rebilly.paypal_accounts.id.deactivation.post({
+  "id": ""
+}, context)
+```
+
+#### Parameters
 * id (string) **required** - The resource identifier string
 
 ### plans.get
@@ -2656,6 +2799,32 @@ rebilly.profile.put({
 #### Parameters
 * body (object) **required**
 
+### profile.password.post
+Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.
+
+
+
+```js
+rebilly.profile.password.post({
+  "body": {}
+}, context)
+```
+
+#### Parameters
+* body (object) **required**
+
+### profile.totp_reset.post
+Reset (renew) totpSecret
+
+
+
+```js
+rebilly.profile.totp_reset.post(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### queue.custom_events.get
 Retrieve a list of scheduled custom events
 
@@ -2742,20 +2911,6 @@ rebilly.queue.payments.id.put({
 
 #### Parameters
 * body (object) **required**
-* id (string) **required** - The resource identifier string
-
-### queue.payments.id.cancel.post
-Cancel a scheduled payment with specified identifier string
-
-
-
-```js
-rebilly.queue.payments.id.cancel.post({
-  "id": ""
-}, context)
-```
-
-#### Parameters
 * id (string) **required** - The resource identifier string
 
 ### sessions.get
@@ -3142,9 +3297,7 @@ Create a token
 rebilly.tokens.post({
   "body": {
     "method": "",
-    "paymentInstrument": {},
-    "firstName": "",
-    "lastName": ""
+    "paymentInstrument": {}
   }
 }, context)
 ```
@@ -3175,9 +3328,7 @@ Expire a token
 rebilly.tokens.token.expiration.post({
   "body": {
     "method": "",
-    "paymentInstrument": {},
-    "firstName": "",
-    "lastName": ""
+    "paymentInstrument": {}
   },
   "token": ""
 }, context)
@@ -3250,6 +3401,47 @@ rebilly.tracking.subscriptions.id.get({
 #### Parameters
 * id (string) **required** - The resource identifier string
 
+### tracking.webhooks.get
+Retrieve a list of tracking webhook notifications
+
+
+```js
+rebilly.tracking.webhooks.get({}, context)
+```
+
+#### Parameters
+* limit (integer) - The collection items limit
+* offset (integer) - The collection items offset
+* sort (array) - The collection items sort field and order (prefix with "-" for descending sort).
+* filter (string) - The collection items filter requires a special format.
+* criteria (string) - The json criteria for collection
+
+### tracking.webhooks.id.get
+Retrieve a tracking webhook notification with specified identifier string
+
+
+```js
+rebilly.tracking.webhooks.id.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### tracking.webhooks.id.history.get
+Retrieve related webhook attempts for specified webhook tracking.
+
+
+```js
+rebilly.tracking.webhooks.id.history.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
 ### tracking.website_webhooks.get
 Retrieve a list of tracking webhook notifications
 
@@ -3288,6 +3480,8 @@ rebilly.transactions.get({}, context)
 * limit (integer) - The collection items limit
 * offset (integer) - The collection items offset
 * filter (string) - The collection items filter requires a special format.
+* q (string) - The partial search of the text fields.
+* criteria (string) - The json criteria for collection
 * sort (array) - The collection items sort field and order (prefix with "-" for descending sort).
 * Accept (string) - The response media type
 
@@ -3298,6 +3492,19 @@ Retrieve a Transaction with specified identifier string
 
 ```js
 rebilly.transactions.id.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### transactions.id.cancel.post
+Cancel a scheduled transaction. Once handled a transaction cannot be canceled
+
+
+```js
+rebilly.transactions.id.cancel.post({
   "id": ""
 }, context)
 ```

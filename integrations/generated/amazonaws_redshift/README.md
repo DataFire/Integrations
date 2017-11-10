@@ -572,6 +572,8 @@ amazonaws_redshift.DescribeEventSubscriptions({}, context)
 * Marker (string)
 * MaxRecords (integer)
 * SubscriptionName (string)
+* TagKeys (array)
+* TagValues (array)
 
 ### DescribeEvents
 

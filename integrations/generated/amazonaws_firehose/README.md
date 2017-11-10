@@ -21,7 +21,7 @@ amazonaws_firehose.CreateDeliveryStream({}).then(data => {
 ```
 
 ## Description
-<fullname>Amazon Kinesis Firehose API Reference</fullname> <p>Amazon Kinesis Firehose is a fully-managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.</p>
+<fullname>Amazon Kinesis Firehose API Reference</fullname> <p>Amazon Kinesis Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), and Amazon Redshift.</p>
 
 ## Actions
 ### CreateDeliveryStream
@@ -36,8 +36,10 @@ amazonaws_firehose.CreateDeliveryStream({
 
 #### Parameters
 * DeliveryStreamName (string) **required**
+* DeliveryStreamType (string)
 * ElasticsearchDestinationConfiguration (object) - Describes the configuration of a destination in Amazon ES.
 * ExtendedS3DestinationConfiguration (object) - Describes the configuration of a destination in Amazon S3.
+* KinesisStreamSourceConfiguration (object) - The stream and role ARNs for a Kinesis stream used as the source for a delivery stream.
 * RedshiftDestinationConfiguration (object) - Describes the configuration of a destination in Amazon Redshift.
 * S3DestinationConfiguration (object) - Describes the configuration of a destination in Amazon S3.
 
@@ -69,6 +71,19 @@ amazonaws_firehose.DescribeDeliveryStream({
 * ExclusiveStartDestinationId (string)
 * Limit (integer)
 
+### GetKinesisStream
+
+
+
+```js
+amazonaws_firehose.GetKinesisStream({
+  "DeliveryStreamARN": ""
+}, context)
+```
+
+#### Parameters
+* DeliveryStreamARN (string) **required**
+
 ### ListDeliveryStreams
 
 
@@ -78,6 +93,7 @@ amazonaws_firehose.ListDeliveryStreams({}, context)
 ```
 
 #### Parameters
+* DeliveryStreamType (string)
 * ExclusiveStartDeliveryStreamName (string)
 * Limit (integer)
 

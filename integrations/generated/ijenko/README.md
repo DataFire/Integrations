@@ -59,6 +59,8 @@ ijenko.Account.places(null, context)
 ### Account.newPlace
 Create a new *Place*.
 
+A *Device* (`class`: `MINT`, `address`: `0`) is automatically created and attached to the new *Place*.
+
 **Note:** requires full access to the *Account*.
 
 
@@ -169,14 +171,14 @@ Modify a *User*.
 
 ```js
 ijenko.Account.patchUser({
-  "userId": "",
-  "userPatch": {}
+  "userPatch": {},
+  "userId": ""
 }, context)
 ```
 
 #### Parameters
-* userId (string) **required** - Unique identifier of a *User*.
 * userPatch (object) **required**
+* userId (string) **required** - Unique identifier of a *User*.
 
 ### User.getMetadata
 Get the metadata.
@@ -199,14 +201,14 @@ Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], star
 
 ```js
 ijenko.User.patchMetadata({
-  "userId": "",
-  "metadataPatch": {}
+  "metadataPatch": {},
+  "userId": ""
 }, context)
 ```
 
 #### Parameters
-* userId (string) **required** - Unique identifier of a *User*.
 * metadataPatch (object) **required**
+* userId (string) **required** - Unique identifier of a *User*.
 
 ### AuthAccountLogin
 Get an access+refresh tokens pair from login and password information.
@@ -315,14 +317,14 @@ Modify information about a *Device*: its name.
 
 ```js
 ijenko.Devices.patch({
-  "deviceId": "",
-  "devicePatch": {}
+  "devicePatch": {},
+  "deviceId": ""
 }, context)
 ```
 
 #### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
 * devicePatch (object) **required**
+* deviceId (string) **required** - Unique identifier of a *Device*.
 
 ### Device.addFunctionality
 Add a *Functionality* to the device.
@@ -379,14 +381,14 @@ Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], star
 
 ```js
 ijenko.Device.patchMetadata({
-  "deviceId": "",
-  "metadataPatch": {}
+  "metadataPatch": {},
+  "deviceId": ""
 }, context)
 ```
 
 #### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
 * metadataPatch (object) **required**
+* deviceId (string) **required** - Unique identifier of a *Device*.
 
 ### Device.run
 Run an *Action* on zero, one or multiple Functionalities selected with tags.
@@ -427,14 +429,14 @@ Modify the tags of a *Device*.
 
 ```js
 ijenko.Device.patchTags({
-  "deviceId": "",
-  "tagsPatch": {}
+  "tagsPatch": {},
+  "deviceId": ""
 }, context)
 ```
 
 #### Parameters
-* deviceId (string) **required** - Unique identifier of a *Device*.
 * tagsPatch (object) **required**
+* deviceId (string) **required** - Unique identifier of a *Device*.
 
 ### Functionalities.get
 Get the *Functionality*.
@@ -456,14 +458,14 @@ Modify information about a *Functionality*: its name.
 
 ```js
 ijenko.Functionality.patch({
-  "functionalityId": "",
-  "functionalityPatch": {}
+  "functionalityPatch": {},
+  "functionalityId": ""
 }, context)
 ```
 
 #### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 * functionalityPatch (object) **required**
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 
 ### Functionality.values
 Get the values of multiple *Attributes* and their history.
@@ -474,6 +476,8 @@ are returned. As the list may be huge, this must be avoided.
 If the `to` parameter is set, `from` must also be set.
 
 If `from` is not set, only the last value is returned.
+
+The `surround` parameter allows to ask also for one value beyond each interval boundaries.
 
 The request may fail if too many values are asked.
 
@@ -486,10 +490,11 @@ ijenko.Functionality.values({
 ```
 
 #### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 * names (array) - One or multiple *Attribute* names separated by commas
 * from (string) - Beginning of the time interval.
 * to (string) - End of the interval. Default: now.
+* surround (boolean) - If true, return also one value before from and one value after to
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 
 ### Functionality.value
 Get the *Attribute* value and the last time when it changed.
@@ -512,16 +517,16 @@ Modify the value of the *Attribute*.
 
 ```js
 ijenko.Functionality.set({
+  "value": null,
   "functionalityId": "",
-  "attributeName": "",
-  "value": null
+  "attributeName": ""
 }, context)
 ```
 
 #### Parameters
+* value (undefined) **required** - null/boolean/integer/number/string/object/array
 * functionalityId (string) **required** - Unique identifier of a *Functionality*.
 * attributeName (string) **required** - Identifier of an *Attribute* inside a *Functionality*.
-* value (undefined) **required** - null/boolean/integer/number/string/object/array
 
 ### Functionality.getMetadata
 Get the metadata.
@@ -544,14 +549,14 @@ Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], star
 
 ```js
 ijenko.Functionality.patchMetadata({
-  "functionalityId": "",
-  "metadataPatch": {}
+  "metadataPatch": {},
+  "functionalityId": ""
 }, context)
 ```
 
 #### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 * metadataPatch (object) **required**
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 
 ### Functionality.run
 Run an action on the Functionality.
@@ -590,14 +595,14 @@ Modify the tags of a *Functionality*.
 
 ```js
 ijenko.Functionality.patchTags({
-  "functionalityId": "",
-  "tagsPatch": {}
+  "tagsPatch": {},
+  "functionalityId": ""
 }, context)
 ```
 
 #### Parameters
-* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 * tagsPatch (object) **required**
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
 
 ### Me.get
 Get information on the authenticated *User* who does the request.
@@ -663,14 +668,14 @@ Modify a *Notification*.
 
 ```js
 ijenko.Notification.patch({
-  "notificationId": "",
-  "notificationPatch": {}
+  "notificationPatch": {},
+  "notificationId": ""
 }, context)
 ```
 
 #### Parameters
-* notificationId (string) **required** - Unique identifier of a *Notification*.
 * notificationPatch (object) **required**
+* notificationId (string) **required** - Unique identifier of a *Notification*.
 
 ### Notification.getMetadata
 Get the metadata of the *Notification*.
@@ -693,14 +698,14 @@ Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], star
 
 ```js
 ijenko.Notification.patchMetadata({
-  "notificationId": "",
-  "metadataPatch": {}
+  "metadataPatch": {},
+  "notificationId": ""
 }, context)
 ```
 
 #### Parameters
-* notificationId (string) **required** - Unique identifier of a *Notification*.
 * metadataPatch (object) **required**
+* notificationId (string) **required** - Unique identifier of a *Notification*.
 
 ### Me.places
 List the *Places* to which the *Token* has access.
@@ -735,14 +740,14 @@ Change information about a *Place*.
 
 ```js
 ijenko.Place.patch({
-  "placeId": "",
-  "placePatch": {}
+  "placePatch": {},
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * placePatch (object) **required**
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.buses
 Get the list of *Buses* available on the gateway of this *Place*.
@@ -756,8 +761,8 @@ ijenko.Place.buses({
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * withPairing (boolean) - Filter out buses that have no pairing window
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.pairing
 Get the state of the pairing window of the *Bus*.
@@ -786,18 +791,18 @@ Open/Close the pairing window.
 
 ```js
 ijenko.Place.openPairing({
-  "placeId": "",
-  "busId": "",
   "pairing": {
     "enabled": true
-  }
+  },
+  "placeId": "",
+  "busId": ""
 }, context)
 ```
 
 #### Parameters
+* pairing (object) **required**
 * placeId (string) **required** - Unique identifier of a *Place*.
 * busId (string) **required** - Unique identifier of a *Bus*.
-* pairing (object) **required**
 
 ### Place.devices
 Get the list of *Devices* available in this *Place*.
@@ -810,9 +815,9 @@ ijenko.Place.devices({
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * devices (string) - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
 * embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.Electricity.autonomy
 Compute the autonomy rate of the *Place* on a time period.
@@ -823,16 +828,16 @@ Compute the autonomy rate of the *Place* on a time period.
 
 ```js
 ijenko.Place.Electricity.autonomy({
-  "placeId": "",
   "when": "",
-  "span": ""
+  "span": "",
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * when (string) **required** - A time part of the time span.
 * span (string) **required** - Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.Electricity.getFlows
 Get the mapping of virtual electricity flows to functionalities.
@@ -857,14 +862,14 @@ The `code` property gives the result which may be partial:
 
 ```js
 ijenko.Place.Electricity.getFlows({
-  "placeId": "",
-  "flows": []
+  "flows": [],
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * flows (array) **required** - Names of the flows requested
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.Electricity.getFlowsSetup
 Get the mapping of functionalities to electricity flows.
@@ -891,16 +896,16 @@ Compute the self-consumption rate of the *Place* on a time period.
 
 ```js
 ijenko.Place.Electricity.selfConsumption({
-  "placeId": "",
   "when": "",
-  "span": ""
+  "span": "",
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * when (string) **required** - A time part of the time span.
 * span (string) **required** - Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.functionalities
 Get the list of *Functionalities* available in this *Place*.
@@ -913,10 +918,10 @@ ijenko.Place.functionalities({
 ```
 
 #### Parameters
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
 * placeId (string) **required** - Unique identifier of a *Place*.
 * devices (string) - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
 * functionalities (string) - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
-* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
 
 ### Place.getMetadata
 Get the metadata.
@@ -939,14 +944,14 @@ Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], star
 
 ```js
 ijenko.Place.patchMetadata({
-  "placeId": "",
-  "metadataPatch": {}
+  "metadataPatch": {},
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * metadataPatch (object) **required**
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.notifications
 Get the list of *Notifications* available in this *Place*.
@@ -959,8 +964,8 @@ ijenko.Place.notifications({
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.newNotification
 Create a new *Notification*.
@@ -968,16 +973,16 @@ Create a new *Notification*.
 
 ```js
 ijenko.Place.newNotification({
-  "placeId": "",
   "notification": {
     "name": ""
-  }
+  },
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * notification (object) **required**
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.programs
 Get the list of *Programs* available in this *Place*.
@@ -990,8 +995,8 @@ ijenko.Place.programs({
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.newProgram
 Create a new *Program*.
@@ -1002,17 +1007,17 @@ Create a new *Program*.
 
 ```js
 ijenko.Place.newProgram({
-  "placeId": "",
   "programInfo": {
     "name": "",
     "code": null
-  }
+  },
+  "placeId": ""
 }, context)
 ```
 
 #### Parameters
-* placeId (string) **required** - Unique identifier of a *Place*.
 * programInfo (object) **required**
+* placeId (string) **required** - Unique identifier of a *Place*.
 
 ### Place.run
 Run an *Action* on zero, one or multiple *Functionalities* selected with tags.
@@ -1082,14 +1087,14 @@ Modify a *Program*:
 
 ```js
 ijenko.Program.patch({
-  "programId": "",
-  "programPatch": {}
+  "programPatch": {},
+  "programId": ""
 }, context)
 ```
 
 #### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
 * programPatch (object) **required**
+* programId (string) **required** - Unique identifier of a *Program*.
 
 ### Program.log
 Get the execution history list of this *Program*.
@@ -1097,15 +1102,15 @@ Get the execution history list of this *Program*.
 
 ```js
 ijenko.Program.log({
-  "programId": "",
-  "from": ""
+  "from": "",
+  "programId": ""
 }, context)
 ```
 
 #### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
 * from (string) **required** - Beginning of the time interval.
 * to (string) - End of the interval. Default: now.
+* programId (string) **required** - Unique identifier of a *Program*.
 
 ### Program.getMetadata
 Get the metadata of the *Program*.
@@ -1128,14 +1133,14 @@ Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], star
 
 ```js
 ijenko.Program.patchMetadata({
-  "programId": "",
-  "metadataPatch": {}
+  "metadataPatch": {},
+  "programId": ""
 }, context)
 ```
 
 #### Parameters
-* programId (string) **required** - Unique identifier of a *Program*.
 * metadataPatch (object) **required**
+* programId (string) **required** - Unique identifier of a *Program*.
 
 ### Program.run
 Launch the *Program*.

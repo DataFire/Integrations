@@ -41,6 +41,16 @@
     "description": "Find more info here",
     "url": "https://developers.vestorly.com"
   },
+  "securityDefinitions": {
+    "access_token": {
+      "authorizationUrl": "https://dev.vestorly.com/oauth/authorize",
+      "flow": "implicit",
+      "scopes": {
+        "default": "read and write data to your account"
+      },
+      "type": "oauth2"
+    }
+  },
   "tags": [
     {
       "description": "Vestorly API docs",
@@ -56,8 +66,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -76,6 +93,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "advisors"
         ]
@@ -89,8 +113,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -131,6 +162,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "articles"
         ]
@@ -144,8 +182,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -165,6 +210,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "articles"
         ]
@@ -178,8 +230,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -191,6 +250,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "events"
         ]
@@ -202,8 +268,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -224,6 +297,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "events"
         ]
@@ -242,9 +322,16 @@
             "type": "string"
           },
           {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
             "type": "string"
           }
@@ -257,6 +344,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "events"
         ]
@@ -271,8 +365,15 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -284,6 +385,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "groups"
         ]
@@ -296,8 +404,15 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -321,6 +436,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "groups"
         ]
@@ -335,8 +457,15 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -358,6 +487,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "groups"
         ]
@@ -370,8 +506,15 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -391,6 +534,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "groups"
         ]
@@ -402,8 +552,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -434,6 +591,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "groups"
         ]
@@ -447,8 +611,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -460,6 +631,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "member_events"
         ]
@@ -473,8 +651,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -486,6 +671,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "member_reports"
         ]
@@ -500,9 +692,30 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Skips number of members from start",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Number of members to return",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
           }
         ],
         "responses": {
@@ -513,6 +726,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "members"
         ]
@@ -524,8 +744,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -546,6 +773,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "members"
         ]
@@ -568,8 +802,15 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -581,6 +822,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "members"
         ]
@@ -601,8 +849,15 @@
             "description": "Vestorly Auth Token",
             "format": "string",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -623,6 +878,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "members"
         ]
@@ -636,8 +898,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -649,6 +918,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "newsletter_settings"
         ]
@@ -669,8 +945,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -682,6 +965,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "newsletter_settings"
         ]
@@ -700,8 +990,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -722,6 +1019,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "newsletter_settings"
         ]
@@ -735,8 +1039,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -748,6 +1059,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "newsletters"
         ]
@@ -761,8 +1079,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -781,6 +1106,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "newsletters"
         ]
@@ -792,8 +1124,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -821,6 +1160,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "newsletters"
         ]
@@ -834,8 +1180,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -868,6 +1221,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "posts"
         ]
@@ -879,8 +1239,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -901,6 +1268,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "posts"
         ]
@@ -914,8 +1288,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -934,6 +1315,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "posts"
         ]
@@ -945,8 +1333,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -974,6 +1369,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "posts"
         ]
@@ -1023,7 +1425,7 @@
           {
             "description": "Authenication token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
             "type": "string"
           },
@@ -1056,8 +1458,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           }
         ],
@@ -1069,6 +1478,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "sources"
         ]
@@ -1080,8 +1496,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -1102,6 +1525,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "sources"
         ]
@@ -1115,8 +1545,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -1135,6 +1572,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "sources"
         ]
@@ -1146,8 +1590,15 @@
           {
             "description": "Vestorly Auth Token",
             "in": "query",
-            "name": "vestorly_auth",
+            "name": "vestorly-auth",
             "required": true,
+            "type": "string"
+          },
+          {
+            "description": "OAuth Token",
+            "in": "query",
+            "name": "access_token",
+            "required": false,
             "type": "string"
           },
           {
@@ -1175,6 +1626,13 @@
             }
           }
         },
+        "security": [
+          {
+            "access_token": [
+              "default"
+            ]
+          }
+        ],
         "tags": [
           "sources"
         ]
@@ -1196,9 +1654,6 @@
         "adv_brochure": {
           "type": "string"
         },
-        "advisor_employees": {
-          "type": "string"
-        },
         "api_key": {
           "type": "string"
         },
@@ -1211,25 +1666,16 @@
         "compliance_bcc_email_address": {
           "type": "string"
         },
-        "consultation_reminder": {
-          "type": "string"
-        },
         "dashboard_url": {
           "type": "string"
         },
         "disclosure": {
           "type": "string"
         },
-        "email_blast": {
-          "type": "string"
-        },
         "email_report_blast": {
           "type": "string"
         },
         "external_options": {
-          "type": "string"
-        },
-        "facebook_blast": {
           "type": "string"
         },
         "first_name": {
@@ -1244,31 +1690,16 @@
         "linkedin": {
           "type": "string"
         },
-        "linkedin_blast": {
-          "type": "string"
-        },
         "logo": {
           "type": "string"
         },
         "name": {
           "type": "string"
         },
-        "other_compensation": {
-          "type": "string"
-        },
-        "other_services_types": {
-          "type": "string"
-        },
-        "performance_audited": {
-          "type": "string"
-        },
         "plan": {
           "type": "string"
         },
         "profile_picture": {
-          "type": "string"
-        },
-        "referral_reminder": {
           "type": "string"
         },
         "reg_number": {
@@ -1280,16 +1711,10 @@
         "tag": {
           "type": "string"
         },
-        "twitter_blast": {
-          "type": "string"
-        },
         "twitter_handle": {
           "type": "string"
         },
         "website": {
-          "type": "string"
-        },
-        "weekly_email_blast": {
           "type": "string"
         },
         "zip": {
@@ -2128,8 +2553,14 @@
         "salutation_text": {
           "type": "string"
         },
+        "social_day_of_week": {
+          "type": "integer"
+        },
         "social_description": {
           "type": "string"
+        },
+        "social_hour": {
+          "type": "integer"
         },
         "social_posting_text": {
           "type": "string"

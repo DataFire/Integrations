@@ -360,9 +360,10 @@ google_servicemanagement.services.rollouts.list({
 ```
 
 #### Parameters
-* serviceName (string) **required** - The name of the service.  See the [overview](/service-management/overview)
-* pageToken (string) - The token of the page to retrieve.
+* filter (string) - Use `filter` to return subset of rollouts.
 * pageSize (integer) - The max number of items to include in the response list.
+* pageToken (string) - The token of the page to retrieve.
+* serviceName (string) **required** - The name of the service.  See the [overview](/service-management/overview)
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -597,14 +598,14 @@ google_servicemanagement.operations.get({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
 
-### services.getIamPolicy
+### services.consumers.getIamPolicy
 Gets the access control policy for a resource.
 Returns an empty policy if the resource exists and does not have a policy
 set.
 
 
 ```js
-google_servicemanagement.services.getIamPolicy({
+google_servicemanagement.services.consumers.getIamPolicy({
   "resource": ""
 }, context)
 ```
@@ -626,13 +627,13 @@ google_servicemanagement.services.getIamPolicy({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
 
-### services.setIamPolicy
+### services.consumers.setIamPolicy
 Sets the access control policy on the specified resource. Replaces any
 existing policy.
 
 
 ```js
-google_servicemanagement.services.setIamPolicy({
+google_servicemanagement.services.consumers.setIamPolicy({
   "resource": ""
 }, context)
 ```
@@ -654,7 +655,7 @@ google_servicemanagement.services.setIamPolicy({
 * oauth_token (string) - OAuth 2.0 token for the current user.
 * bearer_token (string) - OAuth bearer token.
 
-### services.testIamPermissions
+### services.consumers.testIamPermissions
 Returns permissions that a caller has on the specified resource.
 If the resource does not exist, this will return an empty set of
 permissions, not a NOT_FOUND error.
@@ -665,7 +666,7 @@ may "fail open" without warning.
 
 
 ```js
-google_servicemanagement.services.testIamPermissions({
+google_servicemanagement.services.consumers.testIamPermissions({
   "resource": ""
 }, context)
 ```

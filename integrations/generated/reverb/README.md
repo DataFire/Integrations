@@ -50,171 +50,20 @@ reverb.oauthRefresh(null, context)
 #### Parameters
 *This action has no parameters*
 
-### accounts.post
-Create an account.
-
-
-```js
-reverb.accounts.post({}, context)
-```
-
-#### Parameters
-* body (object)
-
 ### articles.get
-See all Reverb blog posts
-
-
-```js
-reverb.articles.get(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### articles.featured.get
-See featured Reverb blog posts
-
-
-```js
-reverb.articles.featured.get(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### articles.recently_featured.get
 
 
 
 ```js
-reverb.articles.recently_featured.get(null, context)
+reverb.articles.get({}, context)
 ```
 
 #### Parameters
-*This action has no parameters*
-
-### articles.slug.get
-Display a single article
-
-
-```js
-reverb.articles.slug.get({
-  "slug": ""
-}, context)
-```
-
-#### Parameters
-* slug (string) **required**
-
-### articles.slug.related_listings.get
-Find listings related to an article
-
-
-```js
-reverb.articles.slug.related_listings.get({
-  "slug": ""
-}, context)
-```
-
-#### Parameters
-* slug (string) **required**
-
-### auth.forgot_password.post
-Send a password reset email
-
-
-```js
-reverb.auth.forgot_password.post({}, context)
-```
-
-#### Parameters
-* body (object)
-
-### auth.logout.put
-Logout (primarily for mobile clients)
-
-
-```js
-reverb.auth.logout.put({}, context)
-```
-
-#### Parameters
-* body (object)
-
-### autosuggest.get
-Autosuggest terms for searches
-
-
-```js
-reverb.autosuggest.get(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### cart.get
-Get all cart items
-
-
-```js
-reverb.cart.get(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### cart.move_to_watch_list.cart_item_id.post
-Remove a cart item and add it to watch list
-
-
-```js
-reverb.cart.move_to_watch_list.cart_item_id.post({
-  "cart_item_id": ""
-}, context)
-```
-
-#### Parameters
-* cart_item_id (string) **required**
-
-### cart.id.delete
-Remove a product from the cart
-
-
-```js
-reverb.cart.id.delete({
-  "id": ""
-}, context)
-```
-
-#### Parameters
-* id (string) **required**
-
-### cart.id.post
-Add product to the cart
-
-
-```js
-reverb.cart.id.post({
-  "id": ""
-}, context)
-```
-
-#### Parameters
-* id (string) **required**
-
-### cart.id.put
-Update cart item details
-
-
-```js
-reverb.cart.id.put({
-  "id": ""
-}, context)
-```
-
-#### Parameters
-* id (string) **required**
+* page (integer)
+* per_page (integer)
+* offset (integer)
+* query (string) - What's being searched for
+* exclude_featured (integer) - Number of featured articles to exclude
 
 ### categories.get
 List of supported product categories
@@ -233,6 +82,17 @@ reverb.categories.get(null, context)
 
 ```js
 reverb.categories.flat.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### categories.taxonomy.get
+Full taxonomy tree of categories including middle categories
+
+
+```js
+reverb.categories.taxonomy.get(null, context)
 ```
 
 #### Parameters
@@ -266,30 +126,6 @@ reverb.categories.uuid.get({
 #### Parameters
 * uuid (string) **required**
 
-### collections.get
-List of curated collections
-
-
-```js
-reverb.collections.get(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### collections.slug.get
-Collection details
-
-
-```js
-reverb.collections.slug.get({
-  "slug": ""
-}, context)
-```
-
-#### Parameters
-* slug (string) **required**
-
 ### comparison_shopping_pages.get
 Returns a set of comparison shopping pages based on the current params
 
@@ -301,8 +137,20 @@ reverb.comparison_shopping_pages.get(null, context)
 #### Parameters
 *This action has no parameters*
 
-### comparison_shopping_pages.id.get
+### comparison_shopping_pages.find.get
 Show comparison shopping page
+
+
+```js
+reverb.comparison_shopping_pages.find.get({}, context)
+```
+
+#### Parameters
+* id (string) - ID of the comparison shopping page
+* slug (string) - Slug of the comparison shopping page
+
+### comparison_shopping_pages.id.get
+
 
 
 ```js
@@ -328,6 +176,36 @@ reverb.comparison_shopping_pages.id.listings.get({
 #### Parameters
 * id (string) **required**
 * condition (string) **required** - Condition of the listing
+* page (integer)
+* per_page (integer)
+* offset (integer)
+
+### comparison_shopping_pages.id.reviews.get
+View reviews of a comparison shopping page
+
+
+```js
+reverb.comparison_shopping_pages.id.reviews.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required**
+
+### conversations.conversation_id.offer.post
+Make an offer to the other participant in the conversation
+
+
+```js
+reverb.conversations.conversation_id.offer.post({
+  "conversation_id": ""
+}, context)
+```
+
+#### Parameters
+* conversation_id (string) **required**
+* body (object)
 
 ### conversations.id.offer.post
 Make an offer to the other participant in the conversation
@@ -353,6 +231,19 @@ reverb.countries.get(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+### curated_sets.slug.get
+
+
+
+```js
+reverb.curated_sets.slug.get({
+  "slug": ""
+}, context)
+```
+
+#### Parameters
+* slug (string) **required**
 
 ### currencies.display.get
 List of supported display currencies for browsing listings
@@ -390,7 +281,7 @@ reverb.feedback.feedback_id.get({
 * feedback_id (string) **required**
 
 ### handpicked.slug.get
-Handpicked collection details
+Get results from a handpicked collection
 
 
 ```js
@@ -401,6 +292,39 @@ reverb.handpicked.slug.get({
 
 #### Parameters
 * slug (string) **required**
+* query (string) - Search query.
+* auction_price_max (number) - Maximum current auction price
+* category (string) - Category slug from /api/categories
+* product_type (string) - Product type slug from /api/categories
+* conditions (array) - Condition: all,new,b-stock,used,non-functioning
+* decade (string) - Decade: e.g. 1970s, early 70s
+* finish (string) - Visual finish of the item, common for guitars
+* handmade (boolean) - Handmade items only
+* item_city (string) - City where item is located
+* item_country (string) - DEPRECATED - Country code where item is located
+* item_region (string) - Country code where item is located
+* item_state (string) - State or region code where item is located
+* make (array) - Make(s)/brand of item (e.g. Fender). Can take a single value or an array.
+* model (string) - Model of item (e.g. Stratocaster)
+* must_not (string) - Search term negation. If you want to exclude a term, add it here
+* price_max (number) - Maximum price of search results (USD)
+* price_min (number) - Minimum price of search results (USD)
+* currency (string) - The currency to be used for the price filters
+* year_max (integer) - Maximum year of manufacture
+* year_min (integer) - Minumum year of manufacture
+* accepts_gift_cards (boolean) - If true, include only items that accept gift cards
+* preferred_seller (boolean) - If true, include only items by Reverb Preferred Sellers
+* shop (string) - Slug of shop to search
+* shop_id (string) - ID of shop to search
+* listing_type (string) - Type of listing: auctions,offers
+* ships_to (string) - Limit search to items that ship to this country code
+* exclude_auctions (boolean) - If true, exclude auctions
+* accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
+* watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* not_ids (array) - Listing ID negation. If you want to exclude a listing, add it here.
+* page (integer)
+* per_page (integer)
+* offset (integer)
 
 ### listing_conditions.get
 List of supported product conditions
@@ -451,8 +375,10 @@ reverb.listings.get({}, context)
 * exclude_auctions (boolean) - If true, exclude auctions
 * accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
 * watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* not_ids (array) - Listing ID negation. If you want to exclude a listing, add it here.
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### listings.post
 Create a listing
@@ -503,8 +429,34 @@ reverb.listings.all.get({}, context)
 * exclude_auctions (boolean) - If true, exclude auctions
 * accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
 * watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* not_ids (array) - Listing ID negation. If you want to exclude a listing, add it here.
 * page (integer)
 * per_page (integer)
+* offset (integer)
+
+### listings.facets.seller_location.get
+Individual facets
+
+
+```js
+reverb.listings.facets.seller_location.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### listings.id.negotiation.get
+Returns the latest negotiation for the requesting user given a listing id
+
+
+```js
+reverb.listings.id.negotiation.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required**
 
 ### listings.id.offer.post
 Make an offer to the seller of a listing
@@ -806,6 +758,7 @@ reverb.my.conversations.get({}, context)
 * unread_only (boolean) - Show unread conversations only
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### my.conversations.post
 Start a conversation
@@ -870,12 +823,49 @@ reverb.my.counts.get(null, context)
 #### Parameters
 *This action has no parameters*
 
+### my.curated_set.product.product_id.delete
+
+
+
+```js
+reverb.my.curated_set.product.product_id.delete({
+  "product_id": ""
+}, context)
+```
+
+#### Parameters
+* product_id (string) **required**
+
+### my.curated_set.product.product_id.post
+
+
+
+```js
+reverb.my.curated_set.product.product_id.post({
+  "product_id": ""
+}, context)
+```
+
+#### Parameters
+* product_id (string) **required**
+
 ### my.feed.get
 Get listings from your feed
 
 
 ```js
 reverb.my.feed.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### my.feed.customize.get
+get your feed customization options
+
+
+```js
+reverb.my.feed.customize.get(null, context)
 ```
 
 #### Parameters
@@ -924,6 +914,28 @@ reverb.my.follows.get(null, context)
 
 #### Parameters
 *This action has no parameters*
+
+### my.follows.articles.get
+Returns a user's ArticleCategoryFollows
+
+
+```js
+reverb.my.follows.articles.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### my.follows.articles.post
+Set a user's ArticleCategoryFollows
+
+
+```js
+reverb.my.follows.articles.post({}, context)
+```
+
+#### Parameters
+* body (object)
 
 ### my.follows.brands.slug.delete
 Unfollow a brand
@@ -1264,7 +1276,9 @@ reverb.my.listings.get({}, context)
 * exclude_auctions (boolean) - If true, exclude auctions
 * accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
 * watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* not_ids (array) - Listing ID negation. If you want to exclude a listing, add it here.
 * state (string) - Available: ["all", "draft", "ended", "live", "ordered", "sold_out", "suspended", "seller_unavailable"]. Defaults to 'live'
+* sku (string) - Find a listing by sku
 
 ### my.listings.drafts.get
 Retrieve a list your draft listings
@@ -1304,6 +1318,7 @@ reverb.my.listings.drafts.get({}, context)
 * exclude_auctions (boolean) - If true, exclude auctions
 * accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
 * watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* not_ids (array) - Listing ID negation. If you want to exclude a listing, add it here.
 
 ### my.listings.negotiations.get
 Get a list of active negotiations as a seller
@@ -1316,6 +1331,7 @@ reverb.my.listings.negotiations.get({}, context)
 #### Parameters
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### my.listings.slug.state.end.put
 End a listing
@@ -1353,6 +1369,7 @@ reverb.my.negotiations.buying.get({}, context)
 #### Parameters
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### my.negotiations.id.get
 Get offer details
@@ -1430,19 +1447,6 @@ reverb.my.orders.buying.all.get(null, context)
 #### Parameters
 *This action has no parameters*
 
-### my.orders.buying.buying_history.seller_id.get
-See previous orders from a seller
-
-
-```js
-reverb.my.orders.buying.buying_history.seller_id.get({
-  "seller_id": ""
-}, context)
-```
-
-#### Parameters
-* seller_id (string) **required**
-
 ### my.orders.buying.unpaid.get
 Returns unpaid orders, newest first.
 
@@ -1495,6 +1499,7 @@ reverb.my.orders.selling.all.get({}, context)
 * updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### my.orders.selling.awaiting_shipment.get
 Get seller orders awaiting shipment, newest first.
@@ -1511,6 +1516,7 @@ reverb.my.orders.selling.awaiting_shipment.get({}, context)
 * updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### my.orders.selling.buyer_history.buyer_id.get
 See previous orders from buyer
@@ -1540,6 +1546,7 @@ reverb.my.orders.selling.unpaid.get({}, context)
 * updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
 * page (integer)
 * per_page (integer)
+* offset (integer)
 
 ### my.orders.selling.id.get
 Returns order details for a seller
@@ -1582,6 +1589,19 @@ reverb.my.orders.selling.id.ship.post({
 * id (string) **required**
 * body (object)
 
+### my.orders.selling.order_id.refund_requests.post
+Initiate a refund for a sold order
+
+
+```js
+reverb.my.orders.selling.order_id.refund_requests.post({
+  "order_id": ""
+}, context)
+```
+
+#### Parameters
+* order_id (string) **required**
+
 ### my.payments.selling.get
 Get payments
 
@@ -1593,6 +1613,7 @@ reverb.my.payments.selling.get({}, context)
 #### Parameters
 * page (integer)
 * per_page (integer)
+* offset (integer)
 * created_start_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
 * created_end_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
 * updated_start_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
@@ -1605,6 +1626,30 @@ Get payment
 
 ```js
 reverb.my.payments.selling.id.get({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required**
+
+### my.refund_requests.selling.get
+Get a list of refund requests as a seller
+
+
+```js
+reverb.my.refund_requests.selling.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### my.refund_requests.selling.id.put
+Update a refund request for a sold order
+
+
+```js
+reverb.my.refund_requests.selling.id.put({
   "id": ""
 }, context)
 ```
@@ -1956,31 +2001,6 @@ reverb.shop.payment_methods.get(null, context)
 #### Parameters
 *This action has no parameters*
 
-### shop.stats.get
-Get listings stats
-
-
-```js
-reverb.shop.stats.get(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### shop.stats.activity.get
-Get shop activity for a particular time period
-
-
-```js
-reverb.shop.stats.activity.get({
-  "start_time": ""
-}, context)
-```
-
-#### Parameters
-* start_time (string) **required** - Filter by date in ISO8601 format - e.g: 2015-04-09T10:52:23-05:00
-* end_time (string) - Filter by date in ISO8601 format - e.g: 2015-04-09T10:52:23-05:00
-
 ### shop.vacation.delete
 Disable vacation mode. All listings will be re-enabled.
 
@@ -2014,6 +2034,19 @@ reverb.shop.vacation.post(null, context)
 #### Parameters
 *This action has no parameters*
 
+### shops.shop_id.shipping_profiles.get
+List of shipping profiles for your shop
+
+
+```js
+reverb.shops.shop_id.shipping_profiles.get({
+  "shop_id": ""
+}, context)
+```
+
+#### Parameters
+* shop_id (string) **required**
+
 ### shops.slug.get
 Get details on a shop.
 
@@ -2026,6 +2059,7 @@ reverb.shops.slug.get({
 
 #### Parameters
 * slug (string) **required**
+* include_listing_count (boolean) - Include the live listing count in the response.
 
 ### shops.slug.feedback.get
 Get seller's feedback
@@ -2065,43 +2099,6 @@ reverb.shops.slug.feedback.seller.get({
 
 #### Parameters
 * slug (string) **required**
-
-### vinyl.listings.get
-
-
-
-```js
-reverb.vinyl.listings.get({
-  "merchandising_uuid": ""
-}, context)
-```
-
-#### Parameters
-* merchandising_uuid (string) **required** - Merchandising UUID of the release
-
-### vinyl.listings.post
-
-
-
-```js
-reverb.vinyl.listings.post(null, context)
-```
-
-#### Parameters
-*This action has no parameters*
-
-### vinyl.listings.id.get
-
-
-
-```js
-reverb.vinyl.listings.id.get({
-  "id": ""
-}, context)
-```
-
-#### Parameters
-* id (string) **required**
 
 ### wants.get
 A list of wanted items by the user

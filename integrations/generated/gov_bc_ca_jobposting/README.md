@@ -20,6 +20,20 @@ gov_bc_ca_jobposting.jobs.post({}).then(data => {
 This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href="https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice" target="_blank">data collection notice</a>.
 
 ## Actions
+### Industries.get
+The Industries endpoint returns all the Industries and related sub industries 
+defined in WorkBC's Job Board. The response includes the id and caption for 
+each industry and each sub industry.
+
+
+
+```js
+gov_bc_ca_jobposting.Industries.get(null, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
 ### jobTypes.get
 The Job Types endpoint returns details of all of the
 job types defined in WorkBC's Job Board. The response includes the
@@ -49,6 +63,8 @@ gov_bc_ca_jobposting.jobs.post({}, context)
 * jobTypes (array) - ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.
 * majorProjects (boolean) - When true, only include job postings that have a Major Project associated with them.  When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.
 * majorProjectID (integer) - The unique id of a major project within the WorkBC Job Board database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used.
+* industries (array) - ID values for industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by industry.
+* subIndustries (array) - ID values for sub industries to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by sub industry.
 
 ### majorProjects.get
 The Major Projects endpoint returns details of all of the

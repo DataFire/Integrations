@@ -15,7 +15,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iam.svg"
   },
-  "actionCount": 120,
+  "actionCount": 122,
   "definitions": {
     "AccessKey": {
       "description": "<p>Contains information about an AWS access key.</p> <p> This data type is used as a response element in the <a>CreateAccessKey</a> and <a>ListAccessKeys</a> actions. </p> <note> <p>The <code>SecretAccessKey</code> value is returned only in response to <a>CreateAccessKey</a>. You can get a secret access key only when you first create an access key; you cannot recover the secret access key later. If you lose a secret access key, you must create a new access key.</p> </note>",
@@ -175,6 +175,13 @@
       ],
       "type": "object",
       "title": "AddUserToGroupRequest"
+    },
+    "ArnListType": {
+      "items": {
+        "$ref": "#/definitions/arnType"
+      },
+      "type": "array",
+      "title": "ArnListType"
     },
     "AttachGroupPolicyRequest": {
       "example": {
@@ -603,7 +610,7 @@
         },
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The friendly name of the policy.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The friendly name of the policy.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         }
       },
       "required": [
@@ -978,7 +985,7 @@
         },
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name identifying the policy document to delete.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name identifying the policy document to delete.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         }
       },
       "required": [
@@ -1085,7 +1092,7 @@
       "properties": {
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the inline policy to delete from the specified IAM role.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the inline policy to delete from the specified IAM role.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         },
         "RoleName": {
           "$ref": "#/definitions/roleNameType",
@@ -1159,6 +1166,32 @@
       "type": "object",
       "title": "DeleteServerCertificateRequest"
     },
+    "DeleteServiceLinkedRoleRequest": {
+      "properties": {
+        "RoleName": {
+          "$ref": "#/definitions/roleNameType",
+          "description": "The name of the service-linked role to be deleted."
+        }
+      },
+      "required": [
+        "RoleName"
+      ],
+      "type": "object",
+      "title": "DeleteServiceLinkedRoleRequest"
+    },
+    "DeleteServiceLinkedRoleResponse": {
+      "properties": {
+        "DeletionTaskId": {
+          "$ref": "#/definitions/DeletionTaskIdType",
+          "description": "The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format <code>task/aws-service-role/&lt;service-principal-name&gt;/&lt;role-name&gt;/&lt;task-uuid&gt;</code>."
+        }
+      },
+      "required": [
+        "DeletionTaskId"
+      ],
+      "type": "object",
+      "title": "DeleteServiceLinkedRoleResponse"
+    },
     "DeleteServiceSpecificCredentialRequest": {
       "properties": {
         "ServiceSpecificCredentialId": {
@@ -1205,7 +1238,7 @@
       "properties": {
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name identifying the policy document to delete.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name identifying the policy document to delete.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         },
         "UserName": {
           "$ref": "#/definitions/existingUserNameType",
@@ -1250,6 +1283,37 @@
       ],
       "type": "object",
       "title": "DeleteVirtualMFADeviceRequest"
+    },
+    "DeletionTaskFailureReasonType": {
+      "description": "<p>The reason that the service-linked role deletion failed.</p> <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>",
+      "properties": {
+        "Reason": {
+          "$ref": "#/definitions/ReasonType",
+          "description": "A short description of the reason that the service-linked role deletion failed."
+        },
+        "RoleUsageList": {
+          "$ref": "#/definitions/RoleUsageListType",
+          "description": "A list of objects that contains details about the service-linked role deletion failure. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the region in which the resources are being used."
+        }
+      },
+      "type": "object",
+      "title": "DeletionTaskFailureReasonType"
+    },
+    "DeletionTaskIdType": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string",
+      "title": "DeletionTaskIdType"
+    },
+    "DeletionTaskStatusType": {
+      "enum": [
+        "SUCCEEDED",
+        "IN_PROGRESS",
+        "FAILED",
+        "NOT_STARTED"
+      ],
+      "type": "string",
+      "title": "DeletionTaskStatusType"
     },
     "DetachGroupPolicyRequest": {
       "properties": {
@@ -1683,7 +1747,7 @@
         },
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the policy document to get.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the policy document to get.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         }
       },
       "required": [
@@ -1943,7 +2007,7 @@
       "properties": {
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the policy document to get.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the policy document to get.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         },
         "RoleName": {
           "$ref": "#/definitions/roleNameType",
@@ -2114,11 +2178,41 @@
       "type": "object",
       "title": "GetServerCertificateResponse"
     },
+    "GetServiceLinkedRoleDeletionStatusRequest": {
+      "properties": {
+        "DeletionTaskId": {
+          "$ref": "#/definitions/DeletionTaskIdType",
+          "description": "The deletion task identifier. This identifier is returned by the <a>DeleteServiceLinkedRole</a> operation in the format <code>task/aws-service-role/&lt;service-principal-name&gt;/&lt;role-name&gt;/&lt;task-uuid&gt;</code>."
+        }
+      },
+      "required": [
+        "DeletionTaskId"
+      ],
+      "type": "object",
+      "title": "GetServiceLinkedRoleDeletionStatusRequest"
+    },
+    "GetServiceLinkedRoleDeletionStatusResponse": {
+      "properties": {
+        "Reason": {
+          "$ref": "#/definitions/DeletionTaskFailureReasonType",
+          "description": "An object that contains details about the reason the deletion failed."
+        },
+        "Status": {
+          "$ref": "#/definitions/DeletionTaskStatusType",
+          "description": "The status of the deletion."
+        }
+      },
+      "required": [
+        "Status"
+      ],
+      "type": "object",
+      "title": "GetServiceLinkedRoleDeletionStatusResponse"
+    },
     "GetUserPolicyRequest": {
       "properties": {
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the policy document to get.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the policy document to get.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         },
         "UserName": {
           "$ref": "#/definitions/existingUserNameType",
@@ -2705,7 +2799,7 @@
         },
         "PolicyNames": {
           "$ref": "#/definitions/policyNameListType",
-          "description": "A list of policy names."
+          "description": "<p>A list of policy names.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         }
       },
       "required": [
@@ -3775,7 +3869,7 @@
       "title": "PolicyEvaluationDecisionType"
     },
     "PolicyEvaluationException": {
-      "description": "The request failed because a provided policy could not be successfully evaluated. An additional detail message indicates the source of the failure.",
+      "description": "The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.",
       "properties": {
         "message": {
           "$ref": "#/definitions/policyEvaluationErrorMessage"
@@ -3809,6 +3903,16 @@
     "PolicyIdentifierType": {
       "type": "string",
       "title": "PolicyIdentifierType"
+    },
+    "PolicyNotAttachableException": {
+      "description": "The request failed because AWS service role policies can only be attached to the service-linked role for that service.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/policyNotAttachableMessage"
+        }
+      },
+      "type": "object",
+      "title": "PolicyNotAttachableException"
     },
     "PolicyRole": {
       "description": "<p>Contains information about a role that a managed policy is attached to.</p> <p>This data type is used as a response element in the <a>ListEntitiesForPolicy</a> action. </p> <p>For more information about managed policies, refer to <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html\">Managed Policies and Inline Policies</a> in the <i>Using IAM</i> guide. </p>",
@@ -3922,7 +4026,7 @@
         },
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the policy document.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the policy document.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         }
       },
       "required": [
@@ -3946,7 +4050,7 @@
         },
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the policy document.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the policy document.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         },
         "RoleName": {
           "$ref": "#/definitions/roleNameType",
@@ -3974,7 +4078,7 @@
         },
         "PolicyName": {
           "$ref": "#/definitions/policyNameType",
-          "description": "<p>The name of the policy document.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-</p>"
+          "description": "<p>The name of the policy document.</p> <p>This parameter allows (per its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-+</p>"
         },
         "UserName": {
           "$ref": "#/definitions/existingUserNameType",
@@ -3988,6 +4092,17 @@
       ],
       "type": "object",
       "title": "PutUserPolicyRequest"
+    },
+    "ReasonType": {
+      "maxLength": 1000,
+      "type": "string",
+      "title": "ReasonType"
+    },
+    "RegionNameType": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string",
+      "title": "RegionNameType"
     },
     "RemoveClientIDFromOpenIDConnectProviderRequest": {
       "properties": {
@@ -4270,6 +4385,28 @@
       },
       "type": "object",
       "title": "RoleDetail"
+    },
+    "RoleUsageListType": {
+      "items": {
+        "$ref": "#/definitions/RoleUsageType"
+      },
+      "type": "array",
+      "title": "RoleUsageListType"
+    },
+    "RoleUsageType": {
+      "description": "<p>An object that contains details about how a service-linked role is used.</p> <p>This data type is used as a response element in the <a>GetServiceLinkedRoleDeletionStatus</a> operation.</p>",
+      "properties": {
+        "Region": {
+          "$ref": "#/definitions/RegionNameType",
+          "description": "The name of the region where the service-linked role is being used."
+        },
+        "Resources": {
+          "$ref": "#/definitions/ArnListType",
+          "description": "The name of the resource that is using the service-linked role."
+        }
+      },
+      "type": "object",
+      "title": "RoleUsageType"
     },
     "SAMLMetadataDocumentType": {
       "maxLength": 10000000,
@@ -5267,7 +5404,7 @@
         },
         "PasswordLastUsed": {
           "$ref": "#/definitions/dateType",
-          "description": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Credential Reports</a> topic in the <i>Using IAM</i> guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. This field is null (not present) when:</p> <ul> <li> <p>The user does not have a password</p> </li> <li> <p>The password exists but has never been used (at least not since IAM started tracking this information on October 20th, 2014</p> </li> <li> <p>there is no sign-in data associated with the user</p> </li> </ul> <p>This value is returned only in the <a>GetUser</a> and <a>ListUsers</a> actions. </p>"
+          "description": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <a href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Credential Reports</a> topic in the <i>Using IAM</i> guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:</p> <ul> <li> <p>The user never had a password.</p> </li> <li> <p>A password exists but has not been used since IAM started tracking this information on October 20th, 2014.</p> </li> </ul> <p>A null does not mean that the user <i>never</i> had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used.</p> <p>This value is returned only in the <a>GetUser</a> and <a>ListUsers</a> actions. </p>"
         },
         "Path": {
           "$ref": "#/definitions/pathType",
@@ -5361,7 +5498,7 @@
       "title": "VirtualMFADevice"
     },
     "accessKeyIdType": {
-      "maxLength": 32,
+      "maxLength": 128,
       "minLength": 16,
       "pattern": "[\\w]+",
       "type": "string",
@@ -5574,7 +5711,7 @@
       "title": "groupNameType"
     },
     "idType": {
-      "maxLength": 32,
+      "maxLength": 128,
       "minLength": 16,
       "pattern": "[\\w]+",
       "type": "string",
@@ -5751,6 +5888,10 @@
       "pattern": "[\\w+=,.@-]+",
       "type": "string",
       "title": "policyNameType"
+    },
+    "policyNotAttachableMessage": {
+      "type": "string",
+      "title": "policyNotAttachableMessage"
     },
     "policyPathType": {
       "pattern": "((/[A-Za-z0-9\\.,\\+@=_-]+)*)/",
@@ -6764,6 +6905,28 @@
       }
     },
     {
+      "id": "DeleteServiceLinkedRole",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteServiceLinkedRoleRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteServiceLinkedRoleResponse"
+      },
+      "security": {
+        "amazonaws_iam": {
+          "integration": "amazonaws_iam"
+        }
+      }
+    },
+    {
       "id": "DeleteServiceSpecificCredential",
       "title": "",
       "description": "",
@@ -7370,6 +7533,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetServerCertificateResponse"
+      },
+      "security": {
+        "amazonaws_iam": {
+          "integration": "amazonaws_iam"
+        }
+      }
+    },
+    {
+      "id": "GetServiceLinkedRoleDeletionStatus",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetServiceLinkedRoleDeletionStatusRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetServiceLinkedRoleDeletionStatusResponse"
       },
       "security": {
         "amazonaws_iam": {

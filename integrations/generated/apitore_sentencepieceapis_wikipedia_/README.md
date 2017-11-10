@@ -11,7 +11,7 @@ npm install --save datafire @datafire/apitore_sentencepieceapis_wikipedia_
 let datafire = require('datafire');
 let apitore_sentencepieceapis_wikipedia_ = require('@datafire/apitore_sentencepieceapis_wikipedia_').create();
 
-apitore_sentencepieceapis_wikipedia_.getUsingGET({}).then(data => {
+apitore_sentencepieceapis_wikipedia_.getUsingGET_1({}).then(data => {
   console.log(data);
 })
 ```
@@ -20,12 +20,12 @@ apitore_sentencepieceapis_wikipedia_.getUsingGET({}).then(data => {
 SentencePiece tokenizer (wikipedia).<BR />[Endpoint] https://api.apitore.com/api/37
 
 ## Actions
-### getUsingGET
+### getUsingGET_1
 SentencePiece (bpe).<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response">sentencepiece-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity<BR />
 
 
 ```js
-apitore_sentencepieceapis_wikipedia_.getUsingGET({
+apitore_sentencepieceapis_wikipedia_.getUsingGET_1({
   "access_token": "",
   "text": ""
 }, context)
@@ -35,12 +35,12 @@ apitore_sentencepieceapis_wikipedia_.getUsingGET({
 * access_token (string) **required** - Access Token
 * text (string) **required** - Text [up to 400 characters]
 
-### getUsingGET_1
+### getUsingGET_2
 SentencePiece (unigram).<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/sentencepiece-response">sentencepiece-response</a><BR />&nbsp; Class: com.apitore.banana.response.com.atilika.sentencepiece.SentencePieceTokenResponseEntity<BR />
 
 
 ```js
-apitore_sentencepieceapis_wikipedia_.getUsingGET_1({
+apitore_sentencepieceapis_wikipedia_.getUsingGET_2({
   "access_token": "",
   "text": ""
 }, context)

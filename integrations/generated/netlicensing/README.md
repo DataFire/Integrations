@@ -21,7 +21,7 @@ netlicensing.listLicenses({}).then(data => {
 ```
 
 ## Description
-The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing RESTful API</a> gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='http://netlicensing.io' target='_blank'>netlicensing.io</a>
+The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing RESTful API</a> gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='https://netlicensing.io' target='_blank'>netlicensing.io</a>
 
 ## Actions
 ### listLicenses
@@ -136,6 +136,8 @@ netlicensing.createLicensee({
 * productNumber (string) **required** - productNumber to assign new licensee object
 * name (string)
 * active (boolean) **required** - If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled
+* licenseeSecret (string) - Licensee Secret for licensee.
+* markedForTransfer (boolean) - Mark licensee for transfer.
 
 ### deleteLicensee
 Delete a licensee by number
@@ -179,6 +181,23 @@ netlicensing.updateLicensee({
 * number (string) - New licensee number (update).
 * active (boolean) - If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled
 * name (string)
+* licenseeSecret (string) - Licensee Secret for licensee.
+* markedForTransfer (boolean) - Mark licensee for transfer.
+
+### transferLicenses
+Licenses transfer between licensees
+
+
+```js
+netlicensing.transferLicenses({
+  "licenseeNumber": "",
+  "sourceLicenseeNumber": ""
+}, context)
+```
+
+#### Parameters
+* licenseeNumber (string) **required** - Licensee number with a maximum length of 1000 characters
+* sourceLicenseeNumber (string) **required** - Licensee number which licenses to be transferred
 
 ### validateLicensee
 Validates active licenses of the licensee
@@ -194,6 +213,7 @@ netlicensing.validateLicensee({
 * licenseeNumber (string) **required** - Licensee number with a maximum length of 1000 characters
 * productNumber (string) - Product number, must be provided when 'licensee auto-create' is enabled (see also Product JavaDoc). Identifies the product to which new licensee should be added
 * licenseeName (string) - Human-readable name for the auto-created licensee (will be set as custom Licensee property)
+* licenseeSecret (string) - Licensee Secret key for licensee
 
 ### listLicenseTemplates
 Return a list of all license templates for the current vendor
@@ -355,6 +375,8 @@ netlicensing.createProduct({
 * licenseeAutoCreate (boolean) - If set to 'true', non-existing licensees will be created at first validation attempt.
 * description (string) - Product description.
 * licensingInfo (string) - Licensing information.
+* licenseeSecretMode (string) - Licensee secret mode for product. Supported types: DISABLED, PREDEFINED, CLIENT
+* vatMode (string) - Vat mode for product. Supported types: GROSS, NET
 
 ### deleteProduct
 Delete a product by number
@@ -402,6 +424,8 @@ netlicensing.updateProduct({
 * licenseeAutoCreate (boolean) - If set to 'true', non-existing licensees will be created at first validation attempt.
 * description (string) - Product description.
 * licensingInfo (string) - Licensing information.
+* licenseeSecretMode (string) - Licensee secret mode for product. Supported types: DISABLED, PREDEFINED, CLIENT
+* vatMode (string) - Vat mode for product. Supported types: GROSS, NET
 
 ### listProductModules
 Return a list of all product modules for the current vendor

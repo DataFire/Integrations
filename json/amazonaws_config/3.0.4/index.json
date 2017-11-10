@@ -15,7 +15,7 @@
   "logo": {
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.svg"
   },
-  "actionCount": 26,
+  "actionCount": 27,
   "definitions": {
     "ARN": {
       "type": "string",
@@ -36,6 +36,12 @@
     "AwsRegion": {
       "type": "string",
       "title": "AwsRegion"
+    },
+    "BaseResourceId": {
+      "maxLength": 768,
+      "minLength": 1,
+      "type": "string",
+      "title": "BaseResourceId"
     },
     "Boolean": {
       "type": "boolean",
@@ -100,7 +106,7 @@
           "description": "Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it."
         },
         "ResourceId": {
-          "$ref": "#/definitions/StringWithCharLimit256",
+          "$ref": "#/definitions/BaseResourceId",
           "description": "The ID of the AWS resource that was evaluated."
         },
         "ResourceType": {
@@ -203,7 +209,7 @@
       "title": "ComplianceTypes"
     },
     "ConfigExportDeliveryInfo": {
-      "description": "A list that contains the status of the delivery of either the snapshot or the configuration history to the specified Amazon S3 bucket.",
+      "description": "Provides status of the delivery of the snapshot or the configuration history to the specified Amazon S3 bucket. Also provides the status of notifications about the Amazon S3 delivery to the specified Amazon SNS topic.",
       "properties": {
         "lastAttemptTime": {
           "$ref": "#/definitions/Date",
@@ -811,7 +817,7 @@
           "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
         },
         "ResourceId": {
-          "$ref": "#/definitions/StringWithCharLimit256",
+          "$ref": "#/definitions/BaseResourceId",
           "description": "The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for <code>ResourceType</code>."
         },
         "ResourceType": {
@@ -1008,7 +1014,7 @@
           "description": "Supplementary information about how the evaluation determined the compliance."
         },
         "ComplianceResourceId": {
-          "$ref": "#/definitions/StringWithCharLimit256",
+          "$ref": "#/definitions/BaseResourceId",
           "description": "The ID of the AWS resource that was evaluated."
         },
         "ComplianceResourceType": {
@@ -1087,7 +1093,7 @@
           "description": "The name of the AWS Config rule that was used in the evaluation."
         },
         "ResourceId": {
-          "$ref": "#/definitions/StringWithCharLimit256",
+          "$ref": "#/definitions/BaseResourceId",
           "description": "The ID of the evaluated AWS resource."
         },
         "ResourceType": {
@@ -1174,7 +1180,7 @@
           "description": "The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
         },
         "ResourceId": {
-          "$ref": "#/definitions/StringWithCharLimit256",
+          "$ref": "#/definitions/BaseResourceId",
           "description": "The ID of the AWS resource for which you want compliance information."
         },
         "ResourceType": {
@@ -1236,6 +1242,42 @@
       },
       "type": "object",
       "title": "GetComplianceSummaryByResourceTypeResponse"
+    },
+    "GetDiscoveredResourceCountsRequest": {
+      "properties": {
+        "limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of <a>ResourceCount</a> objects returned on each page. The default is 100. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response."
+        },
+        "resourceTypes": {
+          "$ref": "#/definitions/ResourceTypes",
+          "description": "<p>The comma-separated list that specifies the resource types that you want the AWS Config to return. For example, (<code>\"AWS::EC2::Instance\"</code>, <code>\"AWS::IAM::User\"</code>).</p> <p>If a value for <code>resourceTypes</code> is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.</p> <note> <p>If the configuration recorder is turned off, AWS Config returns an empty list of <a>ResourceCount</a> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <a>ResourceCount</a> objects.</p> </note>"
+        }
+      },
+      "type": "object",
+      "title": "GetDiscoveredResourceCountsRequest"
+    },
+    "GetDiscoveredResourceCountsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The string that you use in a subsequent request to get the next page of results in a paginated response."
+        },
+        "resourceCounts": {
+          "$ref": "#/definitions/ResourceCounts",
+          "description": "The list of <code>ResourceCount</code> objects. Each object is listed in descending order by the number of resources."
+        },
+        "totalDiscoveredResources": {
+          "$ref": "#/definitions/Long",
+          "description": "<p>The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types.</p> <p class=\"title\"> <b>Example</b> </p> <ol> <li> <p>AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.</p> </li> <li> <p>You make a call to the <code>GetDiscoveredResourceCounts</code> action and specify the resource type, <code>\"AWS::EC2::Instances\"</code> in the request.</p> </li> <li> <p>AWS Config returns 25 for <code>totalDiscoveredResources</code>.</p> </li> </ol>"
+        }
+      },
+      "type": "object",
+      "title": "GetDiscoveredResourceCountsResponse"
     },
     "GetResourceConfigHistoryRequest": {
       "description": "The input for the <a>GetResourceConfigHistory</a> action.",
@@ -1448,6 +1490,10 @@
       },
       "type": "object",
       "title": "ListDiscoveredResourcesResponse"
+    },
+    "Long": {
+      "type": "integer",
+      "title": "Long"
     },
     "MaxNumberOfConfigRulesExceededException": {
       "description": "Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before adding new rules.",
@@ -1713,6 +1759,28 @@
       "type": "string",
       "title": "RelationshipName"
     },
+    "ResourceCount": {
+      "description": "An object that contains the resource type and the number of resources.",
+      "properties": {
+        "count": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of resources."
+        },
+        "resourceType": {
+          "$ref": "#/definitions/ResourceType",
+          "description": "The resource type, for example <code>\"AWS::EC2::Instance\"</code>."
+        }
+      },
+      "type": "object",
+      "title": "ResourceCount"
+    },
+    "ResourceCounts": {
+      "items": {
+        "$ref": "#/definitions/ResourceCount"
+      },
+      "type": "array",
+      "title": "ResourceCounts"
+    },
     "ResourceCreationTime": {
       "format": "date-time",
       "type": "string",
@@ -1815,7 +1883,15 @@
         "AWS::Redshift::ClusterParameterGroup",
         "AWS::Redshift::ClusterSecurityGroup",
         "AWS::Redshift::ClusterSubnetGroup",
-        "AWS::Redshift::EventSubscription"
+        "AWS::Redshift::EventSubscription",
+        "AWS::CloudWatch::Alarm",
+        "AWS::CloudFormation::Stack",
+        "AWS::DynamoDB::Table",
+        "AWS::AutoScaling::AutoScalingGroup",
+        "AWS::AutoScaling::LaunchConfiguration",
+        "AWS::AutoScaling::ScalingPolicy",
+        "AWS::AutoScaling::ScheduledAction",
+        "AWS::CodeBuild::Project"
       ],
       "type": "string",
       "title": "ResourceType"
@@ -1846,7 +1922,7 @@
       "description": "Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.",
       "properties": {
         "ComplianceResourceId": {
-          "$ref": "#/definitions/StringWithCharLimit256",
+          "$ref": "#/definitions/BaseResourceId",
           "description": "The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>."
         },
         "ComplianceResourceTypes": {
@@ -1855,7 +1931,7 @@
         },
         "TagKey": {
           "$ref": "#/definitions/StringWithCharLimit128",
-          "description": "The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule."
+          "description": "The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule."
         },
         "TagValue": {
           "$ref": "#/definitions/StringWithCharLimit256",
@@ -1878,7 +1954,7 @@
         },
         "SourceIdentifier": {
           "$ref": "#/definitions/StringWithCharLimit256",
-          "description": "<p>For AWS Config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">Using AWS Managed Config Rules</a>.</p> <p>For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as <code>arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name</code>.</p>"
+          "description": "<p>For AWS Config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see <a href=\"http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">Using AWS Managed Config Rules</a>.</p> <p>For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>"
         }
       },
       "required": [
@@ -2399,6 +2475,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetComplianceSummaryByResourceTypeResponse"
+      },
+      "security": {
+        "amazonaws_config": {
+          "integration": "amazonaws_config"
+        }
+      }
+    },
+    {
+      "id": "GetDiscoveredResourceCounts",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetDiscoveredResourceCountsRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDiscoveredResourceCountsResponse"
       },
       "security": {
         "amazonaws_config": {

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/circuitsandbox",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "index.js",
   "description": "DataFire integration for REST API Version 2",
   "repository": {
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/circuitsandbox.net/2.9.31/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/circuitsandbox.net/2.9.43/swagger.json",
     "type": "openapi"
   },
   "peerDependencies": {

@@ -9,7 +9,9 @@
     "description": "Return synonymous words. (equal to \"word2vec distance\")<BR />[Endpoint] https://api.apitore.com/api/9",
     "title": "Synonym APIs",
     "version": "1.0.1",
-    "x-description-language": "jp",
+    "x-apisguru-categories": [
+      "text"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_9.jpg"
     },

@@ -10,6 +10,9 @@
     "description": "Icons for Everything",
     "title": "The Noun Project",
     "version": "1.0.0",
+    "x-apisguru-categories": [
+      "media"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
     },
@@ -17,7 +20,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "swagger",
         "url": "http://api.thenounproject.com/config/api-doc",

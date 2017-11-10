@@ -61,6 +61,287 @@
       "Token in Access-Token header": []
     }
   ],
+  "parameters": {
+    "accountId": {
+      "description": "Unique identifier of an *Account*.",
+      "in": "path",
+      "name": "accountId",
+      "required": true,
+      "type": "string"
+    },
+    "action": {
+      "description": "Identifier of an *Action* inside a *Functionality*.",
+      "in": "path",
+      "name": "action",
+      "required": true,
+      "type": "string"
+    },
+    "attributeName": {
+      "description": "Identifier of an *Attribute* inside a *Functionality*.",
+      "in": "path",
+      "name": "attributeName",
+      "required": true,
+      "type": "string"
+    },
+    "attributesNames": {
+      "collectionFormat": "csv",
+      "description": "One or multiple *Attribute* names separated by commas",
+      "in": "query",
+      "items": {
+        "type": "string"
+      },
+      "name": "names",
+      "required": false,
+      "type": "array"
+    },
+    "busId": {
+      "description": "Unique identifier of a *Bus*.",
+      "in": "path",
+      "name": "busId",
+      "required": true,
+      "type": "string"
+    },
+    "deviceId": {
+      "description": "Unique identifier of a *Device*.",
+      "in": "path",
+      "name": "deviceId",
+      "required": true,
+      "type": "string"
+    },
+    "devicesSelector.Opt": {
+      "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
+      "in": "query",
+      "name": "devices",
+      "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
+      "required": false,
+      "type": "string"
+    },
+    "devicesSelector.Req": {
+      "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
+      "in": "query",
+      "name": "devices",
+      "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
+      "required": true,
+      "type": "string"
+    },
+    "embedMetadata": {
+      "collectionFormat": "csv",
+      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
+      "in": "query",
+      "items": {
+        "type": "string"
+      },
+      "name": "embed-metadata",
+      "required": false,
+      "type": "array"
+    },
+    "from.Opt": {
+      "description": "Beginning of the time interval.",
+      "format": "date-time",
+      "in": "query",
+      "name": "from",
+      "required": false,
+      "type": "string"
+    },
+    "from.Req": {
+      "description": "Beginning of the time interval.",
+      "format": "date-time",
+      "in": "query",
+      "name": "from",
+      "required": true,
+      "type": "string"
+    },
+    "functionalitiesSelector.Opt": {
+      "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
+      "in": "query",
+      "name": "functionalities",
+      "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
+      "required": false,
+      "type": "string"
+    },
+    "functionalitiesSelector.Req": {
+      "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
+      "in": "query",
+      "name": "functionalities",
+      "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
+      "required": true,
+      "type": "string"
+    },
+    "functionalityId": {
+      "description": "Unique identifier of a *Functionality*.",
+      "in": "path",
+      "name": "functionalityId",
+      "required": true,
+      "type": "string"
+    },
+    "metadataPatch": {
+      "description": "Modifications to apply to the metadata of the resource.\n",
+      "in": "body",
+      "name": "metadataPatch",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/MetadataPatch"
+      }
+    },
+    "notificationId": {
+      "description": "Unique identifier of a *Notification*.",
+      "in": "path",
+      "name": "notificationId",
+      "required": true,
+      "type": "string"
+    },
+    "placeId": {
+      "description": "Unique identifier of a *Place*.",
+      "in": "path",
+      "name": "placeId",
+      "required": true,
+      "type": "string"
+    },
+    "programId": {
+      "description": "Unique identifier of a *Program*.",
+      "in": "path",
+      "name": "programId",
+      "required": true,
+      "type": "string"
+    },
+    "span.Req": {
+      "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
+      "enum": [
+        "H",
+        "D",
+        "Wmo",
+        "Wsu",
+        "M",
+        "Y"
+      ],
+      "in": "query",
+      "name": "span",
+      "required": true,
+      "type": "string"
+    },
+    "tagsPatch": {
+      "description": "Modifications to apply to the tags list of the resource.\n",
+      "in": "body",
+      "name": "tagsPatch",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/TagsPatch"
+      }
+    },
+    "to": {
+      "description": "End of the interval. Default: now.\n",
+      "format": "date-time",
+      "in": "query",
+      "name": "to",
+      "required": false,
+      "type": "string"
+    },
+    "tokenId": {
+      "description": "Identifier of the token",
+      "in": "path",
+      "name": "tokenId",
+      "required": true,
+      "type": "string"
+    },
+    "userId": {
+      "description": "Unique identifier of a *User*.",
+      "in": "path",
+      "name": "userId",
+      "required": true,
+      "type": "string"
+    },
+    "when.Req": {
+      "description": "A time part of the time span.",
+      "format": "date-time",
+      "in": "query",
+      "name": "when",
+      "required": true,
+      "type": "string"
+    }
+  },
+  "responses": {
+    "ActionMultiResultOK": {
+      "description": "Successful.",
+      "schema": {
+        "$ref": "#/definitions/ActionMultiResult"
+      }
+    },
+    "DefaultError": {
+      "description": "Other error.",
+      "schema": {
+        "$ref": "#/definitions/DefaultError"
+      }
+    },
+    "DeleteOK": {
+      "description": "Resource successfully deleted."
+    },
+    "ErrorAccessAccount": {
+      "description": "The authentication token doesn't allow to modify the *Account*.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorAccessBus": {
+      "description": "*Bus* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorSubEntity"
+      }
+    },
+    "ErrorAccessDevice": {
+      "description": "*Device* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorAccessFunctionality": {
+      "description": "*Functionality* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorAccessNotification": {
+      "description": "*Notification* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorAccessPlace": {
+      "description": "*Place* doesn't exist or the requester doesn't have access.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorAccessProgram": {
+      "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorAccessUser": {
+      "description": "*User* doesn't exist in this *Account* or the requester doesn't have access to a *Place* on which this *User* has access.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorEntity"
+      }
+    },
+    "ErrorGatewayUnreachable": {
+      "description": "The gateway of the Place is not reachable.",
+      "schema": {
+        "$ref": "#/definitions/ErrorGatewayUnreachable"
+      }
+    },
+    "ErrorWriteAttribute": {
+      "description": "*Attribute* is not writable.\n",
+      "schema": {
+        "$ref": "#/definitions/ErrorSubEntity"
+      }
+    },
+    "PatchNotModified": {
+      "description": "Successful, but nothing changed."
+    },
+    "PatchOK": {
+      "description": "Modification successful."
+    }
+  },
   "tags": [
     {
       "name": "Entry points"
@@ -117,16 +398,10 @@
             "description": "Change successful."
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Change the password",
@@ -151,10 +426,7 @@
             }
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           }
         },
         "summary": "List Places of the Account",
@@ -162,8 +434,9 @@
           "Account"
         ]
       },
+      "parameters": [],
       "post": {
-        "description": "Create a new *Place*.\n\n**Note:** requires full access to the *Account*.\n",
+        "description": "Create a new *Place*.\n\nA *Device* (`class`: `MINT`, `address`: `0`) is automatically created and attached to the new *Place*.\n\n**Note:** requires full access to the *Account*.\n",
         "operationId": "Account.newPlace",
         "parameters": [
           {
@@ -188,16 +461,10 @@
             }
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Create a Place",
@@ -222,59 +489,44 @@
             }
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List active Tokens of the Account",
         "tags": [
           "Account"
         ]
-      }
+      },
+      "parameters": []
     },
     "/account/tokens/{tokenId}": {
       "delete": {
         "description": "Revoke the given *Token*.\n\n**Note:** requires full access to the *Account*.\n",
         "operationId": "Account.revokeToken",
-        "parameters": [
-          {
-            "description": "Identifier of the token",
-            "in": "path",
-            "name": "tokenId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "204": {
-            "description": "Resource successfully deleted."
+            "$ref": "#/responses/DeleteOK"
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Revoke a Token",
         "tags": [
           "Account"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/tokenId"
+        }
+      ]
     },
     "/account/users": {
       "get": {
@@ -282,15 +534,7 @@
         "operationId": "Account.users",
         "parameters": [
           {
-            "collectionFormat": "csv",
-            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "embed-metadata",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/embedMetadata"
           }
         ],
         "responses": {
@@ -310,6 +554,7 @@
           "Account"
         ]
       },
+      "parameters": [],
       "post": {
         "description": "Add a *User*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Account.newUser",
@@ -337,16 +582,10 @@
             }
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "New User",
@@ -359,30 +598,15 @@
       "delete": {
         "description": "Delete a *User* from this *Account*, and revoke all his/her *Tokens*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Account.deleteUser",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *User*.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "204": {
-            "description": "Resource successfully deleted."
+            "$ref": "#/responses/DeleteOK"
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Delete a User",
@@ -393,15 +617,6 @@
       "get": {
         "description": "Get information about a *User* in the same *Account*.",
         "operationId": "Account.getUser",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *User*.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "*User* information.\n",
@@ -410,10 +625,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Information about a User",
@@ -421,17 +633,15 @@
           "Account"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/userId"
+        }
+      ],
       "patch": {
         "description": "Modify a *User*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Account.patchUser",
         "parameters": [
-          {
-            "description": "Unique identifier of a *User*.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "userPatch",
@@ -443,22 +653,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify a User",
@@ -471,15 +675,6 @@
       "get": {
         "description": "Get the metadata.",
         "operationId": "User.getMetadata",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *User*.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -488,10 +683,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List metadata",
@@ -499,25 +691,17 @@
           "Account"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/userId"
+        }
+      ],
       "patch": {
         "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
         "operationId": "User.patchMetadata",
         "parameters": [
           {
-            "description": "Unique identifier of a *User*.",
-            "in": "path",
-            "name": "userId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the metadata of the resource.\n",
-            "in": "body",
-            "name": "metadataPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MetadataPatch"
-            }
+            "$ref": "#/parameters/metadataPatch"
           }
         ],
         "responses": {
@@ -528,19 +712,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*User* doesn't exist in this *Account* or the requester doesn't have access to a *Place* on which this *User* has access.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessUser"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify metadata",
@@ -578,10 +756,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "security": [],
@@ -621,10 +796,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "security": [],
@@ -654,10 +826,7 @@
             "description": "As this request is not authenticated, response is always successful to not reveal (in)existence of accounts."
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "security": [],
@@ -682,10 +851,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Revoke a token",
@@ -698,15 +864,6 @@
       "get": {
         "description": "Get information about a *Device*.",
         "operationId": "Devices.get",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -715,10 +872,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Information about a Device",
@@ -726,17 +880,15 @@
           "Device"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/deviceId"
+        }
+      ],
       "patch": {
         "description": "Modify information about a *Device*: its name.\n",
         "operationId": "Devices.patch",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "devicePatch",
@@ -748,22 +900,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Device* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessDevice"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Update a Device",
@@ -778,11 +924,7 @@
         "operationId": "Device.addFunctionality",
         "parameters": [
           {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/deviceId"
           },
           {
             "in": "body",
@@ -807,16 +949,10 @@
             }
           },
           "403": {
-            "description": "*Device* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessDevice"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Add dynamically a functionality",
@@ -830,15 +966,6 @@
       "get": {
         "description": "Get the metadata.",
         "operationId": "Device.getMetadata",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -847,10 +974,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List metadata",
@@ -858,25 +982,17 @@
           "Device"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/deviceId"
+        }
+      ],
       "patch": {
         "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
         "operationId": "Device.patchMetadata",
         "parameters": [
           {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the metadata of the resource.\n",
-            "in": "body",
-            "name": "metadataPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MetadataPatch"
-            }
+            "$ref": "#/parameters/metadataPatch"
           }
         ],
         "responses": {
@@ -887,19 +1003,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Device* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessDevice"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify metadata",
@@ -914,26 +1024,13 @@
         "operationId": "Device.run",
         "parameters": [
           {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/deviceId"
           },
           {
-            "description": "Identifier of an *Action* inside a *Functionality*.",
-            "in": "path",
-            "name": "action",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/action"
           },
           {
-            "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
-            "in": "query",
-            "name": "functionalities",
-            "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/functionalitiesSelector.Req"
           },
           {
             "in": "body",
@@ -946,22 +1043,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/ActionMultiResult"
-            }
+            "$ref": "#/responses/ActionMultiResultOK"
           },
           "450": {
-            "description": "The gateway of the Place is not reachable.",
-            "schema": {
-              "$ref": "#/definitions/ErrorGatewayUnreachable"
-            }
+            "$ref": "#/responses/ErrorGatewayUnreachable"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Run actions",
@@ -974,15 +1062,6 @@
       "get": {
         "description": "Get the tags of a *Device*.",
         "operationId": "Device.getTags",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -991,10 +1070,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List tags",
@@ -1002,25 +1078,17 @@
           "Device"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/deviceId"
+        }
+      ],
       "patch": {
         "description": "Modify the tags of a *Device*.",
         "operationId": "Device.patchTags",
         "parameters": [
           {
-            "description": "Unique identifier of a *Device*.",
-            "in": "path",
-            "name": "deviceId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the tags list of the resource.\n",
-            "in": "body",
-            "name": "tagsPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/TagsPatch"
-            }
+            "$ref": "#/parameters/tagsPatch"
           }
         ],
         "responses": {
@@ -1031,19 +1099,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Device* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessDevice"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify tags",
@@ -1056,15 +1118,6 @@
       "get": {
         "description": "Get the *Functionality*.",
         "operationId": "Functionalities.get",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -1073,10 +1126,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Information about a Functionality",
@@ -1084,17 +1134,15 @@
           "Functionality"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/functionalityId"
+        }
+      ],
       "patch": {
         "description": "Modify information about a *Functionality*: its name.\n",
         "operationId": "Functionality.patch",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "functionalityPatch",
@@ -1106,22 +1154,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Functionality* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessFunctionality"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify a Functionality",
@@ -1132,42 +1174,24 @@
     },
     "/functionalities/{functionalityId}/attributes": {
       "get": {
-        "description": "Get the values of multiple *Attributes* and their history.\n\nIf the `names` parameter is not given, all the attributes of the *Functionality*\nare returned. As the list may be huge, this must be avoided.\n\nIf the `to` parameter is set, `from` must also be set.\n\nIf `from` is not set, only the last value is returned.\n\nThe request may fail if too many values are asked.\n",
+        "description": "Get the values of multiple *Attributes* and their history.\n\nIf the `names` parameter is not given, all the attributes of the *Functionality*\nare returned. As the list may be huge, this must be avoided.\n\nIf the `to` parameter is set, `from` must also be set.\n\nIf `from` is not set, only the last value is returned.\n\nThe `surround` parameter allows to ask also for one value beyond each interval boundaries.\n\nThe request may fail if too many values are asked.\n",
         "operationId": "Functionality.values",
         "parameters": [
           {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/attributesNames"
           },
           {
-            "collectionFormat": "csv",
-            "description": "One or multiple *Attribute* names separated by commas",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "names",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/from.Opt"
           },
           {
-            "description": "Beginning of the time interval.",
-            "format": "date-time",
-            "in": "query",
-            "name": "from",
-            "required": false,
-            "type": "string"
+            "$ref": "#/parameters/to"
           },
           {
-            "description": "End of the interval. Default: now.\n",
-            "format": "date-time",
+            "description": "If true, return also one value before from and one value after to",
             "in": "query",
-            "name": "to",
+            "name": "surround",
             "required": false,
-            "type": "string"
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -1178,38 +1202,24 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Get history of multiple attributes",
         "tags": [
           "Functionality"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/functionalityId"
+        }
+      ]
     },
     "/functionalities/{functionalityId}/attributes/{attributeName}": {
       "get": {
         "description": "Get the *Attribute* value and the last time when it changed.",
         "operationId": "Functionality.value",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Identifier of an *Attribute* inside a *Functionality*.",
-            "in": "path",
-            "name": "attributeName",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -1221,10 +1231,7 @@
             "description": "No value has yet been set on this attribute."
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Get an Attribute value",
@@ -1232,24 +1239,18 @@
           "Functionality"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/functionalityId"
+        },
+        {
+          "$ref": "#/parameters/attributeName"
+        }
+      ],
       "put": {
         "description": "Modify the value of the *Attribute*.",
         "operationId": "Functionality.set",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Identifier of an *Attribute* inside a *Functionality*.",
-            "in": "path",
-            "name": "attributeName",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "New value for the *Attribute*.",
             "in": "body",
@@ -1265,16 +1266,10 @@
             "description": "Successful."
           },
           "405": {
-            "description": "*Attribute* is not writable.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorSubEntity"
-            }
+            "$ref": "#/responses/ErrorWriteAttribute"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify an Attribute value",
@@ -1287,15 +1282,6 @@
       "get": {
         "description": "Get the metadata.",
         "operationId": "Functionality.getMetadata",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -1304,10 +1290,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List metadata",
@@ -1315,25 +1298,17 @@
           "Functionality"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/functionalityId"
+        }
+      ],
       "patch": {
         "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
         "operationId": "Functionality.patchMetadata",
         "parameters": [
           {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the metadata of the resource.\n",
-            "in": "body",
-            "name": "metadataPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MetadataPatch"
-            }
+            "$ref": "#/parameters/metadataPatch"
           }
         ],
         "responses": {
@@ -1344,19 +1319,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Functionality* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessFunctionality"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify metadata",
@@ -1371,18 +1340,10 @@
         "operationId": "Functionality.run",
         "parameters": [
           {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/functionalityId"
           },
           {
-            "description": "Identifier of an *Action* inside a *Functionality*.",
-            "in": "path",
-            "name": "action",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/action"
           },
           {
             "in": "body",
@@ -1401,16 +1362,10 @@
             }
           },
           "450": {
-            "description": "The gateway of the Place is not reachable.",
-            "schema": {
-              "$ref": "#/definitions/ErrorGatewayUnreachable"
-            }
+            "$ref": "#/responses/ErrorGatewayUnreachable"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Run an action",
@@ -1423,15 +1378,6 @@
       "get": {
         "description": "Get the tags of a *Functionality*.",
         "operationId": "Functionality.getTags",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -1440,10 +1386,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List tags",
@@ -1451,25 +1394,17 @@
           "Functionality"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/functionalityId"
+        }
+      ],
       "patch": {
         "description": "Modify the tags of a *Functionality*.",
         "operationId": "Functionality.patchTags",
         "parameters": [
           {
-            "description": "Unique identifier of a *Functionality*.",
-            "in": "path",
-            "name": "functionalityId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the tags list of the resource.\n",
-            "in": "body",
-            "name": "tagsPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/TagsPatch"
-            }
+            "$ref": "#/parameters/tagsPatch"
           }
         ],
         "responses": {
@@ -1480,19 +1415,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Functionality* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessFunctionality"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify tags",
@@ -1534,16 +1463,13 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Update User information",
@@ -1556,30 +1482,15 @@
       "delete": {
         "description": "Delete a *Notification*.\n",
         "operationId": "Notification.delete",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Notification*.",
-            "in": "path",
-            "name": "notificationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "204": {
-            "description": "Resource successfully deleted."
+            "$ref": "#/responses/DeleteOK"
           },
           "403": {
-            "description": "*Notification* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessNotification"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Delete a Notification",
@@ -1590,15 +1501,6 @@
       "get": {
         "description": "Get information about a *Notification*.\n",
         "operationId": "Notifications.get",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Notification*.",
-            "in": "path",
-            "name": "notificationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -1607,16 +1509,10 @@
             }
           },
           "403": {
-            "description": "*Notification* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessNotification"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Information about a Notification",
@@ -1624,17 +1520,15 @@
           "Notification"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/notificationId"
+        }
+      ],
       "patch": {
         "description": "Modify a *Notification*.\n",
         "operationId": "Notification.patch",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Notification*.",
-            "in": "path",
-            "name": "notificationId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "notificationPatch",
@@ -1646,22 +1540,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Notification* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessNotification"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify a Notification",
@@ -1674,15 +1562,6 @@
       "get": {
         "description": "Get the metadata of the *Notification*.",
         "operationId": "Notification.getMetadata",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Notification*.",
-            "in": "path",
-            "name": "notificationId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -1691,10 +1570,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List metadata",
@@ -1702,25 +1578,17 @@
           "Notification"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/notificationId"
+        }
+      ],
       "patch": {
         "description": "Modify the metadata of a *Notification*.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
         "operationId": "Notification.patchMetadata",
         "parameters": [
           {
-            "description": "Unique identifier of a *Notification*.",
-            "in": "path",
-            "name": "notificationId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the metadata of the resource.\n",
-            "in": "body",
-            "name": "metadataPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MetadataPatch"
-            }
+            "$ref": "#/parameters/metadataPatch"
           }
         ],
         "responses": {
@@ -1731,19 +1599,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Notification* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessNotification"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify metadata of a Notification",
@@ -1758,15 +1620,7 @@
         "operationId": "Me.places",
         "parameters": [
           {
-            "collectionFormat": "csv",
-            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "embed-metadata",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/embedMetadata"
           }
         ],
         "responses": {
@@ -1791,15 +1645,6 @@
       "get": {
         "description": "Get information about a *Place*.",
         "operationId": "Places.get",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful response.",
@@ -1808,10 +1653,7 @@
             }
           },
           "400": {
-            "description": "*Place* doesn't exist or the requester doesn't have access.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessPlace"
           }
         },
         "summary": "Information about a Place",
@@ -1819,17 +1661,15 @@
           "Place"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ],
       "patch": {
         "description": "Change information about a *Place*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Place.patch",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "placePatch",
@@ -1841,22 +1681,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "The authentication token doesn't allow to modify the *Account*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessAccount"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Update a Place",
@@ -1870,13 +1704,6 @@
         "description": "Get the list of *Buses* available on the gateway of this *Place*.\nIf `withPairing` is `true`, return only buses that allow device pairing (see `/places/{placeId}/buses/{busId}/pairing`).",
         "operationId": "Place.buses",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
           {
             "default": false,
             "description": "Filter out buses that have no pairing window",
@@ -1898,38 +1725,24 @@
             }
           },
           "403": {
-            "description": "*Bus* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorSubEntity"
-            }
+            "$ref": "#/responses/ErrorAccessBus"
           }
         },
         "summary": "List Buses",
         "tags": [
           "Place"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ]
     },
     "/places/{placeId}/buses/{busId}/pairing": {
       "get": {
         "description": "Get the state of the pairing window of the *Bus*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Place.pairing",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Unique identifier of a *Bus*.",
-            "in": "path",
-            "name": "busId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "State information.",
@@ -1938,10 +1751,7 @@
             }
           },
           "403": {
-            "description": "*Bus* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorSubEntity"
-            }
+            "$ref": "#/responses/ErrorAccessBus"
           }
         },
         "summary": "State of the pairing window",
@@ -1949,24 +1759,18 @@
           "Place"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        },
+        {
+          "$ref": "#/parameters/busId"
+        }
+      ],
       "put": {
         "description": "Open/Close the pairing window.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Place.openPairing",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Unique identifier of a *Bus*.",
-            "in": "path",
-            "name": "busId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "pairing",
@@ -1984,16 +1788,10 @@
             }
           },
           "403": {
-            "description": "*Bus* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorSubEntity"
-            }
+            "$ref": "#/responses/ErrorAccessBus"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Open/Close the pairing window",
@@ -2008,30 +1806,10 @@
         "operationId": "Place.devices",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/devicesSelector.Opt"
           },
           {
-            "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
-            "in": "query",
-            "name": "devices",
-            "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "csv",
-            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "embed-metadata",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/embedMetadata"
           }
         ],
         "responses": {
@@ -2046,17 +1824,19 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List of Devices",
         "tags": [
           "Device"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ]
     },
     "/places/{placeId}/electricity/autonomy": {
       "get": {
@@ -2064,34 +1844,10 @@
         "operationId": "Place.Electricity.autonomy",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/when.Req"
           },
           {
-            "description": "A time part of the time span.",
-            "format": "date-time",
-            "in": "query",
-            "name": "when",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
-            "enum": [
-              "H",
-              "D",
-              "Wmo",
-              "Wsu",
-              "M",
-              "Y"
-            ],
-            "in": "query",
-            "name": "span",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/span.Req"
           }
         ],
         "responses": {
@@ -2102,30 +1858,25 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Get autonomy rate of the place",
         "tags": [
           "Electricity"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ]
     },
     "/places/{placeId}/electricity/flows": {
       "get": {
         "description": "Get the mapping of virtual electricity flows to functionalities.\n\nSome rules are applied to expand the virtual flows using the concrete\nflows available.\n\nThe `factor` tells how each energy value coming from a functionality\nmust be added with values from other functionality to compute the\nenergy of the virtual flow. Factors are usually `1` or `-1`.\n\nThe `code` property gives the result which may be partial:\n- If all flows are available, `200000` is returned.\n- If no flows are available (indicating that the place has no\n  electricity functionality or that no functionality has been attached\n  to a flow), the `code` is `200001`. The `missing` property contains\n  all the requested flows.\n- If some flows are missing, the `code` is `200002` and the `missing`\n  property lists them.\n",
         "operationId": "Place.Electricity.getFlows",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
           {
             "collectionFormat": "csv",
             "description": "Names of the flows requested",
@@ -2159,31 +1910,24 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Get electricity virtual flows",
         "tags": [
           "Electricity"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ]
     },
     "/places/{placeId}/electricity/flows/setup": {
       "get": {
         "description": "Get the mapping of functionalities to electricity flows.\n\nA functionality is attached to *at most* one flow.\n",
         "operationId": "Place.Electricity.getFlowsSetup",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -2192,17 +1936,19 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Get electricity flows setup",
         "tags": [
           "Electricity"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ]
     },
     "/places/{placeId}/electricity/self-consumption": {
       "get": {
@@ -2210,34 +1956,10 @@
         "operationId": "Place.Electricity.selfConsumption",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/when.Req"
           },
           {
-            "description": "A time part of the time span.",
-            "format": "date-time",
-            "in": "query",
-            "name": "when",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
-            "enum": [
-              "H",
-              "D",
-              "Wmo",
-              "Wsu",
-              "M",
-              "Y"
-            ],
-            "in": "query",
-            "name": "span",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/span.Req"
           }
         ],
         "responses": {
@@ -2248,17 +1970,19 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Get self-consumption rate of the place",
         "tags": [
           "Electricity"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ]
     },
     "/places/{placeId}/functionalities": {
       "get": {
@@ -2266,38 +1990,7 @@
         "operationId": "Place.functionalities",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
-            "in": "query",
-            "name": "devices",
-            "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
-            "in": "query",
-            "name": "functionalities",
-            "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "csv",
-            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "embed-metadata",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/embedMetadata"
           }
         ],
         "responses": {
@@ -2312,31 +2005,30 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List Functionalities",
         "tags": [
           "Functionality"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        },
+        {
+          "$ref": "#/parameters/devicesSelector.Opt"
+        },
+        {
+          "$ref": "#/parameters/functionalitiesSelector.Opt"
+        }
+      ]
     },
     "/places/{placeId}/metadata": {
       "get": {
         "description": "Get the metadata.",
         "operationId": "Place.getMetadata",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -2345,10 +2037,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List metadata",
@@ -2356,25 +2045,17 @@
           "Place"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ],
       "patch": {
         "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
         "operationId": "Place.patchMetadata",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the metadata of the resource.\n",
-            "in": "body",
-            "name": "metadataPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MetadataPatch"
-            }
+            "$ref": "#/parameters/metadataPatch"
           }
         ],
         "responses": {
@@ -2385,19 +2066,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Place* doesn't exist or the requester doesn't have access.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessPlace"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify metadata",
@@ -2412,22 +2087,7 @@
         "operationId": "Place.notifications",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "csv",
-            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "embed-metadata",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/embedMetadata"
           }
         ],
         "responses": {
@@ -2442,10 +2102,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List Notifications",
@@ -2453,17 +2110,15 @@
           "Notification"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ],
       "post": {
         "description": "Create a new *Notification*.",
         "operationId": "Place.newNotification",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "notification",
@@ -2487,16 +2142,10 @@
             }
           },
           "403": {
-            "description": "*Place* doesn't exist or the requester doesn't have access.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessPlace"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Create a Notification",
@@ -2511,22 +2160,7 @@
         "operationId": "Place.programs",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "collectionFormat": "csv",
-            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n",
-            "in": "query",
-            "items": {
-              "type": "string"
-            },
-            "name": "embed-metadata",
-            "required": false,
-            "type": "array"
+            "$ref": "#/parameters/embedMetadata"
           }
         ],
         "responses": {
@@ -2541,10 +2175,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List Programs",
@@ -2552,17 +2183,15 @@
           "Program"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/placeId"
+        }
+      ],
       "post": {
         "description": "Create a new *Program*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Place.newProgram",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "programInfo",
@@ -2586,16 +2215,10 @@
             }
           },
           "403": {
-            "description": "*Place* doesn't exist or the requester doesn't have access.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessPlace"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Create a Program",
@@ -2610,34 +2233,16 @@
         "operationId": "Place.run",
         "parameters": [
           {
-            "description": "Unique identifier of a *Place*.",
-            "in": "path",
-            "name": "placeId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/placeId"
           },
           {
-            "description": "Identifier of an *Action* inside a *Functionality*.",
-            "in": "path",
-            "name": "action",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/action"
           },
           {
-            "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
-            "in": "query",
-            "name": "devices",
-            "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/devicesSelector.Req"
           },
           {
-            "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
-            "in": "query",
-            "name": "functionalities",
-            "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/functionalitiesSelector.Req"
           },
           {
             "in": "body",
@@ -2650,22 +2255,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful.",
-            "schema": {
-              "$ref": "#/definitions/ActionMultiResult"
-            }
+            "$ref": "#/responses/ActionMultiResultOK"
           },
           "450": {
-            "description": "The gateway of the Place is not reachable.",
-            "schema": {
-              "$ref": "#/definitions/ErrorGatewayUnreachable"
-            }
+            "$ref": "#/responses/ErrorGatewayUnreachable"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Run actions",
@@ -2678,30 +2274,15 @@
       "delete": {
         "description": "Delete a *Program*.\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Program.delete",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "204": {
-            "description": "Resource successfully deleted."
+            "$ref": "#/responses/DeleteOK"
           },
           "403": {
-            "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessProgram"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Delete a Program",
@@ -2712,15 +2293,6 @@
       "get": {
         "description": "Get information about a *Program*.\n",
         "operationId": "Programs.get",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -2729,16 +2301,10 @@
             }
           },
           "403": {
-            "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessProgram"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Information about a Program",
@@ -2746,17 +2312,15 @@
           "Program"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/programId"
+        }
+      ],
       "patch": {
         "description": "Modify a *Program*:\n- name\n- status (enabled/disabled)\n- code\n\n**Note**: requires full access to the *Account*.\n",
         "operationId": "Program.patch",
         "parameters": [
-          {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "body",
             "name": "programPatch",
@@ -2768,22 +2332,16 @@
         ],
         "responses": {
           "204": {
-            "description": "Modification successful."
+            "$ref": "#/responses/PatchOK"
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessProgram"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify a Program",
@@ -2798,27 +2356,10 @@
         "operationId": "Program.log",
         "parameters": [
           {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/from.Req"
           },
           {
-            "description": "Beginning of the time interval.",
-            "format": "date-time",
-            "in": "query",
-            "name": "from",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "End of the interval. Default: now.\n",
-            "format": "date-time",
-            "in": "query",
-            "name": "to",
-            "required": false,
-            "type": "string"
+            "$ref": "#/parameters/to"
           }
         ],
         "responses": {
@@ -2833,37 +2374,27 @@
             }
           },
           "403": {
-            "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessProgram"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "History of executions of a Program",
         "tags": [
           "Program"
         ]
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/programId"
+        }
+      ]
     },
     "/programs/{programId}/metadata": {
       "get": {
         "description": "Get the metadata of the *Program*.",
         "operationId": "Program.getMetadata",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successful.",
@@ -2872,10 +2403,7 @@
             }
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "List metadata",
@@ -2883,25 +2411,17 @@
           "Program"
         ]
       },
+      "parameters": [
+        {
+          "$ref": "#/parameters/programId"
+        }
+      ],
       "patch": {
         "description": "Modify the metadata of a *Program*.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
         "operationId": "Program.patchMetadata",
         "parameters": [
           {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Modifications to apply to the metadata of the resource.\n",
-            "in": "body",
-            "name": "metadataPatch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MetadataPatch"
-            }
+            "$ref": "#/parameters/metadataPatch"
           }
         ],
         "responses": {
@@ -2912,19 +2432,13 @@
             }
           },
           "304": {
-            "description": "Successful, but nothing changed."
+            "$ref": "#/responses/PatchNotModified"
           },
           "403": {
-            "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessProgram"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Modify metadata of a Program",
@@ -2934,33 +2448,23 @@
       }
     },
     "/programs/{programId}/run": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/programId"
+        }
+      ],
       "post": {
         "description": "Launch the *Program*.\nThe result will be available later in the run history.",
         "operationId": "Program.run",
-        "parameters": [
-          {
-            "description": "Unique identifier of a *Program*.",
-            "in": "path",
-            "name": "programId",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
           "204": {
             "description": "*Program* successfully launched."
           },
           "403": {
-            "description": "*Program* doesn't exist or the requester doesn't have appropriate access to the *Place*.\n",
-            "schema": {
-              "$ref": "#/definitions/ErrorEntity"
-            }
+            "$ref": "#/responses/ErrorAccessProgram"
           },
           "default": {
-            "description": "Other error.",
-            "schema": {
-              "$ref": "#/definitions/DefaultError"
-            }
+            "$ref": "#/responses/DefaultError"
           }
         },
         "summary": "Run the Program",
@@ -3297,6 +2801,17 @@
         "address": {
           "$ref": "#/definitions/DeviceAddress"
         },
+        "attributes": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/definitions/AnyJSON"
+            },
+            "description": "Each key is an attribute name",
+            "type": "object"
+          },
+          "description": "Each key is <FunctionalityClass>@<Endpoint>",
+          "type": "object"
+        },
         "class": {
           "$ref": "#/definitions/DeviceClass"
         },
@@ -3325,6 +2840,7 @@
         },
         "name": {
           "description": "Name of the device. User defined.",
+          "minLength": 2,
           "type": "string"
         },
         "place": {
@@ -3360,14 +2876,12 @@
     "DeviceAddress": {
       "minLength": 1,
       "pattern": "^[A-Z0-9]{1,32}$",
-      "readOnly": true,
       "type": "string"
     },
     "DeviceClass": {
       "maxLength": 4,
       "minLength": 4,
       "pattern": "^[A-Z][A-Z0-9]{3}$",
-      "readOnly": true,
       "type": "string"
     },
     "DeviceId": {
@@ -3437,6 +2951,7 @@
       "properties": {
         "name": {
           "description": "Name of the *Device* as defined by the user. Can be used for user interfaces.",
+          "minLength": 2,
           "type": "string"
         }
       },
@@ -3445,7 +2960,7 @@
     "DeviceTag": {
       "maxLength": 21,
       "minLength": 1,
-      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "pattern": "^[a-z](?:[a-z0-9_]{0,20}|[a-z0-9_]:[a-z0-9_]{1,18}|[a-z0-9_]{2}:[a-z0-9_]{1,17}|[a-z0-9_]{3}:[a-z0-9_]{1,16}|[a-z0-9_]{4}:[a-z0-9_]{1,15})$",
       "type": "string"
     },
     "ElectricityAutonomy": {
@@ -4183,7 +3698,7 @@
     "FunctionalityTag": {
       "maxLength": 21,
       "minLength": 1,
-      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "pattern": "^[a-z](?:[a-z0-9_]{0,20}|[a-z0-9_]:[a-z0-9_]{1,18}|[a-z0-9_]{2}:[a-z0-9_]{1,17}|[a-z0-9_]{3}:[a-z0-9_]{1,16}|[a-z0-9_]{4}:[a-z0-9_]{1,15})$",
       "type": "string"
     },
     "Locale": {
@@ -4203,7 +3718,7 @@
     "MetadataKey": {
       "maxLength": 21,
       "minLength": 1,
-      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "pattern": "^[a-z](?:[a-z0-9_]{0,20}|[a-z0-9_]:[a-z0-9_]{1,18}|[a-z0-9_]{2}:[a-z0-9_]{1,17}|[a-z0-9_]{3}:[a-z0-9_]{1,16}|[a-z0-9_]{4}:[a-z0-9_]{1,15})$",
       "type": "string"
     },
     "MetadataPatch": {
@@ -4507,10 +4022,8 @@
       "type": "object",
       "x-links": [
         {
+          "href": "/places/{id}",
           "rel": "full"
-        },
-        {
-          "href": "/places/{id}"
         }
       ]
     },
@@ -4831,7 +4344,7 @@
     "Tag": {
       "maxLength": 21,
       "minLength": 1,
-      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "pattern": "^[a-z](?:[a-z0-9_]{0,20}|[a-z0-9_]:[a-z0-9_]{1,18}|[a-z0-9_]{2}:[a-z0-9_]{1,17}|[a-z0-9_]{3}:[a-z0-9_]{1,16}|[a-z0-9_]{4}:[a-z0-9_]{1,15})$",
       "type": "string"
     },
     "Tags": {

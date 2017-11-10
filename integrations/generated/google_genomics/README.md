@@ -1687,20 +1687,21 @@ google_genomics.variantsets.export({
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 
-### operations.get
-Gets the latest state of a long-running operation.  Clients can use this
-method to poll the operation result at intervals as recommended by the API
-service.
+### operations.list
+Lists operations that match the specified filter in the request.
 
 
 ```js
-google_genomics.operations.get({
+google_genomics.operations.list({
   "name": ""
 }, context)
 ```
 
 #### Parameters
-* name (string) **required** - The name of the operation resource.
+* filter (string) - A string for filtering Operations.
+* name (string) **required** - The name of the operation's parent resource.
+* pageSize (integer) - The maximum number of results to return. If unspecified, defaults to
+* pageToken (string) - The standard list page token.
 * $.xgafv (string) - V1 error format.
 * callback (string) - JSONP
 * alt (string) - Data format for response.

@@ -1,0 +1,152 @@
+{
+  "id": "deutschebahn_betriebsstellen",
+  "title": "Betriebsstellen",
+  "description": "This REST-API enables you to query station and stop infos",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_betriebsstellen.png"
+  },
+  "actionCount": 2,
+  "definitions": {
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Error"
+    },
+    "Station": {
+      "properties": {
+        "RB": {
+          "description": "Regional code",
+          "type": "integer"
+        },
+        "UIC": {
+          "description": "UIC RICS code",
+          "type": "string"
+        },
+        "abbrev": {
+          "description": "Abbrevation name of station or halt",
+          "type": "string"
+        },
+        "borderStation": {
+          "description": "Station is at a country border",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "Identifying number",
+          "type": "integer"
+        },
+        "locationCode": {
+          "description": "Primary location code",
+          "type": "string"
+        },
+        "name": {
+          "description": "Long name of station or halt",
+          "type": "string"
+        },
+        "short": {
+          "description": "Short name of station or halt",
+          "type": "string"
+        },
+        "status": {
+          "description": "State of operation",
+          "enum": [
+            "in use",
+            "out of service",
+            "formerly",
+            "planned",
+            "study"
+          ],
+          "type": "string"
+        },
+        "timeTableRelevant": {
+          "description": "Relevant for time table",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Type of station or halt",
+          "enum": [
+            "Abzw",
+            "Anst",
+            "Awanst",
+            "Bf"
+          ],
+          "type": "string"
+        },
+        "validFrom": {
+          "description": "Start date for validity",
+          "type": "string"
+        },
+        "validTill": {
+          "description": "End date for validity or null if still valid",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "title": "Station"
+    },
+    "StationList": {
+      "items": {
+        "$ref": "#/definitions/Station"
+      },
+      "type": "array",
+      "title": "StationList"
+    }
+  },
+  "actions": [
+    {
+      "id": "betriebsstellen.get",
+      "title": "betriebsstellen.get",
+      "description": "Get all station and stop infos",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "A station name or part of it"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StationList"
+      }
+    },
+    {
+      "id": "betriebsstellen.abbrev.get",
+      "title": "betriebsstellen.abbrev.get",
+      "description": "Get information about a specific station or stop by abbrevation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "abbrev": {
+            "type": "string",
+            "description": "Station or stop abbrevation"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "abbrev"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Station"
+      }
+    }
+  ],
+  "tags": [
+    "transport",
+    "open data"
+  ]
+}

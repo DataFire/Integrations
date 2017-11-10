@@ -54,20 +54,6 @@
       "required": false,
       "type": "string"
     },
-    "nn2": {
-      "description": "Secondary statute filter, provide a single statute code to filter permit results.",
-      "in": "query",
-      "name": "nn2",
-      "required": false,
-      "type": "string"
-    },
-    "nnn": {
-      "description": "Statute filter, provide a single statute code to filter permit results.",
-      "in": "query",
-      "name": "nnn",
-      "required": false,
-      "type": "string"
-    },
     "output": {
       "description": "Output Format Flag.  Enter one of the following keywords:\n- JSON = Data model formatted as Javascript Object Notation (default).\n- JSONP = Data model formatted as Javascript Object Notation with Padding.  \n- XML = Data model formatted as Extensible Markup Language.",
       "enum": [
@@ -138,6 +124,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_air_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for Air Compliance in the Environmental Conditions Section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of compliance statuses for 12 quarters.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrq_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Air Compliance Report Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_air_compliance.post"
       }
     },
     "/dfr_rest_services.get_air_quality": {
@@ -176,6 +198,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_air_quality.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for Air Quality in the Environmental Conditions Section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes information on air quality",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfr1_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Air Quality Report Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_air_quality.post"
       }
     },
     "/dfr_rest_services.get_compliance_history": {
@@ -214,6 +272,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_compliance_history.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Compliance Monitoring History (5 years) in the Enforcement and Compliance Section of the Detailed Facility report.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of compliance histories",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfr2_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report 5 Year Compliance Monitoring History Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_compliance_history.post"
       }
     },
     "/dfr_rest_services.get_compliance_summary": {
@@ -252,6 +346,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_compliance_summary.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for Compliance Summary Data in the Enforcement and Compliance Section of the Detailed Facility report.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of compliance summaries",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfr3_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Compliance Summary Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_compliance_summary.post"
       }
     },
     "/dfr_rest_services.get_cwa_3yr_compliance": {
@@ -290,6 +420,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_3yr_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA Facility-Level Status section located in the Three Year Compliance Status by Quarter portion of the DFR. Valid Compliance Statuses are as follows:\n> \"In Viol\" = Facility is in violation\n> \"No Viol\" = No violation found\n> \"Unk\" = Unknown status\n> \"SNC/Cat 1\" = SNC/Category I violation found",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of compliance statuses for 13 quarters",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrW_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report 3 Year CWA Facility-Level Status Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_3yr_compliance.post"
       }
     },
     "/dfr_rest_services.get_cwa_cs_compliance": {
@@ -328,6 +494,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_cs_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA Compliance Schedule Violations section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of compliance statuses for 13 quarters.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrs_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report CWA CSV Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_cs_compliance.post"
       }
     },
     "/dfr_rest_services.get_cwa_eff_alr": {
@@ -366,6 +568,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_eff_alr.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA Pollutant Discharge section located in the Three Year Compliance Status by Quarter portion of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of effluent ALR for 13 quarters.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrt_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report CWA Effluent ALR Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_eff_alr.post"
       }
     },
     "/dfr_rest_services.get_cwa_eff_compliance": {
@@ -404,6 +642,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_eff_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA Effluent Compliance section on the DFR.  ",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of effluent compliance statuses for 13 quarters.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfru_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report CWA Effluent Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_eff_compliance.post"
       }
     },
     "/dfr_rest_services.get_cwa_ps_compliance": {
@@ -442,6 +716,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_ps_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA Permit Schedule Violations section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of permit schedule violations for 13 quarters.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrv_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report CWA PSV Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_ps_compliance.post"
       }
     },
     "/dfr_rest_services.get_cwa_rnc_compliance": {
@@ -480,6 +790,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_rnc_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA SNC/RNC History section located in the Three Year ompliance Status by Quarter portion of the DFR. Valid Compliance Statuses are as follows.\n> S = SNC/Category I - an enforcement action has been issued, and the facility is not meeting its compliance schedule\n> E = SNC/Category I - effluent violations of monthly average limits (Technical Review Criteria and chronic)\n> X = SNC/Category I - effluent violations of non-monthly average limits (Technical Review Criteria and chronic)\n> T = SNC/Category I - compliance schedule reporting violation\n> D = SNC/Category I - reporting violation - nonreceipt of DMR\n> N = RNC/Category II - reportable non-compliance\n> P = Resolved Pending - an enforcement action has been issued, and facility compliance with the action is pending final completion\n> R = Resolved - the facility has returned to compliance with its permit conditions, either with or without issuance of an enforcement action\n> C = Not considered in RNC/SNC based on manual review of data by state or EPA region. This manual override status is also indicated by a superscripted \"m\".\n> Blank = Not considered in RNC/SNC\n> N/A = EPA's data system is not able to determine the facility-level compliance status based upon the information available. This information may be available from a state database.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of RNC compliance statuses for 12 quarters",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrw_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report CWA RNC Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_rnc_compliance.post"
       }
     },
     "/dfr_rest_services.get_cwa_se_compliance": {
@@ -518,6 +864,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_cwa_se_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the CWA Single Event Violations section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of single-event statuses for 13 quarters.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrx_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report CWA SEV Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_cwa_se_compliance.post"
       }
     },
     "/dfr_rest_services.get_demographics": {
@@ -559,6 +941,45 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_demographics.get"
+      },
+      "post": {
+        "description": "Returns a complex object with Demographics from the 2010 Census and 2010 American Community Survey based on a 3 mile radius around the facility spatial coordinates.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/p_radius"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes demographics",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrY_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Demographics Report Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_demographics.post"
       }
     },
     "/dfr_rest_services.get_dfr": {
@@ -600,6 +1021,45 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_dfr.get"
+      },
+      "post": {
+        "description": "This procedure is the overall service for the Detailed Facility Report. It returns all of the data displayed in the DFR web report by invoking individual procedures that each return a targeted portion of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/p_system"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a complex object (Detailed Facility Report) composed of objects from all of the other procedures.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfr4_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_dfr.post"
       }
     },
     "/dfr_rest_services.get_enforcement_summary": {
@@ -638,6 +1098,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_enforcement_summary.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Enforcement and Compliance Summary in the Facility Summary section of the Detailed Facility Report.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of enforcement compliance summaries",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrW1_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Enforcement Summary Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_enforcement_summary.post"
       }
     },
     "/dfr_rest_services.get_formal_actions": {
@@ -676,6 +1172,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_formal_actions.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Formal Enforcement Actions section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of formal actions.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrW2_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Formal Actions Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_formal_actions.post"
       }
     },
     "/dfr_rest_services.get_icis_formal_actions": {
@@ -714,6 +1246,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_icis_formal_actions.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Integrated Compliance Information System, Formal Enforcement Actions section of the DFR. ",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of ICIS formal actions.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfra_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report ICIS Formal Actions Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_icis_formal_actions.post"
       }
     },
     "/dfr_rest_services.get_inspections": {
@@ -752,6 +1320,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_inspections.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for Enforcement and Compliance Summary Section of the Detailed Facility report.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of inspection enforcement summaries",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfra1_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Inspections Summary Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_inspections.post"
       }
     },
     "/dfr_rest_services.get_map": {
@@ -790,6 +1394,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_map.get"
+      },
+      "post": {
+        "description": "Returns an object with the facility's latitude and longitude coordinates.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes information for displaying a map",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrZ_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Map Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_map.post"
       }
     },
     "/dfr_rest_services.get_naics": {
@@ -828,20 +1468,12 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_naics.get"
-      }
-    },
-    "/dfr_rest_services.get_nnnPermits": {
-      "get": {
-        "description": "This procedure obtains data for the Permits by Statute section of the DFR.",
+      },
+      "post": {
+        "description": "This procedure obtains data for the Facility NAICS Codes section in Facility/System Characteristics of the Detailed Facility Report.",
         "parameters": [
           {
             "$ref": "#/parameters/output"
-          },
-          {
-            "$ref": "#/parameters/nnn"
-          },
-          {
-            "$ref": "#/parameters/nn2"
           },
           {
             "$ref": "#/parameters/p_id"
@@ -852,12 +1484,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns an object that includes an array of permits",
+            "description": "Returns an object that includes an array of NAICS codes",
             "schema": {
               "description": "Root Object",
               "properties": {
                 "Results": {
-                  "$ref": "#/definitions/dfrb_Results"
+                  "$ref": "#/definitions/dfra2_Results"
                 }
               },
               "required": [
@@ -867,11 +1499,11 @@
             }
           }
         },
-        "summary": "Detailed Facility Report Permits by Statute Service",
+        "summary": "Detailed Facility Report NAICS Code Service",
         "tags": [
           "Detailed Facility Report"
         ],
-        "operationId": "dfr_rest_services.get_nnnPermits.get"
+        "operationId": "dfr_rest_services.get_naics.post"
       }
     },
     "/dfr_rest_services.get_notices": {
@@ -910,6 +1542,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_notices.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Notices/Informal Actions section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of notices",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrg_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Notices Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_notices.post"
       }
     },
     "/dfr_rest_services.get_permits": {
@@ -948,6 +1616,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_permits.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the following sections of the Detailed Facility Report.\n> Facility Information (FRS) in the Facility Summary.\n> Regulatory Interests in the Facility Summary.\n> Also Reports in the Facility Summary.\n> Facility/System Characteristics in Facility/System Characteristics.\n> Facility Contact Information in Facility/System Characteristics.\n> Facility SIC Codes in Facility/System Characteristics section.\n> Facility NAICS Codes in Facility/System Characteristics section.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of permits",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrg1_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Permits Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_permits.post"
       }
     },
     "/dfr_rest_services.get_rcra_compliance": {
@@ -986,6 +1690,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_rcra_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the RCRA Compliance section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes RCRA compliance statuses",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrh_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report RCRA Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_rcra_compliance.post"
       }
     },
     "/dfr_rest_services.get_sdwa_lead_and_copper": {
@@ -1024,6 +1764,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_sdwa_lead_and_copper.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the SDWA, Lead and Copper Rule section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of lead and copper rules",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrk_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report SDWA Lead and Copper Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_sdwa_lead_and_copper.post"
       }
     },
     "/dfr_rest_services.get_sdwa_sanitary_surveys": {
@@ -1062,6 +1838,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_sdwa_sanitary_surveys.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the SDWA, Sanitary Surveys section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of sanitary surveys",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrj_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report SDWA Sanitary Surveys Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_sdwa_sanitary_surveys.post"
       }
     },
     "/dfr_rest_services.get_sdwa_site_visits": {
@@ -1100,6 +1912,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_sdwa_site_visits.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the SDWA, Sanitary Site Visits section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of site visits",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfri_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report SDWA Sanitary Site Visits Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_sdwa_site_visits.post"
       }
     },
     "/dfr_rest_services.get_sdwa_violations": {
@@ -1138,6 +1986,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_sdwa_violations.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the SDWA Violations section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes SDWA violations",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrf_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report SDWA Violations Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_sdwa_violations.post"
       }
     },
     "/dfr_rest_services.get_sdwis_compliance": {
@@ -1176,6 +2060,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_sdwis_compliance.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the SDWA Compliance section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of SDWIS compliance summaries",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrl_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report SDWIS Compliance Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_sdwis_compliance.post"
       }
     },
     "/dfr_rest_services.get_sic_codes": {
@@ -1214,6 +2134,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_sic_codes.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Facility SIC Codes section in Facility/System Characteristics of the Detailed Facility Report.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of SIC codes",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrg2_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report SIC Code Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_sic_codes.post"
       }
     },
     "/dfr_rest_services.get_spatial_metadata": {
@@ -1252,6 +2208,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_spatial_metadata.get"
+      },
+      "post": {
+        "description": "Returns an object with the facility coordinate spatial metadata.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes spatial metadata",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrg3_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Spatial Metadata Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_spatial_metadata.post"
       }
     },
     "/dfr_rest_services.get_tri_history": {
@@ -1290,6 +2282,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_tri_history.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the TRI History section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes TRI history",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrm_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report TRI History Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_tri_history.post"
       }
     },
     "/dfr_rest_services.get_tri_releases": {
@@ -1328,6 +2356,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_tri_releases.get"
+      },
+      "post": {
+        "description": "This procedrue obtains data for the TRI Releases section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes TRI releases",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrn_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report TRI Releases Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_tri_releases.post"
       }
     },
     "/dfr_rest_services.get_tribes": {
@@ -1366,6 +2430,42 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_tribes.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Tribes and Reservations section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of tribal location information.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfro_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Tribes Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_tribes.post"
       }
     },
     "/dfr_rest_services.get_water_quality": {
@@ -1407,6 +2507,45 @@
           "Detailed Facility Report"
         ],
         "operationId": "dfr_rest_services.get_water_quality.get"
+      },
+      "post": {
+        "description": "This procedure obtains data for the Water Quality section of the DFR.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/output"
+          },
+          {
+            "$ref": "#/parameters/p_id"
+          },
+          {
+            "$ref": "#/parameters/p_radius"
+          },
+          {
+            "$ref": "#/parameters/callback"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an object that includes an array of water quality information.",
+            "schema": {
+              "description": "Root Object",
+              "properties": {
+                "Results": {
+                  "$ref": "#/definitions/dfrp_Results"
+                }
+              },
+              "required": [
+                "Results"
+              ],
+              "type": "object"
+            }
+          }
+        },
+        "summary": "Detailed Facility Report Water Quality Service",
+        "tags": [
+          "Detailed Facility Report"
+        ],
+        "operationId": "dfr_rest_services.get_water_quality.post"
       }
     }
   },
@@ -1574,8 +2713,8 @@
         "Qtr6End",
         "Qtr7Start",
         "Qtr7End",
-        "Qtr8End",
         "Qtr8Start",
+        "Qtr8End",
         "Qtr9Start",
         "Qtr9End",
         "Qtr10Start",
@@ -2253,6 +3392,15 @@
       ],
       "type": "object"
     },
+    "dfr4_CAEDDocuments": {
+      "description": "CAED Documents",
+      "properties": {
+        "Dummy": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "dfr4_MapData": {
       "description": "Map Data Object",
       "properties": {
@@ -2629,6 +3777,13 @@
         "AirQuality": {
           "$ref": "#/definitions/dfr6_AirQuality"
         },
+        "CAEDDocuments": {
+          "items": {
+            "$ref": "#/definitions/dfr4_CAEDDocuments"
+          },
+          "title": "Web Fire Documents",
+          "type": "array"
+        },
         "CWA3YrCompliance": {
           "$ref": "#/definitions/dfr7_CWA3YrCompliance"
         },
@@ -2738,6 +3893,13 @@
         },
         "WaterQuality": {
           "$ref": "#/definitions/dfrU_WaterQuality"
+        },
+        "WebFireDocuments": {
+          "items": {
+            "$ref": "#/definitions/dfr4_WebFireDocuments"
+          },
+          "title": "Web Fire Documents",
+          "type": "array"
         }
       },
       "required": [
@@ -2904,65 +4066,14 @@
         "name": "Summaries"
       }
     },
-    "dfr4_nnnPermits": {
-      "description": "Permits by Statute Object",
+    "dfr4_WebFireDocuments": {
+      "description": "Web Fire Documents",
       "properties": {
-        "EPASystem": {
-          "description": "The EPA data system in which permit and facility records are kept. EPA's Facility Registry System (FRS) links all program database records (such as permit IDs and IDs facilities use in reporting to EPA) together. The following list describes the individual data systems that are linked to from the detailed facility report: \n\n- AFS: Air Facility System for Clean Air Act stationary source programs.\n- ICP: Integrated Compliance Information System for Clean Water Act programs monitoring National Pollutant Discharge Elimination System (NPDES) permits.\n- RCR: Resource Conservation and Recovery Act Information System (RCRAInfo) for tracking the Resource Conservation and Recovery Act (RCRA) programs.\n- NCDB: National Compliance Database System for monitoring national performance of the Toxic Substance Control Act (TSCA); the Emergency Planning and Right-to-Know Act, Section 313 (EPCRA); the Asbestos Hazard Emergency Response (AHERA); and the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA).\n- TRI: Toxics Release Inventory for Emergency Planning and Community Right-to-Know Act, Section 313 submissions.\n- NEI: National Emissions Inventory database contains information on stationary and mobile sources that emit criteria air pollutants and their precursors, as well as hazardous air pollutants (HAPs). The database includes estimates of annual emissions, by source, of air pollutants in each area of the country, on an annual basis.\n- TSCA: Toxic Substances Control Act addressing the production, importation, use, and disposal of specific chemicals.",
-          "example": "ICP",
-          "title": "EPA Data System",
-          "type": "string"
-        },
-        "FacilityStatus": {
-          "description": "The Air Program Status is given for each source ID (Operating; Planned; Under construction; Temporarily closed;  Permanently closed; and Seasonal)\n\nFor CWA, the Permit Compliance System (PCS) designates a permitted facility as being Active or Inactive. Under the CWA, all facilities discharging pollutants from a point source (e.g., a pipe) to surface waters must have a NPDES permit. For CWA, ICISNPDES designates a permit as Effective, Administratively Continued, Expired, Not Needed, Pending, Retired, or Terminated. RCRA facilities (sites) are designated as Active or Inactive. The following provides RCRA site activity status definitions and explains site activity status designation.",
-          "example": "Effective",
-          "title": "Facility Status",
-          "type": "string"
-        },
-        "NAICS": {
-          "description": "The North American Industry Classification System codes",
-          "example": "325211",
-          "title": "NAICS Code",
-          "type": "string"
-        },
-        "NAICSDesc": {
-          "description": "The corresponding description of North American Industry Classification System (NAICS) code.",
-          "example": "Ready-Mix Concrete Manufacturing",
-          "title": "NAICS Description",
-          "type": "string"
-        },
-        "SourceID": {
-          "description": "Unique Identifier assigned by EPA.",
-          "example": "ALR040033",
-          "title": "EPA Source Identifier",
-          "type": "string"
-        },
-        "Statute": {
-          "description": "The name of the statute associated with each of the permits and identifiers linked to the facility: \n- CAA = the Clean Air Act\n- CWA = the Clean Water Act\n- RCRA = the Resource Conservation and Recovery Act\n- EP313 = the Emergency Planning and Community Right-to-Know Act, Section 313 (also known as the Toxics Release Inventory Program)\n- TSCA = the Toxic Substances Control Act\n- SDWA = the Safe Drinking Water Act",
-          "example": "CWA",
-          "title": "Regulatory Statute",
-          "type": "string"
-        },
-        "Universe": {
-          "description": "This field provides further description on type of permit or record for each data system as follows:\n- For CAA  = The program office defines each CAA Source ID and the associated permits as being Federally Reportable or Non-Federally Reportable. Under the CAA, federally reportable sources include majors, synthetic minors, NESHAP Part 61 minors, minors with an unresolved High Priority Violation (HPV), with recent enforcement actions, or included on a Compliance Monitoring Strategy plan. The Clean Air Act requires that delegated agencies and EPA track all federally reportable sources in Air Facility System (AFS).\n- For CWA  = Each CWA Source ID or National Pollutant Discharge Elimination System (NPDES) permit is defined by the program office as a Major or Minor discharger.\n- For RCRA = RCRA Source ID or permits for Treatment, Storage and Disposal facilities are identified by TSD, Large Quantity Generators are identified by LQG. Other values include Permit Workload (PMT), Closure Workload (CLO), Small Quantity Generator Universe (SQG), Conditionally-Exempt Small Quantity Generator (CESQG), Post-Closure Workload (POST CL), and Transporters.",
-          "example": "Minor: General Permit Covered Facility",
-          "title": "Universe",
+        "Dummy": {
           "type": "string"
         }
       },
-      "required": [
-        "Statute",
-        "EPASystem",
-        "SourceID",
-        "Universe",
-        "NAICS",
-        "NAICSDesc",
-        "FacilityStatus"
-      ],
-      "type": "object",
-      "xml": {
-        "name": "Permits"
-      }
+      "type": "object"
     },
     "dfr5_AirCompliance": {
       "description": "Air Compliance Object",
@@ -5061,10 +6172,14 @@
           "description": "A designation of the type or nature of the violation.",
           "title": "Violation",
           "type": "string"
+        },
+        "ViolationType": {
+          "type": "string"
         }
       },
       "required": [
         "SourceID",
+        "ViolationType",
         "Violation",
         "Agency",
         "Qtr1Status",
@@ -5693,9 +6808,6 @@
           "type": "array"
         }
       },
-      "required": [
-        "Sources"
-      ],
       "type": "object"
     },
     "dfrR_Chemicals": {
@@ -5782,48 +6894,30 @@
       "description": "Header Object",
       "properties": {
         "Year1": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year2": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year3": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year4": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year5": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year6": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year7": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year8": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         },
         "Year9": {
-          "description": "Air Facility System (AFS) ID.",
-          "example": "VA0000005151044014",
           "type": "string"
         }
       },
@@ -5861,10 +6955,6 @@
           "type": "array"
         }
       },
-      "required": [
-        "Header",
-        "Chemicals"
-      ],
       "type": "object"
     },
     "dfrS_Tribes": {
@@ -6280,28 +7370,6 @@
           "example": "Success",
           "title": "Message",
           "type": "string"
-        }
-      },
-      "required": [
-        "Message"
-      ],
-      "type": "object"
-    },
-    "dfrb_Results": {
-      "description": "Results Object",
-      "properties": {
-        "Message": {
-          "description": "Field to record messages (typically performance-related) about packet processing",
-          "example": "Success",
-          "title": "Message",
-          "type": "string"
-        },
-        "Permits": {
-          "items": {
-            "$ref": "#/definitions/dfr4_nnnPermits"
-          },
-          "title": "Permits",
-          "type": "array"
         }
       },
       "required": [
@@ -6935,9 +8003,6 @@
           "type": "array"
         }
       },
-      "required": [
-        "ReleaseYear"
-      ],
       "type": "object"
     },
     "dfrf_Results": {

@@ -76,7 +76,7 @@ amazonaws_budgets.CreateNotification({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 * Notification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 * Subscribers (array) **required** - A list of subscribers.
 
@@ -102,7 +102,7 @@ amazonaws_budgets.CreateSubscriber({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 * Notification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 * Subscriber (object) **required** - Subscriber model. Each notification may contain multiple subscribers with different addresses.
 
@@ -119,7 +119,7 @@ amazonaws_budgets.DeleteBudget({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 
 ### DeleteNotification
 
@@ -139,7 +139,7 @@ amazonaws_budgets.DeleteNotification({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 * Notification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 
 ### DeleteSubscriber
@@ -164,7 +164,7 @@ amazonaws_budgets.DeleteSubscriber({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 * Notification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 * Subscriber (object) **required** - Subscriber model. Each notification may contain multiple subscribers with different addresses.
 
@@ -181,7 +181,7 @@ amazonaws_budgets.DescribeBudget({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 
 ### DescribeBudgets
 
@@ -195,7 +195,7 @@ amazonaws_budgets.DescribeBudgets({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* MaxResults (integer) - An integer to represent how many entries should a pagianted response contains. Maxium is set to 100.
+* MaxResults (integer) - An integer to represent how many entries a paginated response contains. Maximum is set to 100.
 * NextToken (string) - A generic String.
 
 ### DescribeNotificationsForBudget
@@ -211,8 +211,8 @@ amazonaws_budgets.DescribeNotificationsForBudget({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
-* MaxResults (integer) - An integer to represent how many entries should a pagianted response contains. Maxium is set to 100.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
+* MaxResults (integer) - An integer to represent how many entries a paginated response contains. Maximum is set to 100.
 * NextToken (string) - A generic String.
 
 ### DescribeSubscribersForNotification
@@ -233,8 +233,8 @@ amazonaws_budgets.DescribeSubscribersForNotification({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
-* MaxResults (integer) - An integer to represent how many entries should a pagianted response contains. Maxium is set to 100.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
+* MaxResults (integer) - An integer to represent how many entries a paginated response contains. Maximum is set to 100.
 * NextToken (string) - A generic String.
 * Notification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 
@@ -293,7 +293,7 @@ amazonaws_budgets.UpdateNotification({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 * NewNotification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 * OldNotification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 
@@ -323,7 +323,7 @@ amazonaws_budgets.UpdateSubscriber({
 
 #### Parameters
 * AccountId (string) **required** - Account Id of the customer. It should be a 12 digit number.
-* BudgetName (string) **required** - A string represents the budget name. No ":" character is allowed.
+* BudgetName (string) **required** - A string represents the budget name. No ":" and "\" character is allowed.
 * NewSubscriber (object) **required** - Subscriber model. Each notification may contain multiple subscribers with different addresses.
 * Notification (object) **required** - Notification model. Each budget may contain multiple notifications with different settings.
 * OldSubscriber (object) **required** - Subscriber model. Each notification may contain multiple subscribers with different addresses.

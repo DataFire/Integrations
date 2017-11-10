@@ -330,7 +330,9 @@
               "listissuers",
               "setissuers",
               "deleteissuers",
-              "manageissuers"
+              "manageissuers",
+              "recover",
+              "purge"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -358,7 +360,9 @@
               "import",
               "delete",
               "backup",
-              "restore"
+              "restore",
+              "recover",
+              "purge"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -376,7 +380,11 @@
               "get",
               "list",
               "set",
-              "delete"
+              "delete",
+              "backup",
+              "restore",
+              "recover",
+              "purge"
             ],
             "type": "string",
             "x-ms-enum": {
@@ -539,6 +547,10 @@
           },
           "maxItems": 16,
           "type": "array"
+        },
+        "enableSoftDelete": {
+          "description": "Property to specify whether the 'soft delete' functionality is enabled for this key vault.",
+          "type": "boolean"
         },
         "enabledForDeployment": {
           "description": "Property to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.",

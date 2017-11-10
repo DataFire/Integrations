@@ -1,0 +1,866 @@
+{
+  "id": "icons8",
+  "title": "Icons8",
+  "description": "Icons8 API allows us to search and obtain [our icons](https://icons8.com/web-app).\n\nYou're welcome to use our icons to extend the functionality of your web and mobile applications, website templates, and even tattoos.\n\n![Tattoos](https://cdn.rawgit.com/icons8/api-docs/cff6fdf0/tattoos.svg)\n\n## Usage Examples\n\nSome examples of what you can do with our icons:\n\n* **Template customization.** This way, [Canva](https://www.canva.com/) uses our icons to customize their layouts.\n\n* **Graphics and text editors.** [Gravit](https://gravit.io/) allows to insert our icons into the mockups.\n\n* **Any application with customization.** [TimeTune](http://timetune.center/) uses our icons to customize the activities.\n\n## Getting Started\n\nTo get started, please [contact us](https://icons8.com/contact) to obtain an API key.\n\n## Pricing\n\nOur API license starts at $100/month.",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/icons8.jpg"
+  },
+  "actionCount": 7,
+  "definitions": {
+    "AuthArgument": {
+      "properties": {
+        "hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hash"
+      ],
+      "type": "object",
+      "title": "AuthArgument"
+    },
+    "CategoryV3Item": {
+      "properties": {
+        "category_code": {
+          "type": "string"
+        },
+        "category_name": {
+          "type": "string"
+        },
+        "subcategory": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "title": "CategoryV3Item"
+    },
+    "CollectionWebFontTaskArguments": {
+      "properties": {
+        "arguments": {
+          "type": "object"
+        }
+      },
+      "type": "object",
+      "title": "CollectionWebFontTaskArguments"
+    },
+    "CompactCategoryV3Item": {
+      "properties": {
+        "api_code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "api_code"
+      ],
+      "type": "object",
+      "title": "CompactCategoryV3Item"
+    },
+    "CompactIconV3Item": {
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "common_icon_id": {
+          "type": "number"
+        },
+        "created": {
+          "type": "string"
+        },
+        "features": {
+          "type": "object"
+        },
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform_code": {
+          "type": "string"
+        },
+        "share": {
+          "type": "object"
+        },
+        "subcategory": {
+          "type": "object"
+        },
+        "svg": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "vector": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "platform_code",
+        "created",
+        "common_icon_id",
+        "svg",
+        "features"
+      ],
+      "type": "object",
+      "title": "CompactIconV3Item"
+    },
+    "IconV3Item": {
+      "$ref": "#/definitions/CompactIconV3Item",
+      "title": "IconV3Item"
+    },
+    "Meta": {
+      "title": "Meta"
+    },
+    "Search": {
+      "title": "Search"
+    },
+    "TaskError": {
+      "properties": {
+        "code": {
+          "enum": [
+            "json_not_valid",
+            "auth_required",
+            "auth_failed",
+            "access_denied",
+            "io_fail",
+            "database_fail",
+            "argument_is_missed",
+            "argument_is_wrong",
+            "paid_feature",
+            "not_possible"
+          ],
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "description"
+      ],
+      "type": "object",
+      "title": "TaskError"
+    },
+    "TaskResult": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "results": {
+          "type": "object"
+        },
+        "status": {
+          "enum": [
+            "`preparing+",
+            "idle",
+            "in_progress",
+            "timeout",
+            "complete",
+            "failed"
+          ],
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "create_web_font",
+            "create_svg_set"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "status"
+      ],
+      "type": "object",
+      "title": "TaskResult"
+    },
+    "TotalV3Item": {
+      "properties": {
+        "api_code": {
+          "enum": [
+            "ios7",
+            "win8",
+            "win10",
+            "android",
+            "androidL",
+            "color",
+            "office"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "total": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "api_code",
+        "total"
+      ],
+      "type": "object",
+      "title": "TotalV3Item"
+    },
+    "Web_Fonts": {
+      "title": "Web_Fonts"
+    }
+  },
+  "actions": [
+    {
+      "id": "api.iconsets.v3.categories_platform_platform_language_language.get",
+      "title": "api.iconsets.v3.categories_platform_platform_language_language.get",
+      "description": "The operation will not return the categories that have less than 10 icons.\nWe need it to test the categories without showing garbage on the production website.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "platform": {
+            "type": "string",
+            "description": "the platform that we are searching icons for",
+            "enum": [
+              "ios7",
+              "win8",
+              "win10",
+              "android",
+              "androidL",
+              "color",
+              "office"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "the language code to get localized result",
+            "enum": [
+              "en-US",
+              "fr-FR",
+              "de-DE",
+              "it-IT",
+              "pt-BR",
+              "pl-PL",
+              "ru-RU",
+              "es-ES"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "platform",
+          "language"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "parameters": {
+            "description": "copy of the input parameters from the request",
+            "properties": {
+              "language": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "result": {
+            "description": "the result of operation",
+            "properties": {
+              "categories": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api.iconsets.v3.category_category_category_subcategory_subcategory_amount_amount_offset_offset_platform_platform_language_language.get",
+      "title": "api.iconsets.v3.category_category_category_subcategory_subcategory_amount_amount_offset_offset_platform_platform_language_language.get",
+      "description": "By Category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "the code of category"
+          },
+          "subcategory": {
+            "type": "string",
+            "description": "the code of subcategory"
+          },
+          "amount": {
+            "type": "number",
+            "description": "the maximum number of icons which you'd like to receive",
+            "default": 25
+          },
+          "offset": {
+            "type": "number",
+            "description": "the offset from the first received result"
+          },
+          "platform": {
+            "type": "string",
+            "description": "the style of the icons",
+            "enum": [
+              "ios7",
+              "win8",
+              "win10",
+              "android",
+              "androidL",
+              "color",
+              "office"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "the language code to get localized result",
+            "enum": [
+              "en-US",
+              "fr-FR",
+              "de-DE",
+              "it-IT",
+              "pt-BR",
+              "pl-PL",
+              "ru-RU",
+              "es-ES"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "subcategory",
+          "amount",
+          "offset",
+          "platform",
+          "language"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "parameters": {
+            "description": "copy of the input parameters from the request",
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "category": {
+                "type": "string"
+              },
+              "language": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "subcategory": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "result": {
+            "description": "the result of operation",
+            "properties": {
+              "category": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api.iconsets.v3.latest_term_term_amount_amount_offset_offset_platform_platform_language_language.get",
+      "title": "api.iconsets.v3.latest_term_term_amount_amount_offset_offset_platform_platform_language_language.get",
+      "description": "Latest",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "the maximum number of icons which you'd like to receive",
+            "default": 25
+          },
+          "offset": {
+            "type": "number",
+            "description": "the offset from the first received result"
+          },
+          "platform": {
+            "type": "string",
+            "description": "the style of the icons",
+            "enum": [
+              "ios7",
+              "win8",
+              "win10",
+              "android",
+              "androidL",
+              "color",
+              "office"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "the language code to get localized result",
+            "enum": [
+              "en-US",
+              "fr-FR",
+              "de-DE",
+              "it-IT",
+              "pt-BR",
+              "pl-PL",
+              "ru-RU",
+              "es-ES"
+            ]
+          },
+          "term": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "amount",
+          "offset",
+          "platform",
+          "language",
+          "term"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "parameters": {
+            "description": "copy of the input parameters from the request",
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "language": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "term": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "result": {
+            "description": "the result of operation",
+            "properties": {
+              "latest": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api.iconsets.v3.search_term_term_amount_amount_offset_offset_platform_platform_language_language_exact_amount_exact_amount.get",
+      "title": "api.iconsets.v3.search_term_term_amount_amount_offset_offset_platform_platform_language_language_exact_amount_exact_amount.get",
+      "description": "By Keyword",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "the name or tag of the icon or any other phrase.\ne.g. use \"@home\" to find icons with the tag \"home\" and \"=home\" to find icons with the name \"home\"\n"
+          },
+          "amount": {
+            "type": "number",
+            "description": "the maximum number of icons which you'd like to receive (will be multiplied by platforms count, if you didn't specify the platform and didn't set the 'exact_amount' parameter)",
+            "default": 25
+          },
+          "exact_amount": {
+            "type": "boolean",
+            "description": "set it to 'true' if you'd like to receive the exact amount of icons, not multiplied by platforms count"
+          },
+          "offset": {
+            "type": "number",
+            "description": "the offset from the first received result"
+          },
+          "platform": {
+            "type": "string",
+            "description": "the style of the icons",
+            "enum": [
+              "ios7",
+              "win8",
+              "win10",
+              "android",
+              "androidL",
+              "color",
+              "office"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "the language code to get localized result",
+            "enum": [
+              "en-US",
+              "fr-FR",
+              "de-DE",
+              "it-IT",
+              "pt-BR",
+              "pl-PL",
+              "ru-RU",
+              "es-ES"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term",
+          "amount",
+          "exact_amount",
+          "offset",
+          "platform",
+          "language"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "parameters": {
+            "description": "copy of the input parameters from the request",
+            "properties": {
+              "amount": {
+                "type": "number"
+              },
+              "language": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "term": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "result": {
+            "description": "the result of operation",
+            "properties": {
+              "search": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api.iconsets.v3.total_since_since.get",
+      "title": "api.iconsets.v3.total_since_since.get",
+      "description": "Totals",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "since": {
+            "type": "string",
+            "description": "the optional date to calculate the total number of icons that were created after it.\nIt should be in format \"four year digits - dash - two month number digits - dash - two day number digits. For example 2014-12-31 means \"31th of December, 2014\".\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "since"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "parameters": {
+            "description": "copy of the input parameters from the request",
+            "properties": {
+              "since": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "result": {
+            "description": "the result of operation",
+            "properties": {
+              "total": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api.task.web_font.collection.post",
+      "title": "api.task.web_font.collection.post",
+      "description": "From a Collection",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "auth": {
+                "properties": {
+                  "hash": {
+                    "description": "Authorization hash",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "hash"
+                ],
+                "type": "object"
+              },
+              "task": {
+                "properties": {
+                  "arguments": {
+                    "properties": {
+                      "collection": {
+                        "description": "collection identifier",
+                        "type": "string"
+                      },
+                      "css_prefix": {
+                        "default": "icons8",
+                        "description": "prefix for CSS rules, used to generate LESS/SCSS",
+                        "type": "string"
+                      },
+                      "css_rules_case": {
+                        "default": "lowercase",
+                        "description": "glyph names conversion rule",
+                        "enum": [
+                          "lowercase",
+                          "as_is"
+                        ],
+                        "type": "string"
+                      },
+                      "css_selector": {
+                        "default": ".icons8-{{glyph}}",
+                        "description": "template for glyph selector; placeholder {{glyph}} will be replaced with glyph names",
+                        "type": "string"
+                      },
+                      "font_name": {
+                        "default": "font_icons8",
+                        "description": "name of iconic webfont",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "collection",
+                      "font_name"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "messages": {
+            "items": {},
+            "type": "array"
+          },
+          "result": {
+            "properties": {
+              "description": {
+                "description": "human readable description",
+                "type": "string"
+              },
+              "id": {
+                "description": "task identifier",
+                "type": "string"
+              },
+              "results": {
+                "properties": {
+                  "zip": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "status": {
+                "description": "task status",
+                "type": "string"
+              },
+              "type": {
+                "description": "task type",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "id": "api.task.web_font.icons.post",
+      "title": "api.task.web_font.icons.post",
+      "description": "From Separate Icons",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "auth": {
+                "properties": {
+                  "hash": {
+                    "description": "Authorization hash",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "hash"
+                ],
+                "type": "object"
+              },
+              "task": {
+                "properties": {
+                  "arguments": {
+                    "properties": {
+                      "collection": {
+                        "description": "collection identifier",
+                        "type": "string"
+                      },
+                      "css_prefix": {
+                        "default": "icons8",
+                        "description": "prefix for CSS rules, used to generate LESS/SCSS",
+                        "type": "string"
+                      },
+                      "css_rules_case": {
+                        "default": "lowercase",
+                        "description": "glyph names conversion rule",
+                        "enum": [
+                          "lowercase",
+                          "as_is"
+                        ],
+                        "type": "string"
+                      },
+                      "css_selector": {
+                        "default": ".icons8-{{glyph}}",
+                        "description": "template for glyph selector; placeholder {{glyph}} will be replaced with glyph names",
+                        "type": "string"
+                      },
+                      "font_name": {
+                        "default": "font_icons8",
+                        "description": "name of iconic webfont",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "collection",
+                      "font_name"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "properties": {
+          "messages": {
+            "items": {},
+            "type": "array"
+          },
+          "result": {
+            "properties": {
+              "description": {
+                "description": "human readable description",
+                "type": "string"
+              },
+              "id": {
+                "description": "task identifier",
+                "type": "string"
+              },
+              "results": {
+                "properties": {
+                  "zip": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "status": {
+                "description": "task status",
+                "type": "string"
+              },
+              "type": {
+                "description": "task type",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type",
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ],
+  "tags": [
+    "media"
+  ]
+}

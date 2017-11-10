@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "greengrass.amazonaws.com",
@@ -1803,6 +1804,71 @@
         }
       ]
     },
+    "/greengrass/groups/{GroupId}/deployments/$reset": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Resets a group's deployments.",
+        "operationId": "ResetDeployments",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ResetDeploymentsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "GroupId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResetDeploymentsResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          }
+        }
+      }
+    },
     "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status": {
       "get": {
         "description": "Returns the status of a deployment.",
@@ -2258,7 +2324,7 @@
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Message"
+          "description": "Message containing information about the error"
         }
       },
       "type": "object"
@@ -2402,7 +2468,7 @@
         },
         "DeploymentType": {
           "$ref": "#/definitions/DeploymentType",
-          "description": "Type of deployment"
+          "description": "Type of deployment. When used in CreateDeployment, only NewDeployment and Redeployment are valid. "
         },
         "GroupVersionId": {
           "$ref": "#/definitions/__string",
@@ -2415,11 +2481,11 @@
       "properties": {
         "DeploymentArn": {
           "$ref": "#/definitions/__string",
-          "description": "Arn of the deployment."
+          "description": "The arn of the deployment."
         },
         "DeploymentId": {
           "$ref": "#/definitions/__string",
-          "description": "Id of the deployment."
+          "description": "The id of the deployment."
         }
       },
       "type": "object"
@@ -2931,6 +2997,10 @@
           "$ref": "#/definitions/__string",
           "description": "Id of the deployment."
         },
+        "DeploymentType": {
+          "$ref": "#/definitions/DeploymentType",
+          "description": "The type of deployment."
+        },
         "GroupArn": {
           "$ref": "#/definitions/__string",
           "description": "Arn of the group for this deployment."
@@ -2941,7 +3011,9 @@
     "DeploymentType": {
       "enum": [
         "NewDeployment",
-        "Redeployment"
+        "Redeployment",
+        "ResetDeployment",
+        "ForceResetDeployment"
       ],
       "type": "string"
     },
@@ -3112,7 +3184,7 @@
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Message"
+          "description": "Message containing information about the error"
         }
       },
       "type": "object"
@@ -3142,7 +3214,7 @@
       "properties": {
         "ConnectivityInfo": {
           "$ref": "#/definitions/ListOfConnectivityInfo",
-          "description": "Connectivity info array"
+          "description": "Connectivity info list"
         },
         "Message": {
           "$ref": "#/definitions/__string",
@@ -3226,6 +3298,14 @@
         "DeploymentStatus": {
           "$ref": "#/definitions/__string",
           "description": "Status of the deployment."
+        },
+        "DeploymentType": {
+          "$ref": "#/definitions/DeploymentType",
+          "description": "The type of the deployment."
+        },
+        "ErrorDetails": {
+          "$ref": "#/definitions/ErrorDetails",
+          "description": "The error Details"
         },
         "ErrorMessage": {
           "$ref": "#/definitions/__string",
@@ -3356,7 +3436,8 @@
           "description": "Timestamp when the funtion definition version was created."
         },
         "Definition": {
-          "$ref": "#/definitions/FunctionDefinitionVersion"
+          "$ref": "#/definitions/FunctionDefinitionVersion",
+          "description": "Information on the definition."
         },
         "Id": {
           "$ref": "#/definitions/__string",
@@ -3659,7 +3740,7 @@
       "type": "object"
     },
     "GroupInformation": {
-      "description": "Information of a group",
+      "description": "Information on the group",
       "properties": {
         "Arn": {
           "$ref": "#/definitions/__string",
@@ -3727,7 +3808,7 @@
         },
         "Message": {
           "$ref": "#/definitions/__string",
-          "description": "Message"
+          "description": "Message containing information about the error"
         }
       },
       "type": "object"
@@ -3767,7 +3848,7 @@
       "type": "object"
     },
     "ListDefinitionsResponse": {
-      "description": "List of definition response",
+      "description": "List of definition responses",
       "properties": {
         "Definitions": {
           "$ref": "#/definitions/ListOfDefinitionInformation",
@@ -3788,7 +3869,7 @@
       "properties": {
         "Deployments": {
           "$ref": "#/definitions/Deployments",
-          "description": "Information on deployments"
+          "description": "List of deployments for the requested groups"
         },
         "NextToken": {
           "$ref": "#/definitions/__string",
@@ -4128,6 +4209,29 @@
       },
       "type": "array"
     },
+    "ResetDeploymentsRequest": {
+      "description": "Information needed to perform a reset of a group's deployments.",
+      "properties": {
+        "Force": {
+          "$ref": "#/definitions/__boolean",
+          "description": "When set to true, perform a best-effort only core reset."
+        }
+      },
+      "type": "object"
+    },
+    "ResetDeploymentsResponse": {
+      "properties": {
+        "DeploymentArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The arn of the reset deployment."
+        },
+        "DeploymentId": {
+          "$ref": "#/definitions/__string",
+          "description": "The id of the reset deployment."
+        }
+      },
+      "type": "object"
+    },
     "Subscription": {
       "description": "Information on subscription",
       "properties": {
@@ -4165,7 +4269,7 @@
       "properties": {
         "ConnectivityInfo": {
           "$ref": "#/definitions/ListOfConnectivityInfo",
-          "description": "Connectivity info array"
+          "description": "Connectivity info list"
         }
       },
       "type": "object"

@@ -116,6 +116,9 @@ the specified filter. This method returns Organizations in an unspecified
 order. New Organizations do not necessarily appear at the end of the
 results.
 
+Search will only return organizations on which the user has the permission
+`resourcemanager.organizations.get`
+
 
 ```js
 google_cloudresourcemanager.organizations.search({}, context)
@@ -174,6 +177,10 @@ Our SLO permits Project creation to take up to 30 seconds at the 90th
 percentile. As of 2016-08-29, we are observing 6 seconds 50th percentile
 latency. 95th percentile latency is around 11 seconds. We recommend
 polling at the 5th second with an exponential backoff.
+
+Authorization requires the Google IAM permission
+`resourcemanager.projects.create` on the specified parent for the new
+project.
 
 
 ```js
@@ -371,6 +378,9 @@ google_cloudresourcemanager.projects.undelete({
 Returns the IAM access control policy for the specified Project.
 Permission is denied if the policy or the resource does not exist.
 
+Authorization requires the Google IAM permission
+`resourcemanager.projects.getIamPolicy` on the project
+
 
 ```js
 google_cloudresourcemanager.projects.getIamPolicy({
@@ -421,12 +431,13 @@ they must be sent only using the Cloud Platform Console.
 + Membership changes that leave the project without any owners that have
 accepted the Terms of Service (ToS) will be rejected.
 
-+ There must be at least one owner who has accepted the Terms of
-Service (ToS) agreement in the policy. Calling `setIamPolicy()` to
-remove the last ToS-accepted owner from the policy will fail. This
-restriction also applies to legacy projects that no longer have owners
-who have accepted the ToS. Edits to IAM policies will be rejected until
-the lack of a ToS-accepting owner is rectified.
++ If the project is not part of an organization, there must be at least
+one owner who has accepted the Terms of Service (ToS) agreement in the
+policy. Calling `setIamPolicy()` to remove the last ToS-accepted owner
+from the policy will fail. This restriction also applies to legacy
+projects that no longer have owners who have accepted the ToS. Edits to
+IAM policies will be rejected until the lack of a ToS-accepting owner is
+rectified.
 
 + Calling this method requires enabling the App Engine Admin API.
 
@@ -434,6 +445,9 @@ Note: Removing service accounts from policies or changing their roles
 can render services completely inoperable. It is important to understand
 how the service account is being used before removing or updating its
 roles.
+
+Authorization requires the Google IAM permission
+`resourcemanager.projects.setIamPolicy` on the project
 
 
 ```js
@@ -461,6 +475,8 @@ google_cloudresourcemanager.projects.setIamPolicy({
 
 ### projects.testIamPermissions
 Returns permissions that a caller has on the specified Project.
+
+There are no permissions required for making this API call.
 
 
 ```js
@@ -605,6 +621,9 @@ Gets the access control policy for an Organization resource. May be empty
 if no such policy or resource exists. The `resource` field should be the
 organization's resource name, e.g. "organizations/123".
 
+Authorization requires the Google IAM permission
+`resourcemanager.organizations.getIamPolicy` on the specified organization
+
 
 ```js
 google_cloudresourcemanager.organizations.getIamPolicy({
@@ -720,6 +739,9 @@ Sets the access control policy on an Organization resource. Replaces any
 existing policy. The `resource` field should be the organization's resource
 name, e.g. "organizations/123".
 
+Authorization requires the Google IAM permission
+`resourcemanager.organizations.setIamPolicy` on the specified organization
+
 
 ```js
 google_cloudresourcemanager.organizations.setIamPolicy({
@@ -779,6 +801,8 @@ google_cloudresourcemanager.folders.setOrgPolicy({
 Returns permissions that a caller has on the specified Organization.
 The `resource` field should be the organization's resource name,
 e.g. "organizations/123".
+
+There are no permissions required for making this API call.
 
 
 ```js

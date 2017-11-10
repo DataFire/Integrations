@@ -103,6 +103,37 @@ google_firebaserules.projects.releases.get({
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 
+### projects.releases.patch
+Update a `Release` via PATCH.
+
+Only updates to the `ruleset_name` and `test_suite_name` fields will be
+honored. `Release` rename is not supported. To create a `Release` use the
+CreateRelease method.
+
+
+```js
+google_firebaserules.projects.releases.patch({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - The request for FirebaseRulesService.UpdateReleasePatch.
+* name (string) **required** - Resource name for the project which owns this `Release`.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
 ### projects.releases.update
 Update a `Release`.
 
@@ -277,6 +308,33 @@ google_firebaserules.projects.rulesets.create({
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
+### projects.releases.getExecutable
+Get the `Release` executable to use when enforcing rules.
+
+
+```js
+google_firebaserules.projects.releases.getExecutable({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* executableVersion (string) - The requested runtime executable version.
+* name (string) **required** - Resource name of the `Release`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### projects.test
 Test `Source` for syntactic and semantic correctness. Issues present, if

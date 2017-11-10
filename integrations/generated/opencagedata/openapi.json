@@ -80,6 +80,12 @@
             "type": "string"
           },
           {
+            "description": "when true we attempt to abbreviate the formatted field in the response.",
+            "in": "query",
+            "name": "abbrv",
+            "type": "boolean"
+          },
+          {
             "description": "if true the request is included in the response.",
             "in": "query",
             "name": "add_request",

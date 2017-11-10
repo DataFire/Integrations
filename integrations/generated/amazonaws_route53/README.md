@@ -130,6 +130,7 @@ amazonaws_route53.UpdateHealthCheck({
 * Inverted (boolean)
 * Port (integer)
 * Regions (array)
+* ResetElements (array)
 * ResourcePath (string)
 * SearchString (string)
 
@@ -311,6 +312,30 @@ amazonaws_route53.ListHostedZonesByName({}, context)
 
 #### Parameters
 *This action has no parameters*
+
+### ListQueryLoggingConfigs
+
+
+
+```js
+amazonaws_route53.ListQueryLoggingConfigs({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GetQueryLoggingConfig
+
+
+
+```js
+amazonaws_route53.GetQueryLoggingConfig({
+  "Id": ""
+}, context)
+```
+
+#### Parameters
+* Id (string) **required**
 
 ### ListTagsForResources
 

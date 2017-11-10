@@ -21,7 +21,7 @@ amazonaws_glue.BatchCreatePartition({}).then(data => {
 ```
 
 ## Description
-Defines service operations used by the GlueFrontendService
+<fullname>AWS Glue</fullname> <p>Defines the public endpoint for the AWS Glue service.</p>
 
 ## Actions
 ### BatchCreatePartition
@@ -108,6 +108,21 @@ amazonaws_glue.BatchGetPartition({
 * PartitionsToGet (array) **required**
 * TableName (string) **required**
 
+### BatchStopJobRun
+
+
+
+```js
+amazonaws_glue.BatchStopJobRun({
+  "JobName": "",
+  "JobRunIds": []
+}, context)
+```
+
+#### Parameters
+* JobName (string) **required**
+* JobRunIds (array) **required**
+
 ### CreateClassifier
 
 
@@ -181,8 +196,7 @@ amazonaws_glue.CreateDatabase({
 amazonaws_glue.CreateDevEndpoint({
   "EndpointName": "",
   "RoleArn": "",
-  "SecurityGroupIds": [],
-  "SubnetId": ""
+  "PublicKey": ""
 }, context)
 ```
 
@@ -191,10 +205,10 @@ amazonaws_glue.CreateDevEndpoint({
 * ExtraJarsS3Path (string)
 * ExtraPythonLibsS3Path (string)
 * NumberOfNodes (integer)
-* PublicKey (string)
+* PublicKey (string) **required**
 * RoleArn (string) **required**
-* SecurityGroupIds (array) **required**
-* SubnetId (string) **required**
+* SecurityGroupIds (array)
+* SubnetId (string)
 
 ### CreateJob
 
@@ -1093,6 +1107,7 @@ amazonaws_glue.UpdateDevEndpoint({
 * CustomLibraries (object) - Custom libraries to be loaded into a DevEndpoint.
 * EndpointName (string) **required**
 * PublicKey (string)
+* UpdateEtlLibraries (boolean)
 
 ### UpdateJob
 

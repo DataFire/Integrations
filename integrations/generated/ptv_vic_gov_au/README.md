@@ -47,6 +47,8 @@ Links to the following information are also provided on the PTV website at http:
 
 All information about how to use the API is in this documentation. PTV cannot provide technical support for the API.
 
+Credits: This page has been based on Steve Bennett's http://opentransportdata.org/, used with permission.
+
 
 ## Actions
 ### Departures_GetForStop
@@ -278,6 +280,24 @@ ptv_vic_gov_au.Runs_ForRoute({
 * devid (string) - Your developer id
 * signature (string) - Authentication signature for request
 
+### Runs_ForRouteAndRouteType
+View all trip/service runs for a specific route ID and route type
+
+
+```js
+ptv_vic_gov_au.Runs_ForRouteAndRouteType({
+  "route_id": 0,
+  "route_type": 0
+}, context)
+```
+
+#### Parameters
+* route_id (integer) **required** - Identifier of route; values returned by Routes API - v3/routes.
+* route_type (integer) **required** - Number identifying transport mode; values returned via RouteTypes API
+* token (string) - Please ignore
+* devid (string) - Your developer id
+* signature (string) - Authentication signature for request
+
 ### Runs_ForRun
 View all trip/service runs for a specific run ID
 
@@ -392,6 +412,7 @@ ptv_vic_gov_au.Stops_StopDetails({
 * stop_accessibility (boolean) - Indicates if stop accessibility information will be returned (default = false)
 * stop_contact (boolean) - Placeholder for future development; currently unavailable
 * stop_ticket (boolean) - Placeholder for future development; currently unavailable
+* gtfs (boolean) - Incdicates whether the stop_id is a GTFS ID or not
 * token (string) - Please ignore
 * devid (string) - Your developer id
 * signature (string) - Authentication signature for request

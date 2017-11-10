@@ -33,19 +33,6 @@ yunbi.v2.addresses.address.json.get({
 #### Parameters
 * address (string) **required**
 
-### v2.crowdsales.key.json.get
-Get crowdsales plan info
-
-
-```js
-yunbi.v2.crowdsales.key.json.get({
-  "key": ""
-}, context)
-```
-
-#### Parameters
-* key (string) **required** - Crowdsale plan key
-
 ### v2.deposit.json.get
 Get details of specific deposit.
 
@@ -82,7 +69,7 @@ yunbi.v2.deposit_address.json.get({
 * access_key (string) **required** - Access key.
 * tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
 * signature (string) **required** - The signature of your request payload, generated using your secret key.
-* currency (string) **required** - The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt
+* currency (string) **required** - The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt, gxs, qtum, eos, snt, bcc, omg, lun, pay, ven
 
 ### v2.deposits.json.get
 Get your deposits history.
@@ -100,9 +87,9 @@ yunbi.v2.deposits.json.get({
 * access_key (string) **required** - Access key.
 * tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
 * signature (string) **required** - The signature of your request payload, generated using your secret key.
-* currency (string) - Currency value contains  cny,btc,eth,pls,note,bts,bitcny,bitusd,bitbtc,yun,nxt,ltc,doge,sc,dgd,dcs,dao,etc,amp,1st,rep,ans,zec,zmc,gnt
+* currency (string) - Currency value contains  cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt, gxs, qtum, eos, snt, bcc, omg, lun, pay, ven
 * limit (integer) - Set result limit.
-* state (string)
+* state (string) - State value contains  submitting, cancelled, submitted, rejected, accepted, checked, warning
 
 ### v2.depth.json.get
 Get depth or specified market. Both asks and bids are sorted from highest price to lowest.
@@ -251,10 +238,10 @@ yunbi.v2.orders.json.get({
 * tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
 * signature (string) **required** - The signature of your request payload, generated using your secret key.
 * market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
-* state (string) - Filter order by state, default to 'wait' (active orders).
+* state (string) - Filter order by state. One of 'wait', 'done', or 'cancel'. An order in 'wait' is an active order, waiting fullfillment; a 'done' order is an order fullfilled; 'cancel' means the order has been cancelled. Default to 'wait'.
 * limit (integer) - Limit the number of returned orders, default to 100.
 * page (integer) - Specify the page of paginated results.
-* order_by (string) - If set, returned orders will be sorted in specific order, default to 'asc'.
+* order_by (string) - If set, returned orders will be sorted in specific order. One of 'asc' or 'desc', default to 'asc'.
 
 ### v2.orders.json.post
 Create a Sell/Buy order.
@@ -279,7 +266,7 @@ yunbi.v2.orders.json.post({
 * side (string) **required** - Either 'sell' or 'buy'.
 * volume (string) **required** - The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.
 * price (string) - Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 CNY, the price is '3000.0'
-* ord_type (string)
+* ord_type (string) - Type of order, either 'limit' or 'market'.
 
 ### v2.orders.clear.json.post
 Cancel all my orders.
@@ -324,7 +311,22 @@ yunbi.v2.orders.multi.json.post({
 * orders[side] (string) **required** - Either 'sell' or 'buy'.
 * orders[volume] (string) **required** - The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.
 * orders[price] (string) - Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 CNY, the price is '3000.0'
-* orders[ord_type] (string)
+* orders[ord_type] (string) - Type of order, either 'limit' or 'market'.
+
+### v2.partners.orders.id.trades.json.get
+
+
+
+```js
+yunbi.v2.partners.orders.id.trades.json.get({
+  "id": "",
+  "access_key_hash": ""
+}, context)
+```
+
+#### Parameters
+* id (string) **required**
+* access_key_hash (string) **required**
 
 ### v2.tickers.json.get
 Get ticker of all markets.
@@ -377,7 +379,7 @@ yunbi.v2.trades.json.get({
 * timestamp (integer) - An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.
 * from (integer) - Trade id. If set, only trades created after the trade will be returned.
 * to (integer) - Trade id. If set, only trades created before the trade will be returned.
-* order_by (string) - If set, returned trades will be sorted in specific order, default to 'desc'.
+* order_by (string) - If set, returned trades will be sorted in specific order. One of 'asc' or 'desc', default to 'desc'.
 
 ### v2.trades.my.json.get
 Get your executed trades. Trades are sorted in reverse creation order.
@@ -401,27 +403,5 @@ yunbi.v2.trades.my.json.get({
 * timestamp (integer) - An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.
 * from (integer) - Trade id. If set, only trades created after the trade will be returned.
 * to (integer) - Trade id. If set, only trades created before the trade will be returned.
-* order_by (string) - If set, returned trades will be sorted in specific order, default to 'desc'.
-
-### v2.withdraw.json.post
-Generate withdrawal application
-
-
-```js
-yunbi.v2.withdraw.json.post({
-  "access_key": "",
-  "tonce": 0,
-  "signature": "",
-  "amount": "",
-  "id": 0
-}, context)
-```
-
-#### Parameters
-* access_key (string) **required** - Access key.
-* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
-* signature (string) **required** - The signature of your request payload, generated using your secret key.
-* amount (string) **required** - Withdraw amount
-* id (integer) **required** - Withdrawal address ID
-* memo (string) - Withdraw Memo
+* order_by (string) - If set, returned trades will be sorted in specific order. One of 'asc' or 'desc', default to 'desc'.
 

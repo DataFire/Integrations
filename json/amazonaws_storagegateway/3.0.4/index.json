@@ -39,11 +39,11 @@
         },
         "GatewayRegion": {
           "$ref": "#/definitions/RegionId",
-          "description": "<p>A value that indicates the region where you want to store the snapshot backups. The gateway region specified must be the same region as the region in your <code>Host</code> header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region\">Regions and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</p> <p> Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"sa-east-1\"</p>"
+          "description": "<p>A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your <code>Host</code> header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region\">Regions and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</p> <p> Valid Values: \"us-east-1\", \"us-east-2\", \"us-west-1\", \"us-west-2\", \"ca-central-1\", \"eu-west-1\", \"eu-central-1\", \"eu-west-2\", \"ap-northeast-1\", \"ap-northeast-2\", \"ap-southeast-1\", \"ap-southeast-2\", \"ap-south-1\", \"sa-east-1\"</p>"
         },
         "GatewayTimezone": {
           "$ref": "#/definitions/GatewayTimezone",
-          "description": "A value that indicates the time zone you want to set for the gateway. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule."
+          "description": "A value that indicates the time zone you want to set for the gateway. The time zone is of the format \"GMT-hr:mm\" or \"GMT+hr:mm\". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule."
         },
         "GatewayType": {
           "$ref": "#/definitions/GatewayType",
@@ -253,7 +253,7 @@
       "title": "BandwidthUploadRateLimit"
     },
     "Boolean": {
-      "description": "Indicates whether the write status of a file share is read-only. \"true\", if write status is read-only; otherwise \"false\".",
+      "description": "A value that indicates whether the write status of a file share is read-only: \"true\" if write status is read-only, and otherwise \"false\".",
       "type": "boolean",
       "title": "Boolean"
     },
@@ -261,7 +261,8 @@
       "description": "Describes an iSCSI cached volume.",
       "properties": {
         "CreatedDate": {
-          "$ref": "#/definitions/CreatedDate"
+          "$ref": "#/definitions/CreatedDate",
+          "description": "The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp."
         },
         "SourceSnapshotId": {
           "$ref": "#/definitions/SnapshotId",
@@ -281,7 +282,7 @@
         },
         "VolumeSizeInBytes": {
           "$ref": "#/definitions/long",
-          "description": "The size of the volume in bytes."
+          "description": "The size, in bytes, of the volume capacity."
         },
         "VolumeStatus": {
           "$ref": "#/definitions/VolumeStatus",
@@ -508,7 +509,7 @@
         },
         "LocationARN": {
           "$ref": "#/definitions/LocationARN",
-          "description": "The ARN of the backend storage used for storing file data. "
+          "description": "The ARN of the backed storage used for storing file data. "
         },
         "NFSFileShareDefaults": {
           "$ref": "#/definitions/NFSFileShareDefaults",
@@ -516,7 +517,7 @@
         },
         "ReadOnly": {
           "$ref": "#/definitions/Boolean",
-          "description": "Sets the write status of a file share. \"true\", if the write status is read-only; otherwise \"false."
+          "description": "Sets the write status of a file share: \"true\" if the write status is read-only, and otherwise \"false\"."
         },
         "Role": {
           "$ref": "#/definitions/Role",
@@ -524,7 +525,7 @@
         },
         "Squash": {
           "$ref": "#/definitions/Squash",
-          "description": "Maps a user to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user. "
+          "description": "<p>Maps a user to anonymous user. Valid options are the following: </p> <ul> <li> <p>\"RootSquash\" - Only root is mapped to anonymous user.</p> </li> <li> <p>\"NoSquash\" - No one is mapped to anonymous user.</p> </li> <li> <p>\"AllSquash\" - Everyone is mapped to anonymous user.</p> </li> </ul>"
         }
       },
       "required": [
@@ -661,7 +662,7 @@
         },
         "TargetName": {
           "$ref": "#/definitions/TargetName",
-          "description": "The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying <code>TargetName</code> as <i>myvolume</i> results in the target ARN of arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway."
+          "description": "The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying <code>TargetName</code> as <i>myvolume</i> results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway."
         }
       },
       "required": [
@@ -712,7 +713,7 @@
         },
         "TapeBarcode": {
           "$ref": "#/definitions/TapeBarcode",
-          "description": "The barcode that you want to assign to the tape."
+          "description": "<p>The barcode that you want to assign to the tape.</p> <note> <p>Barcodes cannot be reused. This includes barcodes used for tapes that have been deleted.</p> </note>"
         },
         "TapeSizeInBytes": {
           "$ref": "#/definitions/TapeSize",
@@ -894,6 +895,10 @@
         "FileShareARN": {
           "$ref": "#/definitions/FileShareARN",
           "description": "The Amazon Resource Name (ARN) of the file share to be deleted. "
+        },
+        "ForceDelete": {
+          "$ref": "#/definitions/boolean",
+          "description": "If set to true, deletes a file share immediately and aborts all data uploads to AWS. Otherwise the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process and the file share enters the FORCE_DELETING status."
         }
       },
       "required": [
@@ -1625,7 +1630,7 @@
         },
         "TapeARNs": {
           "$ref": "#/definitions/TapeARNs",
-          "description": "Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway."
+          "description": "Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, Tape gateway returns a description of all virtual tapes associated with the specified gateway."
         }
       },
       "required": [
@@ -2636,7 +2641,7 @@
       "title": "MinuteOfHour"
     },
     "NFSFileShareDefaults": {
-      "description": "Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in file gateways.",
+      "description": "Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway architecture.",
       "properties": {
         "DirectoryMode": {
           "$ref": "#/definitions/PermissionMode",
@@ -2659,7 +2664,7 @@
       "title": "NFSFileShareDefaults"
     },
     "NFSFileShareInfo": {
-      "description": "The Unix file permissions and ownership information assigned, by default, to native S3 objects when Storage Gateway discovers them in S3 buckets. This operation is only supported in file gateways.",
+      "description": "The Unix file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported in file gateways.",
       "properties": {
         "ClientList": {
           "$ref": "#/definitions/FileShareClientList"
@@ -3051,7 +3056,7 @@
       "title": "SnapshotId"
     },
     "Squash": {
-      "description": "Indicates the user mapped to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user.",
+      "description": "<p>The user mapped to anonymous user. Valid options are the following: </p> <ul> <li> <p>\"RootSquash\" - Only root is mapped to anonymous user.</p> </li> <li> <p>\"NoSquash\" - No one is mapped to anonymous user</p> </li> <li> <p>\"AllSquash\" - Everyone is mapped to anonymous user.</p> </li> </ul>",
       "maxLength": 15,
       "minLength": 5,
       "type": "string",
@@ -3112,7 +3117,8 @@
       "description": "Describes an iSCSI stored volume.",
       "properties": {
         "CreatedDate": {
-          "$ref": "#/definitions/CreatedDate"
+          "$ref": "#/definitions/CreatedDate",
+          "description": "The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp."
         },
         "PreservedExistingData": {
           "$ref": "#/definitions/boolean",
@@ -3223,15 +3229,20 @@
           "description": "The barcode that identifies a specific virtual tape."
         },
         "TapeCreatedDate": {
-          "$ref": "#/definitions/Time"
+          "$ref": "#/definitions/Time",
+          "description": "The date the virtual tape was created."
         },
         "TapeSizeInBytes": {
           "$ref": "#/definitions/TapeSize",
-          "description": "The size, in bytes, of the virtual tape."
+          "description": "The size, in bytes, of the virtual tape capacity."
         },
         "TapeStatus": {
           "$ref": "#/definitions/TapeStatus",
           "description": "The current state of the virtual tape."
+        },
+        "TapeUsedInBytes": {
+          "$ref": "#/definitions/TapeUsage",
+          "description": "<p>The size, in bytes, of data written to the virtual tape.</p> <note> <p>This value is not available for tapes created prior to May 13, 2015.</p> </note>"
         },
         "VTLDevice": {
           "$ref": "#/definitions/VTLDeviceARN",
@@ -3285,6 +3296,10 @@
         "TapeStatus": {
           "$ref": "#/definitions/TapeArchiveStatus",
           "description": "The current state of the archived virtual tape."
+        },
+        "TapeUsedInBytes": {
+          "$ref": "#/definitions/TapeUsage",
+          "description": "<p>The size, in bytes, of data written to the virtual tape.</p> <note> <p>This value is not available for tapes created prior to May 13, 2015.</p> </note>"
         }
       },
       "type": "object",
@@ -3396,6 +3411,10 @@
     "TapeStatus": {
       "type": "string",
       "title": "TapeStatus"
+    },
+    "TapeUsage": {
+      "type": "integer",
+      "title": "TapeUsage"
     },
     "Tapes": {
       "items": {
@@ -3659,11 +3678,11 @@
         },
         "ReadOnly": {
           "$ref": "#/definitions/Boolean",
-          "description": "Sets the write status of a file share. \"true\", if the write status is read-only; otherwise \"false."
+          "description": "Sets the write status of a file share: \"true\" if the write status is read-only, otherwise \"false\"."
         },
         "Squash": {
           "$ref": "#/definitions/Squash",
-          "description": "Indicates the user mapped to anonymous user. Valid options: \"RootSquash\" - Only root is mapped to anonymous user, \"NoSquash\" - No one is mapped to anonymous user or \"AllSquash\" - Everyone is mapped to anonymous user."
+          "description": "<p>The user mapped to anonymous user. Valid options are the following:</p> <ul> <li> <p>\"RootSquash\" - Only root is mapped to anonymous user.</p> </li> <li> <p>\"NoSquash\" - No one is mapped to anonymous user</p> </li> <li> <p>\"AllSquash\" - Everyone is mapped to anonymous user.</p> </li> </ul>"
         }
       },
       "required": [
@@ -3854,7 +3873,7 @@
         },
         "VolumeARN": {
           "$ref": "#/definitions/VolumeARN",
-          "description": "<p>The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:</p> <p> <code>arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB</code> </p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
+          "description": "<p>The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:</p> <p> <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB</code> </p> <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"
         },
         "VolumeId": {
           "$ref": "#/definitions/VolumeId",

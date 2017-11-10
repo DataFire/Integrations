@@ -108,12 +108,47 @@ google_ml.projects.jobs.get({
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.
 
+### projects.models.versions.patch
+Updates the specified Version resource.
+
+Currently the only supported field to update is `description`.
+
+
+```js
+google_ml.projects.models.versions.patch({
+  "name": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Represents a version of the model.
+* name (string) **required** - Required. The name of the model.
+* updateMask (string) - Required. Specifies the path, relative to `Version`, of the field to
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+
 ### projects.operations.list
 Lists operations that match the specified filter in the request. If the
 server doesn't support this method, it returns `UNIMPLEMENTED`.
 
-NOTE: the `name` binding below allows API services to override the binding
-to use different resource name schemes, such as `users/*/operations`.
+NOTE: the `name` binding allows API services to override the binding
+to use different resource name schemes, such as `users/*/operations`. To
+override the binding, API services can add a binding such as
+`"/v1/{name=users/*}/operations"` to their service configuration.
+For backwards compatibility, the default name includes the operations
+collection id, however overriding users must ensure the name binding
+is the parent resource, without the operations collection id.
 
 
 ```js
@@ -123,10 +158,10 @@ google_ml.projects.operations.list({
 ```
 
 #### Parameters
-* name (string) **required** - The name of the operation collection.
 * filter (string) - The standard list filter.
-* pageToken (string) - The standard list page token.
+* name (string) **required** - The name of the operation's parent resource.
 * pageSize (integer) - The standard list page size.
+* pageToken (string) - The standard list page token.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -210,8 +245,8 @@ google_ml.projects.predict({
 ```
 
 #### Parameters
-* name (string) **required** - Required. The resource name of a model or a version.
 * body (object) - Request for predictions to be issued against a trained model.
+* name (string) **required** - Required. The resource name of a model or a version.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -271,10 +306,10 @@ google_ml.projects.jobs.list({
 ```
 
 #### Parameters
-* parent (string) **required** - Required. The name of the project for which to list jobs.
 * filter (string) - Optional. Specifies the subset of jobs to retrieve.
-* pageToken (string) - Optional. A page token to request the next page of results.
 * pageSize (integer) - Optional. The number of jobs to retrieve per "page" of results. If there
+* pageToken (string) - Optional. A page token to request the next page of results.
+* parent (string) **required** - Required. The name of the project for which to list jobs.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -300,8 +335,8 @@ google_ml.projects.jobs.create({
 ```
 
 #### Parameters
-* parent (string) **required** - Required. The project name.
 * body (object) - Represents a training or prediction job.
+* parent (string) **required** - Required. The project name.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -330,9 +365,10 @@ google_ml.projects.models.list({
 ```
 
 #### Parameters
-* parent (string) **required** - Required. The name of the project whose models are to be listed.
-* pageToken (string) - Optional. A page token to request the next page of results.
+* filter (string) - Optional. Specifies the subset of models to retrieve.
 * pageSize (integer) - Optional. The number of models to retrieve per "page" of results. If there
+* pageToken (string) - Optional. A page token to request the next page of results.
+* parent (string) **required** - Required. The name of the project whose models are to be listed.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -362,8 +398,8 @@ google_ml.projects.models.create({
 ```
 
 #### Parameters
-* parent (string) **required** - Required. The project name.
 * body (object) - Represents a machine learning solution.
+* parent (string) **required** - Required. The project name.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -393,9 +429,10 @@ google_ml.projects.models.versions.list({
 ```
 
 #### Parameters
-* parent (string) **required** - Required. The name of the model for which to list the version.
-* pageToken (string) - Optional. A page token to request the next page of results.
+* filter (string) - Optional. Specifies the subset of versions to retrieve.
 * pageSize (integer) - Optional. The number of versions to retrieve per "page" of results. If
+* pageToken (string) - Optional. A page token to request the next page of results.
+* parent (string) **required** - Required. The name of the model for which to list the version.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -428,8 +465,8 @@ google_ml.projects.models.versions.create({
 ```
 
 #### Parameters
-* parent (string) **required** - Required. The name of the model.
 * body (object) - Represents a version of the model.
+* parent (string) **required** - Required. The name of the model.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
@@ -443,4 +480,93 @@ google_ml.projects.models.versions.create({
 * pp (boolean) - Pretty-print response.
 * bearer_token (string) - OAuth bearer token.
 * oauth_token (string) - OAuth 2.0 token for the current user.
+
+### projects.jobs.getIamPolicy
+Gets the access control policy for a resource.
+Returns an empty policy if the resource exists and does not have a policy
+set.
+
+
+```js
+google_ml.projects.jobs.getIamPolicy({
+  "resource": ""
+}, context)
+```
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy is being requested.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.jobs.setIamPolicy
+Sets the access control policy on the specified resource. Replaces any
+existing policy.
+
+
+```js
+google_ml.projects.jobs.setIamPolicy({
+  "resource": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request message for `SetIamPolicy` method.
+* resource (string) **required** - REQUIRED: The resource for which the policy is being specified.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.jobs.testIamPermissions
+Returns permissions that a caller has on the specified resource.
+If the resource does not exist, this will return an empty set of
+permissions, not a NOT_FOUND error.
+
+Note: This operation is designed to be used for building permission-aware
+UIs and command-line tools, not for authorization checking. This operation
+may "fail open" without warning.
+
+
+```js
+google_ml.projects.jobs.testIamPermissions({
+  "resource": ""
+}, context)
+```
+
+#### Parameters
+* body (object) - Request message for `TestIamPermissions` method.
+* resource (string) **required** - REQUIRED: The resource for which the policy detail is being requested.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 

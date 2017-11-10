@@ -16,8 +16,12 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpg"
   },
-  "actionCount": 65,
+  "actionCount": 83,
   "definitions": {
+    "AWSAccountIdType": {
+      "type": "string",
+      "title": "AWSAccountIdType"
+    },
     "AddCustomAttributesRequest": {
       "description": "Represents the request to add custom attributes.",
       "properties": {
@@ -96,7 +100,7 @@
       "properties": {
         "AllowAdminCreateUserOnly": {
           "$ref": "#/definitions/BooleanType",
-          "description": "Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app."
+          "description": "Set to <code>True</code> if only the administrator is allowed to create user profiles. Set to <code>False</code> if users can sign themselves up via an app."
         },
         "InviteMessageTemplate": {
           "$ref": "#/definitions/MessageTemplateType",
@@ -104,7 +108,7 @@
         },
         "UnusedAccountValidityDays": {
           "$ref": "#/definitions/AdminCreateUserUnusedAccountValidityDaysType",
-          "description": "The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying \"RESEND\" for the MessageAction parameter. The default value for this paameter is 7."
+          "description": "The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>\"RESEND\"</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7."
         }
       },
       "type": "object",
@@ -115,23 +119,23 @@
       "properties": {
         "DesiredDeliveryMediums": {
           "$ref": "#/definitions/DeliveryMediumListType",
-          "description": "Specify \"EMAIL\" if email will be used to send the welcome message. Specify \"SMS\" if the phone number will be used. The default value is \"SMS\". More than one value can be specified."
+          "description": "Specify <code>\"EMAIL\"</code> if email will be used to send the welcome message. Specify <code>\"SMS\"</code> if the phone number will be used. The default value is <code>\"SMS\"</code>. More than one value can be specified."
         },
         "ForceAliasCreation": {
           "$ref": "#/definitions/ForceAliasCreation",
-          "description": "<p>This parameter is only used if the phone_number_verified or email_verified attribute is set to True. Otherwise, it is ignored.</p> <p>If this parameter is set to True and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to False, the API throws an AliasExistsException error if the alias already exists. The default value is False.</p>"
+          "description": "<p>This parameter is only used if the <code>phone_number_verified</code> or <code>email_verified</code> attribute is set to <code>True</code>. Otherwise, it is ignored.</p> <p>If this parameter is set to <code>True</code> and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.</p> <p>If this parameter is set to <code>False</code>, the API throws an <code>AliasExistsException</code> error if the alias already exists. The default value is <code>False</code>.</p>"
         },
         "MessageAction": {
           "$ref": "#/definitions/MessageActionType",
-          "description": "Set to \"RESEND\" to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to \"SUPPRESS\" to suppress sending the message. Only one value can be specified."
+          "description": "Set to <code>\"RESEND\"</code> to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to <code>\"SUPPRESS\"</code> to suppress sending the message. Only one value can be specified."
         },
         "TemporaryPassword": {
           "$ref": "#/definitions/PasswordType",
-          "description": "<p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p> <p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p> <p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call AdminCreateUser again, specifying \"RESEND\" for the MessageAction parameter.</p>"
+          "description": "<p>The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.</p> <p>The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.</p> <p>This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.</p> <p>The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>\"RESEND\"</code> for the <code>MessageAction</code> parameter.</p>"
         },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
-          "description": "<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than Username. However, any attributes that you specify as required (in CreateUserPool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to AdminCreateUser) or by the user (when he or she signs up in response to your welcome message).</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to AdminCreateUser, you can set the email_verified attribute to True, and you can set the phone_number_verified attribute to True. (You cannot do this by calling other operations such as AdminUpdateUserAttributes.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the email_verified attribute is set to True, or if \"EMAIL\" is specified in the DesiredDeliveryMediums parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the phone_number_verified attribute is set to True, or if \"SMS\" is specified in the DesiredDeliveryMediums parameter.</p> </li> </ul>"
+          "description": "<p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (in <a href=\"API_CreateUserPool.html\">CreateUserPool</a> or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p> <p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p> <p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling <a href=\"API_AdminUpdateUserAttributes.html\">AdminUpdateUserAttributes</a>.)</p> <ul> <li> <p> <b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>\"EMAIL\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> <li> <p> <b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>\"SMS\"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p> </li> </ul>"
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -158,7 +162,7 @@
       "properties": {
         "User": {
           "$ref": "#/definitions/UserType",
-          "description": "The user returned in the request to create a new user."
+          "description": "The newly created user."
         }
       },
       "type": "object",
@@ -175,7 +179,7 @@
       "properties": {
         "UserAttributeNames": {
           "$ref": "#/definitions/AttributeNameListType",
-          "description": "An array of strings representing the user attribute names you wish to delete."
+          "description": "<p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -219,6 +223,29 @@
       "type": "object",
       "title": "AdminDeleteUserRequest"
     },
+    "AdminDisableProviderForUserRequest": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/ProviderUserIdentifierType",
+          "description": "The user to be disabled."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "User"
+      ],
+      "type": "object",
+      "title": "AdminDisableProviderForUserRequest"
+    },
+    "AdminDisableProviderForUserResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AdminDisableProviderForUserResponse"
+    },
     "AdminDisableUserRequest": {
       "description": "Represents the request to disable any user as an administrator.",
       "properties": {
@@ -253,7 +280,7 @@
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
-          "description": "The user name of the user you wish to ebable."
+          "description": "The user name of the user you wish to enable."
         }
       },
       "required": [
@@ -393,19 +420,19 @@
       "properties": {
         "AuthFlow": {
           "$ref": "#/definitions/AuthFlowType",
-          "description": "The authentication flow."
+          "description": "<p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> </ul>"
         },
         "AuthParameters": {
           "$ref": "#/definitions/AuthParametersType",
-          "description": "The authentication parameters."
+          "description": "<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>"
         },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The client app ID."
+          "description": "The app client ID."
         },
         "ClientMetadata": {
           "$ref": "#/definitions/ClientMetadataType",
-          "description": "The client app metadata."
+          "description": "This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -425,23 +452,51 @@
       "properties": {
         "AuthenticationResult": {
           "$ref": "#/definitions/AuthenticationResultType",
-          "description": "The result of the authentication response."
+          "description": "The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned."
         },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The name of the challenge."
+          "description": "<p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p> <ul> <li> <p> <code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p> </li> <li> <p> <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p> </li> <li> <p> <code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p> </li> <li> <p> <code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: This is returned if you need to authenticate with <code>USERNAME</code> and <code>PASSWORD</code> directly. An app client must be enabled to use this flow.</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p> </li> </ul>"
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "The challenge parameters."
+          "description": "<p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p> <p>The value of the <code>USER_IF_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>"
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If <code>AdminInitiateAuth</code> or <code>AdminRespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>AdminRespondToAuthChallenge</code> API call."
         }
       },
       "type": "object",
       "title": "AdminInitiateAuthResponse"
+    },
+    "AdminLinkProviderForUserRequest": {
+      "properties": {
+        "DestinationUser": {
+          "$ref": "#/definitions/ProviderUserIdentifierType",
+          "description": "<p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.</p> <p>The <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> must match the username for the user in the user pool. The <code>ProviderAttributeName</code> will always be ignored.</p>"
+        },
+        "SourceUser": {
+          "$ref": "#/definitions/ProviderUserIdentifierType",
+          "description": "<p>An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.</p> <p>If the <code>SourceUser</code> is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. For social identity providers, the <code>ProviderName</code> will be <code>Facebook</code>, <code>Google</code>, or <code>LoginWithAmazon</code>, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for <code>id</code>, <code>sub</code>, and <code>user_id</code>, respectively. The <code>ProviderAttributeValue</code> for the user must be the same value as the <code>id</code>, <code>sub</code>, or <code>user_id</code> value found in the social identity provider token.</p> <p/> <p>For SAML, the <code>ProviderAttributeName</code> can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the <code>ProviderAttributeName</code>. If you set <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.</p>"
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/StringType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "DestinationUser",
+        "SourceUser"
+      ],
+      "type": "object",
+      "title": "AdminLinkProviderForUserRequest"
+    },
+    "AdminLinkProviderForUserResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "AdminLinkProviderForUserResponse"
     },
     "AdminListDevicesRequest": {
       "description": "Represents the request to list devices, as an administrator.",
@@ -578,19 +633,19 @@
       "properties": {
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The name of the challenge."
+          "description": "The challenge name. For more information, see <a href=\"API_AdminInitiateAuth.html\">AdminInitiateAuth</a>."
         },
         "ChallengeResponses": {
           "$ref": "#/definitions/ChallengeResponsesType",
-          "description": "The challenge response."
+          "description": "<p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p> <ul> <li> <p> <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> </ul> <p>The value of the <code>USERNAME</code> attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the <code>AdminInitiateAuth</code> response includes the actual username value in the <code>USERNAMEUSER_ID_FOR_SRP</code> attribute, even if you specified an alias in your call to <code>AdminInitiateAuth</code>.</p>"
         },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The client ID."
+          "description": "The app client ID."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -614,15 +669,15 @@
         },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The name of the challenge."
+          "description": "The name of the challenge. For more information, see <a href=\"API_AdminInitiateAuth.html\">AdminInitiateAuth</a>."
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "The challenge parameters."
+          "description": "The challenge parameters. For more information, see <a href=\"API_AdminInitiateAuth.html\">AdminInitiateAuth</a>."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If the <a href=\"API_InitiateAuth.html\">InitiateAuth</a> or <a href=\"API_RespondToAuthChallenge.html\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
       "type": "object",
@@ -671,7 +726,7 @@
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
-          "description": "The user pool ID&gt;"
+          "description": "The user pool ID."
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -697,7 +752,7 @@
       "properties": {
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
-          "description": "An array of name-value pairs representing user attributes."
+          "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -798,6 +853,27 @@
       "type": "array",
       "title": "AttributeListType"
     },
+    "AttributeMappingKeyType": {
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string",
+      "title": "AttributeMappingKeyType"
+    },
+    "AttributeMappingType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/AttributeMappingKeyType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "AttributeMappingType"
+    },
     "AttributeNameListType": {
       "items": {
         "$ref": "#/definitions/AttributeNameType"
@@ -897,6 +973,23 @@
       "type": "boolean",
       "title": "BooleanType"
     },
+    "CSSType": {
+      "type": "string",
+      "title": "CSSType"
+    },
+    "CSSVersionType": {
+      "type": "string",
+      "title": "CSSVersionType"
+    },
+    "CallbackURLsListType": {
+      "items": {
+        "$ref": "#/definitions/RedirectUrlType"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array",
+      "title": "CallbackURLsListType"
+    },
     "ChallengeNameType": {
       "enum": [
         "SMS_MFA",
@@ -958,7 +1051,8 @@
       },
       "required": [
         "PreviousPassword",
-        "ProposedPassword"
+        "ProposedPassword",
+        "AccessToken"
       ],
       "type": "object",
       "title": "ChangePasswordRequest"
@@ -1129,15 +1223,15 @@
       "properties": {
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The ID of the client associated with the user pool."
+          "description": "The app client ID of the app associated with the user pool."
         },
         "ConfirmationCode": {
           "$ref": "#/definitions/ConfirmationCodeType",
-          "description": "The confirmation code sent by a user's request to retrieve a forgotten password."
+          "description": "The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href=\"API_ForgotPassword.html\">ForgotPassword</a> "
         },
         "Password": {
           "$ref": "#/definitions/PasswordType",
-          "description": "The password sent by sent by a user's request to retrieve a forgotten password."
+          "description": "The password sent by a user's request to retrieve a forgotten password."
         },
         "SecretHash": {
           "$ref": "#/definitions/SecretHashType",
@@ -1168,7 +1262,7 @@
       "properties": {
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The ID of the client associated with the user pool."
+          "description": "The ID of the app client associated with the user pool."
         },
         "ConfirmationCode": {
           "$ref": "#/definitions/ConfirmationCodeType",
@@ -1176,7 +1270,7 @@
         },
         "ForceAliasCreation": {
           "$ref": "#/definitions/ForceAliasCreation",
-          "description": "Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an <b>AliasExistsException</b> error."
+          "description": "Boolean to be specified to force user confirmation irrespective of existing alias. By default set to <code>False</code>. If this parameter is set to <code>True</code> and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to <code>False</code>, the API will throw an <b>AliasExistsException</b> error."
         },
         "SecretHash": {
           "$ref": "#/definitions/SecretHashType",
@@ -1248,6 +1342,95 @@
       "type": "object",
       "title": "CreateGroupResponse"
     },
+    "CreateIdentityProviderRequest": {
+      "properties": {
+        "AttributeMapping": {
+          "$ref": "#/definitions/AttributeMappingType",
+          "description": "A mapping of identity provider attributes to standard and custom user pool attributes."
+        },
+        "IdpIdentifiers": {
+          "$ref": "#/definitions/IdpIdentifiersListType",
+          "description": "A list of identity provider identifiers."
+        },
+        "ProviderDetails": {
+          "$ref": "#/definitions/ProviderDetailsType",
+          "description": "The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameTypeV1",
+          "description": "The identity provider name."
+        },
+        "ProviderType": {
+          "$ref": "#/definitions/IdentityProviderTypeType",
+          "description": "The identity provider type."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ProviderName",
+        "ProviderType",
+        "ProviderDetails"
+      ],
+      "type": "object",
+      "title": "CreateIdentityProviderRequest"
+    },
+    "CreateIdentityProviderResponse": {
+      "properties": {
+        "IdentityProvider": {
+          "$ref": "#/definitions/IdentityProviderType",
+          "description": "The newly created identity provider object."
+        }
+      },
+      "required": [
+        "IdentityProvider"
+      ],
+      "type": "object",
+      "title": "CreateIdentityProviderResponse"
+    },
+    "CreateResourceServerRequest": {
+      "properties": {
+        "Identifier": {
+          "$ref": "#/definitions/ResourceServerIdentifierType",
+          "description": "A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example, <code>https://my-weather-api.example.com</code>."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceServerNameType",
+          "description": "A friendly name for the resource server."
+        },
+        "Scopes": {
+          "$ref": "#/definitions/ResourceServerScopeListType",
+          "description": "A list of scopes. Each scope is map, where the keys are <code>name</code> and <code>description</code>."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Identifier",
+        "Name"
+      ],
+      "type": "object",
+      "title": "CreateResourceServerRequest"
+    },
+    "CreateResourceServerResponse": {
+      "properties": {
+        "ResourceServer": {
+          "$ref": "#/definitions/ResourceServerType",
+          "description": "The newly created resource server."
+        }
+      },
+      "required": [
+        "ResourceServer"
+      ],
+      "type": "object",
+      "title": "CreateResourceServerResponse"
+    },
     "CreateUserImportJobRequest": {
       "description": "Represents the request to create the user import job.",
       "properties": {
@@ -1286,9 +1469,29 @@
     "CreateUserPoolClientRequest": {
       "description": "Represents the request to create a user pool client.",
       "properties": {
+        "AllowedOAuthFlows": {
+          "$ref": "#/definitions/OAuthFlowsType",
+          "description": "<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>"
+        },
+        "AllowedOAuthFlowsUserPoolClient": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Set to <code>True</code> if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools."
+        },
+        "AllowedOAuthScopes": {
+          "$ref": "#/definitions/ScopeListType",
+          "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>."
+        },
+        "CallbackURLs": {
+          "$ref": "#/definitions/CallbackURLsListType",
+          "description": "A list of allowed callback URLs for the identity providers."
+        },
         "ClientName": {
           "$ref": "#/definitions/ClientNameType",
           "description": "The client name for the user pool client you would like to create."
+        },
+        "DefaultRedirectURI": {
+          "$ref": "#/definitions/RedirectUrlType",
+          "description": "The default redirect URI. Must be in the <code>CallbackURLs</code> list."
         },
         "ExplicitAuthFlows": {
           "$ref": "#/definitions/ExplicitAuthFlowsListType",
@@ -1298,13 +1501,21 @@
           "$ref": "#/definitions/GenerateSecret",
           "description": "Boolean to specify whether you want to generate a secret for the user pool client being created."
         },
+        "LogoutURLs": {
+          "$ref": "#/definitions/LogoutURLsListType",
+          "description": "A list of allowed logout URLs for the identity providers."
+        },
         "ReadAttributes": {
           "$ref": "#/definitions/ClientPermissionListType",
           "description": "The read attributes."
         },
         "RefreshTokenValidity": {
           "$ref": "#/definitions/RefreshTokenValidityType",
-          "description": "The validity of the refresh token, in days."
+          "description": "The time limit, in days, after which the refresh token is no longer valid and cannot be used."
+        },
+        "SupportedIdentityProviders": {
+          "$ref": "#/definitions/SupportedIdentityProvidersListType",
+          "description": "A list of provider names for the identity providers that are supported on this client."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -1333,12 +1544,35 @@
       "type": "object",
       "title": "CreateUserPoolClientResponse"
     },
+    "CreateUserPoolDomainRequest": {
+      "properties": {
+        "Domain": {
+          "$ref": "#/definitions/DomainType",
+          "description": "The domain string."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "Domain",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "CreateUserPoolDomainRequest"
+    },
+    "CreateUserPoolDomainResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateUserPoolDomainResponse"
+    },
     "CreateUserPoolRequest": {
       "description": "Represents the request to create a user pool.",
       "properties": {
         "AdminCreateUserConfig": {
           "$ref": "#/definitions/AdminCreateUserConfigType",
-          "description": "The configuration for AdminCreateUser requests."
+          "description": "The configuration for <code>AdminCreateUser</code> requests."
         },
         "AliasAttributes": {
           "$ref": "#/definitions/AliasAttributesListType",
@@ -1399,6 +1633,14 @@
         "UserPoolTags": {
           "$ref": "#/definitions/UserPoolTagsType",
           "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
+        },
+        "UsernameAttributes": {
+          "$ref": "#/definitions/UsernameAttributesListType",
+          "description": "Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up."
+        },
+        "VerificationMessageTemplate": {
+          "$ref": "#/definitions/VerificationMessageTemplateType",
+          "description": "The template for the verification message that the user sees when the app requests permission to access the user's information."
         }
       },
       "required": [
@@ -1439,6 +1681,14 @@
       "type": "string",
       "title": "DateType"
     },
+    "DefaultEmailOptionType": {
+      "enum": [
+        "CONFIRM_WITH_LINK",
+        "CONFIRM_WITH_CODE"
+      ],
+      "type": "string",
+      "title": "DefaultEmailOptionType"
+    },
     "DeleteGroupRequest": {
       "properties": {
         "GroupName": {
@@ -1457,6 +1707,42 @@
       "type": "object",
       "title": "DeleteGroupRequest"
     },
+    "DeleteIdentityProviderRequest": {
+      "properties": {
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameType",
+          "description": "The identity provider name."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ProviderName"
+      ],
+      "type": "object",
+      "title": "DeleteIdentityProviderRequest"
+    },
+    "DeleteResourceServerRequest": {
+      "properties": {
+        "Identifier": {
+          "$ref": "#/definitions/ResourceServerIdentifierType",
+          "description": "The identifier for the resource server."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that hosts the resource server."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Identifier"
+      ],
+      "type": "object",
+      "title": "DeleteResourceServerRequest"
+    },
     "DeleteUserAttributesRequest": {
       "description": "Represents the request to delete user attributes.",
       "properties": {
@@ -1466,11 +1752,12 @@
         },
         "UserAttributeNames": {
           "$ref": "#/definitions/AttributeNameListType",
-          "description": "An array of strings representing the user attribute names you wish to delete."
+          "description": "<p>An array of strings representing the user attribute names you wish to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
         }
       },
       "required": [
-        "UserAttributeNames"
+        "UserAttributeNames",
+        "AccessToken"
       ],
       "type": "object",
       "title": "DeleteUserAttributesRequest"
@@ -1486,7 +1773,7 @@
       "properties": {
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The ID of the client associated with the user pool."
+          "description": "The app client ID of the app associated with the user pool."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -1499,6 +1786,29 @@
       ],
       "type": "object",
       "title": "DeleteUserPoolClientRequest"
+    },
+    "DeleteUserPoolDomainRequest": {
+      "properties": {
+        "Domain": {
+          "$ref": "#/definitions/DomainType",
+          "description": "The domain string."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "Domain",
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "DeleteUserPoolDomainRequest"
+    },
+    "DeleteUserPoolDomainResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteUserPoolDomainResponse"
     },
     "DeleteUserPoolRequest": {
       "description": "Represents the request to delete a user pool.",
@@ -1522,6 +1832,9 @@
           "description": "The access token from a request to delete a user."
         }
       },
+      "required": [
+        "AccessToken"
+      ],
       "type": "object",
       "title": "DeleteUserRequest"
     },
@@ -1539,6 +1852,68 @@
       ],
       "type": "string",
       "title": "DeliveryMediumType"
+    },
+    "DescribeIdentityProviderRequest": {
+      "properties": {
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameType",
+          "description": "The identity provider name."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ProviderName"
+      ],
+      "type": "object",
+      "title": "DescribeIdentityProviderRequest"
+    },
+    "DescribeIdentityProviderResponse": {
+      "properties": {
+        "IdentityProvider": {
+          "$ref": "#/definitions/IdentityProviderType",
+          "description": "The identity provider that was deleted."
+        }
+      },
+      "required": [
+        "IdentityProvider"
+      ],
+      "type": "object",
+      "title": "DescribeIdentityProviderResponse"
+    },
+    "DescribeResourceServerRequest": {
+      "properties": {
+        "Identifier": {
+          "$ref": "#/definitions/ResourceServerIdentifierType",
+          "description": "The identifier for the resource server"
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that hosts the resource server."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Identifier"
+      ],
+      "type": "object",
+      "title": "DescribeResourceServerRequest"
+    },
+    "DescribeResourceServerResponse": {
+      "properties": {
+        "ResourceServer": {
+          "$ref": "#/definitions/ResourceServerType",
+          "description": "The resource server."
+        }
+      },
+      "required": [
+        "ResourceServer"
+      ],
+      "type": "object",
+      "title": "DescribeResourceServerResponse"
     },
     "DescribeUserImportJobRequest": {
       "description": "Represents the request to describe the user import job.",
@@ -1575,7 +1950,7 @@
       "properties": {
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The ID of the client associated with the user pool."
+          "description": "The app client ID of the app associated with the user pool."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -1599,6 +1974,29 @@
       },
       "type": "object",
       "title": "DescribeUserPoolClientResponse"
+    },
+    "DescribeUserPoolDomainRequest": {
+      "properties": {
+        "Domain": {
+          "$ref": "#/definitions/DomainType",
+          "description": "The domain string."
+        }
+      },
+      "required": [
+        "Domain"
+      ],
+      "type": "object",
+      "title": "DescribeUserPoolDomainRequest"
+    },
+    "DescribeUserPoolDomainResponse": {
+      "properties": {
+        "DomainDescription": {
+          "$ref": "#/definitions/DomainDescriptionType",
+          "description": "A domain description object containing information about the domain."
+        }
+      },
+      "type": "object",
+      "title": "DescribeUserPoolDomainResponse"
     },
     "DescribeUserPoolRequest": {
       "description": "Represents the request to describe the user pool.",
@@ -1715,6 +2113,75 @@
       "type": "object",
       "title": "DeviceType"
     },
+    "DomainDescriptionType": {
+      "description": "A container for information about a domain.",
+      "properties": {
+        "AWSAccountId": {
+          "$ref": "#/definitions/AWSAccountIdType",
+          "description": "The AWS account ID for the user pool owner."
+        },
+        "CloudFrontDistribution": {
+          "$ref": "#/definitions/ArnType",
+          "description": "The ARN of the CloudFront distribution."
+        },
+        "Domain": {
+          "$ref": "#/definitions/DomainType",
+          "description": "The domain string."
+        },
+        "S3Bucket": {
+          "$ref": "#/definitions/S3BucketType",
+          "description": "The S3 bucket where the static files for this domain are stored."
+        },
+        "Status": {
+          "$ref": "#/definitions/DomainStatusType",
+          "description": "The domain status."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        },
+        "Version": {
+          "$ref": "#/definitions/DomainVersionType",
+          "description": "The app version."
+        }
+      },
+      "type": "object",
+      "title": "DomainDescriptionType"
+    },
+    "DomainStatusType": {
+      "enum": [
+        "CREATING",
+        "DELETING",
+        "UPDATING",
+        "ACTIVE",
+        "FAILED"
+      ],
+      "type": "string",
+      "title": "DomainStatusType"
+    },
+    "DomainType": {
+      "maxLength": 63,
+      "minLength": 1,
+      "pattern": "^[a-z0-9](?:[a-z0-9\\-]{0,61}[a-z0-9])?$",
+      "type": "string",
+      "title": "DomainType"
+    },
+    "DomainVersionType": {
+      "maxLength": 20,
+      "minLength": 1,
+      "type": "string",
+      "title": "DomainVersionType"
+    },
+    "DuplicateProviderException": {
+      "description": "This exception is thrown when the provider is already supported by the user pool.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object",
+      "title": "DuplicateProviderException"
+    },
     "EmailAddressType": {
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+@[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
       "type": "string",
@@ -1735,12 +2202,26 @@
       "type": "object",
       "title": "EmailConfigurationType"
     },
+    "EmailVerificationMessageByLinkType": {
+      "maxLength": 20000,
+      "minLength": 6,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{##[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*##\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+      "type": "string",
+      "title": "EmailVerificationMessageByLinkType"
+    },
     "EmailVerificationMessageType": {
-      "maxLength": 2048,
+      "maxLength": 20000,
       "minLength": 6,
       "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
       "type": "string",
       "title": "EmailVerificationMessageType"
+    },
+    "EmailVerificationSubjectByLinkType": {
+      "maxLength": 140,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+      "type": "string",
+      "title": "EmailVerificationSubjectByLinkType"
     },
     "EmailVerificationSubjectType": {
       "maxLength": 140,
@@ -1924,6 +2405,67 @@
       "type": "object",
       "title": "GetGroupResponse"
     },
+    "GetIdentityProviderByIdentifierRequest": {
+      "properties": {
+        "IdpIdentifier": {
+          "$ref": "#/definitions/IdpIdentifierType",
+          "description": "The identity provider ID."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "IdpIdentifier"
+      ],
+      "type": "object",
+      "title": "GetIdentityProviderByIdentifierRequest"
+    },
+    "GetIdentityProviderByIdentifierResponse": {
+      "properties": {
+        "IdentityProvider": {
+          "$ref": "#/definitions/IdentityProviderType",
+          "description": "The identity provider object."
+        }
+      },
+      "required": [
+        "IdentityProvider"
+      ],
+      "type": "object",
+      "title": "GetIdentityProviderByIdentifierResponse"
+    },
+    "GetUICustomizationRequest": {
+      "properties": {
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client ID for the client app."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "GetUICustomizationRequest"
+    },
+    "GetUICustomizationResponse": {
+      "properties": {
+        "UICustomization": {
+          "$ref": "#/definitions/UICustomizationType",
+          "description": "The UI customization information."
+        }
+      },
+      "required": [
+        "UICustomization"
+      ],
+      "type": "object",
+      "title": "GetUICustomizationResponse"
+    },
     "GetUserAttributeVerificationCodeRequest": {
       "description": "Represents the request to get user attribute verification.",
       "properties": {
@@ -1937,6 +2479,7 @@
         }
       },
       "required": [
+        "AccessToken",
         "AttributeName"
       ],
       "type": "object",
@@ -1961,6 +2504,9 @@
           "description": "The access token returned by the server response to get information about the user."
         }
       },
+      "required": [
+        "AccessToken"
+      ],
       "type": "object",
       "title": "GetUserRequest"
     },
@@ -1973,7 +2519,7 @@
         },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
-          "description": "An array of name-value pairs representing user attributes."
+          "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -1995,6 +2541,9 @@
           "description": "The access token."
         }
       },
+      "required": [
+        "AccessToken"
+      ],
       "type": "object",
       "title": "GlobalSignOutRequest"
     },
@@ -2063,24 +2612,97 @@
       "type": "object",
       "title": "GroupType"
     },
+    "IdentityProviderType": {
+      "description": "A container for information about an identity provider.",
+      "properties": {
+        "AttributeMapping": {
+          "$ref": "#/definitions/AttributeMappingType",
+          "description": "A mapping of identity provider attributes to standard and custom user pool attributes."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the identity provider was created."
+        },
+        "IdpIdentifiers": {
+          "$ref": "#/definitions/IdpIdentifiersListType",
+          "description": "A list of identity provider identifiers."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the identity provider was last modified."
+        },
+        "ProviderDetails": {
+          "$ref": "#/definitions/ProviderDetailsType",
+          "description": "The identity provider details, such as <code>MetadataURL</code> and <code>MetadataFile</code>."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameType",
+          "description": "The identity provider name."
+        },
+        "ProviderType": {
+          "$ref": "#/definitions/IdentityProviderTypeType",
+          "description": "The identity provider type."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "type": "object",
+      "title": "IdentityProviderType"
+    },
+    "IdentityProviderTypeType": {
+      "enum": [
+        "SAML",
+        "Facebook",
+        "Google",
+        "LoginWithAmazon"
+      ],
+      "type": "string",
+      "title": "IdentityProviderTypeType"
+    },
+    "IdpIdentifierType": {
+      "maxLength": 40,
+      "minLength": 1,
+      "pattern": "[\\w\\s+=.@-]+",
+      "type": "string",
+      "title": "IdpIdentifierType"
+    },
+    "IdpIdentifiersListType": {
+      "items": {
+        "$ref": "#/definitions/IdpIdentifierType"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array",
+      "title": "IdpIdentifiersListType"
+    },
+    "ImageFileType": {
+      "type": "string",
+      "title": "ImageFileType"
+    },
+    "ImageUrlType": {
+      "type": "string",
+      "title": "ImageUrlType"
+    },
     "InitiateAuthRequest": {
       "description": "Initiates the authentication request.",
       "properties": {
         "AuthFlow": {
           "$ref": "#/definitions/AuthFlowType",
-          "description": "The authentication flow."
+          "description": "<p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>"
         },
         "AuthParameters": {
           "$ref": "#/definitions/AuthParametersType",
-          "description": "The authentication parameters."
+          "description": "<p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p> <ul> <li> <p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code> </p> </li> <li> <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code> </p> </li> </ul>"
         },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The client ID."
+          "description": "The app client ID."
         },
         "ClientMetadata": {
           "$ref": "#/definitions/ClientMetadataType",
-          "description": "The client app's metadata."
+          "description": "This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication."
         }
       },
       "required": [
@@ -2095,19 +2717,19 @@
       "properties": {
         "AuthenticationResult": {
           "$ref": "#/definitions/AuthenticationResultType",
-          "description": "The result returned by the server in response to the request to initiate authentication."
+          "description": "The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, <code>ChallengeName</code>, <code>ChallengeParameters</code>, and <code>Session</code> are returned."
         },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The name of the challenge."
+          "description": "<p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p> <p>Valid values include the following. Note that all of these challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable) in the parameters.</p> <ul> <li> <p> <code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p> </li> <li> <p> <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p> </li> <li> <p> <code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p> </li> <li> <p> <code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p> </li> </ul>"
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "The challenge parameters."
+          "description": "<p>The challenge parameters. These are returned to you in the <code>InitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>RespondToAuthChallenge</code>). </p> <p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p>"
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If the <a href=\"API_InitiateAuth.html\">InitiateAuth</a> or <a href=\"API_RespondToAuthChallenge.html\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
       "type": "object",
@@ -2149,6 +2771,16 @@
       },
       "type": "object",
       "title": "InvalidLambdaResponseException"
+    },
+    "InvalidOAuthFlowException": {
+      "description": "This exception is thrown when the specified OAuth flow is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object",
+      "title": "InvalidOAuthFlowException"
     },
     "InvalidParameterException": {
       "description": "This exception is thrown when the Amazon Cognito service encounters an invalid parameter.",
@@ -2327,12 +2959,100 @@
       "type": "object",
       "title": "ListGroupsResponse"
     },
+    "ListIdentityProvidersRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/ListProvidersLimitType",
+          "description": "The maximum number of identity providers to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "A pagination token."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "ListIdentityProvidersRequest"
+    },
+    "ListIdentityProvidersResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "A pagination token."
+        },
+        "Providers": {
+          "$ref": "#/definitions/ProvidersListType",
+          "description": "A list of identity provider objects."
+        }
+      },
+      "required": [
+        "Providers"
+      ],
+      "type": "object",
+      "title": "ListIdentityProvidersResponse"
+    },
     "ListOfStringTypes": {
       "items": {
         "$ref": "#/definitions/StringType"
       },
       "type": "array",
       "title": "ListOfStringTypes"
+    },
+    "ListProvidersLimitType": {
+      "maximum": 60,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ListProvidersLimitType"
+    },
+    "ListResourceServersLimitType": {
+      "maximum": 50,
+      "minimum": 1,
+      "type": "integer",
+      "title": "ListResourceServersLimitType"
+    },
+    "ListResourceServersRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/ListResourceServersLimitType",
+          "description": "The maximum number of resource servers to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "A pagination token."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "ListResourceServersRequest"
+    },
+    "ListResourceServersResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationKeyType",
+          "description": "A pagination token."
+        },
+        "ResourceServers": {
+          "$ref": "#/definitions/ResourceServersListType",
+          "description": "The resource servers."
+        }
+      },
+      "required": [
+        "ResourceServers"
+      ],
+      "type": "object",
+      "title": "ListResourceServersResponse"
     },
     "ListUserImportJobsRequest": {
       "description": "Represents the request to list the user import jobs.",
@@ -2343,7 +3063,7 @@
         },
         "PaginationToken": {
           "$ref": "#/definitions/PaginationKeyType",
-          "description": "An identifier that was returned from the previous call to ListUserImportJobs, which can be used to return the next set of import jobs in the list."
+          "description": "An identifier that was returned from the previous call to <code>ListUserImportJobs</code>, which can be used to return the next set of import jobs in the list."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -2487,15 +3207,15 @@
       "properties": {
         "AttributesToGet": {
           "$ref": "#/definitions/SearchedAttributeNamesListType",
-          "description": "The attributes to get from the request to list users."
+          "description": "An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is empty, all attributes are returned."
         },
         "Filter": {
           "$ref": "#/definitions/UserFilterType",
-          "description": "The filter for the list users request."
+          "description": "<p>A filter string of the form \"<i>AttributeName</i> <i>Filter-Type</i> \"<i>AttributeValue</i>\"\". Quotation marks within the filter string must be escaped using the backslash (\\) character. For example, \"<code>family_name</code> = \\\"Reddy\\\"\".</p> <ul> <li> <p> <i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p> </li> <li> <p> <i>Filter-Type</i>: For an exact match, use =, for example, \"<code>given_name</code> = \\\"Jon\\\"\". For a prefix (\"starts with\") match, use ^=, for example, \"<code>given_name</code> ^= \\\"Jon\\\"\". </p> </li> <li> <p> <i>AttributeValue</i>: The attribute value that must be matched for each user.</p> </li> </ul> <p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p> <p>You can only search for the following standard attributes:</p> <ul> <li> <p> <code>username</code> (case-sensitive)</p> </li> <li> <p> <code>email</code> </p> </li> <li> <p> <code>phone_number</code> </p> </li> <li> <p> <code>name</code> </p> </li> <li> <p> <code>given_name</code> </p> </li> <li> <p> <code>family_name</code> </p> </li> <li> <p> <code>preferred_username</code> </p> </li> <li> <p> <code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</p> </li> <li> <p> <code>status</code> (case-insensitive)</p> </li> </ul> <p>Custom attributes are not searchable.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api\">Searching for Users Using the ListUsers API</a> and <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples\">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>"
         },
         "Limit": {
           "$ref": "#/definitions/QueryLimitType",
-          "description": "The limit of the request to list users."
+          "description": "Maximum number of users to be returned."
         },
         "PaginationToken": {
           "$ref": "#/definitions/SearchPaginationTokenType",
@@ -2503,7 +3223,7 @@
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
-          "description": "The user pool ID for which you want to list users."
+          "description": "The user pool ID for the user pool on which the search should be performed."
         }
       },
       "required": [
@@ -2526,6 +3246,15 @@
       },
       "type": "object",
       "title": "ListUsersResponse"
+    },
+    "LogoutURLsListType": {
+      "items": {
+        "$ref": "#/definitions/RedirectUrlType"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array",
+      "title": "LogoutURLsListType"
     },
     "LongType": {
       "type": "integer",
@@ -2611,7 +3340,7 @@
       "title": "NewDeviceMetadataType"
     },
     "NotAuthorizedException": {
-      "description": "This exception gets thrown when a user is not authorized.",
+      "description": "This exception is thrown when a user is not authorized.",
       "properties": {
         "message": {
           "$ref": "#/definitions/MessageType",
@@ -2635,6 +3364,24 @@
       },
       "type": "object",
       "title": "NumberAttributeConstraintsType"
+    },
+    "OAuthFlowType": {
+      "enum": [
+        "code",
+        "implicit",
+        "client_credentials"
+      ],
+      "type": "string",
+      "title": "OAuthFlowType"
+    },
+    "OAuthFlowsType": {
+      "items": {
+        "$ref": "#/definitions/OAuthFlowType"
+      },
+      "maxItems": 3,
+      "minItems": 0,
+      "type": "array",
+      "title": "OAuthFlowsType"
     },
     "PaginationKey": {
       "minLength": 1,
@@ -2728,6 +3475,86 @@
       "type": "object",
       "title": "PreconditionNotMetException"
     },
+    "ProviderDescription": {
+      "description": "A container for identity provider details.",
+      "properties": {
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the provider was added to the user pool."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The date the provider was last modified."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameType",
+          "description": "The identity provider name."
+        },
+        "ProviderType": {
+          "$ref": "#/definitions/IdentityProviderTypeType",
+          "description": "The identity provider type."
+        }
+      },
+      "type": "object",
+      "title": "ProviderDescription"
+    },
+    "ProviderDetailsType": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/StringType"
+          },
+          "value": {
+            "$ref": "#/definitions/StringType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "ProviderDetailsType"
+    },
+    "ProviderNameType": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "ProviderNameType"
+    },
+    "ProviderNameTypeV1": {
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "[^_][\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}][^_]+",
+      "type": "string",
+      "title": "ProviderNameTypeV1"
+    },
+    "ProviderUserIdentifierType": {
+      "description": "A container for information about an identity provider for a user pool.",
+      "properties": {
+        "ProviderAttributeName": {
+          "$ref": "#/definitions/StringType",
+          "description": "The name of the provider attribute to link to, for example, <code>NameID</code>."
+        },
+        "ProviderAttributeValue": {
+          "$ref": "#/definitions/StringType",
+          "description": "The value of the provider attribute to link to, for example, <code>xxxxx_account</code>."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameType",
+          "description": "The name of the provider, for example, Facebook, Google, or Login with Amazon."
+        }
+      },
+      "type": "object",
+      "title": "ProviderUserIdentifierType"
+    },
+    "ProvidersListType": {
+      "items": {
+        "$ref": "#/definitions/ProviderDescription"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array",
+      "title": "ProvidersListType"
+    },
     "QueryLimit": {
       "maximum": 60,
       "minimum": 1,
@@ -2739,6 +3566,13 @@
       "minimum": 0,
       "type": "integer",
       "title": "QueryLimitType"
+    },
+    "RedirectUrlType": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string",
+      "title": "RedirectUrlType"
     },
     "RefreshTokenValidityType": {
       "maximum": 3650,
@@ -2791,24 +3625,108 @@
       "type": "object",
       "title": "ResourceNotFoundException"
     },
+    "ResourceServerIdentifierType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
+      "type": "string",
+      "title": "ResourceServerIdentifierType"
+    },
+    "ResourceServerNameType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w\\s+=,.@-]+",
+      "type": "string",
+      "title": "ResourceServerNameType"
+    },
+    "ResourceServerScopeDescriptionType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string",
+      "title": "ResourceServerScopeDescriptionType"
+    },
+    "ResourceServerScopeListType": {
+      "items": {
+        "$ref": "#/definitions/ResourceServerScopeType"
+      },
+      "maxItems": 25,
+      "type": "array",
+      "title": "ResourceServerScopeListType"
+    },
+    "ResourceServerScopeNameType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\x21\\x23-\\x2E\\x30-\\x5B\\x5D-\\x7E]+",
+      "type": "string",
+      "title": "ResourceServerScopeNameType"
+    },
+    "ResourceServerScopeType": {
+      "description": "A resource server scope.",
+      "properties": {
+        "ScopeDescription": {
+          "$ref": "#/definitions/ResourceServerScopeDescriptionType",
+          "description": "A description of the scope."
+        },
+        "ScopeName": {
+          "$ref": "#/definitions/ResourceServerScopeNameType",
+          "description": "The name of the scope."
+        }
+      },
+      "required": [
+        "ScopeName",
+        "ScopeDescription"
+      ],
+      "type": "object",
+      "title": "ResourceServerScopeType"
+    },
+    "ResourceServerType": {
+      "description": "A container for information about a resource server for a user pool.",
+      "properties": {
+        "Identifier": {
+          "$ref": "#/definitions/ResourceServerIdentifierType",
+          "description": "The identifier for the resource server."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceServerNameType",
+          "description": "The name of the resource server."
+        },
+        "Scopes": {
+          "$ref": "#/definitions/ResourceServerScopeListType",
+          "description": "A list of scopes that are defined for the resource server."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool that hosts the resource server."
+        }
+      },
+      "type": "object",
+      "title": "ResourceServerType"
+    },
+    "ResourceServersListType": {
+      "items": {
+        "$ref": "#/definitions/ResourceServerType"
+      },
+      "type": "array",
+      "title": "ResourceServersListType"
+    },
     "RespondToAuthChallengeRequest": {
       "description": "The request to respond to an authentication challenge.",
       "properties": {
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The name of the challenge."
+          "description": "<p>The challenge name. For more information, see <a href=\"API_InitiateAuth.html\">InitiateAuth</a>.</p> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>"
         },
         "ChallengeResponses": {
           "$ref": "#/definitions/ChallengeResponsesType",
-          "description": "The responses to the authentication challenge."
+          "description": "<p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p> <ul> <li> <p> <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p> </li> <li> <p> <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p> </li> </ul>"
         },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
-          "description": "The client ID."
+          "description": "The app client ID."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
       "required": [
@@ -2827,19 +3745,26 @@
         },
         "ChallengeName": {
           "$ref": "#/definitions/ChallengeNameType",
-          "description": "The challenge name."
+          "description": "The challenge name. For more information, see <a href=\"API_InitiateAuth.html\">InitiateAuth</a>."
         },
         "ChallengeParameters": {
           "$ref": "#/definitions/ChallengeParametersType",
-          "description": "The challenge parameters."
+          "description": "The challenge parameters. For more information, see <a href=\"API_InitiateAuth.html\">InitiateAuth</a>."
         },
         "Session": {
           "$ref": "#/definitions/SessionType",
-          "description": "The session."
+          "description": "The session which should be passed both ways in challenge-response calls to the service. If the <a href=\"API_InitiateAuth.html\">InitiateAuth</a> or <a href=\"API_RespondToAuthChallenge.html\">RespondToAuthChallenge</a> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call."
         }
       },
       "type": "object",
       "title": "RespondToAuthChallengeResponse"
+    },
+    "S3BucketType": {
+      "maxLength": 1024,
+      "minLength": 3,
+      "pattern": "^[0-9A-Za-z\\.\\-_]*$",
+      "type": "string",
+      "title": "S3BucketType"
     },
     "SchemaAttributeType": {
       "description": "Contains information about the schema attribute.",
@@ -2885,6 +3810,31 @@
       "type": "array",
       "title": "SchemaAttributesListType"
     },
+    "ScopeDoesNotExistException": {
+      "description": "This exception is thrown when the specified scope does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object",
+      "title": "ScopeDoesNotExistException"
+    },
+    "ScopeListType": {
+      "items": {
+        "$ref": "#/definitions/ScopeType"
+      },
+      "maxItems": 25,
+      "type": "array",
+      "title": "ScopeListType"
+    },
+    "ScopeType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
+      "type": "string",
+      "title": "ScopeType"
+    },
     "SearchPaginationTokenType": {
       "minLength": 1,
       "pattern": "[\\S]+",
@@ -2911,6 +3861,44 @@
       "minLength": 20,
       "type": "string",
       "title": "SessionType"
+    },
+    "SetUICustomizationRequest": {
+      "properties": {
+        "CSS": {
+          "$ref": "#/definitions/CSSType",
+          "description": "The CSS values in the UI customization."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client ID for the client app."
+        },
+        "ImageFile": {
+          "$ref": "#/definitions/ImageFileType",
+          "description": "The uploaded logo image for the UI customization."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId"
+      ],
+      "type": "object",
+      "title": "SetUICustomizationRequest"
+    },
+    "SetUICustomizationResponse": {
+      "properties": {
+        "UICustomization": {
+          "$ref": "#/definitions/UICustomizationType",
+          "description": "The UI customization information."
+        }
+      },
+      "required": [
+        "UICustomization"
+      ],
+      "type": "object",
+      "title": "SetUICustomizationResponse"
     },
     "SetUserSettingsRequest": {
       "description": "Represents the request to set user settings.",
@@ -2954,7 +3942,7 @@
         },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
-          "description": "An array of name-value pairs representing user attributes."
+          "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
         },
         "Username": {
           "$ref": "#/definitions/UsernameType",
@@ -2983,13 +3971,21 @@
         "UserConfirmed": {
           "$ref": "#/definitions/BooleanType",
           "description": "A response from the server indicating that a user registration has been confirmed."
+        },
+        "UserSub": {
+          "$ref": "#/definitions/StringType",
+          "description": "The UUID of the authenticated user. This is not the same as <code>username</code>."
         }
       },
+      "required": [
+        "UserConfirmed",
+        "UserSub"
+      ],
       "type": "object",
       "title": "SignUpResponse"
     },
     "SmsConfigurationType": {
-      "description": "The SMS configuratoin type.",
+      "description": "The SMS configuration type.",
       "properties": {
         "ExternalId": {
           "$ref": "#/definitions/StringType",
@@ -3100,6 +4096,13 @@
       "type": "string",
       "title": "StringType"
     },
+    "SupportedIdentityProvidersListType": {
+      "items": {
+        "$ref": "#/definitions/ProviderNameType"
+      },
+      "type": "array",
+      "title": "SupportedIdentityProvidersListType"
+    },
     "TokenModelType": {
       "format": "password",
       "pattern": "[A-Za-z0-9-_=.]+",
@@ -3107,7 +4110,7 @@
       "title": "TokenModelType"
     },
     "TooManyFailedAttemptsException": {
-      "description": "This exception gets thrown when the user has made too many failed attempts for a given action (e.g., sign in).",
+      "description": "This exception is thrown when the user has made too many failed attempts for a given action (e.g., sign in).",
       "properties": {
         "message": {
           "$ref": "#/definitions/MessageType",
@@ -3118,7 +4121,7 @@
       "title": "TooManyFailedAttemptsException"
     },
     "TooManyRequestsException": {
-      "description": "This exception gets thrown when the user has made too many requests for a given operation.",
+      "description": "This exception is thrown when the user has made too many requests for a given operation.",
       "properties": {
         "message": {
           "$ref": "#/definitions/MessageType",
@@ -3128,8 +4131,43 @@
       "type": "object",
       "title": "TooManyRequestsException"
     },
+    "UICustomizationType": {
+      "description": "A container for the UI customization information for a user pool's built-in app UI.",
+      "properties": {
+        "CSS": {
+          "$ref": "#/definitions/CSSType",
+          "description": "The CSS values in the UI customization."
+        },
+        "CSSVersion": {
+          "$ref": "#/definitions/CSSVersionType",
+          "description": "The CSS version number."
+        },
+        "ClientId": {
+          "$ref": "#/definitions/ClientIdType",
+          "description": "The client ID for the client app."
+        },
+        "CreationDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The creation date for the UI customization."
+        },
+        "ImageUrl": {
+          "$ref": "#/definitions/ImageUrlType",
+          "description": "The logo image for the UI customization."
+        },
+        "LastModifiedDate": {
+          "$ref": "#/definitions/DateType",
+          "description": "The last-modified date for the UI customization."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "type": "object",
+      "title": "UICustomizationType"
+    },
     "UnexpectedLambdaException": {
-      "description": "This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.",
+      "description": "This exception is thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.",
       "properties": {
         "message": {
           "$ref": "#/definitions/MessageType",
@@ -3138,6 +4176,16 @@
       },
       "type": "object",
       "title": "UnexpectedLambdaException"
+    },
+    "UnsupportedIdentityProviderException": {
+      "description": "This exception is thrown when the specified identifier is not supported.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/MessageType"
+        }
+      },
+      "type": "object",
+      "title": "UnsupportedIdentityProviderException"
     },
     "UnsupportedUserStateException": {
       "description": "The request failed because the user is in an unsupported state.",
@@ -3191,7 +4239,7 @@
         },
         "Precedence": {
           "$ref": "#/definitions/PrecedenceType",
-          "description": "The new precedence value for the group. For more information about this parameter, see <a href=\"API_CreateGroupRequeste.html\">CreateGroupRequest</a>."
+          "description": "The new precedence value for the group. For more information about this parameter, see <a href=\"API_CreateGroup.html\">CreateGroup</a>."
         },
         "RoleArn": {
           "$ref": "#/definitions/ArnType",
@@ -3219,6 +4267,89 @@
       "type": "object",
       "title": "UpdateGroupResponse"
     },
+    "UpdateIdentityProviderRequest": {
+      "properties": {
+        "AttributeMapping": {
+          "$ref": "#/definitions/AttributeMappingType",
+          "description": "The identity provider attribute mapping to be changed."
+        },
+        "IdpIdentifiers": {
+          "$ref": "#/definitions/IdpIdentifiersListType",
+          "description": "A list of identity provider identifiers."
+        },
+        "ProviderDetails": {
+          "$ref": "#/definitions/ProviderDetailsType",
+          "description": "The identity provider details to be updated, such as <code>MetadataURL</code> and <code>MetadataFile</code>."
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ProviderNameType",
+          "description": "The identity provider name."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "ProviderName"
+      ],
+      "type": "object",
+      "title": "UpdateIdentityProviderRequest"
+    },
+    "UpdateIdentityProviderResponse": {
+      "properties": {
+        "IdentityProvider": {
+          "$ref": "#/definitions/IdentityProviderType",
+          "description": "The identity provider object."
+        }
+      },
+      "required": [
+        "IdentityProvider"
+      ],
+      "type": "object",
+      "title": "UpdateIdentityProviderResponse"
+    },
+    "UpdateResourceServerRequest": {
+      "properties": {
+        "Identifier": {
+          "$ref": "#/definitions/ResourceServerIdentifierType",
+          "description": "The identifier for the resource server."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceServerNameType",
+          "description": "The name of the resource server."
+        },
+        "Scopes": {
+          "$ref": "#/definitions/ResourceServerScopeListType",
+          "description": "The scope values to be set for the resource server."
+        },
+        "UserPoolId": {
+          "$ref": "#/definitions/UserPoolIdType",
+          "description": "The user pool ID for the user pool."
+        }
+      },
+      "required": [
+        "UserPoolId",
+        "Identifier",
+        "Name"
+      ],
+      "type": "object",
+      "title": "UpdateResourceServerRequest"
+    },
+    "UpdateResourceServerResponse": {
+      "properties": {
+        "ResourceServer": {
+          "$ref": "#/definitions/ResourceServerType",
+          "description": "The resource server."
+        }
+      },
+      "required": [
+        "ResourceServer"
+      ],
+      "type": "object",
+      "title": "UpdateResourceServerResponse"
+    },
     "UpdateUserAttributesRequest": {
       "description": "Represents the request to update user attributes.",
       "properties": {
@@ -3228,11 +4359,12 @@
         },
         "UserAttributes": {
           "$ref": "#/definitions/AttributeListType",
-          "description": "An array of name-value pairs representing user attributes."
+          "description": "<p>An array of name-value pairs representing user attributes.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>"
         }
       },
       "required": [
-        "UserAttributes"
+        "UserAttributes",
+        "AccessToken"
       ],
       "type": "object",
       "title": "UpdateUserAttributesRequest"
@@ -3251,6 +4383,22 @@
     "UpdateUserPoolClientRequest": {
       "description": "Represents the request to update the user pool client.",
       "properties": {
+        "AllowedOAuthFlows": {
+          "$ref": "#/definitions/OAuthFlowsType",
+          "description": "<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>"
+        },
+        "AllowedOAuthFlowsUserPoolClient": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools."
+        },
+        "AllowedOAuthScopes": {
+          "$ref": "#/definitions/ScopeListType",
+          "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>."
+        },
+        "CallbackURLs": {
+          "$ref": "#/definitions/CallbackURLsListType",
+          "description": "A list of allowed callback URLs for the identity providers."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The ID of the client associated with the user pool."
@@ -3259,9 +4407,17 @@
           "$ref": "#/definitions/ClientNameType",
           "description": "The client name from the update user pool client request."
         },
+        "DefaultRedirectURI": {
+          "$ref": "#/definitions/RedirectUrlType",
+          "description": "The default redirect URI. Must be in the <code>CallbackURLs</code> list."
+        },
         "ExplicitAuthFlows": {
           "$ref": "#/definitions/ExplicitAuthFlowsListType",
           "description": "Explicit authentication flows."
+        },
+        "LogoutURLs": {
+          "$ref": "#/definitions/LogoutURLsListType",
+          "description": "A list of allowed logout URLs for the identity providers."
         },
         "ReadAttributes": {
           "$ref": "#/definitions/ClientPermissionListType",
@@ -3269,7 +4425,11 @@
         },
         "RefreshTokenValidity": {
           "$ref": "#/definitions/RefreshTokenValidityType",
-          "description": "The validity of the refresh token, in days."
+          "description": "The time limit, in days, after which the refresh token is no longer valid and cannot be used."
+        },
+        "SupportedIdentityProviders": {
+          "$ref": "#/definitions/SupportedIdentityProvidersListType",
+          "description": "A list of provider names for the identity providers that are supported on this client."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -3303,7 +4463,7 @@
       "properties": {
         "AdminCreateUserConfig": {
           "$ref": "#/definitions/AdminCreateUserConfigType",
-          "description": "The configuration for AdminCreateUser requests."
+          "description": "The configuration for <code>AdminCreateUser</code> requests."
         },
         "AutoVerifiedAttributes": {
           "$ref": "#/definitions/VerifiedAttributesListType",
@@ -3323,7 +4483,7 @@
         },
         "EmailVerificationSubject": {
           "$ref": "#/definitions/EmailVerificationSubjectType",
-          "description": "The subject of the email verfication message."
+          "description": "The subject of the email verification message."
         },
         "LambdaConfig": {
           "$ref": "#/definitions/LambdaConfigType",
@@ -3356,6 +4516,10 @@
         "UserPoolTags": {
           "$ref": "#/definitions/UserPoolTagsType",
           "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
+        },
+        "VerificationMessageTemplate": {
+          "$ref": "#/definitions/VerificationMessageTemplateType",
+          "description": "The template for verification messages."
         }
       },
       "required": [
@@ -3423,7 +4587,7 @@
         },
         "CompletionDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The date when the user imoprt job was completed."
+          "description": "The date when the user import job was completed."
         },
         "CompletionMessage": {
           "$ref": "#/definitions/CompletionMessageType",
@@ -3431,7 +4595,7 @@
         },
         "CreationDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The date when the user import job was created."
+          "description": "The date the user import job was created."
         },
         "FailedUsers": {
           "$ref": "#/definitions/LongType",
@@ -3451,7 +4615,7 @@
         },
         "PreSignedUrl": {
           "$ref": "#/definitions/PreSignedUrlType",
-          "description": "The pre-signed URL to be used to upload the .csv file."
+          "description": "The pre-signed URL to be used to upload the <code>.csv</code> file."
         },
         "SkippedUsers": {
           "$ref": "#/definitions/LongType",
@@ -3463,7 +4627,7 @@
         },
         "Status": {
           "$ref": "#/definitions/UserImportJobStatusType",
-          "description": "<p>The status of the user import job. One of the following:</p> <ul> <li> <p>Created - The job was created but not started.</p> </li> <li> <p>Pending - A transition state. You have started the job, but it has not begun importing users yet.</p> </li> <li> <p>InProgress - The job has started, and users are being imported.</p> </li> <li> <p>Stopping - You have stopped the job, but the job has not stopped importing users yet.</p> </li> <li> <p>Stopped - You have stopped the job, and the job has stopped importing users.</p> </li> <li> <p>Succeeded - The job has completed successfully.</p> </li> <li> <p>Failed - The job has stopped due to an error.</p> </li> <li> <p>Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p> </li> </ul>"
+          "description": "<p>The status of the user import job. One of the following:</p> <ul> <li> <p> <code>Created</code> - The job was created but not started.</p> </li> <li> <p> <code>Pending</code> - A transition state. You have started the job, but it has not begun importing users yet.</p> </li> <li> <p> <code>InProgress</code> - The job has started, and users are being imported.</p> </li> <li> <p> <code>Stopping</code> - You have stopped the job, but the job has not stopped importing users yet.</p> </li> <li> <p> <code>Stopped</code> - You have stopped the job, and the job has stopped importing users.</p> </li> <li> <p> <code>Succeeded</code> - The job has completed successfully.</p> </li> <li> <p> <code>Failed</code> - The job has stopped due to an error.</p> </li> <li> <p> <code>Expired</code> - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.</p> </li> </ul>"
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -3483,7 +4647,7 @@
       "title": "UserImportJobsListType"
     },
     "UserLambdaValidationException": {
-      "description": "This exception gets thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.",
+      "description": "This exception is thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.",
       "properties": {
         "message": {
           "$ref": "#/definitions/MessageType",
@@ -3542,8 +4706,24 @@
       "title": "UserPoolClientListType"
     },
     "UserPoolClientType": {
-      "description": "A user pool of the client type.",
+      "description": "Contains information about a user pool client.",
       "properties": {
+        "AllowedOAuthFlows": {
+          "$ref": "#/definitions/OAuthFlowsType",
+          "description": "<p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p> <p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>"
+        },
+        "AllowedOAuthFlowsUserPoolClient": {
+          "$ref": "#/definitions/BooleanType",
+          "description": "Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools."
+        },
+        "AllowedOAuthScopes": {
+          "$ref": "#/definitions/ScopeListType",
+          "description": "A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>\"phone\"</code>, <code>\"email\"</code>, <code>\"openid\"</code>, and <code>\"Cognito\"</code>."
+        },
+        "CallbackURLs": {
+          "$ref": "#/definitions/CallbackURLsListType",
+          "description": "A list of allowed callback URLs for the identity providers."
+        },
         "ClientId": {
           "$ref": "#/definitions/ClientIdType",
           "description": "The ID of the client associated with the user pool."
@@ -3558,7 +4738,11 @@
         },
         "CreationDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The creation date from the user pool request of the client type."
+          "description": "The date the user pool client was created."
+        },
+        "DefaultRedirectURI": {
+          "$ref": "#/definitions/RedirectUrlType",
+          "description": "The default redirect URI. Must be in the <code>CallbackURLs</code> list."
         },
         "ExplicitAuthFlows": {
           "$ref": "#/definitions/ExplicitAuthFlowsListType",
@@ -3566,7 +4750,11 @@
         },
         "LastModifiedDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The last modified date from the user pool request of the client type."
+          "description": "The date the user pool client was last modified."
+        },
+        "LogoutURLs": {
+          "$ref": "#/definitions/LogoutURLsListType",
+          "description": "A list of allowed logout URLs for the identity providers."
         },
         "ReadAttributes": {
           "$ref": "#/definitions/ClientPermissionListType",
@@ -3574,7 +4762,11 @@
         },
         "RefreshTokenValidity": {
           "$ref": "#/definitions/RefreshTokenValidityType",
-          "description": "The validity of the refresh token, in days."
+          "description": "The time limit, in days, after which the refresh token is no longer valid and cannot be used."
+        },
+        "SupportedIdentityProviders": {
+          "$ref": "#/definitions/SupportedIdentityProvidersListType",
+          "description": "A list of provider names for the identity providers that are supported on this client."
         },
         "UserPoolId": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -3593,7 +4785,7 @@
       "properties": {
         "CreationDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The creation date in a user pool description."
+          "description": "The date the user pool description was created."
         },
         "Id": {
           "$ref": "#/definitions/UserPoolIdType",
@@ -3605,7 +4797,7 @@
         },
         "LastModifiedDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The last modified date in a user pool description."
+          "description": "The date the user pool description was last modified."
         },
         "Name": {
           "$ref": "#/definitions/UserPoolNameType",
@@ -3654,14 +4846,14 @@
       "properties": {
         "PasswordPolicy": {
           "$ref": "#/definitions/PasswordPolicyType",
-          "description": "A container with information about the user pool password policy."
+          "description": "A container for information about the user pool password policy."
         }
       },
       "type": "object",
       "title": "UserPoolPolicyType"
     },
     "UserPoolTaggingException": {
-      "description": "This exception gets thrown when a user pool tag cannot be set or updated.",
+      "description": "This exception is thrown when a user pool tag cannot be set or updated.",
       "properties": {
         "message": {
           "$ref": "#/definitions/MessageType"
@@ -3686,11 +4878,11 @@
       "title": "UserPoolTagsType"
     },
     "UserPoolType": {
-      "description": "A container with information about the user pool type.",
+      "description": "A container for information about the user pool type.",
       "properties": {
         "AdminCreateUserConfig": {
           "$ref": "#/definitions/AdminCreateUserConfigType",
-          "description": "The configuration for AdminCreateUser requests."
+          "description": "The configuration for <code>AdminCreateUser</code> requests."
         },
         "AliasAttributes": {
           "$ref": "#/definitions/AliasAttributesListType",
@@ -3702,7 +4894,7 @@
         },
         "CreationDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The creation date of a user pool."
+          "description": "The date the user pool was created."
         },
         "DeviceConfiguration": {
           "$ref": "#/definitions/DeviceConfigurationType",
@@ -3734,11 +4926,11 @@
         },
         "LambdaConfig": {
           "$ref": "#/definitions/LambdaConfigType",
-          "description": "A container describing the AWS Lambda triggers associated with a user pool."
+          "description": "A container for the AWS Lambda triggers associated with a user pool."
         },
         "LastModifiedDate": {
           "$ref": "#/definitions/DateType",
-          "description": "The last modified date of a user pool."
+          "description": "The date the user pool was last modified."
         },
         "MfaConfiguration": {
           "$ref": "#/definitions/UserPoolMfaType",
@@ -3750,7 +4942,7 @@
         },
         "Policies": {
           "$ref": "#/definitions/UserPoolPolicyType",
-          "description": "A container describing the policies associated with a user pool."
+          "description": "A container for the policies associated with a user pool."
         },
         "SchemaAttributes": {
           "$ref": "#/definitions/SchemaAttributesListType",
@@ -3766,7 +4958,7 @@
         },
         "SmsConfigurationFailure": {
           "$ref": "#/definitions/StringType",
-          "description": "The reason why the SMS configuration cannot send the message(s) to your users."
+          "description": "The reason why the SMS configuration cannot send the messages to your users."
         },
         "SmsVerificationMessage": {
           "$ref": "#/definitions/SmsVerificationMessageType",
@@ -3779,6 +4971,14 @@
         "UserPoolTags": {
           "$ref": "#/definitions/UserPoolTagsType",
           "description": "The cost allocation tags for the user pool. For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html\">Adding Cost Allocation Tags to Your User Pool</a> "
+        },
+        "UsernameAttributes": {
+          "$ref": "#/definitions/UsernameAttributesListType",
+          "description": "Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up."
+        },
+        "VerificationMessageTemplate": {
+          "$ref": "#/definitions/VerificationMessageTemplateType",
+          "description": "The template for verification messages."
         }
       },
       "type": "object",
@@ -3832,6 +5032,21 @@
       "type": "object",
       "title": "UserType"
     },
+    "UsernameAttributeType": {
+      "enum": [
+        "phone_number",
+        "email"
+      ],
+      "type": "string",
+      "title": "UsernameAttributeType"
+    },
+    "UsernameAttributesListType": {
+      "items": {
+        "$ref": "#/definitions/UsernameAttributeType"
+      },
+      "type": "array",
+      "title": "UsernameAttributesListType"
+    },
     "UsernameExistsException": {
       "description": "This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.",
       "properties": {
@@ -3857,6 +5072,37 @@
       },
       "type": "array",
       "title": "UsersListType"
+    },
+    "VerificationMessageTemplateType": {
+      "description": "The template for verification messages.",
+      "properties": {
+        "DefaultEmailOption": {
+          "$ref": "#/definitions/DefaultEmailOptionType",
+          "description": "The default email option."
+        },
+        "EmailMessage": {
+          "$ref": "#/definitions/EmailVerificationMessageType",
+          "description": "The email message template."
+        },
+        "EmailMessageByLink": {
+          "$ref": "#/definitions/EmailVerificationMessageByLinkType",
+          "description": "The email message template for sending a confirmation link to the user."
+        },
+        "EmailSubject": {
+          "$ref": "#/definitions/EmailVerificationSubjectType",
+          "description": "The subject line for the email message template."
+        },
+        "EmailSubjectByLink": {
+          "$ref": "#/definitions/EmailVerificationSubjectByLinkType",
+          "description": "The subject line for the email message template for sending a confirmation link to the user."
+        },
+        "SmsMessage": {
+          "$ref": "#/definitions/SmsVerificationMessageType",
+          "description": "The SMS message template."
+        }
+      },
+      "type": "object",
+      "title": "VerificationMessageTemplateType"
     },
     "VerifiedAttributeType": {
       "enum": [
@@ -3890,6 +5136,7 @@
         }
       },
       "required": [
+        "AccessToken",
         "AttributeName",
         "Code"
       ],
@@ -4033,6 +5280,28 @@
       }
     },
     {
+      "id": "AdminDisableProviderForUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminDisableProviderForUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminDisableProviderForUserResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
       "id": "AdminDisableUser",
       "title": "",
       "description": "",
@@ -4155,6 +5424,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminInitiateAuthResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "AdminLinkProviderForUser",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AdminLinkProviderForUserRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminLinkProviderForUserResponse"
       },
       "security": {
         "amazonaws_cognito_idp": {
@@ -4469,6 +5760,50 @@
       }
     },
     {
+      "id": "CreateIdentityProvider",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateIdentityProviderRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateIdentityProviderResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "CreateResourceServer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateResourceServerRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateResourceServerResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
       "id": "CreateUserImportJob",
       "title": "",
       "description": "",
@@ -4535,6 +5870,28 @@
       }
     },
     {
+      "id": "CreateUserPoolDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateUserPoolDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateUserPoolDomainResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
       "id": "DeleteGroup",
       "title": "",
       "description": "",
@@ -4544,6 +5901,46 @@
         "allOf": [
           {
             "$ref": "#/definitions/DeleteGroupRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteIdentityProvider",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteIdentityProviderRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DeleteResourceServer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteResourceServerRequest"
           }
         ]
       },
@@ -4637,6 +6034,72 @@
       }
     },
     {
+      "id": "DeleteUserPoolDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteUserPoolDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteUserPoolDomainResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DescribeIdentityProvider",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeIdentityProviderRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeIdentityProviderResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DescribeResourceServer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeResourceServerRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeResourceServerResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
       "id": "DescribeUserImportJob",
       "title": "",
       "description": "",
@@ -4695,6 +6158,28 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeUserPoolClientResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "DescribeUserPoolDomain",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DescribeUserPoolDomainRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUserPoolDomainResponse"
       },
       "security": {
         "amazonaws_cognito_idp": {
@@ -4803,6 +6288,50 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetGroupResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetIdentityProviderByIdentifier",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetIdentityProviderByIdentifierRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetIdentityProviderByIdentifierResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "GetUICustomization",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetUICustomizationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetUICustomizationResponse"
       },
       "security": {
         "amazonaws_cognito_idp": {
@@ -4935,6 +6464,50 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGroupsResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListIdentityProviders",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListIdentityProvidersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListIdentityProvidersResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "ListResourceServers",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListResourceServersRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListResourceServersResponse"
       },
       "security": {
         "amazonaws_cognito_idp": {
@@ -5097,6 +6670,28 @@
       }
     },
     {
+      "id": "SetUICustomization",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/SetUICustomizationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SetUICustomizationResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
       "id": "SetUserSettings",
       "title": "",
       "description": "",
@@ -5221,6 +6816,50 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateGroupResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateIdentityProvider",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateIdentityProviderRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateIdentityProviderResponse"
+      },
+      "security": {
+        "amazonaws_cognito_idp": {
+          "integration": "amazonaws_cognito_idp"
+        }
+      }
+    },
+    {
+      "id": "UpdateResourceServer",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateResourceServerRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateResourceServerResponse"
       },
       "security": {
         "amazonaws_cognito_idp": {

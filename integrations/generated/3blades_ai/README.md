@@ -772,6 +772,203 @@ blades_ai.hosts_replace({
 * host (string) **required**
 * dockerhost_data (object)
 
+### notifications_list
+Get notifications of all types and entities for the authenticated user.
+
+
+```js
+blades_ai.notifications_list({
+  "namespace": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team data.
+* limit (string) - Limit when getting items.
+* offset (string) - Offset when getting items.
+* ordering (string) - Ordering when getting items.
+* read (boolean) - When true, get only read notifications. When false, get only unread notifications. Default behavior is to return both read and unread.
+
+### notifications_update_list
+Mark a list of notifications as either read or unread.
+
+
+```js
+blades_ai.notifications_update_list({
+  "namespace": "",
+  "notification_data": {
+    "notifications": [],
+    "read": true
+  }
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* notification_data (object) **required**
+
+### notifications_list_entity
+Get notifications of all types and entities for the authenticated user.
+
+
+```js
+blades_ai.notifications_list_entity({
+  "namespace": "",
+  "entity": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team data.
+* limit (string) - Limit when getting items.
+* offset (string) - Offset when getting items.
+* ordering (string) - Ordering when getting items.
+* entity (string) **required** - Entity to filter notifications by.
+* read (boolean) - When true, get only read notifications. When false, get only unread notifications. Default behavior is to return both read and unread.
+
+### notifications_update_entity_list
+Mark a list of notifications as either read or unread.
+
+
+```js
+blades_ai.notifications_update_entity_list({
+  "namespace": "",
+  "entity": "",
+  "notification_data": {
+    "notifications": [],
+    "read": true
+  }
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* entity (string) **required** - Entity to filter notifications by.
+* notification_data (object) **required**
+
+### notification_settings_read
+Retrieve global notification settings for the authenticated user
+
+
+```js
+blades_ai.notification_settings_read({
+  "namespace": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team data.
+
+### notification_settings_update
+Modify global notification settings.
+
+
+```js
+blades_ai.notification_settings_update({
+  "namespace": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* notification_settings_data (object)
+
+### notification_settings_create
+Create global notification settings
+
+
+```js
+blades_ai.notification_settings_create({
+  "namespace": "",
+  "notification_settings_data": {
+    "enabled": true,
+    "emails_enabled": true
+  }
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* notification_settings_data (object) **required**
+
+### notification_settings_entity_read
+Retrieve global notification settings for the authenticated user
+
+
+```js
+blades_ai.notification_settings_entity_read({
+  "namespace": "",
+  "entity": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team data.
+* entity (string) **required** - Entity whose settings should be retrieved.
+
+### notification_settings_entity_update
+Modify global notification settings.
+
+
+```js
+blades_ai.notification_settings_entity_update({
+  "namespace": "",
+  "entity": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* entity (string) **required** - Entity whose settings should be retrieved.
+* notification_settings_data (object)
+
+### notification_settings_entity_create
+Create global notification settings
+
+
+```js
+blades_ai.notification_settings_entity_create({
+  "namespace": "",
+  "entity": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* entity (string) **required** - Entity whose settings should be retrieved.
+* notification_settings_data (object)
+
+### notification_read
+Retrieve a specific notification.
+
+
+```js
+blades_ai.notification_read({
+  "namespace": "",
+  "notification_id": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team data.
+* notification_id (string) **required** - Notification UUID.
+
+### notification_update
+Mark a specific notification as either read or unread.
+
+
+```js
+blades_ai.notification_update({
+  "namespace": "",
+  "notification_id": ""
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team data.
+* notification_id (string) **required** - Notification UUID.
+* notification_data (object)
+
 ### projects_list
 Get available projects
 
@@ -803,6 +1000,40 @@ blades_ai.projects_create({
 #### Parameters
 * namespace (string) **required** - User or team name.
 * project_data (object)
+
+### project_copy_check
+Check if you are able to copy a project to your account.
+
+
+```js
+blades_ai.project_copy_check({
+  "namespace": "",
+  "project_copy_data": {
+    "project": ""
+  }
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* project_copy_data (object) **required**
+
+### project_copy
+Copy a project to your own account.
+
+
+```js
+blades_ai.project_copy({
+  "namespace": "",
+  "project_copy_data": {
+    "project": ""
+  }
+}, context)
+```
+
+#### Parameters
+* namespace (string) **required** - User or team name.
+* project_copy_data (object) **required**
 
 ### projects_delete
 Delete a project

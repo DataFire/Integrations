@@ -24,7 +24,6 @@ module.exports = (args, callback=()=>{}) => {
     if (args.bump && !isNew) {
       let semver = pkg.version.split('.');
       pkg.version = [+semver[0] + 1, 0, 0].join('.');
-      console.log('bumping', pkg.version);
     }
     fs.writeFileSync(packageFile, JSON.stringify(pkg, null, 2));
     callback();

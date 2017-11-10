@@ -131,30 +131,34 @@ Create new shared environment.
 ```js
 runscope.buckets.bucketKey.environments.post({
   "bucketKey": "",
-  "NewEnvironment": null
+  "NewEnvironment": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
 * bucketKey (string) **required** - Unique identifier for a bucket
-* NewEnvironment (undefined) **required**
+* NewEnvironment (object) **required**
 
 ### buckets.bucketKey.environments.environmentId.put
-Update the details of a test environment.
+Update the details of a shared environment.
 
 
 ```js
 runscope.buckets.bucketKey.environments.environmentId.put({
   "bucketKey": "",
   "environmentId": "",
-  "ModifiedEnvironment": null
+  "ModifiedEnvironment": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
 * bucketKey (string) **required** - Unique identifier for a bucket
 * environmentId (string) **required** - Unique identifier for a test environment
-* ModifiedEnvironment (undefined) **required**
+* ModifiedEnvironment (object) **required**
 
 ### buckets.bucketKey.errors.get
 Retrieve a list of error messages in a bucket
@@ -260,11 +264,41 @@ runscope.buckets.bucketKey.tests.post({
 * NewTest (undefined) **required**
 
 ### buckets.bucketKey.tests.testId.delete
-Delete a single test.
+Delete a test, including all steps, schedules, test-specific environments and results.
 
 
 ```js
 runscope.buckets.bucketKey.tests.testId.delete({
+  "bucketKey": "",
+  "testId": ""
+}, context)
+```
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+
+### buckets.bucketKey.tests.testId.get
+Retrieve the details of a given test by ID.
+
+
+```js
+runscope.buckets.bucketKey.tests.testId.get({
+  "bucketKey": "",
+  "testId": ""
+}, context)
+```
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+
+### buckets.bucketKey.tests.testId.put
+Modify a test's name, description, default environment and its steps. To modify other individual properties of a test, make requests to the steps, environments, and schedules subresources of the test.
+
+
+```js
+runscope.buckets.bucketKey.tests.testId.put({
   "bucketKey": "",
   "testId": ""
 }, context)
@@ -297,14 +331,16 @@ Create new test environment.
 runscope.buckets.bucketKey.tests.testId.environments.post({
   "bucketKey": "",
   "testId": "",
-  "NewEnvironment": null
+  "NewEnvironment": {
+    "name": ""
+  }
 }, context)
 ```
 
 #### Parameters
 * bucketKey (string) **required** - Unique identifier for a bucket
 * testId (string) **required** - Unique identifier for a test
-* NewEnvironment (undefined) **required**
+* NewEnvironment (object) **required**
 
 ### buckets.bucketKey.tests.testId.environments.environmentId.put
 Update the details of a test environment.
@@ -315,7 +351,9 @@ runscope.buckets.bucketKey.tests.testId.environments.environmentId.put({
   "bucketKey": "",
   "testId": "",
   "environmentId": "",
-  "ModifiedEnvironment": null
+  "ModifiedEnvironment": {
+    "name": ""
+  }
 }, context)
 ```
 
@@ -323,7 +361,22 @@ runscope.buckets.bucketKey.tests.testId.environments.environmentId.put({
 * bucketKey (string) **required** - Unique identifier for a bucket
 * testId (string) **required** - Unique identifier for a test
 * environmentId (string) **required** - Unique identifier for a test environment
-* ModifiedEnvironment (undefined) **required**
+* ModifiedEnvironment (object) **required**
+
+### buckets.bucketKey.tests.testId.metrics.get
+Return details of the test metrics for the specified timeframe.
+
+
+```js
+runscope.buckets.bucketKey.tests.testId.metrics.get({
+  "bucketKey": "",
+  "testId": ""
+}, context)
+```
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
 
 ### buckets.bucketKey.tests.testId.steps.get
 List test steps for a test.
@@ -348,14 +401,14 @@ Add new test step.
 runscope.buckets.bucketKey.tests.testId.steps.post({
   "bucketKey": "",
   "testId": "",
-  "NewStep": null
+  "TestStep": null
 }, context)
 ```
 
 #### Parameters
 * bucketKey (string) **required** - Unique identifier for a bucket
 * testId (string) **required** - Unique identifier for a test
-* NewStep (undefined) **required**
+* TestStep (undefined) **required**
 
 ### buckets.bucketKey.tests.testId.steps.stepId.delete
 Delete a step from a test.
@@ -383,7 +436,7 @@ runscope.buckets.bucketKey.tests.testId.steps.stepId.put({
   "bucketKey": "",
   "testId": "",
   "stepId": "",
-  "NewStep": null
+  "TestStep": null
 }, context)
 ```
 
@@ -391,7 +444,20 @@ runscope.buckets.bucketKey.tests.testId.steps.stepId.put({
 * bucketKey (string) **required** - Unique identifier for a bucket
 * testId (string) **required** - Unique identifier for a test
 * stepId (string) **required** - Unique identifier for a test step
-* NewStep (undefined) **required**
+* TestStep (undefined) **required**
+
+### teams.teamId.agents.get
+List currently connected agents associated with a given team.
+
+
+```js
+runscope.teams.teamId.agents.get({
+  "teamId": ""
+}, context)
+```
+
+#### Parameters
+* teamId (string) **required** - Unique identifier for team
 
 ### teams.teamId.integrations.get
 Returns a list of integrations configured for the team.

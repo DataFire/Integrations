@@ -20,7 +20,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "swagger",
         "url": "https://www.zoomconnect.com/zoom/api-docs",
@@ -1151,8 +1151,7 @@
               "FAILED",
               "FAILED_REFUNDED",
               "FAILED_OPTOUT",
-              "DELIVERED",
-              "RECEIVED"
+              "DELIVERED"
             ],
             "in": "query",
             "name": "status",
@@ -1768,7 +1767,7 @@
     "/sms/send-url/{token}": {
       "get": {
         "deprecated": false,
-        "description": "Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+        "description": "Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is ",
         "parameters": [
           {
             "description": "token",
@@ -1839,7 +1838,7 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.",
+        "description": "Send a single message using your unique URL without having to authenticate using your email address or REST API token. The token required is the URL Sending token available on the developer setting page. The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional. Not that the token required here is ",
         "parameters": [
           {
             "description": "token",

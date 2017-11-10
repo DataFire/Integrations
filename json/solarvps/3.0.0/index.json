@@ -1,0 +1,513 @@
+{
+  "id": "solarvps",
+  "title": "Solar VPS",
+  "description": "This is the Solar VPS Public API. You can find more at http://www.solarvps.com",
+  "security": {
+    "solarvps": {
+      "integration": "solarvps",
+      "fields": {
+        "apiKey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/solarvps.jpg"
+  },
+  "actionCount": 20,
+  "actions": [
+    {
+      "id": "contacts.get",
+      "title": "contacts.get",
+      "description": "Shows all contacts under the client account.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "dns.domain.get",
+      "title": "dns.domain.get",
+      "description": "Shows all your records for a specific domain. You can try example.com below.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name you want to get records for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "dns.domain.add.post",
+      "title": "dns.domain.add.post",
+      "description": "You can try example.com below. Types allowed are: A CNAME NS TXT MX SRV SPF",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain you want to add records for"
+          },
+          "name": {
+            "type": "string",
+            "description": "Fully qualified DNS name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of DNS record"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content for DNS record"
+          },
+          "ttl": {
+            "type": "string",
+            "description": "Time To Live for DNS record"
+          },
+          "prio": {
+            "type": "string",
+            "description": "Priority of DNS record"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "name",
+          "type",
+          "content",
+          "ttl",
+          "prio"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "dns.domain.delete.post",
+      "title": "dns.domain.delete.post",
+      "description": "Shows all your records for a specific domain. You can try example.com below.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name you want to get records for"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id of the DNS Record"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "dns.domain.update.post",
+      "title": "dns.domain.update.post",
+      "description": "You can try example.com below.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain name to add record under"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id of DNS record"
+          },
+          "name": {
+            "type": "string",
+            "description": "Fully qualified name for the DNS record"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type for DNS record"
+          },
+          "content": {
+            "type": "string",
+            "description": "Content for the DNS Record"
+          },
+          "ttl": {
+            "type": "string",
+            "description": "Time To Live for DNS record"
+          },
+          "prio": {
+            "type": "string",
+            "description": "Priority of the DNS record"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "domains.get",
+      "title": "domains.get",
+      "description": "Shows all your domains",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "domains.add.post",
+      "title": "domains.add.post",
+      "description": "Adds domain to SolarVPS Distributed DNS",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain to add to SolarVPS Distributed DNS"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "domains.delete.post",
+      "title": "domains.delete.post",
+      "description": "Deletes domain from SolarVPS Distributed DNS",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Domain to delete from SolarVPS Distributed DNS"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "key.generate.get",
+      "title": "key.generate.get",
+      "description": "API Key is regenerated if it already exists",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Email address used to login to SolarSystem"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password used to login to SolarSystem"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "key.get.get",
+      "title": "key.get.get",
+      "description": "Gets the API Key for user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Email address used to login to SolarSystem"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password used to login to SolarSystem"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "pods.get",
+      "title": "pods.get",
+      "description": "Shows all your pods",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "pods.podId.get",
+      "title": "pods.podId.get",
+      "description": "Shows details of a specific pod. Enter 1 below to see an example",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "podId": {
+            "type": "number",
+            "description": "Id of the pod you want to perform actions on"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "podId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "pods.podId.ping.get",
+      "title": "pods.podId.ping.get",
+      "description": "Returns the ping response from your server.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "podId": {
+            "type": "number",
+            "description": "Id of the pod you want to ping check"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "podId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "pods.podId.action.get",
+      "title": "pods.podId.action.get",
+      "description": "Allowed actions are reboot, shutdown, boot",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "podId": {
+            "type": "number",
+            "description": "Id of the pod you want to perform actions on"
+          },
+          "action": {
+            "type": "string",
+            "description": "Action to perform on selected pod"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "podId",
+          "action"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "solarray.get",
+      "title": "solarray.get",
+      "description": "Shows all your monitors",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "solarray.critical.get",
+      "title": "solarray.critical.get",
+      "description": "Shows all your critical notifications",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "tickets.get",
+      "title": "tickets.get",
+      "description": "Shows all your tickets",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "tickets.department.add.post",
+      "title": "tickets.department.add.post",
+      "description": "Available departments are support, billing, sales",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "department": {
+            "type": "string",
+            "description": "Department you want to open a ticket with"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Subject of the ticket you are opening"
+          },
+          "contents": {
+            "type": "string",
+            "description": "Message reply being sent"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "department",
+          "subject",
+          "contents"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "tickets.ticketId.get",
+      "title": "tickets.ticketId.get",
+      "description": "Shows all information of a specific ticketId",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "number",
+            "description": "TicketId you want to see"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ticketId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    },
+    {
+      "id": "tickets.ticketid.update.post",
+      "title": "tickets.ticketid.update.post",
+      "description": "Post a reply to a ticket",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ticketid": {
+            "type": "number",
+            "description": "TicketId of the ticket you want to post an update to"
+          },
+          "contents": {
+            "type": "string",
+            "description": "Message reply being sent"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "ticketid",
+          "contents"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
+    }
+  ],
+  "tags": []
+}

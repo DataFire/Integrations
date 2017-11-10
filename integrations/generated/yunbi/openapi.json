@@ -45,9 +45,6 @@
       "name": "addresses"
     },
     {
-      "name": "crowdsales"
-    },
-    {
       "name": "deposit"
     },
     {
@@ -81,6 +78,9 @@
       "name": "orders"
     },
     {
+      "name": "partners"
+    },
+    {
       "name": "tickers"
     },
     {
@@ -88,9 +88,6 @@
     },
     {
       "name": "trades"
-    },
-    {
-      "name": "withdraw"
     }
   ],
   "paths": {
@@ -113,29 +110,6 @@
         "summary": "Check Deposit Address",
         "tags": [
           "addresses"
-        ]
-      }
-    },
-    "/v2/crowdsales/{key}.json": {
-      "get": {
-        "operationId": "v2.crowdsales.key.json.get",
-        "parameters": [
-          {
-            "description": "Crowdsale plan key",
-            "in": "path",
-            "name": "key",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "No response was specified"
-          }
-        },
-        "summary": "Get crowdsales plan info",
-        "tags": [
-          "crowdsales"
         ]
       }
     },
@@ -208,7 +182,7 @@
             "type": "string"
           },
           {
-            "description": "The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt",
+            "description": "The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt, gxs, qtum, eos, snt, bcc, omg, lun, pay, ven",
             "in": "query",
             "name": "currency",
             "required": true,
@@ -252,7 +226,7 @@
             "type": "string"
           },
           {
-            "description": "Currency value contains  cny,btc,eth,pls,note,bts,bitcny,bitusd,bitbtc,yun,nxt,ltc,doge,sc,dgd,dcs,dao,etc,amp,1st,rep,ans,zec,zmc,gnt",
+            "description": "Currency value contains  cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt, gxs, qtum, eos, snt, bcc, omg, lun, pay, ven",
             "in": "query",
             "name": "currency",
             "required": false,
@@ -266,6 +240,7 @@
             "type": "integer"
           },
           {
+            "description": "State value contains  submitting, cancelled, submitted, rejected, accepted, checked, warning",
             "in": "query",
             "name": "state",
             "required": false,
@@ -617,7 +592,7 @@
             "type": "string"
           },
           {
-            "description": "Filter order by state, default to 'wait' (active orders).",
+            "description": "Filter order by state. One of 'wait', 'done', or 'cancel'. An order in 'wait' is an active order, waiting fullfillment; a 'done' order is an order fullfilled; 'cancel' means the order has been cancelled. Default to 'wait'.",
             "in": "query",
             "name": "state",
             "required": false,
@@ -638,7 +613,7 @@
             "type": "integer"
           },
           {
-            "description": "If set, returned orders will be sorted in specific order, default to 'asc'.",
+            "description": "If set, returned orders will be sorted in specific order. One of 'asc' or 'desc', default to 'asc'.",
             "in": "query",
             "name": "order_by",
             "required": false,
@@ -708,6 +683,7 @@
             "type": "string"
           },
           {
+            "description": "Type of order, either 'limit' or 'market'.",
             "in": "formData",
             "name": "ord_type",
             "required": false,
@@ -832,6 +808,7 @@
             "type": "string"
           },
           {
+            "description": "Type of order, either 'limit' or 'market'.",
             "in": "formData",
             "name": "orders[ord_type]",
             "required": false,
@@ -846,6 +823,33 @@
         "summary": "Create multiple sell/buy orders.",
         "tags": [
           "orders"
+        ]
+      }
+    },
+    "/v2/partners/orders/{id}/trades.json": {
+      "get": {
+        "operationId": "v2.partners.orders.id.trades.json.get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "access_key_hash",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "No response was specified"
+          }
+        },
+        "tags": [
+          "partners"
         ]
       }
     },
@@ -940,7 +944,7 @@
             "type": "integer"
           },
           {
-            "description": "If set, returned trades will be sorted in specific order, default to 'desc'.",
+            "description": "If set, returned trades will be sorted in specific order. One of 'asc' or 'desc', default to 'desc'.",
             "in": "query",
             "name": "order_by",
             "required": false,
@@ -1019,7 +1023,7 @@
             "type": "integer"
           },
           {
-            "description": "If set, returned trades will be sorted in specific order, default to 'desc'.",
+            "description": "If set, returned trades will be sorted in specific order. One of 'asc' or 'desc', default to 'desc'.",
             "in": "query",
             "name": "order_by",
             "required": false,
@@ -1034,64 +1038,6 @@
         "summary": "Get your executed trades. Trades are sorted in reverse creation order.",
         "tags": [
           "trades"
-        ]
-      }
-    },
-    "/v2/withdraw.json": {
-      "post": {
-        "operationId": "v2.withdraw.json.post",
-        "parameters": [
-          {
-            "description": "Access key.",
-            "in": "formData",
-            "name": "access_key",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch.",
-            "in": "formData",
-            "name": "tonce",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "The signature of your request payload, generated using your secret key.",
-            "in": "formData",
-            "name": "signature",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Withdraw amount",
-            "in": "formData",
-            "name": "amount",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "Withdrawal address ID",
-            "in": "formData",
-            "name": "id",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "description": "Withdraw Memo",
-            "in": "formData",
-            "name": "memo",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "No response was specified"
-          }
-        },
-        "summary": "Generate withdrawal application",
-        "tags": [
-          "withdraw"
         ]
       }
     }

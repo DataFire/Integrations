@@ -1,0 +1,2224 @@
+{
+  "id": "circuitsandbox",
+  "title": "REST API Version 2",
+  "description": "Circuit REST API to interact with the Circuit system.\n\n[Learn more about the Circuit Development Community](https://www.circuit.com/web/developers/home)",
+  "security": {
+    "circuitsandbox": {
+      "integration": "circuitsandbox",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://circuitsandbox.net/oauth/authorize",
+        "flow": "implicit",
+        "scopes": {
+          "ALL": "allows full access to all functionalities of the REST API",
+          "CALLS": "allows to start or join real time collaboration session",
+          "READ_CONVERSATIONS": "allows to read conversations of the authenticated user",
+          "READ_USER": "allows to read user information for all users that belong to the tenant of the authenticated user",
+          "READ_USER_PROFILE": "allows to read the user profile of the authenticated user",
+          "WRITE_CONVERSATIONS": "allows to create and update conversations of the authenticated user or to post messages",
+          "WRITE_USER_PROFILE": "allows to update the user profile of the authenticated user"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circuitsandbox.jpg"
+  },
+  "actionCount": 52,
+  "definitions": {
+    "Attachment": {
+      "properties": {
+        "creationTime": {
+          "description": "not available",
+          "format": "int64",
+          "type": "number"
+        },
+        "creatorId": {
+          "description": "not available",
+          "type": "string"
+        },
+        "deleteUrl": {
+          "description": "not available",
+          "type": "string"
+        },
+        "fileId": {
+          "description": "not available",
+          "type": "string"
+        },
+        "fileName": {
+          "description": "not available",
+          "type": "string"
+        },
+        "itemId": {
+          "description": "not available",
+          "type": "string"
+        },
+        "mimeType": {
+          "description": "not available",
+          "type": "string"
+        },
+        "modificationTime": {
+          "description": "not available",
+          "format": "int64",
+          "type": "number"
+        },
+        "size": {
+          "description": "not available",
+          "format": "int64",
+          "type": "number"
+        },
+        "url": {
+          "description": "not available",
+          "type": "string"
+        }
+      },
+      "title": "Attachment"
+    },
+    "BridgeNumber": {
+      "properties": {
+        "bridgeNumber": {
+          "description": "The number that has to be called to join the real time session of a conversation",
+          "type": "string"
+        },
+        "country": {
+          "description": "The country where the bridge is hosted",
+          "type": "string"
+        },
+        "locale": {
+          "description": "The locale of the bridge",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name / identifier of the bridge",
+          "type": "string"
+        },
+        "type": {
+          "description": "Information of the billing for the call, i.e. if the caller has to pay or not for the call",
+          "type": "string"
+        }
+      },
+      "title": "BridgeNumber"
+    },
+    "Conversation": {
+      "properties": {
+        "avatar": {
+          "description": "The URL of the small avatar image of the conversation",
+          "type": "string"
+        },
+        "avatarLarge": {
+          "description": "The URL of the large avatar image of the conversation",
+          "type": "string"
+        },
+        "convId": {
+          "description": "The ID of the conversation",
+          "type": "string"
+        },
+        "creationTime": {
+          "description": "UTC timestamp when the conversation was created",
+          "format": "int64",
+          "type": "number"
+        },
+        "creatorId": {
+          "description": "The ID of the user who created the conversation",
+          "type": "string"
+        },
+        "creatorTenantId": {
+          "description": "The ID of the Circuit domain (tenant) where the creator of the conversation belongs to",
+          "type": "string"
+        },
+        "description": {
+          "description": "The description of the conversation. This field is available only for conversations with type COMMUNITY",
+          "type": "string"
+        },
+        "isGuestAccessDisabled": {
+          "description": "Indicates whether guest access to the conversation is disabled or not",
+          "type": "boolean"
+        },
+        "isModerated": {
+          "description": "Indicates whether the conversation is moderated or not. In a moderated conversation only participants who have been assigned the role of a moderator are allowed to add or remove participants into the conversation",
+          "type": "boolean"
+        },
+        "modificationTime": {
+          "description": "UTC timestamp when the conversation was modified. A conversation is modified when any of the conversation object fields change but not when conversation items are added or edited",
+          "format": "int64",
+          "type": "number"
+        },
+        "participants": {
+          "description": "Array of active participants",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "topic": {
+          "description": "The title of the conversation. Conversations of type DIRECT cannot have a title",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the conversation. It can be one of the following: DIRECT, GROUP, COMMUNITY or LARGE",
+          "type": "string"
+        }
+      },
+      "title": "Conversation"
+    },
+    "ConversationDetails": {
+      "properties": {
+        "bridgeNumbers": {
+          "description": "A list of bridge numbers which can be used to dial in to the real time session via phone",
+          "items": {
+            "$ref": "#/definitions/BridgeNumber"
+          },
+          "type": "array"
+        },
+        "conversationCreatorId": {
+          "description": "The user ID of the conversation creator",
+          "type": "string"
+        },
+        "isModerationAllowed": {
+          "description": "Indicates if the conversation is allowed to be moderated",
+          "type": "boolean"
+        },
+        "isRecordingAllowed": {
+          "description": "Indicates if the conversation is allowed to be recorded",
+          "type": "boolean"
+        },
+        "link": {
+          "description": "A link that can be used in a browser to join the session",
+          "type": "string"
+        },
+        "pin": {
+          "description": "The PIN to join a real time session via phone",
+          "type": "string"
+        }
+      },
+      "title": "ConversationDetails"
+    },
+    "ConversationItem": {
+      "properties": {
+        "attachments": {
+          "description": "Array of files attached to the item",
+          "items": {
+            "$ref": "#/definitions/Attachment"
+          },
+          "type": "array"
+        },
+        "convId": {
+          "description": "The ID of the conversation the item belongs to",
+          "type": "string"
+        },
+        "creationTime": {
+          "description": "UTC timestamp when the item was created",
+          "format": "int64",
+          "type": "number"
+        },
+        "creatorId": {
+          "description": "The ID of the user who created the conversation item",
+          "type": "string"
+        },
+        "includeInUnreadCount": {
+          "description": "Indicates whether the item is included in the unread message count",
+          "type": "boolean"
+        },
+        "itemId": {
+          "description": "The ID of the item",
+          "type": "string"
+        },
+        "modificationTime": {
+          "description": "UTC timestamp when the conversation was modified",
+          "format": "int64",
+          "type": "number"
+        },
+        "rtc": {
+          "$ref": "#/definitions/RtcItem"
+        },
+        "system": {
+          "$ref": "#/definitions/SystemItem"
+        },
+        "text": {
+          "$ref": "#/definitions/ConversationTextItem"
+        },
+        "type": {
+          "description": "The type of the conversation item. It can be one of the following TEXT, SYSTEM or RTC",
+          "type": "string"
+        }
+      },
+      "title": "ConversationItem"
+    },
+    "ConversationSearchResult": {
+      "properties": {
+        "matchingConversations": {
+          "description": "A list of result items for conversations that match the search term.",
+          "items": {
+            "$ref": "#/definitions/ConversationSearchResultItem"
+          },
+          "type": "array"
+        }
+      },
+      "title": "ConversationSearchResult"
+    },
+    "ConversationSearchResultItem": {
+      "properties": {
+        "convId": {
+          "description": "The ID of the conversation to which the matching items belong.",
+          "type": "string"
+        },
+        "itemIds": {
+          "description": "The conversation items which contain the search result. The list maybe empty in case a hit was found for the conversation related data like topic or participants.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "title": "ConversationSearchResultItem"
+    },
+    "ConversationTextItem": {
+      "properties": {
+        "content": {
+          "description": "The content of the text item",
+          "type": "string"
+        },
+        "contentType": {
+          "description": "The type of the text item. It can be one of the following: RICH (with HTML content) or PLAIN (only text)",
+          "type": "string"
+        },
+        "likedUserIds": {
+          "description": "Array of IDs of the users who liked the item",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "parentId": {
+          "description": "The ID of the parent item of the text item. This field is optional and can be used for thread views",
+          "type": "string"
+        },
+        "preview": {
+          "$ref": "#/definitions/Preview"
+        },
+        "state": {
+          "description": "The state of the text item. It can be one of the following: CREATED (which denotes that it was not modified since its creation), EDITED (which denotes that the creator of this item modified the item) or DELETED (which denotes that the item itself exists but its content was removed)",
+          "type": "string"
+        },
+        "subject": {
+          "description": "TThe subject of the text item. This field is optional and maybe filled when creating the text item",
+          "type": "string"
+        }
+      },
+      "title": "ConversationTextItem"
+    },
+    "Label": {
+      "properties": {
+        "labelId": {
+          "description": "not available",
+          "type": "string"
+        },
+        "value": {
+          "description": "The clear text value",
+          "type": "string"
+        }
+      },
+      "title": "Label"
+    },
+    "OAuthClientId": {
+      "properties": {
+        "accessTokenURL": {
+          "description": "The URL to fetch the access token for an authorization code",
+          "type": "string"
+        },
+        "applicationName": {
+          "description": "A free text identifier of the application that uses the client ID",
+          "type": "string"
+        },
+        "authorizationURL": {
+          "description": "The URL to redirect a user for Circuit authentication",
+          "type": "string"
+        },
+        "clientId": {
+          "description": "The client ID",
+          "type": "string"
+        },
+        "domains": {
+          "description": "The valid domains for the client ID",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "grantTypes": {
+          "description": "A list of grant types which are supported by this client ID",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopes": {
+          "description": "The available scopes for OAUTH 2.0 access",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ttl": {
+          "description": "The TTL for a token generated with this client ID",
+          "type": "string"
+        },
+        "userId": {
+          "description": "The ID of the user who owns a token",
+          "type": "string"
+        }
+      },
+      "title": "OAuthClientId"
+    },
+    "Presence": {
+      "properties": {
+        "dndUntil": {
+          "description": "Timestamp until the DND state of the user is active",
+          "format": "int64",
+          "type": "number"
+        },
+        "isOptedOut": {
+          "description": "Indicates whether the user has opted out of their presence",
+          "type": "boolean"
+        },
+        "latitude": {
+          "description": "The latitude of the geo location of the user",
+          "format": "float",
+          "type": "number"
+        },
+        "locationText": {
+          "description": "The geo location of the user in clear text",
+          "type": "string"
+        },
+        "longitude": {
+          "description": "The longitude of the geo location of the user",
+          "format": "float",
+          "type": "number"
+        },
+        "mobile": {
+          "description": "Identifies whether the presence state is based on the state information of a mobile device or not",
+          "type": "boolean"
+        },
+        "poor": {
+          "description": "n/a",
+          "type": "boolean"
+        },
+        "state": {
+          "description": "The presence state of the user. It can be one of the following: AVAILABLE, OFFLINE, AWAY, BUSY, or DND (Do-Not-Disturb)",
+          "type": "string"
+        },
+        "statusMessage": {
+          "description": "A free formed status message of the user",
+          "type": "string"
+        },
+        "timeZoneOffset": {
+          "description": "The timezone offset of the user compared to UTC",
+          "format": "int32",
+          "type": "number"
+        },
+        "userId": {
+          "description": "The ID of the user",
+          "type": "string"
+        }
+      },
+      "title": "Presence"
+    },
+    "Preview": {
+      "properties": {
+        "imageURI": {
+          "description": "n/a",
+          "type": "string"
+        },
+        "srcURL": {
+          "description": "n/a",
+          "type": "string"
+        },
+        "title": {
+          "description": "n/a",
+          "type": "string"
+        },
+        "type": {
+          "description": "n/a",
+          "type": "string"
+        }
+      },
+      "title": "Preview"
+    },
+    "RtcItem": {
+      "properties": {
+        "missed": {
+          "description": "Indicates a missed call",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the RTC item",
+          "type": "string"
+        }
+      },
+      "title": "RtcItem"
+    },
+    "String": {
+      "properties": {
+        "CASE_INSENSITIVE_ORDER": {}
+      },
+      "title": "String"
+    },
+    "SystemItem": {
+      "properties": {
+        "affectedParticipants": {
+          "description": "not available",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "newTopic": {
+          "description": "not available",
+          "type": "string"
+        },
+        "oldTopic": {
+          "description": "not available",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the system item",
+          "type": "string"
+        }
+      },
+      "title": "SystemItem"
+    },
+    "User": {
+      "properties": {
+        "company": {
+          "description": "The name of the user's company",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The user's display name",
+          "type": "string"
+        },
+        "emailAddress": {
+          "description": "The primary email address of the user",
+          "type": "string"
+        },
+        "firstName": {
+          "description": "The first name of the user",
+          "type": "string"
+        },
+        "jobTitle": {
+          "description": "The job title of the user",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "The last name of the user",
+          "type": "string"
+        },
+        "locale": {
+          "description": "The locale of the user. (E.g. en-US, de-DE)",
+          "type": "string"
+        },
+        "userId": {
+          "description": "The ID of the user",
+          "type": "string"
+        },
+        "userPresenceState": {
+          "$ref": "#/definitions/Presence"
+        }
+      },
+      "title": "User"
+    },
+    "ValidateAccessToken": {
+      "properties": {
+        "accessToken": {
+          "description": "The access token issued by the authorization server",
+          "type": "string"
+        },
+        "clientId": {
+          "description": "The client ID used to generate the access token",
+          "type": "string"
+        },
+        "expirationTime": {
+          "description": "The date when the token expires",
+          "format": "int64",
+          "type": "number"
+        },
+        "scopes": {
+          "description": "Array of the scopes of the access token",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "title": "ValidateAccessToken"
+    },
+    "WebHook": {
+      "properties": {
+        "creationTime": {
+          "description": "The time when this WebHook was created. This does not necessary mean the time when an manifest file was created.",
+          "format": "int64",
+          "type": "number"
+        },
+        "filter": {
+          "description": "An optional list of filter parameters for this webhook.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "The unique identifier for this webhook. Can be used later to unregister the webhook.",
+          "type": "string"
+        },
+        "subscriptionIds": {
+          "description": "The optional list of userids for which this webhook is subscribed, i.e. presence events for the user are forwarded to the WebHook callback URL.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "description": "The type of a WebHook. This can either be MANUAL or EXTENSION. While manual WebHooks are only temporary and for development only use, permanent ones (EXTENSION) will bemanaged by the system.",
+          "type": "string"
+        },
+        "url": {
+          "description": "The callback URL of this webhook.",
+          "type": "string"
+        },
+        "userId": {
+          "description": "The user ID for which this webhook is subscribed, i.e. events for this user are forwarded to the WebHook callback URL.",
+          "type": "string"
+        }
+      },
+      "title": "WebHook"
+    }
+  },
+  "actions": [
+    {
+      "id": "alexaRequest",
+      "title": "alexaRequest",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getConversations",
+      "title": "getConversations",
+      "description": "Gets a list of conversations and communities the authenticated user participates in.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "modTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The modification time of the conversation in UTC format. During the query the conversations before (<i>default</i>) or after this timestamp are returned. In case no timestamp is specified the current server time in UTC is used, i.e. the last 25 modified conversations are returned"
+          },
+          "direction": {
+            "type": "string",
+            "description": "The direction of the search based on the modification time. Valid values are either BEFORE (default) or AFTER",
+            "enum": [
+              "BEFORE",
+              "AFTER"
+            ],
+            "maxLength": 255,
+            "default": "BEFORE"
+          },
+          "results": {
+            "type": "number",
+            "format": "int32",
+            "description": "The maximum number of returned results (default 25). The maximum allowed value is 100.",
+            "maximum": 100,
+            "minimum": 1,
+            "default": 25
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Conversation"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getCommunityConversations",
+      "title": "getCommunityConversations",
+      "description": "Gets a list of communities. This endpoint can be used to explore the communities the authenticated user could join.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "sort": {
+            "type": "string",
+            "description": "Defines the type of sorting for the community conversations (default is alphabetical)",
+            "enum": [
+              "ALPHABETICALLY",
+              "RECENT_ACTIVITY",
+              "POPULARITY"
+            ],
+            "maxLength": 255,
+            "default": "ALPHABETICALLY"
+          },
+          "order": {
+            "type": "string",
+            "description": "Defines the ordering of the conversations (default is ascending)",
+            "enum": [
+              "ASCENDING",
+              "DESCENDING"
+            ],
+            "maxLength": 255,
+            "default": "ASCENDING"
+          },
+          "includeOwn": {
+            "type": "boolean",
+            "description": "If set to false only conversations are returned where the user is no member of, otherwise all community conversations are returned",
+            "default": false
+          },
+          "startIndex": {
+            "type": "number",
+            "format": "int32",
+            "description": "The index of the conversation that is the first one that has to be returned. E.g. if a request starts with startIndex 40 and results 20 the conversations 40 to 60 are returned",
+            "maximum": 255,
+            "minimum": 0,
+            "default": 0
+          },
+          "results": {
+            "type": "number",
+            "format": "int32",
+            "description": "The maximum number of returned results (default 25). The maximum allowed value is 100.",
+            "maximum": 100,
+            "minimum": 1,
+            "default": 25
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Conversation"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "createCommunityConversation",
+      "title": "createCommunityConversation",
+      "description": "Creates a community. Communities are open conversations that anyone in a Circuit domain (tenant) can join without having to be added by another user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "participants": {
+            "type": "array",
+            "description": "list of participants that will be part of this conversation, specified by the Circuit user ID or the unique email address. At least one participant needs to be added"
+          },
+          "description": {
+            "type": "string",
+            "description": "An optional description for the community conversation",
+            "maxLength": 255
+          },
+          "topic": {
+            "type": "string",
+            "description": "An optional topic of the conversation. If not set the Circuit client will render the names of the participants as topic of the conversation (the first 4 names will be used)",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "topic"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "updateConversationCommunity",
+      "title": "updateConversationCommunity",
+      "description": "Updates the information of the given community.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation which should be updated",
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string",
+            "description": "An optional description for the community conversation",
+            "maxLength": 255
+          },
+          "topic": {
+            "type": "string",
+            "description": "An optional topic of the conversation. If not set the Circuit client will render the names of the participants as topic of the conversation (the first 4 names will be used)",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "joinCommunityConversation",
+      "title": "joinCommunityConversation",
+      "description": "Adds the authenticated user to the given community (i.e., allows the user to join this community). Contrary to the operation of adding a new participant, this operation can only be performed by a user who is not yet a member of the community.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation which the user will join",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "removeParticipantCommunity",
+      "title": "removeParticipantCommunity",
+      "description": "Removes one or more participants from the given community. The last participant of a community cannot be removed. This operation can only be performed by a user who is already a member of the community.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation from which the participant have to be removed",
+            "maxLength": 255
+          },
+          "participants": {
+            "type": "array",
+            "description": "The IDs or the unique email addresses of the Circuit users that have to be removed"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "participants"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addParticipantCommunity",
+      "title": "addParticipantCommunity",
+      "description": "Adds one or more participants to the given community. This operation can only be performed by a user who is already a member of the community.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the participant has to be added.",
+            "maxLength": 255
+          },
+          "participants": {
+            "type": "array",
+            "description": "The IDs or the unique email addresses of the Circuit users that should to be added."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "participants"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "createDirectConversation",
+      "title": "createDirectConversation",
+      "description": "Creates a 1-to-1 conversation between the authenticated user and the user with the provided userId. In case there is already an existing 1-to-1 conversation between these users, the endpoint returns the existing conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "participant": {
+            "type": "string",
+            "description": "The participant that will be part of this conversation together with the creator, specified by the Circuit user ID or the unique email address",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "participant"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getFavoriteConversations",
+      "title": "getFavoriteConversations",
+      "description": "Gets the conversationIds which are marked as favorites.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/String"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "createGroupConversation",
+      "title": "createGroupConversation",
+      "description": "Creates a group conversation between three or more users. The authenticated user is directly added to this conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "participants": {
+            "type": "array",
+            "description": "A list of participants that will be part of this conversation, specified by the Circuit user ID or the unique email address. At least one participant needs to be added"
+          },
+          "topic": {
+            "type": "string",
+            "description": "An optional topic of the conversation. If not set the Circuit client will render the names of the participants as topic of the conversation (the first 4 names will be used)",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "participants"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "updateConversationGroup",
+      "title": "updateConversationGroup",
+      "description": "Updates the information of the given group conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation which should be updated",
+            "maxLength": 255
+          },
+          "topic": {
+            "type": "string",
+            "description": "An optional topic of the conversation. If not set the Circuit client will render the names of the participants as topic of the conversation (the first 4 names will be used)",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "removeParticipantGroup",
+      "title": "removeParticipantGroup",
+      "description": "Removes one or more participants from the given group conversation. The last participant of a group conversation cannot be removed. This operation can only be performed on behalf of a user who is already a member of the conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation from which the participant have to be removed",
+            "maxLength": 255
+          },
+          "participants": {
+            "type": "array",
+            "description": "The IDs or the unique email addresses of the Circuit users that have to be removed"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "participants"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addParticipantGroup",
+      "title": "addParticipantGroup",
+      "description": "Adds one or more participants to the given group conversation. This operation can only be performed by a user who is already a member of the conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the participant has to be added.",
+            "maxLength": 255
+          },
+          "participants": {
+            "type": "array",
+            "description": "The IDs or the unique email addresses of the Circuit users that should to be added."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "participants"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getFlagItemConv",
+      "title": "getFlagItemConv",
+      "description": "Gets a list of all the messages the authenticated user has flagged. This endpoint should be used carefully in case where the authenticated user has a lot of flagged messages.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ConversationItem"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "searchConversations",
+      "title": "searchConversations",
+      "description": "Performs a search for conversation content. A maximum of 100 conversations is returned. If you hit this limit you should refine the search term.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "description": "The search term",
+            "maxLength": 255
+          },
+          "includeItemIds": {
+            "type": "boolean",
+            "description": "not available",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConversationSearchResult"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getConversationbyId",
+      "title": "getConversationbyId",
+      "description": "Gets a conversation based on the given ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation which should be updated",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Conversation"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getJoinDetails",
+      "title": "getJoinDetails",
+      "description": "Gets the conference details of the given conversation. Conference details include the URL, which is used to join the conference through a web or mobile application, as well as the dial-in phone numbers and conference PIN, which are used to join the conference by phone.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation for which the join details should be returned",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConversationDetails"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "deleteFavorite",
+      "title": "deleteFavorite",
+      "description": "Removes a conversation from favorites. Favorites can be displayed in a separate side tab inside of the Circuit client to have a better overview of important conversations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation which will be unmarked as favorite",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addFavorite",
+      "title": "addFavorite",
+      "description": "Adds a conversation to the favorites. Favorites can be displayed in a separate side tab inside of the Circuit client to have a better overview of important conversations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation which will be marked as favorite",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getConversationItems",
+      "title": "getConversationItems",
+      "description": "Gets a list of conversation items.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the items belong",
+            "maxLength": 255
+          },
+          "modTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The modification time of the item in UTC format. During the query the items before (default) or after this timestamps are returned. In case no timestamp is specified the current server time in UTC is used, i.e. the last 25 modified items are returned"
+          },
+          "direction": {
+            "type": "string",
+            "description": "The direction of the search based on the modification time. Valid values are either BEFORE (default) or AFTER",
+            "enum": [
+              "BEFORE",
+              "AFTER"
+            ],
+            "maxLength": 255,
+            "default": "BEFORE"
+          },
+          "results": {
+            "type": "number",
+            "format": "int32",
+            "description": "The maximum number of returned results (default 25). The maximum allowed value is 100.",
+            "maximum": 100,
+            "minimum": 1,
+            "default": 25
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ConversationItem"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "assignLabel",
+      "title": "assignLabel",
+      "description": "Adds a label to a conversation, you can search and organize your conversations based on these labels",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the label is added",
+            "maxLength": 255
+          },
+          "label": {
+            "type": "string",
+            "description": "The actual label ",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "label"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "unassignLabel",
+      "title": "unassignLabel",
+      "description": "Removes a label from a conversation, you can search and organize your conversations based on these labels",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation from which the label is removed",
+            "maxLength": 255
+          },
+          "labelId": {
+            "type": "string",
+            "description": "not available",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "labelId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addTextItem",
+      "title": "addTextItem",
+      "description": "Adds a message to the given conversation. This operation can be only performed on behalf of a user who is already a member of the conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the new item has to be added",
+            "maxLength": 255
+          },
+          "content": {
+            "type": "string",
+            "description": "The actual content of the item, is mandatory unless an attachment is added",
+            "maxLength": 2048
+          },
+          "attachments": {
+            "type": "array",
+            "description": "A comma separated list of attachment IDs from the file API."
+          },
+          "subject": {
+            "type": "string",
+            "description": "The subject (headline) of the new text item",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConversationItem"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getFlagItem",
+      "title": "getFlagItem",
+      "description": "Gets a list of all the flagged messages in the given conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ConversationItem"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "deleteTextItem",
+      "title": "deleteTextItem",
+      "description": "Marks a message in the given conversation as deleted. Deleted messages are still part of the conversation, but their content is no more visible. This operation can only be performed on behalf of the message's creator.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item that will be deleted",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConversationItem"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addTextItemWithParent",
+      "title": "addTextItemWithParent",
+      "description": "Adds a message to the existing item. The added message will be a child item of the message with the given itemId.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the new item has to be added",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item to which the new one has to be added as child",
+            "maxLength": 255
+          },
+          "content": {
+            "type": "string",
+            "description": "The actual content of the item",
+            "maxLength": 2048
+          },
+          "attachments": {
+            "type": "array",
+            "description": "not available"
+          },
+          "subject": {
+            "type": "string",
+            "description": "The subject (headline) of the new text item",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConversationItem"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "updateTextItem",
+      "title": "updateTextItem",
+      "description": "Updates the content or subject of the existing message. Only the creator of the message is allowed to perform this operation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item to update",
+            "maxLength": 255
+          },
+          "content": {
+            "type": "string",
+            "description": "The actual content of the item",
+            "maxLength": 2048
+          },
+          "subject": {
+            "type": "string",
+            "description": "The subject (headline) of the new text item",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ConversationItem"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "unFlagItem",
+      "title": "unFlagItem",
+      "description": "Removes the flag from a given message that is posted to the given conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item that will be flagged",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "flagItem",
+      "title": "flagItem",
+      "description": "Adds a flag to the given message in the given conversation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item that will be flagged",
+            "maxLength": 255
+          },
+          "itemCreationTime": {
+            "type": "string",
+            "description": "The time when the item was created",
+            "maxLength": 255
+          },
+          "parentId": {
+            "type": "string",
+            "description": "The ID of the item's parent",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "unlikeItem",
+      "title": "unlikeItem",
+      "description": "Removes a \"like\" from the given message in the given conversation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item that will be unliked",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "likeItem",
+      "title": "likeItem",
+      "description": "Adds a \"like\" to the given message in the given conversation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "convId": {
+            "type": "string",
+            "description": "The ID of the conversation to which the item belongs",
+            "maxLength": 255
+          },
+          "itemId": {
+            "type": "string",
+            "description": "The ID of the item that will be liked",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "convId",
+          "itemId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "oAuthGetClientIds",
+      "title": "oAuthGetClientIds",
+      "description": "Gets a list of the client IDs (applications) that were created for this user.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OAuthClientId"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "oAuthValidateAccessToken",
+      "title": "oAuthValidateAccessToken",
+      "description": "Gets the access token for the given token ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string",
+            "description": "The unique id of the token to get the data for.",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tokenId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ValidateAccessToken"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "searchUser",
+      "title": "searchUser",
+      "description": "Gets a user based on an email address or username. If both parameters are defined, the email address will be used.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Search for a user by name",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/User"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getLabel",
+      "title": "getLabel",
+      "description": "Returns all labels of the user that were defined either explicit or implicit via assignment to conversations.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Label"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addLabel",
+      "title": "addLabel",
+      "description": "Add a label to the list of user labels",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "The label value to add",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "label"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "removeLabel",
+      "title": "removeLabel",
+      "description": "Remove a label from the list of user labels",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "labelId": {
+            "type": "string",
+            "description": "not available",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "labelId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getPresence",
+      "title": "getPresence",
+      "description": "Gets the presence status of the users whose IDs or email addresses are given.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userIds": {
+            "type": "array",
+            "description": "A list of unique user IDs or email addresses of the users you want to query the presence state for"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userIds"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Presence"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "setUserPresence",
+      "title": "setUserPresence",
+      "description": "Updates the presence status of the authenticated user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "The user's presence.",
+            "maxLength": 255
+          },
+          "dndUntil": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp until the DND state of the user is active. This field is mandatory when the state is set to DND."
+          },
+          "clearDND": {
+            "type": "boolean",
+            "description": "not available",
+            "default": false
+          },
+          "statusMessage": {
+            "type": "string",
+            "description": "An optional status message that is displayed instead of the location",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Presence"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getProfile",
+      "title": "getProfile",
+      "description": "Gets the authenticated user's profile information.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "updateProfile",
+      "title": "updateProfile",
+      "description": "Updates the user profile of the authenticated user",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "firstname": {
+            "type": "string",
+            "description": "The new firstname of the user",
+            "maxLength": 128
+          },
+          "lastname": {
+            "type": "string",
+            "description": "The new lastname of the user",
+            "maxLength": 128
+          },
+          "jobTitle": {
+            "type": "string",
+            "description": "The new job title of the user",
+            "maxLength": 128
+          },
+          "locale": {
+            "type": "string",
+            "description": "The new locale of the user. One of EN_US, DE_DE, EN_GB, ES_ES, FR_FR, IT_IT, RU_RU, ZH_HANS_CN.",
+            "enum": [
+              "EN_US",
+              "DE_DE",
+              "EN_GB",
+              "ES_ES",
+              "FR_FR",
+              "IT_IT",
+              "RU_RU",
+              "ZH_HANS_CN"
+            ],
+            "maxLength": 5
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getUserById",
+      "title": "getUserById",
+      "description": "Gets the profile information of the user with the given ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID or the email address of the user to fetch",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getUserPresence",
+      "title": "getUserPresence",
+      "description": "Gets the presence status of the users whose ID or email address is given.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID or the email address of the user to fetch.",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Presence"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "removeWebHooks",
+      "title": "removeWebHooks",
+      "description": "Unregisters all webHooks of the authenticated user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getWebHook",
+      "title": "getWebHook",
+      "description": "Gets the list of webHooks registered for this user or API.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/WebHook"
+        },
+        "type": "array"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addWebHook",
+      "title": "addWebHook",
+      "description": "Registers the webHook with the given filter and callback URL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "WebHook callback URL. Currently only HTTP is supported",
+            "maxLength": 255
+          },
+          "filter": {
+            "type": "array",
+            "description": "A filter for WebHooks that checks for a list of configured events. This filter will use a regular expression to determine if it is interested in the events or not. The event itself is converted into a string of format AREA.EVENT. Examples: CONVERSATION.CREATE / USER.UPDATE"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "filter"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebHook"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "addPresenceWebHook",
+      "title": "addPresenceWebHook",
+      "description": "Registers a webHook that has a presence filter with the given URL and userIds. There is a maximum number of userIds allowed",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "WebHook callback URL. Currently only HTTP is supported",
+            "maxLength": 255
+          },
+          "userIds": {
+            "type": "array",
+            "description": "not available"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "userIds"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebHook"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "updatePresenceWebHook",
+      "title": "updatePresenceWebHook",
+      "description": "Updates a registration of a webHook that has a presence filter. The update can be performed either on the URL and/or the userIds. The new userIds, if any, will override any existing userIds.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the webHook to update",
+            "maxLength": 255
+          },
+          "url": {
+            "type": "string",
+            "description": "WebHook callback URL. Currently only HTTP is supported",
+            "maxLength": 255
+          },
+          "userIds": {
+            "type": "array",
+            "description": "not available"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebHook"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "removeWebHook",
+      "title": "removeWebHook",
+      "description": "Unregisters the webHook with the given ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the webHook to remove",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "getWebHookById",
+      "title": "getWebHookById",
+      "description": "Gets the registered webHook with the given ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the webHook to fetch",
+            "maxLength": 255
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebHook"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    },
+    {
+      "id": "updateWebHook",
+      "title": "updateWebHook",
+      "description": "Updates a webHook registration with the given filter and callback URL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the webHook to update",
+            "maxLength": 255
+          },
+          "url": {
+            "type": "string",
+            "description": "WebHook callback URL. Currently only HTTP is supported",
+            "maxLength": 255
+          },
+          "filter": {
+            "type": "array",
+            "description": "A filter for WebHooks that checks for a list of configured events. This filter will use a regular expression to determine if it is interested in the events or not. The event itself is converted into a string of format AREA.EVENT. Examples: CONVERSATION.CREATE / USER.UPDATE"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WebHook"
+      },
+      "security": {
+        "circuitsandbox": {
+          "integration": "circuitsandbox"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "messaging"
+  ]
+}

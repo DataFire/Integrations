@@ -909,6 +909,34 @@ figshare.private_institution_details(null, context)
 #### Parameters
 *This action has no parameters*
 
+### private_institution_accounts_list
+Returns the accounts for which the account has administrative privileges (assigned and inherited).
+
+
+```js
+figshare.private_institution_accounts_list({}, context)
+```
+
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* is_active (integer) - Filter by active status
+
+### private_institution_accounts_search
+Returns the accounts for which the account has administrative privileges (assigned and inherited).
+
+
+```js
+figshare.private_institution_accounts_search({
+  "search": {}
+}, context)
+```
+
+#### Parameters
+* search (object) **required**
+
 ### private_institution_articles
 Get Articles from own institution. User must be administrator of the institution
 
@@ -1309,6 +1337,7 @@ figshare.articles_list({}, context)
 * group (integer) - only return collections from this group
 * resource_doi (string) - only return collections with this resource_doi
 * item_type (integer) - Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
+* doi (string) - only return collections with this doi
 
 ### articles_search
 Returns a list of public articles, filtered by the search parameters
@@ -1451,6 +1480,7 @@ figshare.collections_list({}, context)
 * modified_since (string) - Filter by collection modified date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD
 * group (integer) - only return collections from this group
 * resource_doi (string) - only return collections with this resource_doi
+* doi (string) - only return collections with this doi
 
 ### collections_search
 Returns a list of public collections

@@ -382,6 +382,8 @@ amazonaws_elasticbeanstalk.DescribeEnvironments({}, context)
 * EnvironmentNames (array)
 * IncludeDeleted (boolean)
 * IncludedDeletedBackTo (string)
+* MaxRecords (integer)
+* NextToken (string)
 * VersionLabel (string)
 
 ### DescribeEvents
@@ -456,6 +458,19 @@ amazonaws_elasticbeanstalk.ListPlatformVersions({}, context)
 * Filters (array)
 * MaxRecords (integer)
 * NextToken (string)
+
+### ListTagsForResource
+
+
+
+```js
+amazonaws_elasticbeanstalk.ListTagsForResource({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Parameters
+* ResourceArn (string) **required**
 
 ### RebuildEnvironment
 
@@ -623,6 +638,21 @@ amazonaws_elasticbeanstalk.UpdateEnvironment({}, context)
 * TemplateName (string)
 * Tier (object) - Describes the properties of an environment tier
 * VersionLabel (string)
+
+### UpdateTagsForResource
+
+
+
+```js
+amazonaws_elasticbeanstalk.UpdateTagsForResource({
+  "ResourceArn": ""
+}, context)
+```
+
+#### Parameters
+* ResourceArn (string) **required**
+* TagsToAdd (array)
+* TagsToRemove (array)
 
 ### ValidateConfigurationSettings
 

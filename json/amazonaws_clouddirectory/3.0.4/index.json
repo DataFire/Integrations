@@ -16,7 +16,7 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpg"
   },
-  "actionCount": 47,
+  "actionCount": 57,
   "definitions": {
     "AccessDeniedException": {
       "description": "Access denied. Check your permissions.",
@@ -32,7 +32,7 @@
       "properties": {
         "ObjectAttributeList": {
           "$ref": "#/definitions/AttributeKeyAndValueList",
-          "description": "Attributes on the facet you are adding to the object."
+          "description": "Attributes on the facet that you are adding to the object."
         },
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
@@ -59,7 +59,7 @@
       "properties": {
         "PublishedSchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "Published schema ARN that needs to be copied. For more information, see <a>arns</a>."
+          "description": "Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see <a>arns</a>."
         }
       },
       "required": [
@@ -72,11 +72,11 @@
       "properties": {
         "AppliedSchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "Applied schema ARN associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on this directory. For more information, see <a>arns</a>."
+          "description": "The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on this directory. For more information, see <a>arns</a>."
         },
         "DirectoryArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN associated with the <a>Directory</a>. For more information, see <a>arns</a>."
+          "description": "The ARN that is associated with the <a>Directory</a>. For more information, see <a>arns</a>."
         }
       },
       "type": "object",
@@ -97,15 +97,15 @@
       "properties": {
         "ChildReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Child object reference to be attached to the object."
+          "description": "The child object reference to be attached to the object."
         },
         "LinkName": {
           "$ref": "#/definitions/LinkName",
-          "description": "Link name with which the child object is attached to the parent."
+          "description": "The link name with which the child object is attached to the parent."
         },
         "ParentReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Parent object reference."
+          "description": "The parent object reference."
         }
       },
       "required": [
@@ -120,7 +120,7 @@
       "properties": {
         "AttachedObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
-          "description": "Attached <code>ObjectIdentifier</code>, which is the child <code>ObjectIdentifier</code>."
+          "description": "The attached <code>ObjectIdentifier</code>, which is the child <code>ObjectIdentifier</code>."
         }
       },
       "type": "object",
@@ -130,11 +130,11 @@
       "properties": {
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object to which the policy will be attached."
+          "description": "The reference that identifies the object to which the policy will be attached."
         },
         "PolicyReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference associated with the policy object."
+          "description": "The reference that is associated with the policy object."
         }
       },
       "required": [
@@ -177,12 +177,50 @@
       "type": "object",
       "title": "AttachToIndexResponse"
     },
+    "AttachTypedLinkRequest": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeNameAndValueList",
+          "description": "A set of attributes that are associated with the typed link."
+        },
+        "SourceObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Identifies the source object that the typed link will attach to."
+        },
+        "TargetObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Identifies the target object that the typed link will attach to."
+        },
+        "TypedLinkFacet": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Identifies the typed link facet that is associated with the typed link."
+        }
+      },
+      "required": [
+        "SourceObjectReference",
+        "TargetObjectReference",
+        "TypedLinkFacet",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "AttachTypedLinkRequest"
+    },
+    "AttachTypedLinkResponse": {
+      "properties": {
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Returns a typed link specifier as output."
+        }
+      },
+      "type": "object",
+      "title": "AttachTypedLinkResponse"
+    },
     "AttributeKey": {
       "description": "A unique identifier for an attribute.",
       "properties": {
         "FacetName": {
           "$ref": "#/definitions/FacetName",
-          "description": "The name of the facet the attribute exists within."
+          "description": "The name of the facet that the attribute exists within."
         },
         "Name": {
           "$ref": "#/definitions/AttributeName",
@@ -190,7 +228,7 @@
         },
         "SchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "The ARN of the schema that contains the facet and attribute."
+          "description": "The Amazon Resource Name (ARN) of the schema that contains the facet and attribute."
         }
       },
       "required": [
@@ -241,6 +279,39 @@
       "type": "string",
       "title": "AttributeName"
     },
+    "AttributeNameAndValue": {
+      "description": "Identifies the attribute name and value for a typed link.",
+      "properties": {
+        "AttributeName": {
+          "$ref": "#/definitions/AttributeName",
+          "description": "The attribute name of the typed link."
+        },
+        "Value": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The value for the typed link."
+        }
+      },
+      "required": [
+        "AttributeName",
+        "Value"
+      ],
+      "type": "object",
+      "title": "AttributeNameAndValue"
+    },
+    "AttributeNameAndValueList": {
+      "items": {
+        "$ref": "#/definitions/AttributeNameAndValue"
+      },
+      "type": "array",
+      "title": "AttributeNameAndValueList"
+    },
+    "AttributeNameList": {
+      "items": {
+        "$ref": "#/definitions/AttributeName"
+      },
+      "type": "array",
+      "title": "AttributeNameList"
+    },
     "BatchAddFacetToObject": {
       "description": "Represents the output of a batch add facet to object operation.",
       "properties": {
@@ -272,11 +343,11 @@
       "title": "BatchAddFacetToObjectResponse"
     },
     "BatchAttachObject": {
-      "description": "Represents the output of an AttachObject operation.",
+      "description": "Represents the output of an <a>AttachObject</a> operation.",
       "properties": {
         "ChildReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Child object reference to be attached to the object."
+          "description": "The child object reference that is to be attached to the object."
         },
         "LinkName": {
           "$ref": "#/definitions/LinkName",
@@ -284,7 +355,7 @@
         },
         "ParentReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Parent object reference."
+          "description": "The parent object reference."
         }
       },
       "required": [
@@ -296,7 +367,7 @@
       "title": "BatchAttachObject"
     },
     "BatchAttachObjectResponse": {
-      "description": "Represents the output batch AttachObject response operation.",
+      "description": "Represents the output batch <a>AttachObject</a> response operation.",
       "properties": {
         "attachedObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
@@ -306,8 +377,145 @@
       "type": "object",
       "title": "BatchAttachObjectResponse"
     },
+    "BatchAttachPolicy": {
+      "description": "Attaches a policy object to a regular object inside a <a>BatchRead</a> operation. For more information, see <a>AttachPolicy</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that identifies the object to which the policy will be attached."
+        },
+        "PolicyReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that is associated with the policy object."
+        }
+      },
+      "required": [
+        "PolicyReference",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchAttachPolicy"
+    },
+    "BatchAttachPolicyResponse": {
+      "description": "Represents the output of an <a>AttachPolicy</a> response operation.",
+      "properties": {},
+      "type": "object",
+      "title": "BatchAttachPolicyResponse"
+    },
+    "BatchAttachToIndex": {
+      "description": "Attaches the specified object to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>AttachToIndex</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "IndexReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the index that you are attaching the object to."
+        },
+        "TargetReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object that you are attaching to the index."
+        }
+      },
+      "required": [
+        "IndexReference",
+        "TargetReference"
+      ],
+      "type": "object",
+      "title": "BatchAttachToIndex"
+    },
+    "BatchAttachToIndexResponse": {
+      "description": "Represents the output of a <a>AttachToIndex</a> response operation.",
+      "properties": {
+        "AttachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the object that was attached to the index."
+        }
+      },
+      "type": "object",
+      "title": "BatchAttachToIndexResponse"
+    },
+    "BatchAttachTypedLink": {
+      "description": "Attaches a typed link to a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>AttachTypedLink</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/AttributeNameAndValueList",
+          "description": "A set of attributes that are associated with the typed link."
+        },
+        "SourceObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Identifies the source object that the typed link will attach to."
+        },
+        "TargetObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Identifies the target object that the typed link will attach to."
+        },
+        "TypedLinkFacet": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Identifies the typed link facet that is associated with the typed link."
+        }
+      },
+      "required": [
+        "SourceObjectReference",
+        "TargetObjectReference",
+        "TypedLinkFacet",
+        "Attributes"
+      ],
+      "type": "object",
+      "title": "BatchAttachTypedLink"
+    },
+    "BatchAttachTypedLinkResponse": {
+      "description": "Represents the output of a <a>AttachTypedLink</a> response operation.",
+      "properties": {
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Returns a typed link specifier as output."
+        }
+      },
+      "type": "object",
+      "title": "BatchAttachTypedLinkResponse"
+    },
+    "BatchCreateIndex": {
+      "description": "Creates an index object inside of a <a>BatchRead</a> operation. For more information, see <a>CreateIndex</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "BatchReferenceName": {
+          "$ref": "#/definitions/BatchReferenceName",
+          "description": "The batch reference name. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#batches\">Batches</a> for more information."
+        },
+        "IsUnique": {
+          "$ref": "#/definitions/Bool",
+          "description": "Indicates whether the attribute that is being indexed has unique values or not."
+        },
+        "LinkName": {
+          "$ref": "#/definitions/LinkName",
+          "description": "The name of the link between the parent object and the index object."
+        },
+        "OrderedIndexedAttributeList": {
+          "$ref": "#/definitions/AttributeKeyList",
+          "description": "Specifies the attributes that should be indexed on. Currently only a single attribute is supported."
+        },
+        "ParentReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the parent object that contains the index object."
+        }
+      },
+      "required": [
+        "OrderedIndexedAttributeList",
+        "IsUnique"
+      ],
+      "type": "object",
+      "title": "BatchCreateIndex"
+    },
+    "BatchCreateIndexResponse": {
+      "description": "Represents the output of a <a>CreateIndex</a> response operation.",
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the index created by this operation."
+        }
+      },
+      "type": "object",
+      "title": "BatchCreateIndexResponse"
+    },
     "BatchCreateObject": {
-      "description": "Represents the output of a CreateObject operation.",
+      "description": "Represents the output of a <a>CreateObject</a> operation.",
       "properties": {
         "BatchReferenceName": {
           "$ref": "#/definitions/BatchReferenceName",
@@ -319,7 +527,7 @@
         },
         "ObjectAttributeList": {
           "$ref": "#/definitions/AttributeKeyAndValueList",
-          "description": "Attribute map, which contains an attribute ARN as the key and attribute value as the map value."
+          "description": "An attribute map, which contains an attribute ARN as the key and attribute value as the map value."
         },
         "ParentReference": {
           "$ref": "#/definitions/ObjectReference",
@@ -327,7 +535,7 @@
         },
         "SchemaFacet": {
           "$ref": "#/definitions/SchemaFacetList",
-          "description": "List of FacetArns that will be associated with the object. For more information, see <a>arns</a>."
+          "description": "A list of <code>FacetArns</code> that will be associated with the object. For more information, see <a>arns</a>."
         }
       },
       "required": [
@@ -341,22 +549,22 @@
       "title": "BatchCreateObject"
     },
     "BatchCreateObjectResponse": {
-      "description": "Represents the output of a <code>CreateObject</code> response operation.",
+      "description": "Represents the output of a <a>CreateObject</a> response operation.",
       "properties": {
         "ObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
-          "description": "ID associated with the object."
+          "description": "The ID that is associated with the object."
         }
       },
       "type": "object",
       "title": "BatchCreateObjectResponse"
     },
     "BatchDeleteObject": {
-      "description": "Represents the output of a <code>DeleteObject</code> operation.",
+      "description": "Represents the output of a <a>DeleteObject</a> operation.",
       "properties": {
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object."
+          "description": "The reference that identifies the object."
         }
       },
       "required": [
@@ -366,13 +574,43 @@
       "title": "BatchDeleteObject"
     },
     "BatchDeleteObjectResponse": {
-      "description": "Represents the output of a <code>DeleteObject</code> response operation.",
+      "description": "Represents the output of a <a>DeleteObject</a> response operation.",
       "properties": {},
       "type": "object",
       "title": "BatchDeleteObjectResponse"
     },
+    "BatchDetachFromIndex": {
+      "description": "Detaches the specified object from the specified index inside a <a>BatchRead</a> operation. For more information, see <a>DetachFromIndex</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "IndexReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the index object."
+        },
+        "TargetReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object being detached from the index."
+        }
+      },
+      "required": [
+        "IndexReference",
+        "TargetReference"
+      ],
+      "type": "object",
+      "title": "BatchDetachFromIndex"
+    },
+    "BatchDetachFromIndexResponse": {
+      "description": "Represents the output of a <a>DetachFromIndex</a> response operation.",
+      "properties": {
+        "DetachedObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the object that was detached from the index."
+        }
+      },
+      "type": "object",
+      "title": "BatchDetachFromIndexResponse"
+    },
     "BatchDetachObject": {
-      "description": "Represents the output of a <code>DetachObject</code> operation.",
+      "description": "Represents the output of a <a>DetachObject</a> operation.",
       "properties": {
         "BatchReferenceName": {
           "$ref": "#/definitions/BatchReferenceName",
@@ -396,7 +634,7 @@
       "title": "BatchDetachObject"
     },
     "BatchDetachObjectResponse": {
-      "description": "Represents the output of a <code>DetachObject</code> response operation.",
+      "description": "Represents the output of a <a>DetachObject</a> response operation.",
       "properties": {
         "detachedObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
@@ -406,16 +644,213 @@
       "type": "object",
       "title": "BatchDetachObjectResponse"
     },
-    "BatchListObjectAttributes": {
-      "description": "Represents the output of a <code>ListObjectAttributes</code> operation.",
+    "BatchDetachPolicy": {
+      "description": "Detaches the specified policy from the specified directory inside a <a>BatchRead</a> operation. For more information, see <a>DetachPolicy</a> and <a>BatchReadRequest$Operations</a>.",
       "properties": {
-        "FacetFilter": {
-          "$ref": "#/definitions/SchemaFacet",
-          "description": "Used to filter the list of object attributes associated with a certain facet."
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose policy object will be detached."
+        },
+        "PolicyReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the policy object."
+        }
+      },
+      "required": [
+        "PolicyReference",
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchDetachPolicy"
+    },
+    "BatchDetachPolicyResponse": {
+      "description": "Represents the output of a <a>DetachPolicy</a> response operation.",
+      "properties": {},
+      "type": "object",
+      "title": "BatchDetachPolicyResponse"
+    },
+    "BatchDetachTypedLink": {
+      "description": "Detaches a typed link from a specified source and target object inside a <a>BatchRead</a> operation. For more information, see <a>DetachTypedLink</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Used to accept a typed link specifier as input."
+        }
+      },
+      "required": [
+        "TypedLinkSpecifier"
+      ],
+      "type": "object",
+      "title": "BatchDetachTypedLink"
+    },
+    "BatchDetachTypedLinkResponse": {
+      "description": "Represents the output of a <a>DetachTypedLink</a> response operation.",
+      "properties": {},
+      "type": "object",
+      "title": "BatchDetachTypedLinkResponse"
+    },
+    "BatchGetObjectInformation": {
+      "description": "Retrieves metadata about an object inside a <a>BatchRead</a> operation. For more information, see <a>GetObjectInformation</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchGetObjectInformation"
+    },
+    "BatchGetObjectInformationResponse": {
+      "description": "Represents the output of a <a>GetObjectInformation</a> response operation.",
+      "properties": {
+        "ObjectIdentifier": {
+          "$ref": "#/definitions/ObjectIdentifier",
+          "description": "The <code>ObjectIdentifier</code> of the specified object."
+        },
+        "SchemaFacets": {
+          "$ref": "#/definitions/SchemaFacetList",
+          "description": "The facets attached to the specified object."
+        }
+      },
+      "type": "object",
+      "title": "BatchGetObjectInformationResponse"
+    },
+    "BatchListAttachedIndices": {
+      "description": "Lists indices attached to an object inside a <a>BatchRead</a> operation. For more information, see <a>ListAttachedIndices</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "TargetReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference to the object that has indices attached."
+        }
+      },
+      "required": [
+        "TargetReference"
+      ],
+      "type": "object",
+      "title": "BatchListAttachedIndices"
+    },
+    "BatchListAttachedIndicesResponse": {
+      "description": "Represents the output of a <a>ListAttachedIndices</a> response operation.",
+      "properties": {
+        "IndexAttachments": {
+          "$ref": "#/definitions/IndexAttachmentList",
+          "description": "The indices attached to the specified object."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "BatchListAttachedIndicesResponse"
+    },
+    "BatchListIncomingTypedLinks": {
+      "description": "Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListIncomingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "FilterAttributeRanges": {
+          "$ref": "#/definitions/TypedLinkAttributeRangeList",
+          "description": "Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range."
+        },
+        "FilterTypedLink": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls."
         },
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchListIncomingTypedLinks"
+    },
+    "BatchListIncomingTypedLinksResponse": {
+      "description": "Represents the output of a <a>ListIncomingTypedLinks</a> response operation.",
+      "properties": {
+        "LinkSpecifiers": {
+          "$ref": "#/definitions/TypedLinkSpecifierList",
+          "description": "Returns one or more typed link specifiers as output."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "BatchListIncomingTypedLinksResponse"
+    },
+    "BatchListIndex": {
+      "description": "Lists objects attached to the specified index inside a <a>BatchRead</a> operation. For more information, see <a>ListIndex</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "IndexReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference to the index to list."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "RangesOnIndexedValues": {
+          "$ref": "#/definitions/ObjectAttributeRangeList",
+          "description": "Specifies the ranges of indexed values that you want to query."
+        }
+      },
+      "required": [
+        "IndexReference"
+      ],
+      "type": "object",
+      "title": "BatchListIndex"
+    },
+    "BatchListIndexResponse": {
+      "description": "Represents the output of a <a>ListIndex</a> response operation.",
+      "properties": {
+        "IndexAttachments": {
+          "$ref": "#/definitions/IndexAttachmentList",
+          "description": "The objects and indexed values attached to the index."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "BatchListIndexResponse"
+    },
+    "BatchListObjectAttributes": {
+      "description": "Represents the output of a <a>ListObjectAttributes</a> operation.",
+      "properties": {
+        "FacetFilter": {
+          "$ref": "#/definitions/SchemaFacet",
+          "description": "Used to filter the list of object attributes that are associated with a certain facet."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -433,11 +868,11 @@
       "title": "BatchListObjectAttributes"
     },
     "BatchListObjectAttributesResponse": {
-      "description": "Represents the output of a <code>ListObjectAttributes</code> response operation.",
+      "description": "Represents the output of a <a>ListObjectAttributes</a> response operation.",
       "properties": {
         "Attributes": {
           "$ref": "#/definitions/AttributeKeyAndValueList",
-          "description": "Attributes map associated with the object. <code>AttributeArn</code> is the key; attribute value is the value."
+          "description": "The attributes map that is associated with the object. <code>AttributeArn</code> is the key; attribute value is the value."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -448,7 +883,7 @@
       "title": "BatchListObjectAttributesResponse"
     },
     "BatchListObjectChildren": {
-      "description": "Represents the output of a <code>ListObjectChildren</code> operation.",
+      "description": "Represents the output of a <a>ListObjectChildren</a> operation.",
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
@@ -470,11 +905,11 @@
       "title": "BatchListObjectChildren"
     },
     "BatchListObjectChildrenResponse": {
-      "description": "Represents the output of a <code>ListObjectChildren</code> response operation.",
+      "description": "Represents the output of a <a>ListObjectChildren</a> response operation.",
       "properties": {
         "Children": {
           "$ref": "#/definitions/LinkNameToObjectIdentifierMap",
-          "description": "Children structure, which is a map with key as the <code>LinkName</code> and <code>ObjectIdentifier</code> as the value."
+          "description": "The children structure, which is a map with the key as the <code>LinkName</code> and <code>ObjectIdentifier</code> as the value."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -484,20 +919,213 @@
       "type": "object",
       "title": "BatchListObjectChildrenResponse"
     },
+    "BatchListObjectParentPaths": {
+      "description": "Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectParentPaths</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchListObjectParentPaths"
+    },
+    "BatchListObjectParentPathsResponse": {
+      "description": "Represents the output of a <a>ListObjectParentPaths</a> response operation.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "PathToObjectIdentifiersList": {
+          "$ref": "#/definitions/PathToObjectIdentifiersList",
+          "description": "Returns the path to the <code>ObjectIdentifiers</code> that are associated with the directory."
+        }
+      },
+      "type": "object",
+      "title": "BatchListObjectParentPathsResponse"
+    },
+    "BatchListObjectPolicies": {
+      "description": "Returns policies attached to an object in pagination fashion inside a <a>BatchRead</a> operation. For more information, see <a>ListObjectPolicies</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchListObjectPolicies"
+    },
+    "BatchListObjectPoliciesResponse": {
+      "description": "Represents the output of a <a>ListObjectPolicies</a> response operation.",
+      "properties": {
+        "AttachedPolicyIds": {
+          "$ref": "#/definitions/ObjectIdentifierList",
+          "description": "A list of policy <code>ObjectIdentifiers</code>, that are attached to the object."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "BatchListObjectPoliciesResponse"
+    },
+    "BatchListOutgoingTypedLinks": {
+      "description": "Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object inside a <a>BatchRead</a> operation. For more information, see <a>ListOutgoingTypedLinks</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "FilterAttributeRanges": {
+          "$ref": "#/definitions/TypedLinkAttributeRangeList",
+          "description": "Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range."
+        },
+        "FilterTypedLink": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchListOutgoingTypedLinks"
+    },
+    "BatchListOutgoingTypedLinksResponse": {
+      "description": "Represents the output of a <a>ListOutgoingTypedLinks</a> response operation.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "TypedLinkSpecifiers": {
+          "$ref": "#/definitions/TypedLinkSpecifierList",
+          "description": "Returns a typed link specifier as output."
+        }
+      },
+      "type": "object",
+      "title": "BatchListOutgoingTypedLinksResponse"
+    },
+    "BatchListPolicyAttachments": {
+      "description": "Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached inside a <a>BatchRead</a> operation. For more information, see <a>ListPolicyAttachments</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "PolicyReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "The reference that identifies the policy object."
+        }
+      },
+      "required": [
+        "PolicyReference"
+      ],
+      "type": "object",
+      "title": "BatchListPolicyAttachments"
+    },
+    "BatchListPolicyAttachmentsResponse": {
+      "description": "Represents the output of a <a>ListPolicyAttachments</a> response operation.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectIdentifiers": {
+          "$ref": "#/definitions/ObjectIdentifierList",
+          "description": "A list of <code>ObjectIdentifiers</code> to which the policy is attached."
+        }
+      },
+      "type": "object",
+      "title": "BatchListPolicyAttachmentsResponse"
+    },
+    "BatchLookupPolicy": {
+      "description": "Lists all policies from the root of the Directory to the object specified inside a <a>BatchRead</a> operation. For more information, see <a>LookupPolicy</a> and <a>BatchReadRequest$Operations</a>.",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose policies will be looked up."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "BatchLookupPolicy"
+    },
+    "BatchLookupPolicyResponse": {
+      "description": "Represents the output of a <a>LookupPolicy</a> response operation.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "PolicyToPathList": {
+          "$ref": "#/definitions/PolicyToPathList",
+          "description": "Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>."
+        }
+      },
+      "type": "object",
+      "title": "BatchLookupPolicyResponse"
+    },
     "BatchOperationIndex": {
       "type": "integer",
       "title": "BatchOperationIndex"
     },
     "BatchReadException": {
-      "description": "Batch Read Exception structure, which contains exception type and message.",
+      "description": "The batch read exception structure, which contains the exception type and message.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage",
-          "description": "Exception message associated with the failure."
+          "description": "An exception message that is associated with the failure."
         },
         "Type": {
           "$ref": "#/definitions/BatchReadExceptionType",
-          "description": "Type of exception, such as <code>InvalidArnException</code>."
+          "description": "A type of exception, such as <code>InvalidArnException</code>."
         }
       },
       "type": "object",
@@ -510,7 +1138,14 @@
         "ResourceNotFoundException",
         "InvalidNextTokenException",
         "AccessDeniedException",
-        "NotNodeException"
+        "NotNodeException",
+        "FacetValidationException",
+        "CannotListParentOfRootException",
+        "NotIndexException",
+        "NotPolicyException",
+        "DirectoryNotEnabledException",
+        "LimitExceededException",
+        "InternalServiceException"
       ],
       "type": "string",
       "title": "BatchReadExceptionType"
@@ -518,13 +1153,49 @@
     "BatchReadOperation": {
       "description": "Represents the output of a <code>BatchRead</code> operation.",
       "properties": {
+        "GetObjectInformation": {
+          "$ref": "#/definitions/BatchGetObjectInformation",
+          "description": "Retrieves metadata about an object."
+        },
+        "ListAttachedIndices": {
+          "$ref": "#/definitions/BatchListAttachedIndices",
+          "description": "Lists indices attached to an object."
+        },
+        "ListIncomingTypedLinks": {
+          "$ref": "#/definitions/BatchListIncomingTypedLinks",
+          "description": "Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "ListIndex": {
+          "$ref": "#/definitions/BatchListIndex",
+          "description": "Lists objects attached to the specified index."
+        },
         "ListObjectAttributes": {
           "$ref": "#/definitions/BatchListObjectAttributes",
-          "description": "Lists all attributes associated with an object."
+          "description": "Lists all attributes that are associated with an object."
         },
         "ListObjectChildren": {
           "$ref": "#/definitions/BatchListObjectChildren",
           "description": "Returns a paginated list of child objects that are associated with a given object."
+        },
+        "ListObjectParentPaths": {
+          "$ref": "#/definitions/BatchListObjectParentPaths",
+          "description": "Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#dirstructure\">Directory Structure</a>."
+        },
+        "ListObjectPolicies": {
+          "$ref": "#/definitions/BatchListObjectPolicies",
+          "description": "Returns policies attached to an object in pagination fashion."
+        },
+        "ListOutgoingTypedLinks": {
+          "$ref": "#/definitions/BatchListOutgoingTypedLinks",
+          "description": "Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "ListPolicyAttachments": {
+          "$ref": "#/definitions/BatchListPolicyAttachments",
+          "description": "Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached."
+        },
+        "LookupPolicy": {
+          "$ref": "#/definitions/BatchLookupPolicy",
+          "description": "Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>."
         }
       },
       "type": "object",
@@ -563,7 +1234,7 @@
       "properties": {
         "Operations": {
           "$ref": "#/definitions/BatchReadOperationList",
-          "description": "List of operations that are part of the batch."
+          "description": "A list of operations that are part of the batch."
         }
       },
       "required": [
@@ -576,7 +1247,7 @@
       "properties": {
         "Responses": {
           "$ref": "#/definitions/BatchReadOperationResponseList",
-          "description": "List of all the responses for each batch read."
+          "description": "A list of all the responses for each batch read."
         }
       },
       "type": "object",
@@ -585,13 +1256,49 @@
     "BatchReadSuccessfulResponse": {
       "description": "Represents the output of a <code>BatchRead</code> success response operation.",
       "properties": {
+        "GetObjectInformation": {
+          "$ref": "#/definitions/BatchGetObjectInformationResponse",
+          "description": "Retrieves metadata about an object."
+        },
+        "ListAttachedIndices": {
+          "$ref": "#/definitions/BatchListAttachedIndicesResponse",
+          "description": "Lists indices attached to an object."
+        },
+        "ListIncomingTypedLinks": {
+          "$ref": "#/definitions/BatchListIncomingTypedLinksResponse",
+          "description": "Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "ListIndex": {
+          "$ref": "#/definitions/BatchListIndexResponse",
+          "description": "Lists objects attached to the specified index."
+        },
         "ListObjectAttributes": {
           "$ref": "#/definitions/BatchListObjectAttributesResponse",
-          "description": "Lists all attributes associated with an object."
+          "description": "Lists all attributes that are associated with an object."
         },
         "ListObjectChildren": {
           "$ref": "#/definitions/BatchListObjectChildrenResponse",
-          "description": "Returns a paginated list of child objects associated with a given object."
+          "description": "Returns a paginated list of child objects that are associated with a given object."
+        },
+        "ListObjectParentPaths": {
+          "$ref": "#/definitions/BatchListObjectParentPathsResponse",
+          "description": "Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#dirstructure\">Directory Structure</a>."
+        },
+        "ListObjectPolicies": {
+          "$ref": "#/definitions/BatchListObjectPoliciesResponse",
+          "description": "Returns policies attached to an object in pagination fashion."
+        },
+        "ListOutgoingTypedLinks": {
+          "$ref": "#/definitions/BatchListOutgoingTypedLinksResponse",
+          "description": "Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "ListPolicyAttachments": {
+          "$ref": "#/definitions/BatchListPolicyAttachmentsResponse",
+          "description": "Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached."
+        },
+        "LookupPolicy": {
+          "$ref": "#/definitions/BatchLookupPolicyResponse",
+          "description": "Lists all policies from the root of the <a>Directory</a> to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code> for such objects. If policies are present, it returns <code>ObjectIdentifier</code>, <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root from the target object are ignored. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>."
         }
       },
       "type": "object",
@@ -602,7 +1309,7 @@
       "title": "BatchReferenceName"
     },
     "BatchRemoveFacetFromObject": {
-      "description": "Batch operation to remove a facet from an object.",
+      "description": "A batch operation to remove a facet from an object.",
       "properties": {
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
@@ -621,7 +1328,7 @@
       "title": "BatchRemoveFacetFromObject"
     },
     "BatchRemoveFacetFromObjectResponse": {
-      "description": "Empty result representing success.",
+      "description": "An empty result that represents success.",
       "properties": {},
       "type": "object",
       "title": "BatchRemoveFacetFromObjectResponse"
@@ -650,7 +1357,7 @@
       "properties": {
         "ObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
-          "description": "ID associated with the object."
+          "description": "ID that is associated with the object."
         }
       },
       "type": "object",
@@ -682,7 +1389,15 @@
         "FacetValidationException",
         "ObjectNotDetachedException",
         "ResourceNotFoundException",
-        "AccessDeniedException"
+        "AccessDeniedException",
+        "InvalidAttachmentException",
+        "NotIndexException",
+        "IndexedAttributeMissingException",
+        "ObjectAlreadyDetachedException",
+        "NotPolicyException",
+        "DirectoryNotEnabledException",
+        "LimitExceededException",
+        "UnsupportedIndexTypeException"
       ],
       "type": "string",
       "title": "BatchWriteExceptionType"
@@ -692,11 +1407,27 @@
       "properties": {
         "AddFacetToObject": {
           "$ref": "#/definitions/BatchAddFacetToObject",
-          "description": "Batch operation adding a facet to an object."
+          "description": "A batch operation that adds a facet to an object."
         },
         "AttachObject": {
           "$ref": "#/definitions/BatchAttachObject",
           "description": "Attaches an object to a <a>Directory</a>."
+        },
+        "AttachPolicy": {
+          "$ref": "#/definitions/BatchAttachPolicy",
+          "description": "Attaches a policy object to a regular object. An object can have a limited number of attached policies."
+        },
+        "AttachToIndex": {
+          "$ref": "#/definitions/BatchAttachToIndex",
+          "description": "Attaches the specified object to the specified index."
+        },
+        "AttachTypedLink": {
+          "$ref": "#/definitions/BatchAttachTypedLink",
+          "description": "Attaches a typed link to a specified source and target object. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "CreateIndex": {
+          "$ref": "#/definitions/BatchCreateIndex",
+          "description": "Creates an index object. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_indexing.html\">Indexing</a> for more information."
         },
         "CreateObject": {
           "$ref": "#/definitions/BatchCreateObject",
@@ -706,17 +1437,29 @@
           "$ref": "#/definitions/BatchDeleteObject",
           "description": "Deletes an object in a <a>Directory</a>."
         },
+        "DetachFromIndex": {
+          "$ref": "#/definitions/BatchDetachFromIndex",
+          "description": "Detaches the specified object from the specified index."
+        },
         "DetachObject": {
           "$ref": "#/definitions/BatchDetachObject",
           "description": "Detaches an object from a <a>Directory</a>."
         },
+        "DetachPolicy": {
+          "$ref": "#/definitions/BatchDetachPolicy",
+          "description": "Detaches a policy from a <a>Directory</a>."
+        },
+        "DetachTypedLink": {
+          "$ref": "#/definitions/BatchDetachTypedLink",
+          "description": "Detaches a typed link from a specified source and target object. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
         "RemoveFacetFromObject": {
           "$ref": "#/definitions/BatchRemoveFacetFromObject",
-          "description": "Batch operation removing a facet from an object."
+          "description": "A batch operation that removes a facet from an object."
         },
         "UpdateObjectAttributes": {
           "$ref": "#/definitions/BatchUpdateObjectAttributes",
-          "description": "Update a given object's attributes."
+          "description": "Updates a given object's attributes."
         }
       },
       "type": "object",
@@ -734,11 +1477,27 @@
       "properties": {
         "AddFacetToObject": {
           "$ref": "#/definitions/BatchAddFacetToObjectResponse",
-          "description": "Result of an add facet to object batch operation."
+          "description": "The result of an add facet to object batch operation."
         },
         "AttachObject": {
           "$ref": "#/definitions/BatchAttachObjectResponse",
           "description": "Attaches an object to a <a>Directory</a>."
+        },
+        "AttachPolicy": {
+          "$ref": "#/definitions/BatchAttachPolicyResponse",
+          "description": "Attaches a policy object to a regular object. An object can have a limited number of attached policies."
+        },
+        "AttachToIndex": {
+          "$ref": "#/definitions/BatchAttachToIndexResponse",
+          "description": "Attaches the specified object to the specified index."
+        },
+        "AttachTypedLink": {
+          "$ref": "#/definitions/BatchAttachTypedLinkResponse",
+          "description": "Attaches a typed link to a specified source and target object. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "CreateIndex": {
+          "$ref": "#/definitions/BatchCreateIndexResponse",
+          "description": "Creates an index object. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_indexing.html\">Indexing</a> for more information."
         },
         "CreateObject": {
           "$ref": "#/definitions/BatchCreateObjectResponse",
@@ -748,13 +1507,25 @@
           "$ref": "#/definitions/BatchDeleteObjectResponse",
           "description": "Deletes an object in a <a>Directory</a>."
         },
+        "DetachFromIndex": {
+          "$ref": "#/definitions/BatchDetachFromIndexResponse",
+          "description": "Detaches the specified object from the specified index."
+        },
         "DetachObject": {
           "$ref": "#/definitions/BatchDetachObjectResponse",
           "description": "Detaches an object from a <a>Directory</a>."
         },
+        "DetachPolicy": {
+          "$ref": "#/definitions/BatchDetachPolicyResponse",
+          "description": "Detaches a policy from a <a>Directory</a>."
+        },
+        "DetachTypedLink": {
+          "$ref": "#/definitions/BatchDetachTypedLinkResponse",
+          "description": "Detaches a typed link from a specified source and target object. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
         "RemoveFacetFromObject": {
           "$ref": "#/definitions/BatchRemoveFacetFromObjectResponse",
-          "description": "Result of a batch remove facet from object operation."
+          "description": "The result of a batch remove facet from object operation."
         },
         "UpdateObjectAttributes": {
           "$ref": "#/definitions/BatchUpdateObjectAttributesResponse",
@@ -775,7 +1546,7 @@
       "properties": {
         "Operations": {
           "$ref": "#/definitions/BatchWriteOperationList",
-          "description": "List of operations that are part of the batch."
+          "description": "A list of operations that are part of the batch."
         }
       },
       "required": [
@@ -788,7 +1559,7 @@
       "properties": {
         "Responses": {
           "$ref": "#/definitions/BatchWriteOperationResponseList",
-          "description": "List of all the responses for each batch write."
+          "description": "A list of all the responses for each batch write."
         }
       },
       "type": "object",
@@ -828,7 +1599,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/DirectoryName",
-          "description": "Name of the <a>Directory</a>. Should be unique per account, per region."
+          "description": "The name of the <a>Directory</a>. Should be unique per account, per region."
         }
       },
       "required": [
@@ -841,15 +1612,15 @@
       "properties": {
         "AppliedSchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN of the published schema in the <a>Directory</a>. Once a published schema is copied into the directory, it has its own ARN which is referred to applied schema ARN. For more information, see <a>arns</a>."
+          "description": "The ARN of the published schema in the <a>Directory</a>. Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see <a>arns</a>."
         },
         "DirectoryArn": {
           "$ref": "#/definitions/DirectoryArn",
-          "description": "ARN associated with the <a>Directory</a>. For more information, see <a>arns</a>."
+          "description": "The ARN that is associated with the <a>Directory</a>. For more information, see <a>arns</a>."
         },
         "Name": {
           "$ref": "#/definitions/DirectoryName",
-          "description": "Name of the <a>Directory</a>."
+          "description": "The name of the <a>Directory</a>."
         },
         "ObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
@@ -869,15 +1640,15 @@
       "properties": {
         "Attributes": {
           "$ref": "#/definitions/FacetAttributeList",
-          "description": "Attributes associated with the <a>Facet</a>.e"
+          "description": "The attributes that are associated with the <a>Facet</a>."
         },
         "Name": {
           "$ref": "#/definitions/FacetName",
-          "description": "Name of the <a>Facet</a>, which is unique for a given schema."
+          "description": "The name of the <a>Facet</a>, which is unique for a given schema."
         },
         "ObjectType": {
           "$ref": "#/definitions/ObjectType",
-          "description": "<p>Specifies whether a given object created from this facet is of type Node, Leaf Node, Policy or Index.</p> <ul> <li> <p>Node: Can have multiple children but one parent.</p> </li> </ul> <ul> <li> <p>Leaf Node: Cannot have children but can have multiple parents.</p> </li> </ul> <ul> <li> <p>Policy: Allows you to store a policy document and policy type. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>.</p> </li> </ul> <ul> <li> <p>Index: Can be created with the Index API.</p> </li> </ul>"
+          "description": "<p>Specifies whether a given object created from this facet is of type node, leaf node, policy or index.</p> <ul> <li> <p>Node: Can have multiple children but one parent.</p> </li> </ul> <ul> <li> <p>Leaf node: Cannot have children but can have multiple parents.</p> </li> </ul> <ul> <li> <p>Policy: Allows you to store a policy document and policy type. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>.</p> </li> </ul> <ul> <li> <p>Index: Can be created with the Index API.</p> </li> </ul>"
         }
       },
       "required": [
@@ -896,7 +1667,7 @@
       "properties": {
         "IsUnique": {
           "$ref": "#/definitions/Bool",
-          "description": "Indicates whether objects with the same indexed attribute value can be added to the index."
+          "description": "Indicates whether the attribute that is being indexed has unique values or not."
         },
         "LinkName": {
           "$ref": "#/definitions/LinkName",
@@ -904,7 +1675,7 @@
         },
         "OrderedIndexedAttributeList": {
           "$ref": "#/definitions/AttributeKeyList",
-          "description": "Specifies the Attributes that should be indexed on. Currently only a single attribute is supported."
+          "description": "Specifies the attributes that should be indexed on. Currently only a single attribute is supported."
         },
         "ParentReference": {
           "$ref": "#/definitions/ObjectReference",
@@ -936,7 +1707,7 @@
         },
         "ObjectAttributeList": {
           "$ref": "#/definitions/AttributeKeyAndValueList",
-          "description": "Attribute map whose attribute ARN contains the key and attribute value as the map value."
+          "description": "The attribute map whose attribute ARN contains the key and attribute value as the map value."
         },
         "ParentReference": {
           "$ref": "#/definitions/ObjectReference",
@@ -944,7 +1715,7 @@
         },
         "SchemaFacets": {
           "$ref": "#/definitions/SchemaFacetList",
-          "description": "List of facet ARNs to be associated with the object. For more information, see <a>arns</a>."
+          "description": "A list of schema facets to be associated with the object that contains <code>SchemaArn</code> and facet name. For more information, see <a>arns</a>."
         }
       },
       "required": [
@@ -957,7 +1728,7 @@
       "properties": {
         "ObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
-          "description": "Identifier associated with the object."
+          "description": "The identifier that is associated with the object."
         }
       },
       "type": "object",
@@ -967,7 +1738,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/SchemaName",
-          "description": "Name associated with the schema. This is unique to each account and in each region."
+          "description": "The name that is associated with the schema. This is unique to each account and in each region."
         }
       },
       "required": [
@@ -980,11 +1751,29 @@
       "properties": {
         "SchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN associated with the schema. For more information, see <a>arns</a>."
+          "description": "The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>."
         }
       },
       "type": "object",
       "title": "CreateSchemaResponse"
+    },
+    "CreateTypedLinkFacetRequest": {
+      "properties": {
+        "Facet": {
+          "$ref": "#/definitions/TypedLinkFacet",
+          "description": " <a>Facet</a> structure that is associated with the typed link facet."
+        }
+      },
+      "required": [
+        "Facet"
+      ],
+      "type": "object",
+      "title": "CreateTypedLinkFacetRequest"
+    },
+    "CreateTypedLinkFacetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "CreateTypedLinkFacetResponse"
     },
     "Date": {
       "format": "date-time",
@@ -1036,7 +1825,7 @@
       "properties": {
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object."
+          "description": "A reference that identifies the object."
         }
       },
       "required": [
@@ -1059,11 +1848,29 @@
       "properties": {
         "SchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "Input ARN that is returned as part of the response. For more information, see <a>arns</a>."
+          "description": "The input ARN that is returned as part of the response. For more information, see <a>arns</a>."
         }
       },
       "type": "object",
       "title": "DeleteSchemaResponse"
+    },
+    "DeleteTypedLinkFacetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/TypedLinkName",
+          "description": "The unique name of the typed link facet."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "DeleteTypedLinkFacetRequest"
+    },
+    "DeleteTypedLinkFacetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "DeleteTypedLinkFacetResponse"
     },
     "DetachFromIndexRequest": {
       "properties": {
@@ -1097,11 +1904,11 @@
       "properties": {
         "LinkName": {
           "$ref": "#/definitions/LinkName",
-          "description": "Link name associated with the object that needs to be detached."
+          "description": "The link name associated with the object that needs to be detached."
         },
         "ParentReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Parent reference from which the object with the specified link name is detached."
+          "description": "The parent reference from which the object with the specified link name is detached."
         }
       },
       "required": [
@@ -1144,6 +1951,19 @@
       "type": "object",
       "title": "DetachPolicyResponse"
     },
+    "DetachTypedLinkRequest": {
+      "properties": {
+        "TypedLinkSpecifier": {
+          "$ref": "#/definitions/TypedLinkSpecifier",
+          "description": "Used to accept a typed link specifier as input."
+        }
+      },
+      "required": [
+        "TypedLinkSpecifier"
+      ],
+      "type": "object",
+      "title": "DetachTypedLinkRequest"
+    },
     "Directory": {
       "description": "Directory structure that includes the directory name and directory ARN.",
       "properties": {
@@ -1153,7 +1973,7 @@
         },
         "DirectoryArn": {
           "$ref": "#/definitions/DirectoryArn",
-          "description": "ARN associated with the directory. For more information, see <a>arns</a>."
+          "description": "The Amazon Resource Name (ARN) that is associated with the directory. For more information, see <a>arns</a>."
         },
         "Name": {
           "$ref": "#/definitions/DirectoryName",
@@ -1182,7 +2002,7 @@
       "title": "DirectoryArn"
     },
     "DirectoryDeletedException": {
-      "description": "A directory that has been deleted has been attempted to be accessed. Note: The requested resource will eventually cease to exist.",
+      "description": "A directory that has been deleted and to which access has been attempted. Note: The requested resource will eventually cease to exist.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1283,7 +2103,7 @@
         },
         "ObjectType": {
           "$ref": "#/definitions/ObjectType",
-          "description": "Object type associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
+          "description": "The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
         }
       },
       "type": "object",
@@ -1300,7 +2120,7 @@
       "title": "FacetAlreadyExistsException"
     },
     "FacetAttribute": {
-      "description": "Attribute associated with the <a>Facet</a>.",
+      "description": "An attribute that is associated with the <a>Facet</a>.",
       "properties": {
         "AttributeDefinition": {
           "$ref": "#/definitions/FacetAttributeDefinition",
@@ -1308,7 +2128,7 @@
         },
         "AttributeReference": {
           "$ref": "#/definitions/FacetAttributeReference",
-          "description": "Attribute reference associated with the attribute. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+          "description": "An attribute reference that is associated with the attribute. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
         },
         "Name": {
           "$ref": "#/definitions/AttributeName",
@@ -1359,15 +2179,15 @@
       "title": "FacetAttributeList"
     },
     "FacetAttributeReference": {
-      "description": "Facet attribute reference that specifies the attribute definition which contains attribute facet name and attribute name.",
+      "description": "The facet attribute reference that specifies the attribute definition that contains the attribute facet name and attribute name.",
       "properties": {
         "TargetAttributeName": {
           "$ref": "#/definitions/AttributeName",
-          "description": "Target attribute name associated with the facet reference. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+          "description": "The target attribute name that is associated with the facet reference. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
         },
         "TargetFacetName": {
           "$ref": "#/definitions/FacetName",
-          "description": "Target facet name associated with the facet reference. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
+          "description": "The target facet name that is associated with the facet reference. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences\">Attribute References</a> for more information."
         }
       },
       "required": [
@@ -1411,7 +2231,7 @@
       "title": "FacetAttributeUpdateList"
     },
     "FacetInUseException": {
-      "description": "Occurs when deleting a facet that contains an attribute which is a target to an attribute reference in a different facet.",
+      "description": "Occurs when deleting a facet that contains an attribute that is a target to an attribute reference in a different facet.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1445,7 +2265,7 @@
       "title": "FacetNotFoundException"
     },
     "FacetValidationException": {
-      "description": "The <a>Facet</a> you provided was not well formed or could not be validated with the schema.",
+      "description": "The <a>Facet</a> that you provided was not well formed or could not be validated with the schema.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1489,7 +2309,7 @@
       "properties": {
         "Facet": {
           "$ref": "#/definitions/Facet",
-          "description": " <a>Facet</a> structure associated with the facet."
+          "description": "The <a>Facet</a> structure that is associated with the facet."
         }
       },
       "type": "object",
@@ -1540,6 +2360,29 @@
       },
       "type": "object",
       "title": "GetSchemaAsJsonResponse"
+    },
+    "GetTypedLinkFacetInformationRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/TypedLinkName",
+          "description": "The unique name of the typed link facet."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "GetTypedLinkFacetInformationRequest"
+    },
+    "GetTypedLinkFacetInformationResponse": {
+      "properties": {
+        "IdentityAttributeOrder": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        }
+      },
+      "type": "object",
+      "title": "GetTypedLinkFacetInformationResponse"
     },
     "IndexAttachment": {
       "description": "Represents an index and an attached object.",
@@ -1594,7 +2437,7 @@
       "title": "InvalidArnException"
     },
     "InvalidAttachmentException": {
-      "description": "Indicates that an attempt to attach an object with the same link name or to apply a schema with same name has occurred. Rename the link or the schema and then try again.",
+      "description": "Indicates that an attempt to attach an object with the same link name or to apply a schema with the same name has occurred. Rename the link or the schema and then try again.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1654,7 +2497,7 @@
       "title": "InvalidTaggingRequestException"
     },
     "LimitExceededException": {
-      "description": "Indicates limits are exceeded. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html\">Limits</a> for more information.",
+      "description": "Indicates that limits are exceeded. See <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html\">Limits</a> for more information.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -1665,6 +2508,8 @@
     },
     "LinkName": {
       "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[^\\/\\[\\]\\(\\):\\{\\}#@!?\\s\\\\;]+",
       "type": "string",
       "title": "LinkName"
     },
@@ -1740,7 +2585,7 @@
         },
         "TargetReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "A reference to the object to that has indices attached."
+          "description": "A reference to the object that has indices attached."
         }
       },
       "required": [
@@ -1813,7 +2658,7 @@
       "properties": {
         "Directories": {
           "$ref": "#/definitions/DirectoryList",
-          "description": "Lists all directories associated with your account in pagination fashion."
+          "description": "Lists all directories that are associated with your account in pagination fashion."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1865,7 +2710,7 @@
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "The maximum number of results to retrieve"
+          "description": "The maximum number of results to retrieve."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1888,6 +2733,53 @@
       },
       "type": "object",
       "title": "ListFacetNamesResponse"
+    },
+    "ListIncomingTypedLinksRequest": {
+      "properties": {
+        "ConsistencyLevel": {
+          "$ref": "#/definitions/ConsistencyLevel",
+          "description": "The consistency level to execute the request at."
+        },
+        "FilterAttributeRanges": {
+          "$ref": "#/definitions/TypedLinkAttributeRangeList",
+          "description": "Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range."
+        },
+        "FilterTypedLink": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListIncomingTypedLinksRequest"
+    },
+    "ListIncomingTypedLinksResponse": {
+      "properties": {
+        "LinkSpecifiers": {
+          "$ref": "#/definitions/TypedLinkSpecifierList",
+          "description": "Returns one or more typed link specifiers as output."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListIncomingTypedLinksResponse"
     },
     "ListIndexRequest": {
       "properties": {
@@ -1932,11 +2824,11 @@
       "properties": {
         "FacetFilter": {
           "$ref": "#/definitions/SchemaFacet",
-          "description": "Used to filter the list of object attributes associated with a certain facet."
+          "description": "Used to filter the list of object attributes that are associated with a certain facet."
         },
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1944,7 +2836,7 @@
         },
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object whose attributes will be listed."
+          "description": "The reference that identifies the object whose attributes will be listed."
         }
       },
       "required": [
@@ -1957,7 +2849,7 @@
       "properties": {
         "Attributes": {
           "$ref": "#/definitions/AttributeKeyAndValueList",
-          "description": "Attributes map associated with the object. AttributeArn is the key, and attribute value is the value."
+          "description": "Attributes map that is associated with the object. <code>AttributeArn</code> is the key, and attribute value is the value."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1971,7 +2863,7 @@
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -1979,7 +2871,7 @@
         },
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object for which child objects are being listed."
+          "description": "The reference that identifies the object for which child objects are being listed."
         }
       },
       "required": [
@@ -1992,7 +2884,7 @@
       "properties": {
         "Children": {
           "$ref": "#/definitions/LinkNameToObjectIdentifierMap",
-          "description": "Children structure, which is a map with key as the LinkName and <code>ObjectIdentifier</code> as the value."
+          "description": "Children structure, which is a map with key as the <code>LinkName</code> and <code>ObjectIdentifier</code> as the value."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2006,7 +2898,7 @@
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2014,7 +2906,7 @@
         },
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object whose parent paths are listed."
+          "description": "The reference that identifies the object whose parent paths are listed."
         }
       },
       "required": [
@@ -2031,7 +2923,7 @@
         },
         "PathToObjectIdentifiersList": {
           "$ref": "#/definitions/PathToObjectIdentifiersList",
-          "description": "Returns the path to the <code>ObjectIdentifiers</code> associated with the directory."
+          "description": "Returns the path to the <code>ObjectIdentifiers</code> that are associated with the directory."
         }
       },
       "type": "object",
@@ -2041,7 +2933,7 @@
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2049,7 +2941,7 @@
         },
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object for which parent objects are being listed."
+          "description": "The reference that identifies the object for which parent objects are being listed."
         }
       },
       "required": [
@@ -2066,7 +2958,7 @@
         },
         "Parents": {
           "$ref": "#/definitions/ObjectIdentifierToLinkNameMap",
-          "description": "Parent structure, which is a map with key as the <code>ObjectIdentifier</code> and LinkName as the value."
+          "description": "The parent structure, which is a map with key as the <code>ObjectIdentifier</code> and LinkName as the value."
         }
       },
       "type": "object",
@@ -2076,7 +2968,7 @@
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2097,7 +2989,7 @@
       "properties": {
         "AttachedPolicyIds": {
           "$ref": "#/definitions/ObjectIdentifierList",
-          "description": "List of policy <code>ObjectIdentifiers</code>, that are attached to the object."
+          "description": "A list of policy <code>ObjectIdentifiers</code>, that are attached to the object."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2107,11 +2999,58 @@
       "type": "object",
       "title": "ListObjectPoliciesResponse"
     },
+    "ListOutgoingTypedLinksRequest": {
+      "properties": {
+        "ConsistencyLevel": {
+          "$ref": "#/definitions/ConsistencyLevel",
+          "description": "The consistency level to execute the request at."
+        },
+        "FilterAttributeRanges": {
+          "$ref": "#/definitions/TypedLinkAttributeRangeList",
+          "description": "Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range."
+        },
+        "FilterTypedLink": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Filters are interpreted in the order of the attributes defined on the typed link facet, not the order they are supplied to any API calls."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "ObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "A reference that identifies the object whose attributes will be listed."
+        }
+      },
+      "required": [
+        "ObjectReference"
+      ],
+      "type": "object",
+      "title": "ListOutgoingTypedLinksRequest"
+    },
+    "ListOutgoingTypedLinksResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        },
+        "TypedLinkSpecifiers": {
+          "$ref": "#/definitions/TypedLinkSpecifierList",
+          "description": "Returns a typed link specifier as output."
+        }
+      },
+      "type": "object",
+      "title": "ListOutgoingTypedLinksResponse"
+    },
     "ListPolicyAttachmentsRequest": {
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2119,7 +3058,7 @@
         },
         "PolicyReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the policy object."
+          "description": "The reference that identifies the policy object."
         }
       },
       "required": [
@@ -2136,7 +3075,7 @@
         },
         "ObjectIdentifiers": {
           "$ref": "#/definitions/ObjectIdentifierList",
-          "description": "List of <code>ObjectIdentifiers</code> to which the policy is attached."
+          "description": "A list of <code>ObjectIdentifiers</code> to which the policy is attached."
         }
       },
       "type": "object",
@@ -2174,7 +3113,7 @@
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/TagsNumberResults",
-          "description": "The MaxResults parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently."
+          "description": "The <code>MaxResults</code> parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2182,7 +3121,7 @@
         },
         "ResourceArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN of the resource. Tagging is only supported for directories."
+          "description": "The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories."
         }
       },
       "required": [
@@ -2199,17 +3138,80 @@
         },
         "Tags": {
           "$ref": "#/definitions/TagList",
-          "description": "List of tag key value pairs associated with the response."
+          "description": "A list of tag key value pairs that are associated with the response."
         }
       },
       "type": "object",
       "title": "ListTagsForResourceResponse"
     },
+    "ListTypedLinkFacetAttributesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "Name": {
+          "$ref": "#/definitions/TypedLinkName",
+          "description": "The unique name of the typed link facet."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object",
+      "title": "ListTypedLinkFacetAttributesRequest"
+    },
+    "ListTypedLinkFacetAttributesResponse": {
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/TypedLinkAttributeDefinitionList",
+          "description": "An ordered set of attributes associate with the typed link."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListTypedLinkFacetAttributesResponse"
+    },
+    "ListTypedLinkFacetNamesRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/NumberResults",
+          "description": "The maximum number of results to retrieve."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListTypedLinkFacetNamesRequest"
+    },
+    "ListTypedLinkFacetNamesResponse": {
+      "properties": {
+        "FacetNames": {
+          "$ref": "#/definitions/TypedLinkNameList",
+          "description": "The names of typed link facets that exist within the schema."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token."
+        }
+      },
+      "type": "object",
+      "title": "ListTypedLinkFacetNamesResponse"
+    },
     "LookupPolicyRequest": {
       "properties": {
         "MaxResults": {
           "$ref": "#/definitions/NumberResults",
-          "description": "Maximum number of items to be retrieved in a single call. This is an approximate number."
+          "description": "The maximum number of items to be retrieved in a single call. This is an approximate number."
         },
         "NextToken": {
           "$ref": "#/definitions/NextToken",
@@ -2234,7 +3236,7 @@
         },
         "PolicyToPathList": {
           "$ref": "#/definitions/PolicyToPathList",
-          "description": "Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>."
+          "description": "Provides list of path to policies. Policies contain <code>PolicyId</code>, <code>ObjectIdentifier</code>, and <code>PolicyType</code>. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>."
         }
       },
       "type": "object",
@@ -2245,7 +3247,7 @@
       "title": "NextToken"
     },
     "NotIndexException": {
-      "description": "Indicates the requested operation can only operate on index objects.",
+      "description": "Indicates that the requested operation can only operate on index objects.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2255,7 +3257,7 @@
       "title": "NotIndexException"
     },
     "NotNodeException": {
-      "description": "Occurs when any invalid operations are performed on an object which is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.",
+      "description": "Occurs when any invalid operations are performed on an object that is not a node, such as calling <code>ListObjectChildren</code> for a leaf node object.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2265,7 +3267,7 @@
       "title": "NotNodeException"
     },
     "NotPolicyException": {
-      "description": "Indicates the requested operation can only operate on policy objects.",
+      "description": "Indicates that the requested operation can only operate on policy objects.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2284,7 +3286,7 @@
       "title": "NumberResults"
     },
     "ObjectAlreadyDetachedException": {
-      "description": "Indicates the object is not attached to the index.",
+      "description": "Indicates that the object is not attached to the index.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2298,7 +3300,7 @@
       "properties": {
         "ObjectAttributeActionType": {
           "$ref": "#/definitions/UpdateActionType",
-          "description": "Type can be either Update or Delete."
+          "description": "A type that can be either <code>Update</code> or <code>Delete</code>."
         },
         "ObjectAttributeUpdateValue": {
           "$ref": "#/definitions/TypedAttributeValue",
@@ -2313,7 +3315,7 @@
       "properties": {
         "AttributeKey": {
           "$ref": "#/definitions/AttributeKey",
-          "description": "The key of the attribute the attribute range covers."
+          "description": "The key of the attribute that the attribute range covers."
         },
         "Range": {
           "$ref": "#/definitions/TypedAttributeValueRange",
@@ -2379,7 +3381,7 @@
       "title": "ObjectIdentifierToLinkNameMap"
     },
     "ObjectNotDetachedException": {
-      "description": "Indicates the requested operation cannot be completed because the object has not been detached from the tree.",
+      "description": "Indicates that the requested operation cannot be completed because the object has not been detached from the tree.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2389,11 +3391,11 @@
       "title": "ObjectNotDetachedException"
     },
     "ObjectReference": {
-      "description": "Reference that identifies an object.",
+      "description": "The reference that identifies an object.",
       "properties": {
         "Selector": {
           "$ref": "#/definitions/SelectorObjectReference",
-          "description": "<p>Allows you to specify an object. You can identify an object in one of the following ways:</p> <ul> <li> <p> <i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code> </p> </li> <li> <p> <i>/some/path</i> - Identifies the object based on path</p> </li> <li> <p> <i>#SomeBatchReference</i> - Identifies the object in a batch call</p> </li> </ul>"
+          "description": "<p>A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects\">Accessing Objects</a>. You can identify an object in one of the following ways:</p> <ul> <li> <p> <i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier</p> </li> <li> <p> <i>/some/path</i> - Identifies the object based on path</p> </li> <li> <p> <i>#SomeBatchReference</i> - Identifies the object in a batch call</p> </li> </ul>"
         }
       },
       "type": "object",
@@ -2414,7 +3416,7 @@
       "title": "PathString"
     },
     "PathToObjectIdentifiers": {
-      "description": "Returns the path to the <code>ObjectIdentifiers</code> associated with the directory.",
+      "description": "Returns the path to the <code>ObjectIdentifiers</code> that is associated with the directory.",
       "properties": {
         "ObjectIdentifiers": {
           "$ref": "#/definitions/ObjectIdentifierList",
@@ -2422,7 +3424,7 @@
         },
         "Path": {
           "$ref": "#/definitions/PathString",
-          "description": "The path used to identify the object starting from directory root."
+          "description": "The path that is used to identify the object starting from directory root."
         }
       },
       "type": "object",
@@ -2436,11 +3438,11 @@
       "title": "PathToObjectIdentifiersList"
     },
     "PolicyAttachment": {
-      "description": "Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is attached.",
+      "description": "Contains the <code>PolicyType</code>, <code>PolicyId</code>, and the <code>ObjectIdentifier</code> to which it is attached. For more information, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies\">Policies</a>.",
       "properties": {
         "ObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
-          "description": "The <code>ObjectIdentifier</code> associated with <code>PolicyAttachment</code>."
+          "description": "The <code>ObjectIdentifier</code> that is associated with <code>PolicyAttachment</code>."
         },
         "PolicyId": {
           "$ref": "#/definitions/ObjectIdentifier",
@@ -2462,7 +3464,7 @@
       "title": "PolicyAttachmentList"
     },
     "PolicyToPath": {
-      "description": "Used when a regular object exists in a <a>Directory</a> and you want to find all of the policies associated with that object and the parent to that object.",
+      "description": "Used when a regular object exists in a <a>Directory</a> and you want to find all of the policies that are associated with that object and the parent to that object.",
       "properties": {
         "Path": {
           "$ref": "#/definitions/PathString",
@@ -2491,11 +3493,11 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/SchemaName",
-          "description": "New name under which the schema will be published. If this is not provided, the development schema is considered."
+          "description": "The new name under which the schema will be published. If this is not provided, the development schema is considered."
         },
         "Version": {
           "$ref": "#/definitions/Version",
-          "description": "Version under which the schema will be published."
+          "description": "The version under which the schema will be published."
         }
       },
       "required": [
@@ -2508,7 +3510,7 @@
       "properties": {
         "PublishedSchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN associated with the published schema. For more information, see <a>arns</a>."
+          "description": "The ARN that is associated with the published schema. For more information, see <a>arns</a>."
         }
       },
       "type": "object",
@@ -2600,11 +3602,11 @@
       "title": "RetryableConflictException"
     },
     "Rule": {
-      "description": "Contains an ARN and parameters associated with the rule.",
+      "description": "Contains an Amazon Resource Name (ARN) and parameters that are associated with the rule.",
       "properties": {
         "Parameters": {
           "$ref": "#/definitions/RuleParameterMap",
-          "description": "Min and max parameters associated with the rule."
+          "description": "The minimum and maximum parameters that are associated with the rule."
         },
         "Type": {
           "$ref": "#/definitions/RuleType",
@@ -2680,7 +3682,7 @@
       "title": "SchemaAlreadyExistsException"
     },
     "SchemaAlreadyPublishedException": {
-      "description": "Indicates a schema is already published.",
+      "description": "Indicates that a schema is already published.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2741,15 +3743,15 @@
       "title": "StringAttributeValue"
     },
     "Tag": {
-      "description": "Tag structure which contains tag key and value.",
+      "description": "The tag structure that contains a tag key and value.",
       "properties": {
         "Key": {
           "$ref": "#/definitions/TagKey",
-          "description": "Key associated with the tag."
+          "description": "The key that is associated with the tag."
         },
         "Value": {
           "$ref": "#/definitions/TagValue",
-          "description": "Value associated with the tag."
+          "description": "The value that is associated with the tag."
         }
       },
       "type": "object",
@@ -2777,11 +3779,11 @@
       "properties": {
         "ResourceArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN of the resource. Tagging is only supported for directories."
+          "description": "The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories."
         },
         "Tags": {
           "$ref": "#/definitions/TagList",
-          "description": "List of tag key value pairs."
+          "description": "A list of tag key-value pairs."
         }
       },
       "required": [
@@ -2837,7 +3839,7 @@
       "properties": {
         "EndMode": {
           "$ref": "#/definitions/RangeMode",
-          "description": "Inclusive or exclusive range end."
+          "description": "The inclusive or exclusive range end."
         },
         "EndValue": {
           "$ref": "#/definitions/TypedAttributeValue",
@@ -2845,7 +3847,7 @@
         },
         "StartMode": {
           "$ref": "#/definitions/RangeMode",
-          "description": "Inclusive or exclusive range start."
+          "description": "The inclusive or exclusive range start."
         },
         "StartValue": {
           "$ref": "#/definitions/TypedAttributeValue",
@@ -2859,8 +3861,193 @@
       "type": "object",
       "title": "TypedAttributeValueRange"
     },
+    "TypedLinkAttributeDefinition": {
+      "description": "A typed link attribute definition.",
+      "properties": {
+        "DefaultValue": {
+          "$ref": "#/definitions/TypedAttributeValue",
+          "description": "The default value of the attribute (if configured)."
+        },
+        "IsImmutable": {
+          "$ref": "#/definitions/Bool",
+          "description": "Whether the attribute is mutable or not."
+        },
+        "Name": {
+          "$ref": "#/definitions/AttributeName",
+          "description": "The unique name of the typed link attribute."
+        },
+        "RequiredBehavior": {
+          "$ref": "#/definitions/RequiredAttributeBehavior",
+          "description": "The required behavior of the <code>TypedLinkAttributeDefinition</code>."
+        },
+        "Rules": {
+          "$ref": "#/definitions/RuleMap",
+          "description": "Validation rules that are attached to the attribute definition."
+        },
+        "Type": {
+          "$ref": "#/definitions/FacetAttributeType",
+          "description": "The type of the attribute."
+        }
+      },
+      "required": [
+        "Name",
+        "Type",
+        "RequiredBehavior"
+      ],
+      "type": "object",
+      "title": "TypedLinkAttributeDefinition"
+    },
+    "TypedLinkAttributeDefinitionList": {
+      "items": {
+        "$ref": "#/definitions/TypedLinkAttributeDefinition"
+      },
+      "type": "array",
+      "title": "TypedLinkAttributeDefinitionList"
+    },
+    "TypedLinkAttributeRange": {
+      "description": "Identifies the range of attributes that are used by a specified filter.",
+      "properties": {
+        "AttributeName": {
+          "$ref": "#/definitions/AttributeName",
+          "description": "The unique name of the typed link attribute."
+        },
+        "Range": {
+          "$ref": "#/definitions/TypedAttributeValueRange",
+          "description": "The range of attribute values that are being selected."
+        }
+      },
+      "required": [
+        "Range"
+      ],
+      "type": "object",
+      "title": "TypedLinkAttributeRange"
+    },
+    "TypedLinkAttributeRangeList": {
+      "items": {
+        "$ref": "#/definitions/TypedLinkAttributeRange"
+      },
+      "type": "array",
+      "title": "TypedLinkAttributeRangeList"
+    },
+    "TypedLinkFacet": {
+      "description": "Defines the typed links structure and its attributes. To create a typed link facet, use the <a>CreateTypedLinkFacet</a> API.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/TypedLinkAttributeDefinitionList",
+          "description": "A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects."
+        },
+        "IdentityAttributeOrder": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for details."
+        },
+        "Name": {
+          "$ref": "#/definitions/TypedLinkName",
+          "description": "The unique name of the typed link facet."
+        }
+      },
+      "required": [
+        "Name",
+        "Attributes",
+        "IdentityAttributeOrder"
+      ],
+      "type": "object",
+      "title": "TypedLinkFacet"
+    },
+    "TypedLinkFacetAttributeUpdate": {
+      "description": "A typed link facet attribute update.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/UpdateActionType",
+          "description": "The action to perform when updating the attribute."
+        },
+        "Attribute": {
+          "$ref": "#/definitions/TypedLinkAttributeDefinition",
+          "description": "The attribute to update."
+        }
+      },
+      "required": [
+        "Attribute",
+        "Action"
+      ],
+      "type": "object",
+      "title": "TypedLinkFacetAttributeUpdate"
+    },
+    "TypedLinkFacetAttributeUpdateList": {
+      "items": {
+        "$ref": "#/definitions/TypedLinkFacetAttributeUpdate"
+      },
+      "type": "array",
+      "title": "TypedLinkFacetAttributeUpdateList"
+    },
+    "TypedLinkName": {
+      "pattern": "^[a-zA-Z0-9._-]*$",
+      "type": "string",
+      "title": "TypedLinkName"
+    },
+    "TypedLinkNameList": {
+      "items": {
+        "$ref": "#/definitions/TypedLinkName"
+      },
+      "type": "array",
+      "title": "TypedLinkNameList"
+    },
+    "TypedLinkSchemaAndFacetName": {
+      "description": "Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.",
+      "properties": {
+        "SchemaArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>."
+        },
+        "TypedLinkName": {
+          "$ref": "#/definitions/TypedLinkName",
+          "description": "The unique name of the typed link facet."
+        }
+      },
+      "required": [
+        "SchemaArn",
+        "TypedLinkName"
+      ],
+      "type": "object",
+      "title": "TypedLinkSchemaAndFacetName"
+    },
+    "TypedLinkSpecifier": {
+      "description": "Contains all the information that is used to uniquely identify a typed link. The parameters discussed in this topic are used to uniquely specify the typed link being operated on. The <a>AttachTypedLink</a> API returns a typed link specifier while the <a>DetachTypedLink</a> API accepts one as input. Similarly, the <a>ListIncomingTypedLinks</a> and <a>ListOutgoingTypedLinks</a> API operations provide typed link specifiers as output. You can also construct a typed link specifier from scratch.",
+      "properties": {
+        "IdentityAttributeValues": {
+          "$ref": "#/definitions/AttributeNameAndValueList",
+          "description": "Identifies the attribute value to update."
+        },
+        "SourceObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Identifies the source object that the typed link will attach to."
+        },
+        "TargetObjectReference": {
+          "$ref": "#/definitions/ObjectReference",
+          "description": "Identifies the target object that the typed link will attach to."
+        },
+        "TypedLinkFacet": {
+          "$ref": "#/definitions/TypedLinkSchemaAndFacetName",
+          "description": "Identifies the typed link facet that is associated with the typed link."
+        }
+      },
+      "required": [
+        "TypedLinkFacet",
+        "SourceObjectReference",
+        "TargetObjectReference",
+        "IdentityAttributeValues"
+      ],
+      "type": "object",
+      "title": "TypedLinkSpecifier"
+    },
+    "TypedLinkSpecifierList": {
+      "items": {
+        "$ref": "#/definitions/TypedLinkSpecifier"
+      },
+      "type": "array",
+      "title": "TypedLinkSpecifierList"
+    },
     "UnsupportedIndexTypeException": {
-      "description": "Indicates the requested index type is not supported.",
+      "description": "Indicates that the requested index type is not supported.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -2873,11 +4060,11 @@
       "properties": {
         "ResourceArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN of the resource. Tagging is only supported for directories."
+          "description": "The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories."
         },
         "TagKeys": {
           "$ref": "#/definitions/TagKeyList",
-          "description": "Keys of the tag that needs to be removed from the resource."
+          "description": "Keys of the tag that need to be removed from the resource."
         }
       },
       "required": [
@@ -2904,15 +4091,15 @@
       "properties": {
         "AttributeUpdates": {
           "$ref": "#/definitions/FacetAttributeUpdateList",
-          "description": "List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute is followed by AttributeAction, which specifies the type of update operation to perform. "
+          "description": "List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute is followed by <code>AttributeAction</code>, which specifies the type of update operation to perform. "
         },
         "Name": {
           "$ref": "#/definitions/FacetName",
-          "description": " "
+          "description": "The name of the facet."
         },
         "ObjectType": {
           "$ref": "#/definitions/ObjectType",
-          "description": "Object type associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
+          "description": "The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details."
         }
       },
       "required": [
@@ -2930,11 +4117,11 @@
       "properties": {
         "AttributeUpdates": {
           "$ref": "#/definitions/ObjectAttributeUpdateList",
-          "description": "Attributes update structure."
+          "description": "The attributes update structure."
         },
         "ObjectReference": {
           "$ref": "#/definitions/ObjectReference",
-          "description": "Reference that identifies the object."
+          "description": "The reference that identifies the object."
         }
       },
       "required": [
@@ -2948,7 +4135,7 @@
       "properties": {
         "ObjectIdentifier": {
           "$ref": "#/definitions/ObjectIdentifier",
-          "description": " <code>ObjectIdentifier</code> of the updated object."
+          "description": "The <code>ObjectIdentifier</code> of the updated object."
         }
       },
       "type": "object",
@@ -2958,7 +4145,7 @@
       "properties": {
         "Name": {
           "$ref": "#/definitions/SchemaName",
-          "description": "Name of the schema."
+          "description": "The name of the schema."
         }
       },
       "required": [
@@ -2971,14 +4158,42 @@
       "properties": {
         "SchemaArn": {
           "$ref": "#/definitions/Arn",
-          "description": "ARN associated with the updated schema. For more information, see <a>arns</a>."
+          "description": "The ARN that is associated with the updated schema. For more information, see <a>arns</a>."
         }
       },
       "type": "object",
       "title": "UpdateSchemaResponse"
     },
+    "UpdateTypedLinkFacetRequest": {
+      "properties": {
+        "AttributeUpdates": {
+          "$ref": "#/definitions/TypedLinkFacetAttributeUpdateList",
+          "description": "Attributes update structure."
+        },
+        "IdentityAttributeOrder": {
+          "$ref": "#/definitions/AttributeNameList",
+          "description": "The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <a href=\"http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink\">Typed link</a>."
+        },
+        "Name": {
+          "$ref": "#/definitions/TypedLinkName",
+          "description": "The unique name of the typed link facet."
+        }
+      },
+      "required": [
+        "Name",
+        "AttributeUpdates",
+        "IdentityAttributeOrder"
+      ],
+      "type": "object",
+      "title": "UpdateTypedLinkFacetRequest"
+    },
+    "UpdateTypedLinkFacetResponse": {
+      "properties": {},
+      "type": "object",
+      "title": "UpdateTypedLinkFacetResponse"
+    },
     "ValidationException": {
-      "description": "Indicates your request is malformed in some manner. See the exception message.",
+      "description": "Indicates that your request is malformed in some manner. See the exception message.",
       "properties": {
         "Message": {
           "$ref": "#/definitions/ExceptionMessage"
@@ -4135,6 +5350,238 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UntagResourceResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "AttachTypedLink",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/AttachTypedLinkRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttachTypedLinkResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DetachTypedLink",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DetachTypedLinkRequest"
+          }
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "UpdateTypedLinkFacet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UpdateTypedLinkFacetRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateTypedLinkFacetResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListTypedLinkFacetAttributes",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTypedLinkFacetAttributesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTypedLinkFacetAttributesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "CreateTypedLinkFacet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/CreateTypedLinkFacetRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateTypedLinkFacetResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "DeleteTypedLinkFacet",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/DeleteTypedLinkFacetRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteTypedLinkFacetResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "GetTypedLinkFacetInformation",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/GetTypedLinkFacetInformationRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTypedLinkFacetInformationResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListTypedLinkFacetNames",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "MaxResults": {
+            "type": "string"
+          },
+          "NextToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTypedLinkFacetNamesRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTypedLinkFacetNamesResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListIncomingTypedLinks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListIncomingTypedLinksRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListIncomingTypedLinksResponse"
+      },
+      "security": {
+        "amazonaws_clouddirectory": {
+          "integration": "amazonaws_clouddirectory"
+        }
+      }
+    },
+    {
+      "id": "ListOutgoingTypedLinks",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListOutgoingTypedLinksRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListOutgoingTypedLinksResponse"
       },
       "security": {
         "amazonaws_clouddirectory": {

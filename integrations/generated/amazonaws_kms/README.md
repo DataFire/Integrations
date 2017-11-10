@@ -59,7 +59,8 @@ amazonaws_kms.CreateAlias({
 ```js
 amazonaws_kms.CreateGrant({
   "KeyId": "",
-  "GranteePrincipal": ""
+  "GranteePrincipal": "",
+  "Operations": []
 }, context)
 ```
 
@@ -69,7 +70,7 @@ amazonaws_kms.CreateGrant({
 * GranteePrincipal (string) **required**
 * KeyId (string) **required**
 * Name (string)
-* Operations (array)
+* Operations (array) **required**
 * RetiringPrincipal (string)
 
 ### CreateKey

@@ -1,6 +1,6 @@
 # @datafire/google_videointelligence
 
-Client library for Google Cloud Video Intelligence
+Client library for Cloud Video Intelligence
 
 ## Installation and Usage
 ```bash
@@ -23,7 +23,7 @@ google_videointelligence.videos.annotate({}).then(data => {
 ```
 
 ## Description
-Google Cloud Video Intelligence API.
+Cloud Video Intelligence API.
 
 ## Actions
 ### oauthCallback

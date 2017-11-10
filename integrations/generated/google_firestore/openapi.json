@@ -10,6 +10,11 @@
       "name": "Google",
       "url": "https://google.com"
     },
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Cloud Firestore",
     "version": "v1beta1",
     "x-apiClientRegistration": {
@@ -46,12 +51,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -238,10 +254,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -325,10 +347,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -412,10 +440,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -499,10 +533,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -586,10 +626,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -673,10 +719,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -724,10 +776,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -783,10 +841,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -900,10 +964,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -956,10 +1026,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1041,10 +1117,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1133,10 +1215,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1241,10 +1329,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1301,16 +1395,11 @@
         "operationId": "projects.databases.documents.listCollectionIds",
         "parameters": [
           {
-            "description": "The maximum number of results to return.",
-            "in": "query",
-            "name": "pageSize",
-            "type": "integer"
-          },
-          {
-            "description": "A page token. Must be a value from\nListCollectionIdsResponse.",
-            "in": "query",
-            "name": "pageToken",
-            "type": "string"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ListCollectionIdsRequest"
+            }
           },
           {
             "description": "The parent document. In the format:\n`projects/{project_id}/databases/{database_id}/documents/{document_path}`.\nFor example:\n`projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`",
@@ -1333,10 +1422,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1420,10 +1515,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/datastore"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/datastore"
             ]
           }
@@ -1542,7 +1643,7 @@
       "description": "The request for Firestore.Commit.",
       "properties": {
         "transaction": {
-          "description": "If non-empty, applies all writes in this transaction, and commits it.\nOtherwise, applies the writes as if they were in their own transaction.",
+          "description": "If set, applies all writes in this transaction, and commits it.",
           "format": "byte",
           "type": "string"
         },
@@ -1861,11 +1962,11 @@
           "type": "array"
         },
         "name": {
-          "description": "The resource name of the index.",
+          "description": "The resource name of the index.\nOutput only.",
           "type": "string"
         },
         "state": {
-          "description": "The state of the index.\nThe state is read-only.\n@OutputOnly",
+          "description": "The state of the index.\nOutput only.",
           "enum": [
             "STATE_UNSPECIFIED",
             "CREATING",
@@ -1896,42 +1997,6 @@
       },
       "type": "object"
     },
-    "IndexOperationMetadata": {
-      "description": "Metadata for index operations. This metadata populates\nthe metadata field of google.longrunning.Operation.",
-      "properties": {
-        "cancelled": {
-          "description": "True if the [google.longrunning.Operation] was cancelled. If the\ncancellation is in progress, cancelled will be true but\ngoogle.longrunning.Operation.done will be false.",
-          "type": "boolean"
-        },
-        "documentProgress": {
-          "$ref": "#/definitions/Progress",
-          "description": "Progress of the existing operation, measured in number of documents."
-        },
-        "endTime": {
-          "description": "The time the operation ended, either successfully or otherwise. Unset if\nthe operation is still active.",
-          "format": "google-datetime",
-          "type": "string"
-        },
-        "index": {
-          "description": "The index resource that this operation is acting on. For example:\n`projects/{project_id}/databases/{database_id}/indexes/{index_id}`",
-          "type": "string"
-        },
-        "operationType": {
-          "description": "The type of index operation.",
-          "enum": [
-            "OPERATION_TYPE_UNSPECIFIED",
-            "CREATING_INDEX"
-          ],
-          "type": "string"
-        },
-        "startTime": {
-          "description": "The time that work began on the operation.",
-          "format": "google-datetime",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "LatLng": {
       "description": "An object representing a latitude/longitude pair. This is expressed as a pair\nof doubles representing degrees latitude and degrees longitude. Unless\nspecified otherwise, this must conform to the\n<a href=\"http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf\">WGS84\nstandard</a>. Values must be within normalized ranges.\n\nExample of normalization code in Python:\n\n    def NormalizeLongitude(longitude):\n      \"\"\"Wraps decimal degrees longitude to [-180.0, 180.0].\"\"\"\n      q, r = divmod(longitude, 360.0)\n      if r > 180.0 or (r == 180.0 and q <= -1.0):\n        return r - 360.0\n      return r\n\n    def NormalizeLatLng(latitude, longitude):\n      \"\"\"Wraps decimal degrees latitude and longitude to\n      [-90.0, 90.0] and [-180.0, 180.0], respectively.\"\"\"\n      r = latitude % 360.0\n      if r <= 90.0:\n        return r, NormalizeLongitude(longitude)\n      elif r >= 270.0:\n        return r - 360, NormalizeLongitude(longitude)\n      else:\n        return 180 - r, NormalizeLongitude(longitude + 180.0)\n\n    assert 180.0 == NormalizeLongitude(180.0)\n    assert -180.0 == NormalizeLongitude(-180.0)\n    assert -179.0 == NormalizeLongitude(181.0)\n    assert (0.0, 0.0) == NormalizeLatLng(360.0, 0.0)\n    assert (0.0, 0.0) == NormalizeLatLng(-360.0, 0.0)\n    assert (85.0, 180.0) == NormalizeLatLng(95.0, 0.0)\n    assert (-85.0, -170.0) == NormalizeLatLng(-95.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(90.0, 10.0)\n    assert (-90.0, -10.0) == NormalizeLatLng(-90.0, -10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(-180.0, 10.0)\n    assert (0.0, -170.0) == NormalizeLatLng(180.0, 10.0)\n    assert (-90.0, 10.0) == NormalizeLatLng(270.0, 10.0)\n    assert (90.0, 10.0) == NormalizeLatLng(-270.0, 10.0)",
       "properties": {
@@ -1944,6 +2009,21 @@
           "description": "The longitude in degrees. It must be in the range [-180.0, +180.0].",
           "format": "double",
           "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "ListCollectionIdsRequest": {
+      "description": "The request for Firestore.ListCollectionIds.",
+      "properties": {
+        "pageSize": {
+          "description": "The maximum number of results to return.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "pageToken": {
+          "description": "A page token. Must be a value from\nListCollectionIdsResponse.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -2121,22 +2201,6 @@
         "updateTime": {
           "description": "When set, the target document must exist and have been last updated at\nthat time.",
           "format": "google-datetime",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "Progress": {
-      "description": "Measures the progress of a particular metric.",
-      "properties": {
-        "workCompleted": {
-          "description": "An estimate of how much work has been completed. Note that this may be\ngreater than `work_estimated`.",
-          "format": "int64",
-          "type": "string"
-        },
-        "workEstimated": {
-          "description": "An estimate of how much work needs to be performed. Zero if the\nwork estimate is unavailable. May change as work progresses.",
-          "format": "int64",
           "type": "string"
         }
       },

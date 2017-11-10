@@ -39,12 +39,78 @@ amazonaws_waf.CreateByteMatchSet({
 * ChangeToken (string) **required**
 * Name (string) **required**
 
+### CreateGeoMatchSet
+
+
+
+```js
+amazonaws_waf.CreateGeoMatchSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
+
 ### CreateIPSet
 
 
 
 ```js
 amazonaws_waf.CreateIPSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
+
+### CreateRateBasedRule
+
+
+
+```js
+amazonaws_waf.CreateRateBasedRule({
+  "Name": "",
+  "MetricName": "",
+  "RateKey": "",
+  "RateLimit": 0,
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* MetricName (string) **required**
+* Name (string) **required**
+* RateKey (string) **required**
+* RateLimit (integer) **required**
+
+### CreateRegexMatchSet
+
+
+
+```js
+amazonaws_waf.CreateRegexMatchSet({
+  "Name": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* Name (string) **required**
+
+### CreateRegexPatternSet
+
+
+
+```js
+amazonaws_waf.CreateRegexPatternSet({
   "Name": "",
   "ChangeToken": ""
 }, context)
@@ -152,6 +218,21 @@ amazonaws_waf.DeleteByteMatchSet({
 * ByteMatchSetId (string) **required**
 * ChangeToken (string) **required**
 
+### DeleteGeoMatchSet
+
+
+
+```js
+amazonaws_waf.DeleteGeoMatchSet({
+  "GeoMatchSetId": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* GeoMatchSetId (string) **required**
+
 ### DeleteIPSet
 
 
@@ -166,6 +247,51 @@ amazonaws_waf.DeleteIPSet({
 #### Parameters
 * ChangeToken (string) **required**
 * IPSetId (string) **required**
+
+### DeleteRateBasedRule
+
+
+
+```js
+amazonaws_waf.DeleteRateBasedRule({
+  "RuleId": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* RuleId (string) **required**
+
+### DeleteRegexMatchSet
+
+
+
+```js
+amazonaws_waf.DeleteRegexMatchSet({
+  "RegexMatchSetId": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* RegexMatchSetId (string) **required**
+
+### DeleteRegexPatternSet
+
+
+
+```js
+amazonaws_waf.DeleteRegexPatternSet({
+  "RegexPatternSetId": "",
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* RegexPatternSetId (string) **required**
 
 ### DeleteRule
 
@@ -279,6 +405,19 @@ amazonaws_waf.GetChangeTokenStatus({
 #### Parameters
 * ChangeToken (string) **required**
 
+### GetGeoMatchSet
+
+
+
+```js
+amazonaws_waf.GetGeoMatchSet({
+  "GeoMatchSetId": ""
+}, context)
+```
+
+#### Parameters
+* GeoMatchSetId (string) **required**
+
 ### GetIPSet
 
 
@@ -291,6 +430,59 @@ amazonaws_waf.GetIPSet({
 
 #### Parameters
 * IPSetId (string) **required**
+
+### GetRateBasedRule
+
+
+
+```js
+amazonaws_waf.GetRateBasedRule({
+  "RuleId": ""
+}, context)
+```
+
+#### Parameters
+* RuleId (string) **required**
+
+### GetRateBasedRuleManagedKeys
+
+
+
+```js
+amazonaws_waf.GetRateBasedRuleManagedKeys({
+  "RuleId": ""
+}, context)
+```
+
+#### Parameters
+* NextMarker (string)
+* RuleId (string) **required**
+
+### GetRegexMatchSet
+
+
+
+```js
+amazonaws_waf.GetRegexMatchSet({
+  "RegexMatchSetId": ""
+}, context)
+```
+
+#### Parameters
+* RegexMatchSetId (string) **required**
+
+### GetRegexPatternSet
+
+
+
+```js
+amazonaws_waf.GetRegexPatternSet({
+  "RegexPatternSetId": ""
+}, context)
+```
+
+#### Parameters
+* RegexPatternSetId (string) **required**
 
 ### GetRule
 
@@ -391,12 +583,60 @@ amazonaws_waf.ListByteMatchSets({}, context)
 * Limit (integer)
 * NextMarker (string)
 
+### ListGeoMatchSets
+
+
+
+```js
+amazonaws_waf.ListGeoMatchSets({}, context)
+```
+
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
+
 ### ListIPSets
 
 
 
 ```js
 amazonaws_waf.ListIPSets({}, context)
+```
+
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
+
+### ListRateBasedRules
+
+
+
+```js
+amazonaws_waf.ListRateBasedRules({}, context)
+```
+
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
+
+### ListRegexMatchSets
+
+
+
+```js
+amazonaws_waf.ListRegexMatchSets({}, context)
+```
+
+#### Parameters
+* Limit (integer)
+* NextMarker (string)
+
+### ListRegexPatternSets
+
+
+
+```js
+amazonaws_waf.ListRegexPatternSets({}, context)
 ```
 
 #### Parameters
@@ -480,6 +720,23 @@ amazonaws_waf.UpdateByteMatchSet({
 * ChangeToken (string) **required**
 * Updates (array) **required**
 
+### UpdateGeoMatchSet
+
+
+
+```js
+amazonaws_waf.UpdateGeoMatchSet({
+  "GeoMatchSetId": "",
+  "ChangeToken": "",
+  "Updates": []
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* GeoMatchSetId (string) **required**
+* Updates (array) **required**
+
 ### UpdateIPSet
 
 
@@ -495,6 +752,59 @@ amazonaws_waf.UpdateIPSet({
 #### Parameters
 * ChangeToken (string) **required**
 * IPSetId (string) **required**
+* Updates (array) **required**
+
+### UpdateRateBasedRule
+
+
+
+```js
+amazonaws_waf.UpdateRateBasedRule({
+  "RuleId": "",
+  "ChangeToken": "",
+  "Updates": [],
+  "RateLimit": 0
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* RateLimit (integer) **required**
+* RuleId (string) **required**
+* Updates (array) **required**
+
+### UpdateRegexMatchSet
+
+
+
+```js
+amazonaws_waf.UpdateRegexMatchSet({
+  "RegexMatchSetId": "",
+  "Updates": [],
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* RegexMatchSetId (string) **required**
+* Updates (array) **required**
+
+### UpdateRegexPatternSet
+
+
+
+```js
+amazonaws_waf.UpdateRegexPatternSet({
+  "RegexPatternSetId": "",
+  "Updates": [],
+  "ChangeToken": ""
+}, context)
+```
+
+#### Parameters
+* ChangeToken (string) **required**
+* RegexPatternSetId (string) **required**
 * Updates (array) **required**
 
 ### UpdateRule

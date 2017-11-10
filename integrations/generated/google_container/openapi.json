@@ -28,7 +28,7 @@
       {
         "converter": {
           "url": "https://github.com/lucybot/api-spec-converter",
-          "version": "2.0.1"
+          "version": "2.6.0"
         },
         "format": "google",
         "url": "https://container.googleapis.com/$discovery/rest?version=v1",
@@ -501,6 +501,104 @@
         ]
       }
     },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/addons": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the addons of a specific cluster.",
+        "operationId": "projects.zones.clusters.addons",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetAddonsConfigRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
     "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/legacyAbac": {
       "parameters": [
         {
@@ -556,6 +654,398 @@
           },
           {
             "description": "The name of the cluster to update.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/locations": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the locations of a specific cluster.",
+        "operationId": "projects.zones.clusters.locations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetLocationsRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/logging": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the logging service of a specific cluster.",
+        "operationId": "projects.zones.clusters.logging",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetLoggingServiceRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/master": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Updates the master of a specific cluster.",
+        "operationId": "projects.zones.clusters.master",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateMasterRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/monitoring": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the monitoring service of a specific cluster.",
+        "operationId": "projects.zones.clusters.monitoring",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetMonitoringServiceRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
             "in": "path",
             "name": "clusterId",
             "required": true,
@@ -898,6 +1388,111 @@
         }
       ]
     },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/autoscaling": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the autoscaling settings of a specific node pool.",
+        "operationId": "projects.zones.clusters.nodePools.autoscaling",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetNodePoolAutoscalingRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the node pool to upgrade.",
+            "in": "path",
+            "name": "nodePoolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
     "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setManagement": {
       "parameters": [
         {
@@ -960,6 +1555,216 @@
           },
           {
             "description": "The name of the node pool to update.",
+            "in": "path",
+            "name": "nodePoolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setSize": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the size of a specific node pool.",
+        "operationId": "projects.zones.clusters.nodePools.setSize",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetNodePoolSizeRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to update.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the node pool to update.",
+            "in": "path",
+            "name": "nodePoolId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/update": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Updates the version and/or image type of a specific node pool.",
+        "operationId": "projects.zones.clusters.nodePools.update",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateNodePoolRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to upgrade.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the node pool to upgrade.",
             "in": "path",
             "name": "nodePoolId",
             "required": true,
@@ -1206,6 +2011,202 @@
         ]
       }
     },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:completeIpRotation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Completes master IP rotation.",
+        "operationId": "projects.zones.clusters.completeIpRotation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CompleteIPRotationRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMaintenancePolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Sets the maintenance policy for a cluster.",
+        "operationId": "projects.zones.clusters.setMaintenancePolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetMaintenancePolicyRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster to update.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
     "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMasterAuth": {
       "parameters": [
         {
@@ -1268,6 +2269,202 @@
           },
           {
             "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setNetworkPolicy": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Enables/Disables Network Policy for a cluster.",
+        "operationId": "projects.zones.clusters.setNetworkPolicy",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SetNetworkPolicyRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber).",
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides.",
+            "in": "path",
+            "name": "zone",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "security": [
+          {
+            "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
+            ]
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:startIpRotation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/$.xgafv"
+        },
+        {
+          "$ref": "#/parameters/access_token"
+        },
+        {
+          "$ref": "#/parameters/alt"
+        },
+        {
+          "$ref": "#/parameters/bearer_token"
+        },
+        {
+          "$ref": "#/parameters/callback"
+        },
+        {
+          "$ref": "#/parameters/fields"
+        },
+        {
+          "$ref": "#/parameters/key"
+        },
+        {
+          "$ref": "#/parameters/oauth_token"
+        },
+        {
+          "$ref": "#/parameters/pp"
+        },
+        {
+          "$ref": "#/parameters/prettyPrint"
+        },
+        {
+          "$ref": "#/parameters/quotaUser"
+        },
+        {
+          "$ref": "#/parameters/uploadType"
+        },
+        {
+          "$ref": "#/parameters/upload_protocol"
+        }
+      ],
+      "post": {
+        "description": "Start master IP rotation.",
+        "operationId": "projects.zones.clusters.startIpRotation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/StartIPRotationRequest"
+            }
+          },
+          {
+            "description": "The name of the cluster.",
+            "in": "path",
+            "name": "clusterId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber).",
             "in": "path",
             "name": "projectId",
             "required": true,
@@ -1663,6 +2860,21 @@
     }
   },
   "definitions": {
+    "AcceleratorConfig": {
+      "description": "AcceleratorConfig represents a Hardware Accelerator request.",
+      "properties": {
+        "acceleratorCount": {
+          "description": "The number of the accelerator cards exposed to an instance.",
+          "format": "int64",
+          "type": "string"
+        },
+        "acceleratorType": {
+          "description": "The accelerator type resource name. List of supported accelerators\n[here](/compute/docs/gpus/#Introduction)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AddonsConfig": {
       "description": "Configuration for the addons that can be automatically spun up in the\ncluster, enabling additional functionality.",
       "properties": {
@@ -1673,6 +2885,14 @@
         "httpLoadBalancing": {
           "$ref": "#/definitions/HttpLoadBalancing",
           "description": "Configuration for the HTTP (L7) load balancing controller addon, which\nmakes it easy to set up HTTP load balancers for services in a cluster."
+        },
+        "kubernetesDashboard": {
+          "$ref": "#/definitions/KubernetesDashboard",
+          "description": "Configuration for the Kubernetes Dashboard."
+        },
+        "networkPolicyConfig": {
+          "$ref": "#/definitions/NetworkPolicyConfig",
+          "description": "Configuration for NetworkPolicy. This only tracks whether the addon\nis enabled or not on the Master, it does not track whether network policy\nis enabled for the nodes."
         }
       },
       "type": "object"
@@ -1694,6 +2914,30 @@
     "CancelOperationRequest": {
       "description": "CancelOperationRequest cancels a single operation.",
       "properties": {},
+      "type": "object"
+    },
+    "CidrBlock": {
+      "description": "CidrBlock contains an optional name and one CIDR block.",
+      "properties": {
+        "cidrBlock": {
+          "description": "cidr_block must be specified in CIDR notation.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "display_name is an optional field for users to identify CIDR blocks.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ClientCertificateConfig": {
+      "description": "Configuration for client certificates on the cluster.",
+      "properties": {
+        "issueClientCertificate": {
+          "description": "Issue a client certificate.",
+          "type": "boolean"
+        }
+      },
       "type": "object"
     },
     "Cluster": {
@@ -1741,7 +2985,7 @@
           "type": "string"
         },
         "initialClusterVersion": {
-          "description": "[Output only] The software version of the master endpoint and kubelets used\nin the cluster when it was first created. The version can be upgraded over\ntime.",
+          "description": "The initial Kubernetes version for this cluster.  Valid versions are those\nfound in validMasterVersions returned by getServerConfig.  The version can\nbe upgraded over time; such upgrades are reflected in\ncurrentMasterVersion and currentNodeVersion.",
           "type": "string"
         },
         "initialNodeCount": {
@@ -1755,6 +2999,10 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "ipAllocationPolicy": {
+          "$ref": "#/definitions/IPAllocationPolicy",
+          "description": "Configuration for cluster IP allocation."
         },
         "labelFingerprint": {
           "description": "The fingerprint of the set of labels for this cluster.",
@@ -1775,9 +3023,17 @@
           "description": "The logging service the cluster should use to write logs.\nCurrently available options:\n\n* `logging.googleapis.com` - the Google Cloud Logging service.\n* `none` - no logs will be exported from the cluster.\n* if left as an empty string,`logging.googleapis.com` will be used.",
           "type": "string"
         },
+        "maintenancePolicy": {
+          "$ref": "#/definitions/MaintenancePolicy",
+          "description": "Configure the maintenance policy for this cluster."
+        },
         "masterAuth": {
           "$ref": "#/definitions/MasterAuth",
           "description": "The authentication information for accessing the master endpoint."
+        },
+        "masterAuthorizedNetworksConfig": {
+          "$ref": "#/definitions/MasterAuthorizedNetworksConfig",
+          "description": "Master authorized networks is a Beta feature.\nThe configuration options for master authorized networks feature."
         },
         "monitoringService": {
           "description": "The monitoring service the cluster should use to write metrics.\nCurrently available options:\n\n* `monitoring.googleapis.com` - the Google Cloud Monitoring service.\n* `none` - no metrics will be exported from the cluster.\n* if left as an empty string, `monitoring.googleapis.com` will be used.",
@@ -1790,6 +3046,10 @@
         "network": {
           "description": "The name of the Google Compute Engine\n[network](/compute/docs/networks-and-firewalls#networks) to which the\ncluster is connected. If left unspecified, the `default` network\nwill be used.",
           "type": "string"
+        },
+        "networkPolicy": {
+          "$ref": "#/definitions/NetworkPolicy",
+          "description": "Configuration options for the NetworkPolicy feature."
         },
         "nodeConfig": {
           "$ref": "#/definitions/NodeConfig",
@@ -1808,8 +3068,11 @@
           "type": "array"
         },
         "resourceLabels": {
-          "$ref": "#/definitions/ResourceLabels",
-          "description": "The resource labels for the cluster to use to annotate any related GCE\nresources."
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The resource labels for the cluster to use to annotate any related\nGoogle Compute Engine resources.",
+          "type": "object"
         },
         "selfLink": {
           "description": "[Output only] Server-defined URL for the resource.",
@@ -1864,6 +3127,10 @@
           },
           "type": "array"
         },
+        "desiredMasterAuthorizedNetworksConfig": {
+          "$ref": "#/definitions/MasterAuthorizedNetworksConfig",
+          "description": "Master authorized networks is a Beta feature.\nThe desired configuration options for master authorized networks feature."
+        },
         "desiredMasterVersion": {
           "description": "The Kubernetes version to change the master to. The only valid value is the\nlatest supported version. Use \"-\" to have the server automatically select\nthe latest version.",
           "type": "string"
@@ -1887,6 +3154,11 @@
       },
       "type": "object"
     },
+    "CompleteIPRotationRequest": {
+      "description": "CompleteIPRotationRequest moves the cluster master back into single-IP mode.",
+      "properties": {},
+      "type": "object"
+    },
     "CreateClusterRequest": {
       "description": "CreateClusterRequest creates a cluster.",
       "properties": {
@@ -1903,6 +3175,20 @@
         "nodePool": {
           "$ref": "#/definitions/NodePool",
           "description": "The node pool to create."
+        }
+      },
+      "type": "object"
+    },
+    "DailyMaintenanceWindow": {
+      "description": "Time window specified for daily maintenance operations.",
+      "properties": {
+        "duration": {
+          "description": "[Output only] Duration of the time window, automatically chosen to be\nsmallest possible in the given scenario.\nDuration will be in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)\nformat \"PTnHnMnS\".",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Time within the maintenance window to start the maintenance operations.\nTime format should be in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)\nformat \"HH:MM”, where HH : [00-23] and MM : [00-59] GMT.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -1932,16 +3218,62 @@
       },
       "type": "object"
     },
-    "Item": {
-      "description": "A label to be applied to Google Compute Engine resources. It must comply\nwith RFC1035 for each key and value.",
+    "IPAllocationPolicy": {
+      "description": "Configuration for controlling how IPs are allocated in the cluster.",
       "properties": {
-        "key": {
-          "description": "The Key for this label.",
+        "clusterIpv4Cidr": {
+          "description": "This field is deprecated, use cluster_ipv4_cidr_block.",
           "type": "string"
         },
-        "value": {
-          "description": "The Value for this label.",
+        "clusterIpv4CidrBlock": {
+          "description": "The IP address range for the cluster pod IPs. If this field is set, then\n`cluster.cluster_ipv4_cidr` must be left blank.\n\nThis field is only applicable when `use_ip_aliases` is true.\n\nSet to blank to have a range chosen with the default size.\n\nSet to /netmask (e.g. `/14`) to have a range chosen with a specific\nnetmask.\n\nSet to a\n[CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)\nnotation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.\n`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range\nto use.",
           "type": "string"
+        },
+        "clusterSecondaryRangeName": {
+          "description": "The name of the secondary range to be used for the cluster CIDR\nblock.  The secondary range will be used for pod IP\naddresses. This must be an existing secondary range associated\nwith the cluster subnetwork.\n\nThis field is only applicable with use_ip_aliases is true and\ncreate_subnetwork is false.",
+          "type": "string"
+        },
+        "createSubnetwork": {
+          "description": "Whether a new subnetwork will be created automatically for the cluster.\n\nThis field is only applicable when `use_ip_aliases` is true.",
+          "type": "boolean"
+        },
+        "nodeIpv4Cidr": {
+          "description": "This field is deprecated, use node_ipv4_cidr_block.",
+          "type": "string"
+        },
+        "nodeIpv4CidrBlock": {
+          "description": "The IP address range of the instance IPs in this cluster.\n\nThis is applicable only if `create_subnetwork` is true.\n\nSet to blank to have a range chosen with the default size.\n\nSet to /netmask (e.g. `/14`) to have a range chosen with a specific\nnetmask.\n\nSet to a\n[CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)\nnotation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.\n`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range\nto use.",
+          "type": "string"
+        },
+        "servicesIpv4Cidr": {
+          "description": "This field is deprecated, use services_ipv4_cidr_block.",
+          "type": "string"
+        },
+        "servicesIpv4CidrBlock": {
+          "description": "The IP address range of the services IPs in this cluster. If blank, a range\nwill be automatically chosen with the default size.\n\nThis field is only applicable when `use_ip_aliases` is true.\n\nSet to blank to have a range chosen with the default size.\n\nSet to /netmask (e.g. `/14`) to have a range chosen with a specific\nnetmask.\n\nSet to a\n[CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)\nnotation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.\n`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range\nto use.",
+          "type": "string"
+        },
+        "servicesSecondaryRangeName": {
+          "description": "The name of the secondary range to be used as for the services\nCIDR block.  The secondary range will be used for service\nClusterIPs. This must be an existing secondary range associated\nwith the cluster subnetwork.\n\nThis field is only applicable with use_ip_aliases is true and\ncreate_subnetwork is false.",
+          "type": "string"
+        },
+        "subnetworkName": {
+          "description": "A custom subnetwork name to be used if `create_subnetwork` is true.  If\nthis field is empty, then an automatic name will be chosen for the new\nsubnetwork.",
+          "type": "string"
+        },
+        "useIpAliases": {
+          "description": "Whether alias IPs will be used for pod IPs in the cluster.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "KubernetesDashboard": {
+      "description": "Configuration for the Kubernetes Dashboard.",
+      "properties": {
+        "disabled": {
+          "description": "Whether the Kubernetes Dashboard is enabled for this cluster.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -2009,12 +3341,36 @@
       },
       "type": "object"
     },
+    "MaintenancePolicy": {
+      "description": "MaintenancePolicy defines the maintenance policy to be used for the cluster.",
+      "properties": {
+        "window": {
+          "$ref": "#/definitions/MaintenanceWindow",
+          "description": "Specifies the maintenance window in which maintenance may be performed."
+        }
+      },
+      "type": "object"
+    },
+    "MaintenanceWindow": {
+      "description": "MaintenanceWindow defines the maintenance window to be used for the cluster.",
+      "properties": {
+        "dailyMaintenanceWindow": {
+          "$ref": "#/definitions/DailyMaintenanceWindow",
+          "description": "DailyMaintenanceWindow specifies a daily maintenance operation window."
+        }
+      },
+      "type": "object"
+    },
     "MasterAuth": {
       "description": "The authentication information for accessing the master endpoint.\nAuthentication can be done using HTTP basic auth or using client\ncertificates.",
       "properties": {
         "clientCertificate": {
           "description": "[Output only] Base64-encoded public certificate used by clients to\nauthenticate to the cluster endpoint.",
           "type": "string"
+        },
+        "clientCertificateConfig": {
+          "$ref": "#/definitions/ClientCertificateConfig",
+          "description": "Configuration for client certificate authentication on the cluster.  If no\nconfiguration is specified, a client certificate is issued."
         },
         "clientKey": {
           "description": "[Output only] Base64-encoded private key used by clients to authenticate\nto the cluster endpoint.",
@@ -2025,12 +3381,57 @@
           "type": "string"
         },
         "password": {
-          "description": "The password to use for HTTP basic authentication to the master endpoint.\nBecause the master endpoint is open to the Internet, you should create a\nstrong password.",
+          "description": "The password to use for HTTP basic authentication to the master endpoint.\nBecause the master endpoint is open to the Internet, you should create a\nstrong password.  If a password is provided for cluster creation, username\nmust be non-empty.",
           "type": "string"
         },
         "username": {
-          "description": "The username to use for HTTP basic authentication to the master endpoint.",
+          "description": "The username to use for HTTP basic authentication to the master endpoint.\nFor clusters v1.6.0 and later, you can disable basic authentication by\nproviding an empty username.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MasterAuthorizedNetworksConfig": {
+      "description": "Master authorized networks is a Beta feature.\nConfiguration options for the master authorized networks feature. Enabled\nmaster authorized networks will disallow all external traffic to access\nKubernetes master through HTTPS except traffic from the given CIDR blocks,\nGoogle Compute Engine Public IPs and Google Prod IPs.",
+      "properties": {
+        "cidrBlocks": {
+          "description": "cidr_blocks define up to 10 external networks that could access\nKubernetes master through HTTPS.",
+          "items": {
+            "$ref": "#/definitions/CidrBlock"
+          },
+          "type": "array"
+        },
+        "enabled": {
+          "description": "Whether or not master authorized networks is enabled.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkPolicy": {
+      "description": "Configuration options for the NetworkPolicy feature.\nhttps://kubernetes.io/docs/concepts/services-networking/networkpolicies/",
+      "properties": {
+        "enabled": {
+          "description": "Whether network policy is enabled on the cluster.",
+          "type": "boolean"
+        },
+        "provider": {
+          "description": "The selected network policy provider.",
+          "enum": [
+            "PROVIDER_UNSPECIFIED",
+            "CALICO"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkPolicyConfig": {
+      "description": "Configuration for NetworkPolicy. This only tracks whether the addon\nis enabled or not on the Master, it does not track whether network policy\nis enabled for the nodes.",
+      "properties": {
+        "disabled": {
+          "description": "Whether NetworkPolicy is enabled for this cluster.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -2038,6 +3439,13 @@
     "NodeConfig": {
       "description": "Parameters that describe the nodes in a cluster.",
       "properties": {
+        "accelerators": {
+          "description": "A list of hardware accelerators to be attached to each node.\nSee https://cloud.google.com/compute/docs/gpus for more information about\nsupport for GPUs.",
+          "items": {
+            "$ref": "#/definitions/AcceleratorConfig"
+          },
+          "type": "array"
+        },
         "diskSizeGb": {
           "description": "Size of the disk attached to each node, specified in GB.\nThe smallest allowed disk size is 10GB.\n\nIf unspecified, the default disk size is 100GB.",
           "format": "int32",
@@ -2051,7 +3459,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "The map of Kubernetes labels (key/value pairs) to be applied to each node.\nThese will added in addition to any default label(s) that\nKubernetes may apply to the node.\nIn case of conflict in label keys, the applied set may differ depending on\nthe Kubernetes version -- it's best to assume the behavior is undefined\nand conflicts should be avoided.\nFor more information, including usage and the valid values, see:\nhttp://kubernetes.io/v1.1/docs/user-guide/labels.html",
+          "description": "The map of Kubernetes labels (key/value pairs) to be applied to each node.\nThese will added in addition to any default label(s) that\nKubernetes may apply to the node.\nIn case of conflict in label keys, the applied set may differ depending on\nthe Kubernetes version -- it's best to assume the behavior is undefined\nand conflicts should be avoided.\nFor more information, including usage and the valid values, see:\nhttps://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
           "type": "object"
         },
         "localSsdCount": {
@@ -2070,6 +3478,10 @@
           "description": "The metadata key/value pairs assigned to instances in the cluster.\n\nKeys must conform to the regexp [a-zA-Z0-9-_]+ and be less than 128 bytes\nin length. These are reflected as part of a URL in the metadata server.\nAdditionally, to avoid ambiguity, keys must not conflict with any other\nmetadata keys for the project or be one of the four reserved keys:\n\"instance-template\", \"kube-env\", \"startup-script\", and \"user-data\"\n\nValues are free-form strings, and only have meaning as interpreted by\nthe image running in the instance. The only restriction placed on them is\nthat each value's size must be less than or equal to 32 KB.\n\nThe total size of all keys and values must be less than 512 KB.",
           "type": "object"
         },
+        "minCpuPlatform": {
+          "description": "Minimum CPU platform to be used by this instance. The instance may be\nscheduled on the specified or newer CPU platform. Applicable values are the\nfriendly names of CPU platforms, such as\n<code>minCpuPlatform: &quot;Intel Haswell&quot;</code> or\n<code>minCpuPlatform: &quot;Intel Sandy Bridge&quot;</code>. For more\ninformation, read [how to specify min CPU platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)",
+          "type": "string"
+        },
         "oauthScopes": {
           "description": "The set of Google API scopes to be made available on all of the\nnode VMs under the \"default\" service account.\n\nThe following scopes are recommended, but not required, and by default are\nnot included:\n\n* `https://www.googleapis.com/auth/compute` is required for mounting\npersistent storage on your nodes.\n* `https://www.googleapis.com/auth/devstorage.read_only` is required for\ncommunicating with **gcr.io**\n(the [Google Container Registry](/container-registry/)).\n\nIf unspecified, no scopes are added, unless Cloud Logging or Cloud\nMonitoring are enabled, in which case their required scopes will be added.",
           "items": {
@@ -2078,7 +3490,7 @@
           "type": "array"
         },
         "preemptible": {
-          "description": "Whether the nodes are created as preemptible VM instances. See:\nhttps://cloud.google.com/compute/docs/instances/preemptible for more\ninforamtion about preemptible VM instances.",
+          "description": "Whether the nodes are created as preemptible VM instances. See:\nhttps://cloud.google.com/compute/docs/instances/preemptible for more\ninformation about preemptible VM instances.",
           "type": "boolean"
         },
         "serviceAccount": {
@@ -2199,6 +3611,10 @@
           "description": "Detailed operation progress, if available.",
           "type": "string"
         },
+        "endTime": {
+          "description": "[Output only] The time the operation completed, in\n[RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.",
+          "type": "string"
+        },
         "name": {
           "description": "The server-assigned ID for the operation.",
           "type": "string"
@@ -2219,12 +3635,19 @@
             "AUTO_REPAIR_NODES",
             "AUTO_UPGRADE_NODES",
             "SET_LABELS",
-            "SET_MASTER_AUTH"
+            "SET_MASTER_AUTH",
+            "SET_NODE_POOL_SIZE",
+            "SET_NETWORK_POLICY",
+            "SET_MAINTENANCE_POLICY"
           ],
           "type": "string"
         },
         "selfLink": {
           "description": "Server-defined URL for the resource.",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "[Output only] The time the operation started, in\n[RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.",
           "type": "string"
         },
         "status": {
@@ -2249,19 +3672,6 @@
         "zone": {
           "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the operation\nis taking place.",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ResourceLabels": {
-      "description": "The set of Google Compute Engine labels that will be applied to any\nunderlying resources that the Google Container Cluster creates or uses.\nThese are merely metadata on the resources, and do not change the behavior\nof the cluster.",
-      "properties": {
-        "items": {
-          "description": "The list of labels.",
-          "items": {
-            "$ref": "#/definitions/Item"
-          },
-          "type": "array"
         }
       },
       "type": "object"
@@ -2306,6 +3716,16 @@
       },
       "type": "object"
     },
+    "SetAddonsConfigRequest": {
+      "description": "SetAddonsConfigRequest sets the addons associated with the cluster.",
+      "properties": {
+        "addonsConfig": {
+          "$ref": "#/definitions/AddonsConfig",
+          "description": "The desired configurations for the various addons available to run in the\ncluster."
+        }
+      },
+      "type": "object"
+    },
     "SetLabelsRequest": {
       "description": "SetLabelsRequest sets the Google Cloud Platform labels on a Google Container\nEngine cluster, which will in turn set them for Google Compute Engine\nresources used by that cluster",
       "properties": {
@@ -2314,8 +3734,11 @@
           "type": "string"
         },
         "resourceLabels": {
-          "$ref": "#/definitions/ResourceLabels",
-          "description": "The labels to set for that cluster."
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The labels to set for that cluster.",
+          "type": "object"
         }
       },
       "type": "object"
@@ -2330,21 +3753,85 @@
       },
       "type": "object"
     },
+    "SetLocationsRequest": {
+      "description": "SetLocationsRequest sets the locations of the cluster.",
+      "properties": {
+        "locations": {
+          "description": "The desired list of Google Compute Engine\n[locations](/compute/docs/zones#available) in which the cluster's nodes\nshould be located. Changing the locations a cluster is in will result\nin nodes being either created or removed from the cluster, depending on\nwhether locations are being added or removed.\n\nThis list must always include the cluster's primary zone.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SetLoggingServiceRequest": {
+      "description": "SetLoggingServiceRequest sets the logging service of a cluster.",
+      "properties": {
+        "loggingService": {
+          "description": "The logging service the cluster should use to write metrics.\nCurrently available options:\n\n* \"logging.googleapis.com\" - the Google Cloud Logging service\n* \"none\" - no metrics will be exported from the cluster",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SetMaintenancePolicyRequest": {
+      "description": "SetMaintenancePolicyRequest sets the maintenance policy for a cluster.",
+      "properties": {
+        "maintenancePolicy": {
+          "$ref": "#/definitions/MaintenancePolicy",
+          "description": "The maintenance policy to be set for the cluster. An empty field\nclears the existing maintenance policy."
+        }
+      },
+      "type": "object"
+    },
     "SetMasterAuthRequest": {
       "description": "SetMasterAuthRequest updates the admin password of a cluster.",
       "properties": {
         "action": {
-          "description": "The exact form of action to be taken on the master auth",
+          "description": "The exact form of action to be taken on the master auth.",
           "enum": [
             "UNKNOWN",
             "SET_PASSWORD",
-            "GENERATE_PASSWORD"
+            "GENERATE_PASSWORD",
+            "SET_USERNAME"
           ],
           "type": "string"
         },
         "update": {
           "$ref": "#/definitions/MasterAuth",
           "description": "A description of the update."
+        }
+      },
+      "type": "object"
+    },
+    "SetMonitoringServiceRequest": {
+      "description": "SetMonitoringServiceRequest sets the monitoring service of a cluster.",
+      "properties": {
+        "monitoringService": {
+          "description": "The monitoring service the cluster should use to write metrics.\nCurrently available options:\n\n* \"monitoring.googleapis.com\" - the Google Cloud Monitoring service\n* \"none\" - no metrics will be exported from the cluster",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SetNetworkPolicyRequest": {
+      "description": "SetNetworkPolicyRequest enables/disables network policy for a cluster.",
+      "properties": {
+        "networkPolicy": {
+          "$ref": "#/definitions/NetworkPolicy",
+          "description": "Configuration options for the NetworkPolicy feature."
+        }
+      },
+      "type": "object"
+    },
+    "SetNodePoolAutoscalingRequest": {
+      "description": "SetNodePoolAutoscalingRequest sets the autoscaler settings of a node pool.",
+      "properties": {
+        "autoscaling": {
+          "$ref": "#/definitions/NodePoolAutoscaling",
+          "description": "Autoscaling configuration for the node pool."
         }
       },
       "type": "object"
@@ -2359,12 +3846,52 @@
       },
       "type": "object"
     },
+    "SetNodePoolSizeRequest": {
+      "description": "SetNodePoolSizeRequest sets the size a node\npool.",
+      "properties": {
+        "nodeCount": {
+          "description": "The desired node count for the pool.",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "StartIPRotationRequest": {
+      "description": "StartIPRotationRequest creates a new IP for the cluster and then performs\na node upgrade on each node pool to point to the new IP.",
+      "properties": {},
+      "type": "object"
+    },
     "UpdateClusterRequest": {
       "description": "UpdateClusterRequest updates the settings of a cluster.",
       "properties": {
         "update": {
           "$ref": "#/definitions/ClusterUpdate",
           "description": "A description of the update."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateMasterRequest": {
+      "description": "UpdateMasterRequest updates the master of the cluster.",
+      "properties": {
+        "masterVersion": {
+          "description": "The Kubernetes version to change the master to. The only valid value is the\nlatest supported version. Use \"-\" to have the server automatically select\nthe latest version.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateNodePoolRequest": {
+      "description": "UpdateNodePoolRequests update a node pool's image and/or version.",
+      "properties": {
+        "imageType": {
+          "description": "The desired image type for the node pool.",
+          "type": "string"
+        },
+        "nodeVersion": {
+          "description": "The Kubernetes version to change the nodes to (typically an\nupgrade). Use `-` to upgrade to the latest version supported by\nthe server.",
+          "type": "string"
         }
       },
       "type": "object"

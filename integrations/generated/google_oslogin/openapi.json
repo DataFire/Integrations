@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Manages OS login configuration for Directory API users.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Cloud OS Login",
     "version": "v1alpha",
     "x-apiClientRegistration": {
@@ -47,7 +52,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -55,6 +60,19 @@
         "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
         "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -195,10 +213,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -232,10 +256,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -323,10 +353,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -362,20 +398,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/cloud-platform.read-only"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/cloud-platform.read-only"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -500,10 +548,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }

@@ -1,6 +1,7 @@
 {
   "swagger": "2.0",
   "schemes": [
+    "https",
     "http"
   ],
   "host": "dms.amazonaws.com",
@@ -279,6 +280,89 @@
         }
       }
     },
+    "/#CreateEventSubscription": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p> Creates an AWS DMS event notification subscription. </p> <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of, provide a list of AWS DMS source IDs (<code>SourceIds</code>) that triggers the events, and provide a list of event categories (<code>EventCategories</code>) for events you want to be notified of. If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as <code>SourceType = replication-instance</code> and <code>SourceIdentifier = my-replinstance</code>, you will be notified of all the replication instance events for the specified source. If you specify a <code>SourceType</code> but don't specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your AWS DMS sources. If you don't specify either <code>SourceType</code> nor <code>SourceIdentifier</code>, you will be notified of events generated from all AWS DMS sources belonging to your customer account.</p> <p>For more information about AWS DMS events, see <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\"> Working with Events and Notifications </a> in the AWS Database MIgration Service User Guide.</p>",
+        "operationId": "CreateEventSubscription",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateEventSubscriptionMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateEventSubscriptionResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceQuotaExceededFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceQuotaExceededFault"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsFault"
+            }
+          },
+          "482": {
+            "description": "SNSInvalidTopicFault",
+            "schema": {
+              "$ref": "#/definitions/SNSInvalidTopicFault"
+            }
+          },
+          "483": {
+            "description": "SNSNoAuthorizationFault",
+            "schema": {
+              "$ref": "#/definitions/SNSNoAuthorizationFault"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundFault"
+            }
+          }
+        }
+      }
+    },
     "/#CreateReplicationInstance": {
       "parameters": [
         {
@@ -532,30 +616,36 @@
             }
           },
           "480": {
+            "description": "AccessDeniedFault",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedFault"
+            }
+          },
+          "481": {
             "description": "InvalidResourceStateFault",
             "schema": {
               "$ref": "#/definitions/InvalidResourceStateFault"
             }
           },
-          "481": {
+          "482": {
             "description": "ResourceAlreadyExistsFault",
             "schema": {
               "$ref": "#/definitions/ResourceAlreadyExistsFault"
             }
           },
-          "482": {
+          "483": {
             "description": "ResourceNotFoundFault",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundFault"
             }
           },
-          "483": {
+          "484": {
             "description": "KMSKeyNotAccessibleFault",
             "schema": {
               "$ref": "#/definitions/KMSKeyNotAccessibleFault"
             }
           },
-          "484": {
+          "485": {
             "description": "ResourceQuotaExceededFault",
             "schema": {
               "$ref": "#/definitions/ResourceQuotaExceededFault"
@@ -677,6 +767,71 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/DeleteEndpointResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundFault"
+            }
+          },
+          "481": {
+            "description": "InvalidResourceStateFault",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateFault"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteEventSubscription": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Deletes an AWS DMS event subscription. ",
+        "operationId": "DeleteEventSubscription",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteEventSubscriptionMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteEventSubscriptionResponse"
             }
           },
           "480": {
@@ -983,6 +1138,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeCertificatesMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1042,6 +1211,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeConnectionsMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1101,6 +1284,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeEndpointTypesMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1154,6 +1351,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeEndpointsMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1167,6 +1378,199 @@
             "description": "ResourceNotFoundFault",
             "schema": {
               "$ref": "#/definitions/ResourceNotFoundFault"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeEventCategories": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\"> Working with Events and Notifications </a> in the AWS Database Migration Service User Guide. ",
+        "operationId": "DescribeEventCategories",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventCategoriesMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEventCategoriesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeEventSubscriptions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Lists all the event subscriptions for a customer account. The description of a subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>. </p> <p>If you specify <code>SubscriptionName</code>, this action lists the description for that subscription.</p>",
+        "operationId": "DescribeEventSubscriptions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventSubscriptionsMessage"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEventSubscriptionsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundFault"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeEvents": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\"> Working with Events and Notifications </a>. ",
+        "operationId": "DescribeEvents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEventsMessage"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEventsResponse"
             }
           }
         }
@@ -1213,6 +1617,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeOrderableReplicationInstancesMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1331,6 +1749,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeReplicationInstancesMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1390,6 +1822,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeReplicationSubnetGroupsMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1449,6 +1895,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeReplicationTasksMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1508,6 +1968,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeSchemasMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1563,7 +2037,7 @@
         }
       ],
       "post": {
-        "description": "Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.",
+        "description": "<p>Returns table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted.</p> <p>Note that the \"last updated\" column the DMS console only indicates the time that AWS DMS last updated the table statistics record for a table. It does not indicate the time of the last update to the table.</p>",
         "operationId": "DescribeTableStatistics",
         "parameters": [
           {
@@ -1573,6 +2047,20 @@
             "schema": {
               "$ref": "#/definitions/DescribeTableStatisticsMessage"
             }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxRecords",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "Marker",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -1794,6 +2282,89 @@
             "schema": {
               "$ref": "#/definitions/KMSKeyNotAccessibleFault"
             }
+          },
+          "484": {
+            "description": "AccessDeniedFault",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedFault"
+            }
+          }
+        }
+      }
+    },
+    "/#ModifyEventSubscription": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Modifies an existing AWS DMS event notification subscription. ",
+        "operationId": "ModifyEventSubscription",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifyEventSubscriptionMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ModifyEventSubscriptionResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceQuotaExceededFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceQuotaExceededFault"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundFault"
+            }
+          },
+          "482": {
+            "description": "SNSInvalidTopicFault",
+            "schema": {
+              "$ref": "#/definitions/SNSInvalidTopicFault"
+            }
+          },
+          "483": {
+            "description": "SNSNoAuthorizationFault",
+            "schema": {
+              "$ref": "#/definitions/SNSNoAuthorizationFault"
+            }
           }
         }
       }
@@ -2007,7 +2578,7 @@
         }
       ],
       "post": {
-        "description": "<p>Modifies the specified replication task.</p> <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>",
+        "description": "<p>Modifies the specified replication task.</p> <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p> <p>For more information about AWS DMS tasks, see the AWS DMS user guide at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html\"> Working with Migration Tasks </a> </p>",
         "operationId": "ModifyReplicationTask",
         "parameters": [
           {
@@ -2130,6 +2701,71 @@
         }
       }
     },
+    "/#ReloadTables": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Reloads the target database table with the source data. ",
+        "operationId": "ReloadTables",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReloadTablesMessage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ReloadTablesResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundFault",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundFault"
+            }
+          },
+          "481": {
+            "description": "InvalidResourceStateFault",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateFault"
+            }
+          }
+        }
+      }
+    },
     "/#RemoveTagsFromResource": {
       "parameters": [
         {
@@ -2220,7 +2856,7 @@
         }
       ],
       "post": {
-        "description": "Starts the replication task.",
+        "description": "<p>Starts the replication task.</p> <p>For more information about AWS DMS tasks, see the AWS DMS user guide at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html\"> Working with Migration Tasks </a> </p>",
         "operationId": "StartReplicationTask",
         "parameters": [
           {
@@ -2434,6 +3070,15 @@
     },
     "AddTagsToResourceMessage": {
       "description": "<p/>",
+      "example": {
+        "ResourceArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
+        "Tags": [
+          {
+            "Key": "Acount",
+            "Value": "1633456"
+          }
+        ]
+      },
       "properties": {
         "ResourceArn": {
           "$ref": "#/definitions/String",
@@ -2452,8 +3097,24 @@
     },
     "AddTagsToResourceResponse": {
       "description": "<p/>",
+      "example": {},
       "properties": {},
       "type": "object"
+    },
+    "AuthMechanismValue": {
+      "enum": [
+        "default",
+        "mongodb_cr",
+        "scram_sha_1"
+      ],
+      "type": "string"
+    },
+    "AuthTypeValue": {
+      "enum": [
+        "no",
+        "password"
+      ],
+      "type": "string"
     },
     "AvailabilityZone": {
       "description": "<p/>",
@@ -2526,6 +3187,13 @@
     "CertificateWallet": {
       "type": "string"
     },
+    "CompressionTypeValue": {
+      "enum": [
+        "none",
+        "gzip"
+      ],
+      "type": "string"
+    },
     "Connection": {
       "description": "<p/>",
       "properties": {
@@ -2564,6 +3232,26 @@
     },
     "CreateEndpointMessage": {
       "description": "<p/>",
+      "example": {
+        "CertificateArn": "",
+        "DatabaseName": "testdb",
+        "EndpointIdentifier": "test-endpoint-1",
+        "EndpointType": "source",
+        "EngineName": "mysql",
+        "ExtraConnectionAttributes": "",
+        "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+        "Password": "pasword",
+        "Port": 3306,
+        "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+        "SslMode": "require",
+        "Tags": [
+          {
+            "Key": "Acount",
+            "Value": "143327655"
+          }
+        ],
+        "Username": "username"
+      },
       "properties": {
         "CertificateArn": {
           "$ref": "#/definitions/String",
@@ -2572,6 +3260,10 @@
         "DatabaseName": {
           "$ref": "#/definitions/String",
           "description": "The name of the endpoint database."
+        },
+        "DynamoDbSettings": {
+          "$ref": "#/definitions/DynamoDbSettings",
+          "description": "Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html\"> Using an Amazon DynamoDB Database as a Target for AWS Database Migration Service</a>. "
         },
         "EndpointIdentifier": {
           "$ref": "#/definitions/String",
@@ -2583,7 +3275,7 @@
         },
         "EngineName": {
           "$ref": "#/definitions/String",
-          "description": "The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+          "description": "The type of engine for the endpoint. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER."
         },
         "ExtraConnectionAttributes": {
           "$ref": "#/definitions/String",
@@ -2593,6 +3285,10 @@
           "$ref": "#/definitions/String",
           "description": "The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region."
         },
+        "MongoDbSettings": {
+          "$ref": "#/definitions/MongoDbSettings",
+          "description": "Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service</b> section at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html\"> Using Amazon S3 as a Target for AWS Database Migration Service</a>. "
+        },
         "Password": {
           "$ref": "#/definitions/SecretString",
           "description": "The password to be used to login to the endpoint database."
@@ -2600,6 +3296,10 @@
         "Port": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "The port used by the endpoint database."
+        },
+        "S3Settings": {
+          "$ref": "#/definitions/S3Settings",
+          "description": "Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the <b>Extra Connection Attributes</b> section at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html\"> Using Amazon S3 as a Target for AWS Database Migration Service</a>. "
         },
         "ServerName": {
           "$ref": "#/definitions/String",
@@ -2627,6 +3327,19 @@
     },
     "CreateEndpointResponse": {
       "description": "<p/>",
+      "example": {
+        "Endpoint": {
+          "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+          "EndpointIdentifier": "test-endpoint-1",
+          "EndpointType": "source",
+          "EngineName": "mysql",
+          "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+          "Port": 3306,
+          "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+          "Status": "active",
+          "Username": "username"
+        }
+      },
       "properties": {
         "Endpoint": {
           "$ref": "#/definitions/Endpoint",
@@ -2635,8 +3348,76 @@
       },
       "type": "object"
     },
+    "CreateEventSubscriptionMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " A Boolean value; set to <b>true</b> to activate the subscription, or set to <b>false</b> to create the subscription but not activate it. "
+        },
+        "EventCategories": {
+          "$ref": "#/definitions/EventCategoriesList",
+          "description": " A list of event categories for a source type that you want to subscribe to. You can see a list of the categories for a given source type by calling the <b>DescribeEventCategories</b> action or in the topic <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html\"> Working with Events and Notifications</a> in the AWS Database Migration Service User Guide. "
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/String",
+          "description": " The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it. "
+        },
+        "SourceIds": {
+          "$ref": "#/definitions/SourceIdsList",
+          "description": " The list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens. "
+        },
+        "SourceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The type of AWS DMS resource that generates the events. For example, if you want to be notified of events generated by a replication instance, you set this parameter to <code>replication-instance</code>. If this value is not specified, all events are returned. </p> <p>Valid values: replication-instance | migration-task</p>"
+        },
+        "SubscriptionName": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The name of the DMS event notification subscription. </p> <p>Constraints: The name must be less than 255 characters. </p>"
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "A tag to be attached to the event subscription."
+        }
+      },
+      "required": [
+        "SubscriptionName",
+        "SnsTopicArn"
+      ],
+      "type": "object"
+    },
+    "CreateEventSubscriptionResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EventSubscription": {
+          "$ref": "#/definitions/EventSubscription",
+          "description": "The event subscription that was created."
+        }
+      },
+      "type": "object"
+    },
     "CreateReplicationInstanceMessage": {
       "description": "<p/>",
+      "example": {
+        "AllocatedStorage": 123,
+        "AutoMinorVersionUpgrade": true,
+        "AvailabilityZone": "",
+        "EngineVersion": "",
+        "KmsKeyId": "",
+        "MultiAZ": true,
+        "PreferredMaintenanceWindow": "",
+        "PubliclyAccessible": true,
+        "ReplicationInstanceClass": "",
+        "ReplicationInstanceIdentifier": "",
+        "ReplicationSubnetGroupIdentifier": "",
+        "Tags": [
+          {
+            "Key": "string",
+            "Value": "string"
+          }
+        ],
+        "VpcSecurityGroupIds": []
+      },
       "properties": {
         "AllocatedStorage": {
           "$ref": "#/definitions/IntegerOptional",
@@ -2699,6 +3480,57 @@
     },
     "CreateReplicationInstanceResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationInstance": {
+          "AllocatedStorage": 5,
+          "AutoMinorVersionUpgrade": true,
+          "EngineVersion": "1.5.0",
+          "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+          "PendingModifiedValues": {},
+          "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+          "PubliclyAccessible": true,
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationInstanceClass": "dms.t2.micro",
+          "ReplicationInstanceIdentifier": "test-rep-1",
+          "ReplicationInstanceStatus": "creating",
+          "ReplicationSubnetGroup": {
+            "ReplicationSubnetGroupDescription": "default",
+            "ReplicationSubnetGroupIdentifier": "default",
+            "SubnetGroupStatus": "Complete",
+            "Subnets": [
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1d"
+                },
+                "SubnetIdentifier": "subnet-f6dd91af",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1b"
+                },
+                "SubnetIdentifier": "subnet-3605751d",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1c"
+                },
+                "SubnetIdentifier": "subnet-c2daefb5",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1e"
+                },
+                "SubnetIdentifier": "subnet-85e90cb8",
+                "SubnetStatus": "Active"
+              }
+            ],
+            "VpcId": "vpc-6741a603"
+          }
+        }
+      },
       "properties": {
         "ReplicationInstance": {
           "$ref": "#/definitions/ReplicationInstance",
@@ -2709,6 +3541,20 @@
     },
     "CreateReplicationSubnetGroupMessage": {
       "description": "<p/>",
+      "example": {
+        "ReplicationSubnetGroupDescription": "US West subnet group",
+        "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366",
+        "SubnetIds": [
+          "subnet-e145356n",
+          "subnet-58f79200"
+        ],
+        "Tags": [
+          {
+            "Key": "Acount",
+            "Value": "145235"
+          }
+        ]
+      },
       "properties": {
         "ReplicationSubnetGroupDescription": {
           "$ref": "#/definitions/String",
@@ -2736,6 +3582,9 @@
     },
     "CreateReplicationSubnetGroupResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationSubnetGroup": {}
+      },
       "properties": {
         "ReplicationSubnetGroup": {
           "$ref": "#/definitions/ReplicationSubnetGroup",
@@ -2746,6 +3595,22 @@
     },
     "CreateReplicationTaskMessage": {
       "description": "<p/>",
+      "example": {
+        "CdcStartTime": "2016-12-14T18:25:43Z",
+        "MigrationType": "full-load",
+        "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+        "ReplicationTaskIdentifier": "task1",
+        "ReplicationTaskSettings": "",
+        "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+        "TableMappings": "file://mappingfile.json",
+        "Tags": [
+          {
+            "Key": "Acount",
+            "Value": "24352226"
+          }
+        ],
+        "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+      },
       "properties": {
         "CdcStartTime": {
           "$ref": "#/definitions/TStamp",
@@ -2761,7 +3626,7 @@
         },
         "ReplicationTaskIdentifier": {
           "$ref": "#/definitions/String",
-          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
         },
         "ReplicationTaskSettings": {
           "$ref": "#/definitions/String",
@@ -2773,7 +3638,7 @@
         },
         "TableMappings": {
           "$ref": "#/definitions/String",
-          "description": "<p>The path of the JSON file that contains the table mappings. Preceed the path with \"file://\".</p> <p>For example, --table-mappings file://mappingfile.json</p>"
+          "description": "<p>When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with \"file://\". When working with the DMS API, provide the JSON as the parameter value.</p> <p>For example, --table-mappings file://mappingfile.json</p>"
         },
         "Tags": {
           "$ref": "#/definitions/TagList",
@@ -2796,6 +3661,20 @@
     },
     "CreateReplicationTaskResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationTask": {
+          "MigrationType": "full-load",
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+          "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+          "ReplicationTaskIdentifier": "task1",
+          "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+          "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+          "Status": "creating",
+          "TableMappings": "file://mappingfile.json",
+          "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+        }
+      },
       "properties": {
         "ReplicationTask": {
           "$ref": "#/definitions/ReplicationTask",
@@ -2805,6 +3684,9 @@
       "type": "object"
     },
     "DeleteCertificateMessage": {
+      "example": {
+        "CertificateArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUSM457DE6XFJCJQ"
+      },
       "properties": {
         "CertificateArn": {
           "$ref": "#/definitions/String",
@@ -2817,6 +3699,9 @@
       "type": "object"
     },
     "DeleteCertificateResponse": {
+      "example": {
+        "Certificate": {}
+      },
       "properties": {
         "Certificate": {
           "$ref": "#/definitions/Certificate",
@@ -2827,6 +3712,9 @@
     },
     "DeleteEndpointMessage": {
       "description": "<p/>",
+      "example": {
+        "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM"
+      },
       "properties": {
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -2840,6 +3728,19 @@
     },
     "DeleteEndpointResponse": {
       "description": "<p/>",
+      "example": {
+        "Endpoint": {
+          "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+          "EndpointIdentifier": "test-endpoint-1",
+          "EndpointType": "source",
+          "EngineName": "mysql",
+          "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+          "Port": 3306,
+          "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+          "Status": "active",
+          "Username": "username"
+        }
+      },
       "properties": {
         "Endpoint": {
           "$ref": "#/definitions/Endpoint",
@@ -2848,8 +3749,34 @@
       },
       "type": "object"
     },
+    "DeleteEventSubscriptionMessage": {
+      "description": "<p/>",
+      "properties": {
+        "SubscriptionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the DMS event notification subscription to be deleted."
+        }
+      },
+      "required": [
+        "SubscriptionName"
+      ],
+      "type": "object"
+    },
+    "DeleteEventSubscriptionResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EventSubscription": {
+          "$ref": "#/definitions/EventSubscription",
+          "description": "The event subscription that was deleted."
+        }
+      },
+      "type": "object"
+    },
     "DeleteReplicationInstanceMessage": {
       "description": "<p/>",
+      "example": {
+        "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ"
+      },
       "properties": {
         "ReplicationInstanceArn": {
           "$ref": "#/definitions/String",
@@ -2863,6 +3790,57 @@
     },
     "DeleteReplicationInstanceResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationInstance": {
+          "AllocatedStorage": 5,
+          "AutoMinorVersionUpgrade": true,
+          "EngineVersion": "1.5.0",
+          "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+          "PendingModifiedValues": {},
+          "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+          "PubliclyAccessible": true,
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationInstanceClass": "dms.t2.micro",
+          "ReplicationInstanceIdentifier": "test-rep-1",
+          "ReplicationInstanceStatus": "creating",
+          "ReplicationSubnetGroup": {
+            "ReplicationSubnetGroupDescription": "default",
+            "ReplicationSubnetGroupIdentifier": "default",
+            "SubnetGroupStatus": "Complete",
+            "Subnets": [
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1d"
+                },
+                "SubnetIdentifier": "subnet-f6dd91af",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1b"
+                },
+                "SubnetIdentifier": "subnet-3605751d",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1c"
+                },
+                "SubnetIdentifier": "subnet-c2daefb5",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1e"
+                },
+                "SubnetIdentifier": "subnet-85e90cb8",
+                "SubnetStatus": "Active"
+              }
+            ],
+            "VpcId": "vpc-6741a603"
+          }
+        }
+      },
       "properties": {
         "ReplicationInstance": {
           "$ref": "#/definitions/ReplicationInstance",
@@ -2873,6 +3851,9 @@
     },
     "DeleteReplicationSubnetGroupMessage": {
       "description": "<p/>",
+      "example": {
+        "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366"
+      },
       "properties": {
         "ReplicationSubnetGroupIdentifier": {
           "$ref": "#/definitions/String",
@@ -2886,11 +3867,15 @@
     },
     "DeleteReplicationSubnetGroupResponse": {
       "description": "<p/>",
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "DeleteReplicationTaskMessage": {
       "description": "<p/>",
+      "example": {
+        "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ"
+      },
       "properties": {
         "ReplicationTaskArn": {
           "$ref": "#/definitions/String",
@@ -2904,6 +3889,20 @@
     },
     "DeleteReplicationTaskResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationTask": {
+          "MigrationType": "full-load",
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+          "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+          "ReplicationTaskIdentifier": "task1",
+          "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+          "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+          "Status": "creating",
+          "TableMappings": "file://mappingfile.json",
+          "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+        }
+      },
       "properties": {
         "ReplicationTask": {
           "$ref": "#/definitions/ReplicationTask",
@@ -2914,11 +3913,31 @@
     },
     "DescribeAccountAttributesMessage": {
       "description": "<p/>",
+      "example": {},
       "properties": {},
       "type": "object"
     },
     "DescribeAccountAttributesResponse": {
       "description": "<p/>",
+      "example": {
+        "AccountQuotas": [
+          {
+            "AccountQuotaName": "ReplicationInstances",
+            "Max": 20,
+            "Used": 0
+          },
+          {
+            "AccountQuotaName": "AllocatedStorage",
+            "Max": 20,
+            "Used": 0
+          },
+          {
+            "AccountQuotaName": "Endpoints",
+            "Max": 20,
+            "Used": 0
+          }
+        ]
+      },
       "properties": {
         "AccountQuotas": {
           "$ref": "#/definitions/AccountQuotaList",
@@ -2928,6 +3947,19 @@
       "type": "object"
     },
     "DescribeCertificatesMessage": {
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -2945,6 +3977,10 @@
       "type": "object"
     },
     "DescribeCertificatesResponse": {
+      "example": {
+        "Certificates": [],
+        "Marker": ""
+      },
       "properties": {
         "Certificates": {
           "$ref": "#/definitions/CertificateList",
@@ -2959,6 +3995,19 @@
     },
     "DescribeConnectionsMessage": {
       "description": "<p/>",
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -2977,6 +4026,18 @@
     },
     "DescribeConnectionsResponse": {
       "description": "<p/>",
+      "example": {
+        "Connections": [
+          {
+            "EndpointArn": "arn:aws:dms:us-east-arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+            "EndpointIdentifier": "testsrc1",
+            "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+            "ReplicationInstanceIdentifier": "test",
+            "Status": "successful"
+          }
+        ],
+        "Marker": ""
+      },
       "properties": {
         "Connections": {
           "$ref": "#/definitions/ConnectionList",
@@ -2991,6 +4052,19 @@
     },
     "DescribeEndpointTypesMessage": {
       "description": "<p/>",
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -3009,6 +4083,10 @@
     },
     "DescribeEndpointTypesResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "SupportedEndpointTypes": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3023,6 +4101,19 @@
     },
     "DescribeEndpointsMessage": {
       "description": "<p/>",
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -3041,6 +4132,10 @@
     },
     "DescribeEndpointsResponse": {
       "description": "<p/>",
+      "example": {
+        "Endpoints": [],
+        "Marker": ""
+      },
       "properties": {
         "Endpoints": {
           "$ref": "#/definitions/EndpointList",
@@ -3053,8 +4148,128 @@
       },
       "type": "object"
     },
+    "DescribeEventCategoriesMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "Filters applied to the action."
+        },
+        "SourceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The type of AWS DMS resource that generates events. </p> <p>Valid values: replication-instance | migration-task</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventCategoriesResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EventCategoryGroupList": {
+          "$ref": "#/definitions/EventCategoryGroupList",
+          "description": "A list of event categories."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventSubscriptionsMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "Filters applied to the action."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        },
+        "SubscriptionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the AWS DMS event subscription to be described."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventSubscriptionsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EventSubscriptionsList": {
+          "$ref": "#/definitions/EventSubscriptionsList",
+          "description": "A list of event subscriptions."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventsMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Duration": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "The duration of the events to be listed."
+        },
+        "EndTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The end time for the events to be listed."
+        },
+        "EventCategories": {
+          "$ref": "#/definitions/EventCategoriesList",
+          "description": "A list of event categories for a source type that you want to subscribe to."
+        },
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "Filters applied to the action."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        },
+        "MaxRecords": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+        },
+        "SourceIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": " The identifier of the event source. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It cannot end with a hyphen or contain two consecutive hyphens. "
+        },
+        "SourceType": {
+          "$ref": "#/definitions/SourceType",
+          "description": "<p>The type of AWS DMS resource that generates events.</p> <p>Valid values: replication-instance | migration-task</p>"
+        },
+        "StartTime": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The start time for the events to be listed."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEventsResponse": {
+      "description": "<p/>",
+      "properties": {
+        "Events": {
+          "$ref": "#/definitions/EventList",
+          "description": "The events described."
+        },
+        "Marker": {
+          "$ref": "#/definitions/String",
+          "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
+        }
+      },
+      "type": "object"
+    },
     "DescribeOrderableReplicationInstancesMessage": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3069,6 +4284,10 @@
     },
     "DescribeOrderableReplicationInstancesResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "OrderableReplicationInstances": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3083,6 +4302,9 @@
     },
     "DescribeRefreshSchemasStatusMessage": {
       "description": "<p/>",
+      "example": {
+        "EndpointArn": ""
+      },
       "properties": {
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -3096,6 +4318,9 @@
     },
     "DescribeRefreshSchemasStatusResponse": {
       "description": "<p/>",
+      "example": {
+        "RefreshSchemasStatus": {}
+      },
       "properties": {
         "RefreshSchemasStatus": {
           "$ref": "#/definitions/RefreshSchemasStatus",
@@ -3106,6 +4331,19 @@
     },
     "DescribeReplicationInstancesMessage": {
       "description": "<p/>",
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -3124,6 +4362,10 @@
     },
     "DescribeReplicationInstancesResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "ReplicationInstances": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3138,6 +4380,19 @@
     },
     "DescribeReplicationSubnetGroupsMessage": {
       "description": "<p/>",
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -3156,6 +4411,10 @@
     },
     "DescribeReplicationSubnetGroupsResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "ReplicationSubnetGroups": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3170,6 +4429,19 @@
     },
     "DescribeReplicationTasksMessage": {
       "description": "<p/>",
+      "example": {
+        "Filters": [
+          {
+            "Name": "string",
+            "Values": [
+              "string",
+              "string"
+            ]
+          }
+        ],
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "Filters": {
           "$ref": "#/definitions/FilterList",
@@ -3188,6 +4460,10 @@
     },
     "DescribeReplicationTasksResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "ReplicationTasks": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3202,6 +4478,11 @@
     },
     "DescribeSchemasMessage": {
       "description": "<p/>",
+      "example": {
+        "EndpointArn": "",
+        "Marker": "",
+        "MaxRecords": 123
+      },
       "properties": {
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -3223,6 +4504,10 @@
     },
     "DescribeSchemasResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "Schemas": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3237,14 +4522,23 @@
     },
     "DescribeTableStatisticsMessage": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "MaxRecords": 123,
+        "ReplicationTaskArn": ""
+      },
       "properties": {
+        "Filters": {
+          "$ref": "#/definitions/FilterList",
+          "description": "<p>Filters applied to the describe table statistics action.</p> <p>Valid filter names: schema-name | table-name | table-state</p> <p>A combination of filters creates an AND condition where each record matches all specified filters.</p>"
+        },
         "Marker": {
           "$ref": "#/definitions/String",
           "description": " An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. "
         },
         "MaxRecords": {
           "$ref": "#/definitions/IntegerOptional",
-          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>"
+          "description": "<p> The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 500.</p>"
         },
         "ReplicationTaskArn": {
           "$ref": "#/definitions/String",
@@ -3258,6 +4552,11 @@
     },
     "DescribeTableStatisticsResponse": {
       "description": "<p/>",
+      "example": {
+        "Marker": "",
+        "ReplicationTaskArn": "",
+        "TableStatistics": []
+      },
       "properties": {
         "Marker": {
           "$ref": "#/definitions/String",
@@ -3283,6 +4582,19 @@
       ],
       "type": "string"
     },
+    "DynamoDbSettings": {
+      "description": "<p/>",
+      "properties": {
+        "ServiceAccessRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": " The Amazon Resource Name (ARN) used by the service access IAM role. "
+        }
+      },
+      "required": [
+        "ServiceAccessRoleArn"
+      ],
+      "type": "object"
+    },
     "Endpoint": {
       "description": "<p/>",
       "properties": {
@@ -3293,6 +4605,10 @@
         "DatabaseName": {
           "$ref": "#/definitions/String",
           "description": "The name of the database at the endpoint."
+        },
+        "DynamoDbSettings": {
+          "$ref": "#/definitions/DynamoDbSettings",
+          "description": "The settings for the target DynamoDB database. For more information, see the <code>DynamoDBSettings</code> structure."
         },
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -3308,7 +4624,11 @@
         },
         "EngineName": {
           "$ref": "#/definitions/String",
-          "description": "The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+          "description": "The database engine name. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER."
+        },
+        "ExternalId": {
+          "$ref": "#/definitions/String",
+          "description": " Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account. "
         },
         "ExtraConnectionAttributes": {
           "$ref": "#/definitions/String",
@@ -3318,9 +4638,17 @@
           "$ref": "#/definitions/String",
           "description": "The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region."
         },
+        "MongoDbSettings": {
+          "$ref": "#/definitions/MongoDbSettings",
+          "description": "The settings for the MongoDB source endpoint. For more information, see the <code>MongoDbSettings</code> structure."
+        },
         "Port": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "The port value used to access the endpoint."
+        },
+        "S3Settings": {
+          "$ref": "#/definitions/S3Settings",
+          "description": "The settings for the S3 target endpoint. For more information, see the <code>S3Settings</code> structure."
         },
         "ServerName": {
           "$ref": "#/definitions/String",
@@ -3344,6 +4672,112 @@
     "EndpointList": {
       "items": {
         "$ref": "#/definitions/Endpoint"
+      },
+      "type": "array"
+    },
+    "Event": {
+      "description": "<p/>",
+      "properties": {
+        "Date": {
+          "$ref": "#/definitions/TStamp",
+          "description": "The date of the event."
+        },
+        "EventCategories": {
+          "$ref": "#/definitions/EventCategoriesList",
+          "description": "The event categories available for the specified source type."
+        },
+        "Message": {
+          "$ref": "#/definitions/String",
+          "description": "The event message."
+        },
+        "SourceIdentifier": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The identifier of the event source. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication instance, endpoint, migration task</p>"
+        },
+        "SourceType": {
+          "$ref": "#/definitions/SourceType",
+          "description": "<p> The type of AWS DMS resource that generates events. </p> <p>Valid values: replication-instance | endpoint | migration-task</p>"
+        }
+      },
+      "type": "object"
+    },
+    "EventCategoriesList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "EventCategoryGroup": {
+      "description": "<p/>",
+      "properties": {
+        "EventCategories": {
+          "$ref": "#/definitions/EventCategoriesList",
+          "description": " A list of event categories for a <code>SourceType</code> that you want to subscribe to. "
+        },
+        "SourceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The type of AWS DMS resource that generates events. </p> <p>Valid values: replication-instance | replication-server | security-group | migration-task</p>"
+        }
+      },
+      "type": "object"
+    },
+    "EventCategoryGroupList": {
+      "items": {
+        "$ref": "#/definitions/EventCategoryGroup"
+      },
+      "type": "array"
+    },
+    "EventList": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array"
+    },
+    "EventSubscription": {
+      "description": "<p/>",
+      "properties": {
+        "CustSubscriptionId": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS DMS event notification subscription Id."
+        },
+        "CustomerAwsId": {
+          "$ref": "#/definitions/String",
+          "description": "The AWS customer account associated with the AWS DMS event notification subscription."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates if the event subscription is enabled."
+        },
+        "EventCategoriesList": {
+          "$ref": "#/definitions/EventCategoriesList",
+          "description": "A lists of event categories."
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/String",
+          "description": "The topic ARN of the AWS DMS event notification subscription."
+        },
+        "SourceIdsList": {
+          "$ref": "#/definitions/SourceIdsList",
+          "description": "A list of source Ids for the event subscription."
+        },
+        "SourceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The type of AWS DMS resource that generates events. </p> <p>Valid values: replication-instance | replication-server | security-group | migration-task</p>"
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The status of the AWS DMS event notification subscription.</p> <p>Constraints:</p> <p>Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist</p> <p>The status \"no-permission\" indicates that AWS DMS no longer has permission to post to the SNS topic. The status \"topic-not-exist\" indicates that the topic was deleted after the subscription was created.</p>"
+        },
+        "SubscriptionCreationTime": {
+          "$ref": "#/definitions/String",
+          "description": "The time the RDS event notification subscription was created."
+        }
+      },
+      "type": "object"
+    },
+    "EventSubscriptionsList": {
+      "items": {
+        "$ref": "#/definitions/EventSubscription"
       },
       "type": "array"
     },
@@ -3381,6 +4815,10 @@
       "type": "array"
     },
     "ImportCertificateMessage": {
+      "example": {
+        "CertificateIdentifier": "",
+        "CertificatePem": ""
+      },
       "properties": {
         "CertificateIdentifier": {
           "$ref": "#/definitions/String",
@@ -3393,6 +4831,10 @@
         "CertificateWallet": {
           "$ref": "#/definitions/CertificateWallet",
           "description": "The location of the imported Oracle Wallet certificate for use with SSL."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags associated with the certificate."
         }
       },
       "required": [
@@ -3401,6 +4843,9 @@
       "type": "object"
     },
     "ImportCertificateResponse": {
+      "example": {
+        "Certificate": {}
+      },
       "properties": {
         "Certificate": {
           "$ref": "#/definitions/Certificate",
@@ -3472,6 +4917,9 @@
     },
     "ListTagsForResourceMessage": {
       "description": "<p/>",
+      "example": {
+        "ResourceArn": ""
+      },
       "properties": {
         "ResourceArn": {
           "$ref": "#/definitions/String",
@@ -3485,6 +4933,9 @@
     },
     "ListTagsForResourceResponse": {
       "description": "<p/>",
+      "example": {
+        "TagList": []
+      },
       "properties": {
         "TagList": {
           "$ref": "#/definitions/TagList",
@@ -3506,6 +4957,20 @@
     },
     "ModifyEndpointMessage": {
       "description": "<p/>",
+      "example": {
+        "CertificateArn": "",
+        "DatabaseName": "",
+        "EndpointArn": "",
+        "EndpointIdentifier": "",
+        "EndpointType": "source",
+        "EngineName": "",
+        "ExtraConnectionAttributes": "",
+        "Password": "",
+        "Port": 123,
+        "ServerName": "",
+        "SslMode": "require",
+        "Username": ""
+      },
       "properties": {
         "CertificateArn": {
           "$ref": "#/definitions/String",
@@ -3514,6 +4979,10 @@
         "DatabaseName": {
           "$ref": "#/definitions/String",
           "description": "The name of the endpoint database."
+        },
+        "DynamoDbSettings": {
+          "$ref": "#/definitions/DynamoDbSettings",
+          "description": "Settings in JSON format for the target Amazon DynamoDB endpoint. For more information about the available settings, see the <b>Using Object Mapping to Migrate Data to DynamoDB</b> section at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html\"> Using an Amazon DynamoDB Database as a Target for AWS Database Migration Service</a>. "
         },
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -3529,11 +4998,15 @@
         },
         "EngineName": {
           "$ref": "#/definitions/String",
-          "description": "The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+          "description": "The type of engine for the endpoint. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, DYNAMODB, MONGODB, SYBASE, and SQLSERVER."
         },
         "ExtraConnectionAttributes": {
           "$ref": "#/definitions/String",
-          "description": "Additional attributes associated with the connection."
+          "description": "Additional attributes associated with the connection. To reset this parameter, pass the empty string (\"\") as an argument."
+        },
+        "MongoDbSettings": {
+          "$ref": "#/definitions/MongoDbSettings",
+          "description": "Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the <b>Configuration Properties When Using MongoDB as a Source for AWS Database Migration Service</b> section at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html\"> Using Amazon S3 as a Target for AWS Database Migration Service</a>. "
         },
         "Password": {
           "$ref": "#/definitions/SecretString",
@@ -3542,6 +5015,10 @@
         "Port": {
           "$ref": "#/definitions/IntegerOptional",
           "description": "The port used by the endpoint database."
+        },
+        "S3Settings": {
+          "$ref": "#/definitions/S3Settings",
+          "description": "Settings in JSON format for the target S3 endpoint. For more information about the available settings, see the <b>Extra Connection Attributes</b> section at <a href=\"http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html\"> Using Amazon S3 as a Target for AWS Database Migration Service</a>. "
         },
         "ServerName": {
           "$ref": "#/definitions/String",
@@ -3563,6 +5040,9 @@
     },
     "ModifyEndpointResponse": {
       "description": "<p/>",
+      "example": {
+        "Endpoint": {}
+      },
       "properties": {
         "Endpoint": {
           "$ref": "#/definitions/Endpoint",
@@ -3571,8 +5051,60 @@
       },
       "type": "object"
     },
+    "ModifyEventSubscriptionMessage": {
+      "description": "<p/>",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/BooleanOptional",
+          "description": " A Boolean value; set to <b>true</b> to activate the subscription. "
+        },
+        "EventCategories": {
+          "$ref": "#/definitions/EventCategoriesList",
+          "description": " A list of event categories for a source type that you want to subscribe to. Use the <code>DescribeEventCategories</code> action to see a list of event categories. "
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/String",
+          "description": " The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it."
+        },
+        "SourceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The type of AWS DMS resource that generates the events you want to subscribe to. </p> <p>Valid values: replication-instance | migration-task</p>"
+        },
+        "SubscriptionName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the AWS DMS event notification subscription to be modified."
+        }
+      },
+      "required": [
+        "SubscriptionName"
+      ],
+      "type": "object"
+    },
+    "ModifyEventSubscriptionResponse": {
+      "description": "<p/>",
+      "properties": {
+        "EventSubscription": {
+          "$ref": "#/definitions/EventSubscription",
+          "description": "The modified event subscription."
+        }
+      },
+      "type": "object"
+    },
     "ModifyReplicationInstanceMessage": {
       "description": "<p/>",
+      "example": {
+        "AllocatedStorage": 123,
+        "AllowMajorVersionUpgrade": true,
+        "ApplyImmediately": true,
+        "AutoMinorVersionUpgrade": true,
+        "EngineVersion": "1.5.0",
+        "MultiAZ": true,
+        "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+        "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+        "ReplicationInstanceClass": "dms.t2.micro",
+        "ReplicationInstanceIdentifier": "test-rep-1",
+        "VpcSecurityGroupIds": []
+      },
       "properties": {
         "AllocatedStorage": {
           "$ref": "#/definitions/IntegerOptional",
@@ -3626,6 +5158,57 @@
     },
     "ModifyReplicationInstanceResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationInstance": {
+          "AllocatedStorage": 5,
+          "AutoMinorVersionUpgrade": true,
+          "EngineVersion": "1.5.0",
+          "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+          "PendingModifiedValues": {},
+          "PreferredMaintenanceWindow": "sun:06:00-sun:14:00",
+          "PubliclyAccessible": true,
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationInstanceClass": "dms.t2.micro",
+          "ReplicationInstanceIdentifier": "test-rep-1",
+          "ReplicationInstanceStatus": "available",
+          "ReplicationSubnetGroup": {
+            "ReplicationSubnetGroupDescription": "default",
+            "ReplicationSubnetGroupIdentifier": "default",
+            "SubnetGroupStatus": "Complete",
+            "Subnets": [
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1d"
+                },
+                "SubnetIdentifier": "subnet-f6dd91af",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1b"
+                },
+                "SubnetIdentifier": "subnet-3605751d",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1c"
+                },
+                "SubnetIdentifier": "subnet-c2daefb5",
+                "SubnetStatus": "Active"
+              },
+              {
+                "SubnetAvailabilityZone": {
+                  "Name": "us-east-1e"
+                },
+                "SubnetIdentifier": "subnet-85e90cb8",
+                "SubnetStatus": "Active"
+              }
+            ],
+            "VpcId": "vpc-6741a603"
+          }
+        }
+      },
       "properties": {
         "ReplicationInstance": {
           "$ref": "#/definitions/ReplicationInstance",
@@ -3636,6 +5219,11 @@
     },
     "ModifyReplicationSubnetGroupMessage": {
       "description": "<p/>",
+      "example": {
+        "ReplicationSubnetGroupDescription": "",
+        "ReplicationSubnetGroupIdentifier": "",
+        "SubnetIds": []
+      },
       "properties": {
         "ReplicationSubnetGroupDescription": {
           "$ref": "#/definitions/String",
@@ -3658,6 +5246,9 @@
     },
     "ModifyReplicationSubnetGroupResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationSubnetGroup": {}
+      },
       "properties": {
         "ReplicationSubnetGroup": {
           "$ref": "#/definitions/ReplicationSubnetGroup",
@@ -3683,7 +5274,7 @@
         },
         "ReplicationTaskIdentifier": {
           "$ref": "#/definitions/String",
-          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
         },
         "ReplicationTaskSettings": {
           "$ref": "#/definitions/String",
@@ -3691,7 +5282,7 @@
         },
         "TableMappings": {
           "$ref": "#/definitions/String",
-          "description": "<p>The path of the JSON file that contains the table mappings. Preceed the path with \"file://\".</p> <p>For example, --table-mappings file://mappingfile.json</p>"
+          "description": "<p>When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with \"file://\". When working with the DMS API, provide the JSON as the parameter value.</p> <p>For example, --table-mappings file://mappingfile.json</p>"
         }
       },
       "required": [
@@ -3708,6 +5299,63 @@
         }
       },
       "type": "object"
+    },
+    "MongoDbSettings": {
+      "description": "<p/>",
+      "properties": {
+        "AuthMechanism": {
+          "$ref": "#/definitions/AuthMechanismValue",
+          "description": "<p> The authentication mechanism you use to access the MongoDB source endpoint.</p> <p>Valid values: DEFAULT, MONGODB_CR, SCRAM_SHA_1 </p> <p>DEFAULT – For MongoDB version 2.x, use MONGODB_CR. For MongoDB version 3.x, use SCRAM_SHA_1. This attribute is not used when authType=No.</p>"
+        },
+        "AuthSource": {
+          "$ref": "#/definitions/String",
+          "description": "<p> The MongoDB database name. This attribute is not used when <code>authType=NO</code>. </p> <p>The default is admin.</p>"
+        },
+        "AuthType": {
+          "$ref": "#/definitions/AuthTypeValue",
+          "description": "<p> The authentication type you use to access the MongoDB source endpoint.</p> <p>Valid values: NO, PASSWORD </p> <p>When NO is selected, user name and password parameters are not used and can be empty. </p>"
+        },
+        "DatabaseName": {
+          "$ref": "#/definitions/String",
+          "description": " The database name on the MongoDB source endpoint. "
+        },
+        "DocsToInvestigate": {
+          "$ref": "#/definitions/String",
+          "description": "<p> Indicates the number of documents to preview to determine the document organization. Use this attribute when <code>NestingLevel</code> is set to ONE. </p> <p>Must be a positive value greater than 0. Default value is 1000.</p>"
+        },
+        "ExtractDocId": {
+          "$ref": "#/definitions/String",
+          "description": "<p> Specifies the document ID. Use this attribute when <code>NestingLevel</code> is set to NONE. </p> <p>Default value is false. </p>"
+        },
+        "NestingLevel": {
+          "$ref": "#/definitions/NestingLevelValue",
+          "description": "<p> Specifies either document or table mode. </p> <p>Valid values: NONE, ONE</p> <p>Default value is NONE. Specify NONE to use document mode. Specify ONE to use table mode.</p>"
+        },
+        "Password": {
+          "$ref": "#/definitions/SecretString",
+          "description": " The password for the user account you use to access the MongoDB source endpoint. "
+        },
+        "Port": {
+          "$ref": "#/definitions/IntegerOptional",
+          "description": " The port value for the MongoDB source endpoint. "
+        },
+        "ServerName": {
+          "$ref": "#/definitions/String",
+          "description": " The name of the server on the MongoDB source endpoint. "
+        },
+        "Username": {
+          "$ref": "#/definitions/String",
+          "description": "The user name you use to access the MongoDB source endpoint. "
+        }
+      },
+      "type": "object"
+    },
+    "NestingLevelValue": {
+      "enum": [
+        "none",
+        "one"
+      ],
+      "type": "string"
     },
     "OrderableReplicationInstance": {
       "description": "<p/>",
@@ -3751,6 +5399,10 @@
     },
     "RefreshSchemasMessage": {
       "description": "<p/>",
+      "example": {
+        "EndpointArn": "",
+        "ReplicationInstanceArn": ""
+      },
       "properties": {
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -3769,6 +5421,9 @@
     },
     "RefreshSchemasResponse": {
       "description": "<p/>",
+      "example": {
+        "RefreshSchemasStatus": {}
+      },
       "properties": {
         "RefreshSchemasStatus": {
           "$ref": "#/definitions/RefreshSchemasStatus",
@@ -3811,8 +5466,38 @@
       ],
       "type": "string"
     },
+    "ReloadTablesMessage": {
+      "properties": {
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication instance. "
+        },
+        "TablesToReload": {
+          "$ref": "#/definitions/TableListToReload",
+          "description": "The name and schema of the table to be reloaded. "
+        }
+      },
+      "required": [
+        "ReplicationTaskArn",
+        "TablesToReload"
+      ],
+      "type": "object"
+    },
+    "ReloadTablesResponse": {
+      "properties": {
+        "ReplicationTaskArn": {
+          "$ref": "#/definitions/String",
+          "description": "The Amazon Resource Name (ARN) of the replication task. "
+        }
+      },
+      "type": "object"
+    },
     "RemoveTagsFromResourceMessage": {
       "description": "<p/>",
+      "example": {
+        "ResourceArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
+        "TagKeys": []
+      },
       "properties": {
         "ResourceArn": {
           "$ref": "#/definitions/String",
@@ -3831,6 +5516,7 @@
     },
     "RemoveTagsFromResourceResponse": {
       "description": "<p/>",
+      "example": {},
       "properties": {},
       "type": "object"
     },
@@ -4038,7 +5724,7 @@
         },
         "ReplicationTaskIdentifier": {
           "$ref": "#/definitions/String",
-          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
+          "description": "<p>The replication task identifier.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"
         },
         "ReplicationTaskSettings": {
           "$ref": "#/definitions/String",
@@ -4141,6 +5827,60 @@
       },
       "type": "object"
     },
+    "S3Settings": {
+      "description": "<p/>",
+      "properties": {
+        "BucketFolder": {
+          "$ref": "#/definitions/String",
+          "description": " An optional parameter to set a folder name in the S3 bucket. If provided, tables are created in the path &lt;bucketFolder&gt;/&lt;schema_name&gt;/&lt;table_name&gt;/. If this parameter is not specified, then the path used is &lt;schema_name&gt;/&lt;table_name&gt;/. "
+        },
+        "BucketName": {
+          "$ref": "#/definitions/String",
+          "description": " The name of the S3 bucket. "
+        },
+        "CompressionType": {
+          "$ref": "#/definitions/CompressionTypeValue",
+          "description": " An optional parameter to use GZIP to compress the target files. Set to GZIP to compress the target files. Set to NONE (the default) or do not use to leave the files uncompressed. "
+        },
+        "CsvDelimiter": {
+          "$ref": "#/definitions/String",
+          "description": " The delimiter used to separate columns in the source files. The default is a comma. "
+        },
+        "CsvRowDelimiter": {
+          "$ref": "#/definitions/String",
+          "description": " The delimiter used to separate rows in the source files. The default is a carriage return (\\n). "
+        },
+        "ExternalTableDefinition": {
+          "$ref": "#/definitions/String",
+          "description": " "
+        },
+        "ServiceAccessRoleArn": {
+          "$ref": "#/definitions/String",
+          "description": " The Amazon Resource Name (ARN) used by the service access IAM role. "
+        }
+      },
+      "type": "object"
+    },
+    "SNSInvalidTopicFault": {
+      "description": "The SNS topic is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object"
+    },
+    "SNSNoAuthorizationFault": {
+      "description": "You are not authorized for the SNS subscription.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "<p/>"
+        }
+      },
+      "type": "object"
+    },
     "SchemaList": {
       "items": {
         "$ref": "#/definitions/String"
@@ -4151,8 +5891,25 @@
       "format": "password",
       "type": "string"
     },
+    "SourceIdsList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SourceType": {
+      "enum": [
+        "replication-instance"
+      ],
+      "type": "string"
+    },
     "StartReplicationTaskMessage": {
       "description": "<p/>",
+      "example": {
+        "CdcStartTime": "2016-12-14T13:33:20Z",
+        "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+        "StartReplicationTaskType": "start-replication"
+      },
       "properties": {
         "CdcStartTime": {
           "$ref": "#/definitions/TStamp",
@@ -4175,6 +5932,20 @@
     },
     "StartReplicationTaskResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationTask": {
+          "MigrationType": "full-load",
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+          "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+          "ReplicationTaskIdentifier": "task1",
+          "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+          "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+          "Status": "creating",
+          "TableMappings": "file://mappingfile.json",
+          "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+        }
+      },
       "properties": {
         "ReplicationTask": {
           "$ref": "#/definitions/ReplicationTask",
@@ -4193,6 +5964,9 @@
     },
     "StopReplicationTaskMessage": {
       "description": "<p/>",
+      "example": {
+        "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+      },
       "properties": {
         "ReplicationTaskArn": {
           "$ref": "#/definitions/String",
@@ -4206,6 +5980,20 @@
     },
     "StopReplicationTaskResponse": {
       "description": "<p/>",
+      "example": {
+        "ReplicationTask": {
+          "MigrationType": "full-load",
+          "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+          "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+          "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
+          "ReplicationTaskIdentifier": "task1",
+          "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
+          "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+          "Status": "creating",
+          "TableMappings": "file://mappingfile.json",
+          "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+        }
+      },
       "properties": {
         "ReplicationTask": {
           "$ref": "#/definitions/ReplicationTask",
@@ -4276,7 +6064,7 @@
         },
         "EngineName": {
           "$ref": "#/definitions/String",
-          "description": "The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER."
+          "description": "The database engine name. Valid values, depending on the EndPointType, include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE, DYNAMODB, MONGODB, and SQLSERVER."
         },
         "SupportsCDC": {
           "$ref": "#/definitions/Boolean",
@@ -4295,6 +6083,12 @@
       "format": "date-time",
       "type": "string"
     },
+    "TableListToReload": {
+      "items": {
+        "$ref": "#/definitions/TableToReload"
+      },
+      "type": "array"
+    },
     "TableStatistics": {
       "description": "<p/>",
       "properties": {
@@ -4305,6 +6099,14 @@
         "Deletes": {
           "$ref": "#/definitions/Long",
           "description": "The number of delete actions performed on a table."
+        },
+        "FullLoadCondtnlChkFailedRows": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of rows that failed conditional checks during the Full Load operation (valid only for DynamoDB as a target migrations)."
+        },
+        "FullLoadErrorRows": {
+          "$ref": "#/definitions/Long",
+          "description": "The number of rows that failed to load during the Full Load operation (valid only for DynamoDB as a target migrations)."
         },
         "FullLoadRows": {
           "$ref": "#/definitions/Long",
@@ -4328,7 +6130,7 @@
         },
         "TableState": {
           "$ref": "#/definitions/String",
-          "description": "The state of the table."
+          "description": "<p>The state of the tables described.</p> <p>Valid states: Table does not exist | Before load | Full load | Table completed | Table cancelled | Table error | Table all | Table updates | Table is being reloaded</p>"
         },
         "Updates": {
           "$ref": "#/definitions/Long",
@@ -4342,6 +6144,20 @@
         "$ref": "#/definitions/TableStatistics"
       },
       "type": "array"
+    },
+    "TableToReload": {
+      "description": "<p/>",
+      "properties": {
+        "SchemaName": {
+          "$ref": "#/definitions/String",
+          "description": "The schema name of the table to be reloaded."
+        },
+        "TableName": {
+          "$ref": "#/definitions/String",
+          "description": "The table name of the table to be reloaded."
+        }
+      },
+      "type": "object"
     },
     "Tag": {
       "description": "<p/>",
@@ -4365,6 +6181,10 @@
     },
     "TestConnectionMessage": {
       "description": "<p/>",
+      "example": {
+        "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+        "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ"
+      },
       "properties": {
         "EndpointArn": {
           "$ref": "#/definitions/String",
@@ -4383,6 +6203,9 @@
     },
     "TestConnectionResponse": {
       "description": "<p/>",
+      "example": {
+        "Connection": {}
+      },
       "properties": {
         "Connection": {
           "$ref": "#/definitions/Connection",

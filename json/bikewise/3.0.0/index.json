@@ -1,0 +1,217 @@
+{
+  "id": "bikewise",
+  "title": "BikeWise API v2",
+  "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on [GitHub](https://github.com/bikeindex/bikewise).",
+  "security": {},
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bikewise.ico"
+  },
+  "actionCount": 4,
+  "actions": [
+    {
+      "id": "v2.incidents.get",
+      "title": "v2.incidents.get",
+      "description": "If you’d like more detailed information about bike incidents, use this endpoint. For mapping, `locations` is probably a better bet.\n\n**Notes on location searching**:  \n- `proximity` accepts an ip address, an address, zipcode, city, or latitude,longitude - i.e. `70.210.133.87`, `210 NW 11th Ave, Portland, OR`, `60647`, `Chicago, IL`, and `45.521728,-122.67326` are all acceptable  \n- `proximity_square` sets the length of the sides of the square to find matches inside of. The square is centered on the location specified by `proximity`. It defaults to 100.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Page of results to fetch.</p>\n",
+            "default": 1
+          },
+          "per_page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Number of results to return per page.</p>\n"
+          },
+          "occurred_before": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>End of period</p>\n"
+          },
+          "occurred_after": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Start of period</p>\n"
+          },
+          "incident_type": {
+            "type": "string",
+            "description": "<p>Only incidents of specific type</p>\n",
+            "enum": [
+              "crash",
+              "hazard",
+              "theft",
+              "unconfirmed",
+              "infrastructure_issue",
+              "chop_shop"
+            ]
+          },
+          "proximity": {
+            "type": "string",
+            "description": "<p>Center of location for proximity search</p>\n"
+          },
+          "proximity_square": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Size of the proximity search</p>\n",
+            "default": 100
+          },
+          "query": {
+            "type": "string",
+            "description": "<p>Full text search of incidents</p>\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v2.incidents.id.get",
+      "title": "v2.incidents.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Incident ID</p>\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v2.locations.get",
+      "title": "v2.locations.get",
+      "description": "**This endpoint behaves exactly like** `incidents`, but returns a valid geojson `FeatureCollection` that looks like this:\n\n    {\n      type: \"FeatureCollection\",\n      features: [\n        {\n          type: \"Feature\",\n          properties: {\n          id: 4474199,\n          type: \"Theft\",\n          occurred_at: 1428536937\n        },\n          geometry: {\n          type: \"Point\",\n          coordinates: [ -122.6244177, 45.5164386 ]\n        }\n      }\n    }\n\nIt doesn’t paginate. If you pass the `all` parameter it returns all matches (which can be big, > 4mb), otherwise it returns the 100 most recent.\n\n**Go forth and make maps!**",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "occurred_before": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>End of period</p>\n"
+          },
+          "occurred_after": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Start of period</p>\n"
+          },
+          "incident_type": {
+            "type": "string",
+            "description": "<p>Only incidents of specific type</p>\n",
+            "enum": [
+              "crash",
+              "hazard",
+              "theft",
+              "unconfirmed",
+              "infrastructure_issue",
+              "chop_shop"
+            ]
+          },
+          "proximity": {
+            "type": "string",
+            "description": "<p>Center of location for proximity search</p>\n"
+          },
+          "proximity_square": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Size of the proximity search</p>\n",
+            "default": 100
+          },
+          "query": {
+            "type": "string",
+            "description": "<p>Full text search of incidents</p>\n"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Max number of results to return. Defaults to 100</p>\n"
+          },
+          "all": {
+            "type": "boolean",
+            "description": "<p>Give ‘em all to me. Will ignore limit</p>\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "v2.locations.markers.get",
+      "title": "v2.locations.markers.get",
+      "description": "This behaves exactly like the root `locations` endpoint, but returns [simplestyled markers](https://github.com/mapbox/simplestyle-spec) ([mapbox styled markers](https://www.mapbox.com/guides/markers/#simple-style))\n\n**Go forth and make maps!**",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "occurred_before": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>End of period</p>\n"
+          },
+          "occurred_after": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Start of period</p>\n"
+          },
+          "incident_type": {
+            "type": "string",
+            "description": "<p>Only incidents of specific type</p>\n",
+            "enum": [
+              "crash",
+              "hazard",
+              "theft",
+              "unconfirmed",
+              "infrastructure_issue",
+              "chop_shop"
+            ]
+          },
+          "proximity": {
+            "type": "string",
+            "description": "<p>Center of location for proximity search</p>\n"
+          },
+          "proximity_square": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Size of the proximity search</p>\n",
+            "default": 100
+          },
+          "query": {
+            "type": "string",
+            "description": "<p>Full text search of incidents</p>\n"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "<p>Max number of results to return. Defaults to 100</p>\n"
+          },
+          "all": {
+            "type": "boolean",
+            "description": "<p>Give ‘em all to me. Will ignore limit</p>\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    }
+  ],
+  "tags": [
+    "open data"
+  ]
+}

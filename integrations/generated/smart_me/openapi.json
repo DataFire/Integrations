@@ -8,6 +8,9 @@
     "description": "With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it's a easy way to add the smart-me Cloud support to your Hardware or Software Product.",
     "title": "smart-me",
     "version": "v1",
+    "x-apisguru-categories": [
+      "iot"
+    ],
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png"
     },
@@ -474,7 +477,8 @@
               "MeterTypeRS485Gateway",
               "MeterTypeCustomDevice",
               "MeterTypeCompressedAir",
-              "MeterTypeSolarLog"
+              "MeterTypeSolarLog",
+              "MeterTypeVirtualMeter"
             ],
             "in": "query",
             "name": "meterEnergyType",
@@ -517,7 +521,12 @@
               "MeterSubTypeUnknown",
               "MeterSubTypeCold",
               "MeterSubTypeHeat",
-              "MeterSubTypeChargingStation"
+              "MeterSubTypeChargingStation",
+              "MeterSubTypeElectricity",
+              "MeterSubTypeWater",
+              "MeterSubTypeGas",
+              "MeterSubTypeElectricityHeat",
+              "MeterSubTypeTemperature"
             ],
             "in": "query",
             "name": "meterSubType",
@@ -781,12 +790,12 @@
         ]
       }
     },
-    "/api/VirtualMeterActive": {
+    "/api/VirtualBillingMeterActive": {
       "get": {
         "consumes": [],
         "deprecated": false,
         "description": "Beta: Gets all active virtual meters.",
-        "operationId": "VirtualMeterActive_Get",
+        "operationId": "VirtualBillingMeterActive_Get",
         "produces": [
           "application/json",
           "text/json",
@@ -806,7 +815,7 @@
         },
         "summary": "Beta: Gets all active virtual meters",
         "tags": [
-          "VirtualMeterActive"
+          "VirtualBillingMeterActive"
         ]
       },
       "post": {
@@ -819,7 +828,7 @@
         ],
         "deprecated": false,
         "description": "Beta: Virtual Meter API: Activates a Meter and add the Consumption to a Virtual Meter assosiated with the User.",
-        "operationId": "VirtualMeterActive_Post",
+        "operationId": "VirtualBillingMeterActive_Post",
         "parameters": [
           {
             "description": "The Meter to activate",
@@ -856,11 +865,11 @@
         },
         "summary": "Beta: Virtual Meter API: Activates a Meter and add the Consumption to a Virtual Meter assosiated with the User.",
         "tags": [
-          "VirtualMeterActive"
+          "VirtualBillingMeterActive"
         ]
       }
     },
-    "/api/VirtualMeterDeactivate": {
+    "/api/VirtualBillingMeterDeactivate": {
       "post": {
         "consumes": [
           "application/json",
@@ -871,7 +880,7 @@
         ],
         "deprecated": false,
         "description": "Beta: Virtual Meter API: Deactivates a Virtual Meter.",
-        "operationId": "VirtualMeterDeactivate_Post",
+        "operationId": "VirtualBillingMeterDeactivate_Post",
         "parameters": [
           {
             "description": "The Meter to activate",
@@ -908,16 +917,16 @@
         },
         "summary": "Beta: Virtual Meter API: Deactivates a Virtual Meter.",
         "tags": [
-          "VirtualMeterDeactivate"
+          "VirtualBillingMeterDeactivate"
         ]
       }
     },
-    "/api/VirtualMeters": {
+    "/api/VirtualBillingMeters": {
       "get": {
         "consumes": [],
         "deprecated": false,
         "description": "Beta: Gets all Meters available to activate as a Virtual Meter.",
-        "operationId": "VirtualMeters_Get",
+        "operationId": "VirtualBillingMeters_Get",
         "produces": [
           "application/json",
           "text/json",
@@ -937,7 +946,41 @@
         },
         "summary": "Beta: Gets all Meters available to activate as a Virtual Meter.",
         "tags": [
-          "VirtualMeters"
+          "VirtualBillingMeters"
+        ]
+      }
+    },
+    "/api/VirtualMeterCalculateFormula": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Calculates a virtual meter from a formula.\r\n            \r\n            A meter is coded as ID(\"METERID\")\r\n            Ariphmetical operators:\r\n             ()  parentheses;  \r\n             +   plus (a + b); \r\n             -  minus (a - b); \r\n             *  multiplycation symbol (a * b); \r\n             /  divide symbol (a / b); \r\n            Example: (ID(\"63ac09cb-4e5f-4f3e-bd27-ad8c30bdfc0c\") + ID(\"0209555e-9dc4-4e84-a166-a864488b4b12\")) * 2",
+        "operationId": "VirtualMeterCalculateFormula_Get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "formula",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        },
+        "summary": "Calculates a virtual meter from a formula. \r\n            A meter is coded as ID(\"METERID\")",
+        "tags": [
+          "VirtualMeterCalculateFormula"
         ]
       }
     }
@@ -1092,14 +1135,14 @@
           "format": "double",
           "type": "number"
         },
+        "ActivePowerUnit": {
+          "description": "The Unit of the Active Power Value",
+          "type": "string"
+        },
         "ActiveTariff": {
           "description": "The Number of the Active Tariff",
           "format": "int32",
           "type": "integer"
-        },
-        "ActviePowerUnit": {
-          "description": "The Unit of the Active Power Value",
-          "type": "string"
         },
         "CounterReading": {
           "description": "The Meter Counter Reading (Total Energy used)",
@@ -1165,9 +1208,26 @@
             "MeterTypeRS485Gateway",
             "MeterTypeCustomDevice",
             "MeterTypeCompressedAir",
-            "MeterTypeSolarLog"
+            "MeterTypeSolarLog",
+            "MeterTypeVirtualMeter"
           ],
           "type": "string"
+        },
+        "DigitalInput1": {
+          "description": "The digital input number 1",
+          "type": "boolean"
+        },
+        "DigitalInput2": {
+          "description": "The digital input number 2",
+          "type": "boolean"
+        },
+        "DigitalOutput1": {
+          "description": "The digital output number 1",
+          "type": "boolean"
+        },
+        "DigitalOutput2": {
+          "description": "The digital output number 2",
+          "type": "boolean"
         },
         "FamilyType": {
           "description": "The Family Type of the device.",
@@ -1184,7 +1244,7 @@
             "MeterFamilyTypeSmartMe3PhaseMeterTransformer",
             "MeterFamilyTypeLandisGyrModule",
             "MeterFamilyTypeRestApiMeter",
-            "MeterFamilyTypeVirtualMeter"
+            "MeterFamilyTypeVirtualBillingMeter"
           ],
           "type": "string"
         },
@@ -1407,12 +1467,28 @@
             "MeterTypeRS485Gateway",
             "MeterTypeCustomDevice",
             "MeterTypeCompressedAir",
-            "MeterTypeSolarLog"
+            "MeterTypeSolarLog",
+            "MeterTypeVirtualMeter"
           ],
           "type": "string"
         },
         "Id": {
           "description": "The ID of the device",
+          "type": "string"
+        },
+        "MeterSubType": {
+          "description": "The Sub Type of this Meter.",
+          "enum": [
+            "MeterSubTypeUnknown",
+            "MeterSubTypeCold",
+            "MeterSubTypeHeat",
+            "MeterSubTypeChargingStation",
+            "MeterSubTypeElectricity",
+            "MeterSubTypeWater",
+            "MeterSubTypeGas",
+            "MeterSubTypeElectricityHeat",
+            "MeterSubTypeTemperature"
+          ],
           "type": "string"
         },
         "Name": {

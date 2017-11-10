@@ -478,10 +478,10 @@ google_proximitybeacon.beacons.diagnostics.list({
 ```
 
 #### Parameters
-* beaconName (string) **required** - Beacon that the diagnostics are for.
-* pageToken (string) - Requests results that occur after the `page_token`, obtained from the
-* pageSize (integer) - Specifies the maximum number of results to return. Defaults to
 * alertFilter (string) - Requests only beacons that have the given alert. For example, to find
+* beaconName (string) **required** - Beacon that the diagnostics are for.
+* pageSize (integer) - Specifies the maximum number of results to return. Defaults to
+* pageToken (string) - Requests results that occur after the `page_token`, obtained from the
 * projectId (string) - Requests only diagnostic records for the given project id. If not set,
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.

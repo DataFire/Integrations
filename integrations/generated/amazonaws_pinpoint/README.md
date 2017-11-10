@@ -15,7 +15,7 @@ let amazonaws_pinpoint = require('@datafire/amazonaws_pinpoint').create({
   region: "",
 });
 
-amazonaws_pinpoint.GetCampaigns({}).then(data => {
+amazonaws_pinpoint.GetApps({}).then(data => {
   console.log(data);
 })
 ```
@@ -24,6 +24,30 @@ amazonaws_pinpoint.GetCampaigns({}).then(data => {
 
 
 ## Actions
+### GetApps
+
+
+
+```js
+amazonaws_pinpoint.GetApps({}, context)
+```
+
+#### Parameters
+*This action has no parameters*
+
+### GetApp
+
+
+
+```js
+amazonaws_pinpoint.GetApp({
+  "application-id": ""
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+
 ### GetCampaigns
 
 
@@ -101,6 +125,21 @@ amazonaws_pinpoint.GetCampaignVersion({
 * campaign-id (string) **required**
 * version (string) **required**
 
+### UpdateAdmChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateAdmChannel({
+  "application-id": "",
+  "ADMChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* ADMChannelRequest (object) **required** - Amazon Device Messaging channel definition.
+
 ### UpdateApnsChannel
 
 
@@ -116,6 +155,81 @@ amazonaws_pinpoint.UpdateApnsChannel({
 * application-id (string) **required**
 * APNSChannelRequest (object) **required** - Apple Push Notification Service channel definition.
 
+### UpdateApnsSandboxChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateApnsSandboxChannel({
+  "application-id": "",
+  "APNSSandboxChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* APNSSandboxChannelRequest (object) **required** - Apple Development Push Notification Service channel definition.
+
+### UpdateApnsVoipChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateApnsVoipChannel({
+  "application-id": "",
+  "APNSVoipChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* APNSVoipChannelRequest (object) **required** - Apple VoIP Push Notification Service channel definition.
+
+### UpdateApnsVoipSandboxChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateApnsVoipSandboxChannel({
+  "application-id": "",
+  "APNSVoipSandboxChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* APNSVoipSandboxChannelRequest (object) **required** - Apple VoIP Developer Push Notification Service channel definition.
+
+### UpdateBaiduChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateBaiduChannel({
+  "application-id": "",
+  "BaiduChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* BaiduChannelRequest (object) **required** - Baidu Cloud Push credentials
+
+### UpdateEmailChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateEmailChannel({
+  "application-id": "",
+  "EmailChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* EmailChannelRequest (object) **required** - Email Channel Request
+
 ### UpdateGcmChannel
 
 
@@ -130,6 +244,21 @@ amazonaws_pinpoint.UpdateGcmChannel({
 #### Parameters
 * application-id (string) **required**
 * GCMChannelRequest (object) **required** - Google Cloud Messaging credentials
+
+### UpdateSmsChannel
+
+
+
+```js
+amazonaws_pinpoint.UpdateSmsChannel({
+  "application-id": "",
+  "SMSChannelRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* SMSChannelRequest (object) **required** - SMS Channel Request
 
 ### UpdateEndpointsBatch
 
@@ -205,6 +334,21 @@ amazonaws_pinpoint.GetImportJob({
 #### Parameters
 * application-id (string) **required**
 * job-id (string) **required**
+
+### SendMessages
+
+
+
+```js
+amazonaws_pinpoint.SendMessages({
+  "application-id": "",
+  "MessageRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* MessageRequest (object) **required** - Send message request.
 
 ### GetSegments
 
@@ -297,4 +441,19 @@ amazonaws_pinpoint.UpdateApplicationSettings({
 #### Parameters
 * application-id (string) **required**
 * WriteApplicationSettingsRequest (object) **required** - Creating application setting request
+
+### SendUsersMessages
+
+
+
+```js
+amazonaws_pinpoint.SendUsersMessages({
+  "application-id": "",
+  "SendUsersMessageRequest": {}
+}, context)
+```
+
+#### Parameters
+* application-id (string) **required**
+* SendUsersMessageRequest (object) **required** - Send message request.
 

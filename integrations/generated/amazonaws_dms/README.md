@@ -54,17 +54,40 @@ amazonaws_dms.CreateEndpoint({
 #### Parameters
 * CertificateArn (string)
 * DatabaseName (string)
+* DynamoDbSettings (object) - <p/>
 * EndpointIdentifier (string) **required**
 * EndpointType (string) **required**
 * EngineName (string) **required**
 * ExtraConnectionAttributes (string)
 * KmsKeyId (string)
+* MongoDbSettings (object) - <p/>
 * Password (string)
 * Port (integer)
+* S3Settings (object) - <p/>
 * ServerName (string)
 * SslMode (string)
 * Tags (array)
 * Username (string)
+
+### CreateEventSubscription
+
+
+
+```js
+amazonaws_dms.CreateEventSubscription({
+  "SubscriptionName": "",
+  "SnsTopicArn": ""
+}, context)
+```
+
+#### Parameters
+* Enabled (boolean)
+* EventCategories (array)
+* SnsTopicArn (string) **required**
+* SourceIds (array)
+* SourceType (string)
+* SubscriptionName (string) **required**
+* Tags (array)
 
 ### CreateReplicationInstance
 
@@ -162,6 +185,19 @@ amazonaws_dms.DeleteEndpoint({
 #### Parameters
 * EndpointArn (string) **required**
 
+### DeleteEventSubscription
+
+
+
+```js
+amazonaws_dms.DeleteEventSubscription({
+  "SubscriptionName": ""
+}, context)
+```
+
+#### Parameters
+* SubscriptionName (string) **required**
+
 ### DeleteReplicationInstance
 
 
@@ -221,6 +257,8 @@ amazonaws_dms.DescribeCertificates({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
@@ -234,6 +272,8 @@ amazonaws_dms.DescribeConnections({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
@@ -247,6 +287,8 @@ amazonaws_dms.DescribeEndpointTypes({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
@@ -260,9 +302,60 @@ amazonaws_dms.DescribeEndpoints({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
+
+### DescribeEventCategories
+
+
+
+```js
+amazonaws_dms.DescribeEventCategories({}, context)
+```
+
+#### Parameters
+* Filters (array)
+* SourceType (string)
+
+### DescribeEventSubscriptions
+
+
+
+```js
+amazonaws_dms.DescribeEventSubscriptions({}, context)
+```
+
+#### Parameters
+* MaxRecords (string)
+* Marker (string)
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
+* SubscriptionName (string)
+
+### DescribeEvents
+
+
+
+```js
+amazonaws_dms.DescribeEvents({}, context)
+```
+
+#### Parameters
+* MaxRecords (string)
+* Marker (string)
+* Duration (integer)
+* EndTime (string)
+* EventCategories (array)
+* Filters (array)
+* Marker (string)
+* MaxRecords (integer)
+* SourceIdentifier (string)
+* SourceType (string)
+* StartTime (string)
 
 ### DescribeOrderableReplicationInstances
 
@@ -273,6 +366,8 @@ amazonaws_dms.DescribeOrderableReplicationInstances({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Marker (string)
 * MaxRecords (integer)
 
@@ -298,6 +393,8 @@ amazonaws_dms.DescribeReplicationInstances({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
@@ -311,6 +408,8 @@ amazonaws_dms.DescribeReplicationSubnetGroups({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
@@ -324,6 +423,8 @@ amazonaws_dms.DescribeReplicationTasks({}, context)
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * Filters (array)
 * Marker (string)
 * MaxRecords (integer)
@@ -339,6 +440,8 @@ amazonaws_dms.DescribeSchemas({
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
 * EndpointArn (string) **required**
 * Marker (string)
 * MaxRecords (integer)
@@ -354,6 +457,9 @@ amazonaws_dms.DescribeTableStatistics({
 ```
 
 #### Parameters
+* MaxRecords (string)
+* Marker (string)
+* Filters (array)
 * Marker (string)
 * MaxRecords (integer)
 * ReplicationTaskArn (string) **required**
@@ -372,6 +478,7 @@ amazonaws_dms.ImportCertificate({
 * CertificateIdentifier (string) **required**
 * CertificatePem (string)
 * CertificateWallet (string)
+* Tags (array)
 
 ### ListTagsForResource
 
@@ -399,16 +506,36 @@ amazonaws_dms.ModifyEndpoint({
 #### Parameters
 * CertificateArn (string)
 * DatabaseName (string)
+* DynamoDbSettings (object) - <p/>
 * EndpointArn (string) **required**
 * EndpointIdentifier (string)
 * EndpointType (string)
 * EngineName (string)
 * ExtraConnectionAttributes (string)
+* MongoDbSettings (object) - <p/>
 * Password (string)
 * Port (integer)
+* S3Settings (object) - <p/>
 * ServerName (string)
 * SslMode (string)
 * Username (string)
+
+### ModifyEventSubscription
+
+
+
+```js
+amazonaws_dms.ModifyEventSubscription({
+  "SubscriptionName": ""
+}, context)
+```
+
+#### Parameters
+* Enabled (boolean)
+* EventCategories (array)
+* SnsTopicArn (string)
+* SourceType (string)
+* SubscriptionName (string) **required**
 
 ### ModifyReplicationInstance
 
@@ -481,6 +608,21 @@ amazonaws_dms.RefreshSchemas({
 #### Parameters
 * EndpointArn (string) **required**
 * ReplicationInstanceArn (string) **required**
+
+### ReloadTables
+
+
+
+```js
+amazonaws_dms.ReloadTables({
+  "ReplicationTaskArn": "",
+  "TablesToReload": []
+}, context)
+```
+
+#### Parameters
+* ReplicationTaskArn (string) **required**
+* TablesToReload (array) **required**
 
 ### RemoveTagsFromResource
 

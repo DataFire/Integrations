@@ -1,0 +1,726 @@
+{
+  "id": "authentiq",
+  "title": "Authentiq Connect",
+  "description": "Authentiq Connect OAuth 2.0 and OpenID Connect API reference.\nLearn about [Authentiq ID](https://www.authentiq.com/) or check out the [Authentiq Connect](https://developers.authentiq.com) developer documentation.\n",
+  "security": {
+    "authentiq": {
+      "integration": "authentiq",
+      "fields": {
+        "client_registration_token": "Client management via registration token.",
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://connect.authentiq.io/authorize",
+        "description": "End-user authentication.",
+        "flow": "accessCode",
+        "scopes": {
+          "address": "The user's postal address",
+          "aq:location": "The user's current location",
+          "aq:name": "The user's full name",
+          "aq:push": "Enable *One click sign-in*",
+          "email": "The user's email address",
+          "oidc": "Enable OIDC flow",
+          "phone": "The user's phone number"
+        },
+        "tokenUrl": "https://connect.authentiq.io/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#F26641",
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/authentiq.svg"
+  },
+  "actionCount": 11,
+  "definitions": {
+    "Address": {
+      "description": "OIDC Address structure",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "locality": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "street_address": {
+          "type": "string"
+        }
+      },
+      "title": "Address"
+    },
+    "Client": {
+      "description": "Client object",
+      "properties": {
+        "application_type": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "client_name": {
+          "type": "string"
+        },
+        "client_uri": {
+          "type": "string"
+        },
+        "contacts": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "default_max_age": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "default_scopes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "grant_types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "logo_uri": {
+          "type": "string"
+        },
+        "policy_uri": {
+          "type": "string"
+        },
+        "redirect_uris": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "response_types": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tos_uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "client_name",
+        "client_uri"
+      ],
+      "title": "Client"
+    },
+    "OAuth2Error": {
+      "description": "Error Response defined as in Section 5.2 of OAuth 2.0 [RFC6749].\n",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "error_description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "title": "OAuth2Error"
+    },
+    "ProblemDetail": {
+      "description": "HTTP Problem Detail\n",
+      "properties": {
+        "detail": {
+          "description": "Human-readable explanation specific to this occurrence of the problem.\n",
+          "type": "string"
+        },
+        "status": {
+          "description": "The HTTP status code for this occurrence of the problem.\n",
+          "type": "integer"
+        },
+        "title": {
+          "description": "Human-readable summary of the problem type.\n",
+          "type": "string"
+        },
+        "type": {
+          "default": "about:blank",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "status"
+      ],
+      "title": "ProblemDetail"
+    },
+    "Session": {
+      "description": "Session object",
+      "properties": {
+        "authenticated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "client_name": {
+          "type": "string"
+        },
+        "client_uri": {
+          "type": "string"
+        },
+        "concluded_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "connected_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "contacts": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "logo_uri": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "string"
+        },
+        "policy_uri": {
+          "type": "string"
+        },
+        "redirect_uri": {
+          "type": "string"
+        },
+        "response_mode": {
+          "type": "string"
+        },
+        "response_type": {
+          "type": "string"
+        },
+        "scopes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopes_optional": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopes_required": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopes_seen": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopes_signed": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "session_id": {
+          "type": "string"
+        },
+        "session_state": {
+          "type": "string"
+        },
+        "session_uri": {
+          "type": "string"
+        },
+        "sub": {
+          "type": "string"
+        },
+        "tokens_seen": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tos_uri": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        }
+      },
+      "title": "Session"
+    },
+    "Token": {
+      "description": "Successful token response\n",
+      "properties": {
+        "access_token": {
+          "description": "The access token issued by the authorization server.",
+          "type": "string"
+        },
+        "expires_at": {
+          "description": "The time the access token will expire in seconds since epoch.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "expires_in": {
+          "description": "The lifetime in seconds of the access token.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "id_token": {
+          "description": "ID Token value associated with the authenticated session.",
+          "type": "string"
+        },
+        "refresh_token": {
+          "description": "The refresh token issued to the client, if any.",
+          "type": "string"
+        },
+        "scope": {
+          "description": "The scope of the granted tokens.",
+          "type": "string"
+        },
+        "token_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "token_type"
+      ],
+      "title": "Token"
+    },
+    "UserInfo": {
+      "description": "OIDC UserInfo structure",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "aq:location": {
+          "description": "Geolocation structure",
+          "properties": {
+            "address": {
+              "$ref": "#/definitions/Address"
+            },
+            "latitude": {
+              "format": "float",
+              "type": "number"
+            },
+            "longitude": {
+              "format": "float",
+              "type": "number"
+            }
+          }
+        },
+        "email": {
+          "type": "string"
+        },
+        "email_verified": {
+          "type": "boolean"
+        },
+        "family_name": {
+          "type": "string"
+        },
+        "given_name": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "phone_number_verified": {
+          "type": "boolean"
+        },
+        "sub": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sub"
+      ],
+      "title": "UserInfo"
+    }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "authorize",
+      "title": "authorize",
+      "description": "Start a session with Authentiq Connect and authenticate a user.\n\nExample:\n\n```\nGET https://connect.authentiq.io/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint is compatible with OpenID Connect and also supports the POST method, in which case the parameters are passed as a form post.\n\nSee also:\n  - [OAuth 2.0 Authorization Endpoint](http://tools.ietf.org/html/rfc6749#section-3.1)\n  - [OIDC Authentication request](http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest)\n  - [OIDC Successful Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthResponse)\n  - [OIDC Error Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "description": "A client ID obtained from the [Dashboard](https://dashboard.authentiq.com/).\n"
+          },
+          "response_type": {
+            "type": "string",
+            "description": "The OIDC response type to use for this authentication flow. Valid choices are `code`, `id_token`, `token`, `token id_token`, `code id_token` `code token` and `code token id_token`, but a client can be configured with a more restricted set.\n"
+          },
+          "scope": {
+            "type": "string",
+            "description": "The space-separated identity claims to request from the end-user. Always include `openid` as a scope for compatibility with OIDC.\n"
+          },
+          "redirect_uri": {
+            "type": "string",
+            "description": "The location to redirect to after (un)successful authentication. See OIDC for the parameters passed in the query string (`response_mode=query`) or as fragments (`response_mode=fragment`). Unless the client is in test-mode this must be one of the registered redirect URLs.\n"
+          },
+          "state": {
+            "type": "string",
+            "description": "An opaque string that will be passed back to the redirect URL and therefore can be used to communicate client side state and prevent CSRF attacks.\n"
+          },
+          "response_mode": {
+            "type": "string",
+            "description": "Whether to append parameters to the redirect URL in the query string (`query`) or as fragments (`fragment`). This option usually has a sensible default for each of the response types.\n"
+          },
+          "nonce": {
+            "type": "string",
+            "description": "An nonce provided by the client (and opaque to Authentiq Connect) that will be included in any ID Token generated for this session. Clients should use the nonce to mitigate replay attacks.\n"
+          },
+          "display": {
+            "type": "string",
+            "description": "The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.\n",
+            "default": "page"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.\n",
+            "default": "login"
+          },
+          "max_age": {
+            "type": "integer",
+            "description": "Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.\n",
+            "default": 0
+          },
+          "ui_locales": {
+            "type": "string",
+            "description": "Specifies the preferred language to use on the authorization page, as a space-separated list of BCP47 language tags. Ignored at the moment.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "client_id",
+          "response_type",
+          "scope",
+          "redirect_uri",
+          "state"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "client",
+      "title": "client",
+      "description": "Retrieve a list of clients.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Client"
+        },
+        "type": "array"
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "createClient",
+      "title": "createClient",
+      "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) extension.\n\nSee also:\n- [OIDC Client Registration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Client"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "clientClient_id",
+      "title": "clientClient_id",
+      "description": "Delete a previously registered client.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "description": "Client identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "client_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "getClient",
+      "title": "getClient",
+      "description": "Retrieve the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "description": "Client identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "client_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "updateClient",
+      "title": "updateClient",
+      "description": "Update the configuration of a previously registered client.\n\nSee also:\n- [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "description": "Client identifier"
+          },
+          "body": {
+            "$ref": "#/definitions/Client"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "client_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "token",
+      "title": "token",
+      "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.\n\nSee also:\n  - [OIDC Token Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#TokenRequest)\n  - [OIDC Successful Token response](http://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)\n  - [OIDC Token Error response](http://openid.net/specs/openid-connect-core-1_0.html#TokenError)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Authorization": {
+            "type": "string",
+            "description": "HTTP Basic authorization header.\n"
+          },
+          "client_id": {
+            "type": "string",
+            "description": "The registered client ID.\n"
+          },
+          "client_secret": {
+            "type": "string",
+            "format": "password",
+            "description": "The registered client ID secret.\n"
+          },
+          "grant_type": {
+            "type": "string",
+            "description": "The authorization grant type, must be `authorization_code`.\n"
+          },
+          "code": {
+            "type": "string",
+            "description": "The authorization code previously obtained from the Authentication endpoint.\n"
+          },
+          "redirect_uri": {
+            "type": "string",
+            "description": "The redirect URL that was used previously with the Authentication endpoint.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "client_id",
+          "client_secret",
+          "grant_type",
+          "code",
+          "redirect_uri"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "userInfo",
+      "title": "userInfo",
+      "description": "Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.\n See also:\n - [OIDC UserInfo endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UserInfo"
+      },
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    },
+    {
+      "id": "authorizeIframe",
+      "title": "authorizeIframe",
+      "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n\nSee also:\n- [OIDC OP iframe](http://openid.net/specs/openid-connect-session-1_0.html#OPiframe)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "client_id": {
+            "type": "string",
+            "description": "Client identifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "client_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "authentiq": {
+          "integration": "authentiq"
+        }
+      }
+    }
+  ],
+  "tags": [
+    "security"
+  ]
+}

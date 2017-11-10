@@ -83,8 +83,13 @@ google_runtimeconfig.operations.delete({
 Lists operations that match the specified filter in the request. If the
 server doesn't support this method, it returns `UNIMPLEMENTED`.
 
-NOTE: the `name` binding below allows API services to override the binding
-to use different resource name schemes, such as `users/*/operations`.
+NOTE: the `name` binding allows API services to override the binding
+to use different resource name schemes, such as `users/*/operations`. To
+override the binding, API services can add a binding such as
+`"/v1/{name=users/*}/operations"` to their service configuration.
+For backwards compatibility, the default name includes the operations
+collection id, however overriding users must ensure the name binding
+is the parent resource, without the operations collection id.
 
 
 ```js
@@ -94,10 +99,10 @@ google_runtimeconfig.operations.list({
 ```
 
 #### Parameters
-* name (string) **required** - The name of the operation collection.
-* pageToken (string) - The standard list page token.
-* pageSize (integer) - The standard list page size.
 * filter (string) - The standard list filter.
+* name (string) **required** - The name of the operation's parent resource.
+* pageSize (integer) - The standard list page size.
+* pageToken (string) - The standard list page token.
 * upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 * fields (string) - Selector specifying which fields to include in a partial response.

@@ -16,13 +16,13 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpg"
   },
-  "actionCount": 15,
+  "actionCount": 18,
   "definitions": {
     "AssociateTeamMemberRequest": {
       "properties": {
         "clientRequestToken": {
           "$ref": "#/definitions/ClientRequestToken",
-          "description": "A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request. "
+          "description": "A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request."
         },
         "projectId": {
           "$ref": "#/definitions/ProjectId",
@@ -38,7 +38,7 @@
         },
         "userArn": {
           "$ref": "#/definitions/UserArn",
-          "description": "The Amazon Resource Name (ARN) for the IAM user you want to add to the DevHub project."
+          "description": "The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project."
         }
       },
       "required": [
@@ -53,7 +53,7 @@
       "properties": {
         "clientRequestToken": {
           "$ref": "#/definitions/ClientRequestToken",
-          "description": "The user- or system-generated token from the initial request that can be used to repeat the request. "
+          "description": "The user- or system-generated token from the initial request that can be used to repeat the request."
         }
       },
       "type": "object",
@@ -377,6 +377,7 @@
       "title": "DisassociateTeamMemberResult"
     },
     "Email": {
+      "format": "password",
       "maxLength": 128,
       "minLength": 3,
       "pattern": "^[\\w-.+]+@[\\w-.+]+$",
@@ -441,7 +442,7 @@
       "properties": {
         "maxResults": {
           "$ref": "#/definitions/MaxResults",
-          "description": "he maximum amount of data that can be contained in a single set of results."
+          "description": "The maximum amount of data that can be contained in a single set of results."
         },
         "nextToken": {
           "$ref": "#/definitions/PaginationToken",
@@ -471,6 +472,41 @@
       },
       "type": "object",
       "title": "ListResourcesResult"
+    },
+    "ListTagsForProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project to get tags for."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Reserved for future use."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Reserved for future use."
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object",
+      "title": "ListTagsForProjectRequest"
+    },
+    "ListTagsForProjectResult": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Reserved for future use."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags for the project."
+        }
+      },
+      "type": "object",
+      "title": "ListTagsForProjectResult"
     },
     "ListTeamMembersRequest": {
       "properties": {
@@ -548,7 +584,7 @@
       "title": "MaxResults"
     },
     "PaginationToken": {
-      "maxLength": 256,
+      "maxLength": 512,
       "minLength": 1,
       "pattern": "^[\\w/+=]+$",
       "type": "string",
@@ -680,12 +716,75 @@
       "type": "string",
       "title": "StackId"
     },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagKey"
+    },
+    "TagKeys": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array",
+      "title": "TagKeys"
+    },
+    "TagProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project you want to add a tag to."
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags you want to add to the project."
+        }
+      },
+      "required": [
+        "id",
+        "tags"
+      ],
+      "type": "object",
+      "title": "TagProjectRequest"
+    },
+    "TagProjectResult": {
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The tags for the project."
+        }
+      },
+      "type": "object",
+      "title": "TagProjectResult"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string",
+      "title": "TagValue"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "title": "Tags"
+    },
     "TeamMember": {
       "description": "Information about a team member in a project.",
       "properties": {
         "projectRole": {
           "$ref": "#/definitions/Role",
-          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the AWS CodeStar User Guide. "
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>. "
         },
         "remoteAccessAllowed": {
           "$ref": "#/definitions/RemoteAccessAllowed",
@@ -722,6 +821,29 @@
       "type": "array",
       "title": "TeamMemberResult"
     },
+    "UntagProjectRequest": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ProjectId",
+          "description": "The ID of the project to remove tags from."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagKeys",
+          "description": "The tags to remove from the project."
+        }
+      },
+      "required": [
+        "id",
+        "tags"
+      ],
+      "type": "object",
+      "title": "UntagProjectRequest"
+    },
+    "UntagProjectResult": {
+      "properties": {},
+      "type": "object",
+      "title": "UntagProjectResult"
+    },
     "UpdateProjectRequest": {
       "properties": {
         "description": {
@@ -756,7 +878,7 @@
         },
         "projectRole": {
           "$ref": "#/definitions/Role",
-          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the AWS CodeStar User Guide."
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>."
         },
         "remoteAccessAllowed": {
           "$ref": "#/definitions/RemoteAccessAllowed",
@@ -853,7 +975,7 @@
     "UserArn": {
       "maxLength": 95,
       "minLength": 32,
-      "pattern": "arn:aws:iam::\\d{12}:user\\/[\\w-]+",
+      "pattern": "^arn:aws:iam::\\d{12}:user(?:(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F))[\\w+=,.@-]+$",
       "type": "string",
       "title": "UserArn"
     },
@@ -1135,6 +1257,28 @@
       }
     },
     {
+      "id": "ListTagsForProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/ListTagsForProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForProjectResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
       "id": "ListTeamMembers",
       "title": "",
       "description": "",
@@ -1171,6 +1315,50 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUserProfilesResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "TagProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/TagProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TagProjectResult"
+      },
+      "security": {
+        "amazonaws_codestar": {
+          "integration": "amazonaws_codestar"
+        }
+      }
+    },
+    {
+      "id": "UntagProject",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "allOf": [
+          {
+            "$ref": "#/definitions/UntagProjectRequest"
+          }
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UntagProjectResult"
       },
       "security": {
         "amazonaws_codestar": {

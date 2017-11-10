@@ -54,14 +54,14 @@ google_clouddebugger.oauthRefresh(null, context)
 ### controller.debuggees.register
 Registers the debuggee with the controller service.
 
-All agents attached to the same application should call this method with
-the same request content to get back the same stable `debuggee_id`. Agents
-should call this method again whenever `google.rpc.Code.NOT_FOUND` is
-returned from any controller method.
+All agents attached to the same application must call this method with
+exactly the same request content to get back the same stable `debuggee_id`.
+Agents should call this method again whenever `google.rpc.Code.NOT_FOUND`
+is returned from any controller method.
 
-This allows the controller service to disable the agent or recover from any
-data loss. If the debuggee is disabled by the server, the response will
-have `is_disabled` set to `true`.
+This protocol allows the controller service to disable debuggees, recover
+from data loss, or change the `debuggee_id` format. Agents must handle
+`debuggee_id` value changing upon re-registration.
 
 
 ```js
@@ -87,7 +87,7 @@ google_clouddebugger.controller.debuggees.register({}, context)
 ### controller.debuggees.breakpoints.list
 Returns the list of all active breakpoints for the debuggee.
 
-The breakpoint specification (location, condition, and expression
+The breakpoint specification (`location`, `condition`, and `expressions`
 fields) is semantically immutable, although the field values may
 change. For example, an agent may update the location line number
 to reflect the actual line where the breakpoint was set, but this
@@ -108,8 +108,8 @@ google_clouddebugger.controller.debuggees.breakpoints.list({
 
 #### Parameters
 * debuggeeId (string) **required** - Identifies the debuggee.
-* successOnTimeout (boolean) - If set to `true`, returns `google.rpc.Code.OK` status and sets the
-* waitToken (string) - A wait token that, if specified, blocks the method call until the list
+* successOnTimeout (boolean) - If set to `true` (recommended), returns `google.rpc.Code.OK` status and
+* waitToken (string) - A token that, if specified, blocks the method call until the list
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * $.xgafv (string) - V1 error format.
@@ -126,12 +126,11 @@ google_clouddebugger.controller.debuggees.breakpoints.list({
 
 ### controller.debuggees.breakpoints.update
 Updates the breakpoint state or mutable fields.
-The entire Breakpoint message must be sent back to the controller
-service.
+The entire Breakpoint message must be sent back to the controller service.
 
 Updates to active breakpoint fields are only allowed if the new value
 does not change the breakpoint specification. Updates to the `location`,
-`condition` and `expression` fields should not alter the breakpoint
+`condition` and `expressions` fields should not alter the breakpoint
 semantics. These may only make changes such as canonicalizing a value
 or snapping the location to the correct line of code.
 
@@ -162,7 +161,7 @@ google_clouddebugger.controller.debuggees.breakpoints.update({
 * prettyPrint (boolean) - Returns response with indentations and line breaks.
 
 ### debugger.debuggees.list
-Lists all the debuggees that the user can set breakpoints to.
+Lists all the debuggees that the user has access to.
 
 
 ```js
@@ -198,13 +197,13 @@ google_clouddebugger.debugger.debuggees.breakpoints.list({
 ```
 
 #### Parameters
-* debuggeeId (string) **required** - ID of the debuggee whose breakpoints to list.
-* stripResults (boolean) - This field is deprecated. The following fields are always stripped out of
-* waitToken (string) - A wait token that, if specified, blocks the call until the breakpoints
-* clientVersion (string) - The client version making the call.
 * action.value (string) - Only breakpoints with the specified action will pass the filter.
+* clientVersion (string) - The client version making the call.
+* debuggeeId (string) **required** - ID of the debuggee whose breakpoints to list.
 * includeAllUsers (boolean) - When set to `true`, the response includes the list of breakpoints set by
 * includeInactive (boolean) - When set to `true`, the response includes active and inactive
+* stripResults (boolean) - This field is deprecated. The following fields are always stripped out of
+* waitToken (string) - A wait token that, if specified, blocks the call until the breakpoints
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * $.xgafv (string) - V1 error format.
@@ -230,9 +229,9 @@ google_clouddebugger.debugger.debuggees.breakpoints.set({
 ```
 
 #### Parameters
-* debuggeeId (string) **required** - ID of the debuggee where the breakpoint is to be set.
-* clientVersion (string) - The client version making the call.
 * body (object) - Represents the breakpoint specification, status and results.
+* clientVersion (string) - The client version making the call.
+* debuggeeId (string) **required** - ID of the debuggee where the breakpoint is to be set.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * $.xgafv (string) - V1 error format.
@@ -253,15 +252,15 @@ Deletes the breakpoint from the debuggee.
 
 ```js
 google_clouddebugger.debugger.debuggees.breakpoints.delete({
-  "debuggeeId": "",
-  "breakpointId": ""
+  "breakpointId": "",
+  "debuggeeId": ""
 }, context)
 ```
 
 #### Parameters
-* debuggeeId (string) **required** - ID of the debuggee whose breakpoint to delete.
 * breakpointId (string) **required** - ID of the breakpoint to delete.
 * clientVersion (string) - The client version making the call.
+* debuggeeId (string) **required** - ID of the debuggee whose breakpoint to delete.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * $.xgafv (string) - V1 error format.
@@ -282,15 +281,15 @@ Gets breakpoint information.
 
 ```js
 google_clouddebugger.debugger.debuggees.breakpoints.get({
-  "debuggeeId": "",
-  "breakpointId": ""
+  "breakpointId": "",
+  "debuggeeId": ""
 }, context)
 ```
 
 #### Parameters
-* debuggeeId (string) **required** - ID of the debuggee whose breakpoint to get.
 * breakpointId (string) **required** - ID of the breakpoint to get.
 * clientVersion (string) - The client version making the call.
+* debuggeeId (string) **required** - ID of the debuggee whose breakpoint to get.
 * fields (string) - Selector specifying which fields to include in a partial response.
 * uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 * $.xgafv (string) - V1 error format.
