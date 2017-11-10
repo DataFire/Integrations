@@ -16,7 +16,6 @@ iterate(function(dir, name, integ) {
     console.log('no logo:' + name);
     return;
   }
-  console.log(name);
   logos[name] = logo.url;
 }, name => !args.name || args.name === name);
 
